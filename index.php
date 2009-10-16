@@ -18,22 +18,22 @@ define('AIGAION_DB_PREFIX', 'puma_');
 
 /*==== MANDATORY SETTINGS */
 #Root URL of this instance Aigaion, WITH trailing slash
-define('AIGAION_ROOT_URL','http://puma/');
+define('AIGAION_ROOT_URL','http://www-alab.uni-regensburg.de/puma/');
 #Unique ID of this site, to keep it separate from other installations that use same engine 
 #NOTE: use only alphanumeric characters, no spaces, and at least one letter. Otherwise Aigaion won't work at all.
 define('AIGAION_SITEID', 'Puma');
 # Host where database runs
 define('AIGAION_DB_HOST', 'localhost');
 # Database user
-define('AIGAION_DB_USER', 'root');
+define('AIGAION_DB_USER', 'manuel');
 # Database password
-define('AIGAION_DB_PWD', 'root');
+define('AIGAION_DB_PWD', 'my5q1pwd');
 # Name of the standard database
-define('AIGAION_DB_NAME', 'phd_from_root');
+define('AIGAION_DB_NAME', 'manuel');
 
 #We need to know where your aigaion - engine is located. WITH trailing slash.
 #By default this is http://localhost/aigaion2root/aigaionengine/
-define('APPURL','http://puma/aigaionengine/');
+define('APPURL','http://www-alab.uni-regensburg.de/puma/aigaionengine/');
 
 # Enable/disable clean URLs. 
 # If set to true, you can use URLS like http://<server>/aigaion2root/topics instead of http://<server>/aigaion2root/index.php/topics
