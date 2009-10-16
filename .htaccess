@@ -4,5 +4,6 @@
   RewriteRule ^install/(.*)       install/$1       [L]
   RewriteRule ^index.php/(.*)$    index.php?$1     [L,QSA]
   RewriteRule ^index.php(.*)$     index.php$1      [L]
+  RewriteRule ^\.(.*)$            -                [F]
   RewriteRule ^(.*)$              index.php?$1     [L,QSA]
 </IfModule>
