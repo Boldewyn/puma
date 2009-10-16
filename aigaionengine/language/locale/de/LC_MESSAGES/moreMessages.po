@@ -1,0 +1,4371 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Puma.Phi\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-08-05 07:40+0200\n"
+"PO-Revision-Date: 2009-02-01 13:02+0100\n"
+"Last-Translator: Manuel Strehl <translate@manuel-strehl.de>\n"
+"Language-Team: Manuel Strehl <manuel.strehl@physik.uni-r.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-KeywordsList: __;_e\n"
+
+#: ../../controllers/accesslevels.php:59
+msgid "Couldn't find publication to edit access levels"
+msgstr "Konnte keine Veröffentlichung zum Bearbeiten der Zugriffsebenen finden"
+
+#: ../../controllers/accesslevels.php:64
+#: ../../controllers/accesslevels.php:232
+msgid "Accesslevels: edit"
+msgstr "Zugriffsebenen: bearbeiten"
+
+#: ../../controllers/attachments.php:36
+msgid "Download attachment: Attachment does not exist."
+msgstr "Anhang herunterladen: Anhang existiert nicht."
+
+#: ../../controllers/attachments.php:77
+msgid "Delete attachment: attachment does not exist."
+msgstr "Anhang löschen: Anhang existiert nicht."
+
+#: ../../controllers/attachments.php:89
+msgid "Delete attachment: insufficient rights."
+msgstr "Anhang löschen: unzureichende Rechte."
+
+#: ../../controllers/attachments.php:100
+msgid "Attachment: delete"
+msgstr "Anhang: löschen"
+
+#: ../../controllers/attachments.php:138
+msgid "Add atachment: no valid publication ID provided"
+msgstr "Anhang hinzufügen: keine gültige Veröffentlichungs-ID übergeben"
+
+#: ../../controllers/attachments.php:153
+#: ../../libraries/attachment_db.php:101
+msgid "Add attachment: insufficient rights."
+msgstr "Anhang hinzufügen: unzureichende Rechte."
+
+#: ../../controllers/attachments.php:159
+msgid "Attachment: add"
+msgstr "Anhang: hinzufügen"
+
+#: ../../controllers/attachments.php:193
+#: ../../controllers/attachments.php:298
+#: ../../controllers/attachments.php:326
+msgid "Edit attachment: non-existing att_id passed"
+msgstr "Anhang bearbeiten: nicht existierende att_id übergeben"
+
+#: ../../controllers/attachments.php:206
+msgid "Edit attachment: insufficient rights."
+msgstr "Anhang bearbeiten: unzureichende Rechte."
+
+#: ../../controllers/attachments.php:212
+msgid "Attachment"
+msgstr "Anhang"
+
+#: ../../controllers/attachments.php:250
+msgid "Commit attachment: no data to commit"
+msgstr "Anhang übertragen: keine Daten zur Übertragung"
+
+#: ../../controllers/attachments.php:270
+msgid "Commit attachment: an error occurred. Please contact your Aigaion administrator."
+msgstr "Anhang übertragen: ein Fehler ist aufgetaucht. Bitte kontaktieren Sie Ihren Aigaion-Administrator."
+
+#: ../../controllers/authors.php:33
+#: ../../controllers/authors.php:123
+msgid "View Author: non-existing author id passed"
+msgstr "Autor betrachten: nicht existierende Autoren-ID übergeben"
+
+#: ../../controllers/authors.php:46
+msgid "Export author"
+msgstr "Autor exportieren"
+
+#: ../../controllers/authors.php:50
+#: ../../controllers/authors.php:137
+#, php-format
+msgid "Publications of %s"
+msgstr "Veröffentlichungen von %s"
+
+#: ../../controllers/authors.php:53
+#: ../../controllers/authors.php:140
+#, php-format
+msgid "Publications of %s sorted by journal and type"
+msgstr "Veröffentlichungen von %s sortiert nach Journal und Typ"
+
+#: ../../controllers/authors.php:56
+#: ../../controllers/authors.php:143
+#, php-format
+msgid "Publications of %s sorted by recency"
+msgstr "Veröffentlichungen von %s sortiert nach Aktualität"
+
+#: ../../controllers/authors.php:59
+#: ../../controllers/authors.php:146
+#, php-format
+msgid "Publications of %s sorted by title"
+msgstr "Veröffentlichungen von %s sortiert nach Titel"
+
+#: ../../controllers/authors.php:62
+#: ../../controllers/authors.php:149
+#, php-format
+msgid "Publications of %s sorted by first author"
+msgstr "Veröffentlichungen von %s sortiert nach erstem Autor"
+
+#: ../../controllers/authors.php:206
+#: ../../controllers/authors.php:350
+#: ../../controllers/authors.php:407
+msgid "Edit author: insufficient rights."
+msgstr "Autor bearbeiten: unzureichende Rechte."
+
+#: ../../controllers/authors.php:210
+msgid "new author"
+msgstr "Neuer Autor"
+
+#: ../../controllers/authors.php:210
+msgid "edit author"
+msgstr "Autor bearbeiten"
+
+#: ../../controllers/authors.php:232
+#: ../../controllers/authors.php:265
+msgid "Cannot merge authors: missing parameters"
+msgstr "Kann Autoren nicht zusammenführen: fehlende Parameter"
+
+#: ../../controllers/authors.php:240
+msgid "Merge authors: insufficient rights."
+msgstr "Autoren zusammenführen: unzureichende Rechte."
+
+#: ../../controllers/authors.php:244
+msgid "Authors: merge"
+msgstr "Autoren: zusammenführen"
+
+#: ../../controllers/authors.php:272
+msgid "Cannot merge authors: insufficient rights."
+msgstr "Kann Autoren nicht zusammenführen: unzureichende Rechte."
+
+#: ../../controllers/authors.php:310
+msgid "Delete author: author does not exist."
+msgstr "Autor löschen: Autor existiert nicht."
+
+#: ../../controllers/authors.php:318
+msgid "Delete author: insufficient rights."
+msgstr "Autor löschen: unzureichende Rechte."
+
+#: ../../controllers/authors.php:329
+msgid "Author: delete"
+msgstr "Autor: löschen"
+
+#: ../../controllers/authors.php:383
+#, php-format
+msgid "Author \"%s\" already exists in the database."
+msgstr "Autor \"%s\" existiert bereits in der Datenbank."
+
+#: ../../controllers/authors.php:411
+#: ../../controllers/import.php:166
+#: ../../controllers/publications.php:489
+msgid "review publication"
+msgstr "Veröffentlichung überprüfen"
+
+#: ../../controllers/authors.php:435
+msgid "Authors for topic: non existing topic specified."
+msgstr "Autoren für Thema: nicht existierendes Thema gewählt."
+
+#: ../../controllers/authors.php:444
+#: ../../controllers/authors.php:469
+#: ../../views/publications/edit.php:147
+#: ../../views/publications/single.php:219
+msgid "Authors"
+msgstr "Autoren"
+
+#: ../../controllers/authors.php:446
+#, php-format
+msgid "Authors on topic %s"
+msgstr "Autoren zu Thema %s"
+
+#: ../../controllers/authors.php:471
+msgid "All authors in the database"
+msgstr "Alle Autoren in der Datenbank"
+
+#: ../../controllers/authors.php:490
+msgid "to be done: user pressed 'show' -> find corresponding author and redirect to single author page"
+msgstr "zu tun: Nutzer klickte 'zeigen' &rarr; finde entsprechenden Autor und leite zur Autoren-Einzelansicht weiter"
+
+#: ../../controllers/bookmarklist.php:42
+msgid "View bookmarklist: insufficient rights"
+msgstr "Merkliste betrachten: unzureichende Rechte"
+
+#: ../../controllers/bookmarklist.php:50
+msgid "Bookmark list"
+msgstr "Liste als Merkliste anlegen"
+
+#: ../../controllers/bookmarklist.php:54
+msgid "Export bookmarklist"
+msgstr "Merkliste exportieren"
+
+#: ../../controllers/bookmarklist.php:56
+#, php-format
+msgid "Bookmarklist of %s"
+msgstr "Merkliste von %s"
+
+#: ../../controllers/bookmarklist.php:59
+#, php-format
+msgid "Bookmarklist of %s sorted by journal and type"
+msgstr "Merkliste von %s sortiert nach Journal und Typ"
+
+#: ../../controllers/bookmarklist.php:62
+#, php-format
+msgid "Bookmarklist of %s sorted by recency"
+msgstr "Merkliste von %s sortiert nach Aktualität"
+
+#: ../../controllers/bookmarklist.php:65
+#, php-format
+msgid "Bookmarklist of %s sorted by title"
+msgstr "Merkliste von %s sortiert nach Titel"
+
+#: ../../controllers/bookmarklist.php:68
+#, php-format
+msgid "Bookmarklist of %s sorted by first author"
+msgstr "Merkliste von %s sortiert nach erstem Autor"
+
+#: ../../controllers/bookmarklist.php:117
+msgid "Add publication to bookmarklist: non-existing publication id passed"
+msgstr "Veröffentlichung zur Merkliste hinzufügen: nicht existierende Veröffentlichungs-ID übergeben"
+
+#: ../../controllers/bookmarklist.php:122
+#: ../../views/publications/list.php:233
+msgid "Click to UnBookmark publication"
+msgstr "Klicken, um Veröffentlichung von der Merkliste zu nehmen"
+
+#: ../../controllers/bookmarklist.php:159
+msgid "Add topic to bookmarklist: non-existing topic id passed"
+msgstr "Thema zur Merkliste hinzufügen: nicht existierende Themen-ID übergeben"
+
+#: ../../controllers/bookmarklist.php:194
+msgid "Add topic to bookmarklist: non-existing keyword id passed"
+msgstr "Thema zur Merkliste hinzufügen: nicht existierende Schlüsselwort-ID übergeben"
+
+#: ../../controllers/bookmarklist.php:228
+msgid "Add author to bookmarklist: non-existing author id passed"
+msgstr "Autor zur Merkliste hinzufügen: nicht existierende Autoren-ID übergeben"
+
+#: ../../controllers/bookmarklist.php:261
+msgid "Removing publication from bookmarklist: non-existing publication id passed"
+msgstr "Veröffentlichung von der Merkliste nehmen: nicht existierende Veröffentlichungs-ID übergeben"
+
+#: ../../controllers/bookmarklist.php:266
+#: ../../views/publications/list.php:241
+msgid "Click to Bookmark publication"
+msgstr "Klicken, um Veröffentlichung zu merken"
+
+#: ../../controllers/bookmarklist.php:303
+msgid "Removing topic from bookmarklist: non-existing topic id passed"
+msgstr "Thema von der Merkliste nehmen: nicht existierende Themen-ID übergeben"
+
+#: ../../controllers/bookmarklist.php:335
+msgid "Removing keyword from bookmarklist: non-existing keyword id passed"
+msgstr "Schlüsselwort von der Merkliste nehmen: nicht existierende Schlüsselwort-ID übergeben"
+
+#: ../../controllers/bookmarklist.php:368
+msgid "Removing author from bookmarklist: non-existing author id passed"
+msgstr "Autor von der Merkliste nehmen: nicht existierende Autoren-ID übergeben"
+
+#: ../../controllers/bookmarklist.php:403
+msgid "Add bookmarked publications to topic: no valid topic ID provided."
+msgstr "Gemerkte Veröffentlichungen zu Thema hinzufügen: keine gültige Themen-ID übergeben."
+
+#: ../../controllers/bookmarklist.php:427
+msgid "Making topic from bookmarklist: insufficient rights"
+msgstr "Thema aus Merkliste erzeugen: unzureichende Rechte"
+
+#: ../../controllers/bookmarklist.php:431
+msgid "Insufficient rights to create topic"
+msgstr "Unzureichende Rechte, um ein Thema anzulegen"
+
+#: ../../controllers/bookmarklist.php:436
+msgid "-new from bookmarklist-"
+msgstr "-neu aus der Merkliste-"
+
+#: ../../controllers/bookmarklist.php:438
+msgid "Error creating topic"
+msgstr "Fehler beim Erzeugen eines Themas"
+
+#: ../../controllers/bookmarklist.php:472
+msgid "Remove bookmarked publications from topic: no valid topic ID provided."
+msgstr "Gemerkte Veröffentlichungen vom Thema entfernen: keine gültige Themen-ID übergeben."
+
+#: ../../controllers/bookmarklist.php:507
+msgid "Deleting publications from bookmarklist: insufficient rights"
+msgstr "Veröffentlichungen auf der Merkliste löschen: unzureichende Rechte"
+
+#: ../../controllers/bookmarklist.php:527
+#, php-format
+msgid "Deleted %d publications"
+msgstr "%d Veröffentlichungen gelöscht"
+
+#: ../../controllers/bookmarklist.php:528
+#: ../../controllers/bookmarklist.php:603
+#, php-format
+msgid "Skipped %d publications due to insufficient rights"
+msgstr "%d Veröffentlichungen aufgrund unzureichender Rechte übersprungen"
+
+#: ../../controllers/bookmarklist.php:533
+msgid "Delete all from bookmarklist"
+msgstr "von der Merkliste löschen"
+
+#: ../../controllers/bookmarklist.php:580
+#: ../../controllers/bookmarklist.php:655
+msgid "Setting access levels of publications from bookmarklist: insufficient rights"
+msgstr "Zugriffsebenen von Veröffentlichungen auf der Merkliste setzen: unzureichende Rechte"
+
+#: ../../controllers/bookmarklist.php:584
+#: ../../controllers/bookmarklist.php:659
+msgid "Setting access levels of publications from bookmarklist: no existing access level specified"
+msgstr "Zugriffsebenen von Veröffentlichungen auf der Merkliste setzen: keine existierende Zugriffsebene gewählt"
+
+#: ../../controllers/bookmarklist.php:602
+#, php-format
+msgid "Set access level of %d publications to \"%s\""
+msgstr "Zugriffsebene von %d Veröffentlichungen auf \"%s\" gesetzt"
+
+#: ../../controllers/bookmarklist.php:608
+#, php-format
+msgid "Set access level to %s for all from bookmarklist"
+msgstr "Zugriffsebene für alle auf der Merkliste auf %s gesetzt"
+
+#: ../../controllers/bookmarklist.php:679
+#, php-format
+msgid "Changed access level of %d attachments to \"%s\""
+msgstr "Zugriffsebene von %d Anhängen auf \"%s\" geändert"
+
+#: ../../controllers/bookmarklist.php:680
+#, php-format
+msgid "Skipped %d attachments due to insufficient rights"
+msgstr "%d Anhänge aufgrund unzureichender Rechte übersprungen"
+
+#: ../../controllers/bookmarklist.php:685
+#, php-format
+msgid "Set access level to %s for all attachments of publications on bookmarklist"
+msgstr "Zugriffsebene für alle Anhänge der Veröffentlichungen auf der Merkliste auf %s gesetzt"
+
+#: ../../controllers/bookmarklist.php:718
+msgid "Insufficient rights to clear bookmarklist"
+msgstr "Unzureichende Rechte, um die Merkliste zu leeren"
+
+#: ../../controllers/conversion.php:15
+msgid "show info on converting your whole database tables to utf8"
+msgstr "Informationen anzeigen, um alle Datenbank-Tabellen in UTF-8 zu konvertieren"
+
+#: ../../controllers/conversion.php:16
+msgid "(to be included in the migration somehow)"
+msgstr "(irgendwie in die Migration zu integrieren)"
+
+#: ../../controllers/conversion.php:35
+msgid "show info on converting your whole database such that bibtex specialchar codes are converted into utf8"
+msgstr "zeige Info über das Konvertieren der gesamten Datenbank wie z.b. BiBTeX Sonderzeichen nach UTF-8"
+
+#: ../../controllers/conversion.php:36
+msgid "assumes the tables are already in utf8!"
+msgstr "nimmt an, dass die Tabellen bereits in UTF-8 sind!"
+
+#: ../../controllers/export.php:34
+#: ../../controllers/export.php:109
+#: ../../controllers/export.php:183
+#: ../../controllers/export.php:251
+#: ../../controllers/export.php:350
+msgid "Select export format"
+msgstr "Exportformat wählen"
+
+#: ../../controllers/export.php:39
+#: ../../views/menu.php:34
+#: ../../views/export/chooseformat.php:9
+msgid "Export all publications"
+msgstr "Alle Veröffentlichungen exportieren"
+
+#: ../../controllers/export.php:76
+#: ../../controllers/publications.php:150
+msgid "All publications"
+msgstr "Alle Veröffentlichungen"
+
+#: ../../controllers/export.php:105
+msgid "Export requested for non existing topic"
+msgstr "Export für ein nicht existierendes Thema angefordert"
+
+#: ../../controllers/export.php:114
+#, php-format
+msgid "Export all for topic %s"
+msgstr "Alle für Thema %s exportieren"
+
+#: ../../controllers/export.php:152
+#, php-format
+msgid "All publications for topic \"%s\""
+msgstr "Alle Veröffentlichungen für Thema \"%s\""
+
+#: ../../controllers/export.php:179
+msgid "Export requested for non existing author"
+msgstr "Export für nicht existierenden Autor angefordert"
+
+#: ../../controllers/export.php:188
+#, php-format
+msgid "Export all for author %s"
+msgstr "Alle von Autor %s exportieren"
+
+#: ../../controllers/export.php:226
+#, php-format
+msgid "All publications for %s"
+msgstr "Alle Veröffentlichungen für %s"
+
+#: ../../controllers/export.php:256
+msgid "Export all publications on bookmarklist"
+msgstr "Alle Veröffentlichungen auf der Merkliste exportieren"
+
+#: ../../controllers/export.php:266
+msgid "Export: no bookmarklist rights"
+msgstr "Export: keine Merklistenrechte"
+
+#: ../../controllers/export.php:298
+msgid "Exported from bookmarklist"
+msgstr "Exportiert aus Merkliste"
+
+#: ../../controllers/export.php:346
+msgid "Export requested for non existing publication"
+msgstr "Export für nicht existierende Veröffentlichung angefordert"
+
+#: ../../controllers/export.php:355
+msgid "Export one publication"
+msgstr "Eine Veröffentlichung exportieren"
+
+#: ../../controllers/groups.php:37
+msgid "View group: non-existing group_id passed"
+msgstr "Gruppe betrachten: nicht existierende Gruppen-ID übergeben"
+
+#: ../../controllers/groups.php:45
+#: ../../controllers/groups.php:90
+#: ../../controllers/groups.php:144
+#: ../../controllers/groups.php:206
+#: ../../controllers/groups.php:276
+msgid "Group"
+msgstr "Gruppe"
+
+#: ../../controllers/groups.php:81
+msgid "Add group: insufficient rights."
+msgstr "Gruppe hinzufügen: unzureichende Rechte."
+
+#: ../../controllers/groups.php:86
+#: ../../controllers/groups.php:123
+#: ../../controllers/groups.php:241
+#: ../../controllers/notes.php:110
+#: ../../controllers/notes.php:132
+#: ../../controllers/notes.php:189
+#: ../../controllers/rightsprofiles.php:85
+#: ../../controllers/rightsprofiles.php:122
+#: ../../controllers/rightsprofiles.php:239
+#: ../../controllers/site.php:39
+#: ../../controllers/topics.php:194
+#: ../../controllers/topics.php:224
+#: ../../controllers/topics.php:361
+#: ../../controllers/users.php:174
+#: ../../controllers/users.php:211
+#: ../../controllers/users.php:328
+#: ../../libraries/author_db.php:288
+msgid "Changes not committed:"
+msgstr "Änderungen nicht übertragen:"
+
+#: ../../controllers/groups.php:128
+msgid "Edit group: non-existing group_id passed"
+msgstr "Gruppe bearbeiten: nicht existierende Gruppen-ID übergeben"
+
+#: ../../controllers/groups.php:138
+#: ../../controllers/groups.php:257
+msgid "Edit group: insufficient rights."
+msgstr "Gruppe bearbeiten: unzureichende Rechte."
+
+#: ../../controllers/groups.php:187
+msgid "Delete group: non existing group specified."
+msgstr "Gruppe löschen: nicht existierende Gruppe gewählt."
+
+#: ../../controllers/groups.php:194
+msgid "Delete group: insufficient rights."
+msgstr "Gruppe löschen: unzureichende Rechte."
+
+#: ../../controllers/groups.php:248
+msgid "Commit group: no data to commit"
+msgstr "Gruppe übertragen: keine Daten zur Übertragung"
+
+#: ../../controllers/groups.php:268
+msgid "Group Name"
+msgstr "Gruppenname"
+
+#: ../../controllers/groups.php:303
+msgid "Commit group: an error occurred. Please contact your Aigaion administrator."
+msgstr "Gruppe übertragen: ein Fehler ist aufgetaucht. Bitte kontaktieren Sie Ihren Aigaion-Administrator."
+
+#: ../../controllers/groups.php:333
+msgid "Topic review: invalid group_id specified."
+msgstr "Themenüberprüfung: ungültige Gruppen-ID gewählt."
+
+#: ../../controllers/groups.php:344
+#: ../../controllers/groups.php:413
+#: ../../controllers/groups.php:467
+#: ../../controllers/users.php:445
+#: ../../controllers/users.php:521
+#: ../../controllers/users.php:582
+msgid "Topic subscription: insufficient rights."
+msgstr "Themenabo: unzureichende Rechte."
+
+#: ../../controllers/groups.php:350
+msgid "Topic subscription for groups"
+msgstr "Themenabo für Gruppen"
+
+#: ../../controllers/groups.php:359
+#, php-format
+msgid "Topic subscription for %s"
+msgstr "Themenabo für %s"
+
+#: ../../controllers/groups.php:360
+#: ../../controllers/users.php:463
+msgid "Subscribed topics are highlighted in boldface.<br/>To subscribe or unsubscribe a topic and its descendants, click on the topic."
+msgstr "Abonnierte Themen sind fett gesetzt.<br/>Um ein Thema und seine Unterthemen zu abonnieren oder zu kündigen, klicken Sie auf das Thema."
+
+#: ../../controllers/groups.php:402
+msgid "Subscribe topic: no valid group ID provided"
+msgstr "Thema abonnieren: keine gültige Gruppen-ID übergeben"
+
+#: ../../controllers/groups.php:422
+#: ../../controllers/publications.php:536
+#: ../../controllers/users.php:530
+msgid "Subscribe topic: no valid topic ID provided"
+msgstr "Thema abonnieren: keine gültige Themen-ID übergeben"
+
+#: ../../controllers/groups.php:457
+msgid "Unsubscribe topic: no valid group ID provided"
+msgstr "Themenabo kündigen: keine gültige Gruppen-ID übergeben"
+
+#: ../../controllers/groups.php:476
+#: ../../controllers/publications.php:577
+#: ../../controllers/users.php:590
+msgid "Unsubscribe topic: no valid topic ID provided"
+msgstr "Themenabo kündigen: keine gültige Themen-ID übergeben"
+
+#: ../../controllers/help.php:20
+#: ../../views/menu.php:85
+msgid "Help"
+msgstr "Hilfe"
+
+#: ../../controllers/import.php:24
+#: ../../controllers/publications.php:317
+msgid "Import : insufficient rights."
+msgstr "Import: unzureichende Rechte."
+
+#: ../../controllers/import.php:28
+#: ../../controllers/publications.php:321
+msgid "import publications"
+msgstr "Veröffentlichungen importieren"
+
+#: ../../controllers/import.php:87
+msgid "Import: can't figure out import data format; no parsing possible"
+msgstr "Import: kann das Importdaten-Format nicht bestimmen; kein Bearbeiten möglich"
+
+#: ../../controllers/import.php:147
+#, php-format
+msgid "Succesfully imported %d publications."
+msgstr "Erfolgreich %d Veröffentlichungen importiert"
+
+#: ../../controllers/import.php:162
+#: ../../controllers/publications.php:485
+msgid "Review publication: insufficient rights."
+msgstr "Veröffentlichung überprüfen: unzureichende Rechte."
+
+#: ../../controllers/keywords.php:61
+msgid "View publications for keyword: non-existing keyword_id passed"
+msgstr "Veröffentlichungen für ein Schlüsselwort betrachten: nicht existierende Schlüsselwort-ID übertragen"
+
+#: ../../controllers/keywords.php:71
+#, php-format
+msgid "Keyword: \"%s\""
+msgstr "Schlüsselwort: \"%s\""
+
+#: ../../controllers/keywords.php:75
+msgid "Export for keyword"
+msgstr "Export für Schlüsselwort"
+
+#: ../../controllers/keywords.php:78
+#, php-format
+msgid "Publications for keyword \"%s\""
+msgstr "Veröffentlichungen für Schlüsselwort \"%s\""
+
+#: ../../controllers/keywords.php:81
+#, php-format
+msgid "Publications for keyword \"%s\" sorted by journal and type"
+msgstr "Veröffentlichungen für Schlüsselwort \"%s\" sortiert nach Journal und Typ"
+
+#: ../../controllers/keywords.php:84
+#, php-format
+msgid "Publications for keyword \"%s\" sorted by recency"
+msgstr "Veröffentlichungen für Schlüsselwort \"%s\" sortiert nach Aktualität"
+
+#: ../../controllers/keywords.php:87
+#, php-format
+msgid "Publications for keyword \"%s\" sorted by title"
+msgstr "Veröffentlichungen für Schlüsselwort \"%s\" sortiert nach Titel"
+
+#: ../../controllers/keywords.php:90
+#, php-format
+msgid "Publications for keyword \"%s\" sorted by first author"
+msgstr "Veröffentlichungen für Schlüsselwort \"%s\" sortiert nach erstem Autor"
+
+#: ../../controllers/keywords.php:110
+msgid "No publications found using this keyword"
+msgstr "Keine Veröffentlichungen mit diesem Schlüsselwort gefunden"
+
+#: ../../controllers/links.php:15
+#: ../../views/menu.php:130
+#: ../../views/links/links.php:1
+msgid "Links"
+msgstr "Links"
+
+#: ../../controllers/links.php:20
+msgid "Physics Homepage"
+msgstr "Physik-Homepage"
+
+#: ../../controllers/links.php:21
+msgid "ePublications (Library UR)"
+msgstr "ePublikationen (UR-Bibliothek)"
+
+#: ../../controllers/links.php:22
+msgid "University of Regensburg (start page)"
+msgstr "Universität Regensburg (Startseite)"
+
+#: ../../controllers/links.php:23
+msgid "Rechenzentrum (UR)"
+msgstr "Rechenzentrum (UR)"
+
+#: ../../controllers/links.php:24
+msgid "Aigaion (base system of Puma.&Phi;)"
+msgstr "Aigaion (Basissystem von Pumy.&Phi;)"
+
+#: ../../controllers/login.php:29
+msgid "Please login"
+msgstr "Bitte melden Sie sich an"
+
+#: ../../controllers/login.php:110
+msgid "Anonymous accounts are not enabled"
+msgstr "Anonyme Konten sind nicht aktiviert"
+
+#: ../../controllers/login.php:120
+msgid "Anonymous login: no existing anonymous user_id provided"
+msgstr "Anonyme Anmeldung: keine existierende anonyme Nutzer-ID übermittelt"
+
+#: ../../controllers/login.php:132
+msgid "Error logging in anonymous account"
+msgstr "Fehler beim Anmelden des anonymen Kontos"
+
+#: ../../controllers/notes.php:45
+msgid "Delete note: non existing note specified."
+msgstr "Notiz löschen: nicht existierende Notiz gewählt."
+
+#: ../../controllers/notes.php:58
+msgid "Delete note: insufficient rights."
+msgstr "Notiz löschen: unzureichende Rechte."
+
+#: ../../controllers/notes.php:69
+msgid "Delete note"
+msgstr "Notiz löschen"
+
+#: ../../controllers/notes.php:93
+msgid "Add note: no valid publication ID provided"
+msgstr "Notiz hinzufügen: keine gültige Veröffentlichungs-ID übergeben"
+
+#: ../../controllers/notes.php:105
+#: ../../libraries/note_db.php:110
+msgid "Add note: insufficient rights."
+msgstr "Notiz hinzufügen: unzureichende Rechte."
+
+#: ../../controllers/notes.php:114
+msgid "Add note"
+msgstr "Notiz hinzufügen"
+
+#: ../../controllers/notes.php:138
+msgid "Note does not exist."
+msgstr "Notiz existiert nicht."
+
+#: ../../controllers/notes.php:150
+#: ../../libraries/note_db.php:145
+msgid "Edit note: insufficient rights."
+msgstr "Notiz bearbeiten: unzureichende Rechte."
+
+#: ../../controllers/notes.php:159
+msgid "Edit note"
+msgstr "Notiz bearbeiten"
+
+#: ../../controllers/notes.php:165
+msgid "Publication belonging to note:"
+msgstr "Veröffentlichung, die zur Notiz gehört:"
+
+#: ../../controllers/notes.php:196
+msgid "Commit note: no data to commit"
+msgstr "Notiz übertragen: keine Daten zur Übertragung"
+
+#: ../../controllers/notes.php:209
+msgid "Publication id"
+msgstr "Veröffentlichungs-ID"
+
+#: ../../controllers/notes.php:217
+#: ../../views/attachments/add.php:45
+#: ../../views/attachments/add.php:93
+#: ../../views/attachments/edit.php:58
+msgid "Note"
+msgstr "Notiz"
+
+#: ../../controllers/notes.php:244
+msgid "Commit note: an error occurred. Please contact your Aigaion administrator."
+msgstr "Notiz übertragen: ein Fehler ist aufgetaucht. Bitte kontaktieren Sie Ihren Aigaion-Administrator."
+
+#: ../../controllers/publications.php:49
+msgid "View publication: non-existing publication id passed"
+msgstr "Veröffentlichung betrachten: nicht existierende Veröffentlichungs-ID übergeben"
+
+#: ../../controllers/publications.php:102
+#, php-format
+msgid "View publication: non-existing bibtex id \"%s\" was passed"
+msgstr "Veröffentlichung betrachten: nicht existierende BiBTeX-ID \"%s\" wurde übermittelt"
+
+#: ../../controllers/publications.php:145
+#: ../../controllers/publications.php:212
+msgid "Publication list"
+msgstr "Veröffentlichungsliste"
+
+#: ../../controllers/publications.php:153
+msgid "All publications sorted by journal and type"
+msgstr "Alle Veröffentlichungen sortiert nach Journal und Typ"
+
+#: ../../controllers/publications.php:156
+msgid "All recent publications"
+msgstr "Alle aktuellen Veröffentlichungen"
+
+#: ../../controllers/publications.php:159
+msgid "All publications sorted by title"
+msgstr "Alle Veröffentlichungen nach Titel sortiert"
+
+#: ../../controllers/publications.php:162
+msgid "All publications sorted by author"
+msgstr "Alle Veröffentlichungen nach Autor sortiert"
+
+#: ../../controllers/publications.php:217
+msgid "All publications not assigned to a topic"
+msgstr "Alle Veröffentlichungen, die keinem Thema zugeordnet sind"
+
+#: ../../controllers/publications.php:220
+msgid "All publications not assigned to a topic, sorted by journal and type"
+msgstr "Alle Veröffentlichungen, die keinem Thema zugeordnet sind, sortiert nach Journal und Typ"
+
+#: ../../controllers/publications.php:223
+msgid "All recent publications not assigned to a topic"
+msgstr "Alle aktuellen Veröffentlichungen, die keinem Thema zugeordnet sind"
+
+#: ../../controllers/publications.php:226
+msgid "All publications not assigned to a topic, sorted by title"
+msgstr "Alle Veröffentlichungen, die keinem Thema zugeordnet sind, sortiert nach Titel"
+
+#: ../../controllers/publications.php:229
+msgid "All publications not assigned to a topic, sorted by author"
+msgstr "Alle Veröffentlichungen, die keinem Thema zugeordnet sind, sortiert nach Autor"
+
+#: ../../controllers/publications.php:292
+msgid "Edit publication : insufficient rights."
+msgstr "Veröffentlichung bearbeiten: unzureichende Rechte."
+
+#: ../../controllers/publications.php:296
+msgid "new publication"
+msgstr "Neue Veröffentlichung"
+
+#: ../../controllers/publications.php:296
+msgid "edit publication"
+msgstr "Veröffentlichung bearbeiten"
+
+#: ../../controllers/publications.php:362
+msgid "Delete publication: non existing publication specified."
+msgstr "Veröffentlichung löschen: nicht existierende Veröffentlichung gewählt."
+
+#: ../../controllers/publications.php:375
+msgid "Delete publication: insufficient rights."
+msgstr "Veröffentlichung löschen: unzureichende Rechte."
+
+#: ../../controllers/publications.php:389
+msgid "Delete publication"
+msgstr "Veröffentlichung löschen"
+
+#: ../../controllers/publications.php:423
+msgid "There are validation errors with this entry. You may want to correct them."
+msgstr "Es gibt Überprüfungsfehler in diesem Eintrag. Bitte korrigieren Sie sie."
+
+#: ../../controllers/publications.php:460
+msgid "Commit publication: insufficient rights."
+msgstr "Veröffentlichung übertragen: unzureichende Rechte."
+
+#: ../../controllers/publications.php:529
+msgid "Subscribe topic: no valid publication ID provided"
+msgstr "Thema abonnieren: keine gültige Veröffentlichungs-ID übergeben"
+
+#: ../../controllers/publications.php:571
+msgid "Unsubscribe topic: no valid publication ID provided"
+msgstr "Themenabo kündigen: keine gültige Veröffentlichungs-ID übergeben"
+
+#: ../../controllers/publications.php:605
+#: ../../controllers/publications.php:637
+msgid "Mark publication: unknown publication"
+msgstr "Veröffentlichung markieren: unbekannte Veröffentlichung"
+
+#: ../../controllers/publications.php:610
+#: ../../controllers/publications.php:642
+msgid "Mark publication: insufficient rights"
+msgstr "Veröffentlichung markieren: unzureichende Rechte."
+
+#: ../../controllers/rightsprofiles.php:35
+msgid "View rightsprofile: non-existing id passed"
+msgstr "Rechteprofil betrachten: nicht existierende ID übergeben"
+
+#: ../../controllers/rightsprofiles.php:43
+#: ../../controllers/rightsprofiles.php:89
+#: ../../controllers/rightsprofiles.php:144
+#: ../../controllers/rightsprofiles.php:205
+#: ../../controllers/rightsprofiles.php:276
+msgid "Rightsprofile"
+msgstr "Rechteprofil"
+
+#: ../../controllers/rightsprofiles.php:80
+msgid "Add rights profile: insufficient rights."
+msgstr "Rechteprofil hinzufügen: unzureichende Rechte."
+
+#: ../../controllers/rightsprofiles.php:127
+msgid "Edit rightsprofile: non-existing id passed"
+msgstr "Rechteprofil bearbeiten: nicht existierende ID übergeben"
+
+#: ../../controllers/rightsprofiles.php:138
+#: ../../controllers/rightsprofiles.php:257
+msgid "Edit rights profile: insufficient rights."
+msgstr "Rechteprofil bearbeiten: unzureichende Rechte."
+
+#: ../../controllers/rightsprofiles.php:187
+msgid "Delete rightsprofile: non existing id specified."
+msgstr "Rechteprofil löschen: nicht existierende ID übergeben"
+
+#: ../../controllers/rightsprofiles.php:194
+msgid "Delete rights profile: insufficient rights."
+msgstr "Rechteprofil löschen: unzureichende Rechte."
+
+#: ../../controllers/rightsprofiles.php:246
+msgid "Commit rightsprofile: no data to commit"
+msgstr "Rechteprofil übertragen: keine Daten zur Übertragung"
+
+#: ../../controllers/rightsprofiles.php:268
+msgid "Profile Name"
+msgstr "Profilname"
+
+#: ../../controllers/rightsprofiles.php:303
+msgid "Commit rightsprofile: an error occurred. Please contact your Aigaion administrator."
+msgstr "Rechteprofil übertragen: ein Fehler ist aufgetaucht. Bitte kontaktieren Sie Ihren Aigaion-Administrator."
+
+#: ../../controllers/search.php:29
+msgid "Search: no query."
+msgstr "Suche: Keine Anfrage."
+
+#: ../../controllers/search.php:37
+msgid "Search results"
+msgstr "Suchergebnisse"
+
+#: ../../controllers/search.php:61
+msgid "advanced search not implemented yet"
+msgstr "erweiterte Suche noch nicht implementiert."
+
+#: ../../controllers/search.php:71
+msgid "An external search engine may only be added by admins!"
+msgstr "Eine externe Suchmaschine darf nur von Admins hinzugefügt werden!"
+
+#: ../../controllers/search.php:75
+msgid "Add external search engine"
+msgstr "Externe Suchmaschine hinzufügen"
+
+#: ../../controllers/search.php:89
+#: ../../controllers/search.php:153
+#: ../../views/groups/edit.php:54
+#: ../../views/rightsprofiles/edit.php:51
+#: ../../views/search/addform.php:11
+#: ../../views/search/manage.php:32
+#: ../../views/topics/edit.php:48
+msgid "Name"
+msgstr "Name"
+
+#: ../../controllers/search.php:90
+#: ../../controllers/search.php:154
+#: ../../views/publications/list.php:273
+#: ../../views/search/addform.php:15
+#: ../../views/topics/edit.php:83
+msgid "URL"
+msgstr "URL"
+
+#: ../../controllers/search.php:91
+#: ../../controllers/search.php:155
+msgid "Sending method"
+msgstr "Sendemethode"
+
+#: ../../controllers/search.php:92
+#: ../../controllers/search.php:156
+msgid "Icon for the search"
+msgstr "Symbol für die Suche"
+
+#: ../../controllers/search.php:93
+#: ../../controllers/search.php:157
+msgid "Quest parameters"
+msgstr "Suchparameter"
+
+#: ../../controllers/search.php:118
+msgid "Successfully added search engine."
+msgstr "Suchmaschine erfolgreich hinzugefügt."
+
+#: ../../controllers/search.php:135
+msgid "An external search engine may only be edited by admins!"
+msgstr "Eine externe Suchmaschine darf nur von Admins bearbeitet werden!"
+
+#: ../../controllers/search.php:139
+msgid "Edit an external search engine"
+msgstr "Bearbeite eine externe Suchmaschine"
+
+#: ../../controllers/search.php:169
+#: ../../controllers/search.php:254
+msgid "Non-existing name for external search engine submitted!"
+msgstr "Nicht-existierender Name für externe Suchmaschine übergeben!"
+
+#: ../../controllers/search.php:185
+#: ../../controllers/search.php:260
+msgid "No name for external search engine submitted!"
+msgstr "Kein Name für die externe Suchmaschine übergeben!"
+
+#: ../../controllers/search.php:206
+msgid "Successfully updated search engine."
+msgstr "Suchmaschine wurde erfolgreich aktualisiert."
+
+#: ../../controllers/search.php:221
+#: ../../controllers/search.php:245
+msgid "External search engines may only be managed by admins!"
+msgstr "Externe Suchmaschinen dürfen nur von Admins verwaltet werden!"
+
+#: ../../controllers/search.php:225
+#: ../../views/search/manage.php:2
+msgid "Manage external search engines"
+msgstr "Externe Suchmaschinen verwalten"
+
+#: ../../controllers/site.php:32
+msgid "Configure database: insufficient rights."
+msgstr "Datnbank konfigurieren: unzureichende Rechte."
+
+#: ../../controllers/site.php:58
+msgid "Site configuration"
+msgstr "Seitenkonfiguration"
+
+#: ../../controllers/site.php:99
+msgid "Maintain database: insufficient rights."
+msgstr "Datenbank verwalten: unzureichende Rechte."
+
+#: ../../controllers/site.php:139
+msgid "Aigaion updates"
+msgstr "Aigaion-Aktualisierungen"
+
+#: ../../controllers/site.php:140
+msgid "Checking for updates..."
+msgstr "Suche nach Aktualisierungen..."
+
+#: ../../controllers/site.php:144
+#: ../../helpers/maintenance_helper.php:52
+#: ../../helpers/maintenance_helper.php:88
+#: ../../helpers/maintenance_helper.php:101
+#: ../../helpers/maintenance_helper.php:115
+#: ../../helpers/maintenance_helper.php:133
+#: ../../helpers/maintenance_helper.php:162
+#: ../../helpers/maintenance_helper.php:176
+#: ../../helpers/maintenance_helper.php:194
+#: ../../helpers/maintenance_helper.php:207
+#: ../../helpers/maintenance_helper.php:222
+#: ../../helpers/maintenance_helper.php:236
+#: ../../helpers/maintenance_helper.php:251
+#: ../../helpers/maintenance_helper.php:309
+#: ../../helpers/maintenance_helper.php:328
+#: ../../libraries/userlogin.php:547
+msgid "OK"
+msgstr "OK"
+
+#: ../../controllers/site.php:145
+#: ../../libraries/userlogin.php:548
+msgid "This installation of Aigaion is up-to-date"
+msgstr "Diese Aigaion-Installation ist auf dem aktuellen Stand"
+
+#: ../../controllers/site.php:147
+#: ../../helpers/maintenance_helper.php:45
+#: ../../helpers/maintenance_helper.php:63
+#: ../../helpers/maintenance_helper.php:81
+#: ../../helpers/maintenance_helper.php:95
+#: ../../helpers/maintenance_helper.php:108
+#: ../../helpers/maintenance_helper.php:126
+#: ../../helpers/maintenance_helper.php:156
+#: ../../helpers/maintenance_helper.php:169
+#: ../../helpers/maintenance_helper.php:188
+#: ../../helpers/maintenance_helper.php:201
+#: ../../helpers/maintenance_helper.php:215
+#: ../../helpers/maintenance_helper.php:229
+#: ../../helpers/maintenance_helper.php:245
+#: ../../libraries/userlogin.php:550
+msgid "ALERT"
+msgstr "Alarm"
+
+#: ../../controllers/site.php:156
+#, php-format
+msgid "Maintenance function \"%s\" not implemented."
+msgstr "Wartungsfunktion \"%s\" nicht implementiert."
+
+#: ../../controllers/site.php:163
+msgid "Site maintenance"
+msgstr "Seitenverwaltung"
+
+#: ../../controllers/site.php:201
+msgid "Backup database: insufficient rights."
+msgstr "Datenbank sichern: unzureichende Rechte."
+
+#: ../../controllers/tasks.php:12
+msgid "Tasks"
+msgstr "Aufgaben"
+
+#: ../../controllers/topics.php:31
+msgid "Browse topic tree"
+msgstr "Themenbaum durchsuchen"
+
+#: ../../controllers/topics.php:45
+#: ../../controllers/topics.php:100
+msgid "Browse topics: no valid topic ID provided"
+msgstr "In Themen schmökern: keine gültige Themen-ID übergeben"
+
+#: ../../controllers/topics.php:86
+msgid "Browse topic tree (include all topics)"
+msgstr "Im Themenbaum schmökern (einschließlich aller Themen)"
+
+#: ../../controllers/topics.php:150
+msgid "Delete topic: non existing topic specified."
+msgstr "Thema löschen: nicht existierendes Thema gewählt."
+
+#: ../../controllers/topics.php:163
+msgid "Delete topic: insufficient rights."
+msgstr "Thema löschen: unzureichende Rechte."
+
+#: ../../controllers/topics.php:174
+msgid "Delete topic"
+msgstr "Thema löschen"
+
+#: ../../controllers/topics.php:203
+#: ../../libraries/topic_db.php:294
+msgid "Add topic: insufficient rights."
+msgstr "Thema hinzufügen: unzureichende Rechte."
+
+#: ../../controllers/topics.php:209
+msgid "Add topic"
+msgstr "Thema hinzufügen"
+
+#: ../../controllers/topics.php:234
+#: ../../controllers/topics.php:288
+msgid "Topic does not exist."
+msgstr "Thema existiert nicht."
+
+#: ../../controllers/topics.php:249
+#: ../../libraries/topic_db.php:339
+msgid "Edit topic: insufficient rights."
+msgstr "Thema bearbeiten: unzureichende Rechte."
+
+#: ../../controllers/topics.php:255
+msgid "Edit topic"
+msgstr "Thema bearbeiten"
+
+#: ../../controllers/topics.php:299
+msgid "View topic"
+msgstr "Thema ansehen"
+
+#: ../../controllers/topics.php:303
+msgid "Export topic"
+msgstr "Thema exportieren"
+
+#: ../../controllers/topics.php:306
+#, php-format
+msgid "Publications for topic: %s"
+msgstr "Veröffentlichungen für Thema: %s"
+
+#: ../../controllers/topics.php:309
+#, php-format
+msgid "Publications for topic %s sorted by journal and type"
+msgstr "Veröffentlichungen für Thema %s sortiert nach Journal und Typ"
+
+#: ../../controllers/topics.php:312
+#, php-format
+msgid "Publications for topic %s sorted by recency"
+msgstr "Veröffentlichungen für Thema %s sortiert nach Aktualität"
+
+#: ../../controllers/topics.php:315
+#, php-format
+msgid "Publications for topic %s sorted by title"
+msgstr "Veröffentlichungen für Thema %s sortiert nach Titel"
+
+#: ../../controllers/topics.php:318
+#, php-format
+msgid "Publications for topic %s sorted by first author"
+msgstr "Veröffentlichungen für Thema %s sortiert nach erstem Autor"
+
+#: ../../controllers/topics.php:368
+msgid "Commit topic: no data to commit"
+msgstr "Thema übertragen: keine Daten zur Übertragung"
+
+#: ../../controllers/topics.php:382
+msgid "Topic Name"
+msgstr "Themenname"
+
+#: ../../controllers/topics.php:390
+#: ../../views/accesslevels/editfortopic.php:22
+#: ../../views/accesslevels/editfortopic.php:23
+msgid "Topic"
+msgstr "Thema"
+
+#: ../../controllers/topics.php:417
+msgid "Commit topic: an error occurred. Please contact your Aigaion administrator."
+msgstr "Thema übertragen: ein Fehler ist aufgetaucht. Bitte kontaktieren Sie Ihren Aigaion-Administrator."
+
+#: ../../controllers/topics.php:455
+msgid "Collapse topic: no valid topic ID provided"
+msgstr "Thema zuklappen: keine gültige Themen-ID übergeben"
+
+#: ../../controllers/users.php:37
+msgid "Manage accounts: insufficient rights."
+msgstr "Konten verwalten: unzureichende Rechte."
+
+#: ../../controllers/users.php:43
+#: ../../controllers/users.php:132
+#: ../../controllers/users.php:178
+#: ../../controllers/users.php:234
+#: ../../controllers/users.php:296
+#: ../../controllers/users.php:374
+msgid "User"
+msgstr "Nutzer"
+
+#: ../../controllers/users.php:48
+msgid "add a new user"
+msgstr "neuen Nutzer hinzufügen"
+
+#: ../../controllers/users.php:50
+msgid "Users"
+msgstr "Nutzer"
+
+#: ../../controllers/users.php:70
+msgid "add a new group"
+msgstr "neue Gruppe hinzufügen"
+
+#: ../../controllers/users.php:72
+msgid "Groups"
+msgstr "Gruppen"
+
+#: ../../controllers/users.php:84
+msgid "add a new rightsprofile"
+msgstr "Neues Rechteprofil erzeugen"
+
+#: ../../controllers/users.php:87
+msgid "Rights profiles"
+msgstr "Rechteprofile"
+
+#: ../../controllers/users.php:124
+msgid "View user: non-existing user_id passed"
+msgstr "Nutzer betrachten: nicht existierende Nutzer-ID übergeben"
+
+#: ../../controllers/users.php:169
+msgid "Add user: insufficient rights."
+msgstr "Nutzer hinzufügen: unzureichende Rechte."
+
+#: ../../controllers/users.php:216
+msgid "Edit user: non-existing user_id passed"
+msgstr "Nutzer bearbeiten: nicht existierende Nutzer-ID übergeben"
+
+#: ../../controllers/users.php:227
+#: ../../controllers/users.php:346
+msgid "Edit account: insufficient rights."
+msgstr "Konto bearbeiten: unzureichende Rechte."
+
+#: ../../controllers/users.php:277
+msgid "Delete user: non existing user specified."
+msgstr "Nutzer löschen: nicht existierenden Nutzer gewählt."
+
+#: ../../controllers/users.php:285
+msgid "Delete account: insufficient rights."
+msgstr "Konto löschen: unzureichende Rechte."
+
+#: ../../controllers/users.php:335
+msgid "Commit user: no data to commit"
+msgstr "Nutzer übertragen: keine Daten zur Übertragung"
+
+#: ../../controllers/users.php:364
+msgid "Login Name"
+msgstr "Anmeldename"
+
+#: ../../controllers/users.php:365
+msgid "First Password"
+msgstr "Erstes Passwort"
+
+#: ../../controllers/users.php:366
+msgid "Second Password"
+msgstr "Zweites Passwort"
+
+#: ../../controllers/users.php:401
+#, php-format
+msgid "Commit user: an error occurred at '%s'. Please contact your Aigaion administrator."
+msgstr "Nutzer übertragen: ein Fehler ist bei '%s' aufgetaucht. Bitte kontaktieren Sie Ihren Aigaion-Administrator."
+
+#: ../../controllers/users.php:431
+msgid "Topic review: invalid user_id specified."
+msgstr "Themenüberprüfung: ungültige Nutzer-ID gewählt."
+
+#: ../../controllers/users.php:453
+msgid "Topic subscription"
+msgstr "Themenabo"
+
+#: ../../controllers/users.php:462
+msgid "Topic subscription for "
+msgstr "Themenabo für"
+
+#: ../../controllers/users.php:506
+msgid "Subscribe topic: no valid user ID provided"
+msgstr "Thema abonnieren: keine gültige Nutzer-ID übergeben"
+
+#: ../../controllers/users.php:566
+msgid "Unsubscribe topic: no valid user ID provided"
+msgstr "Themenabo kündigen: keine gültige Nutzer-ID übergeben"
+
+#: ../../helpers/checkupdates_helper.php:29
+msgid "Couldn't connect to demo2.aigaion.nl to check for updates"
+msgstr "Konnte nicht mit demo2.aigaion.nl verbinden, um nach Aktualisierungen zu suchen."
+
+#: ../../helpers/checkupdates_helper.php:32
+msgid "Couldn't obtain release version info from demo2.aigaion.nl"
+msgstr "Konnte Info zur Ausgabeversion nicht von demo2.aigaion.nl empfangen."
+
+#: ../../helpers/checkupdates_helper.php:47
+msgid "Your database version is higher than the official release. Probably you are using the SVN version?"
+msgstr "Ihre Datenbank-Version ist höher als die offizielle Ausgabe. Nutzen Sie eine SVN-Version?"
+
+#: ../../helpers/checkupdates_helper.php:50
+#, php-format
+msgid "There is a new version available: <b>%s</b> (Current version: %s)"
+msgstr "Es ist eine neue Version verfügbar: <b>%s</b> (Aktuelle Version: %s)"
+
+#: ../../helpers/checkupdates_helper.php:56
+msgid "Couldn't obtain detailed update info from demo2.aigaion.nl"
+msgstr "Konnte keine detaillierten Aktualisierungsinfos von demo2.aigaion.nl empfangen."
+
+#: ../../helpers/checkupdates_helper.php:76
+msgid "Note: the updated version contains security fixes. You are strongly recommended to get the latest version of Aigaion."
+msgstr "Hinweis: Die aktualisierte Version enthält Sicherheitsverbesserungen. Es wird stärkstens empfohlen, die neueste Version von Aigaion zu installieren!"
+
+#: ../../helpers/checkupdates_helper.php:78
+msgid "Detailed info for available updates:"
+msgstr "Detaillierte Information zu verfügbaren Aktualisierungen:"
+
+#: ../../helpers/checkupdates_helper.php:84
+#: ../../views/help/about.php:31
+msgid "Types of update"
+msgstr "Arten der Aktualisierung"
+
+#: ../../helpers/checkupdates_helper.php:88
+#: ../../views/help/about.php:35
+msgid "Version"
+msgstr "Version"
+
+#: ../../helpers/checkupdates_helper.php:89
+#: ../../views/help/about.php:36
+msgid "bugfix"
+msgstr "Bugfix"
+
+#: ../../helpers/checkupdates_helper.php:90
+#: ../../views/help/about.php:37
+msgid "features"
+msgstr "Features"
+
+#: ../../helpers/checkupdates_helper.php:91
+#: ../../views/help/about.php:38
+msgid "layout"
+msgstr "Layout"
+
+#: ../../helpers/checkupdates_helper.php:92
+#: ../../views/help/about.php:39
+msgid "security"
+msgstr "Sicherheit"
+
+#: ../../helpers/checkupdates_helper.php:93
+#: ../../views/help/about.php:40
+#: ../../views/topics/edit.php:76
+msgid "Description"
+msgstr "Beschreibung"
+
+#: ../../helpers/checkupdates_helper.php:101
+#: ../../views/help/about.php:50
+msgid "Some bugs were fixed this release"
+msgstr "Einige Fehler wurden in dieser Ausgabe behoben"
+
+#: ../../helpers/checkupdates_helper.php:105
+#: ../../views/help/about.php:55
+msgid "Some features were added this release"
+msgstr "Einige Features wurden in dieser Ausgabe hinzugefügt"
+
+#: ../../helpers/checkupdates_helper.php:109
+#: ../../views/help/about.php:60
+msgid "Some layout elements were changed this release"
+msgstr "Einige Layout-Elemente wurden in dieser Ausgabe geändert"
+
+#: ../../helpers/checkupdates_helper.php:113
+#: ../../views/help/about.php:65
+msgid "This release contains security fixes!"
+msgstr "Diese Ausgabe enthält Sicherheitsaktualisierungen!"
+
+#: ../../helpers/checkupdates_helper.php:122
+msgid "You can download the new version <a href='http://www.aigaion.nl'>here</a>."
+msgstr "Sie können die neue Version  <a href='http://www.aigaion.nl'>hier</a> herunterladen."
+
+#: ../../helpers/maintenance_helper.php:27
+msgid "Passwords check"
+msgstr "Passwort-Überprüfung"
+
+#: ../../helpers/maintenance_helper.php:29
+msgid "Check all users..."
+msgstr "Überprüfe alle Nutzer..."
+
+#: ../../helpers/maintenance_helper.php:36
+#, php-format
+msgid "User %s has an empty password!"
+msgstr "Nutzer %s hat ein leeres Passwort!"
+
+#: ../../helpers/maintenance_helper.php:40
+#, php-format
+msgid "User %s has the user name for password!"
+msgstr "Nutzer %s verwendet seinen Nutzernamen als Passwort!"
+
+#: ../../helpers/maintenance_helper.php:47
+msgid "The following users have a wrong password:"
+msgstr "Die folgenden Nutzer haben ein falsches Passwort:"
+
+#: ../../helpers/maintenance_helper.php:57
+msgid "Notes checks"
+msgstr "Notizen-Überprüfung"
+
+#: ../../helpers/maintenance_helper.php:59
+msgid "Checking note crossreference consistency..."
+msgstr "Überprüfe Konsistenz der Querverweise in Notizen..."
+
+#: ../../helpers/maintenance_helper.php:65
+#, php-format
+msgid "%d notes had inconsistent note crossref IDs."
+msgstr "%d Notizen hatten inkonsistente Querverweis-IDs."
+
+#: ../../helpers/maintenance_helper.php:69
+msgid "NOT YET IMPLEMENTED"
+msgstr "NOCH NICHT IMPLEMENTIERT"
+
+#: ../../helpers/maintenance_helper.php:74
+msgid "Attachments check"
+msgstr "Anhang-Überprüfung"
+
+#: ../../helpers/maintenance_helper.php:77
+msgid "Check missing attachments..."
+msgstr "Suche nach fehlenden Anhänge..."
+
+#: ../../helpers/maintenance_helper.php:83
+msgid "The following files could not be found in the attachment directory."
+msgstr "Die folgenden Dateien konnten nicht im Anhangsverzeichnis gefunden werden."
+
+#: ../../helpers/maintenance_helper.php:91
+msgid "Check orphaned attachments..."
+msgstr "Suche nach verwaisten Anhängen..."
+
+#: ../../helpers/maintenance_helper.php:97
+#, php-format
+msgid "%d references to attachments that no longer belong to a publication have been removed."
+msgstr "%d Verweise auf Anhänge, die nicht mehr zu Veröffentlichungen gehören, wurden entfernt."
+
+#: ../../helpers/maintenance_helper.php:104
+msgid "Check unknown files..."
+msgstr "Suche nach unbekannten Dateien..."
+
+#: ../../helpers/maintenance_helper.php:110
+msgid "The following files are on the server, but do not belong to a publication in the database:"
+msgstr "Die folgenden Dateien sind auf dem Server, aber gehören zu keiner Veröffentlichung in der Datenbank:"
+
+#: ../../helpers/maintenance_helper.php:119
+msgid "Author check"
+msgstr "Autorenüberprüfung"
+
+#: ../../helpers/maintenance_helper.php:122
+msgid "Checking empty author names..."
+msgstr "Suche leere Autorennamen..."
+
+#: ../../helpers/maintenance_helper.php:128
+msgid "The following authors have an empty name:"
+msgstr "Die folgenden Autoren haben leere Namen:"
+
+#: ../../helpers/maintenance_helper.php:136
+msgid "Checking similar author names..."
+msgstr "Suche ähnliche Autorennamen..."
+
+#: ../../helpers/maintenance_helper.php:149
+msgid "TURNED OFF BECAUSE IT TENDS TO TIME-OUT"
+msgstr "ABGESCHALTEN, WEIL ES ZU TIME-OUTS TENDIERT"
+
+#: ../../helpers/maintenance_helper.php:152
+msgid "Checking orphaned authorpublicationlinks..."
+msgstr "Suche nach verwaisten authorpublicationlinks..."
+
+#: ../../helpers/maintenance_helper.php:158
+#, php-format
+msgid "%s authorpublicationlinks whose corresponding authors could not be found, were removed."
+msgstr "%s authorpublicationlinks, zu denen keine entsprechenden Autoren gefunden wurden, wurden entfernt."
+
+#: ../../helpers/maintenance_helper.php:165
+msgid "Checking for authors that do not publish..."
+msgstr "Suche nach Autoren, die nicht veröffentlichen..."
+
+#: ../../helpers/maintenance_helper.php:171
+msgid "The following authors have no publications listed:"
+msgstr "Für die folgenden Autoren sind keine Veröffentlichungen verzeichnet:"
+
+#: ../../helpers/maintenance_helper.php:181
+msgid "Topic tree check"
+msgstr "Themenbaum-Überprüfung"
+
+#: ../../helpers/maintenance_helper.php:184
+msgid "Check orphaned topictopiclinks..."
+msgstr "Suche nach verwaisten topictopiclinks..."
+
+#: ../../helpers/maintenance_helper.php:190
+#, php-format
+msgid "%s topictopiclinks, of which the topic couldn't be found, have been removed."
+msgstr "%s topctopiclinks, zu denen kein Thema gefunden werden konnte, wurden entfernt."
+
+#: ../../helpers/maintenance_helper.php:197
+msgid "Check orphaned topicpublicationlinks..."
+msgstr "Suche nach verwaisten topicpublicationlinks..."
+
+#: ../../helpers/maintenance_helper.php:203
+#, php-format
+msgid "%d topicpublicationlinks, of which the corresponding publication could not be found, have been removed."
+msgstr "%d topicpublicationlinks, zu denen keine entsprechende Veröffentlichung gefunden werden konnte, wurden entfernt."
+
+#: ../../helpers/maintenance_helper.php:211
+msgid "Check topics without parent..."
+msgstr "Überprüfe Themen ohne Vorfahr..."
+
+#: ../../helpers/maintenance_helper.php:217
+msgid "The following topics had no parent. Their parent is set to the top topic."
+msgstr "Die folgenden Themen haben keinen Vorfahr. Das Wurzelthema ist als ihr Vorfahr gesetzt worden."
+
+#: ../../helpers/maintenance_helper.php:225
+msgid "Checking for empty topics..."
+msgstr "Suche nach leeren Themen..."
+
+#: ../../helpers/maintenance_helper.php:231
+msgid "The following topics have no assigned publications."
+msgstr "Die folgenden Themen haben keine zugewiesenen Veröffentlichungen."
+
+#: ../../helpers/maintenance_helper.php:239
+msgid "Checking publications in ancestor topics..."
+msgstr "Überprüfe Veröffentlichungen in Stammthemen..."
+
+#: ../../helpers/maintenance_helper.php:247
+#, php-format
+msgid "%d publications did not appear in ancestor topics."
+msgstr "%d Veröffentlichungen erschienen nicht im Stammthema."
+
+#: ../../helpers/maintenance_helper.php:258
+msgid "Reinit searchable names and titles"
+msgstr "Reinitialisiere durchsuchbare Namen und Titel"
+
+#: ../../helpers/maintenance_helper.php:260
+#: ../../helpers/maintenance_helper.php:319
+msgid "Checking..."
+msgstr "Überprüfen..."
+
+#: ../../helpers/maintenance_helper.php:272
+#, php-format
+msgid "Fixed searchable names of %d authors."
+msgstr "Durchsuchbare Namen von %d Autoren ausgebessert."
+
+#: ../../helpers/maintenance_helper.php:293
+#, php-format
+msgid "Fixed searchable names of %d publications."
+msgstr "Durchsuchbare Namen von %d Veröffentlichungen ausgebessert."
+
+#: ../../helpers/maintenance_helper.php:307
+#, php-format
+msgid "Fixed searchable names of %d topics."
+msgstr "Durchsuchbare Namen und Titel von %d Themen ausgebessert."
+
+#: ../../helpers/maintenance_helper.php:317
+msgid "Check total publication marks"
+msgstr "Gesamte Veröffentlichungsbewertungen überprüfen"
+
+#: ../../helpers/maintenance_helper.php:326
+#, php-format
+msgid "Fixed total topic mark of %d publications."
+msgstr "Gesamtthemenbewertung von %d Veröffentlichungen ausgebessert."
+
+#: ../../helpers/maintenance_helper.php:379
+#, php-format
+msgid "Removed: %s (file not on server and not linked to a publication)."
+msgstr "Entfernt: %s (Datei nicht auf dem Server und nicht mit einer Veröffentlichung verknüpft)."
+
+#: ../../helpers/maintenance_helper.php:418
+msgid "Could not open documents directory."
+msgstr "Konnte Dokumentenverzeichnis nicht öffnen."
+
+#: ../../helpers/maintenance_helper.php:683
+#: ../../helpers/maintenance_helper.php:684
+#: ../../views/authors/single.php:74
+msgid "Click to show details"
+msgstr "Klicken, um Details zu zeigen"
+
+#: ../../helpers/maintenance_helper.php:685
+#: ../../views/authors/single.php:75
+msgid "merge"
+msgstr "zusammenführen"
+
+#: ../../helpers/maintenance_helper.php:685
+#: ../../views/authors/single.php:75
+msgid "Click to merge"
+msgstr "Klicken, um zusammenzuführen"
+
+#: ../../helpers/readremote_helper.php:37
+#, php-format
+msgid "Cannot retrieve %s"
+msgstr "Kann %s nicht beziehen."
+
+#: ../../helpers/schema_helper.php:83
+#, php-format
+msgid "Checking database schema version %s... update needed."
+msgstr "Überprüfe Datenbankschema Version %s... Aktualisierung benötigt."
+
+#: ../../helpers/schema_helper.php:98
+#, php-format
+msgid "Update database schema version %s Succeeded"
+msgstr "Aktualisierung Datenbankschema Version %s erfolgreich"
+
+#: ../../helpers/schema_helper.php:117
+#, php-format
+msgid "Update to release version %s Succeeded"
+msgstr "Aktualisierung auf Ausgabeversion %s erfolgreich."
+
+#: ../../helpers/schema_helper.php:125
+#, php-format
+msgid ""
+"\n"
+"\t    <br/>%s<br/>UPDATE WAS NOT SUCCESSFUL<br/>\n"
+"\t    Some database operations require mysql root privileges. Please ensure that the mysql<br/>\n"
+"\t    user in your index.php file has sufficient rights.<br/>\n"
+"\t    "
+msgstr ""
+"\n"
+"<br/>%s<br/>AKTUALISIERUNG WAR NICHT ERFOLGREICH!<br/>Einige Datenbankoperationen benötigen MySQL-Root-Privilegien. Bitte versichern Sie sich, dass der MySQL-Nutzer in Ihrer index.php über ausreichende Rechte verfügt."
+
+#: ../../helpers/schema_updates_v2_helper.php:78
+msgid ""
+"The database has not been migrated from Aigaion 1.x towards Aigaion 2.0. <br/>\n"
+"                                    Automatic update is not possible, even from an account with sufficient rights.<br/><br/> \n"
+"                                    PLEASE ASK YOUR ADMINISTRATOR TO RUN THE MIGRATION SCRIPTS.<br/>"
+msgstr "Die Datenbank wurde nicht von Aigaion 1.x auf Aigaion 2.0 migriert.<br/> Automaitsche Aktualisierung ist nicht möglich, selbst von einem Konto mit ausreichenden Rechten.<br/><br/>BITTEN SIE IHREN ADMINISTRATOR, DIE MIGRATIONSSKRIPTE LAUFEN ZU LASSEN.<br/>"
+
+#: ../../helpers/specialchar_helper.php:79
+msgid "You just loaded the specialchar helper. This is not good; it should be replaced by a combination of the bibtexutf8 (for converting bibtex codes to utf) helper and the utf8_to_ascii library (for transliteration, generating clean ascii for cleanname and cleantitle rows) available in include/...)"
+msgstr "Sie haben gerade den specialchar helper geladen. Das ist nicht gut; er sollte durch eine Kombination aus bibtexutf8 (für die Konvertierung von BiBTeX code zu UTF-8) und der utf8_to_ascii Bibliothek (für Transliteration) ersetzt werden."
+
+#: ../../helpers/translation_helper.php:10
+msgid "year"
+msgstr "Jahr"
+
+#: ../../helpers/translation_helper.php:11
+msgid "title"
+msgstr "Titel"
+
+#: ../../helpers/translation_helper.php:12
+msgid "survey"
+msgstr "Studie"
+
+#: ../../helpers/translation_helper.php:13
+msgid "mark"
+msgstr "Bewertung"
+
+#: ../../helpers/translation_helper.php:14
+msgid "series"
+msgstr "Serie"
+
+#: ../../helpers/translation_helper.php:15
+msgid "volume"
+msgstr "Band"
+
+#: ../../helpers/translation_helper.php:16
+msgid "publisher"
+msgstr "Veröffentlicher"
+
+#: ../../helpers/translation_helper.php:17
+msgid "location"
+msgstr "Ort"
+
+#: ../../helpers/translation_helper.php:18
+msgid "issn"
+msgstr "ISSN"
+
+#: ../../helpers/translation_helper.php:19
+msgid "isbn"
+msgstr "ISBN"
+
+#: ../../helpers/translation_helper.php:20
+msgid "firstpage"
+msgstr "Erste Seite"
+
+#: ../../helpers/translation_helper.php:21
+msgid "lastpage"
+msgstr "Letzte Seite"
+
+#: ../../helpers/translation_helper.php:22
+msgid "journal"
+msgstr "Journal"
+
+#: ../../helpers/translation_helper.php:23
+msgid "booktitle"
+msgstr "Buchtitel"
+
+#: ../../helpers/translation_helper.php:24
+msgid "number"
+msgstr "Nummer"
+
+#: ../../helpers/translation_helper.php:25
+msgid "institution"
+msgstr "Institut"
+
+#: ../../helpers/translation_helper.php:26
+msgid "address"
+msgstr "Adresse"
+
+#: ../../helpers/translation_helper.php:27
+msgid "chapter"
+msgstr "Kapitel"
+
+#: ../../helpers/translation_helper.php:28
+msgid "edition"
+msgstr "Ausgabe"
+
+#: ../../helpers/translation_helper.php:29
+msgid "howpublished"
+msgstr "howpublished"
+
+#: ../../helpers/translation_helper.php:30
+msgid "month"
+msgstr "Monat"
+
+#: ../../helpers/translation_helper.php:31
+msgid "organization"
+msgstr "Organisation"
+
+#: ../../helpers/translation_helper.php:32
+msgid "school"
+msgstr "Schule"
+
+#: ../../helpers/translation_helper.php:33
+msgid "note"
+msgstr "Notiz"
+
+#: ../../helpers/translation_helper.php:34
+msgid "abstract"
+msgstr "Abriss"
+
+#: ../../helpers/translation_helper.php:35
+#: ../../helpers/translation_helper.php:44
+msgid "url"
+msgstr "URL"
+
+#: ../../helpers/translation_helper.php:36
+msgid "doi"
+msgstr "DOI"
+
+#: ../../helpers/translation_helper.php:37
+msgid "pages"
+msgstr "Seiten"
+
+#: ../../helpers/translation_helper.php:40
+msgid "surname"
+msgstr "Nachname"
+
+#: ../../helpers/translation_helper.php:41
+msgid "von"
+msgstr "von"
+
+#: ../../helpers/translation_helper.php:42
+msgid "firstname"
+msgstr "Vorname"
+
+#: ../../helpers/translation_helper.php:43
+msgid "email"
+msgstr "E-Mail"
+
+#: ../../helpers/translation_helper.php:45
+msgid "institute"
+msgstr "Institut"
+
+#: ../../libraries/accesslevels_lib.php:94
+msgid "cannot edit access levels of this object"
+msgstr "Kann Zugriffsebenen dieses Objekts nicht bearbeiten"
+
+#: ../../libraries/accesslevels_lib.php:109
+#: ../../libraries/accesslevels_lib.php:116
+msgid "effective access level is different"
+msgstr "Effektive Zugriffsebene ist anders"
+
+#: ../../libraries/accesslevels_lib.php:136
+#: ../../libraries/accesslevels_lib.php:158
+#: ../../libraries/accesslevels_lib.php:180
+#: ../../libraries/accesslevels_lib.php:220
+#: ../../libraries/accesslevels_lib.php:275
+#: ../../libraries/accesslevels_lib.php:301
+#: ../../libraries/accesslevels_lib.php:324
+#: ../../libraries/accesslevels_lib.php:350
+msgid "Edit access levels: insufficient rights"
+msgstr "Zugriffsebenen bearbeiten: unzureichende Rechte"
+
+#: ../../libraries/accesslevels_lib.php:144
+#: ../../libraries/accesslevels_lib.php:149
+#: ../../libraries/accesslevels_lib.php:166
+#: ../../libraries/accesslevels_lib.php:171
+#: ../../libraries/accesslevels_lib.php:188
+#: ../../libraries/accesslevels_lib.php:193
+#: ../../libraries/accesslevels_lib.php:228
+#: ../../libraries/accesslevels_lib.php:233
+#: ../../libraries/accesslevels_lib.php:286
+#: ../../libraries/accesslevels_lib.php:292
+#: ../../libraries/accesslevels_lib.php:307
+#: ../../libraries/accesslevels_lib.php:313
+#: ../../libraries/accesslevels_lib.php:330
+#: ../../libraries/accesslevels_lib.php:336
+#: ../../libraries/accesslevels_lib.php:356
+#: ../../libraries/accesslevels_lib.php:362
+msgid "modify access level: restricted edit level to match read level"
+msgstr "Zugriffsebene ändern: Beschränke Bearbeitungsebene, um mit Leseebene übereinzustimmen"
+
+#: ../../libraries/accesslevels_lib.php:202
+#: ../../libraries/accesslevels_lib.php:207
+msgid "modify access level: increased read level for publication to match new read level for attachment"
+msgstr "Zugriffsebene ändern: Erhöhe Leseebene für Veröffentlichung, um mit neuer Lesebene für Anhang übereinzustimmen"
+
+#: ../../libraries/accesslevels_lib.php:211
+#: ../../libraries/accesslevels_lib.php:251
+msgid "Couldn't propagate new level all the way up"
+msgstr "Konnte neue Ebene nicht den ganzen Weg nach oben ausbreiten lassen"
+
+#: ../../libraries/accesslevels_lib.php:242
+#: ../../libraries/accesslevels_lib.php:247
+msgid "modify access level: increased read level for publication to match new read level for note"
+msgstr "Zugriffsebene ändern: Erhöhte Leseebene für Veröffentlichung, um mit neuer Lesebene für Notiz übereinzustimmen"
+
+#: ../../libraries/accesslevels_lib.php:280
+msgid "Edit access levels: you cannot change the access levels of the top topic"
+msgstr "Zugriffsebenen bearbeiten: Sie können die Zugriffsebene des Wurzelthemas nicht ändern."
+
+#: ../../libraries/accesslevels_lib.php:378
+msgid "cascade of access levels not yet implemented"
+msgstr "Kaskade der Zugriffsebenen noch nicht implementiert"
+
+#: ../../libraries/attachment_db.php:113
+#, php-format
+msgid "ERROR UPLOADING: %s is not an allowed extension for remote files.<br/>Allowed types: <b>%s</b>. Need other file types? Ask <a href='mailto:%s'>%s</a>"
+msgstr "FEHLER BEIM HOCHLADEN: %s ist keine erlaubte Dateiendung für entfernte Dateien.<br/>Erlaubte Typen: <b>%s</b>. Brauchen Sie andere Dateitypen? Fragen Sie <a href='mailto:%s'>%s</a>."
+
+#: ../../libraries/attachment_db.php:152
+#: ../../libraries/attachment_db.php:234
+#: ../../libraries/attachment_db.php:325
+#, php-format
+msgid "Error un-'main'-ing other attachments: %s"
+msgstr "Fehler beim ent-'haupt'-en anderer Anhänge: %s"
+
+#: ../../libraries/attachment_db.php:172
+#: ../../libraries/attachment_db.php:260
+#, php-format
+msgid "Error adding attachment: %s"
+msgstr "Fehler beim Anhang hinzufügen: %s"
+
+#: ../../libraries/attachment_db.php:182
+msgid "You cannot upload attachment files to this server (the server is declared write-only); please use remote attachments instead."
+msgstr "Sie können auf diesen Server keine Dateien hochladen (der Server ist als \"nur lesen\" ausgezeichnet); bitte verwenden Sie statt dessen entfernte Anhänge."
+
+#: ../../libraries/attachment_db.php:189
+#, php-format
+msgid "Error while uploading: %s"
+msgstr "Fehler beim Hochladen: %s"
+
+#: ../../libraries/attachment_db.php:267
+msgid ""
+"Error uploading. The file was not written to disk.<br/>\n"
+"                    Is this error entirely unexpected? You might want to check whether \n"
+"                    the php settings 'upload_max_filesize', 'post_max_size' and \n"
+"                    'max_execution_time' are all large enough for uploading\n"
+"                    your attachments... Please check this with your administrator."
+msgstr "Fehler beim Hochladen. Die Datei wurde nicht auf die Festplatte geschrieben.<br/> Kommt dieser Fehler vollkommen unerwartet? Sie können die PHP-Einstellungen 'upload_max_filesize', 'post_max_size' und 'max_execution_time' auf Werte überprüfen, die für das Hochladen Ihrer Anhänge groß genug sind... Bitte klären Sie dies mit Ihrem Administrator."
+
+#: ../../libraries/attachment_db.php:279
+#, php-format
+msgid "ERROR UPLOADING: %s<br/>Is the error due to allowed file types? Ask <a href='mailto:%s'>%s</a> for more types."
+msgstr "FEHLER BEIM HOCHLADEN: %s<br/>Hängt dieser Fehler mit den erlaubten Dateitypen zusammen? Fragen Sie <a href=\"mailto:%s\">%s</a> nach mehr Typen."
+
+#: ../../libraries/attachment_db.php:286
+msgid "GENERIC ERROR UPLOADING. THIS SHOULD NOT HAVE BEEN LOGICALLY POSSIBLE. PLEASE CONTACT YOUR DATABASE ADMINISTRATOR."
+msgstr "GENERISCHER FEHLER BEIM HOCHLADEN. DIES SOLLTE DEN GESETZEN DER LOGIK ZUFOLGE NICHT MÖGLICH SEIN. BITTE VERSTÄNDIGEN SIE IHREN DATENBANKADMINISTRATOR."
+
+#: ../../libraries/attachment_db.php:309
+msgid "Update attachment: insufficient rights."
+msgstr "Anhang aktualisieren: unzureichende Rechte."
+
+#: ../../libraries/attachment_db.php:356
+msgid "Cannot delete attachment: insufficient rights"
+msgstr "Kann Anhang nicht löschen: unzureichende Rechte."
+
+#: ../../libraries/attachment_db.php:360
+msgid "Cannot delete attachment: erroneous ID"
+msgstr "Kann Anhang nicht löschen: fehlerhafte ID"
+
+#: ../../libraries/author_db.php:241
+msgid "Cannot delete author: insufficient rights"
+msgstr "Kann Autor nicht löschen: unzureichende Rechte."
+
+#: ../../libraries/author_db.php:245
+msgid "Cannot delete author: erroneous ID"
+msgstr "Kann Autor nicht löschen: fehlerhafte ID"
+
+#: ../../libraries/author_db.php:251
+msgid "Cannot delete author: still has publications (possibly invisible...)"
+msgstr "Kann Autor nicht löschen: hat noch Veröffentlichungen (eventuell unsichtbar..)"
+
+#: ../../libraries/author_db.php:283
+#: ../../libraries/publication_db.php:896
+#, php-format
+msgid "One of the fields %s is required."
+msgstr "Eines der Felder %s ist verpflichtend."
+
+#: ../../libraries/author_db.php:462
+#, php-format
+msgid "Found similar authors for <b>&quot;%s&quot;</b>:"
+msgstr "Ähnliche Autoren für <b>&bdquo;%s&ldquo;</b> gefunden:"
+
+#: ../../libraries/author_db.php:479
+msgid "Please review the entered authors."
+msgstr "Bitte überprüfen Sie die eingegebenen Autoren."
+
+#: ../../libraries/bookmarklist_db.php:14
+#: ../../libraries/bookmarklist_db.php:29
+#: ../../libraries/bookmarklist_db.php:44
+#: ../../libraries/bookmarklist_db.php:60
+#: ../../libraries/bookmarklist_db.php:75
+#: ../../libraries/bookmarklist_db.php:91
+#: ../../libraries/bookmarklist_db.php:107
+#: ../../libraries/bookmarklist_db.php:123
+#: ../../libraries/bookmarklist_db.php:138
+#: ../../libraries/bookmarklist_db.php:151
+#: ../../libraries/bookmarklist_db.php:166
+msgid "Changing bookmarklist: insufficient rights"
+msgstr "Merkliste ändern: unzureichende Rechte"
+
+#: ../../libraries/bookmarklist_db.php:19
+#: ../../libraries/bookmarklist_db.php:34
+#: ../../libraries/bookmarklist_db.php:143
+msgid "Error changing bookmarklist"
+msgstr "Fehler beim Ändern der Merkliste"
+
+#: ../../libraries/bookmarklist_db.php:159
+msgid "Bookmarked publications added to topic"
+msgstr "Gemerkte Veröffentlichungen zum Thema hinzugefügt"
+
+#: ../../libraries/bookmarklist_db.php:174
+msgid "Bookmarked publications removed from topic"
+msgstr "Gemerkte Veröffentlichungen vom Thema entfernt"
+
+#: ../../libraries/group_db.php:138
+msgid "Cannot delete group: insufficient rights"
+msgstr "Kann Gruppe nicht löschen: unzureichende Rechte."
+
+#: ../../libraries/group_db.php:142
+msgid "Cannot delete group: erroneous ID"
+msgstr "Kann Gruppe nicht löschen: fehlerhafte ID"
+
+#: ../../libraries/keyword_db.php:175
+#, php-format
+msgid "Found similar keywords for <b>&quot;%s&quot;</b>:"
+msgstr "Ähnliche Schlüsselwörter für <b>&bdquo;%s&ldquo;</b> gefunden:"
+
+#: ../../libraries/keyword_db.php:192
+msgid "Please review the entered keywords."
+msgstr "Bitte überprüfen Sie die eingegebenen Schlüsselwörter."
+
+#: ../../libraries/note_db.php:178
+msgid "Cannot delete note: insufficient rights"
+msgstr "Kann Notiz nicht löschen: unzureichende Rechte."
+
+#: ../../libraries/note_db.php:182
+msgid "Cannot delete note: erroneous ID"
+msgstr "Kann Notiz nicht löschen: fehlerhafte ID"
+
+#: ../../libraries/note_db.php:211
+#, php-format
+msgid "Failed to update the bibtex-id in note %s:"
+msgstr "Aktualisierung der BiBTeX-ID in Notiz %s fehlgeschlagen:"
+
+#: ../../libraries/publication_db.php:585
+msgid "Edit publication: insufficient rights. publication_db.update"
+msgstr "Veröffentlichung bearbeiten: unzureichende Rechte. publication_db.update"
+
+#: ../../libraries/publication_db.php:785
+msgid "Cannot delete publication: insufficient rights"
+msgstr "Kann Veröffentlichung nicht löschen: unzureichende Rechte."
+
+#: ../../libraries/publication_db.php:789
+msgid "Cannot delete publication: erroneous ID"
+msgstr "Kann Veröffentlichung nicht löschen: fehlerhafte ID"
+
+#: ../../libraries/publication_db.php:801
+#: ../../libraries/publication_db.php:805
+msgid "Cannot delete publication: it contains some attachments that you do not have permission to delete"
+msgstr "Kann veröffentlichung nicht löschen: Sie enthält Anhänge, bei denen Ihnen die Löschrechte fehlen."
+
+#: ../../libraries/publication_db.php:816
+msgid "Cannot delete publication: it contains some notes that you do not have permission to delete"
+msgstr "Kann Veröffentlichung nicht löschen: Sie enthält Notizen, bei denen Ihnen die Löschrechte fehlen."
+
+#: ../../libraries/publication_db.php:877
+#, php-format
+msgid "The %s field is required."
+msgstr "Das %s-Feld ist verpflichtend."
+
+#: ../../libraries/publication_db.php:902
+msgid "Validation error:"
+msgstr "Überprüfungsfehler: "
+
+#: ../../libraries/publication_db.php:1137
+#, php-format
+msgid "Failed to update the bibtex-id in publication %s"
+msgstr "Aktualisieren der BiBTeX-ID in Veröffentlichung %s fehlgeschlagen."
+
+#: ../../libraries/publication_db.php:1250
+msgid "resolveXref: merge xref into publication!"
+msgstr "resolveXref: führe Querverweis mit Veröffentlichung zusammen!"
+
+#: ../../libraries/publication_db.php:1283
+msgid "A publication with the same title exists. Please make sure that the publication you are importing is not already in the database."
+msgstr "Eine Veröffentlichung mit dem selben Titel existiert bereits. Bitte versichern Sie sich, dass die Veröffentlichung, die Sie importieren möchten, nicht bereits in der Datenbank vorhanden ist."
+
+#: ../../libraries/publication_db.php:1304
+#, php-format
+msgid "The cite id is not unique, please choose another cite id. <br/>Publication with same cite id: \"%s\""
+msgstr "Die Zitat-ID ist nicht eindeutig, bitte wählen Sie eine andere Zitat-ID. <br/>Veröffentlichung mit der gleichen Zitat-ID: \"%s\"."
+
+#: ../../libraries/publication_db.php:1319
+msgid "Similar cite ids:"
+msgstr "Ähnliche Zitat-IDs:"
+
+#: ../../libraries/rightsprofile_db.php:142
+msgid "Cannot delete rightsprofile: insufficient rights"
+msgstr "Kann Rechteprofil nicht löschen: unzureichende Rechte."
+
+#: ../../libraries/rightsprofile_db.php:146
+msgid "Cannot delete rightsprofile: erroneous ID"
+msgstr "Kann Rechteprofil nicht löschen: fehlerhafte ID"
+
+#: ../../libraries/siteconfig_db.php:134
+#, php-format
+msgid ""
+"The extension '%s' is never allowed for Aigaion attachments, and has been \n"
+"            \t\t                        removed from the list of allowed attachments."
+msgstr "Die Erweiterung '%s' ist niemals für Aigaion-Anhänge erlaubt und wurde von der Liste erlaubter Anhänge entfernt."
+
+#: ../../libraries/siteconfig_db.php:149
+msgid "Error updating config:"
+msgstr "Fehler beim Aktualisieren der Konfiguration:"
+
+#: ../../libraries/siteconfig_db.php:181
+msgid "Failed to upload custom logo."
+msgstr "Hochladen eines eigenen Logos fehlgeschlagen."
+
+#: ../../libraries/siteconfig_db.php:184
+msgid "New logo uploaded"
+msgstr "Neues Logo hochgeladen"
+
+#: ../../libraries/topic_db.php:235
+#: ../../libraries/topic_db.php:249
+msgid "Categorize publication: insufficient rights."
+msgstr "Veröffentlichung kategorisieren: unzureichende Rechte."
+
+#: ../../libraries/topic_db.php:263
+#: ../../libraries/topic_db.php:277
+msgid "Change subscription: insufficient rights."
+msgstr "Abo ändern: unzureichende Rechte."
+
+#: ../../libraries/topic_db.php:322
+msgid "You cannot edit the top level topic"
+msgstr "Sie können das Wurzelthema nicht bearbeiten"
+
+#: ../../libraries/topic_db.php:348
+msgid "You cannot set a topic to be its own ancestor."
+msgstr "Sie können einem Thema nicht sich selbst als Vorfahr zuordnen."
+
+#: ../../libraries/topic_db.php:357
+msgid "Error in the tree structure: the intended new parent is not connected to the top level topic."
+msgstr "Fehler in der Baumstruktur: das beabsichtigte neue Elternthema ist nicht mit dem Wurzelthema verbunden."
+
+#: ../../libraries/topic_db.php:401
+msgid "Cannot delete topic: insufficient rights"
+msgstr "Kann Thema nicht löschen: unzureichende Rechte."
+
+#: ../../libraries/topic_db.php:405
+msgid "Cannot delete topic: erroneous ID"
+msgstr "Kann Thema nicht löschen: fehlerhafte ID"
+
+#: ../../libraries/topic_db.php:413
+msgid "Cannot delete topic: still has children (possibly invisible)"
+msgstr "Kann Thema nicht löschen: hat noch Kinder (eventuell unsichtbar)"
+
+#: ../../libraries/user_db.php:208
+#: ../../libraries/user_db.php:312
+msgid "Removed 'bookmarklist' right from anonymous user: it makes no sense to assign it since many people will be loggin on with that account simultaneously.\n"
+msgstr "Recht 'Merkliste' des anonymen Nutzers gelöscht: Es ist sinnlos, es zuzuweisen, da mit diesem Konto viele Leute gleichzeitig angemeldet sein werden.\n"
+
+#: ../../libraries/user_db.php:233
+msgid "User added.\n"
+msgstr "Nutzer hinzugefügt.\n"
+
+#: ../../libraries/user_db.php:301
+msgid "You just set the default anonymous user to non-anonymous. Therefore the default anonymous user configuration setting has been cleared."
+msgstr "Sie haben den anonymen Vorgabenutzer als nicht-anonym gekennzeichnet. Deshalb wurden die Konfigurationseinstellungen des anonymen Vorgabenutzers geleert."
+
+#: ../../libraries/user_db.php:355
+msgid "<b>You just removed your own right to assign user rights! Are you sure that this is correct? If not, re-assign this right before logging out!</b>"
+msgstr "<b>Sie haben gerade Ihr eigenes Recht auf die Vergabe von Nutzerrechten gelöscht! Sind Sie sicher, dass das korrekt ist? Falls nicht, weisen Sie sich dieses Recht vor dem Abmelden wieder zu!</b>"
+
+#: ../../libraries/user_db.php:357
+msgid "Profile updated, changes to rights of users are applied after the user has logged in again."
+msgstr "Profil aktualisiert, Änderungen der Nutzerrechte werden ausgeführt, sobald sich ein Nutzer das nächste Mal anmeldet."
+
+#: ../../libraries/user_db.php:360
+msgid "User data changed. Changed access rights will be valid upon next login.\n"
+msgstr "Nutzerdaten geändert. Geänderte Zugriffsrechte gelten ab der nächsten Anmeldung. \n"
+
+#: ../../libraries/user_db.php:374
+msgid "Cannot delete user: insufficient rights"
+msgstr "Kann Nutzer nicht löschen: unzureichende Rechte."
+
+#: ../../libraries/user_db.php:378
+msgid "Cannot delete user: erroneous ID"
+msgstr "Kann Nutzer nicht löschen: fehlerhafte ID"
+
+#: ../../libraries/userlogin.php:72
+#: ../../libraries/userlogin.php:532
+msgid ""
+"You have been logged out because the Aigaion Engine is in the \n"
+"                                  process of being updated.<br/> If you are a user with \n"
+"                                  database_manage rights, please login to complete the update. \n"
+"                                  <br/>"
+msgstr "Sie wurden abgemeldet, weil die Aigaion-Software derzeit aktualisiert wird. <br/> Falls Sie ein Nutzer mit 'database_manage'-Rechten sind, melden Sie sich bitte an, um die Aktualisierung zu vervollständigen.<br/>"
+
+#: ../../libraries/userlogin.php:126
+msgid ""
+"You do not have sufficient rights for the requested \n"
+"            operation or page. <br/>Sorry for the inconvenience."
+msgstr "Sie haben keine ausreichenden Rechte für die angeforderte Aufgabe oder Seite.<br/> Wir entschuldigen uns für Ihre Unannehmlichkeiten."
+
+#: ../../libraries/userlogin.php:137
+msgid ""
+"You do not have sufficient rights for the requested \n"
+"        operation or page. <br/>Sorry for the inconvenience."
+msgstr "Sie haben keine ausreichenden Rechte für die angeforderte Aufgabe oder Seite.<br/> Wir entschuldigen uns für Ihre Unannehmlichkeiten."
+
+#: ../../libraries/userlogin.php:172
+#, php-format
+msgid "Theme '%s' no longer exists."
+msgstr "Design '%s' existiert nicht mehr."
+
+#: ../../libraries/userlogin.php:211
+msgid "Unknown user or wrong password from external login module"
+msgstr "Unbekannter Nutzer oder falsches Passwort von externem Anmeldemodul"
+
+#: ../../libraries/userlogin.php:216
+msgid "No login info available..."
+msgstr "Keine Anmeldeinformation verfügbar..."
+
+#: ../../libraries/userlogin.php:227
+msgid "Unknown user or wrong password"
+msgstr "Unbekannter Nutzer oder falsches Passwort"
+
+#: ../../libraries/userlogin.php:237
+msgid "Unknown user or wrong password in cookie"
+msgstr "Unbekatter Nutzer oder falsches Passowrt im Cookie"
+
+#: ../../libraries/userlogin.php:273
+msgid "testing for ldap login..."
+msgstr "Teste LDAP-Anmeldung..."
+
+#: ../../libraries/userlogin.php:280
+#, php-format
+msgid "LDAP login says: %s"
+msgstr "LDAP-Anmeldung sagt: %s"
+
+#: ../../libraries/userlogin.php:380
+#, php-format
+msgid "Serious error: a new user was created and could not be logged in. %s "
+msgstr "Ernsthafter Fehler: Ein neuer Nutzer wurde erzeugt, konnte aber nicht angemeldet werden. %s"
+
+#: ../../libraries/userlogin.php:479
+msgid ""
+"Your admin account password still has the default \n"
+"                                        value, please change it on the 'profile' page."
+msgstr "Ihr Admin-Konto hat immer noch das Vorgabepasswort, bitte ändern Sie es auf der 'Profil'-Seite."
+
+#: ../../libraries/userlogin.php:523
+#, php-format
+msgid "This site is powered by Aigaion - A PHP/Web based management system for shared and annotated bibliographies. For more information visit %s."
+msgstr "Diese Seite wird unterstützt von Aigaion - Ein PHP/Web-basiertes Managementsystem für verteilte und annotierte Bibliographien. Für mehr Informationen besuchen Sie %s."
+
+#: ../../libraries/userlogin.php:544
+msgid "Checking for updates... "
+msgstr "Suche nach Aktualisierungen..."
+
+#: ../../views/footer.php:7
+#, php-format
+msgid "processing time: %s seconds."
+msgstr "Ausführdauer: %s Sekunden."
+
+#: ../../views/header.php:72
+msgid "Language:"
+msgstr "Sprache:"
+
+#: ../../views/header.php:78
+msgid "search"
+msgstr "suchen"
+
+#: ../../views/menu.php:12
+msgid "Browse"
+msgstr "Ansicht"
+
+#: ../../views/menu.php:14
+msgid "My Topics"
+msgstr "Meine Themen"
+
+#: ../../views/menu.php:17
+msgid "My Bookmarks"
+msgstr "Meine Merkliste"
+
+#: ../../views/menu.php:19
+msgid "All Topics"
+msgstr "Alle Themen"
+
+#: ../../views/menu.php:20
+msgid "All Publications"
+msgstr "Alle Veröffentlichungen"
+
+#: ../../views/menu.php:21
+msgid "All Authors"
+msgstr "Alle Autoren"
+
+#: ../../views/menu.php:22
+msgid "Unassigned"
+msgstr "Nicht zugeordnet"
+
+#: ../../views/menu.php:23
+msgid "Recent"
+msgstr "Aktuell"
+
+#: ../../views/menu.php:32
+msgid "Export"
+msgstr "Export"
+
+#: ../../views/menu.php:52
+msgid "Sort By"
+msgstr "Sortiere nach"
+
+#: ../../views/menu.php:54
+msgid "Author"
+msgstr "Autor"
+
+#: ../../views/menu.php:55
+msgid "Title"
+msgstr "Titel"
+
+#: ../../views/menu.php:56
+msgid "Type/journal"
+msgstr "Typ/Journal"
+
+#: ../../views/menu.php:57
+msgid "Year"
+msgstr "Jahr"
+
+#: ../../views/menu.php:58
+msgid "Recently added"
+msgstr "Erstellungsdatum"
+
+#: ../../views/menu.php:67
+msgid "New Data"
+msgstr "Erstellen"
+
+#: ../../views/menu.php:69
+msgid "New Publication"
+msgstr "Neue Veröffentlichung"
+
+#: ../../views/menu.php:70
+msgid "New Author"
+msgstr "Neuer Autor"
+
+#: ../../views/menu.php:73
+msgid "New Topic"
+msgstr "Neues Thema"
+
+#: ../../views/menu.php:76
+#: ../../views/import/importform.php:24
+#: ../../views/import/review.php:308
+msgid "Import"
+msgstr "Importieren"
+
+#: ../../views/menu.php:83
+msgid "Site"
+msgstr "System"
+
+#: ../../views/menu.php:86
+msgid "About this site"
+msgstr "Über diese Seite"
+
+#: ../../views/menu.php:89
+msgid "Site Configuration"
+msgstr "Seitenkonfiguration"
+
+#: ../../views/menu.php:90
+msgid "Site Maintenance"
+msgstr "Seitenverwaltung"
+
+#: ../../views/menu.php:93
+msgid "Manage All Accounts"
+msgstr "Alle Konten verwalten"
+
+#: ../../views/menu.php:94
+msgid "Manage External Search Engines"
+msgstr "Externe Suchmaschinen verwalten"
+
+#: ../../views/menu.php:104
+msgid "Guest User"
+msgstr "Gastnutzer"
+
+#: ../../views/menu.php:125
+#: ../../views/menu.php:159
+msgid "My Profile"
+msgstr "Meine Einstellungen"
+
+#: ../../views/menu.php:128
+#: ../../views/menu.php:162
+msgid "Topic Subscribe"
+msgstr "Themen abonnieren"
+
+#: ../../views/menu.php:134
+#: ../../views/login/form.php:61
+#: ../../views/users/edit.php:57
+msgid "Login"
+msgstr "Anmeldung"
+
+#: ../../views/menu.php:140
+#: ../../views/login/form.php:26
+msgid "Name:"
+msgstr "Name:"
+
+#: ../../views/menu.php:142
+#: ../../views/login/form.php:38
+msgid "Password:"
+msgstr "Passwort:"
+
+#: ../../views/menu.php:144
+#: ../../views/login/form.php:55
+msgid "Remember me"
+msgstr "erinnere mich"
+
+#: ../../views/menu.php:153
+msgid "Logged In"
+msgstr "Angemeldet"
+
+#: ../../views/menu.php:156
+msgid "My Links"
+msgstr "Meine Links"
+
+#: ../../views/menu.php:164
+msgid "Logout"
+msgstr "Abmelden"
+
+#: ../../views/accesslevels/editforpublication.php:6
+msgid "Edit access levels"
+msgstr "Zugriffsebenen bearbeiten"
+
+#: ../../views/accesslevels/editforpublication.php:8
+msgid "back to publication"
+msgstr "zurück zur Veröffentlichung"
+
+#: ../../views/accesslevels/editforpublication.php:14
+#: ../../views/accesslevels/editfortopic.php:18
+msgid "Effective access levels (after combining all relevant access levels)"
+msgstr "Effektive Zugriffsrechte (Kombination aller relevanten Zugriffsrechte)"
+
+#: ../../views/accesslevels/editforpublication.php:15
+#: ../../views/accesslevels/editfortopic.php:19
+msgid "Effective"
+msgstr "Effektiv"
+
+#: ../../views/accesslevels/editforpublication.php:18
+#: ../../views/accesslevels/editforpublication.php:19
+msgid "Object"
+msgstr "Objekt"
+
+#: ../../views/accesslevels/editforpublication.php:22
+msgid "Owner of object (only owner can change objects with private edit levels...)"
+msgstr "Eigentümer des Objekts (nur der Eigentümer kann Objekte mit privaten Bearbeitungsebenen ändern...)"
+
+#: ../../views/accesslevels/editforpublication.php:23
+#: ../../views/accesslevels/editfortopic.php:27
+msgid "Owner"
+msgstr "Eigentümer"
+
+#: ../../views/accesslevels/editforpublication.php:26
+#: ../../views/accesslevels/editfortopic.php:30
+msgid "Per-object access levels"
+msgstr "Zugriffsebenen pro Objekt"
+
+#: ../../views/accesslevels/editforpublication.php:27
+#: ../../views/accesslevels/editfortopic.php:31
+msgid "Individual per-object access levels"
+msgstr "Individuelle Zugriffsebenen pro Objekt"
+
+#: ../../views/accesslevels/editforpublication.php:38
+msgid "Publication:"
+msgstr "Veröffentlichung:"
+
+#: ../../views/accesslevels/editforpublication.php:76
+msgid "Attachments:"
+msgstr "Anhänge:"
+
+#: ../../views/accesslevels/editforpublication.php:120
+msgid "Notes:"
+msgstr "Notizen:"
+
+#: ../../views/accesslevels/editforpublication.php:164
+msgid "Legend"
+msgstr "Legende"
+
+#: ../../views/accesslevels/editforpublication.php:168
+#: ../../views/accesslevels/editfortopic.php:117
+#: ../../views/accesslevels/legenda.php:8
+msgid "read public"
+msgstr "lesen öffentlich"
+
+#: ../../views/accesslevels/editforpublication.php:169
+#: ../../views/accesslevels/editfortopic.php:118
+#: ../../views/accesslevels/legenda.php:9
+msgid "read intern"
+msgstr "lesen intern"
+
+#: ../../views/accesslevels/editforpublication.php:170
+#: ../../views/accesslevels/editfortopic.php:119
+#: ../../views/accesslevels/legenda.php:10
+msgid "read private"
+msgstr "lesen privat"
+
+#: ../../views/accesslevels/editforpublication.php:171
+#: ../../views/accesslevels/editfortopic.php:120
+#: ../../views/accesslevels/legenda.php:11
+msgid "edit public"
+msgstr "bearbeiten öffentlich"
+
+#: ../../views/accesslevels/editforpublication.php:172
+#: ../../views/accesslevels/editfortopic.php:121
+#: ../../views/accesslevels/legenda.php:12
+msgid "edit intern"
+msgstr "bearbeiten intern"
+
+#: ../../views/accesslevels/editforpublication.php:173
+#: ../../views/accesslevels/editfortopic.php:122
+#: ../../views/accesslevels/legenda.php:13
+msgid "edit private"
+msgstr "bearbeiten privat"
+
+#: ../../views/accesslevels/editforpublication.php:174
+#: ../../views/accesslevels/editfortopic.php:123
+#: ../../views/accesslevels/legenda.php:14
+msgid "- If nothing is shown, access level is 'intern'."
+msgstr "- Falls nichts angezeigt wird, ist die Zugriffsebene 'intern'."
+
+#: ../../views/accesslevels/editforpublication.php:179
+msgid "When you modify access levels of individual objects, this may have consequences for the final 'effective' access level of other objects. For example, when you set a publication to private, the effective access level of all objects belonging to that publication will be set to private as well."
+msgstr "Wenn Sie Zugriffsebenen für individuelle Objekte verändern, kann dies Auswirkungen auf die endgültige 'effektive' Zugriffsebene anderer Objekte haben. Beispiel: Wenn Sie eine Veröffentlichung als 'privat' auszeichnen, wird die effektive Zugriffsebene aller zu dieser Veröffentlichung gehörenden Objekte ebenfalls auf 'privat' gesetzt."
+
+#: ../../views/accesslevels/editforpublication.php:180
+msgid "On the other hand, when you edit the read access level of for example an attachment, and the new level is higher than that of the publication it belongs to, the <b>actual</b> read level of the publication is updated as well!"
+msgstr "Wenn Sie andererseits die Lesezugriffsebene z.B. eines Anhangs bearbeiten, und die neue Ebene höher als die der dazugehörigen Veröffentlichung ist, wird die <b>tatsächliche</b> Leseebene der Veröffentlichung ebenfalls aktualisiert."
+
+#: ../../views/accesslevels/editforpublication.php:181
+msgid "Note that the effective access levels are shown on the left; the access levels defined per individual object are shown on the right. Editing of access levels is done through the right column."
+msgstr "Beachten Sie, dass effektive Zugriffsebenen auf der linken Seite angezeigt werden; die Zugriffsebenen, die je Objekt definiert wurden, stehen rechts. Die Bearbeitung von Zugriffsebenen wird über die rechte Spalte vorgenommen."
+
+#: ../../views/accesslevels/editforpublication.php:182
+msgid "<b>Unsure how the access levels turned out?</b> The column on the left shows which objects are effectively accessible with what levels!"
+msgstr "<b>Unsicher, wie die Zugriffsebenen ausfallen?</b> Die Spalte auf der Linken zeigt, welche Objekte effektiv mit welchen Ebenen erreichbar sind."
+
+#: ../../views/accesslevels/editforpublication.php:183
+msgid "Example: publication is 'intern'; attachment is 'intern'. SET attachment to 'public' --&gt; publication will become 'public' as well."
+msgstr "Beispiel: Veröffentlichung ist 'intern'; Anhang ist 'intern'. Setze Anhang auf 'public' &rarr; Veröffentlichung wird ebenfalls 'public'."
+
+#: ../../views/accesslevels/editforpublication.php:184
+msgid "Example: publication is 'intern'; attachment is 'intern'. SET publication to 'private' --&gt; attachment stays 'intern', but EFFECTIVE access level of attachment becomes 'private'. When you set the publication to 'intern' again, the effective access level of the attachment reverts to 'intern'."
+msgstr "Beispiel: Veröffentlichung ist 'intern'; Anhang ist 'intern'. Setze Veröffentlichung auf 'privat' &rarr; Anhang bleibt 'intern', aber die effektive Zugriffsebene des Anhangs wird 'private'. Wenn Sie die Veröffentlichung wieder auf 'intern' setzen, wird die effektive Zugriffsebene des Anhangs wieder zurück auf 'intern' gesetzt."
+
+#: ../../views/accesslevels/editforpublication.php:185
+msgid "Example: attachment read is 'public', attachment edit is 'intern'. Set attachment read to 'private' --&gt; attachment edit will also change to 'private'."
+msgstr "Beispiel: Anhang lesen ist 'public', Anhang bearbeiten ist 'intern'. Setze Anhang lesen auf 'private' &rarr; Anhang bearbeiten wird sich also auf 'privat' ändern."
+
+#: ../../views/accesslevels/editforpublication.php:186
+msgid "Example: a publication has edit level 'intern'. You are not the owner. You change the edit level to 'private'. --&gt; Subsequently, you can no longer edit that publication :o)"
+msgstr "Beispiel: Eine Veröffentlichung hat Bearbeitungsebene 'intern'. Sie sind nicht der Eigentümer und ändern die Bearbeitungsebene auf 'private' &rarr; Folglich können Sie diese Veröffentlichung nicht mehr bearbeiten :o)"
+
+#: ../../views/accesslevels/editfortopic.php:11
+msgid "Edit topic access levels"
+msgstr "Themen-Zugriffsebenen bearbeiten"
+
+#: ../../views/accesslevels/editfortopic.php:12
+msgid "For now, you still have to manually edit all access levels - there is no automatic propagation of changes up or down the tree."
+msgstr "Derzeit müssen Sie noch alle Zugriffsebenen von Hand ändern - Es gibt keine automatische Ausbreitung von Änderungen hinauf oder herab im Baum."
+
+#: ../../views/accesslevels/editfortopic.php:26
+msgid "Owner of topic (only owner can change objects with private edit levels...)"
+msgstr "Eigentümer des Themas (nur der Eigentümer kann Objekte mit privater Zugriffsebene ändern...)"
+
+#: ../../views/accesslevels/editfortopic.php:113
+#: ../../views/accesslevels/legenda.php:4
+msgid "Legenda"
+msgstr "Legende"
+
+#: ../../views/attachments/add.php:28
+#, php-format
+msgid "Upload new attachment from this computer for \"%s\""
+msgstr "Neuen Anhang für \"%s\" von diesem Computer aus hochladen"
+
+#: ../../views/attachments/add.php:31
+msgid "Select a file..."
+msgstr "Wählen Sie eine Datei..."
+
+#: ../../views/attachments/add.php:38
+msgid "Set new name (blank: keep original name)..."
+msgstr "Neuen Namen vergeben (leer: ursprünglichen Namen beibehalten)..."
+
+#: ../../views/attachments/add.php:53
+msgid "Upload attachment"
+msgstr "Anhang hochladen"
+
+#: ../../views/attachments/add.php:61
+#: ../../views/attachments/add.php:109
+#: ../../views/attachments/edit.php:74
+#: ../../views/authors/edit.php:50
+#: ../../views/authors/merge.php:46
+#: ../../views/bookmarklist/setattaccesslevel.php:18
+#: ../../views/bookmarklist/setpubaccesslevel.php:18
+#: ../../views/defaults/delete.php:17
+#: ../../views/groups/edit.php:107
+#: ../../views/notes/edit.php:83
+#: ../../views/publications/edit.php:240
+#: ../../views/rightsprofiles/edit.php:85
+#: ../../views/search/addform.php:46
+#: ../../views/site/edit.php:404
+#: ../../views/topics/edit.php:105
+#: ../../views/users/edit.php:379
+msgid "Cancel"
+msgstr "Abbruch"
+
+#: ../../views/attachments/add.php:76
+#, php-format
+msgid "Add new attachment (or web site) as a link, without uploading, for \"%s\""
+msgstr "Neuen Anhang (oder Webseite) für \"%s\" als Verknüpfung, ohne Hochladen, hinzufügen"
+
+#: ../../views/attachments/add.php:79
+msgid "Location of file or web address"
+msgstr "Ort der Datei oder Webadresse"
+
+#: ../../views/attachments/add.php:86
+msgid "Set internal name (blank: keep original name)..."
+msgstr "Internen Namen vergeben (leer: ursprünglichen Namen beibehalten)..."
+
+#: ../../views/attachments/add.php:101
+msgid "Add file link"
+msgstr "Dateiverknüpfung hinzufügen"
+
+#: ../../views/attachments/delete.php:13
+#, php-format
+msgid "Are you sure that you want to delete attachment \"%s\"?"
+msgstr "Sind Sie sicher, dass Sie Anhang \"%s\" löschen wollen?"
+
+#: ../../views/attachments/download.php:19
+#, php-format
+msgid "Attachment file could not be found: %s"
+msgstr "Datei für Anhang konnte nicht gefunden werden: %s"
+
+#: ../../views/attachments/edit.php:30
+#, php-format
+msgid "Edit attachment info for \"%s\""
+msgstr "Anhangsinformationen für \"%s\" bearbeiten"
+
+#: ../../views/attachments/edit.php:32
+msgid "Link to remote attachment."
+msgstr "Verknüpfung zu entferntem Anhang"
+
+#: ../../views/attachments/edit.php:34
+msgid "Attachment stored on server."
+msgstr "Anhang auf dem Server gespeichert."
+
+#: ../../views/attachments/edit.php:38
+msgid "Set internal name"
+msgstr "Internen Namen setzen"
+
+#: ../../views/attachments/edit.php:49
+msgid "Set URL"
+msgstr "URL setzen"
+
+#: ../../views/attachments/edit.php:66
+#: ../../views/authors/edit.php:40
+#: ../../views/groups/edit.php:98
+#: ../../views/notes/edit.php:76
+#: ../../views/publications/edit.php:229
+#: ../../views/rightsprofiles/edit.php:76
+#: ../../views/topics/edit.php:96
+msgid "Change"
+msgstr "Ändern"
+
+#: ../../views/attachments/summary.php:19
+#: ../../views/attachments/summary.php:28
+msgid "Download"
+msgstr "Download"
+
+#: ../../views/attachments/summary.php:40
+#: ../../views/notes/summary.php:47
+#: ../../views/publications/single.php:49
+#: ../../views/topics/full.php:42
+msgid "click to modify access levels"
+msgstr "klicken, um Zugriffsebene zu ändern"
+
+#: ../../views/attachments/summary.php:49
+msgid "[delete]"
+msgstr "[löschen]"
+
+#: ../../views/attachments/summary.php:49
+#, php-format
+msgid "Delete %s"
+msgstr "%s löschen"
+
+#: ../../views/attachments/summary.php:50
+msgid "[edit]"
+msgstr "[bearbeiten]"
+
+#: ../../views/attachments/summary.php:50
+#, php-format
+msgid "Edit information for %s"
+msgstr "Information für %s bearbeiten"
+
+#: ../../views/attachments/summary.php:52
+msgid "[unset main]"
+msgstr "[Hauptanhang absetzen]"
+
+#: ../../views/attachments/summary.php:52
+msgid "Unset as main attachment"
+msgstr "Als Hauptanhang absetzen"
+
+#: ../../views/attachments/summary.php:54
+msgid "[set main]"
+msgstr "[Hauptanhang setzen]"
+
+#: ../../views/attachments/summary.php:54
+msgid "Set as main attachment"
+msgstr "Als Hauptanhang setzen"
+
+#: ../../views/authors/delete.php:11
+#, php-format
+msgid "Are you sure that you want to delete the author '%s'?"
+msgstr "Sind Sie sicher, dass Sie den Autor \"%s\" löschen wollen?"
+
+#: ../../views/authors/edit.php:6
+msgid "New author"
+msgstr "Neuer Autor"
+
+#: ../../views/authors/edit.php:6
+msgid "Edit author"
+msgstr "Autor bearbeiten"
+
+#: ../../views/authors/edit.php:42
+#: ../../views/groups/edit.php:96
+#: ../../views/notes/edit.php:74
+#: ../../views/publications/edit.php:231
+#: ../../views/rightsprofiles/edit.php:74
+#: ../../views/topics/edit.php:94
+#: ../../views/users/edit.php:364
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: ../../views/authors/embed.php:41
+msgid "Order on type/journal"
+msgstr "Sortiere nach Typ/Journal"
+
+#: ../../views/authors/embed.php:43
+msgid "Order alphabetically on title"
+msgstr "Sortiere alphabetisch nach Titel"
+
+#: ../../views/authors/embed.php:45
+msgid "Order alphabetically on author"
+msgstr "Sortiere alphabetisch nach Autor"
+
+#: ../../views/authors/embed.php:47
+msgid "Order on year"
+msgstr "Sortiere nach Jahr"
+
+#: ../../views/authors/list.php:9
+msgid "show"
+msgstr "zeigen"
+
+#: ../../views/authors/list_items.php:11
+#: ../../views/publications/list.php:172
+#: ../../views/publications/single.php:149
+#: ../../views/publications/single.php:166
+#: ../../views/publications/single.php:224
+#: ../../views/publications/single.php:240
+#, php-format
+msgid "All information on %s"
+msgstr "Alle Informationen zu %s"
+
+#: ../../views/authors/merge.php:6
+msgid "Merge authors"
+msgstr "Autoren zusammenführen"
+
+#: ../../views/authors/merge.php:7
+msgid "Merges the source author with the target author. The source author will be deleted, all publications will be transferred to the target author."
+msgstr "Führt den Quell- mit dem Zielautor zusammen. Der Quellautor wird gelöscht, alle Veröffentlichungen werden auf den Zielautor übertragen."
+
+#: ../../views/authors/merge.php:18
+msgid "Target author"
+msgstr "Zielautor"
+
+#: ../../views/authors/merge.php:20
+msgid "Source author"
+msgstr "Quellautor"
+
+#: ../../views/authors/merge.php:38
+msgid "Merge"
+msgstr "zusammenführen"
+
+#: ../../views/authors/single.php:9
+#: ../../views/groups/summary.php:16
+#: ../../views/notes/summary.php:59
+#: ../../views/publications/single.php:19
+#: ../../views/rightsprofiles/summary.php:15
+#: ../../views/topics/full.php:31
+#: ../../views/users/summary.php:20
+msgid "delete"
+msgstr "löschen"
+
+#: ../../views/authors/single.php:9
+msgid "Delete this author"
+msgstr "Diesen Autor löschen"
+
+#: ../../views/authors/single.php:9
+#: ../../views/groups/summary.php:15
+#: ../../views/notes/summary.php:60
+#: ../../views/publications/single.php:20
+#: ../../views/rightsprofiles/summary.php:14
+#: ../../views/search/manage.php:43
+#: ../../views/topics/full.php:31
+#: ../../views/users/summary.php:19
+msgid "edit"
+msgstr "bearbeiten"
+
+#: ../../views/authors/single.php:9
+msgid "Edit this author"
+msgstr "Diesen Autor bearbeiten"
+
+#: ../../views/authors/single.php:40
+msgid "URL:"
+msgstr "URL:"
+
+#: ../../views/authors/single.php:52
+#: ../../views/keywords/single.php:20
+#: ../../views/topics/full.php:93
+msgid "BookmarkAll"
+msgstr "alle markieren"
+
+#: ../../views/authors/single.php:54
+#: ../../views/keywords/single.php:22
+#: ../../views/topics/full.php:95
+msgid "UnBookmarkAll"
+msgstr "alle entmarkieren"
+
+#: ../../views/authors/single.php:72
+msgid "Found authors with very similar names. You can choose to merge the following authors with this author by clicking on the merge link."
+msgstr "Autoren mit sehr ähnlichen Namen gefunden. Sie können die folgenden Autoren mit diesem Autor zusammenführen, indem Sie auf 'zusammenführen' klicken."
+
+#: ../../views/bookmarklist/controls.php:14
+msgid "Bookmark list controls"
+msgstr "Merklisten-Kontrollen"
+
+#: ../../views/bookmarklist/controls.php:32
+msgid "Add bookmarked to topic..."
+msgstr "Gemerkte zu Thema hinzufügen..."
+
+#: ../../views/bookmarklist/controls.php:35
+msgid "Add all bookmarked publications to the selected topic"
+msgstr "Alle gemerkten Veröffentlichungen zum gewählten Thema hinzufügen"
+
+#: ../../views/bookmarklist/controls.php:35
+msgid "Add all to topic"
+msgstr "Alle zum Thema hinzufügen"
+
+#: ../../views/bookmarklist/controls.php:50
+msgid "Remove bookmarked from topic..."
+msgstr "Gemerkte vom Thema löschen..."
+
+#: ../../views/bookmarklist/controls.php:53
+msgid "Remove all bookmarked publications from the selected topic"
+msgstr "Alle gemerkten Veröffentlichungen vom gewählten Thema entfernen"
+
+#: ../../views/bookmarklist/controls.php:53
+msgid "Remove all from topic"
+msgstr "Alle vom Thema löschen"
+
+#: ../../views/bookmarklist/controls.php:59
+msgid "Make a new topic from the bookmarked publications"
+msgstr "Ein neues Thema aus den gemerkten Veröffentlichungen erzeugen"
+
+#: ../../views/bookmarklist/controls.php:59
+msgid "Make into new topic"
+msgstr "Als neues Thema anlegen"
+
+#: ../../views/bookmarklist/controls.php:74
+msgid "Clear the bookmarklist"
+msgstr "Die Merkliste leeren"
+
+#: ../../views/bookmarklist/controls.php:74
+msgid "Clear bookmarklist"
+msgstr "Merkliste leeren"
+
+#: ../../views/bookmarklist/controls.php:81
+msgid "Delete all publications on the bookmarklist from the database"
+msgstr "Alle Veröffentlichungen auf der Merkliste aus der Datenbank löschen"
+
+#: ../../views/bookmarklist/controls.php:81
+msgid "Delete all bookmarked publications"
+msgstr "Alle gemerkten Veröffentlichungen löschen"
+
+#: ../../views/bookmarklist/controls.php:89
+msgid "Set read access level for all bookmarked publications:"
+msgstr "Lesezugriffsebene für alle gemerkten Veröffentlichungen setzen:"
+
+#: ../../views/bookmarklist/controls.php:92
+msgid "Set the read  access levels for all publications on the bookmarklist"
+msgstr "Lese-Zugriffsebenen für alle Veröffentlichungen auf der Merkliste setzen"
+
+#: ../../views/bookmarklist/controls.php:92
+msgid "Set publication access level"
+msgstr "Veröffentlichungs-Zugriffsebene setzen"
+
+#: ../../views/bookmarklist/controls.php:99
+msgid "Set read access level for all attachments of bookmarked publications:"
+msgstr "Lese-Zugriffsebene für alle Anhänge der Veröffentlichungen auf der Merkliste setzen"
+
+#: ../../views/bookmarklist/controls.php:102
+msgid "Set the read access levels for all attachments of publications on the bookmarklist"
+msgstr "Lese-Zugriffsebenen für alle Anhänge der Veröffentlichungen auf der Merkliste setzen"
+
+#: ../../views/bookmarklist/controls.php:102
+msgid "Set attachment access level"
+msgstr "Anhangs-Zugriffsebene setzen"
+
+#: ../../views/bookmarklist/delete.php:11
+msgid "Are you sure that you want to delete all publication on the bookmarklist from your database? There is no undo!"
+msgstr "Sind Sie sicher, dass Sie alle Veröffentlichungen auf der Merkliste aus der Datenbank löschen wollen? Dies kann nicht rückgängig gemacht werden!"
+
+#: ../../views/bookmarklist/setattaccesslevel.php:14
+#, php-format
+msgid "Are you sure that you want to set the read access level for all attachments of publications on the bookmarklist to '%s'? There is no undo!"
+msgstr "Sind Sie sicher, dass Sie die Lesezugriffsebene für alle Anhänge der Veröffentlichungen auf der Merkliste auf '%s' setzen wollen? Dies kann nicht rückgängig gemacht werden!"
+
+#: ../../views/bookmarklist/setattaccesslevel.php:15
+#: ../../views/bookmarklist/setpubaccesslevel.php:15
+#: ../../views/defaults/delete.php:14
+msgid "Confirm"
+msgstr "Bestätigen"
+
+#: ../../views/bookmarklist/setpubaccesslevel.php:14
+#, php-format
+msgid "Are you sure that you want to set the read access level for all publications on the bookmarklist to '%s'? There is no undo!"
+msgstr "Sind Sie sicher, dass Sie die Lesezugriffsebene für alle Veröffentlichungen auf der Merkliste auf '%s' setzen wollen? Dies kann nicht rückgängig gemacht werden!"
+
+#: ../../views/export/chooseformat.php:12
+msgid "Click on the format in which you want to export the publications:"
+msgstr "Klicken Sie auf das gewünschte Exportformat für die Veröffentlichungen:"
+
+#: ../../views/export/chooseformat.php:15
+msgid "Export to BiBTeX"
+msgstr "Exportieren als BiBTeX"
+
+#: ../../views/export/chooseformat.php:19
+msgid "Export to RIS"
+msgstr "Export als RIS"
+
+#: ../../views/export/chooseformat.php:25
+msgid " Format: "
+msgstr "Format:"
+
+#: ../../views/export/chooseformat.php:27
+msgid " Style: "
+msgstr "Stil:"
+
+#: ../../views/export/chooseformat.php:37
+msgid "Export formatted entries"
+msgstr "Formatierte Einträge exportieren"
+
+#: ../../views/export/chooseformat.php:37
+msgid "Formatted"
+msgstr "Formatiert"
+
+#: ../../views/groups/delete.php:13
+#, php-format
+msgid "Are you sure that you want to delete group \"%s\"?"
+msgstr "Sind Sie sicher, dass Sie Gruppe \"%s\" löschen wollen?"
+
+#: ../../views/groups/edit.php:38
+msgid "Create a new group"
+msgstr "Neue Gruppe erzeugen"
+
+#: ../../views/groups/edit.php:40
+msgid "Edit group settings"
+msgstr "Gruppeneinstellungen bearbeiten"
+
+#: ../../views/groups/edit.php:50
+msgid "Group details:"
+msgstr "Gruppendetails:"
+
+#: ../../views/groups/edit.php:62
+msgid "Abbreviation"
+msgstr "Abkürzung"
+
+#: ../../views/groups/edit.php:71
+msgid "Rights profiles:"
+msgstr "Rechteprofile:"
+
+#: ../../views/groups/edit.php:78
+msgid "The following rights profiles will by default be assigned to a user when it is added to this group."
+msgstr "Die folgenden Rechteprofile werden vorgabemäßig einem Nutzer zugewiesen, wenn er einer Gruppe hinzugefügt wird."
+
+#: ../../views/groups/summary.php:20
+#: ../../views/users/summary.php:22
+msgid "topic subscription"
+msgstr "Themenabo"
+
+#: ../../views/help/about.php:4
+#: ../../views/help/header.php:17
+msgid "About"
+msgstr "Über"
+
+#: ../../views/help/about.php:14
+msgid "Administrator of this installation:"
+msgstr "Administrator dieser Installation:"
+
+#: ../../views/help/about.php:15
+msgid "URL of this installation: "
+msgstr "URL dieser Installation: "
+
+#: ../../views/help/about.php:16
+msgid "PHP version: "
+msgstr "PHP-Version:"
+
+#: ../../views/help/about.php:17
+msgid "Aigaion Database Version: "
+msgstr "Aigaion-Datenbankversion: "
+
+#: ../../views/help/about.php:22
+msgid "Version history"
+msgstr "Versionsüberblick"
+
+#: ../../views/help/about.php:26
+#: ../../views/site/maintenance.php:24
+msgid "Check for updates"
+msgstr "Nach Aktualisierungen suchen"
+
+#: ../../views/help/accessrights.php:4
+msgid "Access rights on different levels"
+msgstr "Zugriffsrechte auf verschiedenen Ebenen"
+
+#: ../../views/help/accessrights.php:6
+msgid "Aigaion users can be anonymous or not, can be assigned to different groups, and can be assigned different user rights. This makes it possible to restrict access to certain objects to a limited set of users. This restriction can apply to topics, publications, notes and attachments, and can be set separately for <em>reading</em> and for <em>editing</em> them."
+msgstr "Aigaion-Nutzer können anonym sein oder nicht, können verschiedenen Gruppen zugeordnet werden und unterschiedliche Nutzerrechte erhalten. Das ermöglicht den Zugriff auf gewisse Objekte auf eine begrenzte Nutzerzahl einzuschränken. Diese Einschränkung kann auf Themen, Veröffentlichungen, Notizen und Anhänge angewendet un unabhängig für <em>lesen</em> und <em>bearbeiten</em> gesetzt werden."
+
+#: ../../views/help/accessrights.php:9
+msgid "What access levels are there?"
+msgstr "Welche Zugriffsebenen gibt es?"
+
+#: ../../views/help/accessrights.php:11
+msgid "For each of the above mentioned objects one can set a <code>read_access_level</code> and a <code>edit_access_level</code>. These levels can be:"
+msgstr "Für jedes der obigen Objekte kann man <code>read_access_level</code> (Leseebene) und <code>edit_access_level</code> (Bearbeitungsebene) setzen. Diese Ebenen können sein:"
+
+#: ../../views/help/accessrights.php:14
+msgid "'public' (object can be read or edited by everyone including anonymous users),"
+msgstr "'public' (Objekt kann von jedem, einschließlich anonymer Nutzer, gelesen oder bearbeitet werden),"
+
+#: ../../views/help/accessrights.php:15
+msgid "'intern' (object can be read or edited by all non-anonymous users),"
+msgstr "'intern' (Objekt kann von allen nicht anonymen Nutzern gelesen oder bearbeitet werden),"
+
+#: ../../views/help/accessrights.php:16
+msgid "'group'  (object can be read or edited by the users from one specific group),"
+msgstr "'group' (Objekt kann von Mitgliedern einer bestimmten Gruppe gelesen oder bearbeitet werden),"
+
+#: ../../views/help/accessrights.php:17
+msgid "'private' (object can be read or edited by the owner only)"
+msgstr "'private' (Objekt kann nur vom Eigentümer gelesen oder bearbeitet werden),"
+
+#: ../../views/help/accessrights.php:20
+msgid "What user rights are involved?"
+msgstr "Welche Nutzerrechte sind beteiligt?"
+
+#: ../../views/help/accessrights.php:22
+msgid "There are two types of user rights that also influence reading and editing access. The first are the normal read and edit rights. For example, a user who has no 'topic_edit' rights cannot edit a topic, even if all access levels of that topic are set to 'public'. The second are the 'override rights'. A user who has for example the right 'topic_read_all' can read every topic, even if he is not the owner and the access levels are set to 'private'."
+msgstr "Es gibt zwei Arten von Nutzerrechten, die Lese- und Bearbeitungszugriff ebenfalls beeinflussen. Die erste sind die normalen Lese- und Bearbeitungsrechte. Zum Beispiel kann ein Nutzer, der das Recht 'topic_edit' (Themenbearbeitung) nicht besitzt, keine Themen bearbeiten, selbst wenn alle Zugriffsebenen dieses Themas auf 'public' gesetzt sind. Die zweite sind 'überschreibende Rechte'. Ein Nutzer, der z.B. das Recht 'topic_read_all' (alle Themen lesen) hat, kann jedes Thema lesen, auch wenn er nicht Eigentümer ist und die Zugriffsebenen auf 'privat' gesetzt sind."
+
+#: ../../views/help/accessrights.php:25
+msgid "Who can change the access level of an object?"
+msgstr "Wer kann die Zugriffsebene eines Objekts ändern?"
+
+#: ../../views/help/accessrights.php:27
+msgid "The access levels can normally be changed only by the owner. However, users who have the appropriate override rights for editing (see above) can also change the access levels of an object."
+msgstr "Die Zugriffsebenen können normalerweise nur vom Eigentümer geändert werden. Nutzer, die jedoch die passenden überschreibenden Rechte für Bearbeitung (siehe oben) haben, können die Zugriffsebenen eines Objekts ebenfalls ändern."
+
+#: ../../views/help/accounts.php:4
+msgid "Groups, user accounts and rights profiles"
+msgstr "Gruppen, Nutzerkonten und Rechteprofile"
+
+#: ../../views/help/accounts.php:6
+msgid "Access to the Aigaion database is possible through logging in with a user account, using the Aigaion login forms or some external module using e.g. LDAP or some CMS for authentication. Individual users can have certain access rights assigned to them. Individual users can also be assigned to groups. Groups facilitate group-defined topic subscriptions, quick assignment of default right profiles and restriction of read and write access for certain notes, publications, attachments or topics to a subset of users."
+msgstr "Zugriff auf die Aigaion-Datenbank ist durch Anmeldung mit einem Nutzerkonto möglich, indem man das Aigaion-Anmeldeformular oder ein externes Modul wie LDAP oder das eines CMS für die Anmeldung nutzt. Einzelnen Nutzern können bestimmte Zugriffsrechte zugewiesen werden. Einzelne Nutzer können auch Gruppen zugeweisen werden. Gruppen erlauben gruppenbezogene Themenabos, schnelle Vergabe von Vorgabe-Rechteprofilen und Einschränkung von Lese- und Schreibrechten für bestimmte Notizen, Veröffentlichungen, Anhänge oder Themen für eine Teilmenge von Nutzern."
+
+#: ../../views/help/accounts.php:9
+msgid "Group topic subscriptions"
+msgstr "Gruppenabos von Themen"
+
+#: ../../views/help/accounts.php:11
+msgid "Users with sufficient rights ('user_edit_all') can subscribe a group to certain topics from the 'manage accounts' page. In that case all users that belong to that group will be counted 'subscribed' to that topic, no matter whether they were individually subscribed or not."
+msgstr "Nutzer mit ausreichenden Rechten ('user_edit_all') können auf der 'Alle Konten verwalten'-Seite für eine Gruppe ein bestimmtes Thema abonnieren. In diesem Fall werden alle Nutzer, die dieser Gruppe angehören, als Abonnenten dieses Themas behandelt, unabhängig davon, ob sie es je einzeln abonniert haben oder nicht."
+
+#: ../../views/help/accounts.php:14
+msgid "Default rights profiles for groups"
+msgstr "Vorgabe-Rechteprofile für Gruppen"
+
+#: ../../views/help/accounts.php:16
+msgid "Each group can be associated with one or more <em>rights profiles</em>, collections of user rights. This association has no influence at all on the user rights considered to be assigned to the users currently belonging to the group. However, whenever you newly assign a user to a group, that user will immediately also receive all user rights from the rights profiles associated to the group. This helps in quickly establishing default rights for users in certain groups."
+msgstr "Jeder Gruppe können ein oder mehrere <em>Rechteprofile</em>, Sammlungen von Nutzerechten, zugewiesen werden. Diese Zuweisung hat keinen Einfluss auf die Nutzerrechte der Nutzer, die derzeit der Gruppe angehören. Wenn Sie jedoch einen Nutzer einer Gruppe neu zuordnen, wird dieser Nutzer sofort ebenfalls alle Nutzerrechte vom Rechteprofil der Gruppe erlangen. Dies hilft dabei, schnell Vorgaberechte für Nutzer in bestimmten Gruppen einzuführen."
+
+#: ../../views/help/accounts.php:19
+msgid "Access levels"
+msgstr "Zugriffsebenen"
+
+#: ../../views/help/accounts.php:21
+#, php-format
+msgid "See %s for more information about access levels."
+msgstr "Siehe %s für mehr Informationen zu Zugriffsebenen."
+
+#: ../../views/help/accounts.php:21
+msgid "here"
+msgstr "hier"
+
+#: ../../views/help/accounts.php:24
+msgid "External login modules"
+msgstr "Externe Anmeldemodule"
+
+#: ../../views/help/accounts.php:26
+msgid "Still to be documented. See also explanation on the site configuration page. Allows login to be controlled through an external system such as LDAP, .htpasswd files or some CMS login state."
+msgstr "Muss noch dokumentiert werden. Siehe auch die Erklärung auf der Seitenkonfigurationsseite. Erlaubt Kontrollierung der Anmeldung durch ein externes System wie LDAP, .htpasswd oder einen CMS-Anmeldestatus."
+
+#: ../../views/help/attachments.php:3
+#: ../../views/help/header.php:10
+#: ../../views/publications/single.php:332
+msgid "Attachments"
+msgstr "Anhänge"
+
+#: ../../views/help/attachments.php:5
+msgid "It is possible to attach files to your publications in two ways: by uploading them to the server, and as a 'remote' link to a document somewhere on the web. Upon import, the import data is scanned for links to attachments, which are then automatically stored as remote attachments for the imported entries. 'Remote' attachments may at a later time be downloaded to the server and turned into 'server stored attachments' with a single command."
+msgstr "Es ist auf zwei Arten möglich, Dateien an Ihre Veröffentlichungen anzuhängen: Indem Sie sie auf den Server hochladen oder als 'entfernte' Verknüpfung zu einem Dokument irgendwo im Web. Beim Import werden die importierten Daten auf Verknüpfungen zu Anhängen untersucht, die dann automatisch als entfernte Anhänge für die importierten Einträge gespeichert werden. 'Entfernte' Anhänge können zu einem späteren Zeitpunkt mit einem einzelnen Kommando zum Server heruntergeladen und in 'auf dem Server gespeicherte' Anhänge umgewandelt werden."
+
+#: ../../views/help/attachments.php:8
+msgid "Why attachments?"
+msgstr "Warum Anhänge?"
+
+#: ../../views/help/attachments.php:10
+msgid "When building up a bibliography, it is not uncommon that one spends a lot of time tracking down not only the bibliographic information for new entries, but also tracking down the content of the papers themselves. And then, when you have finally obtained the file and printed it out, you forget the print-out somewhere on the plane&hellip; and have to do it all again. Or you could of course have attached the electronic version of the paper to your Aigaion database - then at least you can print it out a second time without a long search."
+msgstr "Beim Aufbau einer Bibliographie ist es nicht ungewöhnlich, viel Zeit nicht nur beim Nachforschen nach bibliographischer Information für neue Einträge, sondern auch beim Nachforschen nach dem Inhalt der Paper selbst zu verbringen. Und dann, wenn Sie endlich die Datei erhalten und ausgedruckt haben, vergessen Sie den Ausdruck irgendwo im Flugzeug&hellip; und müssen alles von vorn beginnen. Oder Sie könnten natürlich die elektronische Version des Papers in Ihre Aigaion-Datenbank eingepflegt haben - dann können Sie es zumindest ein zweites Mal ausdrucken ohne langwierige Suche."
+
+#: ../../views/help/attachments.php:13
+msgid "Attachments and public access rights"
+msgstr "Anhänge und öffentliche Zugriffsrechte"
+
+#: ../../views/help/attachments.php:15
+msgid "When you have downloaded a publication, e.g. from the publishers site or from your library, you do not necessarily have the right to make that file public to all the world. It is a good idea not to set the access level of a publication to 'public' unless you are very certain of your right to do so. When in doubt, keep the attachment intern or private, and use the DOI to give anonymous guests access to the publication contents."
+msgstr "Wenn Sie eine Veröffentlichung heruntergeladen haben, z.B. von der Seite des Verlags oder von Ihrer Bibliothek, sind Sie nicht unbedingt berechtigt, diese der ganzen Welt zugänglich zu machen. Es ist eine gute Idee, die Zugriffsebene einer Veröffentlichung nicht auf 'public' zu setzen, solange Sie nicht sicher sind, dass Sie das dürfen. Wenn Sie Zweifel haben, lassen Sie den Anhang intern oder privat und nutzen Sie den DOI, um anonymen Gästen Zugang zum Veröffentlichungsinhalt zu gewähren."
+
+#: ../../views/help/attachments.php:18
+msgid "Remote attachments vs DOI"
+msgstr "Entfernte Anhänge vs DOI"
+
+#: ../../views/help/attachments.php:20
+msgid "A DOI is a Digital Object Identifier. <q>\"They are used to provide current information, including where they (or information about them) can be found on the Internet. Information about a digital object may change over time, including where to find it, but its DOI name will not change.\"</q> <cite>(source: www.doi.org)</cite>."
+msgstr "Ein DOI ist ein Digitaler Objekt-Identifikator. <q>\"They are used to provide current information, including where they (or information about them) can be found on the Internet. Information about a digital object may change over time, including where to find it, but its DOI name will not change.\"</q> <cite>(Quelle: www.doi.org)</cite>."
+
+#: ../../views/help/attachments.php:23
+msgid "When you know the DOI of a paper, you can always find the paper by appending the DOI to the url <code>http://dx.doi.org/</code> This usually leads you to the paper on the site of the publisher. A major advantage of this is that, as opposed to on-server attachments, you do not have to worry about your rights to make the information public: the publisher will have the appropriate mechanisms in place on his site to restrict access to the actual content of the paper to those who have a right to it."
+msgstr "Wenn Sie den DOI eines Papers kennen, können Sie das Paper jederzeit durch Anhängen des DOI an die URL <code>http://dx.doi.org/</code> finden. Die Verknüpfung führt üblicher Weise zum Paper auf der Seite des Veröffentlichers. Ein großer Vorteil davon ist, dass Sie, im Gegensatz zu Anhängen auf dem Server, sich nicht um das Recht kümmern müssen, ob Sie die Information öffentlich machen dürfen: Der Veröffentlicher hat auf seiner Seite die passenden Mechanismen, um nur berechtigten Personen Zugriff auf den tatsächlichen Inhalt zu gewähren."
+
+#: ../../views/help/attachments.php:26
+msgid "The difference with remote attachments (URL links) is that a DOI always stays the same, whereas an URL will probably be outdated as soon as the publisher changes his web site."
+msgstr "Der Unterschied zu entfernten Anhängen (URL-Verknüpfungen) it, dass ein DOI immer gleich bleibt, wohingegen eine URL wahrscheinlich ablaufen wird, sobald der Veröffentlicher seine Webseite ändert."
+
+#: ../../views/help/attachments.php:29
+msgid "Common problems"
+msgstr "Übliche Probleme"
+
+#: ../../views/help/attachments.php:31
+msgid "The most common problems and errors with uploading attachments are:"
+msgstr "Die häufigsten Probleme und Fehler beim Hochladen von Anhängen sind:"
+
+#: ../../views/help/attachments.php:34
+msgid "The server is read-only, or the attachment directory is not writable, so storing uploaded attachment on the server fails"
+msgstr "Der Server ist 'read-only oder das attachment-Verzeichnis ist nicht beschreibbar, weshalb das Speichern hochgeladener Anhänge fehlschlägt."
+
+#: ../../views/help/attachments.php:35
+msgid "The PHP settings for the webserver are sometimes inadequate for uploading attachments: 'upload_max_filesize', 'post_max_size' and 'max_execution_time' should all be large enough for uploading attachments of a normal size"
+msgstr "Die PHP-Einstellungen des Webservers sind manchmal nicht angemessen für das Hochladen von Anhängen: 'upload_max_filesize', 'post_max_size' und 'max_execution_time' sollten alle groß genug sein für das Hochladen von normal großen Anhängen."
+
+#: ../../views/help/attachments.php:36
+msgid "The Aigaion setting 'allowed attachment extensions' does not contain the right extensions"
+msgstr "Die Aigaion-Einstellung 'Erlaubte Erweiterungen für Anhänge' enthält nicht die richtigen Erweiterungen."
+
+#: ../../views/help/crossref.php:3
+msgid "Cross referencing in Aigaion"
+msgstr "Querverweise in Aigaion"
+
+#: ../../views/help/crossref.php:5
+msgid ""
+"Explain: which fields are copied? How to create crossreference? Why should a crossreferenced proceedings have it's title both in the title and in the booktitle field? Why should the booktitle field of the article-in-proceedings be empty if you use crossreferencing? etc\n"
+"How to enforce empty note field in the cross referencing field by using the double quote value \"\""
+msgstr "Erkläre: welche Felder werden kopiert? Wie werden Querverweise erzeugt? Warum sollten querverwiesene Proceedings ihren Titel auch im booktitle-Feld haben? Warum sollte das booktitle-Feld eines article-in-proceeding leer sein, wenn man Querverweise verwendet? Usw. Wie erzwingt man ein leeres Notizfeld im Querverweis, indem man den Anführungszeichen-Wert \"\" nutzt?"
+
+#: ../../views/help/front.php:3
+msgid "Aigaion - A Web based document management system"
+msgstr "Aigaion - ein webbasiertes Dokumente-Management-System"
+
+#: ../../views/help/front.php:5
+msgid "The Aigaion system is used to maintain an annotated bibliography. This can be your own personal bibliography, or a database that is shared between a group of people working on similar topics."
+msgstr "Das Aigaion-System wird zur Verwaltung einer annotierten Bibliographie verwendet. Dabei kann es sich um Ihre eigene, persönliche Bibliographie handeln oder um eine Datenbank, die in einer Gruppe von Leuten mit dem Fokus auf öhnliche Themen unterhalten wird."
+
+#: ../../views/help/front.php:8
+#, php-format
+msgid "The main features of Aigaion are the %s and the %s. The topic tree is used to organize your bibliography in themes and topics, where a publication can be added to any number of topics that are relevant to it. The notes form a way in which you can summarize a paper in your own style, indicate why the paper is relevant for your research, why you think a paper belongs to a certain topic, whether you think the paper succeeded in its intended goal, etc."
+msgstr "Die besonderen Eigenschaften Aigaions sind der %s und die %s. Der Themenbaum wird verwendet, um Ihre Bibliographie in Themen und Gebiete zu organisieren, wobei eine Publikation einer beliebigen Anzahl Themen zugeordnet werden kann, die für diese relevant sind. Die Notizen stellen eine Möglichkeit dar, Veröffentlichungen in Ihrem eigenen Stil zusammenzufassen, und zeigen auf, wieso das Paper für Ihre Forschung relevant ist, warum Sie es einem bestimmten Thema zuordnen, ob Sie finden, dass es seinem beabsichtigten Ziel gerecht wird, usw."
+
+#: ../../views/help/front.php:8
+msgid "topic tree"
+msgstr "Themenbaum"
+
+#: ../../views/help/front.php:8
+msgid "notes"
+msgstr "Notizen"
+
+#: ../../views/help/goodpractices.php:3
+#: ../../views/help/header.php:15
+msgid "Good practices"
+msgstr "Erprobte Verfahren"
+
+#: ../../views/help/goodpractices.php:5
+msgid "This is a list of things that have been known to work for various users of Aigaion. Read them at your leisure, and use what you think might work for you as well. Or ignore everything that you think to be nonsense."
+msgstr "Dies ist eine Liste von Dingen, von denen bekannt ist, dass sie für verschiedene Aigaion-Nutzer klappen. Lesen Sie sie zum Vergnügen und nutzen Sie davon, was Sie für sich als sinnvoll erachten. Oder ignorieren Sie alles, was Sie für Unsinn halten."
+
+#: ../../views/help/goodpractices.php:8
+msgid "<strong>Check if the paper was already added</strong> before you go through all the work of adding an entry to a shared database, e.g. by searching for the author names or the title. If you share your database with other people and you want to add a new article to the database, it may be that somebody already added it. After all, if this other person added it to a topic for which you are not registered, you will not see it appear."
+msgstr "<strong>Überprüfen Sie, ob das Paper bereits vorhanden ist,</strong>indem Sie z.B. nach Autor oder Titel suchen, bevor Sie sich die ganze Mühe machen, einen Eintrag in eine verteilte Datenbank einzupflegen. Falls Sie Ihre Datenbank mit anderen Leuten teilen und einen neuen Artikel zur Datenbank hinzufügen möchten, könnte dies jemand anders bereits erledigt haben. Wenn diese Person ihn allerdings einem Thema zugeordnet hat, für das Sie nicht angemeldet sind, werden Sie ihn nicht erscheinen sehen."
+
+#: ../../views/help/goodpractices.php:9
+msgid "<strong>Use a consistent scheme for naming your bibtex ID's.</strong> It saves you a lot of work when you are writing a paper in LaTeX and need to cite papers contained in the BiBTeX export of Aigaion."
+msgstr "<strong>Nutzen Sie ein konsistentes Schema, um Ihre BiBTeX-IDs zu benennen.</strong> Es spart Ihnen viel Arbeit, wenn Sie ein Paper in LaTeX schreiben und Paper zitieren müssen, die im BiBTeX-Export von Aigaion enthalten sind."
+
+#: ../../views/help/goodpractices.php:10
+msgid "<strong>Create a 'To be processed' topic</strong>. When you are quickly scanning a new paper, adding it to the database and writing a preliminary note for it, you sometimes don't take the time to immediately embed the paper in the proper places in the topic hierarchy. To be sure that you don't lose track of it and forget to do this later, it might be useful to add that paper under the topic 'To be processed'. Later on you can then just clean up that topic every once in a while."
+msgstr "<strong>Erzeugen Sie ein 'muss noch verarbeitet werden'-Thema.</strong> Wenn Sie schnell ein neues Paper überfliegen, es in die Datenbank schicken und eine vorläufige Notiz dafür schreiben, nehmen Sie sich manchmal nicht die Zeit, das Paper sofort an den richtigen Platz im Themenbaum zu stellen. Um sicherzugehen, dass Sie nicht den Überblick verlieren und vergessen, es später zu tun, könnte es sinnvoll sein, das Paper in das Thema 'muss noch verarbeitet werden' einzufügen. Später können Sie dieses Thema dann bei Gelegenheit aufräumen."
+
+#: ../../views/help/goodpractices.php:11
+msgid "<strong>Maintain the database</strong>. Sometimes take the time to browse through the topics and papers to see if the structures still make sense to you, and whether papers are stored under the right topics. Often your perception of a paper changes over time, so when you are rereading a paper, and writing comments on it, it might be a good moment to see if it still is assigned to all the right topics. Used in this way, the database will help you structure your views on the literature, besides just serving as a repository of BiBTeX links."
+msgstr "<strong>Pflegen Sie die Datenbank.</strong> Manchmal braucht es etwas Zeit, um durch die Themen und Veröffentlichungen zu sehen und zu schauen, ob die Strukturen ncoh für Sie sinnvoll sind, und ob die Paper unter den richtigen Themen gespeichert sind. Oft ändert sich Ihre Wahrnehmung einer Veröffentlichung mit der Zeit, sodass, wenn Sie ein Paper erneut lesen und Kommentare dazu schreiben, es gut sein kann, nachzusehen, ob es noch in all den richtigen Themen verzeichnet ist. Auf diese Art verwendet hilft Ihnen die Datenbank, Ihre Sichtweise auf die Literatur zu strukturieren, neben dem einfachen Liefern von BiBTeX_Verknüpfungen."
+
+#: ../../views/help/goodpractices.php:12
+msgid "<strong>Adding publications</strong>: It is a good practice to add only those publications of which you really have an opinion. It is better to have fewer publications which are carefully placed in the topic hierarchy and commented with notes than to add anything that you ever saw, which would result in a database full of uninteresting things among which the relevant papers would be hard to find."
+msgstr "<strong>Veröffentlichungen hinzufügen:</strong> Es ist eine erprobte Vorgehensweise, nur die Veröffentlichungen hinzuzufügen, von denen Sie wirklich eine Meinung haben. Es ist besser, wenige Veröffentlichungen sorgfältig in der Themenhierarchie platziert zu haben, kommentiert und mit Notizen versehen, als alles, was Sie je gesehen haben, hinzuzufügen, was in einer Datenbank voller uninteressanter Dinge mündet, in der relevante Paper schwer zu finden sind."
+
+#: ../../views/help/header.php:3
+msgid "Help pages"
+msgstr "Hilfeseiten"
+
+#: ../../views/help/header.php:5
+msgid "Introduction"
+msgstr "Einführung"
+
+#: ../../views/help/header.php:6
+msgid "Topic tree"
+msgstr "Themenbaum"
+
+#: ../../views/help/header.php:7
+msgid "Annotating publications"
+msgstr "Veröffentlichungen annotieren"
+
+#: ../../views/help/header.php:8
+msgid "Publication lists"
+msgstr "Veröffentlichungslisten"
+
+#: ../../views/help/header.php:9
+msgid "FAQ"
+msgstr "FAQ"
+
+#: ../../views/help/header.php:12
+msgid "Accounts"
+msgstr "Konten"
+
+#: ../../views/help/header.php:13
+msgid "Access rights"
+msgstr "Zugriffsrechte"
+
+#: ../../views/help/header.php:14
+msgid "Crossref"
+msgstr "Querverweise"
+
+#: ../../views/help/header.php:16
+#: ../../views/help/themes.php:3
+msgid "Themes"
+msgstr "Designs"
+
+#: ../../views/help/notes.php:3
+msgid "Annotating the bibliography"
+msgstr "Die Bibliografie annotieren"
+
+#: ../../views/help/notes.php:5
+msgid "Where a publication abstract is a purely descriptive summary of a publication, a annotation can be both descriptive and critical. Annotations are commonly used to:"
+msgstr "Während ein Abstract eine rein deskriptive Zusammenfassung einer Veröffentlichung ist, kann eine Notiz sowohl beschreibend als auch kritisch sein. Notizen werden üblicherweise verwendet zum:"
+
+#: ../../views/help/notes.php:8
+msgid "place a publication in a context"
+msgstr "Platzieren einer Veröffentlichung im Kontext"
+
+#: ../../views/help/notes.php:9
+msgid "describe the relevance of a publication"
+msgstr "Beschreiben der Relevanz einer Veröffentlichung"
+
+#: ../../views/help/notes.php:10
+msgid "summarize the strengths and weaknesses of a publication"
+msgstr "Auflisten von Stärken und Schwächen einer Veröffentlichung"
+
+#: ../../views/help/notes.php:13
+msgid "Aigaion offers the 'note' facility to create annotations. An annotation might look like the following example:"
+msgstr "Aigaion bietet die 'Notiz'-Einrichtung, um Anmerkungen zu erzeugen. Eine Anmerkung könnte wie das folgende Beispiel aussehen:"
+
+#: ../../views/help/notes.php:17
+msgid "<strong title=\"Example\">[EXA]</strong> :&nbsp;Extensive evaluation of several featuresets and classifiers. The evaluation confirms the results that have been found in <em><a href=\"#\">aucouturier:04</a></em>."
+msgstr "<strong title=\"Beispiel\">[BSP]</strong> :&nbsp;Extensize Evaluierung verschiedener Eigenschaftensätze und Klassifizierungen. Die Evaluation bestätigt die Ergebnisse, die in <em><a href=\"#\">aucouturier:04</a></em> gefunden wurden."
+
+#: ../../views/help/notes.php:20
+msgid "There seems to be a glass ceiling in classification accuracy."
+msgstr "Es scheint eine gläserne Decke in der Genauigkeit der Klassifizierung zu geben."
+
+#: ../../views/help/notes.php:21
+msgid "The featureset found by Aucouturier indeed represents an optimal set."
+msgstr "Der Eigenschaftensatz, der von Aucouturier gefunden wurde, repräsentiert tatsächlich einen optimalen Satz."
+
+#: ../../views/help/notes.php:24
+msgid "INCLUDE: MOCKUP OF EDIT AND DELETE LINKS!"
+msgstr ""
+
+#: ../../views/help/notes.php:28
+msgid "Referencing other publications"
+msgstr "Andere Veröffentlichungen referenzieren"
+
+#: ../../views/help/notes.php:30
+msgid "You can reference to other publications by simply using the publications BibTeX cite ID. On displaying the note, the cite ID will be replaced by a link to the corresponding publication."
+msgstr "Sie können auf andere Veröffentlichungen einfach durch Verwendung der BIBTeX-Zitat-ID dieser Veröffentlichung verweisen. Beim Anzeigen der Notiz wird die Zitat-ID durch einen Link zur entsprechenden Veröffentlichung ersetzt."
+
+#: ../../views/help/notes.php:33
+msgid "Formatting annotations"
+msgstr "Notizen formatieren"
+
+#: ../../views/help/notes.php:35
+msgid "To improve the readability of annotations it is recommended to keep annotations short and to the point. Standard HTML formatting tags can be used to format an annotation. The most common tags are listed here:"
+msgstr "Um die Lesbarkeit von Anmerkungen zu verbessern, wird empfohlen, Anmerkungen kurz zu halten und auf den Punkt zu bringen. Standard-HTML-Formatierungen können zur Formatierung einer Anmerkung verwendet werden. Die gebräuchlichsten Tags sind hier aufgelistet:"
+
+#: ../../views/help/notes.php:40
+msgid "HTML:"
+msgstr "HTML:"
+
+#: ../../views/help/notes.php:41
+msgid "Output:"
+msgstr "Ausgabe:"
+
+#: ../../views/help/notes.php:45
+msgid "linebreak"
+msgstr "Zeilenumbruch"
+
+#: ../../views/help/notes.php:48
+#: ../../views/help/notes.php:49
+msgid "boldface text"
+msgstr "fettgedruckter Text"
+
+#: ../../views/help/notes.php:52
+#: ../../views/help/notes.php:53
+msgid "italic text"
+msgstr "kursiver Text"
+
+#: ../../views/help/notes.php:58
+#: ../../views/help/notes.php:65
+msgid "the first list item"
+msgstr "erster Listenpunkt"
+
+#: ../../views/help/notes.php:59
+#: ../../views/help/notes.php:66
+msgid "the second list item"
+msgstr "zweiter Listenpunkt"
+
+#: ../../views/help/notes.php:60
+#: ../../views/help/notes.php:67
+msgid "the third list item"
+msgstr "dritter Listenpunkt"
+
+#: ../../views/help/publicationlists.php:3
+msgid "The publication lists"
+msgstr "Die Veröffentlichungslisten"
+
+#: ../../views/help/publicationlists.php:5
+msgid "Aigaion offers multiple ways to explore your publications, the standard list sorts all publications in the database by year. You can also browse the publications sorted by title, by publicationtype or by topic."
+msgstr "Aigaion bietet viele Wege an, um Ihre Veröffentlichungen zu durchforsten, die Standardliste sortiert alle Veröffentlichungen in der Datenbank nach dem Jahr. Sie können die Veröffentlichungen auch sortiert nach Titel, Veröffentlichungstyp oder Thema durchsuchen."
+
+#: ../../views/help/publicationlists.php:9
+msgid "<a>Rienks, Rutger</a>,&nbsp;<a>Poppe, Ronald</a>&nbsp;and&nbsp;<a>Poel, Mannes</a>&nbsp;<a>Speaker Prediction based on Head Orientations</a>,&nbsp;in <i>Proceedings of the Fourteenth Annual Machine Learning Conference of Belgium and the Netherlands (Benelearn 2005)</i>, <a>Otterlo van, Martijn</a>,&nbsp;<a>Poel, Mannes</a>&nbsp;and&nbsp;<a>Nijholt, Anton</a> (eds), CTIT Workshop Proceedings Series WP05-03, pp.&nbsp;73-79, 2005"
+msgstr "<a>Rienks, Rutger</a>,&nbsp;<a>Poppe, Ronald</a>&nbsp;und&nbsp;<a>Poel, Mannes</a>&nbsp;<a>Sprechervorhersage basierend auf Kopforientierungen</a>,&nbsp;in <i>Proceedings of the Fourteenth Annual Machine Learning Conference of the Bavarian Ministry for Technology (Baylearn 2005)</i>, <a>Otterlo van, Martijn</a>,&nbsp;<a>Poel, Mannes</a>&nbsp;und&nbsp;<a>Nijholt, Anton</a> (Hrsg.), CTIT Workshop Proceedings Series WP05-03, pp.&nbsp;73-79, 2005"
+
+#: ../../views/help/publicationlists.php:14
+msgid "An example publication entry"
+msgstr "Ein beispielhafter Eintrag für eine Veröffentlichung"
+
+#: ../../views/help/publicationlists.php:17
+msgid "Icons in the publication list and their functions."
+msgstr "Symbole in der Veröffentlichungsliste und ihre Bedeutung."
+
+#: ../../views/help/publicationlists.php:19
+msgid "Edit the information of this publication."
+msgstr "Bearbeite die Information dieser Veröffentlichung."
+
+#: ../../views/help/publicationlists.php:20
+msgid "View the pdf file of this article (only if available)."
+msgstr "PDF-Anhang dieses Artikels betrachten (nur wenn verfügbar)."
+
+#: ../../views/help/themes.php:5
+msgid "Aigaion supports the use of themes, you can select it on your 'profile' page. If you don't like the standard themes, feel free to create one yourself. Here is how to do it:"
+msgstr "Aigaion unterstützt die Verwendung von Designs, die Sie auf Ihrer 'Profil'-Seite auswählen können. Falls Sie die Standarddesigns nicht mögen, können Sie gerne ein eigenes Design erzeugen. Hier steht, wie es geht:"
+
+#: ../../views/help/themes.php:8
+msgid "Create a directory where the theme-files will be stored, below the '/aigaionengine/themes/' directory."
+msgstr "Erzeugen Sie ein Verzeichnis, in dem die Design-Dateien gespeichert werden, innerhalb des '/aigaionengine/themes/'-Ordners."
+
+#: ../../views/help/themes.php:9
+msgid "Copy the <code>themes/default/css/</code>, <code>themes/default/img/</code> and <code>themes/default/icons/</code> directories to that theme directory. You end up with the following directory structure:"
+msgstr "Kopieren Sie die Ordner <code>themes/default/css/</code>, <code>themes/default/img/</code> und <code>themes/default/icons/</code> in dieses Designverzeichnis. Sie sollten dann folgende Verzeichnisstruktur haben:"
+
+#: ../../views/help/themes.php:11
+#: ../../views/help/themes.php:13
+#: ../../views/help/themes.php:15
+msgid "new-theme-directory"
+msgstr "neues-design-verzeichnis"
+
+#: ../../views/help/themes.php:12
+msgid "all style files"
+msgstr "alle Stildateien"
+
+#: ../../views/help/themes.php:14
+msgid "all icons"
+msgstr "alle Symbole"
+
+#: ../../views/help/themes.php:16
+msgid "all other images"
+msgstr "alle anderen Bilder"
+
+#: ../../views/help/themes.php:19
+msgid "You can then start modifying the icons and the styles. Make sure that all icons exist, Aigaion does not have anything like a fallback strategy for missing icons, nor is such a thing planned for the future."
+msgstr "Sie können dann anfangen, die Symbole und Stile zu verändern. Stellen Sie sicher, dass alle Symbole existieren. Aigaion hat keine Ausweichstrategie für fehlende Symbole, und eine derartige Funktion ist für die Zukunft auch nicht geplant."
+
+#: ../../views/help/themes.php:22
+msgid "Note that the personal configuration forms will automatically pick up the new theme as an option."
+msgstr "Beachten Sie, dass das persönliche Konfigurationsformular das neue Design automatisch als Option aufnehmen wird."
+
+#: ../../views/help/themes.php:25
+#, php-format
+msgid "If you do not have access to the web server yourself, create the theme and kindly ask your system administrator (<a href=\"mailto:%s\">%s</a>) to place it in the directory mentioned above."
+msgstr "Falls Sie keinen Zugriff auf den Webserver haben, erzeugen Sie das Design und Fragen Sie höflich bei Ihrem Systemadministrator (<a href=\"mailto:%s\">%s</a>) an, es im oben erwähnten Verzeichnis zu platzieren."
+
+#: ../../views/help/topictree.php:3
+msgid "The topic tree"
+msgstr "Der Themenbaum"
+
+#: ../../views/help/topictree.php:5
+msgid "Click on a topic to read its description and find all <a href=\"?page=help&amp;help=publicationlist\">papers</a> that are attached to it. A paper can be attached to multiple topics! If you want to find for example the publications that are part of two topics, you can use the search interface from the menu."
+msgstr "Klicken Sie auf ein Thema, um dessen Beschreibung zu lesen und alle <a href=\"?page=help&amp;help=publicationlist\">Veröffentlichungen</a> zu finden, die ihm zugeordnet sind. Ein Paper kann mehreren Themen zugeordnet sein. Falls Sie z.B. die Veröffentlichungen finden wollen, die Teil von zwei Themen sind, können Sie die Suchschnittstelle aus dem Menü verwenden."
+
+#: ../../views/help/topictree.php:9
+msgid "Go to topic First Topic"
+msgstr "Gehe zum ersten Thema"
+
+#: ../../views/help/topictree.php:9
+msgid "First Topic"
+msgstr "Erstes Thema"
+
+#: ../../views/help/topictree.php:10
+msgid "Go to topic Child of First Topic"
+msgstr "Gehe zum Thema Kind des ersten Themas"
+
+#: ../../views/help/topictree.php:10
+msgid "Child of First Topic"
+msgstr "Kind des ersten Themas"
+
+#: ../../views/help/topictree.php:11
+msgid "Go to topic Second Topic"
+msgstr "Gehe zum zweiten Thema"
+
+#: ../../views/help/topictree.php:11
+msgid "Second Topic"
+msgstr "Zweites Thema"
+
+#: ../../views/help/topictree.php:13
+msgid "An example topic tree fragment"
+msgstr "Ein beispielhaftes Themenbaum-Fragment"
+
+#: ../../views/help/topictree.php:16
+msgid "Icons in the topic tree and their functions."
+msgstr "Symbole im Themenbaum und ihre Bedeutung."
+
+#: ../../views/help/topictree.php:18
+msgid "Expand the topic in the tree view."
+msgstr "Erweitere das Thema in der Baumansicht."
+
+#: ../../views/help/topictree.php:19
+msgid "Collapse the topic in the tree view."
+msgstr "Schließe das Thema in der Baumansicht."
+
+#: ../../views/help/topictree.php:22
+msgid "Subscribing for topics."
+msgstr "Themen abonnieren."
+
+#: ../../views/help/topictree.php:24
+msgid "It may be that not every user of a certain Aigaion database is interested in exactly the same topics. Therefore Aigaion contains a mechanism that allows you to subscribe to - or unsubscribe from - any topic, meaning that you can determine which topics you will see while browsing the system."
+msgstr "Es kann sein, dass nicht jeder Nutzer einer bestimmten Aigaion-Datenbank an den exakt gleichen Themen interessiert ist. Deshalb enthält Aigaion einen Mechanismus, der es Ihnen erlaubt, Themen zu abonnieren - oder zu kündigen. Das bedeutet, Sie können entscheiden, welche Themen Sie sehen wollen, wenn Sie durch das System schmökern."
+
+#: ../../views/help/topictree.php:27
+#, php-format
+msgid "By default, a new user will not be subscribed to any topic. To review which topics already exist in this copy of Aigaion, go to the %s and subscribe to any topic that you are interested in. Those topics will then appear in your topic tree."
+msgstr "Per Vorgabe hat ein neuer Nutzer kein Thema abonniert. Um zu überprüfen, welche Themen bereits in dieser Aigaion-Kopie bestehen, gehen Sie zu %s und abonnieren Sie alle Themen, die Sie interessieren. Diese Themen werden dann in Ihrem Themenbaum auftauchen."
+
+#: ../../views/help/topictree.php:27
+msgid "topic review page"
+msgstr "Überprüfungsseite für Themen"
+
+#: ../../views/import/importform.php:3
+msgid "Import publications"
+msgstr "Veröffentlichungen importieren"
+
+#: ../../views/import/importform.php:4
+msgid "Paste the entries (BiBTeX, RIS or Refer) to import in the text area below and then press \"Import\"."
+msgstr "Fügen Sie die Einträge (BiBTeX, RIS oder Refer) in das untere Textfeld ein und drücken Sie dann \"Import\"."
+
+#: ../../views/import/importform.php:24
+msgid " Mark imported entries as read."
+msgstr "Importierte Einträge als gelesen markieren."
+
+#: ../../views/import/review.php:13
+msgid "Review publications"
+msgstr "Veröffentlichungen überprüfen"
+
+#: ../../views/import/review.php:34
+msgid "Import:"
+msgstr "Import:"
+
+#: ../../views/import/review.php:53
+#: ../../views/publications/edit.php:38
+#: ../../views/publications/review.php:38
+#: ../../views/publications/single.php:82
+msgid "Citation:"
+msgstr "Zitat:"
+
+#: ../../views/import/review.php:76
+msgid "Choose alternative authors:"
+msgstr "Alternative Autoren wählen:"
+
+#: ../../views/import/review.php:89
+#, php-format
+msgid "Options for import-author %s:"
+msgstr "Opionen für den Import von Autior %s:"
+
+#: ../../views/import/review.php:95
+#: ../../views/import/review.php:189
+msgid "[from database]"
+msgstr "[aus Datenbank]"
+
+#: ../../views/import/review.php:98
+#: ../../views/import/review.php:192
+msgid "[keep]"
+msgstr "[behalten]"
+
+#: ../../views/import/review.php:103
+msgid "select to use similar author found in database"
+msgstr "auswählen, um ähnlichen Autor aus der Datenbank zu verwenden"
+
+#: ../../views/import/review.php:111
+msgid "select to use author as found in BiBTeX"
+msgstr "auswählen, um Autor zu verwenden, der in BiBTeX gefunden wurde"
+
+#: ../../views/import/review.php:114
+msgid " [add new]"
+msgstr " [neue hinzufügen]"
+
+#: ../../views/import/review.php:170
+msgid "Choose alternative editors:"
+msgstr "Alternative Autoren wählen:"
+
+#: ../../views/import/review.php:183
+#, php-format
+msgid "Options for import-editor %s:"
+msgstr "Opionen für den Import von Herausgeber %s:"
+
+#: ../../views/import/review.php:197
+msgid "select to use similar editor found in database"
+msgstr "auswählen, um ähnlichen Herausgeber aus der Datenbank zu verwenden"
+
+#: ../../views/import/review.php:205
+msgid "select to use editor as found in BiBTeX"
+msgstr "auswählen, um Herausgeber zu verwenden, der in BiBTeX gefunden wurde"
+
+#: ../../views/import/review.php:266
+#: ../../views/publications/edit.php:123
+#: ../../views/publications/review.php:73
+#: ../../views/publications/single.php:210
+msgid "Keywords:"
+msgstr "Schlüsselwörter:"
+
+#: ../../views/login/fail.php:3
+msgid "Login failed."
+msgstr "Anmeldung fehlgeschlagen."
+
+#: ../../views/login/form.php:23
+msgid "Welcome to the Aigaion bibliography system, please login"
+msgstr "Willkommen zum Aigaion Bibliographiesystem. Bitte melden Sie sich an."
+
+#: ../../views/login/form.php:59
+msgid "Remember me."
+msgstr "Mich erinnern."
+
+#: ../../views/login/form.php:67
+#, php-format
+msgid "If you want a password, please mail to %s &lt;%s&gt;"
+msgstr "Falls Sie ein Passwort möchten, schreiben Sie bitte eine E-Mail an %s &lt;%s&gt;"
+
+#: ../../views/login/form.php:72
+msgid "For more information about the Aigaion bibliography system visit <a href=\"http://aigaion.nl/\" target=\"_blank\">Aigaion.nl</a>."
+msgstr "Für mehr Information über das Aigaion Bibliographiesystem besuchen Sie <a href=\"http://aigaion.nl/\" target=\"_blank\">Aigaion.nl</a>."
+
+#: ../../views/login/form.php:79
+msgid ""
+"This Aigaion 2.0 database uses external login modules. \n"
+"              Login is not possible through the login form."
+msgstr "Diese Aigaion 2.0-Datenbank verwendet externe Anmeldemodule. Anmeldung über das Anmeldeformular ist nicht möglich."
+
+#: ../../views/login/form.php:81
+msgid "CLICK HERE TO TRY AGAIN"
+msgstr "KLICKEN SIE HIER, UM ES ERNEUT ZU VERSUCHEN"
+
+#: ../../views/login/form.php:83
+#, php-format
+msgid ""
+"(If you want to turn of the external login module, use your MySQL database program to edit the \n"
+"              '%sconfig' table. Find the setting 'USE_EXTERNAL_LOGIN', set it to 'FALSE',\n"
+"              close your browser windows, restart your browser and try to login through the normal login form.)"
+msgstr "(Falls Sie das externe Modul ausschalten wollen, nutzen Sie Ihr MySQL-Datenbankprogramm, um die '%sconfig'-Tabelle zu bearbeiten. Suchen Sie die Eigenschaft 'USE_EXTERNAL_LOGIN', setzen Sie sie auf 'FALSE', schließen Sie Ihre Browserfenster, starten Sie Ihren Browser erneut und versuchen Sie sich über das normale Anmeldeformular anzumelden.)"
+
+#: ../../views/notes/delete.php:11
+msgid "Are you sure that you want to delete the note below?"
+msgstr "Sind Sie sicher, dass Sie untenstehende Notiz löschen wollen?"
+
+#: ../../views/notes/delete.php:16
+msgid "Note text:"
+msgstr "Notiztext:"
+
+#: ../../views/notes/edit.php:46
+msgid "Add a note"
+msgstr "Notiz hinzufügen"
+
+#: ../../views/notes/edit.php:48
+msgid "Change note"
+msgstr "Notiz ändern"
+
+#: ../../views/notes/edit.php:53
+msgid "Text:"
+msgstr "Text:"
+
+#: ../../views/publications/delete.php:11
+#, php-format
+msgid "Are you sure that you want to delete the publication '%s'?"
+msgstr "Sind Sie sicher, dass Sie Veröffentlichung \"%s\" löschen wollen?"
+
+#: ../../views/publications/edit.php:9
+msgid "New publication"
+msgstr "Neue Veröffentlichung"
+
+#: ../../views/publications/edit.php:9
+msgid "Edit publication"
+msgstr "Veröffentlichung bearbeiten"
+
+#: ../../views/publications/edit.php:27
+#: ../../views/publications/single.php:78
+msgid "Type of publication:"
+msgstr "Art der Veröffentlichung:"
+
+#: ../../views/publications/edit.php:31
+msgid "Title:"
+msgstr "Titel:"
+
+#: ../../views/publications/edit.php:52
+#: ../../views/publications/single.php:98
+msgid "Key"
+msgstr "Schlüssel"
+
+#: ../../views/publications/edit.php:52
+#: ../../views/publications/single.php:98
+msgid "This is the bibtex `key` field, used to define sorting keys"
+msgstr "Das ist das BiBTeX 'Schlüssel'-Feld, das verwendet wird, um Sortierschlüssel zu definieren"
+
+#: ../../views/publications/edit.php:175
+#: ../../views/publications/single.php:235
+msgid "Editors"
+msgstr "Herausgeber"
+
+#: ../../views/publications/edit.php:191
+msgid "&lt;&lt;&nbsp;add"
+msgstr "&lt;&lt;&nbsp;dazu"
+
+#: ../../views/publications/edit.php:192
+msgid "rem&nbsp;&gt;&gt;"
+msgstr "weg&nbsp;&gt;&gt;"
+
+#: ../../views/publications/edit.php:198
+msgid "up"
+msgstr "hoch"
+
+#: ../../views/publications/edit.php:199
+msgid "down"
+msgstr "runter"
+
+#: ../../views/publications/edit.php:206
+msgid "Search:"
+msgstr "Suchen:"
+
+#: ../../views/publications/edit.php:206
+msgid "Type in name to quick search. Note: use unaccented letters!"
+msgstr "Geben Sie einen Namen für die Schnellsuche ein. Hinweis: verwenden Sie unakzentuierte Buchstaben!"
+
+#: ../../views/publications/edit.php:207
+msgid "Create as new name"
+msgstr "Als neuen Namen erzeugen"
+
+#: ../../views/publications/list.php:120
+#, php-format
+msgid "Publications of type %s"
+msgstr "Veröffentlichungen vom Typ %s"
+
+#: ../../views/publications/list.php:158
+#: ../../views/publications/list.php:180
+#: ../../views/publications/single.php:134
+msgid "View publication details"
+msgstr "Veröffentlichungsdetails betrachten"
+
+#: ../../views/publications/list.php:166
+#: ../../views/publications/single.php:143
+#: ../../views/publications/single.php:160
+msgid " and "
+msgstr " und "
+
+#: ../../views/publications/list.php:169
+#: ../../views/publications/single.php:146
+#: ../../views/publications/single.php:163
+msgid ", "
+msgstr ", "
+
+#: ../../views/publications/list.php:254
+#: ../../views/publications/list.php:263
+#, php-format
+msgid "Download %s"
+msgstr "%s herunterladen"
+
+#: ../../views/publications/list.php:270
+msgid "Click to follow Digital Object Identifier link to online publication"
+msgstr "Klicken, um der Digital Object Identifier (DOI)-Verknüpfung zur Online-Veröffentlichung zu folgen"
+
+#: ../../views/publications/review.php:6
+msgid "Review publication"
+msgstr "Veröffentlichung überprüfen"
+
+#: ../../views/publications/single.php:19
+msgid "Delete this publication"
+msgstr "Diese Veröffentlichung löschen"
+
+#: ../../views/publications/single.php:20
+msgid "Edit this publication"
+msgstr "Diese Veröffentlichung bearbeiten"
+
+#: ../../views/publications/single.php:25
+msgid "UnBookmark"
+msgstr "entmerken"
+
+#: ../../views/publications/single.php:32
+msgid "Bookmark"
+msgstr "merken"
+
+#: ../../views/publications/single.php:41
+msgid "BiBTeX"
+msgstr "BiBTeX"
+
+#: ../../views/publications/single.php:43
+msgid "RIS"
+msgstr "RIS"
+
+#: ../../views/publications/single.php:170
+msgid " (eds)"
+msgstr " (Hrsg.)"
+
+#: ../../views/publications/single.php:172
+msgid " (ed)"
+msgstr " (Hrsg.)"
+
+#: ../../views/publications/single.php:253
+msgid "Crossref by"
+msgstr "Querverweis von"
+
+#: ../../views/publications/single.php:270
+msgid "Added by:"
+msgstr "Hinzugefügt von:"
+
+#: ../../views/publications/single.php:279
+msgid "Total mark:"
+msgstr "Gesamtbewertung:"
+
+#: ../../views/publications/single.php:291
+msgid "Your mark:"
+msgstr "Ihre Bewertung:"
+
+#: ../../views/publications/single.php:298
+msgid "Read/Add mark"
+msgstr "Bewertung lesen/hinzufügen"
+
+#: ../../views/publications/single.php:300
+msgid "Update mark"
+msgstr "Bewertung aktualisieren"
+
+#: ../../views/publications/single.php:313
+msgid "Unread"
+msgstr "ungelesen"
+
+#: ../../views/publications/single.php:329
+msgid "add attachment"
+msgstr "Anhang hinzufügen"
+
+#: ../../views/publications/single.php:357
+msgid "add note"
+msgstr "Notiz hinzufügen"
+
+#: ../../views/publications/single.php:360
+msgid "Notes"
+msgstr "Notizen"
+
+#: ../../views/publications/single.php:388
+msgid "finish categorization"
+msgstr "Kategorisierung abschließen"
+
+#: ../../views/publications/single.php:390
+msgid "categorize publication"
+msgstr "Veröffentlichung einordnen"
+
+#: ../../views/publications/single.php:395
+msgid "Topics"
+msgstr "Themen"
+
+#: ../../views/publications/single.php:407
+msgid "Click on a topic name to change its subscription status."
+msgstr "Klicken Sie auf einen Themennamen, um den zugewiesenen Status zu ändern."
+
+#: ../../views/rightsprofiles/delete.php:14
+#, php-format
+msgid "Are you sure that you want to delete rightsprofile \"%s\"?"
+msgstr "Sind Sie sicher, dass Sie Rechteprofil \"%s\" löschen wollen?"
+
+#: ../../views/rightsprofiles/edit.php:40
+msgid "Create a new rightsprofile"
+msgstr "Ein neues Rechteprofil erzeugen"
+
+#: ../../views/rightsprofiles/edit.php:42
+#, php-format
+msgid "Edit rightsprofile \"%s\""
+msgstr "Rechteprofil \"%s\" bearbeiten"
+
+#: ../../views/rightsprofiles/edit.php:60
+msgid "User rights in this profile:"
+msgstr "Nutzerrechte in diesem Profil:"
+
+#: ../../views/search/addform.php:19
+msgid "Sending Method"
+msgstr "Sendemethode"
+
+#: ../../views/search/addform.php:28
+msgid "Icon"
+msgstr "Symbol"
+
+#: ../../views/search/addform.php:37
+msgid "Quest Parameters"
+msgstr "Suchparameter"
+
+#: ../../views/search/addform.php:45
+msgid "Save"
+msgstr "Speichern"
+
+#: ../../views/search/addsuccess.php:1
+#, php-format
+msgid "The search engine \"%s\" was successfully added to the database."
+msgstr "Die Suchmaschine \"%s\" wurde erfolgreich zur Datenbank hinzugefügt."
+
+#: ../../views/search/addsuccess.php:3
+#: ../../views/search/manage.php:49
+msgid "Add another search engine."
+msgstr "Weitere Suchmaschine hinzufügen."
+
+#: ../../views/search/externalsearch.php:3
+msgid "Search on external sites:"
+msgstr "Suche auf externen Seiten:"
+
+#: ../../views/search/manage.php:33
+msgid "Image"
+msgstr "Bild"
+
+#: ../../views/search/manage.php:34
+msgid "Status"
+msgstr "Status"
+
+#: ../../views/search/manage.php:42
+msgid "Click to activate/deactivate"
+msgstr "Klicken zum Aktivieren/Deaktivieren"
+
+#: ../../views/search/results.php:16
+#, php-format
+msgid "Authors: %d matches"
+msgstr "Autoren: %d Treffer"
+
+#: ../../views/search/results.php:24
+#, php-format
+msgid "Topics: %d matches"
+msgstr "Themen: %d Treffer"
+
+#: ../../views/search/results.php:32
+#, php-format
+msgid "Keywords: %d matches"
+msgstr "Schlüsselwörter: %d Treffer"
+
+#: ../../views/search/results.php:98
+msgid "Publication matches"
+msgstr "Treffer in den Veröffentlichungen"
+
+#: ../../views/search/results.php:133
+msgid "No search results found for query:"
+msgstr "Keine Suchergebnisse für:"
+
+#: ../../views/search/results.php:137
+msgid "Search results for query:"
+msgstr "Suchergebnisse für:"
+
+#: ../../views/site/edit.php:20
+msgid "AIGAION SITE CONFIGURATION FORM"
+msgstr "AIGAION SEITENKONFIGURATIONSFORMULAR"
+
+#: ../../views/site/edit.php:26
+msgid "Site Admin:"
+msgstr "Seitenadministrator:"
+
+#: ../../views/site/edit.php:30
+msgid "Name of Aigaion administrator:"
+msgstr "Name des Aigaion-Administrator:"
+
+#: ../../views/site/edit.php:35
+msgid "Email of Aigaion administrator:"
+msgstr "E-Mail des Aigaion-Administrators:"
+
+#: ../../views/site/edit.php:41
+msgid "Anonymous access:"
+msgstr "Anonymer Zugang:"
+
+#: ../../views/site/edit.php:45
+msgid "Enable anonymous access:"
+msgstr "Anonymen Zugang aktivieren:"
+
+#: ../../views/site/edit.php:54
+msgid "Check this box to enable anonymous (guest) access."
+msgstr "Diesen Kasten markieren, um anonymen (Gast-)Zugang zu erlauben."
+
+#: ../../views/site/edit.php:61
+msgid "Default anonymous user account"
+msgstr "Vorgabekonto für anonymen Nutzer"
+
+#: ../../views/site/edit.php:75
+msgid ""
+"Select the user account that will be used by default for logging in anonymous users. Only\n"
+"\t        users that are marked \"anonymous\" on the edit user page can be selected here!"
+msgstr "Wählen Sie das Nutzerkonto, das vorgabemäßig für die Anmeldung anonymer Nutzer verwendet wird. Nur Nutzer, die auf der \"Nutzer bearbeiten\"-Seite als \"anonym\" gekennzeichnet sind, können hier gewählt werden!"
+
+#: ../../views/site/edit.php:77
+msgid "Note: Be careful in assigning user rights to anonymous accounts!"
+msgstr "Hinweis: Seien Sie vorsichtig bei der Vergabe von Nutzerrechten an anonyme Konten!"
+
+#: ../../views/site/edit.php:85
+msgid "Attachment settings:"
+msgstr "Anhangeinstellungen:"
+
+#: ../../views/site/edit.php:88
+msgid "Allowed extensions for attachments:"
+msgstr "Erlaubte Erweiterungen für Anhänge:"
+
+#: ../../views/site/edit.php:97
+msgid ""
+"The list of allowed extensions for attachments. Attachments that do not have an extension from this \n"
+"\t        list can not be uploaded."
+msgstr "Die Liste erlaubter Erweiterungen für Anhänge. Anhänge, die keine Dateinamenerweiterung aus dieser Liste haben, können nicht hochgeladen werden."
+
+#: ../../views/site/edit.php:104
+msgid "Allow all remote attachments:"
+msgstr "Alle entfernten Anhänge zulassen:"
+
+#: ../../views/site/edit.php:113
+msgid ""
+"Check this box if you want to allow all external attachment names, instead of just those ending in \n"
+"\t        one of the \"allowed extensions\" specified above. This may be useful because external attachments are \n"
+"\t        often to sites such as portal.acm or doi, with link names ending in meaningless numbers instead of a \n"
+"\t        proper file name. This only affects *remote* attachments."
+msgstr "Markieren Sie diesen Kasten, falls Sie alle auswärtigen Anhangnamen erlauben wollen anstatt lediglich diesen, die mit den \"erlaubten Erweiterungen\" aus der obigen Liste enden. Dies kann sinnvoll sein, weil externe Anhänge oft auf Seiten wie portal.acm oder DOI mit Verknüpfungsnamen führen, die in bedeutungslosen Nummern enden statt in aussagekräftigen Dateiendungen. Dies betrifft lediglich *entfernte* Anhänge."
+
+#: ../../views/site/edit.php:120
+msgid "The server is read only:"
+msgstr "Der Server ist 'nur-lesen':"
+
+#: ../../views/site/edit.php:129
+msgid ""
+"Check this box if the server is read-only, i.e. if you cannot write files such as attachments to \n"
+"\t        the server."
+msgstr "Markieren Sie diesen Kasten, falls der Server 'nur-lesen' ist, d.h., falls Sie keine Dateien, z.B. Anhänge, auf dem Server speichern können."
+
+#: ../../views/site/edit.php:135
+msgid "In- and output settings:"
+msgstr "Ein- und Ausgabeoptionen:"
+
+#: ../../views/site/edit.php:156
+msgid "BibTeX strings:"
+msgstr "BiBTeX-Zeichenketten:"
+
+#: ../../views/site/edit.php:161
+msgid ""
+"BibTeX allows definition of strings. Strings that are defined here are converted when importing BibTeX.\n"
+"\t        The correct syntax for strings is: @string {AIG = \"Aigaion bibliography System\"}"
+msgstr "BiBTeX erlaubt die Definition von Zeichenketten. Zeichenketten, die hier definiert werden, werden beim Import von BiBTeX konvertiert. Die korrekte Syntax für Zeichenketten ist: @string {AIG = \"Aigaion Bibliographie-System\"}"
+
+#: ../../views/site/edit.php:166
+msgid "Some display settings:"
+msgstr "Einige Anzeigeeinstellungen:"
+
+#: ../../views/site/edit.php:170
+msgid "Title of the site:"
+msgstr "Seitentitel:"
+
+#: ../../views/site/edit.php:178
+msgid "Display publications on single-topic page:"
+msgstr "Zeige Veröffentlichungen auf Einzelthemen-Seiten an:"
+
+#: ../../views/site/edit.php:187
+msgid ""
+"Checking this box means that the full list of publications for a topic is included below the topic \n"
+"\t        description, to speed up browsing for papers. Turning this on might however slow down the loading \n"
+"\t        of the topic pages."
+msgstr "Diesen Kasten zu markieren bedeutet, dass eine vollständige Liste von Veröffentlichungen unter der Themenbeschreibung angezeigt wird, sodass das Suchen nach Papern beschleunigt wird. Allerdings könnte dies auch zu verlangsamtem Laden der Themenseiten führen."
+
+#: ../../views/site/edit.php:196
+msgid "Merge crossreferenced publications in single publication view:"
+msgstr "Veröffentlichungen, auf die querverwiesen wird, in die Einzelveröffentlichungs-Ansicht integrieren:"
+
+#: ../../views/site/edit.php:205
+msgid "Check to merge cross-referenced publications on a single publication page view."
+msgstr "Markieren, um querverwiesene Veröffentlichungen auf der Einzelveröffentlichuns-Seite zusammenzuführen."
+
+#: ../../views/site/edit.php:233
+msgid "no logo uploaded"
+msgstr "kein Logo hochgeladen"
+
+#: ../../views/site/edit.php:246
+msgid "Default access levels:"
+msgstr "Vorgabe-Zugriffsrechte:"
+
+#: ../../views/site/edit.php:249
+msgid "Specify here the default access levels for different types of objects."
+msgstr "Wählen Sie hier die Vorgabezugriffsebene für verschiedene Typen von Objekten."
+
+#: ../../views/site/edit.php:252
+msgid "Type:"
+msgstr "Typ:"
+
+#: ../../views/site/edit.php:253
+msgid "Default access level:"
+msgstr "Vorgabe-Zugriffsrecht:"
+
+#: ../../views/site/edit.php:256
+msgid "Default attachment read level"
+msgstr "Vorgabe-Zugriffsebene \"Anhang lesen\""
+
+#: ../../views/site/edit.php:257
+msgid "Default attachment edit level"
+msgstr "Vorgabe-Zugriffsebene \"Anhang bearbeiten\""
+
+#: ../../views/site/edit.php:258
+msgid "Default publication read level"
+msgstr "Vorgabe-Zugriffsebene \"Veröffentlichung lesen\""
+
+#: ../../views/site/edit.php:259
+msgid "Default publication edit level"
+msgstr "Vorgabe-Zugriffsebene \"Veröffentlichung bearbeiten\""
+
+#: ../../views/site/edit.php:260
+msgid "Default note read level"
+msgstr "Vorgabe-Leseebene für Notizen"
+
+#: ../../views/site/edit.php:261
+msgid "Default note edit level"
+msgstr "Vorgabe-Notiz-Zugriffsebene"
+
+#: ../../views/site/edit.php:262
+msgid "Default topic read level"
+msgstr "Vorgabe-Leseebene für Themen"
+
+#: ../../views/site/edit.php:263
+msgid "Default topic edit level"
+msgstr "Vorgabe-Themen-Zugriffsebene"
+
+#: ../../views/site/edit.php:288
+msgid "Login modules:"
+msgstr "Anmeldemodule:"
+
+#: ../../views/site/edit.php:292
+msgid "Use the following login module:"
+msgstr "Benutze das folgende Anmeldemodul:"
+
+#: ../../views/site/edit.php:295
+msgid "Aigaion login module"
+msgstr "Aigaion-Anmeldemodul"
+
+#: ../../views/site/edit.php:296
+msgid ".htpasswd file"
+msgstr ".htpasswd-Datei"
+
+#: ../../views/site/edit.php:297
+msgid "LDAP based authentication"
+msgstr "LDAP-basierte Authentifizierung"
+
+#: ../../views/site/edit.php:309
+msgid "Select the login module to be used."
+msgstr "Wählen Sie das Anmeldemodul, das genutzt werden soll."
+
+#: ../../views/site/edit.php:310
+msgid "\"Aigaion\" is the default built-in login system."
+msgstr "\"Aigaion\" ist das eingebaute Vorgabesystem für die Anmeldung."
+
+#: ../../views/site/edit.php:311
+msgid "\".htpasswd\" is a module that uses the .htaccess and .htpasswd login system to determine the name of the logged user, instead of a login form."
+msgstr "\".htpasswd\" ist ein Modul, das das .htaccess und .htpasswd Anmeldesystem statt eines Anmeldeformulars verwendet, um den Namen des angemeldeten Nutzers zu bestimmen."
+
+#: ../../views/site/edit.php:312
+msgid "\"LDAP\" uses a connection to a LDAP server to verify the credentials filled in in the login form."
+msgstr "\"LDAP\" nutzt eine Verbindung zu einem LDAP-Server, um die Angaben der Anmeldemaske zu überprüfen."
+
+#: ../../views/site/edit.php:313
+#: ../../views/site/edit.php:346
+msgid "Note:"
+msgstr "Hinweis:"
+
+#: ../../views/site/edit.php:313
+msgid ""
+"If you select a login module different from \"Aigaion\", be sure to have that \n"
+"\t        module correctly configured below in this form - otherwise you may have problems logging in and then you can also \n"
+"\t        not turn the external login module off without directly accessing the Aigaion database :)"
+msgstr "Falls Sie ein anderes Modul als \"Aigaion\" wählen, versichern Sie sich, das Modul weiter unten korrekt konfiguriert zu haben. Andernfalls werden Sie vermutlich beim Anmelden Probleme haben und damit das externe Modul auch nicht deaktivieren ohne direkt auf die Aigaion-Datenbank zuzugreifen :)"
+
+#: ../../views/site/edit.php:322
+msgid "Create missing users:"
+msgstr "Fehlende Nutzer erzeugen:"
+
+#: ../../views/site/edit.php:331
+msgid ""
+"Check this box to force the system to create users that are logged in in the external login module,\n"
+"\t        but do not have an Aigaion user account yet. Note that this setting only has an effect when a login\n"
+"\t        module different from \"Aigaion\" has been selected."
+msgstr "Markieren Sie diesen Kasten, um das System zu zwingen, Nutzer zu erzeugen, die via externes Anmeldemodul angemeldet sind, aber noch kein Aigaion-Nutzerkonto besitzen. Beachten Sie, dass diese Einstellung nur wirksam ist, wenn ein anderes Anmeldemodul als \"Aigaion\" ausgewählt wurde."
+
+#: ../../views/site/edit.php:338
+msgid "LDAP configuration:"
+msgstr "LDAP-Konfiguration:"
+
+#: ../../views/site/edit.php:338
+msgid ""
+"If you use LDAP authentication, \n"
+"                you should set the LDAP server and the base DN. (e.g. server: ldap.aigaion.nl, base dn: dc=dev,dc=aigaion,dc=nl)\n"
+"                (That's just an example! We don't really have an LDAP server at Aigaion.nl!)."
+msgstr "Falls Sie LDAP-Authentifizierung verwenden, sollten Sie LDAP-Server und Basis-DN setzen. (Z.B. Server: ldap.aigaion.nl, Basis-DN: dc=dev,dc=aigaion,dc=nl; das ist nur ein Beispiel! Wir haben nicht wirklich einen LDAP-Server unter Aigaion.nl.)"
+
+#: ../../views/site/edit.php:346
+msgid ""
+"If you want to use the LDAP authentication, you need to have the LDAP modules of your PHP server \n"
+"            activated. Explaining how to install that is well outside the scope of Aigaion documentation.\n"
+"            See the LDAP documentation at <a href=\"http://www.php.net/\" target=\"_blank\">www.php.net</a> for more information.\n"
+"            Take special note of the dependencies of this module: for Windows you need e.g. libeay32.dll and ssleay32.dll and msvcr71.dll\n"
+"            to be available somewhere...."
+msgstr "Falls Sie LDAP-Authentifizierung wünschen, müssen Sie die LDAP-Module Ihrer PHP-Installation aktiviert haben. Zu erklären, wie diese installiert werden, ist außerhalb des Rahmens der Aigaion-Dokumentation. Siehe die LDAP-Dokumentation bei <a href=\"http://www.php.net/\" target=\"_blank\">www.php.net</a> für weitergehende Informationen. Achten Sie besonders auf die Abhängigkeiten dieses Moduls: Für Windows müssen z.B. libeay32.dll, ssleay32.dll sowie msvcr71.dll verfügbar sein."
+
+#: ../../views/site/edit.php:354
+msgid "LDAP server:"
+msgstr "LDAP-Server:"
+
+#: ../../views/site/edit.php:363
+msgid "The LDAP server (like: ldap.aigaion.nl)."
+msgstr "Der LDAP-Server (z.B.: ldap.aigaion.nl)."
+
+#: ../../views/site/edit.php:366
+msgid "LDAP base DN:"
+msgstr "LDAP Basis-DN:"
+
+#: ../../views/site/edit.php:375
+msgid "The base DN for loggin in to the LDAP server (like: dc=dev,dc=aigaion,dc=nl)."
+msgstr "Der Basis-DN für die Anmeldung am LDAP-Server (wie: dc=dev,dc=aigaion,dc=nl)."
+
+#: ../../views/site/edit.php:379
+msgid "Login domain:"
+msgstr "Anmeldedomäne:"
+
+#: ../../views/site/edit.php:388
+msgid "The domain for logging in to the LDAP server (like: dev.aigaion.nl)."
+msgstr "Die Domäne für die Anmeldung am LDAP-Server (wie: dev.aigaion.nl)."
+
+#: ../../views/site/edit.php:396
+#: ../../views/users/edit.php:366
+msgid "Store new settings"
+msgstr "Neue Einstellungen speichern"
+
+#: ../../views/site/maintenance.php:14
+msgid "Maintenance and checks"
+msgstr "Wartung und Überprüfungen"
+
+#: ../../views/site/maintenance.php:15
+#, php-format
+msgid "There is a set of maintenance functions available. You can either perform the maintenance functions separately by selecting from the list, or you can %s."
+msgstr "Es gibt ein Set an Wartungsfunktionen. Sie können entweder jede Wartungsfunktionseparat ausführen, indem Sie sie aus der Liste auswählen, oder Sie können %s."
+
+#: ../../views/site/maintenance.php:15
+msgid "perform all checks at once"
+msgstr "alle Überprüfungen auf einmal ausführen"
+
+#: ../../views/site/maintenance.php:17
+msgid "Check attachments"
+msgstr "Anhänge überprüfen"
+
+#: ../../views/site/maintenance.php:18
+msgid "Check topics"
+msgstr "Themen überprüfen"
+
+#: ../../views/site/maintenance.php:19
+msgid "Check notes"
+msgstr "Notizen überprüfen"
+
+#: ../../views/site/maintenance.php:20
+msgid "Check authors"
+msgstr "Autoren überprüfen"
+
+#: ../../views/site/maintenance.php:21
+msgid "Check passwords"
+msgstr "Passwörter überprüfen"
+
+#: ../../views/site/maintenance.php:22
+msgid "Check searchable names and titles"
+msgstr "Durchsuchbare Namen und Titel überprüfen"
+
+#: ../../views/site/maintenance.php:23
+msgid "Check publication marks"
+msgstr "Veröffentlichungsbewertungen überprüfen"
+
+#: ../../views/site/maintenance.php:26
+msgid "Backup and restore"
+msgstr "Sichern und wiederherstellen"
+
+#: ../../views/site/maintenance.php:27
+msgid "Making regular backups of the database is recommended. Collecting a complete bibliography takes a lot of time and a single server crash fades all these efforts away. Storing the backupfiles on another server or medium is recommended."
+msgstr "Es wird empfohlen, regelmäßig Sicherungen der Datenbank anzulegen. Eine komplette Bibliographie zu sammeln nimmt viel Zeit in Anspruch und ein einzelner Serverzusammenbruch macht all diesen Aufwand zunichte. Es wird empfohlen, die Sicherungskopien auf einem anderen Server oder Datenträger aufzubewahren."
+
+#: ../../views/site/maintenance.php:29
+msgid "Export database"
+msgstr "Datenbank exportieren"
+
+#: ../../views/site/stats.php:21
+msgid "Aigaion statistics"
+msgstr "Aigaion-Statistiken"
+
+#: ../../views/site/stats.php:23
+#: ../../views/topics/full.php:88
+#, php-format
+msgid "%d Publications (%d read)"
+msgstr "%d Veröffentlichungen (%d gelesen)"
+
+#: ../../views/site/stats.php:24
+#: ../../views/topics/full.php:89
+#, php-format
+msgid "%d Authors"
+msgstr "%d Autoren"
+
+#: ../../views/site/stats.php:25
+#, php-format
+msgid "%d Main topics"
+msgstr "%d Hauptthemen"
+
+#: ../../views/topics/delete.php:11
+#, php-format
+msgid "Are you sure that you want to delete topic \"%s\"?"
+msgstr "Sind Sie sicher, dass Sie Thema \"%s\" löschen wollen?"
+
+#: ../../views/topics/edit.php:40
+msgid "Add a topic"
+msgstr "Thema hinzufügen"
+
+#: ../../views/topics/edit.php:42
+#, php-format
+msgid "Change topic \\\"%s\\\""
+msgstr "Ändere Thema \"%s\""
+
+#: ../../views/topics/edit.php:54
+msgid "Parent"
+msgstr "Vorfahr"
+
+#: ../../views/topics/full.php:11
+#, php-format
+msgid "Topic #%s"
+msgstr "Thema #%s"
+
+#: ../../views/topics/full.php:18
+msgid "-no description-"
+msgstr "-keine Beschreibung-"
+
+#: ../../views/topics/full.php:36
+msgid "Topic:"
+msgstr "Thema:"
+
+#: ../../views/topics/full.php:89
+msgid "view authors on this topic"
+msgstr "Autoren zu diesem Thema betrachten"
+
+#: ../../views/topics/full.php:90
+#, php-format
+msgid "%d Subtopics"
+msgstr "%d Unterthemen"
+
+#: ../../views/topics/full.php:90
+msgid "create new subtopic"
+msgstr "neues Unterthema erzeugen"
+
+#: ../../views/topics/usersubscriptiontreerow.php:53
+msgid " (group subscribed)"
+msgstr "(abonnierte gruppieren)"
+
+#: ../../views/users/delete.php:12
+#, php-format
+msgid "Are you sure that you want to delete user \"%s\"?"
+msgstr "Sind Sie sicher, dass Sie Nutzer \"%s\" löschen wollen?"
+
+#: ../../views/users/edit.php:41
+msgid "Create a New User"
+msgstr "neuen Nutzer erzeugen"
+
+#: ../../views/users/edit.php:43
+msgid "Edit User Preferences"
+msgstr "Nutzereinstellungen bearbeiten"
+
+#: ../../views/users/edit.php:53
+msgid "Account settings:"
+msgstr "Kontoeinstellungen:"
+
+#: ../../views/users/edit.php:53
+msgid "('Account settings' is the only block of settings that is <i>mandatory</i>)"
+msgstr "('Kontoeinstellungen' ist der einzige <i>verpflichtende</i> Block)"
+
+#: ../../views/users/edit.php:67
+msgid "Password (leave blank for no change)"
+msgstr "Passwort (leer lassen zum Beibehalten)"
+
+#: ../../views/users/edit.php:83
+msgid "Re-type new password"
+msgstr "Neues Passwort erneut eintippen"
+
+#: ../../views/users/edit.php:102
+msgid "Anonymous account (check if this account is an anonymous (guest) account)"
+msgstr "Anonymes Konto (markieren, falls dieses Konto ein anonymes (Gast-)Konto ist)"
+
+#: ../../views/users/edit.php:109
+msgid "Note: when you set this account to be anonymous, you should not forget to enable anonymous access to this database on the site configuration page!"
+msgstr "Hinweis: Wenn Sie dieses Konto als anonym markieren, sollten Sie nicht vergessen, anonymen Zugriff zu dieser Datenbank in der Seitenkonfiguration zu aktivieren!"
+
+#: ../../views/users/edit.php:117
+msgid "Person details:"
+msgstr "Personendetails:"
+
+#: ../../views/users/edit.php:121
+msgid "Initials"
+msgstr "Initialen"
+
+#: ../../views/users/edit.php:129
+msgid "First name"
+msgstr "Vorname"
+
+#: ../../views/users/edit.php:137
+msgid "Middle name"
+msgstr "Beiname"
+
+#: ../../views/users/edit.php:145
+msgid "Surname"
+msgstr "Nachname"
+
+#: ../../views/users/edit.php:153
+msgid "Abbreviation (about three characters)"
+msgstr "Abkürzung (etwa drei Zeichen)"
+
+#: ../../views/users/edit.php:161
+msgid "E-Mail Address"
+msgstr "E-Mail-Adresse"
+
+#: ../../views/users/edit.php:182
+msgid "Display preferences:"
+msgstr "Voreinstellungen anzeigen:"
+
+#: ../../views/users/edit.php:186
+msgid "Theme"
+msgstr "Design"
+
+#: ../../views/users/edit.php:194
+msgid "Publication summary style"
+msgstr "Stil der Publikationszusammenfassung"
+
+#: ../../views/users/edit.php:202
+msgid "Author display style"
+msgstr "Stil der Autorenanzeige"
+
+#: ../../views/users/edit.php:210
+msgid "Number of publications per page"
+msgstr "Anzahl Veröffentlichungen pro Seite"
+
+#: ../../views/users/edit.php:218
+msgid "Open attachments in new browser window"
+msgstr "Anhänge in neuem Browserfenster öffnen"
+
+#: ../../views/users/edit.php:226
+msgid "Open export data in browser"
+msgstr "Exportdaten im Browser öffnen"
+
+#: ../../views/users/edit.php:233
+msgid "Check this box to force the system to show export data such as BiBTeX or RIS directly in a browser window instead of downloading it as a file."
+msgstr "Markieren Sie diesen Kasten, um das System zu zwingen, Exportdaten wie BiBTeX oder RIS direkt in einem Browserfenster anzuzeigen, statt sie als Datei herunterzuladen."
+
+#: ../../views/users/edit.php:238
+msgid "Export BiBTeX as UTF8"
+msgstr "Exportiere BiBTeX als UTF-8"
+
+#: ../../views/users/edit.php:245
+msgid "Check this box if you want all BiBTeX output to be in UTF8, i.e. when you do NOT want Aigaion to convert special characters to BiBTeX codes such as {\\'e}."
+msgstr "Markieren Sie diesen Kasten, wenn Sie möchten, dass die gesamte BiBTeX-Ausgabe UTF-8-kodiert ist, d.h., wenn Sie NICHT wollen, dass Aigaion Sonderzeichen in BiBTeX-Codes wie z.B. {\\'e} konvertiert."
+
+#: ../../views/users/edit.php:253
+msgid "Groups:"
+msgstr "Gruppen:"
+
+#: ../../views/users/edit.php:254
+msgid "The groups to which this user belongs. When you add this user to a group that it was previously not a member of, all rights associated with that group will be appended to the user rights of this user upon commit."
+msgstr "Die Gruppen, zu denen dieser Nutzer gehört. Wenn Sie diesen Nutzer zu einer Gruppe hinzufügen, zu der er zuvor nicht gehörte, werden alle Rechte dieser Gruppe beim Absenden an die Nutzerrechte dieses Nutzers angehängt."
+
+#: ../../views/users/edit.php:272
+msgid "User rights:"
+msgstr "Nutzerrechte:"
+
+#: ../../views/users/edit.php:276
+msgid "Check all rights:"
+msgstr "Alle Rechte markieren:"
+
+#: ../../views/users/edit.php:279
+msgid "Check all"
+msgstr "Alle markieren"
+
+#: ../../views/users/edit.php:286
+msgid "Uncheck all rights:"
+msgstr "Alle Rechte demarkieren:"
+
+#: ../../views/users/edit.php:289
+msgid "Uncheck all"
+msgstr "Alle demarkieren"
+
+#: ../../views/users/edit.php:296
+msgid "Check all rights from:"
+msgstr "Alle Rechte markieren von:"
+
+#: ../../views/users/edit.php:310
+msgid "Uncheck all rights from:"
+msgstr "Alle Rechte demarkieren von:"
+
+#: ../../views/users/edit.php:321
+msgid "Restore old state:"
+msgstr "Alten Zustand wiederherstellen:"
+
+#: ../../views/users/edit.php:324
+msgid "Restore"
+msgstr "Wiederherstellen"
+
+#: ../../views/users/summary.php:27
+msgid " (guest user)"
+msgstr " (Gastnutzer)"
+
+#~ msgid "ePub Server of the University of Regensburg"
+#~ msgstr "ePub-Server der Universität Regensburg"
+#~ msgid "Authors: "
+#~ msgstr "Autoren: "
+#~ msgid "Keywords: "
+#~ msgstr "Schlüsselwörter: "
+
