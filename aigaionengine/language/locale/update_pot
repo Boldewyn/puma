@@ -1,0 +1,6 @@
+#!/bin/bash
+if ! which xgettext &> /dev/null; then
+  echo xgettext is missing on your system!
+else
+  xgettext -L php -k__ -k_e -o messages.pot ../../*/*.php ../../*/*/*.php ../../*/*/*/*.php
+fi
