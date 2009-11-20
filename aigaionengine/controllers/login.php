@@ -62,7 +62,7 @@ class Login extends Controller {
         $userlogin = getUserLogin();
 
         //try to login
-        $userlogin->login();
+        $userlogin->login(true);
         if ($userlogin->isLoggedIn()) {
             //if success: redirect
             $this->latesession->set('USERLOGIN', $userlogin);
