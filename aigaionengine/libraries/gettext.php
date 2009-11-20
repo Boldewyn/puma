@@ -25,7 +25,7 @@ class Gettext {
     // user login for language preferences
     $userlogin = getUserLogin ();
     $lang = $userlogin->getPreference('language');
-    appendMessage("setting language: ".$lang."<br>");
+    //appendMessage("setting language: ".$lang."<br>");
       //init userlanguage library:
       // construct a string of supported languages. We assume, that the first one is the prefered.
       // these supported languages are defined in aigaionengine/config/config.php and can be overridden
@@ -40,7 +40,7 @@ class Gettext {
       $CI->userlanguage->setAccept ($lang);
       //this is still needed, because we are not *quite* sure that the language exists. Better to init the right locale :)
       $lang = $CI->userlanguage->get();
-      //appendMessage("available: ".$lang."<br>");
+      appendMessage("available: ".$lang."<br>");
       
       #uncomment this line if you have all languages installed for CodeIgniter under their correct short name
       #to make CodeIgniter follow the same language switches:
