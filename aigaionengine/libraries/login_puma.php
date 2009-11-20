@@ -138,6 +138,7 @@ class Login_puma {
             'newwindowforatt'    => 'FALSE',
             'exportinbrowser'    => 'TRUE',
             'utf8bibtex'         => 'FALSE',
+            'language'           => 'default',
         );
     }
 
