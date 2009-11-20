@@ -268,12 +268,17 @@ class UserLogin {
         try {
             $CI->load->library('login_puma');
             $loginInfo = $CI->login_puma->getLoginInfo();
-            if (isset($loginInfo['login']) && $loginInfo['login'] !== '') {
+			if (isset($_POST['loginName']) && $_POST['loginName'] == "admin") {
+				// do nothing, proceed to local login
+			} elseif (isset($loginInfo['login']) && $loginInfo['login'] !== '') {
                 $this->internalLogin($loginInfo['login'], $loginInfo['password'], true, true);
+				return;
             } elseif (isset($loginInfo['error'])) {
                 appendErrorMessage($loginInfo['error']);
-            }
-            return 1;
+           	    return 1;
+            } else {
+				return 1;
+			}
         } catch (Exception $e) {
         }
 

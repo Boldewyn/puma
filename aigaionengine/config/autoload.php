@@ -58,7 +58,7 @@ $autoload['libraries'] = array('database','latesession','userlogin','ajax',
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('config','theme','url','login','message', 'form', 
+$autoload['helper'] = array('config','theme','url','login','message', 'form',
                             'abbrev','rights', 'schema', 'attachments', 'bibtex','utf8','month');
 
 
@@ -97,7 +97,7 @@ $autoload['config'] = array();
 |
 |	$autoload['language'] = array('lang1', 'lang2');
 |
-| NOTE: Do not include the "_lang" part of your file.  For example 
+| NOTE: Do not include the "_lang" part of your file.  For example
 | "codeigniter_lang.php" would be referenced as array('codeigniter');
 |
 */
