@@ -1,5 +1,8 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
+/**
+ * A model representing a user
+ */
 class User_model extends Model {
 
     protected $table = "users";
@@ -44,6 +47,7 @@ class User_model extends Model {
      * Create a new user
      */
     public function create($data) {
+        $this->_filter($data);
         if (! isset($data['login'])) {
             throw new Exception(__("Login data missing."));
         }
@@ -57,7 +61,8 @@ class User_model extends Model {
     /**
      * Modify an existing user
      */
-    public function modify($id, $data) {
+    public function update($id, $data) {
+        $this->_filter($data);
         $query = $this->db->where('user_id', $id)->update($this->table, $data);
         return $query->num_rows();
     }
@@ -90,7 +95,7 @@ class User_model extends Model {
     
     
     /**
-     *
+     * Get the ID from the login name
      */
     public function get_id_by_username($username) {
         $query = $this->db->select("user_id")->from($this->table)->where("login =", $username).get();
@@ -106,7 +111,7 @@ class User_model extends Model {
      * Authenticate a user against the password in the db
      */
     public function authenticate($username, $password) {
-        $query = $this->db->from($this->table)->where('login =', $username)->where('password =', md5($password))->get();
+        $query = $this->db->from($this->table)->where('login =', $username)->where('password =', $this->_encrypt($password))->get();
         return ($query->num_rows() == 1);
     }
     
@@ -115,7 +120,78 @@ class User_model extends Model {
      * Change the password of a user
      */
     public function change_password($id, $password) {
-        return $this->modify($id, array("password" => md5($password)));
+        return $this->modify($id, array("password" => $this->_encrypt($password)));
+    }
+    
+    
+    /**
+     * Test for certain properties
+     */
+    public function is($id, $test) {
+        $is = false;
+        switch ($test) {
+            case "anonymous":
+                if ($this->get_field($id, "type") == "anon") {
+                    $is = true;
+                }
+                break;
+            case "group":
+                if ($this->get_field($id, "type") == "group") {
+                    $is = true;
+                }
+                break;
+        }
+        return $is;
+    }
+    
+    
+    /**
+     * Get the groups of a user
+     */
+    public function get_groups($id) {
+        $groups = array();
+        $query = $this->db->from('usergrouplink')->where('user_id =', $id)->get();
+        foreach ($query->result() as $row) {
+            $groups[] = $row->right_name;
+        }
+        return $groups;
+    }
+    
+    
+    /**
+     * Get the rights of a user
+     */
+    public function get_rights($id) {
+        $rights = array();
+        $query = $this->db->from('userrights')->where('user_id =', $id)->get();
+        foreach ($query->result() as $row) {
+            $rights[] = $row->right_name;
+        }
+        return $rights;
+    }
+    
+    
+    /**
+     * Remove fields that do not exist from data
+     */
+    protected function _filter(&$data) {
+        if (! isset($data['login']) && isset($data['username'])) {
+            $data['login'] = $data['username'];
+        }
+        foreach ($data as $key => $value) {
+            if (! in_array($key, $this->fields)) {
+                unset($data[$key]);
+            }
+        }
+        return $data;
+    }
+    
+    
+    /**
+     * Encrypt data (i.e., the password)
+     */
+    protected function _encrypt($data) {
+        return md5($data);
     }
     
     
