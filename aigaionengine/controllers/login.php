@@ -62,7 +62,7 @@ class Login extends Controller {
         $userlogin = getUserLogin();
 
         //try to login
-        $userlogin->login(true);
+        $userlogin->login(@$_POST['ndslogin']);
         if ($userlogin->isLoggedIn()) {
             //if success: redirect
             $this->latesession->set('USERLOGIN', $userlogin);
