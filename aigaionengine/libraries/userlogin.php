@@ -779,7 +779,7 @@ class UserLogin {
             if ($this->bIsAnonymous) {
               appendMessage(sprintf(__("Dear guest, welcome to this publication database. As an anonymous user, you will probably not have edit rights. Also, the collapse status of the topic tree will not be persistent. If you like to have these and other options enabled, you might ask %s for a login account."),"<a href='mailto: \"".getConfigurationSetting("CFG_ADMIN")."\" ".'<'.getConfigurationSetting("CFG_ADMINMAIL").'>'."?subject=Access account for ".getConfigurationSetting("WINDOW_TITLE")." Aigaion database'>".getConfigurationSetting("CFG_ADMIN")."</a>"));
             }
-            appendMessage("<table>\n<tr>
+            /*appendMessage("<table>\n<tr>
                           <td>"
                           .__("This site is powered by Aigaion - A PHP/Web based management system for shared and annotated bibliographies.")
                           ." "
@@ -794,7 +794,7 @@ class UserLogin {
                                   alt='SourceForge.hetLogo'/>
                           </a>
                           </td></tr>\n</table>
-              ");
+              ");*/
 
 
             #SO. Here, if login was successful, we will check the database structure once.
