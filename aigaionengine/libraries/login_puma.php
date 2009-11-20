@@ -46,7 +46,6 @@ class Login_puma {
             unset($_SESSION['__login_key']);
             return array('login'=>'', 'groups'=>array(), 'error'=>__('Error: Infinite redirection during login.'));
         } elseif (isset($GET['k'])) {
-            $CI->latesession->get('__login_tries');
             unset($_SESSION['__login_tries']);
             unset($_SESSION['__login_key']);
             return array('login'=>'', 'groups'=>array(), 'error'=>__('Error: Authentication could not be established.'));
