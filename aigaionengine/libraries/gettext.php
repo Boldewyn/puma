@@ -51,7 +51,7 @@ class Gettext {
     _bind_textdomain_codeset ('messages', "UTF-8");
     _bindtextdomain ('messages', APPPATH.'language/locale');
     $lang = _setlocale (LC_MESSAGES, $lang);
-    appendMessage("actually set: ".$lang."<br>");
+    //appendMessage("actually set: ".$lang."<br>");
  
     _textdomain ('messages');
     return true;
