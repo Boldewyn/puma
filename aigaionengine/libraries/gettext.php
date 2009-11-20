@@ -25,7 +25,7 @@ class Gettext {
     // user login for language preferences
     $userlogin = getUserLogin ();
     $lang = $userlogin->getPreference('language');
-    //appendMessage("setting language: ".$lang."<br>");
+    appendMessage("setting language: ".$lang."<br>");
       //init userlanguage library:
       // construct a string of supported languages. We assume, that the first one is the prefered.
       // these supported languages are defined in aigaionengine/config/config.php and can be overridden
