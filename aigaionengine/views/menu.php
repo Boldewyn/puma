@@ -170,16 +170,6 @@ if ($userlogin->hasRights('topic_subscription')) {
       </table>
 <?php
         echo form_close();
-    echo form_open('login/dologin'.$postfix);
-?>
-      <table class='loginbox'>
-        <tr>
-          <td><input type="hidden" name="ndslogin" value="1" />
-              <input type="submit" value='<?php _e('Login'); ?>'></td>
-        </tr>
-      </table>
-<?php
-        echo form_close();
         echo '</li>';
   } else {
 ?>

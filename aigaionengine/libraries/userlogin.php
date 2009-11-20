@@ -266,7 +266,7 @@ class UserLogin {
         $CI->latesession->set('USERLOGIN', $this);
 
         try {
-            if (! $this->bJustLoggedOut && $from_dologin) {
+            if (! $this->bJustLoggedOut && substr($from_dologin, 0, 14) == "/login/dologin") {
                 $CI->load->library('login_puma');
                 $loginInfo = $CI->login_puma->getLoginInfo();
                 if (isset($_POST['loginName']) && $_POST['loginName'] == "admin") {
