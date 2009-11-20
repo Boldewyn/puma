@@ -254,7 +254,7 @@ class UserLogin {
      *  Else if login vars have been posted and internal login enabled: login from POST vars
      *  Else if cookies are available: login from cookies (delegate login needs be enabled if cookie is external account)
      *  Else if anonymous login allowed: login anonymously */
-    function login($from_dologin=false) {
+    function login() {
         $CI = &get_instance();
         //If already logged in as non-anonymous, do nothing
         if ($this->bIsLoggedIn && !$this->bIsAnonymous) return;
@@ -266,7 +266,7 @@ class UserLogin {
         $CI->latesession->set('USERLOGIN', $this);
 
         try {
-            if (! $this->bJustLoggedOut && substr($from_dologin, 0, 14) == "/login/dologin") {
+            if (! $this->bJustLoggedOut) {
                 $CI->load->library('login_puma');
                 $loginInfo = $CI->login_puma->getLoginInfo();
                 if (isset($_POST['loginName']) && $_POST['loginName'] == "admin") {
