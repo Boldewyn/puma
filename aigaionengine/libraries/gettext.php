@@ -40,7 +40,7 @@ class Gettext {
       $CI->userlanguage->setAccept ($lang);
       //this is still needed, because we are not *quite* sure that the language exists. Better to init the right locale :)
       $lang = $CI->userlanguage->get();
-      appendMessage("available: ".$lang."<br>");
+      //appendMessage("available: ".$lang."<br>");
       
       #uncomment this line if you have all languages installed for CodeIgniter under their correct short name
       #to make CodeIgniter follow the same language switches:
@@ -51,7 +51,7 @@ class Gettext {
     _bind_textdomain_codeset ('messages', "UTF-8");
     _bindtextdomain ('messages', APPPATH.'language/locale');
     $lang = _setlocale (LC_MESSAGES, $lang);
-    //appendMessage("actually set: ".$lang."<br>");
+    appendMessage("actually set: ".$lang."<br>");
  
     _textdomain ('messages');
     return true;
