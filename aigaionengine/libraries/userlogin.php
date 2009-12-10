@@ -254,7 +254,7 @@ class UserLogin {
      *  Else if login vars have been posted and internal login enabled: login from POST vars
      *  Else if cookies are available: login from cookies (delegate login needs be enabled if cookie is external account)
      *  Else if anonymous login allowed: login anonymously */
-    function login() {
+    function login($puma=false) {
         $CI = &get_instance();
         //If already logged in as non-anonymous, do nothing
         if ($this->bIsLoggedIn && !$this->bIsAnonymous) return;
@@ -265,23 +265,24 @@ class UserLogin {
         $this->iUserId = "";
         $CI->latesession->set('USERLOGIN', $this);
 
-        try {
-            if (! $this->bJustLoggedOut) {
-                $CI->load->library('login_puma');
-                $loginInfo = $CI->login_puma->getLoginInfo();
-                if (isset($_POST['loginName']) && $_POST['loginName'] == "admin") {
-                    // do nothing, proceed to local login
-                } elseif (isset($loginInfo['login']) && $loginInfo['login'] !== '') {
-                    $this->internalLogin($loginInfo['login'], $loginInfo['password'], true, true);
-                    return;
-                } elseif (isset($loginInfo['error'])) {
-                    appendErrorMessage($loginInfo['error']);
-                    return 1;
-                } else {
-                    return 1;
+        if ($puma) {
+            try {
+                if (! $this->bJustLoggedOut) {
+                    $CI->load->library('login_puma');
+                    $loginInfo = $CI->login_puma->getLoginInfo();
+                    if (isset($_POST['loginName']) && $_POST['loginName'] == "admin") {
+                        // do nothing, proceed to local login
+                    } elseif (isset($loginInfo['login']) && $loginInfo['login'] !== '') {
+                        $this->internalLogin($loginInfo['login'], $loginInfo['password'], true, true);
+                        return;
+                    } elseif (isset($loginInfo['error'])) {
+                        appendErrorMessage($loginInfo['error']);
+                        return 1;
+                    } else {
+                        return 1;
+                    }
                 }
-            }
-        } catch (Exception $e) {
+            } catch (Exception $e) {}
         }
 
 
