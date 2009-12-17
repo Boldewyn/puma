@@ -4,25 +4,19 @@ views/site/stats
 
 Shows a block of site stats
 
-Parameters:
-    none
-
 */
-	//get number of authors
-    $authorCount = $this->author_db->getAuthorCount();
-    
-	//get number of maintopics
-    $topicCount = $this->topic_db->getMainTopicCount();
+$authorCount = $this->author_db->getAuthorCount();
+$topicCount = $this->topic_db->getMainTopicCount();
+$publicationCount = $this->topic_db->getPublicationCountForTopic(1);
+$publicationReadCount = $this->topic_db->getReadPublicationCountForTopic(1);
 
-	$publicationCount = $this->topic_db->getPublicationCountForTopic(1);
-	$publicationReadCount = $this->topic_db->getReadPublicationCountForTopic(1);
 
-	echo "
-<p class='header1'>".__('Aigaion statistics')."</p>
-<ul>
-<li>".sprintf(__('%s publications (%s read)'), $publicationCount, $publicationReadCount)."</li>
-<li>".sprintf(__('%s authors'), $authorCount)."</li>
-<li>".sprintf(__('%s main topics'), $topicCount)."</li>
-</ul>
-";
 ?>
+<div class="statistics <?php if(isset($embed) && $embed): ?>embed<? endif; ?>">
+  <h2><?php echo __('Statistics')?></h2>
+  <ul>
+    <li><?php printf(__('%s publications (%s read)'), $publicationCount, $publicationReadCount)?></li>
+    <li><?php printf(__('%s authors'), $authorCount)?></li>
+    <li><?php printf(__('%s main topics'), $topicCount)?></li>
+  </ul>
+</div>

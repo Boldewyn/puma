@@ -1,10 +1,10 @@
-#<IfModule mod_rewrite.c>
+<IfModule mod_rewrite.c>
   RewriteEngine on
   RewriteBase /~manuel/puma_testing/
   RewriteRule ^aigaionengine/(.*) aigaionengine/$1 [L]
-  RewriteRule ^install/(.*)       install/$1       [L]
+  RewriteRule ^static/(.*)        -                [L]
   RewriteRule ^index.php/(.*)$    index.php?$1     [L,QSA]
-  RewriteRule ^index.php(.*)$     index.php$1      [L]
+  RewriteRule ^index.php(.*)$     -                [L]
   RewriteRule ^\.(.*)$            -                [F,L]
   RewriteRule ^(.*)$              index.php?$1     [L,QSA]
-#</IfModule>
+</IfModule>

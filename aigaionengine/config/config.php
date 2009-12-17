@@ -6,7 +6,7 @@
 | -------------------------------------------------------------------
 |
 | Generally, there is no need to adapt the values in this file for an
-| instance of Aigaion. If you want to change settings you should 
+| instance of Aigaion. If you want to change settings you should
 | probably adapt the settings specified in the main index.php file for
 | this instance of Aigaion.
 */
@@ -17,7 +17,7 @@
 | -------------------------------------------------------------------
 |
 | Here we initialize some settings that MAY have been set in the main index.php.
-| If they have not been set, default values will be used. Directories are relative 
+| If they have not been set, default values will be used. Directories are relative
 | to the directory of the main index.php
 */
 $ROOT_PATH = dirname(FCPATH);
@@ -79,7 +79,7 @@ define('AIGSTR','A1I2G3A4I5O6N7');
 | -------------------------------------------------------------------
 | NOTE FOR AIGAION:
 | -------------------------------------------------------------------
-| 
+|
 | This setting is determined by the mandatory define of AIGAION_ROOT_URL
 | in the main index.php of the instance of the site.
 */
@@ -199,6 +199,7 @@ $config['subclass_prefix'] = 'MY_';
 |
 */
 $config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
+if(strpos($_SERVER['REQUEST_URI'], 'login/nds')!==FALSE) {$config['permitted_uri_chars'] = '';}
 
 
 /*
@@ -233,7 +234,7 @@ $config['function_trigger'] = 'm';
 | Error Logging Threshold
 |--------------------------------------------------------------------------
 |
-| If you have enabled error logging, you can set an error threshold to 
+| If you have enabled error logging, you can set an error threshold to
 | determine what gets logged. Threshold options are:
 | You can enable error logging by setting a threshold over zero. The
 | threshold determines what gets logged. Threshold options are:
@@ -386,4 +387,16 @@ $config['time_reference'] = 'local';
 $config['rewrite_short_tags'] = FALSE;
 
 
-?>
+
+
+
+
+function h($s) {
+  return htmlspecialchars($s, ENT_COMPAT, "UTF-8");
+}
+
+function _h($s) {
+  echo h($s);
+}
+
+

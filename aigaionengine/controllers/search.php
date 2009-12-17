@@ -4,53 +4,53 @@ class Search extends Controller {
 
 	function Search()
 	{
-		parent::Controller();	
+		parent::Controller();
 	}
-	
+
 	/** Default: advanced search form */
 	function index()
 	{
 		$this->advanced();
 	}
 
-    /** 
+    /**
     search/quicksearch
-        
+
     Fails not
-    
+
     Parameters:
         search query through form value
-    
+
     Returns a full html page with a search result. */
 	function quicksearch()
 	{
-        $query = $this->input->post('searchstring');
+        $query = $this->input->post('q');
 	    if (trim($query)=='') {
 	        appendErrorMessage(__('Search').': '.__('no query').'.<br/>');
 	        redirect('');
 	    }
 	    $this->load->library('search_lib');
 	    $searchresults = $this->search_lib->simpleSearch($query,null);
-	    
+
         //get output: search result page
         $headerdata = array();
         $headerdata['title'] = __('Search results');
         $headerdata['javascripts'] = array('tree.js','prototype.js','scriptaculous.js','builder.js');
-        
+
         $output = $this->load->view('header', $headerdata, true);
 
         $output .= "<div class=optionbox>[".anchor('search/advanced',__('Advanced search'))."]</div><div class=header>".__("Quicksearch results")."</div>";
         $output .= $this->load->view('search/results',
-                                      array('searchresults'=>$searchresults, 'query'=>$query),  
+                                      array('searchresults'=>$searchresults, 'query'=>$query),
                                       true);
-        
+
         $output .= $this->load->view('footer','', true);
 
         //set output
         $this->output->set_output($output);
 	}
-	
-    /** 
+
+    /**
     search/advanced
     */
 	function advanced()
@@ -59,28 +59,28 @@ class Search extends Controller {
         $headerdata = array();
         $headerdata['title'] = __('Advanced search');
         $headerdata['javascripts'] = array('tree.js','prototype.js','scriptaculous.js','builder.js');
-        
+
         $output = $this->load->view('header', $headerdata, true);
 
-        
+
         $output .= $this->load->view('search/advanced',
-                                      array(),  
+                                      array(),
                                       true);
-        
+
         $output .= $this->load->view('footer','', true);
 
         //set output
         $this->output->set_output($output);
 	}
-	
-    /** 
+
+    /**
     search/advancedresults
-        
+
     Fails not
-    
+
     Parameters:
         search query through form values
-    
+
     Returns a full html page with a search result. */
 	function advancedresults()
 	{
@@ -106,7 +106,7 @@ class Search extends Controller {
             continue;
           }
           if ($do=='True') {
-            $doConditions[] = $topic; 
+            $doConditions[] = $topic;
           } else {
             $dontConditions[] = $topic;
           }
@@ -120,50 +120,50 @@ class Search extends Controller {
         return;
       }
       $searchoptions = array('advanced');
-      if ($this->input->post('return_authors')=='return_authors') 
+      if ($this->input->post('return_authors')=='return_authors')
         $searchoptions[] = 'authors';
-      if ($this->input->post('return_topics')=='return_topics') 
+      if ($this->input->post('return_topics')=='return_topics')
         $searchoptions[] = 'topics';
-      if ($this->input->post('return_keywords')=='return_keywords') 
+      if ($this->input->post('return_keywords')=='return_keywords')
         $searchoptions[] = 'keywords';
       if ($this->input->post('return_publications')=='return_publications') {
         $searchoptions[] = 'publications';
-        if ($this->input->post('search_publications_titles')=='search_publications_titles') 
+        if ($this->input->post('search_publications_titles')=='search_publications_titles')
           $searchoptions[] = 'publications_titles';
-        if ($this->input->post('search_publications_notes')=='search_publications_notes') 
+        if ($this->input->post('search_publications_notes')=='search_publications_notes')
           $searchoptions[] = 'publications_notes';
-        if ($this->input->post('search_publications_bibtex_id')=='search_publications_bibtex_id') 
+        if ($this->input->post('search_publications_bibtex_id')=='search_publications_bibtex_id')
           $searchoptions[] = 'publications_bibtex_id';
-        if ($this->input->post('search_publications_abstracts')=='search_publications_abstracts') 
+        if ($this->input->post('search_publications_abstracts')=='search_publications_abstracts')
           $searchoptions[] = 'publications_abstracts';
       }
-      
-      
+
+
       $this->load->library('search_lib');
       if ((count($doConditions>0))||(count($dontConditions>0))) {
         $searchresults = $this->search_lib->topicConditionSearch($query,$searchoptions,$doConditions,$dontConditions,$anyAll);
       } else {
 	      $searchresults = $this->search_lib->simpleSearch($query,$searchoptions,"");
 	    }
-	    
+
         //get output: search result page
         $headerdata = array();
         $headerdata['title'] = __('Advanced search results');
         $headerdata['javascripts'] = array('tree.js','prototype.js','scriptaculous.js','builder.js');
-        
+
         $output = $this->load->view('header', $headerdata, true);
 
-        
+
         $output .= "<div class=optionbox>(".__("Search form below").")</div><div class=header>".__("Advanced search results")."</div>";
 
         $output .= $this->load->view('search/results',
-                                      array('searchresults'=>$searchresults, 'query'=>$query),  
+                                      array('searchresults'=>$searchresults, 'query'=>$query),
                                       true);
-                                      
+
         $output .= $this->load->view('search/advanced',
-                                      array('query'=>$query,'options'=>$searchoptions),  
+                                      array('query'=>$query,'options'=>$searchoptions),
                                       true);
-                                      
+
         $output .= $this->load->view('footer','', true);
 
         //set output

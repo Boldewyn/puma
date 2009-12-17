@@ -1,94 +1,61 @@
-<?php header("Content-Type: text/html; charset=UTF-8"); ?>
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+header("Content-Type: text/html; charset=UTF-8");
+
+?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->config->item('current_language'); ?>">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title><?php 
-        echo $title; 
-        if (getConfigurationSetting('WINDOW_TITLE')!='')
-            echo ' - '.getConfigurationSetting('WINDOW_TITLE'); 
-    ?> - Aigaion 2.0</title>
-    <link href="<?php echo APPURL; ?>themes/default/css/positioning.css" rel="stylesheet" type="text/css" media="screen,projection,tv" />
-    <link href="<?php echo APPURL; ?>themes/default/css/styling.css"     rel="stylesheet" type="text/css" media="screen,projection,tv" />
-    <link href="<?php echo getCssUrl("positioning.css"); ?>" rel="stylesheet" type="text/css" media="screen,projection,tv" />
-    <link href="<?php echo getCssUrl("styling.css"); ?>"     rel="stylesheet" type="text/css" media="screen,projection,tv" />
-  </head>
-  <body>
-<?php
-    //view parameter to be passed to menu: a prefix for the sort options. See views/menu.php for more info
-    if (!isset($sortPrefix))
-      $sortPrefix = '';
-    //view parameter to be passed to menu: a command relevant for the menu export option. See views/menu.php for more info
-    if (!isset($exportCommand))
-      $exportCommand = '';
-    if (!isset($exportName))
-      $exportName = __('Aigaion export list');
-    //view parameter: the javascripts that should be linked
-    if (!isset($javascripts))
-      $javascripts = array();
-    elseif (!is_array($javascripts))
-      $javascripts = array($javascripts);
-    foreach ($javascripts as $jsName):
-?>
-    <script type="text/javascript" src="<?php echo APPURL."javascript/".$jsName; ?>"></script>
-<?php
-    endforeach;
-?>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title><?php echo $title; ?> - Puma.&Phi;</title>
+    <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/screen.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/print.css" type="text/css" media="print" />
     <script type="text/javascript">
       //<![CDATA[
-      base_url = '<?php echo base_url();?>index.php/';
+      var puma = {};
+      puma.config = {
+          base_url: '<?php echo base_url();?>',
+          language: '<?php echo $this->config->item('current_language');?>'
+      }
       //]]>
     </script>
-
-    <div id="main_holder">
-      <!-- Aigaion header: Logo, simple search form -->
-      <div id="header_holder">
-        <div id='quicksearch'>
-          <?php
-          echo form_open('search/quicksearch')."\n";
-          echo "<div>\n";
-          echo form_hidden('formname','simplesearch');
-          echo form_input(array('name' => 'searchstring', 'size' => '25'));
-          echo form_submit('submit_search', __('Search'));
-          echo "</div>\n";
-          echo form_close();
-          ?>
-        </div>  
-        <?php
-        if (getConfigurationSetting('USE_UPLOADED_LOGO')=='TRUE') {
-            //echo '<img border=0 style="height:100%;" src="'.AIGAION_ATTACHMENT_URL.'/custom_logo.jpg">';
-        }
-        ?>
-        &nbsp;<?php
-            //echo anchor('','Aigaion 2.0','id="page_title"');
-            echo anchor('',"<img border=0 src='".APPURL."themes/".getThemeName()."/img/aigaion2.png'/>",'id="page_title"');
-        ?>
-        
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <?php echo form_open('search/quicksearch', array("id"=>"quicksearch")); ?>
+          <p>
+            <input type="hidden" name="formname" value="simplesearch" />
+            <input type="text" name="q" value="<?php _h($this->input->post('q')); ?>" />
+            <input type="submit" name="submit_search" value="<?php _e('Search'); ?>" />
+          </p>
+        </form>
+        <h1>
+          <?php echo anchor('','<span>Puma.&Phi;</span>');?>
+        </h1>
       </div>
-      <!-- End of header -->
 
       <?php
         //load menu
+        //view parameter to be passed to menu: a prefix for the sort options. See views/menu.php for more info
+        if (!isset($sortPrefix))
+          $sortPrefix = '';
+        //view parameter to be passed to menu: a command relevant for the menu export option. See views/menu.php for more info
+        if (!isset($exportCommand))
+          $exportCommand = '';
+        if (!isset($exportName))
+          $exportName = __('Aigaion export list');
         $this->load->view('menu', array('sortPrefix'=>$sortPrefix,'exportCommand'=>$exportCommand,'exportName'=>$exportName));
       ?>
 
-      <!-- Aigaion main content -->
-      <div id="content_holder">
-      
-      
-      <!-- I think that here we want to have the (error) messages: -->
-      <?php
+      <div id="content">
+        <?php
             $err = getErrorMessage();
-            $msg = getMessage();
             if ($err != "") {
-                echo "<div class='errormessage'>".$err."</div>";
+                echo "<p class='error'>$err</p>";
                 clearErrorMessage();
             }
+            $msg = getMessage();
             if ($msg != "") {
-                echo "<div class='message'>".$msg."</div>";
+                echo "<p class='info'>$msg</p>";
                 clearMessage();
-            }      
-
+            }
         ?>
-        <!---->
