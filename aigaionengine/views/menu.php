@@ -7,7 +7,7 @@
 ?>
 <div id="nav">
   <ul>
-    <li>
+    <li class="first current">
       <h3><?php _e('Browse'); ?></h3>
       <ul>
         <li><?php echo anchor('topics', __('My Topics')); ?></li>
@@ -75,7 +75,7 @@
       </ul>
     </li>
 
-    <li>
+    <li class="last">
       <?php if ($userlogin->isAnonymous()): ?>
         <h3><?php _e('Guest User'); ?></h3>
         <ul>
@@ -96,16 +96,15 @@
       <?php endif; ?>
     </li>
   </ul>
-  <p class="language">
-    <?php _e('Select a language:'); ?>
-    <?php
-      global $AIGAION_SHORTLIST_LANGUAGES; $larr = array();
-      foreach ($AIGAION_SHORTLIST_LANGUAGES as $lang):
-        $larr[] = anchor('language/set/'.$lang.'/'.implode('/',$this->uri->segment_array()),$this->userlanguage->getLanguageName($lang));
-      endforeach;
-      echo implode(", ", $larr);
-    ?>
-  </p>
+</div>
+
+<div id="subnav">
+  <ul>
+    <li class="first"><?php echo anchor('topics/all', __('Topics')); ?></li>
+    <li class="current"><?php echo anchor('authors', __('Authors')); ?></li>
+    <li><?php echo anchor('keywords', __('Keywords')); ?></li>
+    <li class="last"><?php echo anchor('publications/showlist/recent', __('Recent')); ?></li>
+  </ul>
 </div>
 
 <!-- End of menu -->

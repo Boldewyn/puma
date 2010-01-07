@@ -14,12 +14,12 @@
 |   Implementation:
 |       The UserLogin object will not be created until requested for the first time.
 |       When it is requested for the first time it is created and stored in the session.
-|       
+|
 */
 
     function getUserLogin() {
         $CI = &get_instance();
-    
+
         $userlogin = $CI->latesession->get('USERLOGIN');
         if (!isset($userlogin)||($userlogin==null)) {
             $userlogin = new UserLogin();

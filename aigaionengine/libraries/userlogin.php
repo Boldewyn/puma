@@ -768,8 +768,8 @@ class UserLogin {
             //store cookies after login was checked
             if ($remember)
             {
-                setcookie("loginname", $R->login   ,(3*24*60*60)+time(), '/');
-                setcookie("password",  $R->password,(3*24*60*60)+time(), '/');
+                setcookie("loginname", $R->login   ,(3*24*60*60)+time(), $CI->config->item('cookie_path'));
+                setcookie("password",  $R->password,(3*24*60*60)+time(), $CI->config->item('cookie_path'));
             }
 
             #init rights and preferences

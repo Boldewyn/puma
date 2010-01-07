@@ -22,6 +22,8 @@ table, caption, tbody, tfoot, thead, tr, th, td {
   border: 0;
   outline: 0;
   font-size: 100%;
+  font-weight: normal;
+  font-style: normal;
   vertical-align: baseline;
   background: transparent;
   text-decoration: none;
@@ -89,6 +91,18 @@ sub {
 }
 sup {
   vertical-align: super;
+}
+p + p {
+  margin-top: 1.25em;
+}
+a {
+  color: #008891;
+}
+a:visited {
+  color: #5c8688;
+}
+a:focus, a:hover {
+  color: #00b0bc;
 }
 
 
@@ -513,6 +527,255 @@ sup {
 /**
  * L A Y O U T
  */
-body {
-
+html {
+  background: #008993;
 }
+
+body {
+  background: white url(images/header_expanded.png) no-repeat center top;
+}
+
+#container {
+  width: 77em;
+  margin: 0 auto;
+}
+
+#header {
+  overflow: hidden;
+}
+
+#header_widgets {
+  float: right;
+  width: 62em;
+  background: #008993;
+}
+
+#header_backlink {
+  background: #8d8d8d;
+  float: left;
+}
+
+#header_backlink a {
+  display: block;
+  text-align: center;
+  color: white;
+  width: 20em;
+  height: 5em;
+  line-height: 5em;
+}
+
+#header_backlink a:focus,
+#header_backlink a:hover {
+  background-color: white;
+  color: #8d8d8d;
+}
+
+#header h1 {
+  float: left;
+}
+
+#header h1 a {
+  display: block;
+  width: 15em;
+  height: 10.8333em;
+}
+
+#header h1 a:focus,
+#header h1 a:hover {
+  background: url(images/header_hover.png) no-repeat 2.75em 1.41667em;
+}
+
+#header h1 a span {
+  display: none;
+}
+
+#header h2 {
+  margin: 5em 0 0 15em;
+}
+
+#header h2 a {
+  background: url(images/logo.png) no-repeat 4em center;
+  display: block;
+  text-align: center;
+  font: 1.5em/3.8888 Verdana,sans-serif;
+  padding: 0 0 0 13.3333em;
+  color: #8d8d8d;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+
+
+
+
+
+#nav ul {
+  border: .08333em solid #61a6a9;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+#nav ul ul {
+  display: none;
+}
+
+#nav ul li {
+  display: table-cell;
+  background: url(images/nav.png) repeat-x left top;
+  height: 3.1667em;
+  line-height: 3.1667em;
+  text-align: center;
+  border-style: solid;
+  border-width: 0 .08333em;
+  border-right-color: #195c5f;
+  border-left-color: #41a2a8;
+  color: white;
+}
+
+#nav ul li.first {
+  border-left-width: 0;
+}
+
+#nav ul li.last {
+  border-right-width: 0;
+}
+
+#nav ul li:focus,
+#nav ul li:hover {
+  background-position: left center;
+}
+
+#nav ul li.current {
+  background-position: left bottom;
+}
+
+
+
+#subnav {
+  margin: 1.25em 0 -1.25em;
+  border-bottom: .08333em solid #61a6a9;
+  height: 2.5em;
+}
+
+#subnav ul {
+}
+
+#subnav ul li {
+  float:left;
+}
+
+#subnav li a {
+  display: block;
+  background: url(images/nav.png) repeat-x left top;
+  height: 2.5em;
+  line-height: 2.5em;
+  border-style: solid;
+  border-width: .08333em;
+  border-top-color: #7bd3d6;
+  border-right-color: #195c5f;
+  border-left-color: #41a2a8;
+  border-bottom-color: #61a6a9;
+  color: white;
+  padding: 0 1.25em;
+  margin-bottom: -0.08333em;
+  white-space: nowrap;
+}
+
+#subnav li a:focus,
+#subnav li a:hover {
+  background-position: left center;
+}
+
+#subnav li a:active {
+  background-position: left bottom;
+}
+
+#subnav ul li.first a {
+  -moz-border-radius-topleft: 3px;
+  -webkit-border-top-left-radius: 3px;
+  border-top-left-radius: 3px;
+  border-left-width: 0;
+}
+
+#subnav ul li.last a {
+  -moz-border-radius-topright: 3px;
+  -webkit-border-top-right-radius: 3px;
+  border-top-right-radius: 3px;
+  border-right-width: 0;
+}
+
+#subnav ul li.current a {
+  border-top-color: #35e1ec;
+  border-top-width: .25em;
+  padding-bottom: .25em;
+  height: 2em;
+  line-height: 2em;
+  border-bottom-color: #cbd9da;
+  background: #cbd9da;
+  color: #008891;
+}
+
+
+
+
+#content {
+  border: .08333em solid #61a6a9;
+  border-top: 0;
+  background: #cbd9da;
+  padding: 1.16667em;
+  margin: 1.25em 0;
+}
+
+
+
+
+
+
+
+
+
+
+#footer {
+  background: #008993 url(images/footer.png) repeat-x left top;
+  color: white;
+  font: .9167em/1.3636 Verdana,sans-serif;
+  text-align: center;
+  width: 100%;
+}
+
+#footer_content {
+  width: 48em;
+  padding: 3em 0 0;
+  margin: 0 auto;
+}
+
+#footer a {
+  color: #a1f9ff;
+}
+
+#footer ul {
+  margin-top: 1.25em;
+}
+
+#footer li {
+  display: inline;
+}
+
+#footer li a {
+  padding: 0 1.5em 0 1.25em;
+  border-right: 1px solid white;
+}
+
+#footer li.last a {
+  border-right: none;
+}
+
+#footer a:focus,
+#footer a:hover {
+  color: white;
+  border-bottom: .08333em solid;
+}
+
+
+

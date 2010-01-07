@@ -21,6 +21,10 @@
 | to the directory of the main index.php
 */
 $ROOT_PATH = dirname(FCPATH);
+# Cookie Path
+if (!defined('AIGAION_COOKIE_PATH') || (AIGAION_COOKIE_PATH=='')) {
+    define ('AIGAION_COOKIE_PATH', "/");
+}
 # URL where to store attachments. Default: root_url/attachments
 if (!defined('AIGAION_ATTACHMENT_URL') || (AIGAION_ATTACHMENT_URL=='')) {
     define ('AIGAION_ATTACHMENT_URL',AIGAION_ROOT_URL."/attachments");
@@ -328,7 +332,7 @@ $config['sess_time_to_update'] 		= 300;
 */
 $config['cookie_prefix']	= "";
 $config['cookie_domain']	= "";
-$config['cookie_path']		= "/";
+$config['cookie_path']		= AIGAION_COOKIE_PATH;
 
 /*
 |--------------------------------------------------------------------------
