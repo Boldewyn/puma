@@ -8,11 +8,6 @@ $userlogin = getUserLogin();
         <p>
           Puma.Φ — Publication Management for the Faculty of Physics
         </p>
-        <p>
-          Puma.Φ ist das Promotionsprojekt von Manuel Strehl und entsteht in Zusammenarbeit mit dem
-          Lehrstuhl für Medieninformatik und der Fakultät für Physik an der Universität Regensburg. Die
-          Anwendung basiert auf der freien Publikationsdatenbank <a href="http://www.aigaion.nl">Aigaion</a>.
-        </p>
       </div>
         <ul class="level1">
           <li class="level1 level1_first">
@@ -41,7 +36,7 @@ $userlogin = getUserLogin();
           <li class="level1">
             <h3><?php _e('Ask the admin'); ?></h3>
             <p>
-              <?php _e('Do you have any question regarding Puma.&Phi;? Have you spotted an error or do you suggest a new feature? Don&rsquo;t hesitate and drop us a line.');?>
+              <?php _e('Do you have any question regarding Puma.&Phi;? Have you spotted an error or do you want to suggest a new feature? Don&rsquo;t hesitate and drop us a line.');?>
             </p>
             <?php echo form_open('contact/admin'); ?>
               <p>
@@ -56,7 +51,7 @@ $userlogin = getUserLogin();
                 <label for="ask_question"><?php _e('Question:')?></label>
                 <textarea name="question" id="ask_question" rows="2" cols="20"></textarea>
               </p>
-              <p>
+              <p style="text-align:center">
                 <input type="submit" class="submit" name="name" value="<?php _e('ask the admin'); ?>" />
               </p>
             </form>

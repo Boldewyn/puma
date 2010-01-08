@@ -18,5 +18,6 @@ class Front extends Controller {
         $this->load->view('put', array("data" => "Hallo Puma.&Phi;!"));
         $this->load->view('footer');
     }
+
 }
 
