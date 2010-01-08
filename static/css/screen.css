@@ -72,6 +72,7 @@ input[type=reset], input[type=button] {
   cursor: pointer;
   overflow: visible;
   padding: 0 .5em;
+  width: auto;
 }
 button, input, textarea {
   font: 1em/1.25 "Frutiger Next Pro","Frutiger Next","Segoe UI",Verdana,sans-serif;
@@ -544,6 +545,15 @@ body {
   overflow: hidden;
 }
 
+#header_widgets a {
+  color: white;
+}
+
+#header_widgets a:focus,
+#header_widgets a:hover {
+  color: #A1F9FF;
+}
+
 #header_widgets {
   float: right;
   width: 62em;
@@ -604,6 +614,22 @@ body {
   overflow: hidden;
 }
 
+#header_controls {
+  color: white;
+  padding: .25em .5em;
+  margin: 0 0 0 20em;
+}
+
+#header_controls .header_control {
+  margin: 0;
+  font-size: .91em;
+  line-height: 1.3636em;
+}
+
+#header_controls a {
+  border-bottom: 1px solid;
+}
+
 
 
 
@@ -641,13 +667,22 @@ body {
   border-right-width: 0;
 }
 
-#nav ul li:focus,
-#nav ul li:hover {
-  background-position: left center;
+#nav ul li a {
+  display: block;
+  background: url(images/nav.png) repeat-x left top;
+  height: 3.1667em;
+  line-height: 3.1667em;
+  text-align: center;
+  color: white;
 }
 
-#nav ul li.current {
+#nav ul li.current a {
   background-position: left bottom;
+}
+
+#nav ul li a:focus,
+#nav ul li a:hover {
+  background-position: left center;
 }
 
 
@@ -656,6 +691,10 @@ body {
   margin: 1.25em 0 -1.25em;
   border-bottom: .08333em solid #61a6a9;
   height: 2.5em;
+}
+
+#subnav.min {
+  height: 0;
 }
 
 #subnav ul {
@@ -682,6 +721,17 @@ body {
   white-space: nowrap;
 }
 
+#subnav ul li.current a {
+  border-top-color: #35e1ec;
+  border-top-width: .25em;
+  padding-bottom: .25em;
+  height: 2em;
+  line-height: 2em;
+  border-bottom-color: #cbd9da;
+  background: #cbd9da;
+  color: #008891;
+}
+
 #subnav li a:focus,
 #subnav li a:hover {
   background-position: left center;
@@ -705,17 +755,6 @@ body {
   border-right-width: 0;
 }
 
-#subnav ul li.current a {
-  border-top-color: #35e1ec;
-  border-top-width: .25em;
-  padding-bottom: .25em;
-  height: 2em;
-  line-height: 2em;
-  border-bottom-color: #cbd9da;
-  background: #cbd9da;
-  color: #008891;
-}
-
 
 
 
@@ -725,6 +764,8 @@ body {
   background: #cbd9da;
   padding: 1.16667em;
   margin: 1.25em 0;
+  clear: left;
+  overflow: auto;
 }
 
 
@@ -754,21 +795,33 @@ body {
   color: #a1f9ff;
 }
 
-#footer ul {
-  margin-top: 1.25em;
+#footer ul.level1 {
+  margin: 1.25em auto 0;
+  width: 80em;
+  overflow: hidden;
 }
 
-#footer li {
-  display: inline;
+#footer li.level1 {
+  width: 17em;
+  padding: 0 1.5em;
+  border-right: .08333em solid #00757e;
+  float: left;
+  text-align: left;
 }
 
-#footer li a {
-  padding: 0 1.5em 0 1.25em;
-  border-right: 1px solid white;
-}
-
-#footer li.last a {
+#footer li.level1_last {
+  padding: 0 0 0 1.5em;
   border-right: none;
+}
+
+#footer li form,
+#footer li p,
+#footer li li {
+  margin: .25em 0;
+}
+
+#footer li h3 {
+  font-size: 1.0909em;
 }
 
 #footer a:focus,
@@ -777,5 +830,41 @@ body {
   border-bottom: .08333em solid;
 }
 
+#footer textarea,
+#footer input.text {
+  border: .08333em solid #00757e;
+  border-radius: .16667em;
+  -moz-border-radius: .16667em;
+  -webkit-border-radius: .16667em;
+  background: #c2fbff;
+  color: #005A5F;
+  width: 16em;
+  padding: .25em;
+}
 
+#footer textarea:focus,
+#footer input.text:focus {
+  border-color: #c2fbff;
+  background: white;
+  color: #002D2F;
+}
 
+#footer input.submit {
+  border: .08333em solid #00757e;
+  border-radius: .16667em;
+  -moz-border-radius: .16667em;
+  -webkit-border-radius: .16667em;
+  background: url(images/nav.png) repeat-x left center;
+  color: white;
+  width: 16em;
+  padding: .25em;
+}
+
+#footer input.submit:focus,
+#footer input.submit:hover {
+  background-position: left -.8333em;
+}
+
+#footer input.submit:active {
+  background-position: left bottom;
+}

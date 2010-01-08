@@ -7,8 +7,9 @@
 ?>
 <div id="nav">
   <ul>
-    <li class="first current">
-      <h3><?php _e('Browse'); ?></h3>
+    <li class="first <?php if($this->uri->segment(1) == "topics") { echo 'current'; } ?>">
+      <!--h3><?php _e('Browse'); ?></h3-->
+      <?php echo anchor('topics', __('browse')); ?>
       <ul>
         <li><?php echo anchor('topics', __('My Topics')); ?></li>
         <?php if ($userlogin->hasRights('bookmarklist')): ?>
@@ -98,13 +99,20 @@
   </ul>
 </div>
 
-<div id="subnav">
+<div id="subnav" class="<?php if(in_array($this->uri->segment(1), array(""))) : echo 'min">'; else: ?>">
   <ul>
-    <li class="first"><?php echo anchor('topics/all', __('Topics')); ?></li>
-    <li class="current"><?php echo anchor('authors', __('Authors')); ?></li>
-    <li><?php echo anchor('keywords', __('Keywords')); ?></li>
-    <li class="last"><?php echo anchor('publications/showlist/recent', __('Recent')); ?></li>
+    <?php switch($this->uri->segment(1)):
+      case "topics": ?>
+        <li class="first <?php if($this->uri->segment(2) == "all") { echo 'current'; } ?>"><?php echo anchor('topics/all', __('Topics')); ?></li>
+        <li class=" <?php if($this->uri->segment(2) == "authors") { echo 'current'; } ?>"><?php echo anchor('authors', __('Authors')); ?></li>
+        <li class=" <?php if($this->uri->segment(2) == "keywords") { echo 'current'; } ?>"><?php echo anchor('keywords', __('Keywords')); ?></li>
+        <li class="last <?php if($this->uri->segment(2) == "recent") { echo 'current'; } ?>"><?php echo anchor('publications/showlist/recent', __('Recent')); ?></li>
+      <?php break;
+      default: ?>
+        <li class="current last"><a href="#"><?php _e('Standard view'); ?></a></li>
+    <?php endswitch; ?>
   </ul>
+  <?php endif; ?>
 </div>
 
 <!-- End of menu -->

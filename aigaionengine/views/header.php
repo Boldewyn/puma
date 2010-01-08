@@ -11,11 +11,19 @@ header("Content-Type: text/html; charset=UTF-8");
     <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/print.css" type="text/css" media="print" />
     <script type="text/javascript">
       //<![CDATA[
-      var global = {};
-      global.config = {
+      var config = {
           base_url: '<?php echo base_url();?>',
           language: '<?php echo $this->config->item('current_language');?>',
-          user: '<?php _h($userlogin->loginName());?>'
+          user: {
+            <?php if ($userlogin->isAnonymous()): ?>
+              id: ''
+            <?php else: ?>
+              id: '<?php _js($userlogin->loginName());?>',
+              firstname: '<?php _js($userlogin->preferences['firstname']); ?>',
+              lastname: '<?php _js($userlogin->preferences['surname']); ?>',
+              email: '<?php _js($userlogin->preferences['email']); ?>'
+            <?php endif; ?>
+          }
       }
       //]]>
     </script>
@@ -27,23 +35,39 @@ header("Content-Type: text/html; charset=UTF-8");
           <p id="header_backlink">
             <a href="http://www.uni-regensburg.de/">Uni Regensburg</a>
           </p>
-          <?php echo form_open('search/quicksearch', array("id"=>"quicksearch")); ?>
-            <p>
-              <input type="hidden" name="formname" value="simplesearch" />
-              <input type="text" name="q" value="<?php _h($this->input->post('q')); ?>" />
-              <input type="submit" name="submit_search" value="<?php _e('Search'); ?>" />
+          <div id="header_controls">
+            <?php echo form_open('search/quicksearch', array("id"=>"quicksearch", "class"=>"header_control")); ?>
+              <p>
+                <input type="hidden" name="formname" value="simplesearch" />
+                <input type="text" name="q" value="<?php _h($this->input->post('q')); ?>" />
+                <input type="submit" name="submit_search" value="<?php _e('Search'); ?>" />
+              </p>
+            </form>
+            <p class="header_control">
+              <?php if ($userlogin->isAnonymous()): ?>
+                <?php _e('Guest User:'); ?> <?php echo anchor('login/nds/', __('Login (NDS)')); ?> | <?php echo anchor('login', __('Login (Guest account)')); ?>
+              <?php else: ?>
+                <?php printf(__('Hello, %s %s'), $userlogin->preferences['firstname'], $userlogin->preferences['surname']); ?> |
+                <?php if ($userlogin->hasRights('user_edit_self')): ?>
+                  <?php echo anchor('users/edit/'.$userlogin->userId(), __('My Profile')); ?> |
+                <?php endif;
+                  if ($userlogin->hasRights('topic_subscription')): ?>
+                  <?php echo anchor('users/topicreview/', __('Topic Subscribe')); ?> |
+                <?php endif; ?>
+                <?php echo anchor('login/dologout', __('Logout')); ?>
+              <?php endif; ?>
             </p>
-          </form>
-          <p class="language">
-            <?php _e('Select a language:'); ?>
-            <?php
-              global $AIGAION_SHORTLIST_LANGUAGES; $larr = array();
-              foreach ($AIGAION_SHORTLIST_LANGUAGES as $lang):
-                $larr[] = anchor('language/set/'.$lang.'/'.implode('/',$this->uri->segment_array()),$this->userlanguage->getLanguageName($lang));
-              endforeach;
-              echo implode(", ", $larr);
-            ?>
-          </p>
+            <p class="language header_control">
+              <?php _e('Language:'); ?>
+              <?php
+                global $AIGAION_SHORTLIST_LANGUAGES; $larr = array();
+                foreach ($AIGAION_SHORTLIST_LANGUAGES as $lang):
+                  $larr[] = anchor('language/set/'.$lang.'/'.implode('/',$this->uri->segment_array()),$lang);//$this->userlanguage->getLanguageName($lang));
+                endforeach;
+                echo implode(", ", $larr);
+              ?>
+            </p>
+          </div>
         </div>
         <h1>
           <?php echo anchor('','<span>Puma.&Phi;</span>');?>

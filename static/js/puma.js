@@ -71,6 +71,12 @@ jQuery.effects||(function(d){d.effects={version:"1.7.2",save:function(g,h){for(v
 
   var p = window.Puma = {};
 
+  $(document).ready(function () {
+    $('#footer li.level1').css('height', $('#footer ul.level1').css('height'));
+    $('#ask_name').focus(function () { if (this.value == 'Name') { this.value=""; } });
+    $('#ask_email').focus(function () { if (/^[eE].?[Mm]ail$/.test(this.value)) { this.value=""; } });
+  });
+
 })(jQuery);
 
 
