@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * Essentially helper functions for quoting stuff
+ * Essentially helper functions for quoting stuff and faster echoing
  */
 
 
@@ -20,4 +20,7 @@ function _js($s) {
   echo js($s);
 }
 
-
+function _a() {
+  $args = func_get_args();
+  echo call_user_func_array('anchor', (array)$args);
+}

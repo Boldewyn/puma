@@ -45,16 +45,16 @@ header("Content-Type: text/html; charset=UTF-8");
             </form>
             <p class="header_control">
               <?php if ($userlogin->isAnonymous()): ?>
-                <?php _e('Guest User:'); ?> <?php echo anchor('login/nds/', __('Login (NDS)')); ?> | <?php echo anchor('login', __('Login (Guest account)')); ?>
+                <?php _e('Guest User:'); ?> <?php _a('login/nds/', __('Login (NDS)')); ?> | <?php _a('login', __('Login (Guest account)')); ?>
               <?php else: ?>
                 <?php printf(__('Hello, %s %s'), $userlogin->preferences['firstname'], $userlogin->preferences['surname']); ?> |
                 <?php if ($userlogin->hasRights('user_edit_self')): ?>
-                  <?php echo anchor('users/edit/'.$userlogin->userId(), __('My Profile')); ?> |
+                  <?php _a('user/'.$userlogin->loginName().'', __('My Profile')); ?> |
                 <?php endif;
                   if ($userlogin->hasRights('topic_subscription')): ?>
-                  <?php echo anchor('users/topicreview/', __('Topic Subscribe')); ?> |
+                  <?php _a('users/topicreview/', __('Topic Subscribe')); ?> |
                 <?php endif; ?>
-                <?php echo anchor('login/dologout', __('Logout')); ?>
+                <?php _a('login/dologout', __('Logout')); ?>
               <?php endif; ?>
             </p>
             <p class="language header_control">
@@ -70,10 +70,10 @@ header("Content-Type: text/html; charset=UTF-8");
           </div>
         </div>
         <h1>
-          <?php echo anchor('','<span>Puma.&Phi;</span>');?>
+          <?php _a('','<span>Puma.&Phi;</span>');?>
         </h1>
         <h2>
-          <?php echo anchor('','<span>Publication Management for the Faculty of Physics</span>');?>
+          <?php _a('','<span>Publication Management for the Faculty of Physics</span>');?>
         </h2>
       </div>
 
@@ -90,17 +90,18 @@ header("Content-Type: text/html; charset=UTF-8");
         $this->load->view('menu', array('sortPrefix'=>$sortPrefix,'exportCommand'=>$exportCommand,'exportName'=>$exportName));
       ?>
 
+      <?php
+          $err = getErrorMessage();
+          if ($err != "") {
+              echo "<p class='error'>$err</p>";
+              clearErrorMessage();
+          }
+          $msg = getMessage();
+          if ($msg != "") {
+              echo "<p class='info'>$msg</p>";
+              clearMessage();
+          }
+      ?>
+
       <div id="content">
         <p>Hier kommt <a href="#">ein Test</a>.</p>
-        <?php
-            $err = getErrorMessage();
-            if ($err != "") {
-                echo "<p class='error'>$err</p>";
-                clearErrorMessage();
-            }
-            $msg = getMessage();
-            if ($msg != "") {
-                echo "<p class='info'>$msg</p>";
-                clearMessage();
-            }
-        ?>

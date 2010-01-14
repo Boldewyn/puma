@@ -32,6 +32,7 @@ body {
   font: 75%/1.25 "Frutiger Next Pro","Frutiger Next","Segoe UI",Verdana,sans-serif;
   color: #002D2F;
   background: white;
+  overflow-y: scroll;
 }
 ol, ul {
   list-style: none;
@@ -766,6 +767,7 @@ body {
   margin: 1.25em 0;
   clear: left;
   overflow: auto;
+  min-height: 300px;
 }
 
 
