@@ -1,6 +1,6 @@
 <IfModule mod_rewrite.c>
   RewriteEngine on
-  RewriteBase /~manuel/puma_testing/
+  RewriteBase /
   RewriteRule ^aigaionengine/(.*) aigaionengine/$1 [L]
   RewriteRule ^static/(.*)        -                [L]
   RewriteRule ^index.php/(.*)$    index.php?$1     [L,QSA]
