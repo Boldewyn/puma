@@ -36,7 +36,7 @@ $userlogin = getUserLogin();
           </li>
           <li class="level1">
             <h3><?php _e('Ask the admin'); ?></h3>
-            <p>
+            <p style="margin-bottom:1em">
               <?php _e('Do you have any question regarding Puma.&Phi;? Have you spotted an error or do you want to suggest a new feature? Don&rsquo;t hesitate and drop us a line.');?>
             </p>
             <?php echo form_open('contact/admin'); ?>
