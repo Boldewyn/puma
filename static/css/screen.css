@@ -668,6 +668,7 @@ body {
   border-right-width: 0;
 }
 
+#nav ul li span,
 #nav ul li a {
   display: block;
   background: url(images/nav.png) repeat-x left top;
@@ -705,6 +706,7 @@ body {
   float:left;
 }
 
+#subnav li span,
 #subnav li a {
   display: block;
   background: url(images/nav.png) repeat-x left top;
@@ -722,6 +724,7 @@ body {
   white-space: nowrap;
 }
 
+#subnav ul li.current span,
 #subnav ul li.current a {
   border-top-color: #35e1ec;
   border-top-width: .25em;
@@ -742,6 +745,7 @@ body {
   background-position: left bottom;
 }
 
+#subnav ul li.first span,
 #subnav ul li.first a {
   -moz-border-radius-topleft: 3px;
   -webkit-border-top-left-radius: 3px;
@@ -749,6 +753,7 @@ body {
   border-left-width: 0;
 }
 
+#subnav ul li.last span,
 #subnav ul li.last a {
   -moz-border-radius-topright: 3px;
   -webkit-border-top-right-radius: 3px;

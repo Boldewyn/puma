@@ -1,8 +1,8 @@
 <?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class User extends Controller {
+class Usercontroller extends Controller {
 
-    public function User() {
+    public function Usercontroller() {
         parent::Controller();
     }
 
@@ -22,30 +22,39 @@ class User extends Controller {
             appendErrorMessage(__('You must be logged in to view this user&rsquo;s page.'));
             redirect('');
         }
+        $groups = array();
+        foreach ($user->group_ids as $gid) {
+            $groups[] = $this->group_db->getByID($gid);
+        }
+        $user->groups = $groups;
 
         if (! $action) {
             $this->load->view('header', array("title"=>sprintf(__("User %s"), $id)));
             $this->load->view('user/full', array('user' => $user));
-            $this->load->view('footer', '');
+            $this->load->view('footer');
         } else {
-            $this->$action($id, $user);
+            $this->$action($id, $user, $userlogin);
         }
     }
 
     /**
      *
      */
-    protected function contact ($id, $user) {
-        $this->load->view('header', array("title"=>sprintf(__("Contact user %s"), $id));
+    protected function contact ($id, $user, $userlogin) {
+        if ($userlogin->isAnonymous() && $id != "admin") {
+            appendErrorMessage(__('Please log in to contact other users.'));
+            redirect('');
+        }
+
+        $this->load->view('header', array("title"=>sprintf(__("Contact user %s"), $id)));
         $this->load->view('user/contact', array('user' => $user));
-        $this->load->view('footer', '');
+        $this->load->view('footer');
     }
 
     /**
      *
      */
-    protected function edit ($id, $user) {
-        $userlogin = getUserLogin();
+    protected function edit ($id, $user, $userlogin) {
         if ((!$userlogin->hasRights('user_edit_all'))
              &&
             (!$userlogin->hasRights('user_edit_self') || ($userlogin->userId() != $user->user_id))) {
@@ -53,10 +62,10 @@ class User extends Controller {
             redirect('');
         }
 
-        $this->load->view('header', array("title"=>sprintf(__("Edit user %s"), $id));
+        $this->load->view('header', array("title"=>sprintf(__("Edit user %s"), $id)));
         $this->load->view('user/edit', array('user' => $user, 'status' => $status));
-        $this->load->view('footer', '');
-    }*/
+        $this->load->view('footer');
+    }
 
 }
 

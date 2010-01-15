@@ -104,4 +104,3 @@ header("Content-Type: text/html; charset=UTF-8");
       ?>
 
       <div id="content">
-        <p>Hier kommt <a href="#">ein Test</a>.</p>
