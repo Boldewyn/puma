@@ -28,9 +28,9 @@ $userlogin = getUserLogin();
             <h3><?php _e('Help'); ?></h3>
             <ul>
               <li><?php _a('help/about', __('About this site')); ?></li>
-              <li><?php _a('help', __('General help'); ?></li>
-              <li><?php _a('help/faq', __('FAQ'); ?></li>
-              <li><?php _a('help/tutorial', __('Video tutorial'); ?></li>
+              <li><?php _a('help', __('General help')); ?></li>
+              <li><?php _a('help/faq', __('FAQ')); ?></li>
+              <li><?php _a('help/tutorial', __('Video tutorial')); ?></li>
               <li><a href="http://www.aigaion.nl/forum"><?php _e('Aigaion forum'); ?></a></li>
             </ul>
           </li>
