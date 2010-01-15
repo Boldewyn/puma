@@ -1,4 +1,4 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?><?php
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 /**
 views/site/stats
 
@@ -12,7 +12,7 @@ $publicationReadCount = $this->topic_db->getReadPublicationCountForTopic(1);
 
 
 ?>
-<div class="statistics <?php if(isset($embed) && $embed): ?>embed<? endif; ?>">
+<div class="statistics <?php if(isset($embed) && $embed): ?>embed<?php endif; ?>">
   <h2><?php echo __('Statistics')?></h2>
   <ul>
     <li><?php printf(__('%s publications (%s read)'), $publicationCount, $publicationReadCount)?></li>

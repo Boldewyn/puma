@@ -24,7 +24,7 @@ class User extends Controller {
         }
 
         if (! $action) {
-            $this->load->view('header', array("title"=>sprintf(__("User %s"), $id));
+            $this->load->view('header', array("title"=>sprintf(__("User %s"), $id)));
             $this->load->view('user/full', array('user' => $user));
             $this->load->view('footer', '');
         } else {
