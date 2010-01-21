@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 
-<h2><?php _h($user->firstname); echo ' '; _h($user->surname);?></h2>
+<h2><?php _e("User Details:"); echo " "; _h($user->firstname); echo ' '; _h($user->surname);?></h2>
 
 <?php if (preg_match('/^[a-z]{3}[0-9]{5}$/', $user->login)): ?>
   <form accept-charset="ISO-8859-1" action="http://www-cgi.uni-regensburg.de/Fakultaeten/Physik/Fakultaet/people/mit_abfrage.php" method="post">
@@ -31,3 +31,7 @@
     </tr>
   </tbody>
 </table>
+
+<p>
+  <?php _a("user/{$user->login}/contact", __("Contact this user.")); ?>
+</p>

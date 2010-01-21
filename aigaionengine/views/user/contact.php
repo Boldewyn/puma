@@ -1,0 +1,37 @@
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
+
+<?php if (!isset($embed) || ! $embed): ?>
+  <h2><?php printf(__('Contact %s %s'), $user->firstname, $user->surname)?></h2>
+<?php endif; ?>
+
+<?php if ($success): ?>
+
+  <?php if ($success_send): ?>
+    <p class="success"><?php _e("The e-Mail was successfully sent.")?></p>
+  <?php else: ?>
+    <p class="error"><?php _e("There was an error trying to send the e-Mail. If this appears regularly, please contact the admin.")?></p>
+  <?php endif; ?>
+
+<?php else: ?>
+
+  <?php echo validation_errors(); ?>
+
+  <?php echo form_open("user/{$user->login}/contact"); ?>
+    <p>
+      <label for="user_contact_subject"><?php _e("Subject:")?></label>
+      <input type="text" class="text" name="subject" id="user_contact_subject"
+             value="<?php echo set_value('subject')?>" />
+    </p>
+    <p>
+      <label for="user_contact_message"><?php _e("Message:")?></label>
+      <textarea name="message" id="user_contact_message"
+                rows="5" cols="30" class="<?php if (form_error('message')) { echo "error"; }?>"><?php echo set_value('message')?></textarea>
+    </p>
+    <p>
+      <input type="submit" value="<?php _e('Submit')?>" />
+    </p>
+  </form>
+
+<?php endif; ?>
+
+<p><?php _a("user/{$user->login}", __("Back to the user&rsquo;s overview."))?></p>

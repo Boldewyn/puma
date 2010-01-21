@@ -9,10 +9,13 @@ class Usercontroller extends Controller {
     /**
      *
      */
-    public function index ($id, $action=False) {
+    public function index ($id=False, $action=False) {
         $user = $this->user_db->getByLogin($id);
         $userlogin = getUserLogin();
-        if ($user==null) {
+        if (! $id) {
+            appendErrorMessage(__("This page does not exist."));
+            redirect('');
+        } elseif ($user == null) {
             appendErrorMessage(sprintf(__("User %s does not exist."), h($id)));
             redirect('');
         } elseif ($action && ! in_array($action, array("contact", "edit"))) {
@@ -45,9 +48,33 @@ class Usercontroller extends Controller {
             appendErrorMessage(__('Please log in to contact other users.'));
             redirect('');
         }
+        $this->load->library('form_validation');
+        $this->form_validation->set_message('required', __("A %s is required."));
+        $this->form_validation->set_message('max_length', __("The %s may not exceed 511 characters."));
+        $this->form_validation->set_error_delimiters('<p class="error">', '</p>');
+        $this->form_validation->set_rules('message', __('message'), 'required|max_length[511]');
+
+        $data = array('user' => $user);
+        $data['success'] = $this->form_validation->run();
+
+        if ($data['success']) {
+            $this->load->library('email');
+            $subject = $this->input->post('subject');
+            if (! $subject) {
+                $subject = sprintf(__("A message from Puma user %s %s"),
+                                   $userlogin->preferences['firstname'],
+                                   $userlogin->preferences['surname']);
+            }
+
+            $this->email->from($userlogin->preferences['email']);
+            $this->email->to($user->email);
+            $this->email->subject($subject);
+            $this->email->message($this->input->post('message'));
+            $data['success_send'] = $this->email->send();
+        }
 
         $this->load->view('header', array("title"=>sprintf(__("Contact user %s"), $id)));
-        $this->load->view('user/contact', array('user' => $user));
+        $this->load->view('user/contact', $data);
         $this->load->view('footer');
     }
 

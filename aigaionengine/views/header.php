@@ -78,6 +78,19 @@ header("Content-Type: text/html; charset=UTF-8");
       </div>
 
       <?php
+          $err = getErrorMessage();
+          if ($err != "") {
+              echo "<p class='error global-error'>$err</p>";
+              clearErrorMessage();
+          }
+          $msg = getMessage();
+          if ($msg != "") {
+              echo "<p class='info global-info'>$msg</p>";
+              clearMessage();
+          }
+      ?>
+
+      <?php
         //load menu
         //view parameter to be passed to menu: a prefix for the sort options. See views/menu.php for more info
         if (!isset($sortPrefix))
@@ -88,19 +101,6 @@ header("Content-Type: text/html; charset=UTF-8");
         if (!isset($exportName))
           $exportName = __('Aigaion export list');
         $this->load->view('menu', array('sortPrefix'=>$sortPrefix,'exportCommand'=>$exportCommand,'exportName'=>$exportName));
-      ?>
-
-      <?php
-          $err = getErrorMessage();
-          if ($err != "") {
-              echo "<p class='error'>$err</p>";
-              clearErrorMessage();
-          }
-          $msg = getMessage();
-          if ($msg != "") {
-              echo "<p class='info'>$msg</p>";
-              clearMessage();
-          }
       ?>
 
       <div id="content">

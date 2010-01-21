@@ -39,21 +39,21 @@ $userlogin = getUserLogin();
             <p style="margin-bottom:1em">
               <?php _e('Do you have any question regarding Puma.&Phi;? Have you spotted an error or do you want to suggest a new feature? Don&rsquo;t hesitate and drop us a line.');?>
             </p>
-            <?php echo form_open('contact/admin'); ?>
+            <?php echo form_open('user/admin/contact'); ?>
               <p>
-                <input type="text" class="text" name="name" id="ask_name" value="<?php
+                <input type="text" class="text" name="name" id="footer_ask_name" value="<?php
                   echo $userlogin->isAnonymous()? __("Name") : $userlogin->preferences['firstname']." ".$userlogin->preferences['surname']; ?>" />
               </p>
               <p>
-                <input type="text" class="text" name="email" id="ask_email" value="<?php
+                <input type="text" class="text" name="email" id="footer_ask_email" value="<?php
                   echo $userlogin->isAnonymous()? __("E-Mail") : $userlogin->preferences['email']; ?>" />
               </p>
               <p>
                 <label for="ask_question"><?php _e('Question:')?></label>
-                <textarea name="question" id="ask_question" rows="2" cols="20"></textarea>
+                <textarea name="message" id="footer_ask_question" rows="2" cols="20"></textarea>
               </p>
               <p style="text-align:center">
-                <input type="submit" class="submit" name="name" value="<?php _e('ask the admin'); ?>" />
+                <input type="submit" class="submit" value="<?php _e('ask the admin'); ?>" />
               </p>
             </form>
           </li>

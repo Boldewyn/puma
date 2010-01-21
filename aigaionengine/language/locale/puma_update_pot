@@ -1,0 +1,11 @@
+#!/bin/bash
+
+xgettext --from-code=UTF-8 -L php -k__ -k_e -o messages.pot `find ../.. -name *.php`
+
+echo "Merge? (type 'y' for merging)"
+read MERGE
+
+test $MERGE = "y" && {
+  msgmerge de/LC_MESSAGES/messages.po messages.pot > de/LC_MESSAGES/messages.po.new
+  mv de/LC_MESSAGES/messages.po.new de/LC_MESSAGES/messages.po
+}
