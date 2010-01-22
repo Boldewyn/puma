@@ -12,7 +12,7 @@
   <?php if ($success_send): ?>
     <p class="success"><?php _e("The e-Mail was successfully sent.")?></p>
   <?php else: ?>
-    <p class="error"><?php _e("There was an error trying to send the e-Mail. If this appears regularly, please contact the admin.")?></p>
+    <p class="error"><?php _e("There was an error trying to send the e-Mail.", "severe")?></p>
   <?php endif; ?>
 
 <?php else: ?>

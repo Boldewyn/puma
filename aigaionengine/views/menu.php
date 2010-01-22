@@ -99,7 +99,7 @@
   </ul>
 </div>
 
-<div id="subnav" class="<?php if(in_array($this->uri->segment(1), array(""))) : echo 'min">'; else: ?>">
+<div id="subnav" class="<?php if(! isset($subnav) || count($subnav) == 0): echo 'min">'; else: ?>">
   <ul>
     <?php switch($this->uri->segment(1)):
       case "topics": ?>

@@ -7,8 +7,8 @@
   <?php echo validation_errors(); ?>
 
   <?php echo form_open("user/{$user->login}/edit", array("autocomplete"=>"off")); ?>
-    <fieldset>
-      <legend><?php _e('Account settings')?></legend>
+    <?php /* <fieldset class="extended_label">
+      <legend><?php _e('Password')?></legend>
       <p>
         <label for="user_edit_password"><?php _e('Password (leave blank to keep)')?></label>
         <input type="password" class="text password" name="password" id="user_edit_password" />
@@ -17,6 +17,10 @@
         <label for="user_edit_password_check"><?php _e('Re-type new password')?></label>
         <input type="password" class="text password" name="password_check" id="user_edit_password_check" />
       </p>
+    </fieldset> */ ?>
+
+    <fieldset class="half">
+      <legend><?php _e('Account settings')?></legend>
       <p>
         <label for="user_edit_initials"><?php _e('Initials')?></label>
         <input type="text" class="text" name="initials" id="user_edit_initials"
@@ -41,20 +45,21 @@
         <label for="user_edit_abbreviation"><?php _e('Abbreviation')?></label>
         <input type="text" class="text" name="abbreviation" id="user_edit_abbreviation"
               size="5" value="<?php _h($user->abbreviation)?>" />
+        <span class="note"><?php _e("This is not your login name, but the name others will see in the &lsquo;Who created this&rsquo; fields.")?></span>
       </p>
-      <p>
+      <p class="extended_input">
         <label for="user_edit_email"><?php _e('Email address')?></label>
         <input type="text" class="text" name="email" id="user_edit_email"
               size="5" value="<?php _h($user->email)?>" />
       </p>
     </fieldset>
 
-    <fieldset class="extended_label">
+    <fieldset class="extended_label half">
       <legend><?php _e('Display preferences')?></legend>
       <p>
         <label for="user_edit_language"><?php _e('Language')?></label>
         <?php
-          $lang_array = array('default' => sprintf(__('default (%s)', getConfigurationSetting('DEFAULTPREF_LANGUAGE'))));
+          $lang_array = array('default' => sprintf(__('default (%s)'), getConfigurationSetting('DEFAULTPREF_LANGUAGE')));
           global $AIGAION_SUPPORTED_LANGUAGES;
           foreach ($AIGAION_SUPPORTED_LANGUAGES as $lang) {
             $lang_array[$lang] = $this->userlanguage->getLanguageName($lang);
@@ -66,7 +71,7 @@
       <p>
         <label for="user_edit_summarystyle"><?php _e('Publication summary style')?></label>
         <?php echo form_dropdown('summarystyle',
-                            array('default' => sprintf(__('default (%s)', getConfigurationSetting('DEFAULTPREF_SUMMARYSTYLE'))),
+                            array('default' => sprintf(__('default (%s)'), getConfigurationSetting('DEFAULTPREF_SUMMARYSTYLE')),
                                   'author' => __('author first'), 'title' => __('title first')),
                             $user->preferences["summarystyle"],
                             ' id="user_edit_summarystyle"')?>
@@ -74,7 +79,7 @@
       <p>
         <label for="user_edit_authordisplaystyle"><?php _e('Author display style')?></label>
         <?php echo form_dropdown('authordisplaystyle',
-                            array('default' => sprintf(__('default (%s)', getConfigurationSetting('DEFAULTPREF_AUTHORDISPLAYSTYLE'))),
+                            array('default' => sprintf(__('default (%s)'), getConfigurationSetting('DEFAULTPREF_AUTHORDISPLAYSTYLE')),
                                   'fvl' => __('First [von] Last'), 'vlf' => __('[von] Last, First'), 'vl' => __('[von] Last')),
                             $user->preferences["authordisplaystyle"],
                             ' id="user_edit_authordisplaystyle"')?>
@@ -117,6 +122,7 @@
     </fieldset>
     <p>
       <input type="submit" class="submit" value="<?php _e("Store new settings")?>" />
+      <?php _a("user/{$user->login}", __("Back to the user&rsquo;s overview."), array('class'=>'pseudobutton'))?>
     </p>
   </form>
 

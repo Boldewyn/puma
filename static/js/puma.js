@@ -195,7 +195,6 @@ jQuery.effects||(function(d){d.effects={version:"1.7.2",save:function(g,h){for(v
 
 
 
-
 /**
  * P U M A
  */
@@ -208,6 +207,9 @@ jQuery.effects||(function(d){d.effects={version:"1.7.2",save:function(g,h){for(v
     $('#ask_name').focus(function () { if (this.value == 'Name') { this.value=""; } });
     $('#ask_email').focus(function () { if (/^[eE].?[Mm]ail$/.test(this.value)) { this.value=""; } });
     $('p + p').addClass("after_p");
+    $('fieldset p:odd').addClass('even');
+    $('*.half + *:not(.half)').css('clear', 'left');
+    $('*.half:odd').css('margin-right', '0');
   });
 
 })(jQuery);

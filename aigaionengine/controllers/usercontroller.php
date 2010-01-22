@@ -89,15 +89,26 @@ class Usercontroller extends Controller {
             redirect('');
         }
         $this->load->library('form_validation');
-        $this->form_validation->set_message('required', __("A %s is required."));
-        $this->form_validation->set_message('max_length', __("The %s may not exceed 511 characters."));
+        $this->form_validation->set_message('required', __("The field %s is required."));
+        $this->form_validation->set_message('max_length', __("The field %s is too long."));
         $this->form_validation->set_error_delimiters('<p class="error">', '</p>');
+
+        $rules = array('password' => 'matches[password_check]',
+                       'password_check' => 'matches[password]');
+        $this->form_validation->set_rules('password', __("Password"), 'matches[password_check]');
+        $this->form_validation->set_rules('password_check', __("Password repeat"), 'matches[password]');
 
         $data = array('user' => $user);
         $data['success'] = $this->form_validation->run();
 
         if ($data['success']) {
-            appendMessage(__('The account was successfully updated.'));
+            if ($user->edit($_POST)) {
+                appendMessage(__('The account was successfully updated.'));
+            } else {
+                appendErrorMessage(__("The changes could not be stored.", "severe"));
+            }
+        } else {
+            appendErrorMessage(validation_errors());
         }
 
         $this->load->view('header', array("title"=>sprintf(__("Edit user %s"), $id)));
