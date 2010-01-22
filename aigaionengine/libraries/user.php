@@ -84,9 +84,9 @@ class User {
     /** A simple method to update _some_ fields of a user */
     function edit($values) {
         foreach ($values as $key => $value) {
-            if ($this->$key) {
+            if (isset($this->$key)) {
                 $this->$key = $value;
-            } elseif ($this->preferences[$key]) {
+            } elseif (array_key_exists($this->preferences[$key])) {
                 $this->preferences[$key] = $value;
             }
         }
