@@ -88,9 +88,20 @@ class Usercontroller extends Controller {
             appendErrorMessage(__('You are not allowed to edit other users.'));
             redirect('');
         }
+        $this->load->library('form_validation');
+        $this->form_validation->set_message('required', __("A %s is required."));
+        $this->form_validation->set_message('max_length', __("The %s may not exceed 511 characters."));
+        $this->form_validation->set_error_delimiters('<p class="error">', '</p>');
+
+        $data = array('user' => $user);
+        $data['success'] = $this->form_validation->run();
+
+        if ($data['success']) {
+            appendMessage(__('The account was successfully updated.'));
+        }
 
         $this->load->view('header', array("title"=>sprintf(__("Edit user %s"), $id)));
-        $this->load->view('user/edit', array('user' => $user, 'status' => $status));
+        $this->load->view('user/edit', $data);
         $this->load->view('footer');
     }
 

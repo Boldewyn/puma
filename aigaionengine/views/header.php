@@ -39,11 +39,21 @@ header("Content-Type: text/html; charset=UTF-8");
             <?php echo form_open('search/quicksearch', array("id"=>"quicksearch", "class"=>"header_control")); ?>
               <p>
                 <input type="hidden" name="formname" value="simplesearch" />
-                <input type="text" name="q" value="<?php _h($this->input->post('q')); ?>" />
-                <input type="submit" name="submit_search" value="<?php _e('Search'); ?>" />
+                <input type="text" class="text" name="q" value="<?php _h($this->input->post('q')); ?>" />
+                <input type="submit" class="submit" name="submit_search" value="<?php _e('Search'); ?>" />
               </p>
             </form>
-            <p class="header_control">
+            <p class="language header_control">
+              <?php _e('Language:'); ?>
+              <?php
+                global $AIGAION_SHORTLIST_LANGUAGES; $larr = array();
+                foreach ($AIGAION_SHORTLIST_LANGUAGES as $lang):
+                  $larr[] = anchor('language/set/'.$lang.'/'.implode('/',$this->uri->segment_array()),$lang);//$this->userlanguage->getLanguageName($lang));
+                endforeach;
+                echo implode(", ", $larr);
+              ?>
+            </p>
+            <p class="userdata header_control">
               <?php if ($userlogin->isAnonymous()): ?>
                 <?php _e('Guest User:'); ?> <?php _a('login/nds/', __('Login (NDS)')); ?> | <?php _a('login', __('Login (Guest account)')); ?>
               <?php else: ?>
@@ -56,16 +66,6 @@ header("Content-Type: text/html; charset=UTF-8");
                 <?php endif; ?>
                 <?php _a('login/dologout', __('Logout')); ?>
               <?php endif; ?>
-            </p>
-            <p class="language header_control">
-              <?php _e('Language:'); ?>
-              <?php
-                global $AIGAION_SHORTLIST_LANGUAGES; $larr = array();
-                foreach ($AIGAION_SHORTLIST_LANGUAGES as $lang):
-                  $larr[] = anchor('language/set/'.$lang.'/'.implode('/',$this->uri->segment_array()),$lang);//$this->userlanguage->getLanguageName($lang));
-                endforeach;
-                echo implode(", ", $larr);
-              ?>
             </p>
           </div>
         </div>

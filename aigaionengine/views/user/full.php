@@ -1,6 +1,13 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); $userlogin = getUserLogin(); ?>
 
 <h2><?php _e("User Details:"); echo " "; _h($user->firstname); echo ' '; _h($user->surname);?></h2>
+
+<?php $this->load->view("user/contact", array("embed"=>true, "success" => false));?>
+
+<?php if ($userlogin->hasRights('user_edit_all') ||
+          ($userlogin->hasRights('user_edit_self') && $userlogin->userId() == $user->user_id)): ?>
+  <p><?php _a("user/{$user->login}/edit", __("Edit account details.")); ?></p>
+<?php endif; ?>
 
 <?php if (preg_match('/^[a-z]{3}[0-9]{5}$/', $user->login)): ?>
   <form accept-charset="ISO-8859-1" action="http://www-cgi.uni-regensburg.de/Fakultaeten/Physik/Fakultaet/people/mit_abfrage.php" method="post">
@@ -32,6 +39,3 @@
   </tbody>
 </table>
 
-<p>
-  <?php _a("user/{$user->login}/contact", __("Contact this user.")); ?>
-</p>

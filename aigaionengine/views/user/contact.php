@@ -1,6 +1,9 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); if (!isset($embed)) { $embed = false; } ?>
 
-<?php if (!isset($embed) || ! $embed): ?>
+<?php if ($embed): ?>
+  <div class="embed user_contact_embed">
+    <p><?php printf(__('Contact %s %s'), $user->firstname, $user->surname)?></p>
+<?php else: ?>
   <h2><?php printf(__('Contact %s %s'), $user->firstname, $user->surname)?></h2>
 <?php endif; ?>
 
@@ -28,10 +31,16 @@
                 rows="5" cols="30" class="<?php if (form_error('message')) { echo "error"; }?>"><?php echo set_value('message')?></textarea>
     </p>
     <p>
-      <input type="submit" value="<?php _e('Submit')?>" />
+      <input type="submit" class="submit" value="<?php _e('Submit')?>" />
     </p>
   </form>
 
 <?php endif; ?>
 
-<p><?php _a("user/{$user->login}", __("Back to the user&rsquo;s overview."))?></p>
+<?php if ($embed): ?>
+  </div>
+<?php else: ?>
+  <p><?php _a("user/{$user->login}", __("Back to the user&rsquo;s overview."))?></p>
+<?php endif; ?>
+
+
