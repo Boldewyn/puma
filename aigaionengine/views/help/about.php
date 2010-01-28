@@ -1,5 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<div id="help-content">
+<div id="help-about" class="help-content">
   <h2><?php printf(__('About %s'), puma())?></h2>
   <p>
 <?php

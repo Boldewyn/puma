@@ -1,5 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<div id="help-content">
+<div id="help-publicationlists" class="help-content">
   <h2><?php _e('The Publication Lists')?></h2>
   <p><?php printf(__('%s offers multiple ways to explore your publications, the standard list sorts all publications in the database by year. You can also browse the publications sorted by title, by publicationtype or by topic.'), puma())?></p>
   <div class='message'>

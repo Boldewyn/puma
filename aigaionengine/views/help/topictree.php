@@ -1,5 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<div id="help-content">
+<div id="help-topictree" class="help-content">
   <h2><?php _e('The Topic Tree')?></h2>
   <p><?php printf(__('Click on a topic to read its description and find all %s that are attached to it. A paper can be attached to multiple topics. If you want to find for example the publications that are part of two topics, you can use the search interface from the menu.'), anchor('help/publicationlists', __('papers')))?></p>
   <div class='message'>
