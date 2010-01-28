@@ -10,5 +10,5 @@
   <p><?php _e('Each group can be associated with one or more <em>rights profiles</em>, collections of user rights. This association has no influence at all on the user rights considered to be assigned to the users currently belonging to the group. However, whenever you newly assign a user to a group, that user will immediately also receive all user rights from the rights profiles associated to the group. This helps in quickly establishing default rights for users in certain groups.')?></p>
 
   <h3><?php _e('Access levels')?></h3>
-  <p><?php _e('See %s for more information about access levels.', anchor('help/accessrights', __('the section about access rights')))?></p>
+  <p><?php printf(__('See %s for more information about access levels.'), anchor('help/accessrights', __('the section about access rights')))?></p>
 </div>
