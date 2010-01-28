@@ -50,10 +50,10 @@ $userlogin = getUserLogin();
           <li class="level1">
             <h3><?php _e('About'); ?></h3>
             <p>
-              <?php printf(__('%s ist das Promotionsprojekt von Manuel Strehl und entsteht in Zusammenarbeit mit dem
-              Lehrstuhl für Medieninformatik und der Fakultät für Physik an der Universität Regensburg. Ziel ist der Aufbau
-              eines umfassenden Web 2.0-Angebots für die Regensburger Physiker.
-              Die Anwendung basiert auf der freien Publikationsdatenbank %s.'), puma(), '<a href="http://www.aigaion.nl">Aigaion</a>'); ?>
+              <?php printf(__('%s ist das Promotionsprojekt von Manuel Strehl und entsteht in Zusammenarbeit mit dem '.
+              'Lehrstuhl für Medieninformatik und der Fakultät für Physik an der Universität Regensburg. Ziel ist der Aufbau '.
+              'eines umfassenden Web 2.0-Angebots für die Regensburger Physiker. '.
+              'Die Anwendung basiert auf der freien Publikationsdatenbank %s.'), puma(), '<a href="http://www.aigaion.nl">Aigaion</a>'); ?>
             </p>
           </li>
           <li class="level1 level1_last">
