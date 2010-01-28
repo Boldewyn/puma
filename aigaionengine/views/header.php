@@ -68,7 +68,7 @@ header("Content-Type: text/html; charset=UTF-8");
           </div>
         </div>
         <h1>
-          <?php _a('','<span>Puma.&Phi;</span>');?>
+          <?php _a('','<span>'.puma().'</span>');?>
         </h1>
         <h2>
           <?php _a('','<span>Publication Management for the Faculty of Physics</span>');?>

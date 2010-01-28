@@ -118,6 +118,9 @@ a:focus,
 a:hover {
   color: #00b0bc;
 }
+code {
+  font-family: monospace;
+}
 
 
 
