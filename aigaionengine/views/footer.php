@@ -27,7 +27,7 @@ $userlogin = getUserLogin();
           <li class="level1">
             <h3><?php _e('Ask the Admin'); ?></h3>
             <p style="margin-bottom:1em">
-              <?php printf(__('Do you have any question regarding %s? Have you spotted an error or do you want to suggest a new feature? Don&rsquo;t hesitate and drop us a line.'), puma())?>;?>
+              <?php printf(__('Do you have any question regarding %s? Have you spotted an error or do you want to suggest a new feature? Don&rsquo;t hesitate and drop us a line.'), puma())?>
             </p>
             <?php echo form_open('user/admin/contact'); ?>
               <p>
