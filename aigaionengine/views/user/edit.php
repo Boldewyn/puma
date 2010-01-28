@@ -116,8 +116,8 @@
         <input type="checkbox" class="checkbox" name="utf8bibtex" id="user_edit_utf8bibtex"
               value="TRUE" <?php if ($user->preferences['utf8bibtex']=="TRUE") { echo 'checked="checked"'; }?> />
         <span class="note"><?php sprintf(__('Check this box if you want all BibTeX output to be in UTF8, i.e. '.
-                                            'when you do <strong>not</strong> want Aigaion to convert special '.
-                                            'characters to BibTeX codes such as %s.'), "{\\'e}")?></span>
+                                            'when you do <strong>not</strong> want %s to convert special '.
+                                            'characters to BibTeX codes such as %s.'), puma(), "{\\'e}")?></span>
       </p>
     </fieldset>
     <p>

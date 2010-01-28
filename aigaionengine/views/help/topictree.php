@@ -16,6 +16,6 @@
   </ul>
 
   <h3><?php _e('Subscribing for topics')?></h3>
-  <p><?php printf(__('It may be that not every user of a certain Aigaion database is interested in exactly the same topics. Therefore Aigaion contains a mechanism that allows you to subscribe to - or unsubscribe from - any topic, meaning that you can determine which topics you will see while browsing the system.
-  By default, a new user will not be subscribed to any topic. To review which topics already exist in this copy of Aigaion, go to the %s and subscribe to any topic that you are interested in. Those topics will then appear in your topic tree.'), anchor('users/topicreview', __('topic review page')))?></p>
+  <p><?php printf(__('It may be that not every user is interested in exactly the same topics. Therefore %s contains a mechanism that allows you to subscribe to - or unsubscribe from - any topic, meaning that you can determine which topics you will see while browsing the system.
+  By default, a new user will not be subscribed to any topic. To review which topics already exist in this copy of Aigaion, go to the %s and subscribe to any topic that you are interested in. Those topics will then appear in your topic tree.'), puma(), anchor('users/topicreview', __('topic review page')))?></p>
 </div>
