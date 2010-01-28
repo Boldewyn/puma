@@ -122,7 +122,7 @@
     </fieldset>
     <p>
       <input type="submit" class="submit" value="<?php _e("Store new settings")?>" />
-      <?php _a("user/{$user->login}", __("Back to the user&rsquo;s overview."), array('class'=>'pseudobutton'))?>
+      <?php _a("user/{$user->login}", __("Back to the user&rsquo;s overview"), array('class'=>'pseudobutton'))?>
     </p>
   </form>
 

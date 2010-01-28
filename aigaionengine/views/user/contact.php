@@ -33,7 +33,7 @@
     <p>
       <input type="submit" class="submit wide_button" value="<?php _e('Submit')?>" />
       <?php if (! $embed):?>
-        <?php _a("user/{$user->login}", __("Back to the user&rsquo;s overview."), array("class"=>"pseudobutton"))?>
+        <?php _a("user/{$user->login}", __("Back to the user&rsquo;s overview"), array("class"=>"pseudobutton"))?>
       <?php endif ?>
     </p>
   </form>

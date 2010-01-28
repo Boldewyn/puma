@@ -2,9 +2,10 @@
 
 class Accesslevels extends Controller {
 
-  function Arrangements()
+  function Accesslevels()
   {
     parent::Controller();
+    ban_non_admins();
   }
 
   /** There is no default controller . */
@@ -101,20 +102,20 @@ class Accesslevels extends Controller {
     $edit_icon = "";
 
     $rw = $rights_type."_access_level";
-    
-    
+
+
     //determine object type and check access level
     switch ($type) {
       case 'publication':
       $publication = $this->publication_db->getByID($object_id);
-      
+
       //check if we retrieved the object
       if ($publication != null)
       {
         //get old rights summary in case we fail the type change
           $read_icon = $this->accesslevels_lib->getReadAccessLevelIcon($publication);
           $edit_icon = $this->accesslevels_lib->getEditAccessLevelIcon($publication);
-        
+
         //check if the user has the required rights
         if ($this->accesslevels_lib->canEditObject($publication))
         {
@@ -128,8 +129,8 @@ class Accesslevels extends Controller {
             if ($userlogin->userid()==$publication->user_id)
             {
               $newlevel = "private";
-            } 
-            else 
+            }
+            else
             {
               $newlevel = "public";
             }
@@ -143,22 +144,22 @@ class Accesslevels extends Controller {
         $this->accesslevels_lib->setEditAccessLevel($type,$object_id,$newlevel,true);
 
         $publication = $this->publication_db->getByID($object_id);
-        
+
         $read_icon = $this->accesslevels_lib->getReadAccessLevelIcon($publication);
         $edit_icon = $this->accesslevels_lib->getEditAccessLevelIcon($publication);
-        
+
       }
       break;
       case 'attachment':
       $attachment = $this->attachment_db->getByID($object_id);
-      
+
       //check if we retrieved the object
       if ($attachment!=null)
       {
         //get old rights summary in case we fail the type change
         $read_icon = $this->accesslevels_lib->getReadAccessLevelIcon($attachment);
         $edit_icon = $this->accesslevels_lib->getEditAccessLevelIcon($attachment);
-        
+
         //check if the user has the required rights
         if ($this->accesslevels_lib->canEditObject($attachment))
         {
@@ -172,8 +173,8 @@ class Accesslevels extends Controller {
             if ($userlogin->userid()==$attachment->user_id)
             {
               $newlevel = "private";
-            } 
-            else 
+            }
+            else
             {
               $newlevel = "public";
             }
@@ -183,7 +184,7 @@ class Accesslevels extends Controller {
         }
         if ($rights_type == 'read')
           $this->accesslevels_lib->setReadAccessLevel($type,$object_id,$newlevel);
-          
+
         if ($rights_type == 'edit')
         $this->accesslevels_lib->setEditAccessLevel($type,$object_id,$newlevel);
 
@@ -201,8 +202,8 @@ class Accesslevels extends Controller {
         //get old rights summary in case we fail the type change
         $read_icon = $this->accesslevels_lib->getReadAccessLevelIcon($note);
         $edit_icon = $this->accesslevels_lib->getEditAccessLevelIcon($note);
-        
-        
+
+
         //check if the user has the required rights
         if ($this->accesslevels_lib->canEditObject($note))
         {
@@ -211,13 +212,13 @@ class Accesslevels extends Controller {
           $newlevel     = $currentLevel;
           if ($currentLevel == 'public')
           $newlevel = "intern";
-          if ($currentLevel == 'intern') 
+          if ($currentLevel == 'intern')
           {
             if ($userlogin->userid()==$note->user_id)
             {
               $newlevel = "private";
-            } 
-            else 
+            }
+            else
             {
               $newlevel = "public";
             }
@@ -233,11 +234,11 @@ class Accesslevels extends Controller {
         $note = $this->note_db->getByID($object_id);
         $read_icon = $this->accesslevels_lib->getReadAccessLevelIcon($note);
         $edit_icon = $this->accesslevels_lib->getEditAccessLevelIcon($note);
-        
+
       }
       break;
     }
-    
+
     $readrights = $this->ajax->link_to_remote($read_icon,
                   array('url'     => site_url('/accesslevels/toggle/'.$type.'/'.$object_id.'/read'),
                         'update'  => $type."_rights_".$object_id

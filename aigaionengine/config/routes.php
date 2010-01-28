@@ -44,6 +44,7 @@ $route['scaffolding_trigger'] = "";
 
 $route['login/nds:any'] = "login/nds";
 $route['user/(:any)'] = "usercontroller/index/$1";
+$route['help/(:any)'] = "help/index/$1";
 
 
 

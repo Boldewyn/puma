@@ -60,10 +60,8 @@ header("Content-Type: text/html; charset=UTF-8");
                 <?php printf(__('Hello, %s %s'), $userlogin->preferences['firstname'], $userlogin->preferences['surname']); ?> |
                 <?php if ($userlogin->hasRights('user_edit_self')): ?>
                   <?php _a('user/'.$userlogin->loginName().'', __('My Profile')); ?> |
-                <?php endif;
-                  if ($userlogin->hasRights('topic_subscription')): ?>
-                  <?php _a('users/topicreview/', __('Topic Subscribe')); ?> |
-                <?php endif; ?>
+                <?php endif ?>
+                <?php _a('help', __('Help')); ?> |
                 <?php _a('login/dologout', __('Logout')); ?>
               <?php endif; ?>
             </p>
