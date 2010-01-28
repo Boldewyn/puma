@@ -31,7 +31,10 @@
                 rows="5" cols="30" class="<?php if (form_error('message')) { echo "error"; }?>"><?php echo set_value('message')?></textarea>
     </p>
     <p>
-      <input type="submit" class="submit" value="<?php _e('Submit')?>" />
+      <input type="submit" class="submit wide_button" value="<?php _e('Submit')?>" />
+      <?php if (! $embed):?>
+        <?php _a("user/{$user->login}", __("Back to the user&rsquo;s overview."), array("class"=>"pseudobutton"))?>
+      <?php endif ?>
     </p>
   </form>
 
@@ -39,8 +42,6 @@
 
 <?php if ($embed): ?>
   </div>
-<?php else: ?>
-  <p><?php _a("user/{$user->login}", __("Back to the user&rsquo;s overview."))?></p>
 <?php endif; ?>
 
 

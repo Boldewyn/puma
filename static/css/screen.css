@@ -629,8 +629,13 @@ body {
 
 #header_controls {
   color: white;
-  padding: .25em .5em;
+  padding: .25em 1em;
   margin: 0 0 0 20em;
+  opacity: .5;
+}
+
+#header_controls:hover {
+  opacity: 1;
 }
 
 #header_controls .header_control {
@@ -1017,6 +1022,10 @@ body {
   position: relative;
 }
 
+#content .wide_button {
+  width: 16em;
+}
+
 #content .pseudobutton {
   line-height: 1.5;
 }
@@ -1047,7 +1056,7 @@ body {
 }
 
 #content .extended_label .note {
-  margin-left: 18.18182em;
+  margin-left: 19.18182em;
 }
 
 #content *.pseudolink {
