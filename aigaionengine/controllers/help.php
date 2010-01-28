@@ -9,7 +9,7 @@ class Help extends Controller {
     /**  */
     function index($topic="front") {
         $this->load->view('header', array('title' => __('Help')));
-        $this->load->view('help/header');
+        $this->load->view('help/header', array("topic" => $topic));
         $this->load->view('help/'.$topic);
         $this->load->view('footer');
     }
