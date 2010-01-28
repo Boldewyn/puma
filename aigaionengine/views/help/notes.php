@@ -1,32 +1,26 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<div id="help-holder">
-  <p class='header1'>Annotating the bibliography</p>
-  <p>Where a publication abstract is a purely descriptive summary of a publication, a annotation can be both descriptive and critical. Annotations are commonly used to:
-    <ul>
-      <li>place a publication in a context</li>
-      <li>describe the relevance of a publication</li>
-      <li>summarize the strengths and weaknesses of a publication</li>
-    </ul>
-  </p>
-  <p>Aigaion offers the 'note' facility to create annotations. An annotation might look like the following example:
-    <div class="message">
-    <span title="Example"><b>[EXA]</b></span> :&nbsp;Extensive evaluation of several featuresets and classifiers. The evaluation confirms the results that have been found in <i><a href='#'>aucouturier:04</a></i>.<br/>
-    <ul>
-      <li>There seems to be a glass ceiling in classification accuracy.</li>
-      <li>The featureset found by Aucouturier indeed represents an optimal set.</li>
-    </ul>
-    <nobr>
-      INCLUDE: MOCKUP OF EDIT AND DELETE LINKS!
-    </nobr>
-    </div>
-  </p>
-  
-  <p class='header1'>Referencing other publications</p>
+<div id="help-content">
+  <h2>Annotating the Bibliography</h2>
+  <p>Where a publication abstract is a purely descriptive summary of a publication, a annotation can be both descriptive and critical. Annotations are commonly used to:</p>
+  <ul>
+    <li>place a publication in a context</li>
+    <li>describe the relevance of a publication</li>
+    <li>summarize the strengths and weaknesses of a publication</li>
+  </ul>
+  <p>Aigaion offers the 'note' facility to create annotations. An annotation might look like the following example:</p>
+  <div class="message">
+  <span title="Example"><b>[EXA]</b></span> :&nbsp;Extensive evaluation of several featuresets and classifiers. The evaluation confirms the results that have been found in <i><a href='#'>aucouturier:04</a></i>.<br/>
+  <ul>
+    <li>There seems to be a glass ceiling in classification accuracy.</li>
+    <li>The featureset found by Aucouturier indeed represents an optimal set.</li>
+  </ul>
+  </div>
+
+  <h3>Referencing other publications</h3>
   <p>You can reference to other publications by simply using the publications BibTeX cite ID. On displaying the note, the cite ID will be replaced by a link to the corresponding publication.</p>
-  
-  <p class='header1'>Formatting annotations</p>
+
+  <h3>Formatting annotations</h3>
   <p>To improve the readability of annotations it is recommended to keep annotations short and to the point. Standard HTML formatting tags can be used to format an annotation. The most common tags are listed here:</p>
-  <p align=center>
   <table>
   	<tr>
   		<td>
@@ -53,5 +47,4 @@
   		</td>
   	</tr>
   </table>
-  </p>
 </div>

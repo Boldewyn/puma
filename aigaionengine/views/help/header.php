@@ -1,21 +1,14 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<div id="helpheader-holder">
-  <ul class='help'>
-    <li class='help-header'>Help pages</li>
-    <li class='help'>[<?php echo anchor('help/viewhelp/front','Introduction'); ?>]</li>
-    <li class='help'>[<?php echo anchor('help/viewhelp/topictree','Topic tree'); ?>]</li>
-    <li class='help'>[<?php echo anchor('help/viewhelp/notes','Annotating publications'); ?>]</li>
-    <li class='help'>[<?php echo anchor('help/viewhelp/publicationlists','Publication lists'); ?>]</li>
-    <li class='help'>[<?php echo anchor('help/viewhelp/attachments','Attachments'); ?>]<br/></li>
-
-    <li class='help'>[<?php echo anchor('help/viewhelp/accounts','Accounts'); ?>]</li>
-    <li class='help'>[<?php echo anchor('help/viewhelp/accessrights','Access rights'); ?>]</li>
-    <li class='help'>[<?php echo anchor('help/viewhelp/crossref','Crossref'); ?>]</li>
-    <li class='help'>[<?php echo anchor('help/viewhelp/goodpractices','Good practices'); ?>]</li>
-    <li class='help'>[<?php echo anchor('help/viewhelp/themes','Themes'); ?>]</li>
-    <li class='help'>[<?php echo anchor('help/viewhelp/about','About'); ?>]<br/></li>
-
-    <li class='help'>[See also <a href='http://wiki.aigaion.nl' target=_blank>the documentation wiki</a> for more documentation.]</li>
-  </ul>
-  
-</div>
+<ul id='help-nav'>
+  <li><?php _a('help', __('Introduction')); ?></li>
+  <li><?php _a('help/topictree', __('Topic Tree')); ?></li>
+  <li><?php _a('help/notes', __('Annotating Publications')); ?></li>
+  <li><?php _a('help/publicationlists', __('Publication Lists')); ?></li>
+  <li><?php _a('help/attachments', __('Attachments')); ?></li>
+  <li><?php _a('help/accounts', __('Accounts')); ?></li>
+  <li><?php _a('help/accessrights', __('Access Rights')); ?></li>
+  <li><?php _a('help/crossref', __('Crossreferencing')); ?></li>
+  <li><?php _a('help/goodpractices', __('Good Practices')); ?></li>
+  <li><?php _a('help/themes', __('Themes')); ?></li>
+  <li><?php _a('help/about', __('About')); ?></li>
+</ul>

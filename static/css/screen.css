@@ -825,6 +825,22 @@ body {
   margin: 0 0 .625em;
 }
 
+#content em,
+#content .caption,
+#content i {
+  font-style: italic;
+}
+
+#content .caption em {
+  font-style: normal;
+}
+
+#content strong,
+#content .strong,
+#content b {
+  font-weight: bold;
+}
+
 
 
 
@@ -1082,6 +1098,13 @@ body {
   background: #d6e4e6;
   padding: .625em 0;
 }
+
+
+
+
+
+
+
 
 
 

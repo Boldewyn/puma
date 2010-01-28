@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<div id="help-holder">
-  <p class='header1'>About</p>
+<div id="help-content">
+  <h2>About Puma.<em>&Phi;</em></h2>
   <p>
 <?php
         $Q = $this->db->get('aigaiongeneral');
@@ -15,13 +15,13 @@
         echo "PHP version: ".phpversion()."<br/>";
         echo "Aigaion Database Version: ".$version."<br/>";
         echo "Based on the <a href='http://codeigniter.com/' target=_blank>CodeIgniter</a> framework<br/>";
-        
+
 ?>
   </p>
-  <span class='header2'>Version history</span> 
-  <?php 
+  <span class='header2'>Version history</span>
+  <?php
   $userlogin=getUserLogin();
-  if ($userlogin->hasRights('database_manage')) 
+  if ($userlogin->hasRights('database_manage'))
     echo '['.anchor('site/maintenance/checkupdates','Check for updates').']';
   ?>
   <br/>
