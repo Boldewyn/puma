@@ -4087,7 +4087,7 @@ msgid ""
 "to that topic, no matter whether they were individually subscribed or not."
 msgstr ""
 "Nutzer mit ausreichenden Rechten (&bdquo;user_edit_all&ldquo;) können eine Gruppe "
-"für bestimmte Themen auf der &bdquo;Konten verwalten&ldquo;-Seite anmelden. In diesem "#
+"für bestimmte Themen auf der &bdquo;Konten verwalten&ldquo;-Seite anmelden. In diesem "
 "Fall werden alle Nutzer der Gruppe als Abonnenten dieses Themas betrachtet, unabhängig "
 "davon, ob sie das Thema je einzeln abonniert haben oder nicht."
 
