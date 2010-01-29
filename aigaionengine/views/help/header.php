@@ -1,5 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<ul id='help-nav'>
+<ul id='help-nav' class="tabs">
   <li class="<?php if($topic == 'front'           ) { echo 'active'; }?> first"><?php _a('help', __('Introduction')); ?></li>
   <li class="<?php if($topic == 'about'           ) { echo 'active'; }?>"><?php _a('help/about', __('About')); ?></li>
   <li class="<?php if($topic == 'faq'             ) { echo 'active'; }?>"><?php _a('help/faq', __('FAQ')); ?></li>

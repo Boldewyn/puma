@@ -27,6 +27,7 @@ header("Content-Type: text/html; charset=UTF-8");
       }
       //]]>
     </script>
+    <script type="text/javascript" src="<?php echo base_url() ?>static/js/jquery.js"></script>
   </head>
   <body>
     <div id="container">

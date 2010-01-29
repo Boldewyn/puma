@@ -21,12 +21,12 @@
 
   <?php echo form_open("user/{$user->login}/contact"); ?>
     <p>
-      <label for="user_contact_subject"><?php _e("Subject:")?></label>
+      <label class="block" for="user_contact_subject"><?php _e("Subject:")?></label>
       <input type="text" class="text" name="subject" id="user_contact_subject"
              value="<?php echo set_value('subject')?>" />
     </p>
     <p>
-      <label for="user_contact_message"><?php _e("Message:")?></label>
+      <label class="block" for="user_contact_message"><?php _e("Message:")?></label>
       <textarea name="message" id="user_contact_message"
                 rows="5" cols="30" class="<?php if (form_error('message')) { echo "error"; }?>"><?php echo set_value('message')?></textarea>
     </p>

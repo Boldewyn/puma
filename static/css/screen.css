@@ -678,7 +678,7 @@ body {
 
 #nav ul li {
   display: table-cell;
-  background: url(images/nav.png) repeat-x left top;
+  background: #008993 url(images/nav.png) repeat-x left top;
   height: 3.1667em;
   line-height: 3.1667em;
   text-align: center;
@@ -884,6 +884,10 @@ body {
   text-align: left;
 }
 
+#footer ul li.level1_first {
+  text-align: right;
+}
+
 #footer li.level1_last {
   padding: 0 0 0 1.5em;
   border-right: none;
@@ -962,7 +966,7 @@ body {
 /**
  * Single widgets
  */
-#content label {
+#content label.block {
   width: 8em;
   display: block;
   float: left;
@@ -971,7 +975,7 @@ body {
 }
 
 #content label.extended_label,
-#content .extended_label label {
+#content .extended_label label.block {
   width: 16em;
 }
 
@@ -1105,6 +1109,36 @@ body {
 
 
 
+#content ul.tabs {
+  overflow: hidden;
+  margin: 0 0 .625em;
+}
+
+#content ul.tabs li {
+  display: block;
+  float: left;
+  margin: 0 .08333em .08333em 0;
+}
+
+#content ul.tabs li a {
+  display: block;
+  border: .08333em solid #61A6A9;
+  border-bottom: 0;
+  background: #008993 url(images/nav.png) repeat-x left top;
+  padding: .25em .5em;
+  color: white;
+}
+
+#content ul.tabs li a:hover {
+  background-position: left center;
+}
+
+#content ul.tabs li.active a {
+  background: #CBD9DA;
+  color: #002d2f;
+}
+
+
 
 
 
@@ -1118,4 +1152,13 @@ body {
   float: right;
   margin: 0 0 1em 1em;
 }
+
+
+.help-content,
+#content .help-content h3 {
+  margin-top: 1.25em;
+}
+
+
+
 
