@@ -36,8 +36,8 @@ UPDATE `puma_config` SET `value` = 'manuel.strehl@physik.uni-regensburg.de' WHER
 UPDATE `puma_config` SET `value` = 'A Publication Management System' WHERE `setting` = 'WINDOW_TITLE';
 UPDATE `puma_config` SET `value` = 'TRUE' WHERE `setting` = 'SHOW_TOPICS_ON_FRONTPAGE';
 UPDATE `puma_config` SET `value` = 'TRUE' WHERE `setting` = 'LOGIN_ENABLE_ANON';
-UPDATE `puma_config` SET `value` = '6' WHERE `setting` = 'LOGIN_DEFAULT_ANON';
+UPDATE `puma_config` SET `value` = '6'    WHERE `setting` = 'LOGIN_DEFAULT_ANON';
 UPDATE `puma_config` SET `value` = 'puma' WHERE `setting` = 'DEFAULTPREF_THEME';
-UPDATE `puma_config` SET `value` = 'de' WHERE `setting` = 'DEFAULTPREF_LANGUAGE';
+UPDATE `puma_config` SET `value` = 'de'   WHERE `setting` = 'DEFAULTPREF_LANGUAGE';
 UPDATE `puma_config` SET `value` = 'TRUE' WHERE `setting` = 'LOGIN_CREATE_MISSING_USER';
 UPDATE `puma_config` SET `value` = 'TRUE' WHERE `setting` = 'ENABLE_TINYMCE';
