@@ -118,6 +118,9 @@ a:focus,
 a:hover {
   color: #00b0bc;
 }
+code {
+  font-family: monospace;
+}
 
 
 
@@ -629,8 +632,13 @@ body {
 
 #header_controls {
   color: white;
-  padding: .25em .5em;
+  padding: .25em 1em;
   margin: 0 0 0 20em;
+  opacity: .5;
+}
+
+#header_controls:hover {
+  opacity: 1;
 }
 
 #header_controls .header_control {
@@ -670,7 +678,7 @@ body {
 
 #nav ul li {
   display: table-cell;
-  background: url(images/nav.png) repeat-x left top;
+  background: #008993 url(images/nav.png) repeat-x left top;
   height: 3.1667em;
   line-height: 3.1667em;
   text-align: center;
@@ -820,6 +828,22 @@ body {
   margin: 0 0 .625em;
 }
 
+#content em,
+#content .caption,
+#content i {
+  font-style: italic;
+}
+
+#content .caption em {
+  font-style: normal;
+}
+
+#content strong,
+#content .strong,
+#content b {
+  font-weight: bold;
+}
+
 
 
 
@@ -858,6 +882,10 @@ body {
   border-right: .08333em solid #00757e;
   float: left;
   text-align: left;
+}
+
+#footer ul li.level1_first {
+  text-align: right;
 }
 
 #footer li.level1_last {
@@ -938,7 +966,7 @@ body {
 /**
  * Single widgets
  */
-#content label {
+#content label.block {
   width: 8em;
   display: block;
   float: left;
@@ -947,7 +975,7 @@ body {
 }
 
 #content label.extended_label,
-#content .extended_label label {
+#content .extended_label label.block {
   width: 16em;
 }
 
@@ -1017,6 +1045,10 @@ body {
   position: relative;
 }
 
+#content .wide_button {
+  width: 16em;
+}
+
 #content .pseudobutton {
   line-height: 1.5;
 }
@@ -1047,7 +1079,7 @@ body {
 }
 
 #content .extended_label .note {
-  margin-left: 18.18182em;
+  margin-left: 19.18182em;
 }
 
 #content *.pseudolink {
@@ -1076,6 +1108,43 @@ body {
 
 
 
+
+#content ul.tabs {
+  overflow: hidden;
+  margin: 0 0 .625em;
+}
+
+#content ul.tabs li {
+  display: block;
+  float: left;
+  margin: 0 .08333em .08333em 0;
+}
+
+#content ul.tabs li a {
+  display: block;
+  border: .08333em solid #61A6A9;
+  border-bottom: 0;
+  background: #008993 url(images/nav.png) repeat-x left top;
+  padding: .25em .5em;
+  color: white;
+}
+
+#content ul.tabs li a:hover {
+  background-position: left center;
+}
+
+#content ul.tabs li.active a {
+  background: #CBD9DA;
+  color: #002d2f;
+}
+
+
+
+
+
+
+
+
 /**
  * Single pages' layouts
  */
@@ -1083,4 +1152,13 @@ body {
   float: right;
   margin: 0 0 1em 1em;
 }
+
+
+.help-content,
+#content .help-content h3 {
+  margin-top: 1.25em;
+}
+
+
+
 

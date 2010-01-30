@@ -2,40 +2,19 @@
 
 class Help extends Controller {
 
-	function Help()
-	{
-		parent::Controller();	
-	}
-	
-	/**  */
-	function index()
-	{
-	    $this->viewhelp();
-	}
-	
+    function Help () {
+        parent::Controller();
+    }
 
-	function viewhelp() {
-        //get output
-        $headerdata = array();
-        $headerdata['title'] = __('Help');
-        $headerdata['javascripts'] = array('tree.js','prototype.js','scriptaculous.js','builder.js');
-        
-        $output = $this->load->view('header', $headerdata, true);
+    /**  */
+    function index($topic="front") {
+        $this->load->view('header', array('title' => __('Help')));
+        $this->load->view('help/header', array("topic" => $topic));
+        $this->load->view('help/'.$topic);
+        $this->load->view('footer');
+    }
 
-        
-        $output .= $this->load->view('help/header',
-                                      array(),  
-                                      true);
-        $output .= $this->load->view('help/'.$this->uri->segment(3,'front'),
-                                      array(),  
-                                      true);
-        $output .= $this->load->view('footer','', true);
 
-        //set output
-        $this->output->set_output($output);
-
-	}
-
-	
 }
-?>
+
+//__END__

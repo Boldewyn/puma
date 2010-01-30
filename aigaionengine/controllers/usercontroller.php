@@ -10,33 +10,39 @@ class Usercontroller extends Controller {
      *
      */
     public function index ($id=False, $action=False) {
-        $user = $this->user_db->getByLogin($id);
-        $userlogin = getUserLogin();
         if (! $id) {
-            appendErrorMessage(__("This page does not exist."));
-            redirect('');
-        } elseif ($user == null) {
-            appendErrorMessage(sprintf(__("User %s does not exist."), h($id)));
-            redirect('');
-        } elseif ($action && ! in_array($action, array("contact", "edit"))) {
-            appendErrorMessage(sprintf(__("Unknown action requested: %s."), h($action)));
-            redirect('');
-        } elseif ($userlogin->isAnonymous() && $id != "admin") {
-            appendErrorMessage(__('You must be logged in to view this user&rsquo;s page.'));
-            redirect('');
-        }
-        $groups = array();
-        foreach ($user->group_ids as $gid) {
-            $groups[] = $this->group_db->getByID($gid);
-        }
-        $user->groups = $groups;
-
-        if (! $action) {
-            $this->load->view('header', array("title"=>sprintf(__("User %s"), $id)));
-            $this->load->view('user/full', array('user' => $user));
+            $this->load->view('header', array("title"=>__("All Users")));
+            $this->load->view('put', array('data' => 'Not implemented yet.'));
             $this->load->view('footer');
         } else {
-            $this->$action($id, $user, $userlogin);
+            $user = $this->user_db->getByLogin($id);
+            $userlogin = getUserLogin();
+            if (! $id) {
+                appendErrorMessage(__("This page does not exist."));
+                redirect('');
+            } elseif ($user == null) {
+                appendErrorMessage(sprintf(__("User %s does not exist."), h($id)));
+                redirect('');
+            } elseif ($action && ! in_array($action, array("contact", "edit"))) {
+                appendErrorMessage(sprintf(__("Unknown action requested: %s."), h($action)));
+                redirect('');
+            } elseif ($userlogin->isAnonymous() && $id != "admin") {
+                appendErrorMessage(__('You must be logged in to view this user&rsquo;s page.'));
+                redirect('');
+            }
+            $groups = array();
+            foreach ($user->group_ids as $gid) {
+                $groups[] = $this->group_db->getByID($gid);
+            }
+            $user->groups = $groups;
+
+            if (! $action) {
+                $this->load->view('header', array("title"=>sprintf(__("User %s"), $id)));
+                $this->load->view('user/full', array('user' => $user));
+                $this->load->view('footer');
+            } else {
+                $this->$action($id, $user, $userlogin);
+            }
         }
     }
 

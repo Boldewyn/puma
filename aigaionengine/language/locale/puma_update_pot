@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd `dirname $0`
+
 xgettext --from-code=UTF-8 -L php -k__ -k_e -o messages.pot `find ../.. -name *.php`
 
 echo "Merge? (type 'y' for merging)"

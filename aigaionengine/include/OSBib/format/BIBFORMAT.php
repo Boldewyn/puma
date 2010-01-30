@@ -1892,11 +1892,11 @@ class BIBFORMAT
 }
 /*****
  * BIBTEXCONFIG: BibTeX Configuration class
- *****/
+ *****/
 class BIBTEXCONFIG{// Constructor
   function BIBTEXCONFIG()
   {
-  }
+  }
 // BibTeX arrays
   function bibtex()
   {

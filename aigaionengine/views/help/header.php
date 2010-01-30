@@ -1,21 +1,16 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<div id="helpheader-holder">
-  <ul class='help'>
-    <li class='help-header'>Help pages</li>
-    <li class='help'>[<?php echo anchor('help/viewhelp/front','Introduction'); ?>]</li>
-    <li class='help'>[<?php echo anchor('help/viewhelp/topictree','Topic tree'); ?>]</li>
-    <li class='help'>[<?php echo anchor('help/viewhelp/notes','Annotating publications'); ?>]</li>
-    <li class='help'>[<?php echo anchor('help/viewhelp/publicationlists','Publication lists'); ?>]</li>
-    <li class='help'>[<?php echo anchor('help/viewhelp/attachments','Attachments'); ?>]<br/></li>
-
-    <li class='help'>[<?php echo anchor('help/viewhelp/accounts','Accounts'); ?>]</li>
-    <li class='help'>[<?php echo anchor('help/viewhelp/accessrights','Access rights'); ?>]</li>
-    <li class='help'>[<?php echo anchor('help/viewhelp/crossref','Crossref'); ?>]</li>
-    <li class='help'>[<?php echo anchor('help/viewhelp/goodpractices','Good practices'); ?>]</li>
-    <li class='help'>[<?php echo anchor('help/viewhelp/themes','Themes'); ?>]</li>
-    <li class='help'>[<?php echo anchor('help/viewhelp/about','About'); ?>]<br/></li>
-
-    <li class='help'>[See also <a href='http://wiki.aigaion.nl' target=_blank>the documentation wiki</a> for more documentation.]</li>
-  </ul>
-  
-</div>
+<ul id='help-nav' class="tabs">
+  <li class="<?php if($topic == 'front'           ) { echo 'active'; }?> first"><?php _a('help', __('Introduction')); ?></li>
+  <li class="<?php if($topic == 'about'           ) { echo 'active'; }?>"><?php _a('help/about', __('About')); ?></li>
+  <li class="<?php if($topic == 'faq'             ) { echo 'active'; }?>"><?php _a('help/faq', __('FAQ')); ?></li>
+  <li class="<?php if($topic == 'tutorial'        ) { echo 'active'; }?>"><?php _a('help/tutorial', __('Video tutorial')); ?></li>
+  <li class="<?php if($topic == 'topictree'       ) { echo 'active'; }?>"><?php _a('help/topictree', __('Topic Tree')); ?></li>
+  <li class="<?php if($topic == 'notes'           ) { echo 'active'; }?>"><?php _a('help/notes', __('Annotating Publications')); ?></li>
+  <li class="<?php if($topic == 'publicationlists') { echo 'active'; }?>"><?php _a('help/publicationlists', __('Publication Lists')); ?></li>
+  <li class="<?php if($topic == 'attachments'     ) { echo 'active'; }?>"><?php _a('help/attachments', __('Attachments')); ?></li>
+  <li class="<?php if($topic == 'accounts'        ) { echo 'active'; }?>"><?php _a('help/accounts', __('Accounts')); ?></li>
+  <li class="<?php if($topic == 'accessrights'    ) { echo 'active'; }?>"><?php _a('help/accessrights', __('Access Rights')); ?></li>
+  <li class="<?php if($topic == 'crossref'        ) { echo 'active'; }?>"><?php _a('help/crossref', __('Crossreferencing')); ?></li>
+<?php /*  <li class="<?php if($topic == 'themes'          ) { echo 'active'; }?>"><?php _a('help/themes', __('Themes')); ?></li> */?>
+  <li class="<?php if($topic == 'goodpractices'   ) { echo 'active'; }?> last"><?php _a('help/goodpractices', __('Good Practices')); ?></li>
+</ul>

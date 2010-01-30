@@ -17,15 +17,23 @@
 |
 */
 
-    function getUserLogin() {
-        $CI = &get_instance();
+function getUserLogin() {
+    $CI = &get_instance();
 
-        $userlogin = $CI->latesession->get('USERLOGIN');
-        if (!isset($userlogin)||($userlogin==null)) {
-            $userlogin = new UserLogin();
-            $CI->latesession->set('USERLOGIN',$userlogin);
-        }
-        return $userlogin;
+    $userlogin = $CI->latesession->get('USERLOGIN');
+    if (!isset($userlogin)||($userlogin==null)) {
+        $userlogin = new UserLogin();
+        $CI->latesession->set('USERLOGIN',$userlogin);
     }
+    return $userlogin;
+}
 
-?>
+function ban_non_admins() {
+    $userlogin = getUserLogin();
+    if (! $userlogin->hasRights('database_manage')) {
+        redirect('');
+        exit;
+    }
+}
+
+//__END__

@@ -21,3 +21,4 @@ class Front extends Controller {
 
 }
 
+//__END__

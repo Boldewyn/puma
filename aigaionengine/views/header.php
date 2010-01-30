@@ -27,6 +27,7 @@ header("Content-Type: text/html; charset=UTF-8");
       }
       //]]>
     </script>
+    <script type="text/javascript" src="<?php echo base_url() ?>static/js/jquery.js"></script>
   </head>
   <body>
     <div id="container">
@@ -48,7 +49,8 @@ header("Content-Type: text/html; charset=UTF-8");
               <?php
                 global $AIGAION_SHORTLIST_LANGUAGES; $larr = array();
                 foreach ($AIGAION_SHORTLIST_LANGUAGES as $lang):
-                  $larr[] = anchor('language/set/'.$lang.'/'.implode('/',$this->uri->segment_array()),$lang);//$this->userlanguage->getLanguageName($lang));
+                  $larr[] = anchor('language/set/'.$lang.'/'.implode('/',$this->uri->segment_array()),
+                                   $lang, array('title' => $this->userlanguage->getLanguageName($lang)));
                 endforeach;
                 echo implode(", ", $larr);
               ?>
@@ -60,17 +62,15 @@ header("Content-Type: text/html; charset=UTF-8");
                 <?php printf(__('Hello, %s %s'), $userlogin->preferences['firstname'], $userlogin->preferences['surname']); ?> |
                 <?php if ($userlogin->hasRights('user_edit_self')): ?>
                   <?php _a('user/'.$userlogin->loginName().'', __('My Profile')); ?> |
-                <?php endif;
-                  if ($userlogin->hasRights('topic_subscription')): ?>
-                  <?php _a('users/topicreview/', __('Topic Subscribe')); ?> |
-                <?php endif; ?>
+                <?php endif ?>
+                <?php _a('help', __('Help')); ?> |
                 <?php _a('login/dologout', __('Logout')); ?>
               <?php endif; ?>
             </p>
           </div>
         </div>
         <h1>
-          <?php _a('','<span>Puma.&Phi;</span>');?>
+          <?php _a('','<span>'.puma().'</span>');?>
         </h1>
         <h2>
           <?php _a('','<span>Publication Management for the Faculty of Physics</span>');?>
