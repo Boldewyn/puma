@@ -17,7 +17,7 @@ class Explore extends Controller {
      *
      */
     function publication($publication=Null) {
-        $this->load->view('header', array('title' => __('Explore &raquo; Publication')));
+        $this->load->view('header', array('title' => __('Explore » Publication')));
         $this->load->view('explore/publication', array("data" => "Hallo Puma.&Phi;!"));
         $this->load->view('footer');
     }
@@ -26,7 +26,7 @@ class Explore extends Controller {
      *
      */
     function topic($topic=Null) {
-        $this->load->view('header', array('title' => __('Explore &raquo; Topic')));
+        $this->load->view('header', array('title' => __('Explore » Topic')));
         $this->load->view('explore/topic', array("data" => "Hallo Puma.&Phi;!"));
         $this->load->view('footer');
     }
@@ -35,7 +35,7 @@ class Explore extends Controller {
      *
      */
     function tag($tag=Null) {
-        $this->load->view('header', array('title' => __('Explore &raquo; Tag')));
+        $this->load->view('header', array('title' => __('Explore » Tag')));
         $this->load->view('explore/tag', array("data" => "Hallo Puma.&Phi;!"));
         $this->load->view('footer');
     }
@@ -44,7 +44,7 @@ class Explore extends Controller {
      *
      */
     function author($author=Null) {
-        $this->load->view('header', array('title' => __('Explore &raquo; Author')));
+        $this->load->view('header', array('title' => __('Explore » Author')));
         $this->load->view('explore/author', array("data" => "Hallo Puma.&Phi;!"));
         $this->load->view('footer');
     }

@@ -46,6 +46,9 @@ $route['login/nds:any'] = "login/nds";
 $route['user/(:any)'] = "usercontroller/index/$1";
 $route['help/(:any)'] = "help/index/$1";
 
+$route['wiki/History:(:any)'] = "wiki/history/$1";
+$route['wiki/Discussion:(:any)'] = "wiki/discussion/$1";
+$route['wiki/(:any)'] = "wiki/item/$1";
 
 
 

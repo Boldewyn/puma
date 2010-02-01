@@ -17,7 +17,7 @@ class Create extends Controller {
      *
      */
     function upload() {
-        $this->load->view('header', array('title' => __('Create &raquo; Upload')));
+        $this->load->view('header', array('title' => __('Create » Upload')));
         $this->load->view('create/upload', array("data" => "Hallo Puma.&Phi;!"));
         $this->load->view('footer');
     }
@@ -26,7 +26,7 @@ class Create extends Controller {
      *
      */
     function publication($publication=Null) {
-        $this->load->view('header', array('title' => __('Create &raquo; Publication')));
+        $this->load->view('header', array('title' => __('Create » Publication')));
         $this->load->view('create/publication', array("data" => "Hallo Puma.&Phi;!"));
         $this->load->view('footer');
     }
@@ -35,7 +35,7 @@ class Create extends Controller {
      *
      */
     function tag($tag=Null) {
-        $this->load->view('header', array('title' => __('Create &raquo; Tag')));
+        $this->load->view('header', array('title' => __('Create » Tag')));
         $this->load->view('create/tag', array("data" => "Hallo Puma.&Phi;!"));
         $this->load->view('footer');
     }
@@ -44,7 +44,7 @@ class Create extends Controller {
      *
      */
     function topic($topic=Null) {
-        $this->load->view('header', array('title' => __('Create &raquo; Topic')));
+        $this->load->view('header', array('title' => __('Create » Topic')));
         $this->load->view('create/topic', array("data" => "Hallo Puma.&Phi;!"));
         $this->load->view('footer');
     }
@@ -53,7 +53,7 @@ class Create extends Controller {
      *
      */
     function author($author=Null) {
-        $this->load->view('header', array('title' => __('Create &raquo; Author')));
+        $this->load->view('header', array('title' => __('Create » Author')));
         $this->load->view('create/author', array("data" => "Hallo Puma.&Phi;!"));
         $this->load->view('footer');
     }

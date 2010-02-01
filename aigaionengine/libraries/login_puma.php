@@ -16,7 +16,7 @@ class Login_puma {
      *
      */
     public function __construct () {
-        $this->_key = pack("h*", '64283871BCDF24D590A983D674D8CD9C3E5EB90290BBEA8BE1B40FCB66A1DA3D');
+        $this->_key = PUMA_LOGIN_KEY;
     }
 
 

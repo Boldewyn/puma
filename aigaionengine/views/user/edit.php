@@ -45,7 +45,7 @@
         <label class="block" for="user_edit_abbreviation"><?php _e('Abbreviation')?></label>
         <input type="text" class="text" name="abbreviation" id="user_edit_abbreviation"
               size="5" value="<?php _h($user->abbreviation)?>" />
-        <span class="note"><?php _e("This is not your login name, but the name others will see in the &lsquo;Who created this&rsquo; fields.")?></span>
+        <span class="note"><?php _e("This is not your login name, but the name others will see in the ‘Who created this’ fields.")?></span>
       </p>
       <p class="extended_input">
         <label class="block" for="user_edit_email"><?php _e('Email address')?></label>
@@ -92,12 +92,12 @@
                             ' id="user_edit_liststyle"')?>
       </p>
       <p>
-        <label class="block" for="user_edit_similar_author_test"><?php _e('&lsquo;Similar author&rsquo; check')?></label>
+        <label class="block" for="user_edit_similar_author_test"><?php _e('‘Similar author’ check')?></label>
         <?php echo form_dropdown('similar_author_test',
                             array('default' => __('Site default'), 'il' => __("Last names, then initials"), "c" => __("Full name")),
                             $user->preferences["similar_author_test"],
                             ' id="user_edit_similar_author_test"')?>
-        <span class="note"><?php _e('Select the method for checking whether two author names are counted as &lsquo;similar&rsquo;.');?></span>
+        <span class="note"><?php _e('Select the method for checking whether two author names are counted as ‘similar.’');?></span>
       </p>
       <p>
         <label class="block" for="user_edit_newwindowforatt"><?php _e('Open attachments in new browser window')?></label>
@@ -122,7 +122,7 @@
     </fieldset>
     <p>
       <input type="submit" class="submit" value="<?php _e("Store new settings")?>" />
-      <?php _a("user/{$user->login}", __("Back to the user&rsquo;s overview"), array('class'=>'pseudobutton'))?>
+      <?php _a("user/{$user->login}", __("Back to the user’s overview"), array('class'=>'pseudobutton'))?>
     </p>
   </form>
 
