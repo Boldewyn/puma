@@ -86,7 +86,7 @@ class User {
         foreach ($values as $key => $value) {
             if (isset($this->$key)) {
                 $this->$key = $value;
-            } elseif (array_key_exists($this->preferences[$key])) {
+            } elseif (array_key_exists($key, $this->preferences)) {
                 $this->preferences[$key] = $value;
             }
         }

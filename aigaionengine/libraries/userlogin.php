@@ -83,14 +83,14 @@ class UserLogin {
               if ($res->num_rows() ==0)
               {
                 $this->logout();
-                $this->sNotice = __("You have been logged out because your login token disappeared.")."<br/>";
+                $this->sNotice = __('You have been logged out because your login token disappeared.');
               }
               $row = $res->row();
               if ($row->status != 'loggedin')
               {
                 $this->logout();
                 $CI->db->delete('logintegration',array('token'=>$this->loginToken));
-                $this->sNotice = __("You have been logged out because your login token expired.")."<br/>";
+                $this->sNotice = __('You have been logged out because your login token expired.');
               }
 
             }
@@ -100,10 +100,9 @@ class UserLogin {
                 return True; //OK? return true;
             } else {
                 $this->logout();
-                $this->sNotice = __("You have been logged out because the Aigaion Engine is in the process of being updated.")
-                                  ."<br/>"
-                                  .__("If you are a user with database_manage rights, please login to complete the update.")
-                                  ."<br/>";
+                $this->sNotice = __('You have been logged out because the Aigaion Engine is in the process of being updated.')
+                                  .'<br/>'
+                                  .__('If you are a user with database_manage rights, please login to complete the update.');
             }
         }
         return False;
@@ -154,11 +153,11 @@ class UserLogin {
         if ($this->hasRights($right)) {
             return true;
         } else {
-            echo "<div class='errormessage'>"
-                 .__("You do not have sufficient rights for the requested operation or page.")
-                 ."<br/>"
-                 .__("Sorry for the inconvenience.")
-                 ."</div>";
+            echo '<div class="error">'
+                 .__('You do not have sufficient rights for the requested operation or page.')
+                 .'<br/>'
+                 .__('Sorry for the inconvenience.')
+                 .'</div>';
             die();
             return false;
         }
@@ -168,11 +167,11 @@ class UserLogin {
     even in cases where the checking of the right was done without resorting to checkRights
     (for example because the condition is more than just one simple boolean check). */
     function failRights() {
-        echo "<div class='errormessage'>"
-                 .__("You do not have sufficient rights for the requested operation or page.")
-                 ."<br/>"
-                 .__("Sorry for the inconvenience.")
-                 ."</div>";
+        echo '<div class="errormessage">'
+                 .__('You do not have sufficient rights for the requested operation or page.')
+                 .'<br/>'
+                 .__('Sorry for the inconvenience.')
+                 .'</div>';
         die();
         return false;
     }
@@ -206,8 +205,8 @@ class UserLogin {
                     //some preferences must be slightly transformed here...
                     if ($key=='theme') {
                         if (!themeExists($val)) {
-                            appendErrorMessage(sprintf(__("Theme '%s' no longer exists"),$val).".<br/>");
-                            $val = "default";
+                            appendErrorMessage(sprintf(__('Theme &lsquo;%s&rsquo; no longer exists.'), $val));
+                            $val = 'default';
                         }
                     }
                     if ($key=='language')
@@ -218,7 +217,9 @@ class UserLogin {
                         global $AIGAION_SUPPORTED_LANGUAGES;
                         if (!in_array($val,$AIGAION_SUPPORTED_LANGUAGES))
                         {
-                          appendErrorMessage(sprintf(__("Language '%s' no longer exists under that name. Please reset the relevant profile and site settings."),$val)."<br/>");
+                          appendErrorMessage(sprintf(__('Language &lsquo;%s&rsquo; '.
+                              'no longer exists under that name. Please reset the '.
+                              'relevant profile and site settings.'), $val));
                           $val = AIGAION_DEFAULT_LANGUAGE;
                         }
                       }
@@ -441,17 +442,29 @@ class UserLogin {
             $row = $Q->row();
             //internal account?
             if ($row->type=='normal') {
-                $this->sNotice = sprintf(__('The username / password combination is valid according to the login module, but the corresponding Aigaion account is an %s account and cannot be logged in by the %s module. Please contact your database admin for assistance.'),'<i>'.__('internal').'</i>',$delegateLibrary).' (Code b3.52 pwd ok / wrong account).<br/>';
+                $this->sNotice = sprintf(__('The username / password combination '.
+                    'is valid according to the login module, but the corresponding '.
+                    'Aigaion account is an %s account and cannot be logged in by the '.
+                    '%s module. Please contact your database admin for assistance.'),
+                    '<em>'.__('internal').'</em>',$delegateLibrary).' (Code b3.52 pwd ok / wrong account).';
                 return 3; //critical fail, no other login should be attempted
             }
             //anonymous account?
             if ($row->type=='anon') {
-                $this->sNotice = sprintf(__('The username / password combination is valid according to the login module, but the corresponding Aigaion account is an %s account and cannot be logged in by the %s module. Please contact your database admin for assistance.'),'<i>'.__('anonymous').'</i>',$delegateLibrary).' (Code b3.52 pwd ok / wrong account).<br/>';
+                $this->sNotice = sprintf(__('The username / password combination '.
+                    'is valid according to the login module, but the corresponding '.
+                    'Aigaion account is an %s account and cannot be logged in by the '.
+                    '%s module. Please contact your database admin for assistance.'),
+                    '<em>'.__('anonymous').'</em>',$delegateLibrary).' (Code b3.52 pwd ok / wrong account).';
                 return 3; //critical fail, no other login should be attempted
             }
             //group account?
             if ($row->type=='group') {
-                $this->sNotice = sprintf(__('The username / password combination is valid according to the login module, but the corresponding Aigaion account is an %s account and cannot be logged in by the %s module. Please contact your database admin for assistance.'),'<i>'.__('group').'</i>',$delegateLibrary).' (Code b3.52 pwd ok / wrong account).<br/>';
+                $this->sNotice = sprintf(__('The username / password combination '.
+                    'is valid according to the login module, but the corresponding '.
+                    'Aigaion account is an %s account and cannot be logged in by the '.
+                    '%s module. Please contact your database admin for assistance.'),
+                    '<em>'.__('group').'</em>',$delegateLibrary).' (Code b3.52 pwd ok / wrong account).';
                 return 3; //critical fail, no other login should be attempted
             }
 
@@ -463,11 +476,11 @@ class UserLogin {
             }
         }
         //appendErrorMessage('<br/>LDAP login says: unknown user, make?');
-        if (getConfigurationSetting("LOGIN_CREATE_MISSING_USER") == 'TRUE') {
+        if (getConfigurationSetting('LOGIN_CREATE_MISSING_USER') == 'TRUE') {
             //appendErrorMessage('<br/>LDAP login says: unknown user, make!');
             //no such user found. Make user on the fly. Don't use the user_db class for this, as
             // we would run into problems with the checkrights performed in user_db->add(...)
-            $chars = "abcdefghijkmnopqrstuvwxyz023456789";
+            $chars = 'abcdefghijkmnopqrstuvwxyz023456789';
             srand((double)microtime()*1000000);
             $i = 0;
             $pass = '' ;
@@ -533,10 +546,10 @@ class UserLogin {
             //after adding the new user, log in as that new user
             if ($this->_login($loginName,md5($pass),False, True, False)==0) { //never remember external login; that's a task for the external module
                 //$this->sNotice = 'logged from httpauth';
-                appendMessage(sprintf(__('Created missing user %s  as member of groups %s'),$loginName,implode(',',$loginGroups)));
+                appendMessage(sprintf(__('Created missing user %s as member of groups %s'),$loginName,implode(',',$loginGroups)));
                 return 0; // success
             } else {
-                echo "Serious error: a new user was created and could not be logged in. ".md5($pass)." ";die();
+                echo 'Serious error: a new user was created and could not be logged in. '.md5($pass).' ';die();
             }
         } else {
             return 1;
@@ -614,7 +627,9 @@ class UserLogin {
                             $loginPwd = $row->password;
                             if ($this->_login($loginName,$loginPwd,$remember,True,False)==0) {
                                 //set some message 'new Aigaion account created, please feel welcome'
-                                appendMessage("<p>".sprintf(__("A new Aigaion account has been created for you, user '%s'. Please enjoy your stay here."),$loginInfo['uname'])."<br/>");
+                                appendMessage(sprintf(__('A new Aigaion account has been '.
+                                    'created for you, user &lsquo;%s&rsquo;. Please enjoy '.
+                                    'your stay here.'), $loginInfo['uname']));
                                 return 0; // success
                             }
                         }
@@ -630,17 +645,29 @@ class UserLogin {
                     $row = $Q->row();
                     //internal account?
                     if ($row->type=='normal') {
-                        $this->sNotice = sprintf(__('The username / password combination is valid according to %s, but the corresponding Aigaion account is an %s account and cannot be logged in by the %s module. Please contact your database admin for assistance.'),'<i>'.__('internal').'</i>',$delegateLibrary,$delegateLibrary).' (Code b3.52 pwd ok / wrong account).<br/>';
+                        $this->sNotice = sprintf(__('The username / password combination '.
+                            'is valid according to %s, but the corresponding Aigaion '.
+                            'account is an %s account and cannot be logged in by the %s '.
+                            'module. Please contact your database admin for assistance.'),
+                            '<em>'.__('internal').'</em>',$delegateLibrary,$delegateLibrary).' (Code b3.52 pwd ok / wrong account).';
                         return 3; //critical fail, no other login should be attempted
                     }
                     //anonymous account?
                     if ($row->type=='anon') {
-                        $this->sNotice = sprintf(__('The username / password combination is valid according to %s, but the corresponding Aigaion account is an %s account and cannot be logged in by the %s module. Please contact your database admin for assistance.'),'<i>'.__('anonymous').'</i>',$delegateLibrary,$delegateLibrary).' (Code b3.52 pwd ok / wrong account).<br/>';
+                        $this->sNotice = sprintf(__('The username / password combination '.
+                            'is valid according to %s, but the corresponding Aigaion account '.
+                            'is an %s account and cannot be logged in by the %s module. '.
+                            'Please contact your database admin for assistance.'),
+                            '<em>'.__('anonymous').'</em>',$delegateLibrary,$delegateLibrary).' (Code b3.52 pwd ok / wrong account).';
                         return 3; //critical fail, no other login should be attempted
                     }
                     //group account?
                     if ($row->type=='group') {
-                        $this->sNotice = sprintf(__('The username / password combination is valid according to %s, but the corresponding Aigaion account is an %s account and cannot be logged in by the %s module. Please contact your database admin for assistance.'),'<i>'.__('group').'</i>',$delegateLibrary,$delegateLibrary).' (Code b3.52 pwd ok / wrong account).<br/>';
+                        $this->sNotice = sprintf(__('The username / password combination '.
+                            'is valid according to %s, but the corresponding Aigaion account '.
+                            'is an %s account and cannot be logged in by the %s module. '.
+                            'Please contact your database admin for assistance.'),
+                            '<em>'.__('group').'</em>',$delegateLibrary,$delegateLibrary).' (Code b3.52 pwd ok / wrong account).';
                         return 3; //critical fail, no other login should be attempted
                     }
                     //yay! type is external! --> do the login, finally!
@@ -650,7 +677,9 @@ class UserLogin {
                         return 0; // success
                     }
                 } else {
-                    $this->sNotice = __('The username / password combination is valid, but has no Aigaion account associated with it yet. Please contact your database admin for assistance').' (Code b3.67 pwd ok / no account).<br/>';
+                    $this->sNotice = __('The username / password combination is valid, '.
+                            'but has no Aigaion account associated with it yet. Please '.
+                            'contact your database admin for assistance').' (Code b3.67 pwd ok / no account).';
                     return 3; //critical fail, no other login should be attempted
                 }
                 //else $result was 1; try next delegate...
@@ -694,7 +723,10 @@ class UserLogin {
                 return 0; // success
             }
         } else {
-            $this->sNotice = __('Anonymous (guest) access to this database has been enabled. However, no default anonymous account has been assigned, so anonymous access is unfortunately not yet possible.').'<br/>';
+            $this->sNotice = __('Anonymous (guest) access to this database has been '.
+                            'enabled. However, no default anonymous account has been '.
+                            'assigned, so anonymous access is unfortunately not yet '.
+                            'possible.');
         }
         return 1; //no or incorrect anonymous account defined
     }
@@ -742,7 +774,8 @@ class UserLogin {
             //check if people changed the default account!
             if ($userName == "admin") {
                 if ($pwdHash == md5("admin")) {
-                    appendErrorMessage(__("Your admin account password still has the default value, please change it on the 'profile' page.")."<br/>");
+                    appendErrorMessage(__('Your admin account password still has '.
+                        'the default value, please change it on the &lsquo;profile&rsquo; page.'));
                 }
             }
 
@@ -778,25 +811,15 @@ class UserLogin {
 
             #set a welcome message/advertisement after login
             if ($this->bIsAnonymous) {
-              //appendMessage(sprintf(__("Dear guest, welcome to this publication database. As an anonymous user, you will probably not have edit rights. Also, the collapse status of the topic tree will not be persistent. If you like to have these and other options enabled, you might ask %s for a login account."),"<a href='mailto: \"".getConfigurationSetting("CFG_ADMIN")."\" ".'<'.getConfigurationSetting("CFG_ADMINMAIL").'>'."?subject=Access account for ".getConfigurationSetting("WINDOW_TITLE")." Aigaion database'>".getConfigurationSetting("CFG_ADMIN")."</a>"));
-                appendMessage(sprintf(__("Dear guest, welcome to this publication database. As an anonymous user, you have no edit rights. As member of the Faculty of Physics you can, however, log in with your NDS account. If you experience problems during login or have any other question, please ask %s."),"<a href='mailto: \"".getConfigurationSetting("CFG_ADMIN")."\" ".'&lt;'.getConfigurationSetting("CFG_ADMINMAIL").'&gt;'."?subject=Question%20re:%20Puma.Phi'>".getConfigurationSetting("CFG_ADMIN")."</a>"));
+                appendMessage(sprintf(__('Dear guest, welcome to this publication '.
+                    'database. As an anonymous user, you have no edit rights. As '.
+                    'member of the Faculty of Physics you can, however, log in with '.
+                    'your NDS account. If you experience problems during login or '.
+                    'have any other question, please ask %s.'),
+                    '<a href="mailto:&quot;'.h(getConfigurationSetting('CFG_ADMIN')).
+                    '&quot;%20&lt;'.h(getConfigurationSetting('CFG_ADMINMAIL')).
+                    '&gt;?subject=Question%20re:%20Puma.Phi">'.getConfigurationSetting('CFG_ADMIN').'</a>'));
             }
-            /*appendMessage("<table>\n<tr>
-                          <td>"
-                          .__("This site is powered by Aigaion - A PHP/Web based management system for shared and annotated bibliographies.")
-                          ." "
-                          .sprintf(__("For more information visit %s"),"<a href='http://www.aigaion.nl/' class='open_extern'>www.aigaion.nl</a>.")
-                          ."</td>
-                          <td>
-                          <a href='http://aigaion.sourceforge.net' class='open_extern'>
-                             <img src='http://sourceforge.net/sflogo.php?group_id=109910&type=1'
-                                  width='88'
-                                  height='31'
-                                  border='0'
-                                  alt='SourceForge.hetLogo'/>
-                          </a>
-                          </td></tr>\n</table>
-              ");*/
 
 
             #SO. Here, if login was successful, we will check the database structure once.
@@ -804,10 +827,9 @@ class UserLogin {
             $CI->latesession->set('USERLOGIN', $this);
             if (!checkSchema()) { //checkSchema will also attempt to login...
                 $this->logout();
-                $this->sNotice = __("You have been logged out because the Aigaion Engine is in the process of being updated.")
-                                 ."<br/>"
-                                 .__("If you are a user with database_manage rights, please login to complete the update.")
-                                 ."<br/>";
+                $this->sNotice = __('You have been logged out because the Aigaion Engine is in the process of being updated.')
+                                 .'<br/>'
+                                 .__('If you are a user with database_manage rights, please login to complete the update.');
                 return 2;
             }
 
@@ -822,7 +844,7 @@ class UserLogin {
     		        $checkresult .= '<b>'.__('OK').'</b><br/>';
         			$checkresult .= __('This installation of Aigaion is up-to-date');
 	            } else {
-        			$checkresult .= '<span class="errortext">'.utf8_strtoupper(__('Alert')).'</span><br/>';
+        			$checkresult .= '<span class="errortext">'.utf8_strtoupper(__('Alert')).'</span>';
         			$checkresult .= $updateinfo;
     	        }
     	        appendMessage($checkresult);
@@ -857,4 +879,4 @@ class UserLogin {
 
 
 
-?>
+//__END__

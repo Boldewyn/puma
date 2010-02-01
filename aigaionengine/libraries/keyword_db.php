@@ -212,7 +212,7 @@ class Keyword_db {
     }
     if ($result_message != "")
     {
-      $result_message .= __("Please review the entered keywords.")."<br/>\n";
+      $result_message .= __('Please review the entered keywords.');
       return $result_message;
     }
     else

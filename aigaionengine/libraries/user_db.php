@@ -204,7 +204,7 @@ class User_db {
           global $AIGAION_SUPPORTED_LANGUAGES;
           if (!in_array($user->preferences['language'],$AIGAION_SUPPORTED_LANGUAGES)) 
           {
-            appendErrorMessage(__("Unknown language").": ".$user->preferences['language']."<br/>");
+            appendErrorMessage(sprintf(__('Unknown language: %s.'), $user->preferences['language']));
             $user->preferences['language'] = AIGAION_DEFAULT_LANGUAGE;
           }
         }
@@ -237,7 +237,10 @@ class User_db {
             foreach ($user->assignedrights as $right) {
                 if ($user->type=='anon') {
                     if ($right=='bookmarklist') {
-                        appendErrorMessage(__("Removed 'bookmarklist' right from anonymous user: it makes no sense to assign it since many people will be loggin on with that account simultaneously.")."<br/>");
+                        appendErrorMessage(__('Removed &lsquo;bookmarklist&rsquo; '.
+                            'right from anonymous user: it makes no sense to assign '.
+                            'it since many people will be loggin on with that '.
+                            'account simultaneously.'));
                         continue;
                     }
                 }
@@ -262,7 +265,7 @@ class User_db {
         $user->user_id = $new_id;
         
         $CI->topic_db->subscribeUser( $user,1);
-        appendMessage(__("User added").".<br/>");
+        appendMessage(__("User added."));
         return $new_id;
     }
 
@@ -302,7 +305,7 @@ class User_db {
             // DR 2008.08.29: cannot change password for anon or external account
             $user->password = "";
         } else if ($user->password_invalidated == 'TRUE') {
-            appendMessage(__('The account does not have a valid password. It has been disabled. You can ask an admin to re-enable it.').'<br/>');
+            appendMessage(__('The account does not have a valid password. It has been disabled. You can ask an admin to re-enable it.'));
         }
             
 
@@ -324,7 +327,7 @@ class User_db {
           global $AIGAION_SUPPORTED_LANGUAGES;
           if (!in_array($user->preferences['language'],$AIGAION_SUPPORTED_LANGUAGES)) 
           {
-            appendErrorMessage(__("Unknown language").": ".$user->preferences['language']."<br/>");
+            appendErrorMessage(sprintf(__("Unknown language: %s"), $user->preferences['language']));
             $user->preferences['language'] = AIGAION_DEFAULT_LANGUAGE;
           }
         }
@@ -361,7 +364,7 @@ class User_db {
                 $siteconfig = $CI->siteconfig_db->getSiteConfig();
                 $siteconfig->configSettings['LOGIN_DEFAULT_ANON'] = '';
                 $siteconfig->update();
-                appendMessage(__("You just set the default anonymous user to non-anonymous. Therefore the default anonymous user configuration setting has been cleared.")."<br/>");
+                appendMessage(__('You just set the default anonymous user to non-anonymous. Therefore the default anonymous user configuration setting has been cleared.'));
             }
         }
 
@@ -372,7 +375,7 @@ class User_db {
             foreach ($user->assignedrights as $right) {
                 if ($user->type=='anon') {
                     if ($right=='bookmarklist') {
-                        appendErrorMessage(__("Removed 'bookmarklist' right from anonymous user: it makes no sense to assign it since many people will be loggin on with that account simultaneously.")."<br/>");
+                        appendErrorMessage(__('Removed &lsquo;bookmarklist&rsquo; right from anonymous user: it makes no sense to assign it since many people will be loggin on with that account simultaneously.'));
                         continue;
                     }
                 }
@@ -414,13 +417,17 @@ class User_db {
             $CI = &get_instance();
             $CI->latesession->set('USERLOGIN', $userlogin);
             if ($userlogin->hasRights("user_assign_rights")) {
-    	        if (!in_array("user_assign_rights",$user->assignedrights)) {
-    	            appendErrorMessage("<b>".__("You just removed your own right to assign user rights! Are you sure that this is correct? If not, re-assign this right before logging out!")."</b><br/>");
-    	        }
-    	        appendMessage(__("Profile updated, changes to rights of users are applied after the user has logged in again.")."<br/>");
-    	    }
+                if (!in_array("user_assign_rights",$user->assignedrights)) {
+                    appendErrorMessage('<strong>'.__('You just removed your own '.
+                        'right to assign user rights! Are you sure that this is '.
+                        'correct? If not, re-assign this right before logging out!').
+                        '</strong>');
+                }
+                appendMessage(__('Profile updated, changes to rights of users '.
+                    'are applied after the user has logged in again.'));
+            }
         }
-        appendMessage(__("User data changed. Changed access rights will be valid upon next login.")."<br/>");
+        appendMessage(__('User data changed. Changed access rights will be valid upon next login.'));
         return True;
     }
 
@@ -434,11 +441,11 @@ class User_db {
         //check, all through the cascade, whether you can read AND edit that object
         if (!$userlogin->hasRights('user_edit_all')) {
             //if not, for any of them, give error message and return
-            appendErrorMessage(__('Cannot delete user').': '.__('insufficient rights').'.<br/>');
+            appendErrorMessage(sprintf(__('Cannot delete user: %s.'), __('insufficient rights')));
             return;
         }
         if (empty($user->user_id)) {
-            appendErrorMessage(__('Cannot delete user').': '.__('erroneous ID').'.<br/>');
+            appendErrorMessage(sprintf(__('Cannot delete user: %s.'),__('erroneous ID')));
             return;
         }
         //otherwise, delete all dependent objects by directly accessing the rows in the table 

@@ -966,6 +966,22 @@ body {
 /**
  * Single widgets
  */
+
+/** infos, errors */
+.info, .error {
+  margin: 0 0 1.25em;
+  padding: 0.625em;
+}
+
+.info {
+  background: #6f6;
+}
+
+.error {
+  background: #f66;
+}
+
+/** forms */
 #content label.block {
   width: 8em;
   display: block;
