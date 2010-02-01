@@ -7,8 +7,9 @@ class Statistics {
 
     public function get($where="1=1") {
         $userlogin = getUserLogin();
+        $that =& get_instance();
         if ($userlogin->hasRights ('database_manage')) {
-            $query = $this->db->where($where)->get('statistics');
+            $query = $that->db->where($where)->get('statistics');
             return $query->result_array();
         } else {
             return array();

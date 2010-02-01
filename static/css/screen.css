@@ -997,6 +997,10 @@ body {
   width: 16em;
 }
 
+#content select {
+  width: 15em;
+}
+
 #content textarea.extended_input,
 #content select.extended_input,
 #content input.extended_input,
