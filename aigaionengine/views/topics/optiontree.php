@@ -67,7 +67,9 @@
         }
          //reindex
     }    
-    echo form_dropdown($dropdownname,$options,$selected);
+    $add = '';
+    if (isset($id)) { $add = 'id="'.$id.'"'; }
+    echo form_dropdown($dropdownname,$options,$selected, $add);
     
 ?>
 <!-- End of topic  browse displays -->

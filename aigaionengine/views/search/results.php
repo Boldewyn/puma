@@ -1,7 +1,15 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); 
 $userlogin = getUserLogin();
-$this->load->helper('publication');
+$this->load->helper('publication');?>
 
+<?php if (isset ($quicksearch) && $quicksearch): ?>
+  <h2><?php _e('Quicksearch results')?></h2>
+  <p><?php _a('search', __('(Proceed to advanced search)'))?></p>
+<?php else: ?>
+  <h2><?php _e('Advanced Search Results')?></h2>
+<?php endif ?>
+
+<?php
 //$resulttabs will be 'title'=>'resultdisplay'.
 //later on, display will take care of surrounding divs, and show-and-hide-scripts for the tabs
 $resulttabs = array();
@@ -74,7 +82,7 @@ foreach ($searchresults as $type=>$resultList) {
 
 //show all relevant result tabs
 foreach ($resulttabs as $title=>$tabdisplay) {
-    echo '<div class="header">'.sprintf(__('%s matches'), $title).'</div>';
+    echo '<h3>'.sprintf(__('%s matches'), $title).'</h3>';
     echo $tabdisplay;
 }
 
@@ -95,10 +103,10 @@ foreach ($searchresults as $title=>$content)
 
 if (count($types) > 0)
 {
-  echo "<div class='header'>".__('Publication matches')."</div>\n";
-  $cells = "";
-  $divs  = "";
-  $hideall = "";
+  echo '<h3>'.__('Publication matches').'</h3>';
+  $cells = '';
+  $divs  = '';
+  $hideall = '';
   foreach ($types as $type)
   {
     $cells .= "<td><div class='header'><a onclick=\"";
@@ -130,11 +138,11 @@ if (count($types) > 0)
 } else { //no publication results
     if (count($resulttabs)==0)
     {
-        echo "<div class='message'>".sprintf(__('No search results found for query: %s'), "<b>".htmlentities($query,ENT_QUOTES, 'utf-8')."</b>")."</div>\n";
+        echo '<p class="info">'.sprintf(__('No search results found for query: %s'), '<strong>'.h($query).'</strong>').'</p>';
     }
     else
     {
-        echo "<div class='message'>".sprintf(__('Search results for query: %s'), "<b>".htmlentities($query,ENT_QUOTES, 'utf-8')."</b>")."</div>\n";
+        echo '<p class="info">'.sprintf(__('Search results for query: %s'), '<strong>'.h($query).'</strong>').'</p>';
     } 
 }
 /*

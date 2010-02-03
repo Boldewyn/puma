@@ -87,6 +87,9 @@ fieldset {
   -webkit-border-radius: .1667em;
   margin-bottom: 1.25em;
 }
+label {
+  cursor: pointer;
+}
 /**
  * sub/sup baseline shift problem
  *
@@ -120,6 +123,15 @@ a:hover {
 }
 code {
   font-family: monospace;
+}
+hr {
+  height: 0;
+  width: 100%;
+  border-style: solid;
+  border-top-color: #00757E;
+  border-bottom-color: #E0EEEF;
+  border-width: .08333em 0;
+  margin: .8333em 0;
 }
 
 
@@ -810,7 +822,7 @@ body {
   font-weight: bold;
   margin: 0 0 .625em;
   color: #004B4F;
-  text-shadow: #fff 0 .08333em 0;
+  text-shadow: #E0EEEF 0 .05em 0;
 }
 
 #content h3 {
@@ -818,7 +830,7 @@ body {
   line-height: .9375;
   margin: 0 0 .9375em;
   color: #004B4F;
-  text-shadow: #fff 0 .08333em 0;
+  text-shadow: #E0EEEF 0 .0625em 0;
 }
 
 #content p,
@@ -1053,6 +1065,7 @@ body {
 /** Submit buttons */
 #content .pseudobutton,
 #content button,
+#content input.button,
 #content input.submit {
   border: .08333em solid #00757e;
   border-radius: .16667em;
@@ -1074,13 +1087,19 @@ body {
 }
 
 #content .pseudobutton:focus,
+#content button:focus,
+#content input.button:focus,
 #content input.submit:focus,
 #content .pseudobutton:hover,
+#content button:hover,
+#content input.button:hover,
 #content input.submit:hover {
   background-position: left -.8333em;
 }
 
 #content .pseudobutton:active,
+#content button:active,
+#content input.button:active,
 #content input.submit:active {
   background-position: left bottom;
 }
@@ -1180,5 +1199,18 @@ body {
 }
 
 
+
+body.search form {
+  margin-bottom: 2.5em;
+}
+
+.search_advanced_condition label {
+  font-style: italic;
+  display: block;
+}
+
+.search_advanced_condition select {
+  width: 32em;
+}
 
 

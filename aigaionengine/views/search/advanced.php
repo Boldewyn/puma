@@ -58,9 +58,11 @@ if (!isset($options)||($options==null))
   </p>
 </form>
 
+<hr/>
+
 <h2><?php _e('Advanced Search: Publications on topic restriction')?></h2>
 <?php echo form_open('search/advancedresults')?>
-  <fieldset>
+  <fieldset class="half">
     <legend><?php _e('Search terms')?></legend>
     <p><?php _e('Leave empty if you want to search all publications')?></p>
     <p>
@@ -83,7 +85,7 @@ if (!isset($options)||($options==null))
           <label for="search_advanced_2_publications_abstracts"><?php _e('Search publication abstract')?></label>
     </p>
   </fieldset>
-  <fieldset>
+  <fieldset class="half">
     <legend><?php _e('Choose the topic restrictions that apply.')?></legend>
     <p>
       <?php printf( __('Return all publications that satisfy %s of the following conditions:'),
@@ -93,39 +95,51 @@ if (!isset($options)||($options==null))
              )
       ?>
     </p>
+    <div>
+      <script type='text/javascript'>
+      /*<![CDATA[*/
+        function more_conditions() {
+            var n = Number($('#search_advanced_n').val())+1;
+            var $cond = $('#search_advanced_initcond').clone();
+            $cond.removeAttr('id');
+            $('label', $cond).attr('for', 'condition_'+n)
+                             .text('<?php _e('Condition %d:')?>'.replace("%d", n));
+            $('input:radio', $cond).attr('name', 'doOrNot'+n);
+            $('select', $cond).attr('id', 'condition_'+n)
+                              .attr('name', 'topicSelection'+n);
+            $('#conditions').append($cond);
+            $('#search_advanced_n').val(n);
+        }
+    /*   ]]>   */
+    </script>
+      <div id="conditions">
+        <p class="search_advanced_condition" id="search_advanced_initcond">
+          <label for="condition_1"><?php printf(__('Condition %d:'), 1)?></label>
+          <input type="radio" name="doOrNot1" value="True" checked="checked" /> <?php _e('Do')?><br/>
+          <input type="radio" name="doOrNot1" value="False" /> <?php _e('Do not')?>
+          &nbsp; &nbsp; <?php _e(' appear in ')?>
 <?php
-//the encoding of the topic conditions with encodeURIcomponent is a messy business. We need it because there may be all sorts of stuff in the option tree that we cannot just show in javascript here without breaking the boundaries of the relevant javascript string ;-)
 $config = array('onlyIfUserSubscribed'=>True,
                 'includeGroupSubscriptions'=>True,
                 'user'=>$userlogin->user());
-$this->load->helper('encode');
-echo "
-    <div>
-    <script language='javascript'>
-    var n = 0;
-    function more() {
-        n++;
-                var newCondition = '<b>".__('Condition')." '+n+'</b>:<br/>"
-                .sprintf(__('%s appear in %s'), "<input type=radio name=\"doOrNot'+n+'\" value=\"True\" CHECKED/>".__('Do')."<br/><input type=radio name=\"doOrNot'+n+'\" value=\"False\"/>".__('Do not')."&nbsp;&nbsp;&nbsp;", "'+decodeURIComponent('".encodeURIComponent($this->load->view('topics/optiontree',
-                                             array('topics'   => $this->topic_db->getByID(1,$config),
-                                                  'showroot'  => False,
-                                                  'header'    => __('Select topic to include or exclude').'...',
-                                                  'dropdownname' => 'dropdownname',
-                                                  'depth'     => -1,
-                                                  'selected'  => 1
-                                                  ),
-                                             true))."');")."
-
-        newCondition = newCondition.replace('dropdownname','topicSelection'+n);
-        $('#moreconditions').replace(newCondition+'<br/><div id=\"moreconditions\" name=\"moreconditions\"><input type=\"hidden\" name=\"numberoftopicconditions\" value=\"'+n+'\"/>".$this->ajax->button_to_function(__('More...'), "more();" )."</div>');
-    }
-    </script>
-    \n"
-
-."<div id='moreconditions' name='moreconditions'><input type=\"hidden\" name=\"numberoftopicconditions\" value=\"0\"/>".$this->ajax->button_to_function(__('More...'), "more();" )."</div>"
-."
-    <script language='javascript'>more();</script></div><br/>
-";?>
+$this->load->view('topics/optiontree',
+              array('topics'   => $this->topic_db->getByID(1,$config),
+              'showroot'  => False,
+              'header'    => __('Select topic to include or exclude').'...',
+              'dropdownname' => 'topicSelection1',
+              'depth'     => -1,
+              'selected'  => 1,
+              'id'        => 'condition_1',
+    )
+)
+?>
+        </p>
+      </div>
+      <p id='moreconditions'>
+        <input type="hidden" name="numberoftopicconditions" id="search_advanced_n" value="1" />
+        <input type="button" class="button" value="<?php _e('More&hellip;')?>" onclick="more_conditions()" />
+      </p>
+    </div>
 
   </fieldset>
   <p>

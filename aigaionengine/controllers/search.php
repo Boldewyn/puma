@@ -2,16 +2,17 @@
 
 class Search extends Controller {
 
-	function Search()
-	{
-		parent::Controller();
-	}
+    function Search() {
+        parent::Controller();
+    }
 
-	/** Default: advanced search form */
-	function index()
-	{
-		$this->advanced();
-	}
+    /** Default: advanced search form */
+    function index() {
+        $headerdata = array('title' => __('Advanced search'));
+        $this->load->view('header', $headerdata);
+        $this->load->view('search/advanced');
+        $this->load->view('footer');
+    }
 
     /**
     search/quicksearch
@@ -22,56 +23,22 @@ class Search extends Controller {
         search query through form value
 
     Returns a full html page with a search result. */
-	function quicksearch()
-	{
+    function quicksearch() {
         $query = $this->input->post('q');
-	    if (trim($query)=='') {
-	        appendErrorMessage(__('Search').': '.__('no query').'.<br/>');
-	        redirect('');
-	    }
-	    $this->load->library('search_lib');
-	    $searchresults = $this->search_lib->simpleSearch($query,null);
+        if (trim($query)=='') {
+            appendErrorMessage(__('Search: No query.'));
+            redirect('');
+        }
+        $this->load->library('search_lib');
+        $searchresults = $this->search_lib->simpleSearch($query,null);
 
         //get output: search result page
-        $headerdata = array();
-        $headerdata['title'] = __('Search results');
-        $headerdata['javascripts'] = array('tree.js','prototype.js','scriptaculous.js','builder.js');
-
-        $output = $this->load->view('header', $headerdata, true);
-
-        $output .= "<div class=optionbox>[".anchor('search/advanced',__('Advanced search'))."]</div><div class=header>".__("Quicksearch results")."</div>";
-        $output .= $this->load->view('search/results',
-                                      array('searchresults'=>$searchresults, 'query'=>$query),
-                                      true);
-
-        $output .= $this->load->view('footer','', true);
-
-        //set output
-        $this->output->set_output($output);
-	}
-
-    /**
-    search/advanced
-    */
-	function advanced()
-	{
-        //get output: advanced earch interface
-        $headerdata = array();
-        $headerdata['title'] = __('Advanced search');
-        $headerdata['javascripts'] = array('tree.js','prototype.js','scriptaculous.js','builder.js');
-
-        $output = $this->load->view('header', $headerdata, true);
-
-
-        $output .= $this->load->view('search/advanced',
-                                      array(),
-                                      true);
-
-        $output .= $this->load->view('footer','', true);
-
-        //set output
-        $this->output->set_output($output);
-	}
+        $headerdata = array('title' => __('Search results'));
+        $this->load->view('header', $headerdata);
+        $this->load->view('search/results',
+                           array('quicksearch'=>True, 'searchresults'=>$searchresults, 'query'=>$query));
+        $this->load->view('footer');
+    }
 
     /**
     search/advancedresults
@@ -82,10 +49,10 @@ class Search extends Controller {
         search query through form values
 
     Returns a full html page with a search result. */
-	function advancedresults()
-	{
+    function advancedresults()
+    {
         if ($this->input->post('formname')!='advancedsearch') {
-            $this->advanced();
+            $this->index();
             return;
         }
       //process query
@@ -102,7 +69,7 @@ class Search extends Controller {
           if ($topic_id=='header')continue;
           $topic = $this->topic_db->getById($topic_id,$config);
           if ($topic==null) {
-            appendMessage(__('Nonexisting topic_id in advanced search condition'));
+            appendMessage(__('Nonexisting topic ID in advanced search condition'));
             continue;
           }
           if ($do=='True') {
@@ -116,7 +83,7 @@ class Search extends Controller {
         $query="*";
       } else if ($query == '') {
         appendMessage(__("No query at all: please give at least a search term or a topic condition"));
-        $this->advanced();
+        $this->index();
         return;
       }
       $searchoptions = array('advanced');
@@ -143,31 +110,21 @@ class Search extends Controller {
       if ((count($doConditions>0))||(count($dontConditions>0))) {
         $searchresults = $this->search_lib->topicConditionSearch($query,$searchoptions,$doConditions,$dontConditions,$anyAll);
       } else {
-	      $searchresults = $this->search_lib->simpleSearch($query,$searchoptions,"");
-	    }
+          $searchresults = $this->search_lib->simpleSearch($query,$searchoptions,"");
+        }
 
         //get output: search result page
-        $headerdata = array();
-        $headerdata['title'] = __('Advanced search results');
-        $headerdata['javascripts'] = array('tree.js','prototype.js','scriptaculous.js','builder.js');
+        $headerdata = array('title' => __('Advanced search results'));
 
-        $output = $this->load->view('header', $headerdata, true);
+        $this->load->view('header', $headerdata);
 
+        $this->load->view('search/results',
+                           array('searchresults'=>$searchresults, 'query'=>$query));
 
-        $output .= "<div class=optionbox>(".__("Search form below").")</div><div class=header>".__("Advanced search results")."</div>";
+        $this->load->view('search/advanced',
+                           array('query'=>$query,'options'=>$searchoptions));
 
-        $output .= $this->load->view('search/results',
-                                      array('searchresults'=>$searchresults, 'query'=>$query),
-                                      true);
-
-        $output .= $this->load->view('search/advanced',
-                                      array('query'=>$query,'options'=>$searchoptions),
-                                      true);
-
-        $output .= $this->load->view('footer','', true);
-
-        //set output
-        $this->output->set_output($output);
-	}
+        $this->load->view('footer');
+    }
 }
 ?>

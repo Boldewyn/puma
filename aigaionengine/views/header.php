@@ -29,7 +29,8 @@ header("Content-Type: text/html; charset=UTF-8");
     </script>
     <script type="text/javascript" src="<?php echo base_url() ?>static/js/jquery.js"></script>
   </head>
-  <body>
+  <body id="<?php echo $this->uri->segment(1).'_'.$this->uri->segment(2)?>"
+     class="<?php echo $this->uri->segment(1).' '.$this->uri->segment(2)?>">
     <div id="container">
       <div id="header">
         <div id="header_widgets">
@@ -91,16 +92,8 @@ header("Content-Type: text/html; charset=UTF-8");
       ?>
 
       <?php
-        //load menu
-        //view parameter to be passed to menu: a prefix for the sort options. See views/menu.php for more info
-        if (!isset($sortPrefix))
-          $sortPrefix = '';
-        //view parameter to be passed to menu: a command relevant for the menu export option. See views/menu.php for more info
-        if (!isset($exportCommand))
-          $exportCommand = '';
-        if (!isset($exportName))
-          $exportName = __('Aigaion export list');
-        $this->load->view('menu', array('sortPrefix'=>$sortPrefix,'exportCommand'=>$exportCommand,'exportName'=>$exportName));
+          if (! isset($subnav)) { $subnav = array(); }
+          $this->load->view('menu', array('subnav'=>$subnav));
       ?>
 
       <div id="content">
