@@ -27,26 +27,26 @@ class Usercontroller extends Controller {
             $groups = $query->result_array();
             $grouped_users = array();
             foreach ($groups as $group) {
-                $grouped_users[$group['user_id']] = array('users'=>array(), 'name'=>$group['surname'], 'abbr'=>$group['abbreviation']);
+                $grouped_users[$group['user_id']] = array('users'=>array(), 'name'=>$group['surname'], 'abbreviation'=>$group['abbreviation']);
                 foreach ($users as $user) {
                     if ($user['group_id'] == $group['user_id']) {
                         $grouped_users[$group['user_id']]['users'][] = $user;
                     }
                 }
             }
-            $this->load->view('header', array("title"=>__("All Users")));
+            $this->load->view('header', array('title'=>__('All Users')));
             $this->load->view('user/all', array('groups' => $grouped_users));
             $this->load->view('footer');
         } else {
             $user = $this->user_db->getByLogin($id);
             $userlogin = getUserLogin();
             if ($user == null) {
-                appendErrorMessage(sprintf(__("User %s does not exist."), h($id)));
+                appendErrorMessage(sprintf(__('User %s does not exist.'), h($id)));
                 redirect('');
-            } elseif ($action && ! in_array($action, array("contact", "edit"))) {
-                appendErrorMessage(sprintf(__("Unknown action requested: %s."), h($action)));
+            } elseif ($action && ! in_array($action, array('contact', 'edit'))) {
+                appendErrorMessage(sprintf(__('Unknown action requested: %s.'), h($action)));
                 redirect('');
-            } elseif ((!$userlogin->isLoggedIn() || $userlogin->isAnonymous()) && $id != "admin") {
+            } elseif ((!$userlogin->isLoggedIn() || $userlogin->isAnonymous()) && $id != 'admin') {
                 appendErrorMessage(__('You must be logged in to view this user’s page.'));
                 redirect('');
             }
@@ -57,7 +57,7 @@ class Usercontroller extends Controller {
             $user->groups = $groups;
 
             if (! $action) {
-                $this->load->view('header', array("title"=>sprintf(__("User %s"), $id)));
+                $this->load->view('header', array('title'=>sprintf(__('User %s'), $id)));
                 $this->load->view('user/full', array('user' => $user));
                 $this->load->view('footer');
             } else {
@@ -70,13 +70,13 @@ class Usercontroller extends Controller {
      *
      */
     protected function contact ($id, $user, $userlogin) {
-        if ((!$userlogin->isLoggedIn() || $userlogin->isAnonymous()) && $id != "admin") {
+        if ((!$userlogin->isLoggedIn() || $userlogin->isAnonymous()) && $id != 'admin') {
             appendErrorMessage(__('Please log in to contact other users.'));
             redirect('');
         }
         $this->load->library('form_validation');
-        $this->form_validation->set_message('required', __("A %s is required."));
-        $this->form_validation->set_message('max_length', __("The %s may not exceed 511 characters."));
+        $this->form_validation->set_message('required', __('A %s is required.'));
+        $this->form_validation->set_message('max_length', __('The %s may not exceed 511 characters.'));
         $this->form_validation->set_error_delimiters('<p class="error">', '</p>');
         $this->form_validation->set_rules('message', __('message'), 'required|max_length[511]');
 
@@ -87,7 +87,7 @@ class Usercontroller extends Controller {
             $this->load->library('email');
             $subject = $this->input->post('subject');
             if (! $subject) {
-                $subject = sprintf(__("A message from Puma user %s %s"),
+                $subject = sprintf(__('A message from Puma user %s %s'),
                                    $userlogin->preferences['firstname'],
                                    $userlogin->preferences['surname']);
             }
@@ -99,7 +99,7 @@ class Usercontroller extends Controller {
             $data['success_send'] = $this->email->send();
         }
 
-        $this->load->view('header', array("title"=>sprintf(__("Contact user %s"), $id)));
+        $this->load->view('header', array('title'=>sprintf(__('Contact user %s'), $id)));
         $this->load->view('user/contact', $data);
         $this->load->view('footer');
     }
@@ -115,14 +115,14 @@ class Usercontroller extends Controller {
             redirect('');
         }
         $this->load->library('form_validation');
-        $this->form_validation->set_message('required', __("The field %s is required."));
-        $this->form_validation->set_message('max_length', __("The field %s is too long."));
+        $this->form_validation->set_message('required', __('The field %s is required.'));
+        $this->form_validation->set_message('max_length', __('The field %s is too long.'));
         $this->form_validation->set_error_delimiters('<p class="error">', '</p>');
 
         $rules = array('password' => 'matches[password_check]',
                        'password_check' => 'matches[password]');
-        $this->form_validation->set_rules('password', __("Password"), 'matches[password_check]');
-        $this->form_validation->set_rules('password_check', __("Password repeat"), 'matches[password]');
+        $this->form_validation->set_rules('password', __('Password'), 'matches[password_check]');
+        $this->form_validation->set_rules('password_check', __('Password repeat'), 'matches[password]');
 
         $data = array('user' => $user);
         $data['success'] = $this->form_validation->run();
@@ -131,14 +131,37 @@ class Usercontroller extends Controller {
             if ($user->edit($_POST)) {
                 appendMessage(__('The account was successfully updated.'));
             } else {
-                appendErrorMessage(__("The changes could not be stored.", "severe"));
+                appendErrorMessage(__('The changes could not be stored.'), 'severe');
             }
         } else {
             appendErrorMessage(validation_errors());
         }
 
-        $this->load->view('header', array("title"=>sprintf(__("Edit user %s"), $id)));
+        $this->load->view('header', array('title'=>sprintf(__('Edit user %s'), $id)));
         $this->load->view('user/edit', $data);
+        $this->load->view('footer');
+    }
+    
+    /**
+     *
+     */
+    public function group($id) {
+        $query = $this->db->select(array('user_id', 'surname', 'abbreviation'))
+                          ->from('users')->where('type', 'group')->where('theme', 'Puma')
+                          ->where('abbreviation', $id)->limit(1)
+                          ->get();
+        $group = $query->result_array();
+        if (! $group || count($group) != 1) {
+            appendErrorMessage(sprintf(__('Group %s does not exist.'), h($id)));
+            redirect('');
+        }
+        $query = $this->db->from('users')->join('usergrouplink', 'users.user_id = usergrouplink.user_id')
+                      ->where('users.type', 'normal')->where('usergrouplink.group_id', $group[0]['user_id'])
+                      ->order_by('users.login desc')
+                      ->get();
+        $users = $query->result_array();
+        $this->load->view('header', array('title'=>sprintf(__('Group %s'), $id)));
+        $this->load->view('user/group', array('group'=>$group[0], 'users'=>$users));
         $this->load->view('footer');
     }
 

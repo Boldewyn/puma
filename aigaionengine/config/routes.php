@@ -43,6 +43,7 @@ $route['default_controller'] = "front";
 $route['scaffolding_trigger'] = "";
 
 $route['login/nds:any'] = "login/nds";
+$route['group/(:any)'] = "usercontroller/group/$1";
 $route['user/(:any)'] = "usercontroller/index/$1";
 $route['user'] = "usercontroller/index";
 $route['help/(:any)'] = "help/index/$1";

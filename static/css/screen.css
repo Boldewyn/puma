@@ -1149,6 +1149,12 @@ body {
   overflow: hidden;
 }
 
+#content .datatable tr.even th,
+#content .datatable tr.even td,
+#content fieldset p.even {
+  background: #d6e4e6;
+}
+
 #content fieldset p.even {
   background: #d6e4e6;
   padding: .625em 0;
@@ -1192,7 +1198,23 @@ body {
 }
 
 
+.datatable {
+  border: .08333em solid #E0EEEF;
+  min-width: 29em;
+}
 
+.datatable th {
+  font-style: italic;
+}
+
+.datatable th.first {
+  border-right: .08333em solid #E0EEEF;
+}
+
+.datatable th,
+.datatable td {
+  padding: .625em;
+}
 
 
 
@@ -1242,3 +1264,5 @@ body.search form {
   width: 16.5em;
   float: left;
 }
+
+

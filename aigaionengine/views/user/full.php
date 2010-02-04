@@ -18,7 +18,7 @@
   </form>
 <?php endif ?>
 
-<table>
+<table class="datatable">
   <tbody>
     <tr>
       <th><?php _e('Name:')?></th>
@@ -34,7 +34,7 @@
     </tr>
     <tr>
       <th><?php _e('Groups:')?></th>
-      <td><?php $g = array(); foreach ($user->groups as $gr): if ($gr->user_id > 6) $g[] = anchor("group/".$gr->user_id, h($gr->name)); endforeach; echo implode(", ", $g); ?></td>
+      <td><?php $g = array(); foreach ($user->groups as $gr): if ($gr->user_id > 6) $g[] = anchor('group/'.$gr->abbreviation, h($gr->name)); endforeach; echo implode(', ', $g); ?></td>
     </tr>
   </tbody>
 </table>

@@ -110,6 +110,8 @@ Additional bugs added by Manuel Strehl, 2010.
     $('#ask_email').focus(function () { if (/^[eE].?[Mm]ail$/.test(this.value)) { this.value=""; } });
     $('p + p').addClass("after_p");
     $('fieldset p:not(.note):odd').addClass('even');
+    $('.datatable tr:odd').addClass('even');
+    $('.datatable tr th:first-child').addClass('first');
     $('.half + *:not(.half)').css('clear', 'left');
     $('.half:odd').css('margin-right', '0');
     $('.masonry .brick').css('float', 'none');
