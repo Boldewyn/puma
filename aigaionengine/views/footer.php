@@ -69,6 +69,7 @@ $userlogin = getUserLogin();
               <li><?php _a('help/faq', __('FAQ')); ?></li>
               <li><?php _a('help/tutorial', __('Video tutorial')); ?></li>
               <li><a href="http://www.aigaion.nl/forum"><?php _e('Aigaion forum'); ?></a></li>
+              <!--li><?php _a('imprint', __('Imprint')) ?></a></li-->
             </ul>
           </li>
         </ul>
