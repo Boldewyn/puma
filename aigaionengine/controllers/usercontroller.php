@@ -10,24 +10,27 @@ class Usercontroller extends Controller {
      *
      */
     public function index ($id=False, $action=False) {
-        if (! $id) {
-            if ($userlogin->isAnonymous()) {
+        $userlogin = getUserLogin();
+        if ($id == False) {
+            if (! $userlogin->isLoggedIn() || $userlogin->isAnonymous()) {
                 appendErrorMessage(__('You must be logged in to view the users’ page.'));
                 redirect('');
             }
-            $query = $this->db->from('users')->join('usergrouplink')
-                          ->where('type', 'normal')->where('users.id = usergrouplink.user_id')
-                          ->order_by('usergrouplink.group_id desc, users.username desc')
+            $query = $this->db->from('users')->join('usergrouplink', 'users.user_id = usergrouplink.user_id')
+                          ->where('users.type', 'normal')
+                          ->order_by('usergrouplink.group_id desc')->order_by('users.login desc')
                           ->get();
             $users = $query->result_array();
-            $query = $this->db->from('users')->where('type', 'group')->get();
+            $query = $this->db->select(array('user_id', 'surname', 'abbreviation'))
+                              ->from('users')->where('type', 'group')->where('theme', 'Puma')
+                              ->get();
             $groups = $query->result_array();
             $grouped_users = array();
             foreach ($groups as $group) {
-                $grouped_users[$group['loginname']] = array();
+                $grouped_users[$group['user_id']] = array('users'=>array(), 'name'=>$group['surname'], 'abbr'=>$group['abbreviation']);
                 foreach ($users as $user) {
-                    if ($user['usergrouplink.group_id'] == $group['id']) {
-                        $grouped_users[$group['loginname']][] = $user;
+                    if ($user['group_id'] == $group['user_id']) {
+                        $grouped_users[$group['user_id']]['users'][] = $user;
                     }
                 }
             }
@@ -43,7 +46,7 @@ class Usercontroller extends Controller {
             } elseif ($action && ! in_array($action, array("contact", "edit"))) {
                 appendErrorMessage(sprintf(__("Unknown action requested: %s."), h($action)));
                 redirect('');
-            } elseif ($userlogin->isAnonymous() && $id != "admin") {
+            } elseif ((!$userlogin->isLoggedIn() || $userlogin->isAnonymous()) && $id != "admin") {
                 appendErrorMessage(__('You must be logged in to view this user’s page.'));
                 redirect('');
             }
@@ -67,7 +70,7 @@ class Usercontroller extends Controller {
      *
      */
     protected function contact ($id, $user, $userlogin) {
-        if ($userlogin->isAnonymous() && $id != "admin") {
+        if ((!$userlogin->isLoggedIn() || $userlogin->isAnonymous()) && $id != "admin") {
             appendErrorMessage(__('Please log in to contact other users.'));
             redirect('');
         }
