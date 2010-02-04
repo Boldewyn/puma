@@ -627,8 +627,8 @@ class UserLogin {
                             $loginPwd = $row->password;
                             if ($this->_login($loginName,$loginPwd,$remember,True,False)==0) {
                                 //set some message 'new Aigaion account created, please feel welcome'
-                                appendMessage(sprintf(__('A new Aigaion account has been '.
-                                    'created for you, user &lsquo;%s&rsquo;. Please enjoy '.
+                                appendMessage(sprintf(__('A new Puma account has been '.
+                                    'created for you, user ‘%s’. Please enjoy '.
                                     'your stay here.'), $loginInfo['uname']));
                                 return 0; // success
                             }

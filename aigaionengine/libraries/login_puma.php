@@ -74,7 +74,7 @@ class Login_puma {
     * encrypt a given string
     */
     private function encrypt_secret ($text, $key) {
-        return mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $key, $text, MCRYPT_MODE_ECB, "abcdefghijklmnopqrstuvwxyz012345");
+        return mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $key, $text, MCRYPT_MODE_ECB, 'abcdefghijklmnopqrstuvwxyz012345');
     }
 
 
@@ -82,7 +82,7 @@ class Login_puma {
     * decrypt a given string
     */
     private function decrypt_secret ($secret, $key) {
-        return rtrim(mcrypt_decrypt(MCRYPT_RIJNDAEL_256, $key, $secret, MCRYPT_MODE_ECB, "abcdefghijklmnopqrstuvwxyz012345"), "\0");
+        return rtrim(mcrypt_decrypt(MCRYPT_RIJNDAEL_256, $key, $secret, MCRYPT_MODE_ECB, 'abcdefghijklmnopqrstuvwxyz012345'), "\0");
     }
 
 
@@ -177,7 +177,7 @@ class Login_puma {
                     $group_ids[] = $R->user_id;
                 } else {
                     //group must also be created...
-                    $CI->db->insert("users", array('surname'=>$groupname,'abbreviation'=>$groupname,'type'=>'group'));
+                    $CI->db->insert('users', array('surname'=>$groupname,'abbreviation'=>$groupname,'type'=>'group'));
                     $new_id = $CI->db->insert_id();
                     //subscribe group to top topic
                     $CI->db->insert('usertopiclink', array('user_id' => $new_id, 'topic_id' => 1));
