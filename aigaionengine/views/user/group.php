@@ -17,7 +17,7 @@
       <td>
         <ul>
           <?php foreach ($users as $user):?>
-            <li><?php _a('user/'.h($user['login']), h($user['firstname'].' '.h($user['surname'])))?></li>
+            <li><?php _a('user/'.h($user['login']), h($user['firstname']).' '.h($user['surname']))?></li>
           <?php endforeach ?>
         </ul>
       </td>

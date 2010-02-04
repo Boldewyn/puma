@@ -79,6 +79,7 @@ button, input, textarea {
   font: 1em/1.25 "Frutiger Next Pro","Frutiger Next","Segoe UI",Verdana,sans-serif;
   color: #002D2F;
 }
+.user_contact_embed,
 fieldset {
   border: .0833em solid #00757E;
   padding: 1.1667em;
@@ -1214,6 +1215,7 @@ body {
 .datatable th,
 .datatable td {
   padding: .625em;
+  vertical-align: top;
 }
 
 
@@ -1263,6 +1265,12 @@ body.search form {
 #user_ .brick li {
   width: 16.5em;
   float: left;
+}
+
+body.group .datatable ul li {
+  float: left;
+  width: 14em;
+  padding-right: 1.25em;
 }
 
 

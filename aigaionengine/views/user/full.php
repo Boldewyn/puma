@@ -34,7 +34,7 @@
     </tr>
     <tr>
       <th><?php _e('Groups:')?></th>
-      <td><?php $g = array(); foreach ($user->groups as $gr): if ($gr->user_id > 6) $g[] = anchor('group/'.$gr->abbreviation, h($gr->name)); endforeach; echo implode(', ', $g); ?></td>
+      <td><?php $g = array(); foreach ($user->groups as $gr): if ($gr->user_id > 6) $g[] = anchor('group/'.h($gr->abbreviation), h($gr->name)); endforeach; echo implode(', ', $g); ?></td>
     </tr>
   </tbody>
 </table>

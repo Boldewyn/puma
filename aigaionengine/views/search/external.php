@@ -4,9 +4,12 @@ if(! isset($searchengines)) { $searchengines = array(); }
 ?>
 <form method="get" action="." onsubmit="return false;" id="search_external_form">
   <h2><?php _e('Search on external sites')?></h2>
-  <p>
-    <input type="text" class="text extended_input" name="q" id="search_external_query" value="<?php _h($query)?>" />
-  </p>
+  <fieldset>
+    <legend><?php _e('Search term')?></legend>
+    <p>
+      <input type="text" class="text extended_input" name="q" id="search_external_query" value="<?php _h($query)?>" />
+    </p>
+  </fieldset>
   <script type="text/javascript">
   /*<![CDATA[*/
     function searchExtern (action, method, parameters) {

@@ -5920,7 +5920,7 @@ msgstr "Gruppendetails: %s"
 
 #: ../../views/user/group.php:12
 msgid "NDS short name:"
-msgstr "NDS-Anmeldename:"
+msgstr "NDS-Kurzname:"
 
 #: ../../views/user/group.php:16
 msgid "Known group members:"

@@ -18,11 +18,12 @@ class Usercontroller extends Controller {
             }
             $query = $this->db->from('users')->join('usergrouplink', 'users.user_id = usergrouplink.user_id')
                           ->where('users.type', 'normal')
-                          ->order_by('usergrouplink.group_id desc')->order_by('users.login desc')
+                          ->order_by('usergrouplink.group_id asc')->order_by('users.login asc')
                           ->get();
             $users = $query->result_array();
             $query = $this->db->select(array('user_id', 'surname', 'abbreviation'))
                               ->from('users')->where('type', 'group')->where('theme', 'Puma')
+                              ->order_by('surname asc')
                               ->get();
             $groups = $query->result_array();
             $grouped_users = array();
@@ -157,10 +158,10 @@ class Usercontroller extends Controller {
         }
         $query = $this->db->from('users')->join('usergrouplink', 'users.user_id = usergrouplink.user_id')
                       ->where('users.type', 'normal')->where('usergrouplink.group_id', $group[0]['user_id'])
-                      ->order_by('users.login desc')
+                      ->order_by('users.login asc')
                       ->get();
         $users = $query->result_array();
-        $this->load->view('header', array('title'=>sprintf(__('Group %s'), $id)));
+        $this->load->view('header', array('title'=>sprintf(__('Group %s'), $id), 'nav_current'=>'user'));
         $this->load->view('user/group', array('group'=>$group[0], 'users'=>$users));
         $this->load->view('footer');
     }
