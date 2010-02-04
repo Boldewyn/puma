@@ -26,8 +26,20 @@ class Explore extends Controller {
      *
      */
     function topic($topic=Null) {
+        $userlogin = getUserLogin();
+        $user = $this->user_db->getByID($userlogin->userId());
+        $config = array('onlyIfUserSubscribed'=>($topic? True : False),
+                        'flagCollapsed'=>True,
+                        'user'=>$user,
+                        'includeGroupSubscriptions'=>True
+                        );
+        $root = $this->topic_db->getByID($root_id, $config);
+        if ($root == null) {
+            appendErrorMessage(__("Browse topics: non-existing id passed."));
+            redirect('');
+        }
         $this->load->view('header', array('title' => __('Explore » Topic')));
-        $this->load->view('explore/topic', array("data" => "Hallo Puma.&Phi;!"));
+        $this->load->view('explore/topic', array('topics' => $root->getChildren()));
         $this->load->view('footer');
     }
 
