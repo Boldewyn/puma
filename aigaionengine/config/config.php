@@ -395,4 +395,14 @@ $config['rewrite_short_tags'] = FALSE;
 
 
 
+/*
+  CUSTOM ERROR HANDLING
+*/
+$config['error']['directory'] = '';
 
+$config['error']['controller'] = 'errorhandler';
+
+$config['error']['method'] = 'index';
+
+
+//__END__
