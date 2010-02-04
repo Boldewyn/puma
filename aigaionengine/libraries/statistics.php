@@ -8,7 +8,7 @@ class Statistics {
     public function get($where="1=1") {
         $userlogin = getUserLogin();
         $that =& get_instance();
-        if ($userlogin->hasRights ('database_manage')) {
+        if ($userlogin->hasRights('database_manage')) {
             $query = $that->db->where($where)->get('statistics');
             return $query->result_array();
         } else {
@@ -18,12 +18,12 @@ class Statistics {
 
     public function set() {
         $that =& get_instance();
-        if ($that->uri->segment (1, false) == 'stats') {
+        if ($that->uri->segment(1, false) == 'stats') {
             // statistics shall not be tracked (even the reading of statistic data)
             return false;
         } else {
             $userlogin = getUserLogin();
-            if ($userlogin->isAnonymous()) {
+            if (! $userlogin->isLoggedIn() || $userlogin->isAnonymous()) {
                 $user = "-";
             } else {
                 $user = $userlogin->loginName();
