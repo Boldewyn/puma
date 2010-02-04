@@ -563,6 +563,7 @@ html {
 
 body {
   background: white url(images/header_expanded.png) no-repeat center top;
+  *overflow: hidden;
 }
 
 #container {
@@ -735,6 +736,19 @@ body {
   background-position: left center;
 }
 
+#nav img {
+  vertical-align: middle;
+  padding-bottom: .25em;
+  opacity: .67;
+  filter:Alpha(Opacity=67);
+}
+
+#nav .current img,
+#nav a:hover img {
+  opacity: 1;
+  filter:Alpha(Opacity=100);
+}
+
 
 
 #subnav {
@@ -874,7 +888,7 @@ body {
   color: white;
   font: .9167em/1.3636 Verdana,sans-serif;
   text-align: center;
-  width: 100%;
+  x-width: 100%;
   padding-bottom: 3em;
 }
 
