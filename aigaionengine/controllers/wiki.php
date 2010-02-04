@@ -19,6 +19,17 @@ class Wiki extends Controller {
         $this->load->view('footer');
     }
     
+    function edit($item, $discussion=False) {
+        $this->load->view('header', array('title' => __('Wiki » %s')));
+        if ($discussion == 1) {
+            $this->load->view('put', array('data' => 'wiki edit discussion '.$item));
+        } else {
+            $item .= '/'.$discussion;
+            $this->load->view('put', array('data' => 'wiki edit '.$item));
+        }
+        $this->load->view('footer');
+    }
+
     function discussion($item) {
         $this->load->view('header', array('title' => __('Wiki » %s')));
         $this->load->view('put', array('data' => 'wiki discussion '.$item));

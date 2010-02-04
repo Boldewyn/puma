@@ -204,7 +204,7 @@ $config['subclass_prefix'] = 'MY_';
 */
 $config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
 if(strpos($_SERVER['REQUEST_URI'], 'login/nds')!==FALSE) {$config['permitted_uri_chars'] = '';}
-if(strpos($_SERVER['REQUEST_URI'], 'wiki/')===0) {$config['permitted_uri_chars'] = 'a-zA-ZäöüÄÖÜß !?*+=0-9~%.:_\-';}
+if(strpos($_SERVER['REQUEST_URI'], '/wiki/')===0) {$config['permitted_uri_chars'] = 'a-zA-ZäöüÄÖÜß !?*+=0-9~%.:,;_\-';}
 
 
 /*

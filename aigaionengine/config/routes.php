@@ -44,8 +44,11 @@ $route['scaffolding_trigger'] = "";
 
 $route['login/nds:any'] = "login/nds";
 $route['user/(:any)'] = "usercontroller/index/$1";
+$route['user'] = "usercontroller/index";
 $route['help/(:any)'] = "help/index/$1";
 
+$route['wiki/Edit:(:any)'] = "wiki/edit/$1";
+$route['wiki/Edit_Discussion:(:any)'] = "wiki/edit/$1/1";
 $route['wiki/History:(:any)'] = "wiki/history/$1";
 $route['wiki/Discussion:(:any)'] = "wiki/discussion/$1";
 $route['wiki/(:any)'] = "wiki/item/$1";
