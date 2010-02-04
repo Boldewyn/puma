@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-28 14:07+0100\n"
+"POT-Creation-Date: 2010-02-04 16:18+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -115,16 +115,16 @@ msgstr ""
 #: ../../controllers/rightsprofiles.php:80
 #: ../../controllers/rightsprofiles.php:138
 #: ../../controllers/rightsprofiles.php:194
-#: ../../controllers/rightsprofiles.php:257 ../../controllers/topics.php:149
+#: ../../controllers/rightsprofiles.php:257 ../../controllers/site.php:33
+#: ../../controllers/site.php:100 ../../controllers/site.php:206
+#: ../../controllers/site.php:293 ../../controllers/site.php:323
+#: ../../controllers/site.php:397 ../../controllers/topics.php:149
 #: ../../controllers/topics.php:189 ../../controllers/topics.php:235
 #: ../../controllers/topics.php:621 ../../controllers/users.php:38
 #: ../../controllers/users.php:178 ../../controllers/users.php:236
 #: ../../controllers/users.php:294 ../../controllers/users.php:355
 #: ../../controllers/users.php:456 ../../controllers/users.php:532
-#: ../../controllers/users.php:593 ../../controllers/site.php:33
-#: ../../controllers/site.php:100 ../../controllers/site.php:206
-#: ../../controllers/site.php:293 ../../controllers/site.php:323
-#: ../../controllers/site.php:397 ../../libraries/accesslevels_lib.php:137
+#: ../../controllers/users.php:593 ../../libraries/accesslevels_lib.php:137
 #: ../../libraries/accesslevels_lib.php:159
 #: ../../libraries/accesslevels_lib.php:181
 #: ../../libraries/accesslevels_lib.php:221
@@ -146,13 +146,13 @@ msgstr ""
 #: ../../libraries/bookmarklist_db.php:151
 #: ../../libraries/bookmarklist_db.php:166 ../../libraries/group_db.php:142
 #: ../../libraries/note_db.php:110 ../../libraries/note_db.php:145
-#: ../../libraries/note_db.php:178 ../../libraries/rightsprofile_db.php:142
-#: ../../libraries/topic_db.php:337 ../../libraries/topic_db.php:351
-#: ../../libraries/topic_db.php:365 ../../libraries/topic_db.php:379
-#: ../../libraries/topic_db.php:396 ../../libraries/topic_db.php:441
-#: ../../libraries/topic_db.php:503 ../../libraries/user_db.php:437
-#: ../../libraries/publication_db.php:405
+#: ../../libraries/note_db.php:178 ../../libraries/publication_db.php:405
 #: ../../libraries/publication_db.php:816
+#: ../../libraries/rightsprofile_db.php:142 ../../libraries/topic_db.php:337
+#: ../../libraries/topic_db.php:351 ../../libraries/topic_db.php:365
+#: ../../libraries/topic_db.php:379 ../../libraries/topic_db.php:396
+#: ../../libraries/topic_db.php:441 ../../libraries/topic_db.php:503
+#: ../../libraries/user_db.php:444
 msgid "insufficient rights"
 msgstr ""
 
@@ -251,7 +251,7 @@ msgstr ""
 
 #: ../../controllers/authors.php:320 ../../controllers/authors.php:520
 #: ../../controllers/authors.php:545 ../../views/publications/edit.php:212
-#: ../../views/publications/single.php:213 ../../views/menu.php:107
+#: ../../views/publications/single.php:213
 msgid "Authors"
 msgstr ""
 
@@ -268,7 +268,6 @@ msgid "author does not exist"
 msgstr ""
 
 #: ../../controllers/authors.php:405 ../../controllers/test.php:287
-#: ../../views/menu.php:41
 msgid "Author"
 msgstr ""
 
@@ -579,8 +578,56 @@ msgstr ""
 msgid "Exported from bookmarklist"
 msgstr ""
 
+#: ../../controllers/create.php:11 ../../views/menu.php:10
+msgid "Create"
+msgstr ""
+
+#: ../../controllers/create.php:20
+msgid "Create » Upload"
+msgstr ""
+
+#: ../../controllers/create.php:29
+msgid "Create » Publication"
+msgstr ""
+
+#: ../../controllers/create.php:38
+msgid "Create » Tag"
+msgstr ""
+
+#: ../../controllers/create.php:47
+msgid "Create » Topic"
+msgstr ""
+
+#: ../../controllers/create.php:56
+msgid "Create » Author"
+msgstr ""
+
+#: ../../controllers/errorhandler.php:5
+msgid "Error: Resource not found"
+msgstr ""
+
+#: ../../controllers/explore.php:11 ../../views/menu.php:7
+msgid "Explore"
+msgstr ""
+
+#: ../../controllers/explore.php:20
+msgid "Explore » Publication"
+msgstr ""
+
+#: ../../controllers/explore.php:29
+msgid "Explore » Topic"
+msgstr ""
+
+#: ../../controllers/explore.php:38
+msgid "Explore » Tag"
+msgstr ""
+
+#: ../../controllers/explore.php:47
+msgid "Explore » Author"
+msgstr ""
+
 #: ../../controllers/export.php:39 ../../views/export/chooseformat.php:12
-#: ../../views/export/chooseformatEmail.php:11 ../../views/menu.php:30
+#: ../../views/export/chooseformatEmail.php:11
 msgid "Export all publications"
 msgstr ""
 
@@ -626,7 +673,7 @@ msgstr ""
 
 #: ../../controllers/export.php:274 ../../libraries/email_export.php:29
 #: ../../views/export/chooseformat.php:51
-#: ../../views/export/chooseformatEmail.php:57 ../../views/menu.php:28
+#: ../../views/export/chooseformatEmail.php:57
 msgid "Export"
 msgstr ""
 
@@ -640,6 +687,10 @@ msgstr ""
 
 #: ../../controllers/export.php:366
 msgid "Export one publication"
+msgstr ""
+
+#: ../../controllers/front.php:16
+msgid "Start"
 msgstr ""
 
 #: ../../controllers/groups.php:37
@@ -660,10 +711,10 @@ msgstr ""
 #: ../../controllers/groups.php:241 ../../controllers/notes.php:110
 #: ../../controllers/notes.php:132 ../../controllers/notes.php:189
 #: ../../controllers/rightsprofiles.php:85
-#: ../../controllers/rightsprofiles.php:122 ../../controllers/topics.php:180
-#: ../../controllers/topics.php:210 ../../controllers/topics.php:491
-#: ../../controllers/users.php:183 ../../controllers/users.php:220
-#: ../../controllers/users.php:337 ../../controllers/site.php:40
+#: ../../controllers/rightsprofiles.php:122 ../../controllers/site.php:40
+#: ../../controllers/topics.php:180 ../../controllers/topics.php:210
+#: ../../controllers/topics.php:491 ../../controllers/users.php:183
+#: ../../controllers/users.php:220 ../../controllers/users.php:337
 #: ../../libraries/author_db.php:306
 msgid "Changes not committed"
 msgstr ""
@@ -738,8 +789,8 @@ msgstr ""
 msgid "Unsubscribe topic"
 msgstr ""
 
-#: ../../controllers/help.php:11 ../../views/footer.php:60
-#: ../../views/header.php:64 ../../views/menu.php:67
+#: ../../controllers/help.php:11 ../../views/footer.php:65
+#: ../../views/header.php:67
 msgid "Help"
 msgstr ""
 
@@ -747,7 +798,7 @@ msgstr ""
 #: ../../controllers/import.php:81 ../../controllers/import.php:87
 #: ../../controllers/import.php:116 ../../controllers/import.php:174
 #: ../../views/import/importform.php:15 ../../views/import/importform.php:36
-#: ../../views/import/review.php:314 ../../views/menu.php:59
+#: ../../views/import/review.php:314
 msgid "Import"
 msgstr ""
 
@@ -818,7 +869,6 @@ msgstr ""
 #: ../../views/import/review.php:268 ../../views/publications/edit.php:192
 #: ../../views/publications/review.php:73
 #: ../../views/publications/single.php:204 ../../views/topics/full.php:79
-#: ../../views/menu.php:108
 msgid "Keywords"
 msgstr ""
 
@@ -845,13 +895,28 @@ msgstr ""
 msgid "No publications found using this keyword."
 msgstr ""
 
-#: ../../controllers/language.php:40 ../../libraries/user_db.php:207
-#: ../../libraries/user_db.php:327
+#: ../../controllers/language.php:40
 msgid "Unknown language"
 msgstr ""
 
 #: ../../controllers/language.php:58
 msgid "Select language"
+msgstr ""
+
+#: ../../controllers/login.php:29
+msgid "Please login"
+msgstr ""
+
+#: ../../controllers/login.php:169
+msgid "Anonymous accounts are not enabled"
+msgstr ""
+
+#: ../../controllers/login.php:179
+msgid "Anonymous login: no existing anonymous user_id provided"
+msgstr ""
+
+#: ../../controllers/login.php:191
+msgid "Error logging in anonymous account"
 msgstr ""
 
 #: ../../controllers/logintegration.php:37
@@ -1124,6 +1189,125 @@ msgstr ""
 msgid "Profile Name"
 msgstr ""
 
+#: ../../controllers/search.php:8 ../../views/search/advanced.php:15
+msgid "Advanced Search"
+msgstr ""
+
+#: ../../controllers/search.php:9
+msgid "External Search"
+msgstr ""
+
+#: ../../controllers/search.php:14
+msgid "Advanced search"
+msgstr ""
+
+#: ../../controllers/search.php:23
+msgid "External search"
+msgstr ""
+
+#: ../../controllers/search.php:31
+msgid "ePub Server (Uni)"
+msgstr ""
+
+#: ../../controllers/search.php:66
+msgid "Search: No query."
+msgstr ""
+
+#: ../../controllers/search.php:73
+msgid "Search results"
+msgstr ""
+
+#: ../../controllers/search.php:110
+msgid "Nonexisting topic ID in advanced search condition"
+msgstr ""
+
+#: ../../controllers/search.php:123
+msgid ""
+"No query at all: please give at least a search term or a topic condition"
+msgstr ""
+
+#: ../../controllers/search.php:155
+msgid "Advanced search results"
+msgstr ""
+
+#: ../../controllers/site.php:33
+msgid "Configure database"
+msgstr ""
+
+#: ../../controllers/site.php:59
+msgid "Site configuration"
+msgstr ""
+
+#: ../../controllers/site.php:100
+msgid "Maintain database"
+msgstr ""
+
+#: ../../controllers/site.php:140
+msgid "Aigaion updates"
+msgstr ""
+
+#: ../../controllers/site.php:141
+msgid "Checking for updates"
+msgstr ""
+
+#: ../../controllers/site.php:145 ../../controllers/test.php:312
+#: ../../helpers/maintenance_helper.php:54
+#: ../../helpers/maintenance_helper.php:90
+#: ../../helpers/maintenance_helper.php:103
+#: ../../helpers/maintenance_helper.php:117
+#: ../../helpers/maintenance_helper.php:135
+#: ../../helpers/maintenance_helper.php:164
+#: ../../helpers/maintenance_helper.php:179
+#: ../../helpers/maintenance_helper.php:197
+#: ../../helpers/maintenance_helper.php:210
+#: ../../helpers/maintenance_helper.php:225
+#: ../../helpers/maintenance_helper.php:239
+#: ../../helpers/maintenance_helper.php:254
+#: ../../helpers/maintenance_helper.php:327
+#: ../../helpers/maintenance_helper.php:346 ../../libraries/userlogin.php:844
+msgid "OK"
+msgstr ""
+
+#: ../../controllers/site.php:146
+msgid "This installation of Aigaion is up-to-date."
+msgstr ""
+
+#: ../../controllers/site.php:161
+#, php-format
+msgid "Maintenance function \"%s\" not implemented."
+msgstr ""
+
+#: ../../controllers/site.php:168
+msgid "Site maintenance"
+msgstr ""
+
+#: ../../controllers/site.php:206
+msgid "Backup database"
+msgstr ""
+
+#: ../../controllers/site.php:293 ../../controllers/site.php:297
+#: ../../controllers/site.php:323 ../../controllers/site.php:397
+msgid "Restore database"
+msgstr ""
+
+#: ../../controllers/site.php:332
+msgid ""
+"The file appears not to be an SQL file. Please select a valid Aigaion backup "
+"file."
+msgstr ""
+
+#: ../../controllers/site.php:356 ../../controllers/site.php:420
+msgid "Restored database"
+msgstr ""
+
+#: ../../controllers/site.php:404
+msgid "No data given to restore!"
+msgstr ""
+
+#: ../../controllers/stats.php:21 ../../views/site/stats.php:16
+msgid "Statistics"
+msgstr ""
+
 #: ../../controllers/test.php:35 ../../controllers/test.php:38
 msgid "Unit Testing Output"
 msgstr ""
@@ -1195,24 +1379,6 @@ msgstr ""
 #: ../../controllers/test.php:310
 #, php-format
 msgid "jr-part should have been \"%s\" but is \"%s\"."
-msgstr ""
-
-#: ../../controllers/test.php:312 ../../controllers/site.php:145
-#: ../../helpers/maintenance_helper.php:54
-#: ../../helpers/maintenance_helper.php:90
-#: ../../helpers/maintenance_helper.php:103
-#: ../../helpers/maintenance_helper.php:117
-#: ../../helpers/maintenance_helper.php:135
-#: ../../helpers/maintenance_helper.php:164
-#: ../../helpers/maintenance_helper.php:179
-#: ../../helpers/maintenance_helper.php:197
-#: ../../helpers/maintenance_helper.php:210
-#: ../../helpers/maintenance_helper.php:225
-#: ../../helpers/maintenance_helper.php:239
-#: ../../helpers/maintenance_helper.php:254
-#: ../../helpers/maintenance_helper.php:327
-#: ../../helpers/maintenance_helper.php:346 ../../libraries/userlogin.php:822
-msgid "OK"
 msgstr ""
 
 #: ../../controllers/topics.php:26 ../../controllers/topics.php:72
@@ -1292,6 +1458,108 @@ msgstr ""
 msgid "Exported from topic"
 msgstr ""
 
+#: ../../controllers/usercontroller.php:16
+msgid "You must be logged in to view the users’ page."
+msgstr ""
+
+#: ../../controllers/usercontroller.php:37 ../../views/user/all.php:3
+msgid "All Users"
+msgstr ""
+
+#: ../../controllers/usercontroller.php:44
+#, php-format
+msgid "User %s does not exist."
+msgstr ""
+
+#: ../../controllers/usercontroller.php:47
+#, php-format
+msgid "Unknown action requested: %s."
+msgstr ""
+
+#: ../../controllers/usercontroller.php:50
+msgid "You must be logged in to view this user’s page."
+msgstr ""
+
+#: ../../controllers/usercontroller.php:60
+#, php-format
+msgid "User %s"
+msgstr ""
+
+#: ../../controllers/usercontroller.php:74
+msgid "Please log in to contact other users."
+msgstr ""
+
+#: ../../controllers/usercontroller.php:78
+#, php-format
+msgid "A %s is required."
+msgstr ""
+
+#: ../../controllers/usercontroller.php:79
+#, php-format
+msgid "The %s may not exceed 511 characters."
+msgstr ""
+
+#: ../../controllers/usercontroller.php:81
+msgid "message"
+msgstr ""
+
+#: ../../controllers/usercontroller.php:90
+#, php-format
+msgid "A message from Puma user %s %s"
+msgstr ""
+
+#: ../../controllers/usercontroller.php:102
+#, php-format
+msgid "Contact user %s"
+msgstr ""
+
+#: ../../controllers/usercontroller.php:114
+msgid "You are not allowed to edit other users."
+msgstr ""
+
+#: ../../controllers/usercontroller.php:118
+#, php-format
+msgid "The field %s is required."
+msgstr ""
+
+#: ../../controllers/usercontroller.php:119
+#, php-format
+msgid "The field %s is too long."
+msgstr ""
+
+#: ../../controllers/usercontroller.php:124 ../../views/users/edit.php:107
+#: ../../views/users/edit.php:146 ../../views/users/edit.php:156
+#: ../../views/users/edit.php:165
+msgid "Password"
+msgstr ""
+
+#: ../../controllers/usercontroller.php:125
+msgid "Password repeat"
+msgstr ""
+
+#: ../../controllers/usercontroller.php:132
+msgid "The account was successfully updated."
+msgstr ""
+
+#: ../../controllers/usercontroller.php:134
+msgid "The changes could not be stored."
+msgstr ""
+
+#: ../../controllers/usercontroller.php:140
+#, php-format
+msgid "Edit user %s"
+msgstr ""
+
+#: ../../controllers/usercontroller.php:155
+#, php-format
+msgid "Group %s does not exist."
+msgstr ""
+
+#: ../../controllers/usercontroller.php:163
+#, php-format
+msgid "Group %s"
+msgstr ""
+
 #: ../../controllers/users.php:38
 msgid "Manage accounts"
 msgstr ""
@@ -1306,7 +1574,7 @@ msgstr ""
 msgid "add a new user"
 msgstr ""
 
-#: ../../controllers/users.php:51
+#: ../../controllers/users.php:51 ../../views/menu.php:16
 msgid "Users"
 msgstr ""
 
@@ -1376,207 +1644,39 @@ msgstr ""
 msgid "Topic subscription for %s (%s)"
 msgstr ""
 
-#: ../../controllers/front.php:16
-msgid "Start"
+#: ../../controllers/wiki.php:11 ../../views/menu.php:19
+msgid "Wiki"
 msgstr ""
 
-#: ../../controllers/login.php:29
-msgid "Please login"
+#: ../../controllers/wiki.php:17 ../../controllers/wiki.php:23
+#: ../../controllers/wiki.php:34 ../../controllers/wiki.php:40
+#, php-format
+msgid "Wiki » %s"
 msgstr ""
 
-#: ../../controllers/login.php:169
-msgid "Anonymous accounts are not enabled"
+#: ../../errors/error_general.php:6
+msgid "Error"
 msgstr ""
 
-#: ../../controllers/login.php:179
-msgid "Anonymous login: no existing anonymous user_id provided"
-msgstr ""
-
-#: ../../controllers/login.php:191
-msgid "Error logging in anonymous account"
-msgstr ""
-
-#: ../../controllers/search.php:29 ../../views/publications/edit.php:272
-#: ../../views/search/advanced.php:49 ../../views/search/advanced.php:123
-#: ../../views/header.php:43 ../../views/menu.php:24
+#: ../../errors/error_general.php:24 ../../errors/error_general.php:55
+#: ../../views/error/404.php:13 ../../views/header.php:45
+#: ../../views/menu.php:13 ../../views/publications/edit.php:272
+#: ../../views/search/advanced.php:57 ../../views/search/advanced.php:147
 msgid "Search"
 msgstr ""
 
-#: ../../controllers/search.php:29
-msgid "no query"
+#: ../../errors/error_general.php:28 ../../views/header.php:49
+msgid "Language:"
 msgstr ""
 
-#: ../../controllers/search.php:37
-msgid "Search results"
-msgstr ""
-
-#: ../../controllers/search.php:42 ../../controllers/search.php:60
-msgid "Advanced search"
-msgstr ""
-
-#: ../../controllers/search.php:42
-msgid "Quicksearch results"
-msgstr ""
-
-#: ../../controllers/search.php:105
-msgid "Nonexisting topic_id in advanced search condition"
-msgstr ""
-
-#: ../../controllers/search.php:118
+#: ../../errors/error_general.php:48 ../../views/error/404.php:6
 msgid ""
-"No query at all: please give at least a search term or a topic condition"
+"If this error continues to occur, please use the form at the end of this "
+"page to contact the site admin."
 msgstr ""
 
-#: ../../controllers/search.php:151 ../../controllers/search.php:157
-msgid "Advanced search results"
-msgstr ""
-
-#: ../../controllers/search.php:157
-msgid "Search form below"
-msgstr ""
-
-#: ../../controllers/usercontroller.php:16
-msgid "This page does not exist."
-msgstr ""
-
-#: ../../controllers/usercontroller.php:19
-#, php-format
-msgid "User %s does not exist."
-msgstr ""
-
-#: ../../controllers/usercontroller.php:22
-#, php-format
-msgid "Unknown action requested: %s."
-msgstr ""
-
-#: ../../controllers/usercontroller.php:25
-msgid "You must be logged in to view this user&rsquo;s page."
-msgstr ""
-
-#: ../../controllers/usercontroller.php:35
-#, php-format
-msgid "User %s"
-msgstr ""
-
-#: ../../controllers/usercontroller.php:48
-msgid "Please log in to contact other users."
-msgstr ""
-
-#: ../../controllers/usercontroller.php:52
-#, php-format
-msgid "A %s is required."
-msgstr ""
-
-#: ../../controllers/usercontroller.php:53
-#, php-format
-msgid "The %s may not exceed 511 characters."
-msgstr ""
-
-#: ../../controllers/usercontroller.php:55
-msgid "message"
-msgstr ""
-
-#: ../../controllers/usercontroller.php:64
-#, php-format
-msgid "A message from Puma user %s %s"
-msgstr ""
-
-#: ../../controllers/usercontroller.php:76
-#, php-format
-msgid "Contact user %s"
-msgstr ""
-
-#: ../../controllers/usercontroller.php:88
-msgid "You are not allowed to edit other users."
-msgstr ""
-
-#: ../../controllers/usercontroller.php:92
-#, php-format
-msgid "The field %s is required."
-msgstr ""
-
-#: ../../controllers/usercontroller.php:93
-#, php-format
-msgid "The field %s is too long."
-msgstr ""
-
-#: ../../controllers/usercontroller.php:98 ../../views/users/edit.php:107
-#: ../../views/users/edit.php:146 ../../views/users/edit.php:156
-#: ../../views/users/edit.php:165
-msgid "Password"
-msgstr ""
-
-#: ../../controllers/usercontroller.php:99
-msgid "Password repeat"
-msgstr ""
-
-#: ../../controllers/usercontroller.php:106
-msgid "The account was successfully updated."
-msgstr ""
-
-#: ../../controllers/usercontroller.php:108
-msgid "The changes could not be stored."
-msgstr ""
-
-#: ../../controllers/usercontroller.php:114
-#, php-format
-msgid "Edit user %s"
-msgstr ""
-
-#: ../../controllers/site.php:33
-msgid "Configure database"
-msgstr ""
-
-#: ../../controllers/site.php:59
-msgid "Site configuration"
-msgstr ""
-
-#: ../../controllers/site.php:100
-msgid "Maintain database"
-msgstr ""
-
-#: ../../controllers/site.php:140
-msgid "Aigaion updates"
-msgstr ""
-
-#: ../../controllers/site.php:141
-msgid "Checking for updates"
-msgstr ""
-
-#: ../../controllers/site.php:146
-msgid "This installation of Aigaion is up-to-date."
-msgstr ""
-
-#: ../../controllers/site.php:161
-#, php-format
-msgid "Maintenance function \"%s\" not implemented."
-msgstr ""
-
-#: ../../controllers/site.php:168
-msgid "Site maintenance"
-msgstr ""
-
-#: ../../controllers/site.php:206
-msgid "Backup database"
-msgstr ""
-
-#: ../../controllers/site.php:293 ../../controllers/site.php:297
-#: ../../controllers/site.php:323 ../../controllers/site.php:397
-msgid "Restore database"
-msgstr ""
-
-#: ../../controllers/site.php:332
-msgid ""
-"The file appears not to be an SQL file. Please select a valid Aigaion backup "
-"file."
-msgstr ""
-
-#: ../../controllers/site.php:356 ../../controllers/site.php:420
-msgid "Restored database"
-msgstr ""
-
-#: ../../controllers/site.php:404
-msgid "No data given to restore!"
+#: ../../errors/error_general.php:50 ../../views/error/404.php:8
+msgid "Search the site:"
 msgstr ""
 
 #: ../../helpers/checkupdates_helper.php:29
@@ -1698,7 +1798,7 @@ msgstr ""
 #: ../../helpers/maintenance_helper.php:204
 #: ../../helpers/maintenance_helper.php:218
 #: ../../helpers/maintenance_helper.php:232
-#: ../../helpers/maintenance_helper.php:248 ../../libraries/userlogin.php:825
+#: ../../helpers/maintenance_helper.php:248 ../../libraries/userlogin.php:847
 msgid "Alert"
 msgstr ""
 
@@ -1911,6 +2011,16 @@ msgstr ""
 msgid "Deleted %s authors who do not have any publications."
 msgstr ""
 
+#: ../../helpers/message_helper.php:37
+#, php-format
+msgid " If this appears regularly, please contact %s."
+msgstr ""
+
+#: ../../helpers/message_helper.php:41
+#, php-format
+msgid " This is a serious bug! Please contact immediately %s."
+msgstr ""
+
 #: ../../helpers/month_helper.php:61 ../../helpers/month_helper.php:65
 #: ../../helpers/month_helper.php:69 ../../helpers/month_helper.php:73
 msgid "January"
@@ -2063,6 +2173,11 @@ msgstr ""
 #: ../../helpers/publication_helper.php:583
 #: ../../helpers/translation_helper.php:80
 msgid "Unpublished"
+msgstr ""
+
+#: ../../helpers/readremote_helper.php:37
+#, php-format
+msgid "Cannot retrieve %s"
 msgstr ""
 
 #: ../../helpers/schema_helper.php:83
@@ -2222,21 +2337,6 @@ msgstr ""
 
 #: ../../helpers/translation_helper.php:53
 msgid "institute"
-msgstr ""
-
-#: ../../helpers/message_helper.php:37
-#, php-format
-msgid " If this appears regularly, please contact %s."
-msgstr ""
-
-#: ../../helpers/message_helper.php:41
-#, php-format
-msgid " This is a serious bug! Please contact immediately %s."
-msgstr ""
-
-#: ../../helpers/readremote_helper.php:37
-#, php-format
-msgid "Cannot retrieve %s"
 msgstr ""
 
 #: ../../libraries/accesslevels_lib.php:64
@@ -2435,8 +2535,9 @@ msgstr ""
 
 #: ../../libraries/attachment_db.php:356 ../../libraries/author_db.php:262
 #: ../../libraries/group_db.php:146 ../../libraries/note_db.php:182
+#: ../../libraries/publication_db.php:820
 #: ../../libraries/rightsprofile_db.php:146 ../../libraries/topic_db.php:507
-#: ../../libraries/user_db.php:441 ../../libraries/publication_db.php:820
+#: ../../libraries/user_db.php:448
 msgid "erroneous ID"
 msgstr ""
 
@@ -2599,6 +2700,50 @@ msgid ""
 "checking!"
 msgstr ""
 
+#: ../../libraries/login_puma.php:40
+#, php-format
+msgid "Error checking login data: %s"
+msgstr ""
+
+#: ../../libraries/login_puma.php:43
+#, php-format
+msgid "Error: %s"
+msgstr ""
+
+#: ../../libraries/login_puma.php:47
+msgid "Error: Infinite redirection during login."
+msgstr ""
+
+#: ../../libraries/login_puma.php:51
+msgid "Error: Authentication could not be established."
+msgstr ""
+
+#: ../../libraries/login_puma.php:96
+#, php-format
+msgid "The necessary field %s is missing."
+msgstr ""
+
+#: ../../libraries/login_puma.php:100 ../../libraries/login_puma.php:106
+#, php-format
+msgid "The username %s is unknown."
+msgstr ""
+
+#: ../../libraries/login_puma.php:103
+#, php-format
+msgid ""
+"Members of the group %s are not allowed at the moment. We apologize for any "
+"inconvenience!"
+msgstr ""
+
+#: ../../libraries/login_puma.php:109
+#, php-format
+msgid "The email address %s is not allowed."
+msgstr ""
+
+#: ../../libraries/login_puma.php:118
+msgid "The account is locked internally."
+msgstr ""
+
 #: ../../libraries/note_db.php:178 ../../libraries/note_db.php:182
 msgid "Cannot delete note"
 msgstr ""
@@ -2655,12 +2800,70 @@ msgstr ""
 msgid "Error text"
 msgstr ""
 
+#: ../../libraries/publication_db.php:816
+#: ../../libraries/publication_db.php:820
+#: ../../libraries/publication_db.php:832
+#: ../../libraries/publication_db.php:836
+#: ../../libraries/publication_db.php:847
+#: ../../libraries/publication_db.php:851
+msgid "Cannot delete publication"
+msgstr ""
+
+#: ../../libraries/publication_db.php:832
+#: ../../libraries/publication_db.php:836
+msgid ""
+"publication contains some attachments that you do not have permission to "
+"delete."
+msgstr ""
+
+#: ../../libraries/publication_db.php:847
+#: ../../libraries/publication_db.php:851
+msgid ""
+"publication contains some notes that you do not have permission to delete."
+msgstr ""
+
+#: ../../libraries/publication_db.php:908
+#, php-format
+msgid "The %s field is required"
+msgstr ""
+
+#: ../../libraries/publication_db.php:933
+msgid "Validation error"
+msgstr ""
+
+#: ../../libraries/publication_db.php:1278
+#, php-format
+msgid "Failed to update the bibtex-id in publication %s"
+msgstr ""
+
+#: ../../libraries/publication_db.php:1391
+msgid "resolveXref: merge xref into publication!"
+msgstr ""
+
+#: ../../libraries/publication_db.php:1427
+msgid ""
+"A publication with the same title exists. Please make sure that the "
+"publication you are importing is not already in the database."
+msgstr ""
+
+#: ../../libraries/publication_db.php:1448
+msgid "The cite id is not unique, please choose another cite id."
+msgstr ""
+
+#: ../../libraries/publication_db.php:1450
+msgid "Publication with same cite id"
+msgstr ""
+
+#: ../../libraries/publication_db.php:1466
+msgid "Similar cite ids"
+msgstr ""
+
 #: ../../libraries/rightsprofile_db.php:142
 #: ../../libraries/rightsprofile_db.php:146
 msgid "Cannot delete rightsprofile"
 msgstr ""
 
-#: ../../libraries/siteconfig_db.php:31 ../../libraries/userlogin.php:221
+#: ../../libraries/siteconfig_db.php:31
 #, php-format
 msgid ""
 "Language '%s' no longer exists under that name. Please reset the relevant "
@@ -2733,99 +2936,6 @@ msgstr ""
 msgid "still has children (possibly invisible)"
 msgstr ""
 
-#: ../../libraries/user_db.php:240 ../../libraries/user_db.php:375
-msgid ""
-"Removed 'bookmarklist' right from anonymous user: it makes no sense to "
-"assign it since many people will be loggin on with that account "
-"simultaneously."
-msgstr ""
-
-#: ../../libraries/user_db.php:265
-msgid "User added"
-msgstr ""
-
-#: ../../libraries/user_db.php:288
-msgid ""
-"Login names cannot be changed. Login name has been reset to old value. Other "
-"changes have been saved."
-msgstr ""
-
-#: ../../libraries/user_db.php:305
-msgid ""
-"The account does not have a valid password. It has been disabled. You can "
-"ask an admin to re-enable it."
-msgstr ""
-
-#: ../../libraries/user_db.php:364
-msgid ""
-"You just set the default anonymous user to non-anonymous. Therefore the "
-"default anonymous user configuration setting has been cleared."
-msgstr ""
-
-#: ../../libraries/user_db.php:418
-msgid ""
-"You just removed your own right to assign user rights! Are you sure that "
-"this is correct? If not, re-assign this right before logging out!"
-msgstr ""
-
-#: ../../libraries/user_db.php:420
-msgid ""
-"Profile updated, changes to rights of users are applied after the user has "
-"logged in again."
-msgstr ""
-
-#: ../../libraries/user_db.php:423
-msgid "User data changed. Changed access rights will be valid upon next login."
-msgstr ""
-
-#: ../../libraries/user_db.php:437 ../../libraries/user_db.php:441
-msgid "Cannot delete user"
-msgstr ""
-
-#: ../../libraries/login_puma.php:40
-#, php-format
-msgid "Error checking login data: %s"
-msgstr ""
-
-#: ../../libraries/login_puma.php:43
-#, php-format
-msgid "Error: %s"
-msgstr ""
-
-#: ../../libraries/login_puma.php:47
-msgid "Error: Infinite redirection during login."
-msgstr ""
-
-#: ../../libraries/login_puma.php:51
-msgid "Error: Authentication could not be established."
-msgstr ""
-
-#: ../../libraries/login_puma.php:96
-#, php-format
-msgid "The necessary field %s is missing."
-msgstr ""
-
-#: ../../libraries/login_puma.php:100 ../../libraries/login_puma.php:106
-#, php-format
-msgid "The username %s is unknown."
-msgstr ""
-
-#: ../../libraries/login_puma.php:103
-#, php-format
-msgid ""
-"Members of the group %s are not allowed at the moment. We apologize for any "
-"inconvenience!"
-msgstr ""
-
-#: ../../libraries/login_puma.php:109
-#, php-format
-msgid "The email address %s is not allowed."
-msgstr ""
-
-#: ../../libraries/login_puma.php:118
-msgid "The account is locked internally."
-msgstr ""
-
 #: ../../libraries/userlogin.php:86
 msgid "You have been logged out because your login token disappeared."
 msgstr ""
@@ -2834,50 +2944,57 @@ msgstr ""
 msgid "You have been logged out because your login token expired."
 msgstr ""
 
-#: ../../libraries/userlogin.php:103 ../../libraries/userlogin.php:807
+#: ../../libraries/userlogin.php:103 ../../libraries/userlogin.php:830
 msgid ""
 "You have been logged out because the Aigaion Engine is in the process of "
 "being updated."
 msgstr ""
 
-#: ../../libraries/userlogin.php:105 ../../libraries/userlogin.php:809
+#: ../../libraries/userlogin.php:105 ../../libraries/userlogin.php:832
 msgid ""
 "If you are a user with database_manage rights, please login to complete the "
 "update."
 msgstr ""
 
-#: ../../libraries/userlogin.php:158 ../../libraries/userlogin.php:172
+#: ../../libraries/userlogin.php:157 ../../libraries/userlogin.php:171
 msgid "You do not have sufficient rights for the requested operation or page."
 msgstr ""
 
-#: ../../libraries/userlogin.php:160 ../../libraries/userlogin.php:174
+#: ../../libraries/userlogin.php:159 ../../libraries/userlogin.php:173
 msgid "Sorry for the inconvenience."
 msgstr ""
 
-#: ../../libraries/userlogin.php:209
+#: ../../libraries/userlogin.php:208
 #, php-format
-msgid "Theme '%s' no longer exists"
+msgid "Theme &lsquo;%s&rsquo; no longer exists."
 msgstr ""
 
-#: ../../libraries/userlogin.php:298
+#: ../../libraries/userlogin.php:220
+#, php-format
+msgid ""
+"Language &lsquo;%s&rsquo; no longer exists under that name. Please reset the "
+"relevant profile and site settings."
+msgstr ""
+
+#: ../../libraries/userlogin.php:299
 msgid "Unknown user or wrong password from external login module"
 msgstr ""
 
-#: ../../libraries/userlogin.php:303
+#: ../../libraries/userlogin.php:304
 msgid "No login info available"
 msgstr ""
 
-#: ../../libraries/userlogin.php:328
+#: ../../libraries/userlogin.php:329
 msgid "No password submitted"
 msgstr ""
 
-#: ../../libraries/userlogin.php:356 ../../libraries/userlogin.php:371
-#: ../../libraries/userlogin.php:377
+#: ../../libraries/userlogin.php:357 ../../libraries/userlogin.php:372
+#: ../../libraries/userlogin.php:378
 msgid "Unknown user or wrong password"
 msgstr ""
 
-#: ../../libraries/userlogin.php:444 ../../libraries/userlogin.php:449
-#: ../../libraries/userlogin.php:454
+#: ../../libraries/userlogin.php:445 ../../libraries/userlogin.php:454
+#: ../../libraries/userlogin.php:463
 #, php-format
 msgid ""
 "The username / password combination is valid according to the login module, "
@@ -2885,36 +3002,36 @@ msgid ""
 "in by the %s module. Please contact your database admin for assistance."
 msgstr ""
 
-#: ../../libraries/userlogin.php:444 ../../libraries/userlogin.php:633
+#: ../../libraries/userlogin.php:449 ../../libraries/userlogin.php:652
 msgid "internal"
 msgstr ""
 
-#: ../../libraries/userlogin.php:449 ../../libraries/userlogin.php:638
+#: ../../libraries/userlogin.php:458 ../../libraries/userlogin.php:661
 msgid "anonymous"
 msgstr ""
 
-#: ../../libraries/userlogin.php:454 ../../libraries/userlogin.php:643
+#: ../../libraries/userlogin.php:467 ../../libraries/userlogin.php:670
 msgid "group"
 msgstr ""
 
-#: ../../libraries/userlogin.php:536
+#: ../../libraries/userlogin.php:549
 #, php-format
-msgid "Created missing user %s  as member of groups %s"
+msgid "Created missing user %s as member of groups %s"
 msgstr ""
 
-#: ../../libraries/userlogin.php:617
+#: ../../libraries/userlogin.php:630
 #, php-format
 msgid ""
-"A new Aigaion account has been created for you, user '%s'. Please enjoy your "
+"A new Puma account has been created for you, user ‘%s’. Please enjoy your "
 "stay here."
 msgstr ""
 
-#: ../../libraries/userlogin.php:624
+#: ../../libraries/userlogin.php:639
 msgid "Serious error in login tables"
 msgstr ""
 
-#: ../../libraries/userlogin.php:633 ../../libraries/userlogin.php:638
-#: ../../libraries/userlogin.php:643
+#: ../../libraries/userlogin.php:648 ../../libraries/userlogin.php:657
+#: ../../libraries/userlogin.php:666
 #, php-format
 msgid ""
 "The username / password combination is valid according to %s, but the "
@@ -2922,26 +3039,26 @@ msgid ""
 "the %s module. Please contact your database admin for assistance."
 msgstr ""
 
-#: ../../libraries/userlogin.php:653
+#: ../../libraries/userlogin.php:680
 msgid ""
 "The username / password combination is valid, but has no Aigaion account "
 "associated with it yet. Please contact your database admin for assistance"
 msgstr ""
 
-#: ../../libraries/userlogin.php:697
+#: ../../libraries/userlogin.php:726
 msgid ""
 "Anonymous (guest) access to this database has been enabled. However, no "
 "default anonymous account has been assigned, so anonymous access is "
 "unfortunately not yet possible."
 msgstr ""
 
-#: ../../libraries/userlogin.php:745
+#: ../../libraries/userlogin.php:777
 msgid ""
 "Your admin account password still has the default value, please change it on "
-"the 'profile' page."
+"the &lsquo;profile&rsquo; page."
 msgstr ""
 
-#: ../../libraries/userlogin.php:782
+#: ../../libraries/userlogin.php:814
 #, php-format
 msgid ""
 "Dear guest, welcome to this publication database. As an anonymous user, you "
@@ -2950,70 +3067,80 @@ msgid ""
 "have any other question, please ask %s."
 msgstr ""
 
-#: ../../libraries/userlogin.php:819
+#: ../../libraries/userlogin.php:841
 msgid "Checking for updates..."
 msgstr ""
 
-#: ../../libraries/userlogin.php:823
+#: ../../libraries/userlogin.php:845
 msgid "This installation of Aigaion is up-to-date"
 msgstr ""
 
-#: ../../libraries/publication_db.php:816
-#: ../../libraries/publication_db.php:820
-#: ../../libraries/publication_db.php:832
-#: ../../libraries/publication_db.php:836
-#: ../../libraries/publication_db.php:847
-#: ../../libraries/publication_db.php:851
-msgid "Cannot delete publication"
-msgstr ""
-
-#: ../../libraries/publication_db.php:832
-#: ../../libraries/publication_db.php:836
-msgid ""
-"publication contains some attachments that you do not have permission to "
-"delete."
-msgstr ""
-
-#: ../../libraries/publication_db.php:847
-#: ../../libraries/publication_db.php:851
-msgid ""
-"publication contains some notes that you do not have permission to delete."
-msgstr ""
-
-#: ../../libraries/publication_db.php:908
+#: ../../libraries/user_db.php:207
 #, php-format
-msgid "The %s field is required"
+msgid "Unknown language: %s."
 msgstr ""
 
-#: ../../libraries/publication_db.php:933
-msgid "Validation error"
-msgstr ""
-
-#: ../../libraries/publication_db.php:1278
-#, php-format
-msgid "Failed to update the bibtex-id in publication %s"
-msgstr ""
-
-#: ../../libraries/publication_db.php:1391
-msgid "resolveXref: merge xref into publication!"
-msgstr ""
-
-#: ../../libraries/publication_db.php:1427
+#: ../../libraries/user_db.php:240 ../../libraries/user_db.php:378
 msgid ""
-"A publication with the same title exists. Please make sure that the "
-"publication you are importing is not already in the database."
+"Removed &lsquo;bookmarklist&rsquo; right from anonymous user: it makes no "
+"sense to assign it since many people will be loggin on with that account "
+"simultaneously."
 msgstr ""
 
-#: ../../libraries/publication_db.php:1448
-msgid "The cite id is not unique, please choose another cite id."
+#: ../../libraries/user_db.php:268
+msgid "User added."
 msgstr ""
 
-#: ../../libraries/publication_db.php:1450
-msgid "Publication with same cite id"
+#: ../../libraries/user_db.php:291
+msgid ""
+"Login names cannot be changed. Login name has been reset to old value. Other "
+"changes have been saved."
 msgstr ""
 
-#: ../../libraries/publication_db.php:1466
-msgid "Similar cite ids"
+#: ../../libraries/user_db.php:308
+msgid ""
+"The account does not have a valid password. It has been disabled. You can "
+"ask an admin to re-enable it."
+msgstr ""
+
+#: ../../libraries/user_db.php:330
+#, php-format
+msgid "Unknown language: %s"
+msgstr ""
+
+#: ../../libraries/user_db.php:367
+msgid ""
+"You just set the default anonymous user to non-anonymous. Therefore the "
+"default anonymous user configuration setting has been cleared."
+msgstr ""
+
+#: ../../libraries/user_db.php:421
+msgid ""
+"You just removed your own right to assign user rights! Are you sure that "
+"this is correct? If not, re-assign this right before logging out!"
+msgstr ""
+
+#: ../../libraries/user_db.php:426
+msgid ""
+"Profile updated, changes to rights of users are applied after the user has "
+"logged in again."
+msgstr ""
+
+#: ../../libraries/user_db.php:430
+msgid "User data changed. Changed access rights will be valid upon next login."
+msgstr ""
+
+#: ../../libraries/user_db.php:444 ../../libraries/user_db.php:448
+#, php-format
+msgid "Cannot delete user: %s."
+msgstr ""
+
+#: ../../models/user_model.php:52
+msgid "Login data missing."
+msgstr ""
+
+#: ../../models/user_model.php:55
+msgid "User already exists."
 msgstr ""
 
 #: ../../views/accesslevels/editforpublication.php:7
@@ -3061,7 +3188,7 @@ msgid "Publication"
 msgstr ""
 
 #: ../../views/accesslevels/editforpublication.php:76
-#: ../../views/help/attachments.php:3 ../../views/help/header.php:7
+#: ../../views/help/attachments.php:3 ../../views/help/header.php:10
 #: ../../views/publications/single.php:353
 msgid "Attachments"
 msgstr ""
@@ -3380,7 +3507,7 @@ msgstr ""
 msgid "Institute"
 msgstr ""
 
-#: ../../views/authors/edit.php:10 ../../views/menu.php:55
+#: ../../views/authors/edit.php:10
 msgid "New Author"
 msgstr ""
 
@@ -3603,6 +3730,15 @@ msgid ""
 "on the bookmarklist to \"%s\"?"
 msgstr ""
 
+#: ../../views/error/404.php:3
+msgid "Error: Resource not found."
+msgstr ""
+
+#: ../../views/error/404.php:5
+#, php-format
+msgid "The resource %s could not be found (error 404)."
+msgstr ""
+
 #: ../../views/export/bibtex.php:16 ../../views/export/bibtexEmail.php:16
 #, php-format
 msgid "Aigaion2 BibTeX export from %s"
@@ -3681,6 +3817,84 @@ msgstr ""
 msgid "Current attachment size: %s KB"
 msgstr ""
 
+#: ../../views/footer.php:14
+msgid "Useful Links"
+msgstr ""
+
+#: ../../views/footer.php:17
+msgid "Faculty of Physics"
+msgstr ""
+
+#: ../../views/footer.php:18
+msgid "University library"
+msgstr ""
+
+#: ../../views/footer.php:19
+msgid "Computer Centre"
+msgstr ""
+
+#: ../../views/footer.php:28
+msgid "Ask the Admin"
+msgstr ""
+
+#: ../../views/footer.php:30
+#, php-format
+msgid ""
+"Do you have any question regarding %s? Have you spotted an error or do you "
+"want to suggest a new feature? Don’t hesitate and drop us a line."
+msgstr ""
+
+#: ../../views/footer.php:36 ../../views/groups/edit.php:54
+#: ../../views/rightsprofiles/edit.php:51 ../../views/topics/edit.php:48
+msgid "Name"
+msgstr ""
+
+#: ../../views/footer.php:43
+msgid "E-Mail"
+msgstr ""
+
+#: ../../views/footer.php:46
+msgid "Question:"
+msgstr ""
+
+#: ../../views/footer.php:50
+msgid "ask the admin"
+msgstr ""
+
+#: ../../views/footer.php:55 ../../views/help/header.php:4
+msgid "About"
+msgstr ""
+
+#: ../../views/footer.php:57
+#, php-format
+msgid ""
+"%s ist das Promotionsprojekt von Manuel Strehl und entsteht in "
+"Zusammenarbeit mit dem Lehrstuhl für Medieninformatik und der Fakultät für "
+"Physik an der Universität Regensburg. Ziel ist der Aufbau eines umfassenden "
+"Web 2.0-Angebots für die Regensburger Physiker. Die Anwendung basiert auf "
+"der freien Publikationsdatenbank %s."
+msgstr ""
+
+#: ../../views/footer.php:67
+msgid "General help"
+msgstr ""
+
+#: ../../views/footer.php:68
+msgid "About this site"
+msgstr ""
+
+#: ../../views/footer.php:69 ../../views/help/header.php:5
+msgid "FAQ"
+msgstr ""
+
+#: ../../views/footer.php:70 ../../views/help/header.php:6
+msgid "Video tutorial"
+msgstr ""
+
+#: ../../views/footer.php:71
+msgid "Aigaion forum"
+msgstr ""
+
 #: ../../views/groups/edit.php:38
 msgid "Create a new group"
 msgstr ""
@@ -3691,11 +3905,6 @@ msgstr ""
 
 #: ../../views/groups/edit.php:50
 msgid "Group details:"
-msgstr ""
-
-#: ../../views/groups/edit.php:54 ../../views/rightsprofiles/edit.php:51
-#: ../../views/topics/edit.php:48 ../../views/footer.php:35
-msgid "Name"
 msgstr ""
 
 #: ../../views/groups/edit.php:62 ../../views/user/edit.php:45
@@ -3714,6 +3923,31 @@ msgstr ""
 
 #: ../../views/groups/summary.php:20 ../../views/users/summary.php:22
 msgid "topic subscription"
+msgstr ""
+
+#: ../../views/header.php:61
+msgid "Guest User:"
+msgstr ""
+
+#: ../../views/header.php:61
+msgid "Login (NDS)"
+msgstr ""
+
+#: ../../views/header.php:61
+msgid "Login (Guest account)"
+msgstr ""
+
+#: ../../views/header.php:63
+#, php-format
+msgid "Hello, %s %s"
+msgstr ""
+
+#: ../../views/header.php:65
+msgid "My Profile"
+msgstr ""
+
+#: ../../views/header.php:68
+msgid "Logout"
 msgstr ""
 
 #: ../../views/help/about.php:3
@@ -3759,52 +3993,50 @@ msgid ""
 "separately for <em>reading</em> and for <em>editing</em> them."
 msgstr ""
 
-#: ../../views/help/accessrights.php:6
+#: ../../views/help/accessrights.php:10
 msgid "What access levels are there?"
 msgstr ""
 
-#: ../../views/help/accessrights.php:7
+#: ../../views/help/accessrights.php:11
 msgid ""
 "For each of the above mentioned objects one can set a <em>read access level</"
 "em> and an <em>edit access level</em>. These levels can be:"
 msgstr ""
 
-#: ../../views/help/accessrights.php:9
+#: ../../views/help/accessrights.php:14
 msgid ""
-"&lsquo;public&rsquo; (object can be read or edited by everyone including "
-"anonymous users),"
-msgstr ""
-
-#: ../../views/help/accessrights.php:10
-msgid ""
-"&lsquo;intern&rsquo; (object can be read or edited by all non-anonymous "
+"‘public’ (object can be read or edited by everyone including anonymous "
 "users),"
 msgstr ""
 
-#: ../../views/help/accessrights.php:11
-msgid "&lsquo;private&rsquo; (object can be read or edited by the owner only)"
+#: ../../views/help/accessrights.php:15
+msgid "‘intern’ (object can be read or edited by all non-anonymous users),"
 msgstr ""
 
-#: ../../views/help/accessrights.php:14
+#: ../../views/help/accessrights.php:16
+msgid "‘private’ (object can be read or edited by the owner only)"
+msgstr ""
+
+#: ../../views/help/accessrights.php:19
 msgid "What user rights are involved?"
 msgstr ""
 
-#: ../../views/help/accessrights.php:15
+#: ../../views/help/accessrights.php:20
 msgid ""
 "There are two types of user rights that also influence reading and editing "
 "access. The first are the normal read and edit rights. For example, a user "
 "who has no <em>topic edit</em> rights cannot edit a topic, even if all "
-"access levels of that topic are set to &lsquo;public&rsquo;. The second are "
-"the <em>override rights</em>. A user who has for example the right <em>topic "
+"access levels of that topic are set to ‘public’. The second are the "
+"<em>override rights</em>. A user who has for example the right <em>topic "
 "read all</em> can read every topic, even if he is not the owner and the "
-"access levels are set to &lsquo;private&rsquo;."
+"access levels are set to ‘private’."
 msgstr ""
 
-#: ../../views/help/accessrights.php:17
+#: ../../views/help/accessrights.php:28
 msgid "Who can change the access level of an object?"
 msgstr ""
 
-#: ../../views/help/accessrights.php:18
+#: ../../views/help/accessrights.php:29
 msgid ""
 "The access levels can normally be changed only by the owner. However, users "
 "who have the appropriate override rights for editing (see above) can also "
@@ -3830,7 +4062,12 @@ msgid "Group topic subscriptions"
 msgstr ""
 
 #: ../../views/help/accounts.php:7
-msgid "Users with sufficient rights ("
+msgid ""
+"Users with sufficient rights (&lsquo;user_edit_all&rsquo;) can subscribe a "
+"group to certain topics from the &lsquo;manage accounts&rsquo; page. In that "
+"case all users that belong to that group will be counted &lsquo;"
+"subscribed&rsquo; to that topic, no matter whether they were individually "
+"subscribed or not."
 msgstr ""
 
 #: ../../views/help/accounts.php:9
@@ -3853,12 +4090,12 @@ msgid "Access levels"
 msgstr ""
 
 #: ../../views/help/accounts.php:13
-msgid "the section about access rights"
+#, php-format
+msgid "See %s for more information about access levels."
 msgstr ""
 
 #: ../../views/help/accounts.php:13
-#, php-format
-msgid "See %s for more information about access levels."
+msgid "the section about access rights"
 msgstr ""
 
 #: ../../views/help/attachments.php:4
@@ -3883,9 +4120,8 @@ msgid ""
 "but also tracking down the content of the papers themselves. And then, when "
 "you have finally obtained the file and printed it out, you forget the print-"
 "out somewhere on the plane... and have to do it all again. Or you could of "
-"course have attached the electronic version of the paper to your Aigaion "
-"database - then at least you can print it out a second time without a long "
-"search."
+"course have attached the electronic version of the paper to your database - "
+"then at least you can print it out a second time without a long search."
 msgstr ""
 
 #: ../../views/help/attachments.php:9
@@ -3958,13 +4194,25 @@ msgstr ""
 
 #: ../../views/help/attachments.php:22
 msgid ""
-"The Aigaion setting &lsquo;allowed attachment extensions&rsquo; does not "
-"contain the right extensions"
+"The setting &lsquo;allowed attachment extensions&rsquo; does not contain the "
+"right extensions"
 msgstr ""
 
 #: ../../views/help/crossref.php:3
 #, php-format
 msgid "Cross referencing in %s"
+msgstr ""
+
+#: ../../views/help/faq.php:3
+msgid "Frequently Asked Questions"
+msgstr ""
+
+#: ../../views/help/faq.php:4
+#, php-format
+msgid ""
+"This section tries to clarify some of the most common questions about %s. If "
+"you have a question that isn’t answered here, please use the form at the "
+"bottom of this site to contact the admin."
 msgstr ""
 
 #: ../../views/help/front.php:4
@@ -3994,7 +4242,7 @@ msgstr ""
 msgid "notes"
 msgstr ""
 
-#: ../../views/help/goodpractices.php:3 ../../views/help/header.php:11
+#: ../../views/help/goodpractices.php:3 ../../views/help/header.php:15
 msgid "Good Practices"
 msgstr ""
 
@@ -4072,36 +4320,28 @@ msgstr ""
 msgid "Introduction"
 msgstr ""
 
-#: ../../views/help/header.php:4
+#: ../../views/help/header.php:7
 msgid "Topic Tree"
 msgstr ""
 
-#: ../../views/help/header.php:5
+#: ../../views/help/header.php:8
 msgid "Annotating Publications"
 msgstr ""
 
-#: ../../views/help/header.php:6
+#: ../../views/help/header.php:9
 msgid "Publication Lists"
 msgstr ""
 
-#: ../../views/help/header.php:8
+#: ../../views/help/header.php:11
 msgid "Accounts"
 msgstr ""
 
-#: ../../views/help/header.php:9
+#: ../../views/help/header.php:12
 msgid "Access Rights"
 msgstr ""
 
-#: ../../views/help/header.php:10
+#: ../../views/help/header.php:13
 msgid "Crossreferencing"
-msgstr ""
-
-#: ../../views/help/header.php:12
-msgid "Themes"
-msgstr ""
-
-#: ../../views/help/header.php:13 ../../views/footer.php:51
-msgid "About"
 msgstr ""
 
 #: ../../views/help/notes.php:3
@@ -4224,18 +4464,28 @@ msgstr ""
 #: ../../views/help/topictree.php:19
 #, php-format
 msgid ""
-"It may be that not every user of a certain Aigaion database is interested in "
-"exactly the same topics. Therefore Aigaion contains a mechanism that allows "
-"you to subscribe to - or unsubscribe from - any topic, meaning that you can "
-"determine which topics you will see while browsing the system.\n"
-"  By default, a new user will not be subscribed to any topic. To review "
-"which topics already exist in this copy of Aigaion, go to the %s and "
-"subscribe to any topic that you are interested in. Those topics will then "
-"appear in your topic tree."
+"It may be that not every user is interested in exactly the same topics. "
+"Therefore %1$s contains a mechanism that allows you to subscribe to - or "
+"unsubscribe from - any topic, meaning that you can determine which topics "
+"you will see while browsing the system. By default, a new user will not be "
+"subscribed to any topic. To review which topics already exist in this copy "
+"of %1$s, go to the %2$s and subscribe to any topic that you are interested "
+"in. Those topics will then appear in your topic tree."
 msgstr ""
 
 #: ../../views/help/topictree.php:20
 msgid "topic review page"
+msgstr ""
+
+#: ../../views/help/tutorial.php:3
+msgid "Video Tutorial"
+msgstr ""
+
+#: ../../views/help/tutorial.php:4
+msgid ""
+"Hello to this video tutorial. Well, actually, the tutorial is still in "
+"development, but we try hard to publish it here as soon as possible. So, "
+"stay tuned!"
 msgstr ""
 
 #: ../../views/import/importform.php:15
@@ -4317,12 +4567,12 @@ msgstr ""
 msgid "Login failed"
 msgstr ""
 
-#: ../../views/login/form.php:15
+#: ../../views/login/form.php:34
 #, php-format
 msgid "Welcome to %s, please login"
 msgstr ""
 
-#: ../../views/login/form.php:17
+#: ../../views/login/form.php:37
 #, php-format
 msgid ""
 "You just submitted a form named %s, but it seems that you have been logged "
@@ -4330,32 +4580,44 @@ msgid ""
 "confirm that you want to re-submit the data."
 msgstr ""
 
-#: ../../views/login/form.php:18
+#: ../../views/login/form.php:41
 msgid "Login to proceed with form submission"
 msgstr ""
 
-#: ../../views/login/form.php:24 ../../views/user/full.php:24
+#: ../../views/login/form.php:46
+#, php-format
+msgid "Guest accounts only, please. If you have an NDS account, %s."
+msgstr ""
+
+#: ../../views/login/form.php:47
+msgid "use this form"
+msgstr ""
+
+#: ../../views/login/form.php:49 ../../views/user/full.php:24
+#: ../../views/user/group.php:8
 msgid "Name:"
 msgstr ""
 
-#: ../../views/login/form.php:28
+#: ../../views/login/form.php:54
 msgid "Password:"
 msgstr ""
 
-#: ../../views/login/form.php:33
+#: ../../views/login/form.php:59
 msgid "Remember me"
 msgstr ""
 
-#: ../../views/login/form.php:36 ../../views/users/edit.php:56
+#: ../../views/login/form.php:62 ../../views/users/edit.php:56
 msgid "Login"
 msgstr ""
 
-#: ../../views/login/form.php:39
+#: ../../views/login/form.php:65
 #, php-format
-msgid "If you want a password, please mail to %s."
+msgid ""
+"If you have no NDS account and want a guest access, please write an e-mail "
+"to %s."
 msgstr ""
 
-#: ../../views/login/form.php:40
+#: ../../views/login/form.php:72
 msgid "Back to the front page."
 msgstr ""
 
@@ -4419,7 +4681,7 @@ msgstr ""
 msgid "Simple"
 msgstr ""
 
-#: ../../views/publications/edit.php:30 ../../views/menu.php:54
+#: ../../views/publications/edit.php:30
 msgid "New Publication"
 msgstr ""
 
@@ -4431,7 +4693,7 @@ msgstr ""
 msgid "Type of publication"
 msgstr ""
 
-#: ../../views/publications/edit.php:60 ../../views/menu.php:42
+#: ../../views/publications/edit.php:60
 msgid "Title"
 msgstr ""
 
@@ -4638,7 +4900,7 @@ msgstr ""
 msgid "categorize publication"
 msgstr ""
 
-#: ../../views/publications/single.php:416 ../../views/menu.php:106
+#: ../../views/publications/single.php:416
 msgid "Topics"
 msgstr ""
 
@@ -4688,27 +4950,23 @@ msgstr ""
 msgid "User rights in this profile"
 msgstr ""
 
-#: ../../views/search/advanced.php:16
-msgid "Advanced Search"
-msgstr ""
-
-#: ../../views/search/advanced.php:20 ../../views/search/advanced.php:62
+#: ../../views/search/advanced.php:18 ../../views/search/advanced.php:66
 msgid "Search terms"
 msgstr ""
 
-#: ../../views/search/advanced.php:27
+#: ../../views/search/advanced.php:24
 msgid "Result types"
 msgstr ""
 
-#: ../../views/search/advanced.php:28
+#: ../../views/search/advanced.php:25
 msgid "Choose which types of results you want returned"
 msgstr ""
 
-#: ../../views/search/advanced.php:30
+#: ../../views/search/advanced.php:28
 msgid "Return authors"
 msgstr ""
 
-#: ../../views/search/advanced.php:31
+#: ../../views/search/advanced.php:30
 msgid "Return publications"
 msgstr ""
 
@@ -4716,125 +4974,144 @@ msgstr ""
 msgid "Return topics"
 msgstr ""
 
-#: ../../views/search/advanced.php:33
-msgid "Return keywords"
-msgstr ""
-
-#: ../../views/search/advanced.php:37
-msgid "Publication search"
+#: ../../views/search/advanced.php:34
+msgid "Return tags"
 msgstr ""
 
 #: ../../views/search/advanced.php:38
+msgid "Publication search"
+msgstr ""
+
+#: ../../views/search/advanced.php:39
 msgid ""
 "Choose, if you are searching for publications (see above!), which fields are "
 "searched"
 msgstr ""
 
-#: ../../views/search/advanced.php:40 ../../views/search/advanced.php:75
+#: ../../views/search/advanced.php:43 ../../views/search/advanced.php:76
 msgid "Search publication titles"
 msgstr ""
 
-#: ../../views/search/advanced.php:41 ../../views/search/advanced.php:76
+#: ../../views/search/advanced.php:46 ../../views/search/advanced.php:79
 msgid "Search publication notes"
 msgstr ""
 
-#: ../../views/search/advanced.php:42
+#: ../../views/search/advanced.php:49
 msgid "Search publication Citation"
 msgstr ""
 
-#: ../../views/search/advanced.php:43 ../../views/search/advanced.php:78
+#: ../../views/search/advanced.php:52 ../../views/search/advanced.php:85
 msgid "Search publication abstract"
 msgstr ""
 
-#: ../../views/search/advanced.php:58
+#: ../../views/search/advanced.php:63
 msgid "Advanced Search: Publications on topic restriction"
 msgstr ""
 
-#: ../../views/search/advanced.php:63
+#: ../../views/search/advanced.php:67
 msgid "Leave empty if you want to search all publications"
 msgstr ""
 
-#: ../../views/search/advanced.php:73
+#: ../../views/search/advanced.php:72
 msgid "Search publications with these terms in the following fields:"
 msgstr ""
 
-#: ../../views/search/advanced.php:77
+#: ../../views/search/advanced.php:82
 msgid "Search publication Citation id"
 msgstr ""
 
-#: ../../views/search/advanced.php:88
+#: ../../views/search/advanced.php:89
 msgid "Choose the topic restrictions that apply."
 msgstr ""
 
-#: ../../views/search/advanced.php:89
+#: ../../views/search/advanced.php:91
 #, php-format
-msgid "Return all publications that satisfy %s of the following conditions"
+msgid "Return all publications that satisfy %s of the following conditions:"
 msgstr ""
 
-#: ../../views/search/advanced.php:91 ../../views/site/edit.php:477
-#: ../../views/users/edit.php:315 ../../views/user/edit.php:90
-msgid "All"
+#: ../../views/search/advanced.php:93
+msgid "all"
 msgstr ""
 
-#: ../../views/search/advanced.php:92
-msgid "Any"
+#: ../../views/search/advanced.php:94
+msgid "any"
 msgstr ""
 
-#: ../../views/search/advanced.php:101
-msgid "Condition"
-msgstr ""
-
-#: ../../views/search/advanced.php:102
+#: ../../views/search/advanced.php:106 ../../views/search/advanced.php:117
 #, php-format
-msgid "%s appear in %s"
+msgid "Condition %d:"
 msgstr ""
 
-#: ../../views/search/advanced.php:102
+#: ../../views/search/advanced.php:118
 msgid "Do"
 msgstr ""
 
-#: ../../views/search/advanced.php:102
+#: ../../views/search/advanced.php:119
 msgid "Do not"
 msgstr ""
 
-#: ../../views/search/advanced.php:105
+#: ../../views/search/advanced.php:120
+msgid " appear in "
+msgstr ""
+
+#: ../../views/search/advanced.php:128
 msgid "Select topic to include or exclude"
 msgstr ""
 
-#: ../../views/search/advanced.php:113 ../../views/search/advanced.php:118
-msgid "More..."
+#: ../../views/search/advanced.php:140
+msgid "More&hellip;"
 msgstr ""
 
-#: ../../views/search/results.php:16
-#, php-format
-msgid "Authors: %s"
+#: ../../views/search/external.php:6
+msgid "Search on external sites"
+msgstr ""
+
+#: ../../views/search/external.php:73
+msgid "This form allows you to search external websites."
+msgstr ""
+
+#: ../../views/search/results.php:6
+msgid "Quicksearch results"
+msgstr ""
+
+#: ../../views/search/results.php:7
+msgid "(Proceed to advanced search)"
+msgstr ""
+
+#: ../../views/search/results.php:9
+msgid "Advanced Search Results"
 msgstr ""
 
 #: ../../views/search/results.php:24
 #, php-format
-msgid "Topics: %s"
+msgid "Authors: %s"
 msgstr ""
 
 #: ../../views/search/results.php:32
 #, php-format
+msgid "Topics: %s"
+msgstr ""
+
+#: ../../views/search/results.php:40
+#, php-format
 msgid "Keywords: %s"
 msgstr ""
 
-#: ../../views/search/results.php:77
+#: ../../views/search/results.php:85
 #, php-format
 msgid "%s matches"
 msgstr ""
 
-#: ../../views/search/results.php:98
+#: ../../views/search/results.php:106
 msgid "Publication matches"
 msgstr ""
 
-#: ../../views/search/results.php:133
+#: ../../views/search/results.php:141
 #, php-format
 msgid "No search results found for query: %s"
 msgstr ""
 
-#: ../../views/search/results.php:137
+#: ../../views/search/results.php:145
 #, php-format
 msgid "Search results for query: %s"
 msgstr ""
@@ -5180,18 +5457,18 @@ msgstr ""
 msgid "Default author display style"
 msgstr ""
 
-#: ../../views/site/edit.php:469 ../../views/users/edit.php:307
-#: ../../views/user/edit.php:83
+#: ../../views/site/edit.php:469 ../../views/user/edit.php:83
+#: ../../views/users/edit.php:307
 msgid "First [von] Last"
 msgstr ""
 
-#: ../../views/site/edit.php:469 ../../views/users/edit.php:307
-#: ../../views/user/edit.php:83
+#: ../../views/site/edit.php:469 ../../views/user/edit.php:83
+#: ../../views/users/edit.php:307
 msgid "[von] Last, First"
 msgstr ""
 
-#: ../../views/site/edit.php:469 ../../views/users/edit.php:307
-#: ../../views/user/edit.php:83
+#: ../../views/site/edit.php:469 ../../views/user/edit.php:83
+#: ../../views/users/edit.php:307
 msgid "[von] Last"
 msgstr ""
 
@@ -5199,17 +5476,22 @@ msgstr ""
 msgid "Default number of publications per page"
 msgstr ""
 
+#: ../../views/site/edit.php:477 ../../views/user/edit.php:90
+#: ../../views/users/edit.php:315
+msgid "All"
+msgstr ""
+
 #: ../../views/site/edit.php:482 ../../views/users/edit.php:320
 msgid "'Similar author' check"
 msgstr ""
 
-#: ../../views/site/edit.php:485 ../../views/users/edit.php:323
-#: ../../views/user/edit.php:97
+#: ../../views/site/edit.php:485 ../../views/user/edit.php:97
+#: ../../views/users/edit.php:323
 msgid "Last names, then initials"
 msgstr ""
 
-#: ../../views/site/edit.php:485 ../../views/users/edit.php:323
-#: ../../views/user/edit.php:97
+#: ../../views/site/edit.php:485 ../../views/user/edit.php:97
+#: ../../views/users/edit.php:323
 msgid "Full name"
 msgstr ""
 
@@ -5298,8 +5580,8 @@ msgstr ""
 msgid "LDAP based authentication"
 msgstr ""
 
-#: ../../views/site/edit.php:606 ../../views/users/edit.php:482
-#: ../../views/user/edit.php:124
+#: ../../views/site/edit.php:606 ../../views/user/edit.php:124
+#: ../../views/users/edit.php:482
 msgid "Store new settings"
 msgstr ""
 
@@ -5404,10 +5686,6 @@ msgstr ""
 msgid "Restore"
 msgstr ""
 
-#: ../../views/site/stats.php:16
-msgid "Statistics"
-msgstr ""
-
 #: ../../views/site/stats.php:18
 #, php-format
 msgid "%s publications (%s read)"
@@ -5502,6 +5780,197 @@ msgstr ""
 msgid "group subscribed"
 msgstr ""
 
+#: ../../views/user/all.php:5
+#, php-format
+msgid ""
+"This is a list of all current users of %s. Click on any link to see a "
+"detailed description of the user."
+msgstr ""
+
+#: ../../views/user/all.php:10
+#, php-format
+msgid "Group: %s"
+msgstr ""
+
+#: ../../views/user/contact.php:5 ../../views/user/contact.php:7
+#, php-format
+msgid "Contact %s %s"
+msgstr ""
+
+#: ../../views/user/contact.php:13
+msgid "The e-Mail was successfully sent."
+msgstr ""
+
+#: ../../views/user/contact.php:15
+msgid "There was an error trying to send the e-Mail."
+msgstr ""
+
+#: ../../views/user/contact.php:24
+msgid "Subject:"
+msgstr ""
+
+#: ../../views/user/contact.php:29
+msgid "Message:"
+msgstr ""
+
+#: ../../views/user/contact.php:34
+msgid "Submit"
+msgstr ""
+
+#: ../../views/user/contact.php:36 ../../views/user/edit.php:125
+msgid "Back to the user’s overview"
+msgstr ""
+
+#: ../../views/user/edit.php:5
+#, php-format
+msgid "Edit my account: %s"
+msgstr ""
+
+#: ../../views/user/edit.php:23 ../../views/users/edit.php:53
+msgid "Account settings"
+msgstr ""
+
+#: ../../views/user/edit.php:25 ../../views/users/edit.php:207
+msgid "Initials"
+msgstr ""
+
+#: ../../views/user/edit.php:30 ../../views/users/edit.php:215
+msgid "First name"
+msgstr ""
+
+#: ../../views/user/edit.php:35 ../../views/users/edit.php:223
+msgid "Middle name"
+msgstr ""
+
+#: ../../views/user/edit.php:40 ../../views/users/edit.php:231
+msgid "Surname"
+msgstr ""
+
+#: ../../views/user/edit.php:48
+msgid ""
+"This is not your login name, but the name others will see in the ‘Who "
+"created this’ fields."
+msgstr ""
+
+#: ../../views/user/edit.php:51 ../../views/users/edit.php:247
+msgid "Email address"
+msgstr ""
+
+#: ../../views/user/edit.php:58 ../../views/users/edit.php:275
+msgid "Display preferences"
+msgstr ""
+
+#: ../../views/user/edit.php:60 ../../views/users/edit.php:287
+msgid "Language"
+msgstr ""
+
+#: ../../views/user/edit.php:62 ../../views/user/edit.php:74
+#: ../../views/user/edit.php:82
+#, php-format
+msgid "default (%s)"
+msgstr ""
+
+#: ../../views/user/edit.php:72 ../../views/users/edit.php:296
+msgid "Publication summary style"
+msgstr ""
+
+#: ../../views/user/edit.php:75 ../../views/users/edit.php:299
+msgid "author first"
+msgstr ""
+
+#: ../../views/user/edit.php:75 ../../views/users/edit.php:299
+msgid "title first"
+msgstr ""
+
+#: ../../views/user/edit.php:80 ../../views/users/edit.php:304
+msgid "Author display style"
+msgstr ""
+
+#: ../../views/user/edit.php:88 ../../views/users/edit.php:312
+msgid "Number of publications per page"
+msgstr ""
+
+#: ../../views/user/edit.php:95
+msgid "‘Similar author’ check"
+msgstr ""
+
+#: ../../views/user/edit.php:97 ../../views/users/edit.php:323
+msgid "Site default"
+msgstr ""
+
+#: ../../views/user/edit.php:100
+msgid ""
+"Select the method for checking whether two author names are counted as "
+"‘similar.’"
+msgstr ""
+
+#: ../../views/user/edit.php:103 ../../views/users/edit.php:333
+msgid "Open attachments in new browser window"
+msgstr ""
+
+#: ../../views/user/edit.php:108 ../../views/users/edit.php:342
+msgid "Open export data in browser"
+msgstr ""
+
+#: ../../views/user/edit.php:111 ../../views/users/edit.php:349
+msgid ""
+"Check this box to force the system to show export data such as BibTeX or RIS "
+"directly in a browser window instead of downloading it as a file."
+msgstr ""
+
+#: ../../views/user/edit.php:115 ../../views/users/edit.php:354
+msgid "Export BibTeX as UTF8"
+msgstr ""
+
+#: ../../views/user/edit.php:118
+#, php-format
+msgid ""
+"Check this box if you want all BibTeX output to be in UTF8, i.e. when you do "
+"<strong>not</strong> want %s to convert special characters to BibTeX codes "
+"such as %s."
+msgstr ""
+
+#: ../../views/user/full.php:3
+msgid "User Details:"
+msgstr ""
+
+#: ../../views/user/full.php:9
+msgid "Edit account details."
+msgstr ""
+
+#: ../../views/user/full.php:16
+msgid "Search this user in the faculty’s user database"
+msgstr ""
+
+#: ../../views/user/full.php:28
+msgid "NDS login name:"
+msgstr ""
+
+#: ../../views/user/full.php:29
+msgid "guest"
+msgstr ""
+
+#: ../../views/user/full.php:32
+msgid "E-Mail address:"
+msgstr ""
+
+#: ../../views/user/full.php:36
+msgid "Groups:"
+msgstr ""
+
+#: ../../views/user/group.php:3
+#, php-format
+msgid "Group Details: %s"
+msgstr ""
+
+#: ../../views/user/group.php:12
+msgid "NDS short name:"
+msgstr ""
+
+#: ../../views/user/group.php:16
+msgid "Known group members:"
+msgstr ""
+
 #: ../../views/users/delete.php:14
 #, php-format
 msgid "Are you sure that you want to delete user \"%s\"?"
@@ -5513,10 +5982,6 @@ msgstr ""
 
 #: ../../views/users/edit.php:43
 msgid "Edit user preferences"
-msgstr ""
-
-#: ../../views/users/edit.php:53 ../../views/user/edit.php:23
-msgid "Account settings"
 msgstr ""
 
 #: ../../views/users/edit.php:53
@@ -5606,88 +6071,18 @@ msgstr ""
 msgid "Person details"
 msgstr ""
 
-#: ../../views/users/edit.php:207 ../../views/user/edit.php:25
-msgid "Initials"
-msgstr ""
-
-#: ../../views/users/edit.php:215 ../../views/user/edit.php:30
-msgid "First name"
-msgstr ""
-
-#: ../../views/users/edit.php:223 ../../views/user/edit.php:35
-msgid "Middle name"
-msgstr ""
-
-#: ../../views/users/edit.php:231 ../../views/user/edit.php:40
-msgid "Surname"
-msgstr ""
-
 #: ../../views/users/edit.php:239
 msgid "Abbreviation (about three characters)"
-msgstr ""
-
-#: ../../views/users/edit.php:247 ../../views/user/edit.php:51
-msgid "Email address"
-msgstr ""
-
-#: ../../views/users/edit.php:275 ../../views/user/edit.php:58
-msgid "Display preferences"
 msgstr ""
 
 #: ../../views/users/edit.php:279
 msgid "Theme"
 msgstr ""
 
-#: ../../views/users/edit.php:287 ../../views/user/edit.php:60
-msgid "Language"
-msgstr ""
-
-#: ../../views/users/edit.php:296 ../../views/user/edit.php:72
-msgid "Publication summary style"
-msgstr ""
-
-#: ../../views/users/edit.php:299 ../../views/user/edit.php:75
-msgid "author first"
-msgstr ""
-
-#: ../../views/users/edit.php:299 ../../views/user/edit.php:75
-msgid "title first"
-msgstr ""
-
-#: ../../views/users/edit.php:304 ../../views/user/edit.php:80
-msgid "Author display style"
-msgstr ""
-
-#: ../../views/users/edit.php:312 ../../views/user/edit.php:88
-msgid "Number of publications per page"
-msgstr ""
-
-#: ../../views/users/edit.php:323 ../../views/user/edit.php:97
-msgid "Site default"
-msgstr ""
-
 #: ../../views/users/edit.php:329
 msgid ""
 "Select the method for checking whether two author names are counted as "
 "\"similar\"."
-msgstr ""
-
-#: ../../views/users/edit.php:333 ../../views/user/edit.php:103
-msgid "Open attachments in new browser window"
-msgstr ""
-
-#: ../../views/users/edit.php:342 ../../views/user/edit.php:108
-msgid "Open export data in browser"
-msgstr ""
-
-#: ../../views/users/edit.php:349 ../../views/user/edit.php:111
-msgid ""
-"Check this box to force the system to show export data such as BibTeX or RIS "
-"directly in a browser window instead of downloading it as a file."
-msgstr ""
-
-#: ../../views/users/edit.php:354 ../../views/user/edit.php:115
-msgid "Export BibTeX as UTF8"
 msgstr ""
 
 #: ../../views/users/edit.php:361
@@ -5746,303 +6141,4 @@ msgstr ""
 
 #: ../../views/users/summary.php:31
 msgid "disabled account"
-msgstr ""
-
-#: ../../views/footer.php:14
-msgid "Useful Links"
-msgstr ""
-
-#: ../../views/footer.php:17
-msgid "Faculty of Physics"
-msgstr ""
-
-#: ../../views/footer.php:18
-msgid "University library"
-msgstr ""
-
-#: ../../views/footer.php:19
-msgid "Computer Centre"
-msgstr ""
-
-#: ../../views/footer.php:28
-msgid "Ask the Admin"
-msgstr ""
-
-#: ../../views/footer.php:30
-#, php-format
-msgid ""
-"Do you have any question regarding %s? Have you spotted an error or do you "
-"want to suggest a new feature? Don&rsquo;t hesitate and drop us a line."
-msgstr ""
-
-#: ../../views/footer.php:39
-msgid "E-Mail"
-msgstr ""
-
-#: ../../views/footer.php:42
-msgid "Question:"
-msgstr ""
-
-#: ../../views/footer.php:46
-msgid "ask the admin"
-msgstr ""
-
-#: ../../views/footer.php:53
-#, php-format
-msgid ""
-"%s ist das Promotionsprojekt von Manuel Strehl und entsteht in "
-"Zusammenarbeit mit dem Lehrstuhl für Medieninformatik und der Fakultät für "
-"Physik an der Universität Regensburg. Ziel ist der Aufbau eines umfassenden "
-"Web 2.0-Angebots für die Regensburger Physiker. Die Anwendung basiert auf "
-"der freien Publikationsdatenbank %s."
-msgstr ""
-
-#: ../../views/footer.php:62 ../../views/menu.php:68
-msgid "About this site"
-msgstr ""
-
-#: ../../views/footer.php:63
-msgid "General help"
-msgstr ""
-
-#: ../../views/footer.php:64
-msgid "FAQ"
-msgstr ""
-
-#: ../../views/footer.php:65
-msgid "Video tutorial"
-msgstr ""
-
-#: ../../views/footer.php:66
-msgid "Aigaion forum"
-msgstr ""
-
-#: ../../views/header.php:47
-msgid "Language:"
-msgstr ""
-
-#: ../../views/header.php:58
-msgid "Guest User:"
-msgstr ""
-
-#: ../../views/header.php:58 ../../views/menu.php:83
-msgid "Login (NDS)"
-msgstr ""
-
-#: ../../views/header.php:58 ../../views/menu.php:84
-msgid "Login (Guest account)"
-msgstr ""
-
-#: ../../views/header.php:60
-#, php-format
-msgid "Hello, %s %s"
-msgstr ""
-
-#: ../../views/header.php:62 ../../views/menu.php:90
-msgid "My Profile"
-msgstr ""
-
-#: ../../views/header.php:65 ../../views/menu.php:95
-msgid "Logout"
-msgstr ""
-
-#: ../../views/header.php:100
-msgid "Aigaion export list"
-msgstr ""
-
-#: ../../views/menu.php:11
-msgid "Browse"
-msgstr ""
-
-#: ../../views/menu.php:12
-msgid "browse"
-msgstr ""
-
-#: ../../views/menu.php:14
-msgid "My Topics"
-msgstr ""
-
-#: ../../views/menu.php:16
-msgid "My Bookmarks"
-msgstr ""
-
-#: ../../views/menu.php:18
-msgid "All Topics"
-msgstr ""
-
-#: ../../views/menu.php:19
-msgid "All Publications"
-msgstr ""
-
-#: ../../views/menu.php:20
-msgid "All Authors"
-msgstr ""
-
-#: ../../views/menu.php:21
-msgid "All Keywords"
-msgstr ""
-
-#: ../../views/menu.php:22
-msgid "Unassigned"
-msgstr ""
-
-#: ../../views/menu.php:23 ../../views/menu.php:109
-msgid "Recent"
-msgstr ""
-
-#: ../../views/menu.php:39
-msgid "Sort by"
-msgstr ""
-
-#: ../../views/menu.php:43
-msgid "Type/Journal"
-msgstr ""
-
-#: ../../views/menu.php:44
-msgid "Year"
-msgstr ""
-
-#: ../../views/menu.php:45
-msgid "Recently added"
-msgstr ""
-
-#: ../../views/menu.php:52
-msgid "New Data"
-msgstr ""
-
-#: ../../views/menu.php:57
-msgid "New Topic"
-msgstr ""
-
-#: ../../views/menu.php:65
-msgid "Site"
-msgstr ""
-
-#: ../../views/menu.php:70
-msgid "Site Configuration"
-msgstr ""
-
-#: ../../views/menu.php:71
-msgid "Site Maintenance"
-msgstr ""
-
-#: ../../views/menu.php:74
-msgid "Manage All Accounts"
-msgstr ""
-
-#: ../../views/menu.php:81
-msgid "Guest User"
-msgstr ""
-
-#: ../../views/menu.php:87
-#, php-format
-msgid "Logged In: %s"
-msgstr ""
-
-#: ../../views/menu.php:93
-msgid "Topic Subscribe"
-msgstr ""
-
-#: ../../views/menu.php:112
-msgid "Standard view"
-msgstr ""
-
-#: ../../views/user/full.php:3
-msgid "User Details:"
-msgstr ""
-
-#: ../../views/user/full.php:9
-msgid "Edit account details."
-msgstr ""
-
-#: ../../views/user/full.php:16
-msgid "Search this user in the faculty&rsquo;s user database."
-msgstr ""
-
-#: ../../views/user/full.php:28
-msgid "NDS login name:"
-msgstr ""
-
-#: ../../views/user/full.php:29
-msgid "guest"
-msgstr ""
-
-#: ../../views/user/full.php:32
-msgid "E-Mail address:"
-msgstr ""
-
-#: ../../views/user/full.php:36
-msgid "Groups:"
-msgstr ""
-
-#: ../../views/user/contact.php:5 ../../views/user/contact.php:7
-#, php-format
-msgid "Contact %s %s"
-msgstr ""
-
-#: ../../views/user/contact.php:13
-msgid "The e-Mail was successfully sent."
-msgstr ""
-
-#: ../../views/user/contact.php:15
-msgid "There was an error trying to send the e-Mail."
-msgstr ""
-
-#: ../../views/user/contact.php:24
-msgid "Subject:"
-msgstr ""
-
-#: ../../views/user/contact.php:29
-msgid "Message:"
-msgstr ""
-
-#: ../../views/user/contact.php:34
-msgid "Submit"
-msgstr ""
-
-#: ../../views/user/contact.php:36 ../../views/user/edit.php:125
-msgid "Back to the user&rsquo;s overview"
-msgstr ""
-
-#: ../../views/user/edit.php:5
-#, php-format
-msgid "Edit my account: %s"
-msgstr ""
-
-#: ../../views/user/edit.php:48
-msgid ""
-"This is not your login name, but the name others will see in the &lsquo;Who "
-"created this&rsquo; fields."
-msgstr ""
-
-#: ../../views/user/edit.php:62 ../../views/user/edit.php:74
-#: ../../views/user/edit.php:82
-#, php-format
-msgid "default (%s)"
-msgstr ""
-
-#: ../../views/user/edit.php:95
-msgid "&lsquo;Similar author&rsquo; check"
-msgstr ""
-
-#: ../../views/user/edit.php:100
-msgid ""
-"Select the method for checking whether two author names are counted as "
-"&lsquo;similar&rsquo;."
-msgstr ""
-
-#: ../../views/user/edit.php:118
-#, php-format
-msgid ""
-"Check this box if you want all BibTeX output to be in UTF8, i.e. when you do "
-"<strong>not</strong> want Aigaion to convert special characters to BibTeX "
-"codes such as %s."
-msgstr ""
-
-#: ../../models/user_model.php:52
-msgid "Login data missing."
-msgstr ""
-
-#: ../../models/user_model.php:55
-msgid "User already exists."
 msgstr ""
