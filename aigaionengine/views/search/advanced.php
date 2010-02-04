@@ -119,9 +119,9 @@ if (!isset($options)||($options==null))
           <input type="radio" name="doOrNot1" value="False" /> <?php _e('Do not')?>
           &nbsp; &nbsp; <?php _e(' appear in ')?>
 <?php
-$config = array('onlyIfUserSubscribed'=>True,
-                'includeGroupSubscriptions'=>True,
-                'user'=>$userlogin->user());
+$config = array('onlyIfUserSubscribed'=>False,
+                'includeGroupSubscriptions'=>True,);
+if ($userlogin->isLoggedIn()) { $config['user'] = $userlogin->user(); }
 $this->load->view('topics/optiontree',
               array('topics'   => $this->topic_db->getByID(1,$config),
               'showroot'  => False,
