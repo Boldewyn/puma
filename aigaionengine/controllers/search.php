@@ -4,13 +4,50 @@ class Search extends Controller {
 
     function Search() {
         parent::Controller();
+        $this->subnav = array(
+            '/search/' => __('Advanced Search'),
+            '/search/external' => __('External Search'),);
     }
 
     /** Default: advanced search form */
     function index() {
-        $headerdata = array('title' => __('Advanced search'));
+        $headerdata = array('title' => __('Advanced search'),
+          'subnav' => $this->subnav,);
         $this->load->view('header', $headerdata);
         $this->load->view('search/advanced');
+        $this->load->view('footer');
+    }
+
+    /** external search */
+    function external() {
+        $headerdata = array('title' => __('External search'),
+          'subnav' => $this->subnav,
+        );
+        $this->load->view('header', $headerdata);
+        $this->load->view('search/external', array('searchengines' => array(
+            array('name' => 'Google Scholar', 'url' => 'http://scholar.google.com/scholar',
+                'parameters' => 'a:1:{s:1:"q";s:7:"{query}";}',
+                'active' => 1, 'image' => 'http://scholar.google.com/favicon.ico', 'charset' => 'utf-8', 'method' => 'get'),
+            array('name' => __('ePub Server (Uni)'), 'url' => 'http://epub.uni-regensburg.de/cgi/search',
+                'parameters' => 'a:5:{s:1:"q";s:7:"{query}";s:14:"_action_search";s:6:"Search";s:6:"_order";s:7:"bytitle";s:14:"basic_srchtype";s:3:"ALL";s:11:"_satisfyall";s:3:"ALL";}',
+                'active' => 1, 'image' => '', 'charset' => 'utf-8', 'method' => 'get'),
+            array('name' => 'arXiv.org', 'url' => 'http://arxiv.org/search', 'parameters' => 'a:1:{s:5:"query";s:7:"{query}";}',
+                'active' => 1, 'image' => '', 'charset' => 'utf-8', 'method' => 'get'),
+            array('name' => 'WorldWideScience', 'url' => 'http://worldwidescience.org/wws/search.html',
+                'parameters' => 'a:1:{s:10:"expression";s:7:"{query}";}', 'active' => 1, 'image' => '', 'charset' => 'utf-8', 'method' => 'get'),
+            array('name' => 'Inspec', 'url' => 'http://web5.silverplatter.com/webspirs/doAndShowSearch.ws',
+                'parameters' => 'a:3:{s:2:"ss";s:7:"{query}";s:4:"orig";s:6:"search";s:10:"basicLimit";s:2:"-1";}',
+                 'active' => 1, 'image' => '', 'charset' => 'utf-8', 'method' => 'post'),
+            array('name' => 'Spires', 'url' => 'http://www.slac.stanford.edu/spires/find/hep/www',
+                'parameters' => 'a:3:{s:6:"rawcmd";s:7:"{query}";s:6:"FORMAT";s:3:"WWW";s:8:"SEQUENCE";s:0:"";}', 
+                'active' => 1, 'image' => '', 'charset' => 'utf-8', 'method' => 'get'),
+            array('name' => 'Amazon', 'url' => 'http://www.amazon.de/s/ref=nb_ss_w',
+                'parameters' => 'a:3:{s:10:"__mk_de_DE";s:10:"ÅMÅZÕÑ";s:3:"url";s:16:"search-alias=aps";s:14:"field-keywords";s:7:"{query}";}',
+                'active' => 1, 'image' => '', 'charset' => 'utf-8', 'method' => 'get'),
+            array('name' => 'PubMed', 'url' => 'http://www.ncbi.nlm.nih.gov/sites/entrez',
+                'parameters' => 'a:3:{s:43:"EntrezSystem2.PEntrez.Pubmed.SearchBar.Term";s:7:"{query}";s:41:"EntrezSystem2.PEntrez.Pubmed.SearchBar.Db";s:6:"pubmed";s:41:"EntrezSystem2.PEntrez.Pubmed.SearchBar.Go";s:1:"1";}',
+                'active' => 1, 'image' => '', 'charset' => 'utf-8', 'method' => 'post'),
+        )));
         $this->load->view('footer');
     }
 
@@ -33,7 +70,8 @@ class Search extends Controller {
         $searchresults = $this->search_lib->simpleSearch($query,null);
 
         //get output: search result page
-        $headerdata = array('title' => __('Search results'));
+        $headerdata = array('title' => __('Search results'),
+          'subnav' => $this->subnav,);
         $this->load->view('header', $headerdata);
         $this->load->view('search/results',
                            array('quicksearch'=>True, 'searchresults'=>$searchresults, 'query'=>$query));
@@ -114,7 +152,8 @@ class Search extends Controller {
         }
 
         //get output: search result page
-        $headerdata = array('title' => __('Advanced search results'));
+        $headerdata = array('title' => __('Advanced search results'),
+          'subnav' => $this->subnav,);
 
         $this->load->view('header', $headerdata);
 
@@ -127,4 +166,5 @@ class Search extends Controller {
         $this->load->view('footer');
     }
 }
-?>
+
+//__END__
