@@ -7,9 +7,16 @@ class Help extends Controller {
     }
 
     /**  */
-    function index($topic="front") {
-        $this->load->view('header', array('title' => __('Help')));
-        $this->load->view('help/header', array("topic" => $topic));
+    function index($topic='front') {
+        $subnav_current = $topic=='front'? '/help/' : '/help/'.$topic;
+        $this->load->view('header', array('title' => __('Help'),
+            'subnav'=>array('/help/'=>__('Introduction'),
+                '/help/about'=>__('About'),
+                '/help/faq'=>__('FAQ'),
+                '/help/tutorial'=>__('Video tutorial'),
+            ),
+            'subnav_current'=>$subnav_current));
+        $this->load->view('help/header', array('topic' => $topic));
         $this->load->view('help/'.$topic);
         $this->load->view('footer');
     }

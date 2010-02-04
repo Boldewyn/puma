@@ -1,9 +1,9 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 <ul id='help-nav' class="tabs">
-  <li class="<?php if($topic == 'front'           ) { echo 'active'; }?> first"><?php _a('help', __('Introduction')); ?></li>
-  <li class="<?php if($topic == 'about'           ) { echo 'active'; }?>"><?php _a('help/about', __('About')); ?></li>
-  <li class="<?php if($topic == 'faq'             ) { echo 'active'; }?>"><?php _a('help/faq', __('FAQ')); ?></li>
-  <li class="<?php if($topic == 'tutorial'        ) { echo 'active'; }?>"><?php _a('help/tutorial', __('Video tutorial')); ?></li>
+  <!--li class="<?php if($topic == 'front'           ) { echo 'active'; }?> first"><?php _a('help', __('Introduction')); ?></li-->
+  <!--li class="<?php if($topic == 'about'           ) { echo 'active'; }?>"><?php _a('help/about', __('About')); ?></li-->
+  <!--li class="<?php if($topic == 'faq'             ) { echo 'active'; }?>"><?php _a('help/faq', __('FAQ')); ?></li-->
+  <!--li class="<?php if($topic == 'tutorial'        ) { echo 'active'; }?>"><?php _a('help/tutorial', __('Video tutorial')); ?></li-->
   <li class="<?php if($topic == 'topictree'       ) { echo 'active'; }?>"><?php _a('help/topictree', __('Topic Tree')); ?></li>
   <li class="<?php if($topic == 'notes'           ) { echo 'active'; }?>"><?php _a('help/notes', __('Annotating Publications')); ?></li>
   <li class="<?php if($topic == 'publicationlists') { echo 'active'; }?>"><?php _a('help/publicationlists', __('Publication Lists')); ?></li>
