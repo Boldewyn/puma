@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 $userlogin = getUserLogin();
-header("Content-Type: text/html; charset=UTF-8");
+header('Content-Type: text/html; charset=UTF-8');
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->config->item('current_language'); ?>">
@@ -53,7 +53,7 @@ header("Content-Type: text/html; charset=UTF-8");
                   $larr[] = anchor('language/set/'.$lang.'/'.implode('/',$this->uri->segment_array()),
                                    $lang, array('title' => $this->userlanguage->getLanguageName($lang)));
                 endforeach;
-                echo implode(", ", $larr);
+                echo implode(', ', $larr);
               ?>
             </p>
             <p class="userdata header_control">
@@ -80,13 +80,13 @@ header("Content-Type: text/html; charset=UTF-8");
 
       <?php
           $err = getErrorMessage();
-          if ($err != "") {
-              echo "<p class='error global-error'>$err</p>";
+          if ($err != '') {
+              echo '<p class="error global-error">',$err,'</p>';
               clearErrorMessage();
           }
           $msg = getMessage();
-          if ($msg != "") {
-              echo "<p class='info global-info'>$msg</p>";
+          if ($msg != '') {
+              echo '<p class="info global-info">',$msg,'</p>';
               clearMessage();
           }
       ?>

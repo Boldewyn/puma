@@ -646,9 +646,10 @@ body {
   color: white;
   padding: .25em 1em;
   margin: 0 0 0 20em;
-  opacity: .5;
+  opacity: .3;
 }
 
+#header_widgets:hover #header_controls,
 #header_controls:hover {
   opacity: 1;
 }
@@ -677,6 +678,7 @@ body {
 
 
 
+#nav table,
 #nav ul {
   border: .08333em solid #61a6a9;
   display: table;
@@ -684,10 +686,7 @@ body {
   width: 100%;
 }
 
-#nav ul ul {
-  display: none;
-}
-
+#nav table td,
 #nav ul li {
   display: table-cell;
   background: #008993 url(images/nav.png) repeat-x left top;
@@ -701,14 +700,18 @@ body {
   color: white;
 }
 
+#nav table td.first,
 #nav ul li.first {
   border-left-width: 0;
 }
 
+#nav table td.last,
 #nav ul li.last {
   border-right-width: 0;
 }
 
+#nav table td span,
+#nav table td a,
 #nav ul li span,
 #nav ul li a {
   display: block;
@@ -719,10 +722,13 @@ body {
   color: white;
 }
 
+#nav table td.current a,
 #nav ul li.current a {
   background-position: left bottom;
 }
 
+#nav table td a:focus,
+#nav table td a:hover,
 #nav ul li a:focus,
 #nav ul li a:hover {
   background-position: left center;
@@ -791,7 +797,6 @@ body {
   -moz-border-radius-topleft: .1667em;
   -webkit-border-top-left-radius: .1667em;
   border-top-left-radius: .1667em;
-  border-left-width: 0;
 }
 
 #subnav ul li.last span,
@@ -1002,6 +1007,10 @@ body {
   margin: 0 1.25em .625em 0;
 }
 
+#content p.empty_block {
+  padding-left: 9.25em;
+}
+
 #content label.extended_label,
 #content .extended_label label.block {
   width: 16em;
@@ -1145,6 +1154,11 @@ body {
   padding: .625em 0;
 }
 
+#content .brick {
+  width: 34em;
+  overflow: hidden;
+}
+
 
 
 
@@ -1214,3 +1228,17 @@ body.search form {
 }
 
 
+#search_external_form li {
+  float: left;
+  width: 120px;
+  margin: 0 0.41515em .41515em 0;
+}
+
+#search_external_form button {
+  width: 116px;
+}
+
+#user_ .brick li {
+  width: 16.5em;
+  float: left;
+}

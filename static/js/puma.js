@@ -104,6 +104,7 @@ Additional bugs added by Manuel Strehl, 2010.
   var p = window.Puma = {};
 
   $(document).ready(function () {
+    if ($.browser.msie) { _replace_nav(); }
     $('#footer li.level1').css('height', $('#footer ul.level1').css('height'));
     $('#ask_name').focus(function () { if (this.value == 'Name') { this.value=""; } });
     $('#ask_email').focus(function () { if (/^[eE].?[Mm]ail$/.test(this.value)) { this.value=""; } });
@@ -115,6 +116,18 @@ Additional bugs added by Manuel Strehl, 2010.
     $('.masonry').masonry({itemSelector:'.brick', columnWidth:'446'});
     new LaTeXMathML({autostart:1});
   });
+  
+  function _replace_nav() {
+    var $nav = $('<table cellspacing="0"><tbody><tr></tr></tbody></table>');
+    var $td;
+    $('#nav li').each(function () {
+      $td = $('<td></td>');
+      $td.addClass($(this).attr('class'));
+      $td.append($(this).html());
+      $('tr', $nav).append($td);
+    });
+    $('#nav ul').replaceWith($nav);
+  };
 
 })(jQuery);
 
