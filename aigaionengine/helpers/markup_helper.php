@@ -33,7 +33,7 @@ function _puma() {
   echo puma();
 }
 
-function _icon($id, $class="") {
+function icon($id, $class="") {
   $theme = 'puma';
   $alt = 'Icon '.$id;
   $path = 'static/'.$theme.'/images/icons/'.$id.'.';
@@ -46,7 +46,11 @@ function _icon($id, $class="") {
   } else {
       $src = base_url().'static/puma/images/icons/missing.png';
   }
-  echo sprintf('<img class="icon %s" alt="%s" src="%s" />', $class, $alt, $src);
+  return sprintf('<img class="icon %s" alt="%s" src="%s" />', $class, $alt, $src);
+}
+
+function _icon($id, $class="") {
+  echo icon($id, $class);
 }
 
 //__END__
