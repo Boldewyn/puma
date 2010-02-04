@@ -726,7 +726,7 @@ msgstr "Fehler: Ressource nicht gefunden"
 #: ../../controllers/explore.php:11
 #: ../../views/menu.php:7
 msgid "Explore"
-msgstr "Erstellen"
+msgstr "Entdecken"
 
 #: ../../controllers/explore.php:20
 msgid "Explore » Publication"
