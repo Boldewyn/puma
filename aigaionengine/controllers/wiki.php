@@ -21,6 +21,7 @@ class Wiki extends Controller {
     }
     
     function edit($item, $discussion=False) {
+        restrict_to_users(__('You must be logged in to edit the wiki.'), '/wiki/'.$item);
         list($subnav, $subnav_current) = $this->_get_subnav($item, 'edit');
         $this->load->view('header', array('title' => __('Wiki » %s'), 'subnav'=>$subnav, 'subnav_current'=>$subnav_current));
         if ($discussion == 1) {
