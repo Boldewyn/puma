@@ -772,8 +772,8 @@ body {
 #subnav li a {
   display: block;
   background: url(images/nav.png) repeat-x left top;
-  height: 2.5em;
-  line-height: 2.5em;
+  height: 2.4em;
+  line-height: 2.4em;
   border-style: solid;
   border-width: .08333em;
   border-top-color: #7bd3d6;
