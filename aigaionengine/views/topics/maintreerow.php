@@ -18,9 +18,9 @@ Parameters:
     }
     #make hide scripts to show and hide proper parts depending on some collapse state
     $hide1="";
-    $hide2="Element.hide('plus_topic_".$topic->topic_id."');";
+    $hide2="$('#plus_topic_".$topic->topic_id."').hide();";
     if (array_key_exists('flagCollapsed',$topic->configuration) && ($topic->flags['userIsCollapsed']==True)) {
-        $hide1="Element.hide('min_topic_".$topic->topic_id."');";
+        $hide1="$('#min_topic_".$topic->topic_id."').hide();";
         $hide2="";
     }
     #
