@@ -141,6 +141,20 @@ class Usercontroller extends Controller {
     /**
      *
      */
+    public function option($method, $key, $value=Null) {
+        restrict_to_users();
+        $option = option_get($key);
+         if ($method == 'set') {
+            option_set($key, $value);
+        }
+        if (is_numeric($option)) { $option = (float)$option; }
+        $this->output->set_header('Content-Type: text/javascript; charset=utf-8');
+        $this->output->set_output(json_encode($option));
+    }
+    
+    /**
+     *
+     */
     public function group($id) {
         $query = $this->db->select(array('user_id', 'surname', 'abbreviation'))
                           ->from('users')->where('type', 'group')->where('theme', 'Puma')
