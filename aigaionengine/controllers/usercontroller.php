@@ -10,12 +10,8 @@ class Usercontroller extends Controller {
      *
      */
     public function index ($id=False, $action=False) {
-        $userlogin = getUserLogin();
         if ($id == False) {
-            if (! $userlogin->isLoggedIn() || $userlogin->isAnonymous()) {
-                appendErrorMessage(__('You must be logged in to view the users’ page.'));
-                redirect('');
-            }
+            restrict_to_users(__('You must be logged in to view the users’ page.'));
             $query = $this->db->from('users')->join('usergrouplink', 'users.user_id = usergrouplink.user_id')
                           ->where('users.type', 'normal')
                           ->order_by('usergrouplink.group_id asc')->order_by('users.login asc')
@@ -40,16 +36,14 @@ class Usercontroller extends Controller {
             $this->load->view('footer');
         } else {
             $user = $this->user_db->getByLogin($id);
-            $userlogin = getUserLogin();
             if ($user == null) {
                 appendErrorMessage(sprintf(__('User %s does not exist.'), h($id)));
                 redirect('');
             } elseif ($action && ! in_array($action, array('contact', 'edit'))) {
                 appendErrorMessage(sprintf(__('Unknown action requested: %s.'), h($action)));
                 redirect('');
-            } elseif ((!$userlogin->isLoggedIn() || $userlogin->isAnonymous()) && $id != 'admin') {
-                appendErrorMessage(__('You must be logged in to view this user’s page.'));
-                redirect('');
+            } elseif ($id != 'admin') {
+                restrict_to_users(__('You must be logged in to view this user’s page.'));
             }
             $groups = array();
             foreach ($user->group_ids as $gid) {
@@ -62,7 +56,7 @@ class Usercontroller extends Controller {
                 $this->load->view('user/full', array('user' => $user));
                 $this->load->view('footer');
             } else {
-                $this->$action($id, $user, $userlogin);
+                $this->$action($id, $user);
             }
         }
     }
@@ -70,10 +64,9 @@ class Usercontroller extends Controller {
     /**
      *
      */
-    protected function contact ($id, $user, $userlogin) {
-        if ((!$userlogin->isLoggedIn() || $userlogin->isAnonymous()) && $id != 'admin') {
-            appendErrorMessage(__('Please log in to contact other users.'));
-            redirect('');
+    protected function contact ($id, $user) {
+        if ($id != 'admin') {
+            restrict_to_users(__('Please log in to contact other users.'));
         }
         $this->load->library('form_validation');
         $this->form_validation->set_message('required', __('A %s is required.'));
@@ -85,6 +78,7 @@ class Usercontroller extends Controller {
         $data['success'] = $this->form_validation->run();
 
         if ($data['success']) {
+            $userlogin = getUserLogin();
             $this->load->library('email');
             $subject = $this->input->post('subject');
             if (! $subject) {
@@ -108,7 +102,8 @@ class Usercontroller extends Controller {
     /**
      *
      */
-    protected function edit ($id, $user, $userlogin) {
+    protected function edit ($id, $user) {
+        $userlogin = getUserLogin();
         if ((!$userlogin->hasRights('user_edit_all'))
              &&
             (!$userlogin->hasRights('user_edit_self') || ($userlogin->userId() != $user->user_id))) {

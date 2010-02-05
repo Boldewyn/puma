@@ -7,8 +7,8 @@ class Statistics {
 
     public function get($where="1=1") {
         $userlogin = getUserLogin();
-        $that =& get_instance();
         if ($userlogin->hasRights('database_manage')) {
+            $that =& get_instance();
             $query = $that->db->where($where)->get('statistics');
             return $query->result_array();
         } else {
@@ -22,10 +22,10 @@ class Statistics {
             // statistics shall not be tracked (even the reading of statistic data)
             return false;
         } else {
-            $userlogin = getUserLogin();
-            if (! $userlogin->isLoggedIn() || $userlogin->isAnonymous()) {
+            if (! is_user()) {
                 $user = "-";
             } else {
+                $userlogin = getUserLogin();
                 $user = $userlogin->loginName();
             }
             $that->db->insert('statistics', array(

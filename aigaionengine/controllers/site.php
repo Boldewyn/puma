@@ -5,7 +5,7 @@ class Site extends Controller {
 	function Site()
 	{
 		parent::Controller();
-        ban_non_admins();
+        restrict_to_admins();
 	}
 
 	/** Pass control to the site/configure/ controller */

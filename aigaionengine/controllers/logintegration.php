@@ -10,7 +10,7 @@ class Logintegration extends Controller {
 	function Logintegration()
 	{
 		parent::Controller();
-        ban_non_admins();
+        restrict_to_admins();
 	}
 
 	/** no default */

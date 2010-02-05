@@ -5,7 +5,7 @@ class Users extends Controller {
 	function Users()
 	{
 		parent::Controller();
-        ban_non_admins();
+        restrict_to_admins();
 	}
 
 	/** Pass control to the users/edit/(logged user) controller */

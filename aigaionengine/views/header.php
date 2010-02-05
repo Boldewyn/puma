@@ -15,7 +15,7 @@ header('Content-Type: text/html; charset=UTF-8');
           base_url: '<?php echo base_url();?>',
           language: '<?php echo $this->config->item('current_language');?>',
           user: {
-            <?php if (! $userlogin->isLoggedIn() || $userlogin->isAnonymous()): ?>
+            <?php if (! is_user()): ?>
               id: ''
             <?php else: ?>
               id: '<?php _js($userlogin->loginName());?>',
@@ -57,7 +57,7 @@ header('Content-Type: text/html; charset=UTF-8');
               ?>
             </p>
             <p class="userdata header_control">
-              <?php if (! $userlogin->isLoggedIn() || $userlogin->isAnonymous()): ?>
+              <?php if (! is_user()): ?>
                 <?php _e('Guest User:'); ?> <?php _a('login/nds/', __('Login (NDS)')); ?> | <?php _a('login', __('Login (Guest account)')); ?>
               <?php else: ?>
                 <?php printf(__('Hello, %s %s'), $userlogin->preferences['firstname'], $userlogin->preferences['surname']); ?> |

@@ -33,14 +33,13 @@ $userlogin = getUserLogin();
             <?php echo form_open('user/admin/contact'); ?>
               <p>
                 <input type="text" class="text" name="name" id="footer_ask_name" value="<?php
-                  echo (! $userlogin->isLoggedIn() || $userlogin->isAnonymous())? __("Name") :
-                                                  $userlogin->preferences['firstname']." ".
-                                                  $userlogin->preferences['surname']; ?>" />
+                  echo (! is_user())? __('Name') :
+                        $userlogin->preferences['firstname'].' '.$userlogin->preferences['surname']; ?>" />
               </p>
               <p>
                 <input type="text" class="text" name="email" id="footer_ask_email" value="<?php
-                  echo ! $userlogin->isLoggedIn() || $userlogin->isAnonymous()?
-                       __("E-Mail") : $userlogin->preferences['email']; ?>" />
+                  echo !is_user()? __('E-Mail') :
+                        $userlogin->preferences['email']; ?>" />
               </p>
               <p>
                 <label for="footer_ask_question"><?php _e('Question:')?></label>

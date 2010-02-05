@@ -121,7 +121,7 @@ if (!isset($options)||($options==null))
 <?php
 $config = array('onlyIfUserSubscribed'=>False,
                 'includeGroupSubscriptions'=>True,);
-if ($userlogin->isLoggedIn()) { $config['user'] = $userlogin->user(); }
+if (is_user()) { $config['user'] = $userlogin->user(); }
 $this->load->view('topics/optiontree',
               array('topics'   => $this->topic_db->getByID(1,$config),
               'showroot'  => False,

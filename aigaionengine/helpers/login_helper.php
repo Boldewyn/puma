@@ -28,12 +28,26 @@ function getUserLogin() {
     return $userlogin;
 }
 
-function ban_non_admins() {
+function restrict_to_admins($msg='', $redirect='') {
     $userlogin = getUserLogin();
     if (! $userlogin->hasRights('database_manage')) {
-        redirect('');
+        if ($msg) { appendErrorMessage($msg); }
+        redirect($redirect);
         exit;
     }
+}
+
+function restrict_to_users($msg='', $redirect='') {
+    if (! is_user()) {
+        if ($msg) { appendErrorMessage($msg); }
+        redirect($redirect);
+        exit;
+    }
+}
+
+function is_user() {
+    $userlogin = getUserLogin();
+    return ($userlogin->isLoggedIn() && !$userlogin->isAnonymous());
 }
 
 //__END__

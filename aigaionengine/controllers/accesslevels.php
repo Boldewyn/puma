@@ -5,7 +5,7 @@ class Accesslevels extends Controller {
   function Accesslevels()
   {
     parent::Controller();
-    ban_non_admins();
+    restrict_to_admins();
   }
 
   /** There is no default controller . */
