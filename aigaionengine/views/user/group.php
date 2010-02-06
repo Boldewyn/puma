@@ -1,5 +1,7 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); $userlogin = getUserLogin(); ?>
 
+<p><?php _a('user', __('&laquo; Back to all users’ overview'))?></p>
+
 <h2><?php printf(__('Group Details: %s'), h($group['surname']))?></h2>
 
 <table class="datatable">

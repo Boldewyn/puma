@@ -1,5 +1,7 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); $userlogin = getUserLogin(); ?>
 
+<p><?php _a('user', __('&laquo; Back to all users’ overview'))?></p>
+
 <h2><?php _e("User Details:"); echo " "; _h($user->firstname); echo ' '; _h($user->surname);?></h2>
 
 <?php $this->load->view("user/contact", array("embed"=>true, "success" => false));?>

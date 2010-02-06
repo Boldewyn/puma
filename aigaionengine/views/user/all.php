@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 
-<h2><?php _e("All Users")?></h2>
+<h2><?php _e('All Users')?></h2>
 
 <p><?php printf(__('This is a list of all current users of %s. Click on any link to see a detailed description of the user.'), puma())?></p>
 
