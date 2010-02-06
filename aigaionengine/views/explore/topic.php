@@ -12,6 +12,7 @@
     Maybe optional: pass css classnames for node, leaf, subtree, etc. Just so we can make different trees even have different styling.
     Typically loaded with $this->load->vars(
 */
+    $this->load->vars(array('mode' => 'collapsable'));
     if (!isset($depth))$depth = -1;
     if (!isset($showroot))$showroot = True;
     if (!isset($collapseAll))$collapseAll = False;
@@ -35,8 +36,7 @@
             //if next is an end marker:
             echo '</ul></div>';
             //should we collapse?
-            echo $todo[1],'</li>';
-            unset($todo[1]);
+            echo '</li>';
             $todo = array_values($todo); //reindex
             $currentdepth--;
         } else {
@@ -56,11 +56,7 @@
                     $currentdepth++;
                     echo '<div id="topic_children_',
                          $next->topic_id,'" class="topictree-children"><ul class="topictree-list">';
-                    $collapse='';
-                    if ($collapseAll||array_key_exists('flagCollapsed',$next->configuration)&&$next->flags['userIsCollapsed']) {
-                        $collapse = '<script type="text/javascript">$("#control_topic_'.$next->topic_id.'").click()</script>';
-                    }
-                    $todo = array_merge($children,array('end',$collapse),array(),$todo); //merge and reindex
+                    $todo = array_merge($children,array('end'),array(),$todo); //merge and reindex
                 } else {
                     $todo = array_values($todo); //reindex
                     echo '</li>';
