@@ -13,7 +13,7 @@ class Usercontroller extends Controller {
         if ($id == False) {
             restrict_to_users(__('You must be logged in to view the users’ page.'));
             $query = $this->db->from('users')->join('usergrouplink', 'users.user_id = usergrouplink.user_id')
-                          ->where('users.type', 'normal')
+                          ->where('users.type', 'external')
                           ->order_by('usergrouplink.group_id asc')->order_by('users.login asc')
                           ->get();
             $users = $query->result_array();
@@ -166,7 +166,7 @@ class Usercontroller extends Controller {
             redirect('');
         }
         $query = $this->db->from('users')->join('usergrouplink', 'users.user_id = usergrouplink.user_id')
-                      ->where('users.type', 'normal')->where('usergrouplink.group_id', $group[0]['user_id'])
+                      ->where('users.type', 'external')->where('usergrouplink.group_id', $group[0]['user_id'])
                       ->order_by('users.login asc')
                       ->get();
         $users = $query->result_array();

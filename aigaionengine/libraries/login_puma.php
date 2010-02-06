@@ -51,7 +51,7 @@ class Login_puma {
             return array('login'=>'', 'groups'=>array(), 'error'=>__('Error: Authentication could not be established.'));
         } else {
             $CI->latesession->set('__login_key', $this->mkkey(session_id()));
-            header("Location: http://www-cgi.uni-regensburg.de/~stm01875/puma_login.php?p=".urlencode($_SERVER['REQUEST_URI'])."&k=".urlencode($_SESSION['__login_key']), TRUE, 302);
+            header('Location: http://www-cgi.uni-regensburg.de/~stm01875/puma_login.php?p='.urlencode($_SERVER['REQUEST_URI']).'&k='.urlencode($_SESSION['__login_key']), TRUE, 302);
             exit;
         }
 
@@ -65,7 +65,7 @@ class Login_puma {
     /**
     * Create a random key for the login session
     */
-    private function mkkey ($seed="") {
+    private function mkkey ($seed='') {
         return md5($seed.uniqid(mt_rand(), true));
     }
 
@@ -90,23 +90,23 @@ class Login_puma {
     * Check login data for integrity
     */
     private function check_login_data ($data, $strict=False) {
-        $fields = array("user", "pre", "sur", "email", "group", "maingroup");
+        $fields = array('user', 'pre', 'sur', 'email', 'group', 'maingroup');
         foreach ($fields as $field) {
             if (! isset($data[$field])) {
-                return sprintf(__("The necessary field %s is missing."), $field);
+                return sprintf(__('The necessary field %s is missing.'), $field);
             }
         }
-        if (! preg_match("/^[a-z]{3}[0-9]{5}$/", $data['user'])) {
-            return sprintf(__("The username %s is unknown."), htmlspecialchars($data['user']));
+        if (! preg_match('/^[a-z]{3}[0-9]{5}$/', $data['user'])) {
+            return sprintf(__('The username %s is unknown.'), htmlspecialchars($data['user']));
         }
-        if ($data['maingroup'] !== "physik" && $data['user'] !== "stm01875") {
-            return sprintf(__("Members of the group %s are not allowed at the moment. We apologize for any inconvenience!"), htmlspecialchars($data['maingroup']));
+        if ($data['maingroup'] !== 'physik' && $data['user'] !== 'stm01875') {
+            return sprintf(__('Members of the group %s are not allowed at the moment. We apologize for any inconvenience!'), htmlspecialchars($data['maingroup']));
         }
         if ($strict && substr($data['user'], 0, 3) !== strtolower(substr($data['sur'], 0, 2).substr($data['pre'], 0, 1))) {
-            return sprintf(__("The username %s is unknown."), htmlspecialchars($data['user']));
+            return sprintf(__('The username %s is unknown.'), htmlspecialchars($data['user']));
         }
-        if ($strict && ! preg_match("/@(?:[a-z]\.)?uni-regensburg.de$/", $data['email'])) {
-            return sprintf(__("The email address %s is not allowed."), htmlspecialchars($data['email']));
+        if ($strict && ! preg_match('/@(?:[a-z]\.)?uni-regensburg.de$/', $data['email'])) {
+            return sprintf(__('The email address %s is not allowed.'), htmlspecialchars($data['email']));
         }
         $CI = &get_instance();
         $Q = $CI->db->get_where('users',array('login'=>$data['user']));
@@ -114,14 +114,14 @@ class Login_puma {
             $password = md5($this->mkkey('unguessable_password'));
         } else {
             $row = $Q->row();
-            if ($row->type != "normal") {
-                return __("The account is locked internally.");
+            if ($row->type != 'external') {
+                return __('The account is locked internally.');
             }
             $password = $row->password;
         }
         return array(
             'login'              => $data['user'],
-            'groups'             => array("ndsuser", $data['group'], $data['maingroup']),
+            'groups'             => array('ndsuser', $data['group'], $data['maingroup']),
             'initials'           => substr($data['pre'], 0, 1).substr($data['sur'], 0, 1),
             'firstname'          => $data['pre'],
             'betweenname'        => '',
@@ -130,7 +130,7 @@ class Login_puma {
             'lastreviewedtopic'  => 1,
             'abbreviation'       => $data['user'],
             'password'           => $password,
-            'type'               => 'normal',
+            'type'               => 'external',
             'theme'              => 'default',
             'summarystyle'       => 'author',
             'authordisplaystyle' => 'fvl',
@@ -148,14 +148,14 @@ class Login_puma {
      */
     private function _parse_get () {
         $qs = $_SERVER['QUERY_STRING'];
-        $qm = strpos($qs, "?");
+        $qm = strpos($qs, '?');
         if ($qm !== FALSE) {
             $qs = substr($qs, $qm);
         }
-        $get = explode("&", $qs);
+        $get = explode('&', $qs);
         $ret = array();
         foreach ($get as $q) {
-            $q = explode("=", $q, 2);
+            $q = explode('=', $q, 2);
             $ret[urldecode($q[0])] = isset($q[1])? urldecode($q[1]) : '';
         }
         return $ret;
@@ -186,7 +186,7 @@ class Login_puma {
             }
             $insertData = $data;
             unset($insertData['groups']);
-            $CI->db->insert("users", $insertData);
+            $CI->db->insert('users', $insertData);
             $new_id = $CI->db->insert_id();
             //add group links, and rightsprofiles for these groups, to the user
             foreach ($group_ids as $group_id) {

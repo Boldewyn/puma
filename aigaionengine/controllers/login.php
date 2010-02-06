@@ -122,7 +122,7 @@ class Login extends Controller {
             array_shift($segments);
             array_shift($segments);
             #redirect(str_replace(' ','%20',implode('/',$segments)));
-            redirect("");
+            redirect('');
         } else {
             //if failure: redirect
             $segments = $this->uri->segment_array();
