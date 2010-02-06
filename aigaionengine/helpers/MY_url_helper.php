@@ -5,6 +5,15 @@ Aigaion: Extension of the prep_url function...
 
 
 /**
+ *
+ */
+function is_ajax() {
+    return !!(array_key_exists('HTTP_X_REQUESTED_WITH', $_SERVER) 
+              && strpos($_SERVER['HTTP_X_REQUESTED_WITH'], 'XMLHttpRequest') > -1);
+}
+
+
+/**
  * Prep URL
  *
  * Simply adds the http:// part if missing
