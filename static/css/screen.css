@@ -114,7 +114,7 @@ p + p {
   color: #008891;
 }
 a:visited {
-  color: #5c8688;
+  color: #116671;
 }
 *.pseudolink:focus,
 *.pseudolink:hover,
@@ -1181,7 +1181,7 @@ body {
 }
 
 
-
+/** in-content tabs */
 
 #content ul.tabs {
   overflow: hidden;
@@ -1213,6 +1213,8 @@ body {
 }
 
 
+/** data tables */
+
 .datatable {
   border: .08333em solid #E0EEEF;
   min-width: 29em;
@@ -1233,6 +1235,29 @@ body {
 }
 
 
+
+/** topic trees */
+#content .topic-tree ul {
+  margin-left: 1.25em;
+}
+
+#content .topic-tree .icon {
+  vertical-align: middle;
+  margin-right: .25em;
+  cursor: pointer;
+}
+
+#content .topic-tree li {
+  margin: .625em 0;
+}
+
+#content .topic-tree li.topictree-leaf {
+  margin-left: 1.6667em;
+}
+
+#content .topic-tree em {
+  font-size: .91em;
+}
 
 
 

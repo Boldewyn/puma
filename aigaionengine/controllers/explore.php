@@ -47,8 +47,7 @@ class Explore extends Controller {
                                        __('Explore topics: no topics yet.'));
             redirect('/explore/');
         }
-        $this->load->vars(array('subviews'  => array('topics/maintreerow'=>array('useCollapseCallback'=>True)),
-                                'collapsed' => option_get_like('topic_collapsed_%')));
+        $this->load->vars(array('collapsed' => option_get_like('topic_collapsed_%')));
         $this->load->view('header', array('title' => __('Explore » Topic')));
         $this->load->view('explore/topic', array('topics' => $root->getChildren()));
         $this->load->view('footer');

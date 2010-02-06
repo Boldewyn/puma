@@ -1,5 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<ul>
+<ul class="topic-tree">
 <?php
 /*
     'topics'       => $topics, //array of topics to be shown
@@ -9,17 +9,12 @@
     The following var is passed around a lot, and not modified along the way, so it can be loaded using
     $this->load->vars(array( 
     
-    'subviews' => array('topics/maintreerow'=>array('collapseCallback'=>$collapseCallback)) 
-                             
-        (subviews is array of 'viewname' => array(arguments,to,be,passed). $topic is always added to the arguments.
-  
     Maybe optional: pass css classnames for node, leaf, subtree, etc. Just so we can make different trees even have different styling.
     Typically loaded with $this->load->vars(
 */
     if (!isset($depth))$depth = -1;
-    if (!isset($showroot))$showroot = False;
+    if (!isset($showroot))$showroot = True;
     if (!isset($collapseAll))$collapseAll = False;
-    if (!isset($subviews))$this->load->vars(array('subviews' => array()));
     
     $todo = array();
     if (isset($topics)) {
@@ -54,25 +49,22 @@
                     $li_class = 'topictree-node';
                 }
                 echo '<li class="',$li_class,'">';
-                foreach ($subviews as $subview => $args) {
-                    $args['topic'] = $next;
-                    echo $this->load->view($subview,
-                                          $args,
-                                          True);
+                echo $this->load->view('explore/topic/leaf',
+                                      array('useCollapseCallback'=>True, 'topic' => $next),
+                                      True);
+                if ((sizeof($children)>0) && (($depth<0) || ($currentdepth<$depth))) {
+                    $currentdepth++;
+                    echo '<div id="topic_children_',
+                         $next->topic_id,'" class="topictree-children"><ul class="topictree-list">';
+                    $collapse='';
+                    if ($collapseAll||array_key_exists('flagCollapsed',$next->configuration)&&$next->flags['userIsCollapsed']) {
+                        $collapse = '<script type="text/javascript">$("#control_topic_'.$next->topic_id.'").click()</script>';
+                    }
+                    $todo = array_merge($children,array('end',$collapse),array(),$todo); //merge and reindex
+                } else {
+                    $todo = array_values($todo); //reindex
+                    echo '</li>';
                 }
-                echo '</li>';
-            }
-            if ((sizeof($children)>0) && (($depth<0) || ($currentdepth<$depth))) {
-                $currentdepth++;
-                echo '<li class="topictree-children"><div id="topic_children_',
-                     $next->topic_id,'" class="topictree-children"><ul class="topictree-list">';
-                $collapse='';
-                if ($collapseAll||array_key_exists('flagCollapsed',$next->configuration)&&$next->flags['userIsCollapsed']) {
-                    $collapse = '<script type="text/javascript">$("#topic_children_'.$next->topic_id.'").hide()</script>';
-                }
-                $todo = array_merge($children,array('end',$collapse),array(),$todo); //merge and reindex
-            } else {
-                $todo = array_values($todo); //reindex
             }
             $first = False;
         }
