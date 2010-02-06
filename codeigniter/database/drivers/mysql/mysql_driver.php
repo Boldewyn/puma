@@ -109,12 +109,7 @@ class CI_DB_mysql_driver extends CI_DB {
 	 */
 	function db_set_charset($charset, $collation)
 	{
-	  //AIGAION MOD
-	  //DR: I do not understand what's going on, but if I uncomment this line I get absolute garbage from all my UTF8 data!
-	  //It's is really weird: the database (mysql4.1) is in utf8, with collation utf8, so this 'set names' should not harm, no?
-	  //does it relate to the link below, and is the data in my system simply not REALLY in utf8???
-	  //http://forums.mysql.com/read.php?103,46870,47245#msg-47245
-		//return @mysql_query("SET NAMES '".$this->escape_str($charset)."' COLLATE '".$this->escape_str($collation)."'", $this->conn_id);
+		return @mysql_query("SET NAMES '".$this->escape_str($charset)."' COLLATE '".$this->escape_str($collation)."'", $this->conn_id);
 	}
 
 	// --------------------------------------------------------------------
