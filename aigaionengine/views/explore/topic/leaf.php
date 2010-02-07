@@ -5,21 +5,25 @@ if (! isset($mode)) { $mode = 'simple'; }
 $link = anchor('explore/topic/'.$topic->topic_id, h($topic->name));
 
 switch ($mode) {
+    case 'subscription':
+        break;
     case 'collapsable':
         if (sizeof($topic->getChildren())>0) {
-            _icon('list-remove', '', 'id="control_topic_'.$topic->topic_id.'"');
+            _a('option/set/topic_open_'.$topic->topic_id, icon('list-remove', ''), array('id'=>'control_topic_'.$topic->topic_id));
             ?><script type="text/javascript">
               $("#control_topic_<?php echo $topic->topic_id ?>").click(function() {
-                  var $icon = $(this);
+                  var $a = $(this);
+                  var $icon = $('img', $a);
                   if($icon.attr("src").search(/list-remove/) > -1) {
                       $icon.attr("src", $icon.attr("src").replace(/list-remove/, "list-add"));
-                      $icon.nextAll("div").hide();
+                      $a.nextAll("div").hide();
                       $.get(config.base_url+"option/set/topic_open_<?php echo $topic->topic_id ?>");
                   } else {
                       $icon.attr("src", $icon.attr("src").replace(/list-add/, "list-remove"));
-                      $icon.nextAll("div").show();
+                      $a.nextAll("div").show();
                       $.get(config.base_url+"option/set/topic_open_<?php echo $topic->topic_id ?>/1");
                   }
+                  return false;
               });<?php
             if (! array_key_exists('topic_open_'.$topic->topic_id, $open)) {
                 ?>$(function(){$("#control_topic_<?php echo $topic->topic_id ?>").click();});<?php

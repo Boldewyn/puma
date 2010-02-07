@@ -4,6 +4,12 @@ class Usercontroller extends Controller {
 
     public function Usercontroller() {
         parent::Controller();
+        $subnav = array(
+            '/user/' => __('All Users'),
+        );
+        $userlogin = getUserLogin();
+        $subnav['/user/'.$userlogin->loginName().'/edit'] = __('My Preferences');
+        $this->load->vars(array('subnav' => $subnav));
     }
 
     /**
@@ -91,7 +97,9 @@ class Usercontroller extends Controller {
             $this->email->to($user->email);
             $this->email->subject($subject);
             $this->email->message($this->input->post('message'));
-            $data['success_send'] = $this->email->send();
+            if (! $data['success_send'] = $this->email->send()) {
+                appendErrorMessage(__('There was an error trying to send the e-Mail.'), 'severe');
+            }
         }
 
         $this->load->view('header', array('title'=>sprintf(__('Contact user %s'), $id)));
@@ -133,6 +141,7 @@ class Usercontroller extends Controller {
             appendErrorMessage(validation_errors());
         }
 
+        $this->load->vars(array('subnav_current' => '/user/'.$user->login.'/edit'));
         $this->load->view('header', array('title'=>sprintf(__('Edit user %s'), $id)));
         $this->load->view('user/edit', $data);
         $this->load->view('footer');
@@ -148,8 +157,12 @@ class Usercontroller extends Controller {
             option_set($key, $value);
         }
         if (is_numeric($option)) { $option = (float)$option; }
-        $this->output->set_header('Content-Type: text/javascript; charset=utf-8');
-        $this->output->set_output(json_encode($option));
+        if (is_ajax()) {
+            $this->output->set_header('Content-Type: text/javascript; charset=utf-8');
+            $this->output->set_output(json_encode($option));
+        } else {
+            back_to_referer(__('The option was successfully set.'));
+        }
     }
     
     /**

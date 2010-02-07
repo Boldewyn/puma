@@ -31,19 +31,19 @@
 
 
     /** append an error message */
-    function appendErrorMessage($msg, $severity="normal") {
+    function appendErrorMessage($msg, $severity='normal') {
         $CI = &get_instance();
-        if ($severity == "severe") {
-            $msg .= sprintf(__(" If this appears regularly, please contact %s."), '<a href="mailto:&quot;'.
-                    getConfigurationSetting("CFG_ADMIN").'&quot;%20&lt;'.getConfigurationSetting("CFG_ADMINMAIL").
-                    '>?subject=Error%20in%20Puma">'.getConfigurationSetting("CFG_ADMIN").'</a>');
-        } elseif ($severity == "fatal") {
-            $msg .= "<strong>".sprintf(__(" This is a serious bug! Please contact immediately %s."), '<a href="mailto:&quot;'.
-                    getConfigurationSetting("CFG_ADMIN").'&quot;%20&lt;'.getConfigurationSetting("CFG_ADMINMAIL").
-                    '>?subject=Error%20in%20Puma">'.getConfigurationSetting("CFG_ADMIN").'</a>')."</strong>";
+        if ($severity == 'severe') {
+            $msg .= sprintf(' '.__('If this appears regularly, please contact %s.'), '<a href="mailto:&quot;'.
+                    getConfigurationSetting('CFG_ADMIN').'&quot;%20&lt;'.getConfigurationSetting('CFG_ADMINMAIL').
+                    '>?subject=Error%20in%20Puma">'.getConfigurationSetting('CFG_ADMIN').'</a>');
+        } elseif ($severity == 'fatal') {
+            $msg .= '<strong> '.sprintf(__('This is a serious bug! Please contact immediately %s.'), '<a href="mailto:&quot;'.
+                    getConfigurationSetting('CFG_ADMIN').'&quot;%20&lt;'.getConfigurationSetting('CFG_ADMINMAIL').
+                    '>?subject=Error%20in%20Puma">'.getConfigurationSetting('CFG_ADMIN').'</a>').'</strong>';
         }
         $current_message = $CI->latesession->get('errormessage');
-        if ($current_message) { $current_message .= "<br/>"; }
+        if ($current_message) { $current_message .= '<br/>'; }
         $CI->latesession->set('errormessage',$current_message.$msg);
     }
 
@@ -51,8 +51,8 @@
     function appendMessage($msg) {
         $CI = &get_instance();
         $current_message = $CI->latesession->get('message');
-        if ($current_message) { $current_message .= "<br/>"; }
-        $CI->latesession->set('message',$current_message.$msg);
+        if ($current_message) { $current_message .= '<br/>'; }
+        $CI->latesession->set('message', $current_message.$msg);
     }
 
     /** retrieve full error message */
@@ -79,4 +79,4 @@
         $CI->latesession->set('message','');
     }
 
-?>
+//__END__

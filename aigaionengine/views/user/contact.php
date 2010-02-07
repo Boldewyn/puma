@@ -12,7 +12,8 @@
   <?php if ($success_send): ?>
     <p class="success"><?php _e('The e-Mail was successfully sent.')?></p>
   <?php else: ?>
-    <p class="error"><?php _e('There was an error trying to send the e-Mail.', 'severe')?></p>
+    <p class="error"><?php _e('Ooops.')?></p>
+    <p><?php _a('user/'.$user->login, __('&laquo; Back to the user’s overview'))?></p>
   <?php endif; ?>
 
 <?php else: ?>
