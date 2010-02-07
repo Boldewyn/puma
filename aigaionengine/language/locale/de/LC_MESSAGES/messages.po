@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Puma.Phi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-04 16:18+0100\n"
+"POT-Creation-Date: 2010-02-07 22:10+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Manuel Strehl <translate@manuel-strehl.de>\n"
 "Language-Team: \n"
@@ -330,6 +330,7 @@ msgstr "fehlende Parameter"
 #: ../../controllers/authors.php:320
 #: ../../controllers/authors.php:520
 #: ../../controllers/authors.php:545
+#: ../../controllers/explore.php:12
 #: ../../views/publications/edit.php:212
 #: ../../views/publications/single.php:213
 msgid "Authors"
@@ -723,24 +724,52 @@ msgstr "Erstellen » Autor"
 msgid "Error: Resource not found"
 msgstr "Fehler: Ressource nicht gefunden"
 
+#: ../../controllers/explore.php:8
+#: ../../views/site/edit.php:477
+#: ../../views/user/edit.php:90
+#: ../../views/users/edit.php:315
+msgid "All"
+msgstr "Alle"
+
+#: ../../controllers/explore.php:9
+#: ../../views/publications/single.php:416
+msgid "Topics"
+msgstr "Themen"
+
+#: ../../controllers/explore.php:10
+msgid "Tags"
+msgstr "Tags"
+
 #: ../../controllers/explore.php:11
+msgid "Publications"
+msgstr "Veröffentlichungen"
+
+#: ../../controllers/explore.php:18
 #: ../../views/menu.php:7
 msgid "Explore"
 msgstr "Entdecken"
 
-#: ../../controllers/explore.php:20
+#: ../../controllers/explore.php:27
 msgid "Explore » Publication"
 msgstr "Entdecken » Veröffentlichung"
 
-#: ../../controllers/explore.php:29
+#: ../../controllers/explore.php:46
+msgid "Explore topics: non-existing id passed."
+msgstr "Themen entdecken: Nicht existierende ID übergeben."
+
+#: ../../controllers/explore.php:47
+msgid "Explore topics: no topics yet."
+msgstr "Themen entdecken: Noch keine Themen."
+
+#: ../../controllers/explore.php:51
 msgid "Explore » Topic"
 msgstr "Entdecken » Thema"
 
-#: ../../controllers/explore.php:38
+#: ../../controllers/explore.php:60
 msgid "Explore » Tag"
 msgstr "Entdecken » Tag"
 
-#: ../../controllers/explore.php:47
+#: ../../controllers/explore.php:69
 msgid "Explore » Author"
 msgstr "Entdecken » Autor"
 
@@ -933,11 +962,34 @@ msgstr "Thema abonnieren"
 msgid "Unsubscribe topic"
 msgstr "Thema kündigen"
 
-#: ../../controllers/help.php:11
-#: ../../views/footer.php:65
+#: ../../controllers/help.php:12
+#: ../../views/footer.php:64
 #: ../../views/header.php:67
 msgid "Help"
 msgstr "Hilfe"
+
+#: ../../controllers/help.php:13
+#: ../../views/help/header.php:3
+msgid "Introduction"
+msgstr "Einführung"
+
+#: ../../controllers/help.php:14
+#: ../../views/footer.php:54
+#: ../../views/help/header.php:4
+msgid "About"
+msgstr "Über"
+
+#: ../../controllers/help.php:15
+#: ../../views/footer.php:68
+#: ../../views/help/header.php:5
+msgid "FAQ"
+msgstr "FAQ"
+
+#: ../../controllers/help.php:16
+#: ../../views/footer.php:69
+#: ../../views/help/header.php:6
+msgid "Video tutorial"
+msgstr "Video-Einführung"
 
 #: ../../controllers/import.php:26
 #: ../../controllers/import.php:63
@@ -1647,35 +1699,40 @@ msgstr "Thema exportieren"
 msgid "Exported from topic"
 msgstr "Exportiert von Thema"
 
-#: ../../controllers/usercontroller.php:16
-msgid "You must be logged in to view the users’ page."
-msgstr "Du musst angemeldet sein, um die Nutzerseite zu sehen."
-
-#: ../../controllers/usercontroller.php:37
+#: ../../controllers/usercontroller.php:8
+#: ../../controllers/usercontroller.php:40
 #: ../../views/user/all.php:3
 msgid "All Users"
 msgstr "Alle Nutzer"
 
-#: ../../controllers/usercontroller.php:44
+#: ../../controllers/usercontroller.php:11
+msgid "My Preferences"
+msgstr "Meine Einstellungen"
+
+#: ../../controllers/usercontroller.php:20
+msgid "You must be logged in to view the users’ page."
+msgstr "Du musst angemeldet sein, um die Nutzerseite zu sehen."
+
+#: ../../controllers/usercontroller.php:46
 #, php-format
 msgid "User %s does not exist."
 msgstr "Nutzer %s existiert nicht"
 
-#: ../../controllers/usercontroller.php:47
+#: ../../controllers/usercontroller.php:49
 #, php-format
 msgid "Unknown action requested: %s."
 msgstr "Unbekannte Aktion angefordert: %s"
 
-#: ../../controllers/usercontroller.php:50
+#: ../../controllers/usercontroller.php:52
 msgid "You must be logged in to view this user’s page."
 msgstr "Du musst angemeldet sein, um die Seite dieses Nutzers zu sehen."
 
-#: ../../controllers/usercontroller.php:60
+#: ../../controllers/usercontroller.php:61
 #, php-format
 msgid "User %s"
 msgstr "Nutzer %s"
 
-#: ../../controllers/usercontroller.php:74
+#: ../../controllers/usercontroller.php:75
 msgid "Please log in to contact other users."
 msgstr "Bitte melde dich an, um andere Nutzer zu kontaktieren."
 
@@ -1693,31 +1750,35 @@ msgstr "Die %s darf 511 Zeichen nicht überschreiten."
 msgid "message"
 msgstr "Nachricht"
 
-#: ../../controllers/usercontroller.php:90
+#: ../../controllers/usercontroller.php:91
 #, php-format
 msgid "A message from Puma user %s %s"
 msgstr "Eine Nachricht von Puma-Nutzer %s %s"
 
-#: ../../controllers/usercontroller.php:102
+#: ../../controllers/usercontroller.php:101
+msgid "There was an error trying to send the e-Mail."
+msgstr "Es gab einen Fehler beim Versuch, die e-Mail zu versenden."
+
+#: ../../controllers/usercontroller.php:105
 #, php-format
 msgid "Contact user %s"
 msgstr "Nutzer %s kontaktieren"
 
-#: ../../controllers/usercontroller.php:114
+#: ../../controllers/usercontroller.php:118
 msgid "You are not allowed to edit other users."
 msgstr "Du darfst andere Nutzer nicht bearbeiten."
 
-#: ../../controllers/usercontroller.php:118
+#: ../../controllers/usercontroller.php:122
 #, php-format
 msgid "The field %s is required."
 msgstr "Das %s-Feld ist verpflichtend"
 
-#: ../../controllers/usercontroller.php:119
+#: ../../controllers/usercontroller.php:123
 #, php-format
 msgid "The field %s is too long."
 msgstr "Das Feld %s ist zu lang."
 
-#: ../../controllers/usercontroller.php:124
+#: ../../controllers/usercontroller.php:128
 #: ../../views/users/edit.php:107
 #: ../../views/users/edit.php:146
 #: ../../views/users/edit.php:156
@@ -1725,29 +1786,33 @@ msgstr "Das Feld %s ist zu lang."
 msgid "Password"
 msgstr "Passwort"
 
-#: ../../controllers/usercontroller.php:125
+#: ../../controllers/usercontroller.php:129
 msgid "Password repeat"
 msgstr "Passwort wiederholen"
 
-#: ../../controllers/usercontroller.php:132
+#: ../../controllers/usercontroller.php:136
 msgid "The account was successfully updated."
 msgstr "Das Konto wurde erfolgreich bearbeitet!"
 
-#: ../../controllers/usercontroller.php:134
+#: ../../controllers/usercontroller.php:138
 msgid "The changes could not be stored."
 msgstr "Die Änderungen konnten nicht gespeichert werden."
 
-#: ../../controllers/usercontroller.php:140
+#: ../../controllers/usercontroller.php:145
 #, php-format
 msgid "Edit user %s"
 msgstr "Nutzer %s bearbeiten"
 
-#: ../../controllers/usercontroller.php:155
+#: ../../controllers/usercontroller.php:164
+msgid "The option was successfully set."
+msgstr "Die Option wurde erfolgreich gesetzt."
+
+#: ../../controllers/usercontroller.php:178
 #, php-format
 msgid "Group %s does not exist."
 msgstr "Gruppe %s existiert nicht."
 
-#: ../../controllers/usercontroller.php:163
+#: ../../controllers/usercontroller.php:186
 #, php-format
 msgid "Group %s"
 msgstr "Gruppe %s"
@@ -1848,13 +1913,34 @@ msgstr "Themenabo für %s (%s)"
 msgid "Wiki"
 msgstr "Wiki"
 
-#: ../../controllers/wiki.php:17
-#: ../../controllers/wiki.php:23
-#: ../../controllers/wiki.php:34
-#: ../../controllers/wiki.php:40
+#: ../../controllers/wiki.php:11
+#: ../../controllers/wiki.php:53
+msgid "View"
+msgstr "Seite"
+
+#: ../../controllers/wiki.php:18
+#: ../../controllers/wiki.php:26
+#: ../../controllers/wiki.php:38
+#: ../../controllers/wiki.php:45
 #, php-format
 msgid "Wiki » %s"
 msgstr "Wiki » %s"
+
+#: ../../controllers/wiki.php:24
+msgid "You must be logged in to edit the wiki."
+msgstr "Du musst angemeldet sein, um das Wiki zu bearbeiten."
+
+#: ../../controllers/wiki.php:54
+msgid "Discussion"
+msgstr "Diskussion"
+
+#: ../../controllers/wiki.php:55
+msgid "Edit"
+msgstr "bearbeiten"
+
+#: ../../controllers/wiki.php:56
+msgid "History"
+msgstr "Geschichte"
 
 #: ../../errors/error_general.php:6
 msgid "Error"
@@ -2210,12 +2296,12 @@ msgstr "%s Autoren ohne verzeichnete Veröffentlichugen gelöscht.."
 
 #: ../../helpers/message_helper.php:37
 #, php-format
-msgid " If this appears regularly, please contact %s."
+msgid "If this appears regularly, please contact %s."
 msgstr "Falls dies regelmäßig erscheint, kontaktiere bitte %s."
 
 #: ../../helpers/message_helper.php:41
 #, php-format
-msgid " This is a serious bug! Please contact immediately %s."
+msgid "This is a serious bug! Please contact immediately %s."
 msgstr "Das ist ein ernstzunehmender Fehler. Bitte verständige sofort %s."
 
 #: ../../helpers/month_helper.php:61
@@ -3900,6 +3986,11 @@ msgstr "Fehler: Ressource nicht gefunden."
 msgid "The resource %s could not be found (error 404)."
 msgstr "Die Ressource %s konnte nicht gefunden werden (Fehler 404)."
 
+#: ../../views/explore/topic/leaf.php:37
+#, php-format
+msgid "%s of %s publications read"
+msgstr "%s von %s Veröffentlichungen gelesen"
+
 #: ../../views/export/bibtex.php:16
 #: ../../views/export/bibtexEmail.php:16
 #, php-format
@@ -4010,49 +4101,38 @@ msgstr "Hast Du irgendeine Frage zu %s? Hast Du einen Fehler entdeckt oder möch
 msgid "Name"
 msgstr "Name"
 
-#: ../../views/footer.php:43
+#: ../../views/footer.php:41
 msgid "E-Mail"
 msgstr "E-Mail"
 
-#: ../../views/footer.php:46
+#: ../../views/footer.php:45
 msgid "Question:"
 msgstr "Frage:"
 
-#: ../../views/footer.php:50
+#: ../../views/footer.php:49
 msgid "ask the admin"
 msgstr "den Admin fragen"
 
-#: ../../views/footer.php:55
-#: ../../views/help/header.php:4
-msgid "About"
-msgstr "Über"
-
-#: ../../views/footer.php:57
+#: ../../views/footer.php:56
 #, php-format
 msgid "%s ist das Promotionsprojekt von Manuel Strehl und entsteht in Zusammenarbeit mit dem Lehrstuhl für Medieninformatik und der Fakultät für Physik an der Universität Regensburg. Ziel ist der Aufbau eines umfassenden Web 2.0-Angebots für die Regensburger Physiker. Die Anwendung basiert auf der freien Publikationsdatenbank %s."
-msgstr ""
+msgstr "%s ist das Promotionsprojekt von Manuel Strehl und entsteht in Zusammenarbeit mit dem Lehrstuhl für Medieninformatik und der Fakultät für Physik an der Universität Regensburg. Ziel ist der Aufbau eines umfassenden Web 2.0-Angebots für die Regensburger Physiker. Die Anwendung basiert auf der freien Publikationsdatenbank %s."
 
-#: ../../views/footer.php:67
+#: ../../views/footer.php:66
 msgid "General help"
 msgstr "Allgemeine Hilfe"
 
-#: ../../views/footer.php:68
+#: ../../views/footer.php:67
 msgid "About this site"
 msgstr "Über diese Seite"
 
-#: ../../views/footer.php:69
-#: ../../views/help/header.php:5
-msgid "FAQ"
-msgstr "FAQ"
-
 #: ../../views/footer.php:70
-#: ../../views/help/header.php:6
-msgid "Video tutorial"
-msgstr "Video-Einführung"
-
-#: ../../views/footer.php:71
 msgid "Aigaion forum"
 msgstr "Aigaion-Forum"
+
+#: ../../views/footer.php:71
+msgid "Imprint"
+msgstr "Impressum"
 
 #: ../../views/groups/edit.php:38
 msgid "Create a new group"
@@ -4354,10 +4434,6 @@ msgstr "Veröffentlichung hinzufügen:"
 msgid "It is a good practice to add only those publications of which you really have an opinion. It is better to have fewer publications which are carefully placed in the topic hierarchy and commented with notes than to add anything that you ever saw, which would result in a database full of uninteresting things among which the relevant papers would be hard to find."
 msgstr "Es ist eine erprobte Vorgehensweise, nur die Veröffentlichungen hinzuzufügen, von denen Du wirklich eine Meinung hast. Es ist besser, wenige Veröffentlichungen sorgfältig in der Themenhierarchie platziert zu haben, kommentiert und mit Notizen versehen, als alles, was Du je gesehen hast, hinzuzufügen, was in einer Datenbank voller uninteressanter Dinge mündet, in der relevante Paper schwer zu finden sind."
 
-#: ../../views/help/header.php:3
-msgid "Introduction"
-msgstr "Einführung"
-
 #: ../../views/help/header.php:7
 msgid "Topic Tree"
 msgstr "Themenbaum"
@@ -4495,7 +4571,7 @@ msgstr "Video-Einführung"
 
 #: ../../views/help/tutorial.php:4
 msgid "Hello to this video tutorial. Well, actually, the tutorial is still in development, but we try hard to publish it here as soon as possible. So, stay tuned!"
-msgstr ""
+msgstr "Hallo zur Video-Einführung. Na ja, tatsächlich ist die Einführung noch in der Entwicklung, aber wir arbeiten hart daran, sie so bald wie möglich zu veröffentlichen. Also, bleib dran!"
 
 #: ../../views/import/importform.php:15
 #, php-format
@@ -4600,8 +4676,8 @@ msgid "use this form"
 msgstr "nutze dieses Formular"
 
 #: ../../views/login/form.php:49
-#: ../../views/user/full.php:24
-#: ../../views/user/group.php:8
+#: ../../views/user/full.php:26
+#: ../../views/user/group.php:10
 msgid "Name:"
 msgstr "Name:"
 
@@ -4915,10 +4991,6 @@ msgstr "Kategorisierung abschließen"
 msgid "categorize publication"
 msgstr "Veröffentlichung einordnen"
 
-#: ../../views/publications/single.php:416
-msgid "Topics"
-msgstr "Themen"
-
 #: ../../views/publications/single.php:428
 msgid "Click on a topic name to change its subscription status."
 msgstr "Klicke auf einen Themennamen, um den zugewiesenen Status zu ändern."
@@ -5077,7 +5149,11 @@ msgstr "Mehr&hellip;"
 msgid "Search on external sites"
 msgstr "Suche auf externen Seiten"
 
-#: ../../views/search/external.php:73
+#: ../../views/search/external.php:8
+msgid "Search term"
+msgstr "Suchbegriff"
+
+#: ../../views/search/external.php:76
 msgid "This form allows you to search external websites."
 msgstr "Dieses Formular erlaubt die Suche über externe Suchmaschinen."
 
@@ -5432,12 +5508,6 @@ msgstr "[von] Nachname"
 msgid "Default number of publications per page"
 msgstr "Vorgabe-Anzahl Veröffentlichungen pro Seite"
 
-#: ../../views/site/edit.php:477
-#: ../../views/user/edit.php:90
-#: ../../views/users/edit.php:315
-msgid "All"
-msgstr "Alle"
-
 #: ../../views/site/edit.php:482
 #: ../../views/users/edit.php:320
 msgid "'Similar author' check"
@@ -5746,22 +5816,26 @@ msgid "The e-Mail was successfully sent."
 msgstr "Die e-Mail wurde erfolgreich versandt."
 
 #: ../../views/user/contact.php:15
-msgid "There was an error trying to send the e-Mail."
-msgstr "Es gab einen Fehler beim Versuch, die e-Mail zu versenden."
+msgid "Ooops."
+msgstr ""
 
-#: ../../views/user/contact.php:24
+#: ../../views/user/contact.php:16
+msgid "&laquo; Back to the user’s overview"
+msgstr "&laquo; Zurück zur Übersicht des Nutzers"
+
+#: ../../views/user/contact.php:25
 msgid "Subject:"
 msgstr "Betreff:"
 
-#: ../../views/user/contact.php:29
+#: ../../views/user/contact.php:30
 msgid "Message:"
 msgstr "Nachricht:"
 
-#: ../../views/user/contact.php:34
+#: ../../views/user/contact.php:35
 msgid "Submit"
 msgstr "senden"
 
-#: ../../views/user/contact.php:36
+#: ../../views/user/contact.php:37
 #: ../../views/user/edit.php:125
 msgid "Back to the user’s overview"
 msgstr "Zurück zur Übersicht des Nutzers"
@@ -5886,43 +5960,48 @@ msgid "Check this box if you want all BibTeX output to be in UTF8, i.e. when you
 msgstr "Markiere diesen Kasten, wenn Du willst, dass die gesamte BibTeX-Ausgabe UTF-8-kodiert ist, d.h., wenn Du <strong>nicht</strong> willst, dass %s Sonderzeichen in BibTeX-Codes wie z.B. %s konvertiert."
 
 #: ../../views/user/full.php:3
+#: ../../views/user/group.php:3
+msgid "&laquo; Back to all users’ overview"
+msgstr "&laquo; Zurück zur Übersicht aller Nutzer"
+
+#: ../../views/user/full.php:5
 msgid "User Details:"
 msgstr "Nutzer-Details:"
 
-#: ../../views/user/full.php:9
+#: ../../views/user/full.php:11
 msgid "Edit account details."
 msgstr "Konto-Details bearbeiten."
 
-#: ../../views/user/full.php:16
+#: ../../views/user/full.php:18
 msgid "Search this user in the faculty’s user database"
 msgstr "Diesen Nutzer in der Nutzer-Datenbank der Fakultät suchen"
 
-#: ../../views/user/full.php:28
+#: ../../views/user/full.php:30
 msgid "NDS login name:"
 msgstr "NDS-Anmeldename:"
 
-#: ../../views/user/full.php:29
+#: ../../views/user/full.php:31
 msgid "guest"
 msgstr "Gast"
 
-#: ../../views/user/full.php:32
+#: ../../views/user/full.php:34
 msgid "E-Mail address:"
 msgstr "E-Mail-Adresse:"
 
-#: ../../views/user/full.php:36
+#: ../../views/user/full.php:38
 msgid "Groups:"
 msgstr "Gruppen:"
 
-#: ../../views/user/group.php:3
+#: ../../views/user/group.php:5
 #, php-format
 msgid "Group Details: %s"
 msgstr "Gruppendetails: %s"
 
-#: ../../views/user/group.php:12
+#: ../../views/user/group.php:14
 msgid "NDS short name:"
 msgstr "NDS-Kurzname:"
 
-#: ../../views/user/group.php:16
+#: ../../views/user/group.php:18
 msgid "Known group members:"
 msgstr "Bekannte Gruppenmitglieder:"
 

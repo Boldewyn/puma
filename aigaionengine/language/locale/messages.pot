@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-04 16:18+0100\n"
+"POT-Creation-Date: 2010-02-07 22:10+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -250,7 +250,8 @@ msgid "missing parameters"
 msgstr ""
 
 #: ../../controllers/authors.php:320 ../../controllers/authors.php:520
-#: ../../controllers/authors.php:545 ../../views/publications/edit.php:212
+#: ../../controllers/authors.php:545 ../../controllers/explore.php:12
+#: ../../views/publications/edit.php:212
 #: ../../views/publications/single.php:213
 msgid "Authors"
 msgstr ""
@@ -606,23 +607,48 @@ msgstr ""
 msgid "Error: Resource not found"
 msgstr ""
 
-#: ../../controllers/explore.php:11 ../../views/menu.php:7
+#: ../../controllers/explore.php:8 ../../views/site/edit.php:477
+#: ../../views/user/edit.php:90 ../../views/users/edit.php:315
+msgid "All"
+msgstr ""
+
+#: ../../controllers/explore.php:9 ../../views/publications/single.php:416
+msgid "Topics"
+msgstr ""
+
+#: ../../controllers/explore.php:10
+msgid "Tags"
+msgstr ""
+
+#: ../../controllers/explore.php:11
+msgid "Publications"
+msgstr ""
+
+#: ../../controllers/explore.php:18 ../../views/menu.php:7
 msgid "Explore"
 msgstr ""
 
-#: ../../controllers/explore.php:20
+#: ../../controllers/explore.php:27
 msgid "Explore » Publication"
 msgstr ""
 
-#: ../../controllers/explore.php:29
-msgid "Explore » Topic"
-msgstr ""
-
-#: ../../controllers/explore.php:38
-msgid "Explore » Tag"
+#: ../../controllers/explore.php:46
+msgid "Explore topics: non-existing id passed."
 msgstr ""
 
 #: ../../controllers/explore.php:47
+msgid "Explore topics: no topics yet."
+msgstr ""
+
+#: ../../controllers/explore.php:51
+msgid "Explore » Topic"
+msgstr ""
+
+#: ../../controllers/explore.php:60
+msgid "Explore » Tag"
+msgstr ""
+
+#: ../../controllers/explore.php:69
 msgid "Explore » Author"
 msgstr ""
 
@@ -789,9 +815,28 @@ msgstr ""
 msgid "Unsubscribe topic"
 msgstr ""
 
-#: ../../controllers/help.php:11 ../../views/footer.php:65
+#: ../../controllers/help.php:12 ../../views/footer.php:64
 #: ../../views/header.php:67
 msgid "Help"
+msgstr ""
+
+#: ../../controllers/help.php:13 ../../views/help/header.php:3
+msgid "Introduction"
+msgstr ""
+
+#: ../../controllers/help.php:14 ../../views/footer.php:54
+#: ../../views/help/header.php:4
+msgid "About"
+msgstr ""
+
+#: ../../controllers/help.php:15 ../../views/footer.php:68
+#: ../../views/help/header.php:5
+msgid "FAQ"
+msgstr ""
+
+#: ../../controllers/help.php:16 ../../views/footer.php:69
+#: ../../views/help/header.php:6
+msgid "Video tutorial"
 msgstr ""
 
 #: ../../controllers/import.php:26 ../../controllers/import.php:63
@@ -1458,34 +1503,39 @@ msgstr ""
 msgid "Exported from topic"
 msgstr ""
 
-#: ../../controllers/usercontroller.php:16
-msgid "You must be logged in to view the users’ page."
-msgstr ""
-
-#: ../../controllers/usercontroller.php:37 ../../views/user/all.php:3
+#: ../../controllers/usercontroller.php:8
+#: ../../controllers/usercontroller.php:40 ../../views/user/all.php:3
 msgid "All Users"
 msgstr ""
 
-#: ../../controllers/usercontroller.php:44
+#: ../../controllers/usercontroller.php:11
+msgid "My Preferences"
+msgstr ""
+
+#: ../../controllers/usercontroller.php:20
+msgid "You must be logged in to view the users’ page."
+msgstr ""
+
+#: ../../controllers/usercontroller.php:46
 #, php-format
 msgid "User %s does not exist."
 msgstr ""
 
-#: ../../controllers/usercontroller.php:47
+#: ../../controllers/usercontroller.php:49
 #, php-format
 msgid "Unknown action requested: %s."
 msgstr ""
 
-#: ../../controllers/usercontroller.php:50
+#: ../../controllers/usercontroller.php:52
 msgid "You must be logged in to view this user’s page."
 msgstr ""
 
-#: ../../controllers/usercontroller.php:60
+#: ../../controllers/usercontroller.php:61
 #, php-format
 msgid "User %s"
 msgstr ""
 
-#: ../../controllers/usercontroller.php:74
+#: ../../controllers/usercontroller.php:75
 msgid "Please log in to contact other users."
 msgstr ""
 
@@ -1503,59 +1553,67 @@ msgstr ""
 msgid "message"
 msgstr ""
 
-#: ../../controllers/usercontroller.php:90
+#: ../../controllers/usercontroller.php:91
 #, php-format
 msgid "A message from Puma user %s %s"
 msgstr ""
 
-#: ../../controllers/usercontroller.php:102
+#: ../../controllers/usercontroller.php:101
+msgid "There was an error trying to send the e-Mail."
+msgstr ""
+
+#: ../../controllers/usercontroller.php:105
 #, php-format
 msgid "Contact user %s"
 msgstr ""
 
-#: ../../controllers/usercontroller.php:114
+#: ../../controllers/usercontroller.php:118
 msgid "You are not allowed to edit other users."
 msgstr ""
 
-#: ../../controllers/usercontroller.php:118
+#: ../../controllers/usercontroller.php:122
 #, php-format
 msgid "The field %s is required."
 msgstr ""
 
-#: ../../controllers/usercontroller.php:119
+#: ../../controllers/usercontroller.php:123
 #, php-format
 msgid "The field %s is too long."
 msgstr ""
 
-#: ../../controllers/usercontroller.php:124 ../../views/users/edit.php:107
+#: ../../controllers/usercontroller.php:128 ../../views/users/edit.php:107
 #: ../../views/users/edit.php:146 ../../views/users/edit.php:156
 #: ../../views/users/edit.php:165
 msgid "Password"
 msgstr ""
 
-#: ../../controllers/usercontroller.php:125
+#: ../../controllers/usercontroller.php:129
 msgid "Password repeat"
 msgstr ""
 
-#: ../../controllers/usercontroller.php:132
+#: ../../controllers/usercontroller.php:136
 msgid "The account was successfully updated."
 msgstr ""
 
-#: ../../controllers/usercontroller.php:134
+#: ../../controllers/usercontroller.php:138
 msgid "The changes could not be stored."
 msgstr ""
 
-#: ../../controllers/usercontroller.php:140
+#: ../../controllers/usercontroller.php:145
 #, php-format
 msgid "Edit user %s"
 msgstr ""
 
-#: ../../controllers/usercontroller.php:155
+#: ../../controllers/usercontroller.php:164
+msgid "The option was successfully set."
+msgstr ""
+
+#: ../../controllers/usercontroller.php:178
 #, php-format
 msgid "Group %s does not exist."
 msgstr ""
 
-#: ../../controllers/usercontroller.php:163
+#: ../../controllers/usercontroller.php:186
 #, php-format
 msgid "Group %s"
 msgstr ""
@@ -1648,10 +1706,30 @@ msgstr ""
 msgid "Wiki"
 msgstr ""
 
-#: ../../controllers/wiki.php:17 ../../controllers/wiki.php:23
-#: ../../controllers/wiki.php:34 ../../controllers/wiki.php:40
+#: ../../controllers/wiki.php:11 ../../controllers/wiki.php:53
+msgid "View"
+msgstr ""
+
+#: ../../controllers/wiki.php:18 ../../controllers/wiki.php:26
+#: ../../controllers/wiki.php:38 ../../controllers/wiki.php:45
 #, php-format
 msgid "Wiki » %s"
+msgstr ""
+
+#: ../../controllers/wiki.php:24
+msgid "You must be logged in to edit the wiki."
+msgstr ""
+
+#: ../../controllers/wiki.php:54
+msgid "Discussion"
+msgstr ""
+
+#: ../../controllers/wiki.php:55
+msgid "Edit"
+msgstr ""
+
+#: ../../controllers/wiki.php:56
+msgid "History"
 msgstr ""
 
 #: ../../errors/error_general.php:6
@@ -2013,12 +2091,12 @@ msgstr ""
 
 #: ../../helpers/message_helper.php:37
 #, php-format
-msgid " If this appears regularly, please contact %s."
+msgid "If this appears regularly, please contact %s."
 msgstr ""
 
 #: ../../helpers/message_helper.php:41
 #, php-format
-msgid " This is a serious bug! Please contact immediately %s."
+msgid "This is a serious bug! Please contact immediately %s."
 msgstr ""
 
 #: ../../helpers/month_helper.php:61 ../../helpers/month_helper.php:65
@@ -3739,6 +3817,11 @@ msgstr ""
 msgid "The resource %s could not be found (error 404)."
 msgstr ""
 
+#: ../../views/explore/topic/leaf.php:37
+#, php-format
+msgid "%s of %s publications read"
+msgstr ""
+
 #: ../../views/export/bibtex.php:16 ../../views/export/bibtexEmail.php:16
 #, php-format
 msgid "Aigaion2 BibTeX export from %s"
@@ -3849,23 +3932,19 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: ../../views/footer.php:43
+#: ../../views/footer.php:41
 msgid "E-Mail"
 msgstr ""
 
-#: ../../views/footer.php:46
+#: ../../views/footer.php:45
 msgid "Question:"
 msgstr ""
 
-#: ../../views/footer.php:50
+#: ../../views/footer.php:49
 msgid "ask the admin"
 msgstr ""
 
-#: ../../views/footer.php:55 ../../views/help/header.php:4
-msgid "About"
-msgstr ""
-
-#: ../../views/footer.php:57
+#: ../../views/footer.php:56
 #, php-format
 msgid ""
 "%s ist das Promotionsprojekt von Manuel Strehl und entsteht in "
@@ -3875,24 +3954,20 @@ msgid ""
 "der freien Publikationsdatenbank %s."
 msgstr ""
 
-#: ../../views/footer.php:67
+#: ../../views/footer.php:66
 msgid "General help"
 msgstr ""
 
-#: ../../views/footer.php:68
+#: ../../views/footer.php:67
 msgid "About this site"
 msgstr ""
 
-#: ../../views/footer.php:69 ../../views/help/header.php:5
-msgid "FAQ"
-msgstr ""
-
-#: ../../views/footer.php:70 ../../views/help/header.php:6
-msgid "Video tutorial"
+#: ../../views/footer.php:70
+msgid "Aigaion forum"
 msgstr ""
 
 #: ../../views/footer.php:71
-msgid "Aigaion forum"
+msgid "Imprint"
 msgstr ""
 
 #: ../../views/groups/edit.php:38
@@ -4316,10 +4391,6 @@ msgid ""
 "things among which the relevant papers would be hard to find."
 msgstr ""
 
-#: ../../views/help/header.php:3
-msgid "Introduction"
-msgstr ""
-
 #: ../../views/help/header.php:7
 msgid "Topic Tree"
 msgstr ""
@@ -4465,12 +4536,12 @@ msgstr ""
 #, php-format
 msgid ""
 "It may be that not every user is interested in exactly the same topics. "
-"Therefore %1$s contains a mechanism that allows you to subscribe to - or "
+"Therefore %s contains a mechanism that allows you to subscribe to - or "
 "unsubscribe from - any topic, meaning that you can determine which topics "
 "you will see while browsing the system. By default, a new user will not be "
-"subscribed to any topic. To review which topics already exist in this copy "
-"of %1$s, go to the %2$s and subscribe to any topic that you are interested "
-"in. Those topics will then appear in your topic tree."
+"subscribed to any topic. To review which topics already exist, go to the %s "
+"and subscribe to any topic that you are interested in. Those topics will "
+"then appear in your topic tree."
 msgstr ""
 
 #: ../../views/help/topictree.php:20
@@ -4593,8 +4664,8 @@ msgstr ""
 msgid "use this form"
 msgstr ""
 
-#: ../../views/login/form.php:49 ../../views/user/full.php:24
-#: ../../views/user/group.php:8
+#: ../../views/login/form.php:49 ../../views/user/full.php:26
+#: ../../views/user/group.php:10
 msgid "Name:"
 msgstr ""
 
@@ -4900,10 +4971,6 @@ msgstr ""
 msgid "categorize publication"
 msgstr ""
 
-#: ../../views/publications/single.php:416
-msgid "Topics"
-msgstr ""
-
 #: ../../views/publications/single.php:428
 msgid "Click on a topic name to change its subscription status."
 msgstr ""
@@ -5066,7 +5133,11 @@ msgstr ""
 msgid "Search on external sites"
 msgstr ""
 
-#: ../../views/search/external.php:73
+#: ../../views/search/external.php:8
+msgid "Search term"
+msgstr ""
+
+#: ../../views/search/external.php:76
 msgid "This form allows you to search external websites."
 msgstr ""
 
@@ -5476,11 +5547,6 @@ msgstr ""
 msgid "Default number of publications per page"
 msgstr ""
 
-#: ../../views/site/edit.php:477 ../../views/user/edit.php:90
-#: ../../views/users/edit.php:315
-msgid "All"
-msgstr ""
-
 #: ../../views/site/edit.php:482 ../../views/users/edit.php:320
 msgid "'Similar author' check"
 msgstr ""
@@ -5802,22 +5868,26 @@ msgid "The e-Mail was successfully sent."
 msgstr ""
 
 #: ../../views/user/contact.php:15
-msgid "There was an error trying to send the e-Mail."
+msgid "Ooops."
 msgstr ""
 
-#: ../../views/user/contact.php:24
+#: ../../views/user/contact.php:16
+msgid "&laquo; Back to the user’s overview"
+msgstr ""
+
+#: ../../views/user/contact.php:25
 msgid "Subject:"
 msgstr ""
 
-#: ../../views/user/contact.php:29
+#: ../../views/user/contact.php:30
 msgid "Message:"
 msgstr ""
 
-#: ../../views/user/contact.php:34
+#: ../../views/user/contact.php:35
 msgid "Submit"
 msgstr ""
 
-#: ../../views/user/contact.php:36 ../../views/user/edit.php:125
+#: ../../views/user/contact.php:37 ../../views/user/edit.php:125
 msgid "Back to the user’s overview"
 msgstr ""
 
@@ -5930,44 +6000,48 @@ msgid ""
 "such as %s."
 msgstr ""
 
-#: ../../views/user/full.php:3
+#: ../../views/user/full.php:3 ../../views/user/group.php:3
+msgid "&laquo; Back to all users’ overview"
+msgstr ""
+
+#: ../../views/user/full.php:5
 msgid "User Details:"
 msgstr ""
 
-#: ../../views/user/full.php:9
+#: ../../views/user/full.php:11
 msgid "Edit account details."
 msgstr ""
 
-#: ../../views/user/full.php:16
+#: ../../views/user/full.php:18
 msgid "Search this user in the faculty’s user database"
 msgstr ""
 
-#: ../../views/user/full.php:28
+#: ../../views/user/full.php:30
 msgid "NDS login name:"
 msgstr ""
 
-#: ../../views/user/full.php:29
+#: ../../views/user/full.php:31
 msgid "guest"
 msgstr ""
 
-#: ../../views/user/full.php:32
+#: ../../views/user/full.php:34
 msgid "E-Mail address:"
 msgstr ""
 
-#: ../../views/user/full.php:36
+#: ../../views/user/full.php:38
 msgid "Groups:"
 msgstr ""
 
-#: ../../views/user/group.php:3
+#: ../../views/user/group.php:5
 #, php-format
 msgid "Group Details: %s"
 msgstr ""
 
-#: ../../views/user/group.php:12
+#: ../../views/user/group.php:14
 msgid "NDS short name:"
 msgstr ""
 
-#: ../../views/user/group.php:16
+#: ../../views/user/group.php:18
 msgid "Known group members:"
 msgstr ""
 
