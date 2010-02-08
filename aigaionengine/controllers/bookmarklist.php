@@ -726,7 +726,7 @@ class Bookmarklist extends Controller {
         } else {
             $this->load->view('header', array('title' => __('Set edit access level')));
             $this->load->view('bookmarklist/ask',
-                               array('accesslevel'=>$accesslevel,
+                               array('accesslevel'=>$editaccesslevel,
                                'target' => 'bookmarklist/seteditpubaccesslevel/commit',
                                'question' => __('Are you sure that you want to set the '.
                                'edit access level for all publications on the bookmarklist '.
