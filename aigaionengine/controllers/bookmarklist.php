@@ -2,53 +2,52 @@
 
 class Bookmarklist extends Controller {
 
-	function Bookmarklist()
-	{
-		parent::Controller();	
-	}
-	
-	/** Pass control to the bookmarklist/viewlist/ */
-	function index()
-	{
-		$this->viewlist();
-	}
+    function Bookmarklist()
+    {
+        parent::Controller();    
+    }
+    
+    /** Pass control to the bookmarklist/viewlist/ */
+    function index()
+    {
+        $this->viewlist();
+    }
 
     /** 
     bookmarklist/viewlist
     
     Entry point for viewing the bookmark list of the logged user.
     
-	Fails with error message when one of:
-	    insufficient rights
-	    
-	Parameters passed via URL segments:
-	    3rd: list type
-	    4rth: page nr
-	         
+    Fails with error message when one of:
+        insufficient rights
+        
+    Parameters passed via URL segments:
+        3rd: list type
+        4rth: page nr
+             
     Returns:
         A full HTML page with the list of bookmarked publications
     */
     function viewlist() {
-	    //get URL segments
+        //get URL segments
         $order   = $this->uri->segment(3,'year');
         if (!in_array($order,array('year','type','recent','title','author'))) {
           $order='year';
         }
         $page   = $this->uri->segment(4,0);
-	    
-	    //check rights
+        
+        //check rights
         $userlogin = getUserLogin();
         if (!$userlogin->hasRights('bookmarklist')) {
-            appendErrorMessage(__("View bookmarklist").": ".__("insufficient rights").".<br/>");
+            appendErrorMessage(__('View bookmarklist: insufficient rights'));
             redirect('');
         }
-	            	    
-	    //get output
+                        
+        //get output
         $this->load->helper('publication');
 
         $headerdata = array();
         $headerdata['title'] = __('Bookmark list');
-        $headerdata['javascripts'] = array('tree.js','prototype.js','scriptaculous.js','builder.js');
         $headerdata['sortPrefix'] = '/bookmarklist/viewlist/';
         $headerdata['exportCommand']    = 'export/bookmarklist/';
         $headerdata['exportName']    = __('Export bookmarklist');
@@ -75,19 +74,14 @@ class Bookmarklist extends Controller {
             $content['multipageprefix'] = 'bookmarklist/viewlist/'.$order.'/';
         }        
         
-        $output = $this->load->view('header', $headerdata, true);
 
         $content['publications']    = $this->publication_db->getForBookmarkList($order);
         $content['order'] = $order;
         
-        $output .= $this->load->view('bookmarklist/controls', array(), True);
-        $output .= $this->load->view('publications/list', $content, true);
-
-        $output .= $this->load->view('footer','', true);
-
-        //set output
-        $this->output->set_output($output);        
-
+        $this->load->view('header', $headerdata);
+        $this->load->view('bookmarklist/controls');
+        $this->load->view('publications/list', $content);
+        $this->load->view('footer');
     }    
 
     /** 
@@ -95,26 +89,26 @@ class Bookmarklist extends Controller {
     
     Entry point for adding a publication to the bookmark list of the logged user.
     
-	Fails with error message when one of:
-	    adding nonexisting pub_id 
-	    insufficient rights
-	    
-	Parameters passed via URL segments:
-	    3rd: pub_id
-	         
+    Fails with error message when one of:
+        adding nonexisting pub_id 
+        insufficient rights
+        
+    Parameters passed via URL segments:
+        3rd: pub_id
+             
     Returns:
         A partial DIV containing the 'remove' link for that publication
     */
     function addpublication() {
         $pub_id   = $this->uri->segment(3,-1);
 
-	    //check rights is done in the $this->bookmarklist_db->addPublication function, no need to do it twice
+        //check rights is done in the $this->bookmarklist_db->addPublication function, no need to do it twice
 
         //load publication
         $publication = $this->publication_db->getByID($pub_id);
         if ($publication == null)
         {
-            appendErrorMessage(__("Add publication to bookmarklist").": ".__("non-existing id passed").".<br/>");
+            appendErrorMessage(__('Add publication to bookmarklist: non-existing id passed.'));
             redirect('');
         }
         
@@ -136,27 +130,27 @@ class Bookmarklist extends Controller {
     
     Entry point for adding all accessible publications from a give topic to the bookmark list of the logged user.
     
-	Fails with error message when one of:
-	    adding nonexisting topic_id 
-	    insufficient rights
-	    
-	Parameters passed via URL segments:
-	    3rd: topic_id
-	         
+    Fails with error message when one of:
+        adding nonexisting topic_id 
+        insufficient rights
+        
+    Parameters passed via URL segments:
+        3rd: topic_id
+             
     Returns:
         to the view page of that topic
     */
     function addtopic() {
         $topic_id   = $this->uri->segment(3,-1);
 
-	    //check rights is done in the $this->bookmarklist_db->addTopic function, no need to do it twice
+        //check rights is done in the $this->bookmarklist_db->addTopic function, no need to do it twice
 
         //load topic
         $config=array();
         $topic = $this->topic_db->getByID($topic_id,$config);
         if ($topic == null)
         {
-            appendErrorMessage(__("Add topic to bookmarklist").": ".__("non-existing id passed").".<br/>");
+            appendErrorMessage(__('Add topic to bookmarklist: non-existing id passed.'));
             redirect('');
         }
         
@@ -171,27 +165,27 @@ class Bookmarklist extends Controller {
     
     Entry point for adding all accessible publications from a given keyword to the bookmark list of the logged user.
     
-	Fails with error message when one of:
-	    adding nonexisting keyword_id 
-	    insufficient rights
-	    
-	Parameters passed via URL segments:
-	    3rd: keyword_id
-	         
+    Fails with error message when one of:
+        adding nonexisting keyword_id 
+        insufficient rights
+        
+    Parameters passed via URL segments:
+        3rd: keyword_id
+             
     Returns:
         to the view page of that keyword
     */
     function addkeyword() {
         $keyword_id   = $this->uri->segment(3,-1);
 
-	    //check rights is done in the $this->bookmarklist_db->addKeyword function, no need to do it twice
+        //check rights is done in the $this->bookmarklist_db->addKeyword function, no need to do it twice
 
         //load topic
         $config=array();
         $keyword = $this->keyword_db->getByID($keyword_id);
         if ($keyword == null)
         {
-            appendErrorMessage(__("Add keyword to bookmarklist").": ".__("non-existing id passed").".<br/>");
+            appendErrorMessage(__('Add keyword to bookmarklist: non-existing id passed.'));
             redirect('');
         }
         
@@ -206,20 +200,20 @@ class Bookmarklist extends Controller {
     
     Entry point for adding all accessible publications from a given author to the bookmark list of the logged user.
     
-	Fails with error message when one of:
-	    adding nonexisting author_id 
-	    insufficient rights
-	    
-	Parameters passed via URL segments:
-	    3rd: author_id
-	         
+    Fails with error message when one of:
+        adding nonexisting author_id 
+        insufficient rights
+        
+    Parameters passed via URL segments:
+        3rd: author_id
+             
     Returns:
         to the view page of that author
     */
     function addauthor() {
         $author_id   = $this->uri->segment(3,-1);
 
-	    //check rights is done in the $this->bookmarklist_db->addAuthor function, no need to do it twice
+        //check rights is done in the $this->bookmarklist_db->addAuthor function, no need to do it twice
 
         //load author
         $author = $this->author_db->getByID($author_id);
@@ -239,20 +233,20 @@ class Bookmarklist extends Controller {
     
     Entry point for removing a publication from the bookmark list of the logged user.
     
-	Fails with error message when one of:
-	    removing nonexisting pub_id 
-	    insufficient rights
-	    
-	Parameters passed via URL segments:
-	    3rd: pub_id
-	         
+    Fails with error message when one of:
+        removing nonexisting pub_id 
+        insufficient rights
+        
+    Parameters passed via URL segments:
+        3rd: pub_id
+             
     Returns:
         A partial DIV containing the 'add' link for that publication
     */
     function removepublication() {
         $pub_id   = $this->uri->segment(3,-1);
 
-	    //check rights is done in the $this->bookmarklist_db->removePublication function, no need to do it twice
+        //check rights is done in the $this->bookmarklist_db->removePublication function, no need to do it twice
 
         //load publication
         $publication = $this->publication_db->getByID($pub_id);
@@ -280,27 +274,27 @@ class Bookmarklist extends Controller {
     
     Entry point for removing all accessible publications of a topic from the bookmark list of the logged user.
     
-	Fails with error message when one of:
-	    removing nonexisting topic_id 
-	    insufficient rights
-	    
-	Parameters passed via URL segments:
-	    3rd: topic_id
-	         
+    Fails with error message when one of:
+        removing nonexisting topic_id 
+        insufficient rights
+        
+    Parameters passed via URL segments:
+        3rd: topic_id
+             
     Returns:
         to the single view page of that topic
     */
     function removetopic() {
         $topic_id   = $this->uri->segment(3,-1);
 
-	    //check rights is done in the $this->bookmarklist_db->removeTopic function, no need to do it twice
+        //check rights is done in the $this->bookmarklist_db->removeTopic function, no need to do it twice
 
         //load topic
         $config=array();
         $topic = $this->topic_db->getByID($topic_id,$config);
         if ($topic == null)
         {
-            appendErrorMessage(__("Removing topic from bookmarklist").": ".__("non-existing id passed").".<br/>");
+            appendErrorMessage(__('Removing topic from bookmarklist: non-existing id passed.'));
             redirect('');
         }
         
@@ -313,26 +307,26 @@ class Bookmarklist extends Controller {
     
     Entry point for removing all accessible publications of a keyword from the bookmark list of the logged user.
     
-	Fails with error message when one of:
-	    removing nonexisting keyword_id 
-	    insufficient rights
-	    
-	Parameters passed via URL segments:
-	    3rd: keyword_id
-	         
+    Fails with error message when one of:
+        removing nonexisting keyword_id 
+        insufficient rights
+        
+    Parameters passed via URL segments:
+        3rd: keyword_id
+             
     Returns:
         to the single view page of that keyword
     */
     function removekeyword() {
         $keyword_id   = $this->uri->segment(3,-1);
 
-	    //check rights is done in the $this->bookmarklist_db->removeAuthor function, no need to do it twice
+        //check rights is done in the $this->bookmarklist_db->removeAuthor function, no need to do it twice
 
         //load keyword
         $keyword = $this->keyword_db->getByID($keyword_id);
         if ($keyword == null)
         {
-            appendErrorMessage(__("Removing keyword from bookmarklist").": ".__("non-existing id passed").".<br/>");
+            appendErrorMessage(__('Removing keyword from bookmarklist: non-existing id passed.'));
             redirect('');
         }
         
@@ -346,20 +340,20 @@ class Bookmarklist extends Controller {
     
     Entry point for removing all accessible publications of an author from the bookmark list of the logged user.
     
-	Fails with error message when one of:
-	    removing nonexisting author_id 
-	    insufficient rights
-	    
-	Parameters passed via URL segments:
-	    3rd: author_id
-	         
+    Fails with error message when one of:
+        removing nonexisting author_id 
+        insufficient rights
+        
+    Parameters passed via URL segments:
+        3rd: author_id
+             
     Returns:
         to the single view page of that author
     */
     function removeauthor() {
         $author_id   = $this->uri->segment(3,-1);
 
-	    //check rights is done in the $this->bookmarklist_db->removeAuthor function, no need to do it twice
+        //check rights is done in the $this->bookmarklist_db->removeAuthor function, no need to do it twice
 
         //load author
         $author = $this->author_db->getByID($author_id);
@@ -378,20 +372,20 @@ class Bookmarklist extends Controller {
     
     Entry point for adding all publications in the bookmark list to a certain topic.
     
-	Fails with error message when one of:
-	    insufficient rights
-	    nonexisting topic
-	    
-	Parameters passed via POST:
-	    topic_id
-	         
+    Fails with error message when one of:
+        insufficient rights
+        nonexisting topic
+        
+    Parameters passed via POST:
+        topic_id
+             
     Redirects to the bookmarklist/view controller
         
     */
     function addtotopic() {
-	    //check rights is done in the $this->bookmarklist_db->removePublication function, no need to do it twice
+        //check rights is done in the $this->bookmarklist_db->removePublication function, no need to do it twice
 
-	    $topic_id = $this->input->post('topic_id');
+        $topic_id = $this->input->post('topic_id');
         $userlogin  = getUserLogin();
         $user       = $this->user_db->getByID($userlogin->userID());
         $config = array('onlyIfUserSubscribed'=>True,
@@ -412,31 +406,31 @@ class Bookmarklist extends Controller {
     
     Entry point for turning all publications in the bookmark list into a new topic.
     
-	Fails with error message when one of:
-	    insufficient rights
-	    
-	Parameters passed via POST:
-	    none
-	         
+    Fails with error message when one of:
+        insufficient rights
+        
+    Parameters passed via POST:
+        none
+             
     Redirects to the bookmarklist/edit controller for the new topic
         
     */
     function maketopic() {
       $userlogin = getUserLogin();
-	    if (!$userlogin->hasRights('bookmarklist')) {
-	        appendErrorMessage(__('Making topic from bookmarklist').': '.__('insufficient rights').' (bookmarklist).<br/>');
-	        redirect('');
-	    }
-	    if (!$userlogin->hasRights('topic_edit')) {
-	        appendErrorMessage(__('Making topic from bookmarklist').': '.__('insufficient rights').' (topic_edit).<br/>');
-	        redirect('');
-	    }
-	    
-	    $topic = new Topic;
-	    $topic->name = __('-new from bookmarklist-');
+        if (!$userlogin->hasRights('bookmarklist')) {
+            appendErrorMessage(__('Making topic from bookmarklist').': '.__('insufficient rights').' (bookmarklist).<br/>');
+            redirect('');
+        }
+        if (!$userlogin->hasRights('topic_edit')) {
+            appendErrorMessage(__('Making topic from bookmarklist').': '.__('insufficient rights').' (topic_edit).<br/>');
+            redirect('');
+        }
+        
+        $topic = new Topic;
+        $topic->name = __('-new from bookmarklist-');
         if (!$topic->add()) {
-	        appendErrorMessage(__('Error creating topic.').'<br/>');
-	        redirect('');
+            appendErrorMessage(__('Error creating topic.').'<br/>');
+            redirect('');
         }
         $this->bookmarklist_db->addToTopic($topic);
         redirect('topics/edit/'.$topic->topic_id);
@@ -447,20 +441,20 @@ class Bookmarklist extends Controller {
     
     Entry point for removing all publications in the bookmark list from a certain topic.
     
-	Fails with error message when one of:
-	    insufficient rights
-	    nonexisting topic
-	    
-	Parameters passed via POST:
-	    topic_id
-	         
+    Fails with error message when one of:
+        insufficient rights
+        nonexisting topic
+        
+    Parameters passed via POST:
+        topic_id
+             
     Redirects to the bookmarklist/view controller
         
     */
     function removefromtopic() {
-	    //check rights is done in the $this->bookmarklist_db->removePublication function, no need to do it twice
+        //check rights is done in the $this->bookmarklist_db->removePublication function, no need to do it twice
 
-	      $topic_id = $this->input->post('topic_id');
+          $topic_id = $this->input->post('topic_id');
         $userlogin  = getUserLogin();
         $user       = $this->user_db->getByID($userlogin->userID());
         $config = array('onlyIfUserSubscribed'=>True,
@@ -476,37 +470,37 @@ class Bookmarklist extends Controller {
         $this->viewlist();
     }
 
-	/** 
-	bookmarklist/deleteall
-	
-	Entry point for deleting all from the bookmarklist.
-	Depending on whether 'commit' is specified in the url, confirmation may be requested before actually
-	deleting. 
-	
-	Fails with error message when one of:
-	    insufficient user rights
-	    
-	Parameters passed via URL segments:
-	    4rd: if the 3rd segment is the string 'commit', no confirmation is requested.
-	         if not, a confirmation form is shown; upon choosing 'confirm' this same controller will be 
-	         called with 'commit' specified
-	         
+    /** 
+    bookmarklist/deleteall
+    
+    Entry point for deleting all from the bookmarklist.
+    Depending on whether 'commit' is specified in the url, confirmation may be requested before actually
+    deleting. 
+    
+    Fails with error message when one of:
+        insufficient user rights
+        
+    Parameters passed via URL segments:
+        4rd: if the 3rd segment is the string 'commit', no confirmation is requested.
+             if not, a confirmation form is shown; upon choosing 'confirm' this same controller will be 
+             called with 'commit' specified
+             
     Returns:
         A full HTML page showing a 'request confirmation' form for the delete action, if no 'commit' was specified
         Redirects somewhere (bookmarklist page) after deleting, if 'commit' was specified
-	*/
-	function deleteall()
-	{
-	    $commit = $this->uri->segment(3,'');
+    */
+    function deleteall()
+    {
+        $commit = $this->uri->segment(3,'');
 
-	    //besides the rights needed to READ this publication, checked by publication_db->getByID, we need to check:
-	    //edit_access_level and the user edit rights
+        //besides the rights needed to READ this publication, checked by publication_db->getByID, we need to check:
+        //edit_access_level and the user edit rights
         $userlogin  = getUserLogin();
 
-	    if (!$userlogin->hasRights('bookmarklist') || !$userlogin->hasRights('publication_edit')) {
-	        appendErrorMessage(__('Deleting publications from bookmarklist').': '.__('insufficient rights').'.<br/>');
-	        redirect('');
-	    }
+        if (!$userlogin->hasRights('bookmarklist') || !$userlogin->hasRights('publication_edit')) {
+            appendErrorMessage(__('Deleting publications from bookmarklist').': '.__('insufficient rights').'.<br/>');
+            redirect('');
+        }
 
         if ($commit=='commit') {
             //do delete, redirect somewhere
@@ -524,65 +518,55 @@ class Bookmarklist extends Controller {
                     $nrskipped++;
                 }
             }
-            appendMessage('Deleted '.$nrdeleted.' publications<br/>');
-            if ($nrskipped>0)appendMessage(sprintf(__('Skipped %s publications due to insufficient rights.'),$nrskipped).'<br/>');
+            appendMessage(__('Deleted %d publications.'), $nrdeleted);
+            if ($nrskipped>0)appendMessage(sprintf(__('Skipped %d publications due to insufficient rights.'),$nrskipped));
             redirect('bookmarklist');
         } else {
-            //get output
-            $headerdata = array();
-            $headerdata['title'] = __('Delete all from bookmarklist');
-            $headerdata['javascripts'] = array('tree.js','prototype.js','scriptaculous.js','builder.js');
-            
-            $output = $this->load->view('header', $headerdata, true);
-    
-            $output .= $this->load->view('bookmarklist/delete',
-                                          array(),  
-                                          true);
-            
-            $output .= $this->load->view('footer','', true);
-    
-            //set output
-            $this->output->set_output($output);
+            $this->load->view('header', array('title' => __('Delete all from bookmarklist')));
+            $this->load->view('bookmarklist/ask', array('target'=>'bookmarklist/deleteall/commit',
+                              'question'=>__('Are you sure that you want to delete '.
+                              'all publications on the bookmarklist from your database?')));
+            $this->load->view('footer');
         }
     }  
 
-	/** 
-	bookmarklist/setpubaccesslevel
-	
-	Entry point for setting the READ access level for all publications on the bookmarklist.
-	Depending on whether 'commit' is specified in the url, confirmation may be requested before actually
-	changing access levels. 
-	
-	Fails with error message when one of:
-	    insufficient user rights
-	    
-	Parameters passed via URL segments:
-	    4rd: if the 3rd segment is the string 'commit', no confirmation is requested.
-	         if not, a confirmation form is shown; upon choosing 'confirm' this same controller will be 
-	         called with 'commit' specified
+    /** 
+    bookmarklist/setpubaccesslevel
+    
+    Entry point for setting the READ access level for all publications on the bookmarklist.
+    Depending on whether 'commit' is specified in the url, confirmation may be requested before actually
+    changing access levels. 
+    
+    Fails with error message when one of:
+        insufficient user rights
+        
+    Parameters passed via URL segments:
+        4rd: if the 3rd segment is the string 'commit', no confirmation is requested.
+             if not, a confirmation form is shown; upon choosing 'confirm' this same controller will be 
+             called with 'commit' specified
 
-	Parameters passed via POST:
-	    accesslevel: (public|intern|private)
-	         
+    Parameters passed via POST:
+        accesslevel: (public|intern|private)
+             
     Returns:
         A full HTML page showing a 'request confirmation' form for the action, if no 'commit' was specified
         Redirects somewhere (bookmarklist page) after setting access levels, if 'commit' was specified
-	*/
-	function setpubaccesslevel()
-	{
-	    $commit = $this->uri->segment(3,'');
+    */
+    function setpubaccesslevel()
+    {
+        $commit = $this->uri->segment(3,'');
         $accesslevel = $this->input->post('accesslevel');
-	    //besides the rights needed to READ this publication, checked by publication_db->getByID, we need to check:
-	    //edit_access_level and the user edit rights
+        //besides the rights needed to READ this publication, checked by publication_db->getByID, we need to check:
+        //edit_access_level and the user edit rights
         $userlogin  = getUserLogin();
 
-	    if (!$userlogin->hasRights('bookmarklist') || !$userlogin->hasRights('publication_edit')) {
-	        appendErrorMessage(__('Setting access levels of publications from bookmarklist').': '._('insufficient rights').'.<br/>');
-	        redirect('');
-	    }
+        if (!$userlogin->hasRights('bookmarklist') || !$userlogin->hasRights('publication_edit')) {
+            appendErrorMessage(__('Setting access levels of publications from bookmarklist').': '._('insufficient rights').'.<br/>');
+            redirect('');
+        }
         if (!in_array($accesslevel,array('public','intern','private'))) {
-	        appendErrorMessage(__('Setting access levels of publications from bookmarklist').': '.__('no existing access level specified').'.<br/>');
-	        redirect('bookmarklist');
+            appendErrorMessage(__('Setting access levels of publications from bookmarklist').': '.__('no existing access level specified').'.<br/>');
+            redirect('bookmarklist');
         }
         if ($commit=='commit') {
             //do set levels, redirect somewhere
@@ -603,61 +587,53 @@ class Bookmarklist extends Controller {
             if ($nrskipped>0)appendMessage(sprintf(__('Skipped %s publications due to insufficient rights.'),$nrskipped).'<br/>');
             redirect('bookmarklist');
         } else {
-            //get output
-            $headerdata = array();
-            $headerdata['title'] = sprintf(__('Set access level to %s for all from bookmarklist'),$accesslevel);
-            $headerdata['javascripts'] = array('tree.js','prototype.js','scriptaculous.js','builder.js');
-            
-            $output = $this->load->view('header', $headerdata, true);
-    
-            $output .= $this->load->view('bookmarklist/setpubaccesslevel',
-                                          array('accesslevel'=>$accesslevel),  
-                                          true);
-            
-            $output .= $this->load->view('footer','', true);
-    
-            //set output
-            $this->output->set_output($output);
+            $this->load->view('header', array('title'=>__('Set access level')));
+            $this->load->view('bookmarklist/ask', array('accesslevel'=>$accesslevel,
+                              'target' => 'bookmarklist/setpubaccesslevel/commit',
+                              'question' => __('Are you sure that you want to set the '.
+                              'read access level for all publications on the bookmarklist '.
+                              'to &ldquo;%s&rdquo;?')));
+            $this->load->view('footer');
         }
     }    
 
-	/** 
-	bookmarklist/setattaccesslevel
-	
-	Entry point for setting the READ access level for all attachments of publications on the bookmarklist.
-	Depending on whether 'commit' is specified in the url, confirmation may be requested before actually
-	changing access levels. 
-	
-	Fails with error message when one of:
-	    insufficient user rights
-	    
-	Parameters passed via URL segments:
-	    4rd: if the 3rd segment is the string 'commit', no confirmation is requested.
-	         if not, a confirmation form is shown; upon choosing 'confirm' this same controller will be 
-	         called with 'commit' specified
+    /** 
+    bookmarklist/setattaccesslevel
+    
+    Entry point for setting the READ access level for all attachments of publications on the bookmarklist.
+    Depending on whether 'commit' is specified in the url, confirmation may be requested before actually
+    changing access levels. 
+    
+    Fails with error message when one of:
+        insufficient user rights
+        
+    Parameters passed via URL segments:
+        4rd: if the 3rd segment is the string 'commit', no confirmation is requested.
+             if not, a confirmation form is shown; upon choosing 'confirm' this same controller will be 
+             called with 'commit' specified
 
-	Parameters passed via POST:
-	    accesslevel: (public|intern|private)
-	         
+    Parameters passed via POST:
+        accesslevel: (public|intern|private)
+             
     Returns:
         A full HTML page showing a 'request confirmation' form for the action, if no 'commit' was specified
         Redirects somewhere (bookmarklist page) after setting access levels, if 'commit' was specified
-	*/
-	function setattaccesslevel()
-	{
-	    $commit = $this->uri->segment(3,'');
+    */
+    function setattaccesslevel()
+    {
+        $commit = $this->uri->segment(3,'');
         $accesslevel = $this->input->post('accesslevel');
-	    //besides the rights needed to READ this publication, checked by publication_db->getByID, we need to check:
-	    //edit_access_level and the user edit rights
+        //besides the rights needed to READ this publication, checked by publication_db->getByID, we need to check:
+        //edit_access_level and the user edit rights
         $userlogin  = getUserLogin();
 
-	    if (!$userlogin->hasRights('bookmarklist') || !$userlogin->hasRights('attachment_edit')) {
-	        appendErrorMessage(__('Setting access levels of attachments from bookmarklist').': '._('insufficient rights').'.<br/>');
-	        redirect('');
-	    }
+        if (!$userlogin->hasRights('bookmarklist') || !$userlogin->hasRights('attachment_edit')) {
+            appendErrorMessage(__('Setting access levels of attachments from bookmarklist').': '._('insufficient rights').'.<br/>');
+            redirect('');
+        }
         if (!in_array($accesslevel,array('public','intern','private'))) {
-	        appendErrorMessage(__('Setting access levels of attachments from bookmarklist').': '.__('no existing access level specified').'.<br/>');
-	        redirect('bookmarklist');
+            appendErrorMessage(__('Setting access levels of attachments from bookmarklist').': '.__('no existing access level specified').'.<br/>');
+            redirect('bookmarklist');
         }
         if ($commit=='commit') {
             //do set levels, redirect somewhere
@@ -680,61 +656,54 @@ class Bookmarklist extends Controller {
             if ($nrskipped>0)appendMessage(sprintf(__('Skipped %s attachments due to insufficient rights.'),$nrskipped).'<br/>');
             redirect('bookmarklist');
         } else {
-            //get output
-            $headerdata = array();
-            $headerdata['title'] = sprintf(__('Set access level to %s for all attachments of publications on bookmarklist'),$accesslevel);
-            $headerdata['javascripts'] = array('tree.js','prototype.js','scriptaculous.js','builder.js');
-            
-            $output = $this->load->view('header', $headerdata, true);
-    
-            $output .= $this->load->view('bookmarklist/setattaccesslevel',
-                                          array('accesslevel'=>$accesslevel),  
-                                          true);
-            
-            $output .= $this->load->view('footer','', true);
-    
-            //set output
-            $this->output->set_output($output);
+            $this->load->view('header', array('title' => __('Set access level')));
+            $this->load->view('bookmarklist/ask',
+                               array('accesslevel'=>$accesslevel, 
+                               'target' => 'bookmarklist/setattaccesslevel/commit',
+                               'question' => __('Are you sure that you want to set the '.
+                               'read access level for all attachments of publications on '.
+                               'the bookmarklist to &ldquo;%s&rdquo;?')));
+            $this->load->view('footer');
         }
     }    
 
-	/** 
-	bookmarklist/seteditpubaccesslevel
-	
-	Entry point for setting the edit access level for all publications on the bookmarklist.
-	Depending on whether 'commit' is specified in the url, confirmation may be requested before actually
-	changing access levels. 
-	
-	Fails with error message when one of:
-	    insufficient user rights
-	    
-	Parameters passed via URL segments:
-	    4rd: if the 3rd segment is the string 'commit', no confirmation is requested.
-	         if not, a confirmation form is shown; upon choosing 'confirm' this same controller will be 
-	         called with 'commit' specified
+    /** 
+    bookmarklist/seteditpubaccesslevel
+    
+    Entry point for setting the edit access level for all publications on the bookmarklist.
+    Depending on whether 'commit' is specified in the url, confirmation may be requested before actually
+    changing access levels. 
+    
+    Fails with error message when one of:
+        insufficient user rights
+        
+    Parameters passed via URL segments:
+        4rd: if the 3rd segment is the string 'commit', no confirmation is requested.
+             if not, a confirmation form is shown; upon choosing 'confirm' this same controller will be 
+             called with 'commit' specified
 
-	Parameters passed via POST:
-	    editaccesslevel: (public|intern|private)
-	         
+    Parameters passed via POST:
+        editaccesslevel: (public|intern|private)
+             
     Returns:
         A full HTML page showing a 'request confirmation' form for the action, if no 'commit' was specified
         Redirects somewhere (bookmarklist page) after setting access levels, if 'commit' was specified
-	*/
-	function seteditpubaccesslevel()
-	{
-	    $commit = $this->uri->segment(3,'');
+    */
+    function seteditpubaccesslevel()
+    {
+        $commit = $this->uri->segment(3,'');
         $editaccesslevel = $this->input->post('accesslevel');
-	    //besides the rights needed to READ this publication, checked by publication_db->getByID, we need to check:
-	    //edit_access_level and the user edit rights
+        //besides the rights needed to READ this publication, checked by publication_db->getByID, we need to check:
+        //edit_access_level and the user edit rights
         $userlogin  = getUserLogin();
 
-	    if (!$userlogin->hasRights('bookmarklist') || !$userlogin->hasRights('publication_edit')) {
-	        appendErrorMessage(__('Setting access levels of publications from bookmarklist').': '._('insufficient rights').'.<br/>');
-	        redirect('');
-	    }
+        if (!$userlogin->hasRights('bookmarklist') || !$userlogin->hasRights('publication_edit')) {
+            appendErrorMessage(__('Setting access levels of publications from bookmarklist').': '._('insufficient rights').'.<br/>');
+            redirect('');
+        }
         if (!in_array($editaccesslevel,array('public','intern','private'))) {
-	        appendErrorMessage(__('Setting access levels of publications from bookmarklist').': '.__('no existing access level specified').'.<br/>');
-	        redirect('bookmarklist');
+            appendErrorMessage(__('Setting access levels of publications from bookmarklist').': '.__('no existing access level specified').'.<br/>');
+            redirect('bookmarklist');
         }
         if ($commit=='commit') {
             //do set levels, redirect somewhere
@@ -755,61 +724,54 @@ class Bookmarklist extends Controller {
             if ($nrskipped>0)appendMessage(sprintf(__('Skipped %s publications due to insufficient rights.'),$nrskipped).'<br/>');
             redirect('bookmarklist');
         } else {
-            //get output
-            $headerdata = array();
-            $headerdata['title'] = sprintf(__('Set %s access level to %s for all from bookmarklist'),__('edit'),$editaccesslevel);
-            $headerdata['javascripts'] = array('tree.js','prototype.js','scriptaculous.js','builder.js');
-            
-            $output = $this->load->view('header', $headerdata, true);
-    
-            $output .= $this->load->view('bookmarklist/seteditpubaccesslevel',
-                                          array('editaccesslevel'=>$editaccesslevel),  
-                                          true);
-            
-            $output .= $this->load->view('footer','', true);
-    
-            //set output
-            $this->output->set_output($output);
+            $this->load->view('header', array('title' => __('Set edit access level')));
+            $this->load->view('bookmarklist/ask',
+                               array('accesslevel'=>$accesslevel,
+                               'target' => 'bookmarklist/seteditpubaccesslevel/commit',
+                               'question' => __('Are you sure that you want to set the '.
+                               'edit access level for all publications on the bookmarklist '.
+                               'to &ldquo;%s&rdquo;?')));
+            $this->load->view('footer');
         }
     }    
 
-	/** 
-	bookmarklist/seteditattaccesslevel
-	
-	Entry point for setting the edit access level for all attachments of publications on the bookmarklist.
-	Depending on whether 'commit' is specified in the url, confirmation may be requested before actually
-	changing access levels. 
-	
-	Fails with error message when one of:
-	    insufficient user rights
-	    
-	Parameters passed via URL segments:
-	    4rd: if the 3rd segment is the string 'commit', no confirmation is requested.
-	         if not, a confirmation form is shown; upon choosing 'confirm' this same controller will be 
-	         called with 'commit' specified
+    /** 
+    bookmarklist/seteditattaccesslevel
+    
+    Entry point for setting the edit access level for all attachments of publications on the bookmarklist.
+    Depending on whether 'commit' is specified in the url, confirmation may be requested before actually
+    changing access levels. 
+    
+    Fails with error message when one of:
+        insufficient user rights
+        
+    Parameters passed via URL segments:
+        4rd: if the 3rd segment is the string 'commit', no confirmation is requested.
+             if not, a confirmation form is shown; upon choosing 'confirm' this same controller will be 
+             called with 'commit' specified
 
-	Parameters passed via POST:
-	    accesslevel: (public|intern|private)
-	         
+    Parameters passed via POST:
+        accesslevel: (public|intern|private)
+             
     Returns:
         A full HTML page showing a 'request confirmation' form for the action, if no 'commit' was specified
         Redirects somewhere (bookmarklist page) after setting access levels, if 'commit' was specified
-	*/
-	function seteditattaccesslevel()
-	{
-	    $commit = $this->uri->segment(3,'');
+    */
+    function seteditattaccesslevel()
+    {
+        $commit = $this->uri->segment(3,'');
         $editaccesslevel = $this->input->post('accesslevel');
-	    //besides the rights needed to READ this publication, checked by publication_db->getByID, we need to check:
-	    //edit_access_level and the user edit rights
+        //besides the rights needed to READ this publication, checked by publication_db->getByID, we need to check:
+        //edit_access_level and the user edit rights
         $userlogin  = getUserLogin();
 
-	    if (!$userlogin->hasRights('bookmarklist') || !$userlogin->hasRights('attachment_edit')) {
-	        appendErrorMessage(sprintf(__('Setting %s access levels of attachments from bookmarklist'), __('edit')).': '.__('insufficient rights').'.<br/>');
-	        redirect('');
-	    }
+        if (!$userlogin->hasRights('bookmarklist') || !$userlogin->hasRights('attachment_edit')) {
+            appendErrorMessage(sprintf(__('Setting %s access levels of attachments from bookmarklist'), __('edit')).': '.__('insufficient rights').'.<br/>');
+            redirect('');
+        }
         if (!in_array($editaccesslevel,array('public','intern','private'))) {
-	        appendErrorMessage(sprintf(__('Setting %s access levels of attachments from bookmarklist'), __('edit')).': '.__('no existing access level specified').'.<br/>');
-	        redirect('bookmarklist');
+            appendErrorMessage(sprintf(__('Setting %s access levels of attachments from bookmarklist'), __('edit')).': '.__('no existing access level specified').'.<br/>');
+            redirect('bookmarklist');
         }
         if ($commit=='commit') {
             //do set levels, redirect somewhere
@@ -832,21 +794,14 @@ class Bookmarklist extends Controller {
             if ($nrskipped>0)appendMessage(sprintf(__('Skipped %s attachments due to insufficient rights.'),$nrskipped),'<br/>');
             redirect('bookmarklist');
         } else {
-            //get output
-            $headerdata = array();
-            $headerdata['title'] = sprintf(__('Set %s access level to %s for all attachments of publications on bookmarklist'),__('edit'), $editaccesslevel);
-            $headerdata['javascripts'] = array('tree.js','prototype.js','scriptaculous.js','builder.js');
-            
-            $output = $this->load->view('header', $headerdata, true);
-    
-            $output .= $this->load->view('bookmarklist/seteditattaccesslevel',
-                                          array('editaccesslevel'=>$editaccesslevel),  
-                                          true);
-            
-            $output .= $this->load->view('footer','', true);
-    
-            //set output
-            $this->output->set_output($output);
+            $this->load->view('header', array('title' => __('Set access level')));
+            $this->load->view('bookmarklist/ask',
+                               array('accesslevel'=>$editaccesslevel,
+                               'target' => 'bookmarklist/seteditattaccesslevel/commit',
+                               'question' => __('Are you sure that you want to set the '.
+                               'edit access level for all attachments of publications on '.
+                               'the bookmarklist to &ldquo;%s&rdquo;?')));
+            $this->load->view('footer');
         }
     }    
 
@@ -855,216 +810,209 @@ class Bookmarklist extends Controller {
     
     Clear bookmarklist
     
-	Fails with error message when one of:
-	    insufficient rights
-	    
-	Parameters passed via POST:
-	    none
-	         
+    Fails with error message when one of:
+        insufficient rights
+        
+    Parameters passed via POST:
+        none
+             
     Redirects to the bookmarklist/view controller
         
     */
     function clear() {
       $userlogin = getUserLogin();
-	    if (!$userlogin->hasRights('bookmarklist')) {
-	        appendErrorMessage(__('Clear bookmarklist').': '.__('insufficient rights').'.<br/>');
-	        redirect('');
-	    }
+        if (!$userlogin->hasRights('bookmarklist')) {
+            appendErrorMessage(__('Clear bookmarklist: insufficient rights.'));
+            redirect('');
+        }
         $this->bookmarklist_db->clear();
         $this->viewlist();
     }
 
     /**
-					bookmarklist/exportEmail
+    bookmarklist/exportEmail
 
-					Sends the publications in the bookmark list to the spesified email address(es).
+    Sends the publications in the bookmark list to the spesified email address(es).
 
-					Fails with error message when one of:
-						insufficient rights
+    Fails with error message when one of:
+        insufficient rights
 
-					Parameters passed via POST segments:
-						email_pdf
-						email_bibtex
-						email_ris
-						email_address
-						email_formatted
+    Parameters passed via POST segments:
+        email_pdf
+        email_bibtex
+        email_ris
+        email_address
+        email_formatted
 
-					Returns:
-							A full HTML page with the list of bookmarked publications
-					*/
-					function exportEmail()
-					{
-        	  $userlogin = getUserLogin();
-						if (!$userlogin->hasRights('export_email')) {
-        	    appendErrorMessage(__('Export through email').': '.__('insufficient rights').'.<br/>');
-        	    redirect('');
+    Returns:
+            A full HTML page with the list of bookmarked publications
+    */
+    function exportEmail()
+    {
+        $userlogin = getUserLogin();
+        if (!$userlogin->hasRights('export_email')) {
+            appendErrorMessage(__('Export through email').': '.__('insufficient rights').'.<br/>');
+            redirect('');
+        }
+        $this->load->library('email_export');
+            
+        $email_pdf = $this->input->post('email_pdf');
+        $email_bibtex = $this->input->post('email_bibtex');
+        $email_ris = $this->input->post('email_ris');
+        $email_address = $this->input->post('email_address');
+        $email_formatted = $this->input->post('email_formatted');
+        $order='year';
+        $recipientaddress   = $this->uri->segment(3,-1);
+        $publications = $this->publication_db->getForBookmarkList($order);
+
+
+        $userlogin = getUserLogin();
+        if (!$userlogin->hasRights('bookmarklist'))
+        {
+            appendErrorMessage(__("View bookmarklist").": ".__("insufficient rights").".<br/>");
+            redirect('');
+        }
+
+
+        /*
+            IF the recipient's address is missing or if none of the data formats are selected THEN show the format selection form.
+        */
+        if(!(($email_pdf !='' || $email_bibtex !='' || $email_ris!='' || $email_formatted!='') && $email_address != ''))
+        {
+            $header ['title']       = __("Select export format");
+
+            $content['attachmentsize']  = $this->email_export->attachmentSize($publications);
+            $content['controller']    ='bookmarklist/exportEmail';
+            if(isset($recipientaddress))
+            {
+                $replace = array("AROBA", "KOMMA");
+                $with   = array("@", ",");
+                $content['recipientaddress'] = str_replace($replace, $with, $recipientaddress);;
             }
-            $this->load->library('email_export');
-			
-						$email_pdf = $this->input->post('email_pdf');
-						$email_bibtex = $this->input->post('email_bibtex');
-						$email_ris = $this->input->post('email_ris');
-						$email_address = $this->input->post('email_address');
-						$email_formatted = $this->input->post('email_formatted');
-						$order='year';
-		        $recipientaddress   = $this->uri->segment(3,-1);
-						$publications = $this->publication_db->getForBookmarkList($order);
 
+            //get output
+            $this->load->view('header', $header);
+            $this->load->view('export/chooseformatEmail', $content);
+            $this->load->view('footer');
+            return;
+        }
+        /*
+            ELSE process the request and send the email.
+        */
+        else
+        {
+            //get output
+            $this->load->helper('publication');
 
-						$userlogin = getUserLogin();
-						if (!$userlogin->hasRights('bookmarklist'))
-						{
-							appendErrorMessage(__("View bookmarklist").": ".__("insufficient rights").".<br/>");
-							redirect('');
-						}
+            $headerdata = array();
+            $headerdata['title'] = __('Bookmark list');
+            $headerdata['sortPrefix'] = '/bookmarklist/viewlist/';
+            $headerdata['exportCommand']    = 'export/bookmarklist/';
+            $headerdata['exportName']    = __('Export bookmarklist');
 
+            $content['header']          = __('Export by email');
+            $this->load->view('header', $headerdata);
 
-						/*
-							IF the recipient's address is missing or if none of the data formats are selected THEN show the format selection form.
-						*/
-						if(!(($email_pdf !='' || $email_bibtex !='' || $email_ris!='' || $email_formatted!='') && $email_address != ''))
-						{
-							$header ['title']       = __("Select export format");
-							$header ['javascripts'] = array('prototype.js', 'effects.js', 'dragdrop.js', 'controls.js','externallinks.js');
+            $content['publications']    = $publications;
 
-							$content['attachmentsize']  = $this->email_export->attachmentSize($publications);
-							$content['controller']	='bookmarklist/exportEmail';
-							if(isset($recipientaddress))
-							{
-								$replace = array("AROBA", "KOMMA");
-								$with   = array("@", ",");
-								$content['recipientaddress'] = str_replace($replace, $with, $recipientaddress);;
-							}
-
-							//get output
-							$output = $this->load->view('header',        $header,  true);
-							$output .= $this->load->view('export/chooseformatEmail', $content, true);
-							$output .= $this->load->view('footer',        '',       true);
-
-							//set output
-							$this->output->set_output($output);
-							return;
-						}
-						/*
-							ELSE process the request and send the email.
-						*/
-						else
-						{
-							//get output
-							$this->load->helper('publication');
-
-							$headerdata = array();
-							$headerdata['title'] = __('Bookmark list');
-							$headerdata['javascripts'] = array('tree.js','prototype.js','scriptaculous.js','builder.js');
-							$headerdata['sortPrefix'] = '/bookmarklist/viewlist/';
-							$headerdata['exportCommand']    = 'export/bookmarklist/';
-							$headerdata['exportName']    = __('Export bookmarklist');
-
-							$content['header']          = __('Export by email');
-							$output = $this->load->view('header', $headerdata, true);
-
-							$content['publications']    = $publications;
-
-							$content['order'] = $order;
+            $content['order'] = $order;
 
 
 
 
-							$messageBody = __('Export from Aigaion');
+            $messageBody = __('Export from Aigaion');
 
-							if($email_formatted || $email_bibtex)
-							{
-								$this->publication_db->enforceMerge = True;
-								$publicationMap = $this->publication_db->getForBookmarkListAsMap();
-								$splitpubs = $this->publication_db->resolveXref($publicationMap,false);
-								$pubs = $splitpubs[0];
-								$xrefpubs = $splitpubs[1];
+            if($email_formatted || $email_bibtex)
+            {
+                $this->publication_db->enforceMerge = True;
+                $publicationMap = $this->publication_db->getForBookmarkListAsMap();
+                $splitpubs = $this->publication_db->resolveXref($publicationMap,false);
+                $pubs = $splitpubs[0];
+                $xrefpubs = $splitpubs[1];
 
-								$exportdata['nonxrefs'] = $pubs;
-								$exportdata['xrefs']    = $xrefpubs;
-								$exportdata['header']   = __('Exported from bookmarklist');
-								$exportdata['exportEmail']   = true;
-							}
-
-
-							/*
-								FORMATTED text is added first. HTML format is selected because this gave nice readable text without having to change or make any views.
-							*/
-							if($email_formatted)
-							{
-								$messageBody .= "\n";
-								$messageBody .= __('Formatted');
-								$messageBody .= "\n";
-
-								$exportdata['format'] = 'html';
-								$exportdata['sort'] = $this->input->post('sort');
-								$exportdata['style'] = $this->input->post('style');
-								$messageBody .= strip_tags($this->load->view('export/'.'formattedEmail', $exportdata, True));
-							}
-
-							/*
-								BIBTEX added.
-							*/
-							if($email_bibtex)
-							{
-								$messageBody .= "\n";
-								$messageBody .= 'BibTeX';
-								$messageBody .= "\n";
-								$messageBody .= strip_tags($this->load->view('export/'.'bibtexEmail', $exportdata, True));
-							}
-							/*
-								RIS added.
-							*/
-							if($email_ris)
-							{
-								$messageBody .= "\n";
-								$messageBody .= 'RIS';
-								$messageBody .= "\n";
-
-								$this->publication_db->suppressMerge = False;
-								$publicationMap = $this->publication_db->getForBookmarkListAsMap();
-								$splitpubs = $this->publication_db->resolveXref($publicationMap,false);
-								$pubs = $splitpubs[0];
-								$xrefpubs = $splitpubs[1];
-
-								#send to right export view
-								$exportdata['nonxrefs'] = $pubs;
-								$exportdata['xrefs']    = $xrefpubs;
-								$exportdata['header']   = __('Exported from bookmarklist');
-								$exportdata['exportEmail']   = true;
-
-								$messageBody .= strip_tags($this->load->view('export/'.'risEmail', $exportdata, True));
-
-							}
+                $exportdata['nonxrefs'] = $pubs;
+                $exportdata['xrefs']    = $xrefpubs;
+                $exportdata['header']   = __('Exported from bookmarklist');
+                $exportdata['exportEmail']   = true;
+            }
 
 
-							/*
-								If PDFs are not selected the publication array is removed and no attachments will be added.
-							*/
-							if(!$email_pdf)
-							{
-								$publications = array();
-							}
+            /*
+                FORMATTED text is added first. HTML format is selected because this gave nice readable text without having to change or make any views.
+            */
+            if($email_formatted)
+            {
+                $messageBody .= "\n";
+                $messageBody .= __('Formatted');
+                $messageBody .= "\n";
 
-							/*
-								Sending MAIL.
-							*/
-							if($this->email_export->sendEmail($email_address, $messageBody, $publications))
-							{
-								$output .= __('Mail sent successfully');
-							}
-							else
-							{
-								appendErrorMessage(__('Something went wrong when exporting the publications. Did you input a correct email address?').' <br />');
-								redirect('bookmarklist/exportEmail');
-							}
+                $exportdata['format'] = 'html';
+                $exportdata['sort'] = $this->input->post('sort');
+                $exportdata['style'] = $this->input->post('style');
+                $messageBody .= strip_tags($this->load->view('export/'.'formattedEmail', $exportdata, True));
+            }
 
-							$output .= $this->load->view('footer','', true);
+            /*
+                BIBTEX added.
+            */
+            if($email_bibtex)
+            {
+                $messageBody .= "\n";
+                $messageBody .= 'BibTeX';
+                $messageBody .= "\n";
+                $messageBody .= strip_tags($this->load->view('export/'.'bibtexEmail', $exportdata, True));
+            }
+            /*
+                RIS added.
+            */
+            if($email_ris)
+            {
+                $messageBody .= "\n";
+                $messageBody .= 'RIS';
+                $messageBody .= "\n";
 
-							//set output
-							$this->output->set_output($output);
-						}
-			}
+                $this->publication_db->suppressMerge = False;
+                $publicationMap = $this->publication_db->getForBookmarkListAsMap();
+                $splitpubs = $this->publication_db->resolveXref($publicationMap,false);
+                $pubs = $splitpubs[0];
+                $xrefpubs = $splitpubs[1];
+
+                #send to right export view
+                $exportdata['nonxrefs'] = $pubs;
+                $exportdata['xrefs']    = $xrefpubs;
+                $exportdata['header']   = __('Exported from bookmarklist');
+                $exportdata['exportEmail']   = true;
+
+                $messageBody .= strip_tags($this->load->view('export/'.'risEmail', $exportdata, True));
+
+            }
+
+
+            /*
+                If PDFs are not selected the publication array is removed and no attachments will be added.
+            */
+            if(!$email_pdf)
+            {
+                $publications = array();
+            }
+
+            /*
+                Sending MAIL.
+            */
+            if($this->email_export->sendEmail($email_address, $messageBody, $publications))
+            {
+                $this->load->view('put', array('data' => __('Mail sent successfully')));
+            }
+            else
+            {
+                appendErrorMessage(__('Something went wrong when exporting the publications. Did you input a correct email address?').' <br />');
+                redirect('bookmarklist/exportEmail');
+            }
+
+            $this->load->view('footer');
+        }
+    }
 
 }
-?>
+
+//__END__

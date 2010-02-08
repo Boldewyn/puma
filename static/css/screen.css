@@ -1014,6 +1014,11 @@ body {
 }
 
 /** forms */
+form.inline,
+form.inline p {
+  display: inline;
+}
+
 #content label.block {
   width: 8em;
   display: block;

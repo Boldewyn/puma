@@ -66,7 +66,7 @@
   //here the output starts
   echo "<div class='publication_list'>\n";
   if (isset($header) && ($header != '')) {
-    echo "  <div class='header'>".$header."</div>\n";
+    echo '<h2>',$header,'</h2>';
   }
   echo $multipagelinks;
   
