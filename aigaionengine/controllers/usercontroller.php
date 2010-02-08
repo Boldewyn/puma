@@ -5,10 +5,11 @@ class Usercontroller extends Controller {
     public function Usercontroller() {
         parent::Controller();
         $subnav = array(
-            '/user/' => __('All Users'),
+            '/user/' => __('All users'),
+            '/bookmarklist' => __('My bookmarks'),
         );
         $userlogin = getUserLogin();
-        $subnav['/user/'.$userlogin->loginName().'/edit'] = __('My Preferences');
+        $subnav['/user/'.$userlogin->loginName().'/edit'] = __('My preferences');
         $this->load->vars(array('subnav' => $subnav));
     }
 
@@ -183,7 +184,8 @@ class Usercontroller extends Controller {
                       ->order_by('users.login asc')
                       ->get();
         $users = $query->result_array();
-        $this->load->view('header', array('title'=>sprintf(__('Group %s'), $id), 'nav_current'=>'user'));
+        $this->load->vars(array('nav_current'=>'user', 'subnav_current' => '/user/'));
+        $this->load->view('header', array('title'=>sprintf(__('Group %s'), $id)));
         $this->load->view('user/group', array('group'=>$group[0], 'users'=>$users));
         $this->load->view('footer');
     }
