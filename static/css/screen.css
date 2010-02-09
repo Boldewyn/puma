@@ -1036,6 +1036,11 @@ form.inline p {
   width: 16em;
 }
 
+#content label.xlarge_label,
+#content .xlarge_label label.block {
+  width: 32em;
+}
+
 /** Input fields */
 #content textarea,
 #content input.text {
@@ -1065,6 +1070,15 @@ form.inline p {
 #content .extended_input select,
 #content .extended_input input.text {
   width: 32em;
+}
+
+#content textarea.medium_input,
+#content select.medium_input,
+#content input.medium_input,
+#content .medium_input textarea,
+#content .medium_input select,
+#content .medium_input input.text {
+  width: 8em;
 }
 
 #content textarea.short_input,
@@ -1162,7 +1176,7 @@ form.inline p {
   overflow: hidden;
 }
 
-#content fieldset.half {
+#content .half {
   width: 34em;
   margin-right: 1.25em;
   float: left;

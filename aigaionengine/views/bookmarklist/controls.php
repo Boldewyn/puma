@@ -13,7 +13,7 @@ $userlogin = getUserLogin();
 ?>
 <h2><?php echo __('Bookmark list controls');?></h2>
 
-<p>
+<p style="float:right">
   <?php _a('bookmarklist/clear', __('Clear bookmarklist'),
           sprintf('title="%s" class="pseudobutton"', __('Clear the bookmarklist'))); ?>
   <?php if ($userlogin->hasRights('publication_edit') && $userlogin->hasRights('topic_edit')) {
@@ -27,6 +27,8 @@ $userlogin = getUserLogin();
           sprintf('title="%s" class="pseudobutton"',
           __('Delete all publications on the bookmarklist from the database')));
   } ?>
+  | <?php _a('export/bookmarklist', __('Export bookmarklist'),
+              'class="pseudobutton"'); ?>
 </p>
 
 <?php     
@@ -78,9 +80,9 @@ if ($userlogin->hasRights('publication_edit')) {
 
 <?php if ($userlogin->hasRights('publication_edit')):
     echo form_open('bookmarklist/setpubaccesslevel');?>
-        <p class="extended_label">
+        <p class="xlarge_label medium_input">
             <?php
-            printf('<label class="block" for="bookmarklist_controls_setpubaccesslevel">%s</label>',
+            printf('<label class="block" for="bookmarklist_controls_setpubaccesslevel">%s</label> ',
                   __('Set read access level for all bookmarked publications:'));
             echo form_dropdown('accesslevel',
                   array('public'=>__('public'),'intern'=>__('intern'),'private'=>__('private')),'intern',
@@ -96,7 +98,7 @@ if ($userlogin->hasRights('publication_edit')) {
 
 if ($userlogin->hasRights('publication_edit')):
     echo form_open('bookmarklist/setattaccesslevel'); ?>
-        <p class="extended_label">
+        <p class="xlarge_label medium_input">
             <?php
             printf('<label class="block" for="bookmarklist_controls_setattaccesslevel">%s</label>',
                    __('Set read access level for all attachments of bookmarked publications:'));
@@ -114,7 +116,7 @@ if ($userlogin->hasRights('publication_edit')):
 
 if ($userlogin->hasRights('publication_edit')):
     echo form_open('bookmarklist/seteditpubaccesslevel'); ?>
-        <p class="extended_label">
+        <p class="xlarge_label medium_input">
             <?php
             printf('<label class="block" for="bookmarklist_controls_seteditpubaccesslevel">%s</label>',
                    __('Set edit access level for all bookmarked publications:'));
@@ -132,7 +134,7 @@ if ($userlogin->hasRights('publication_edit')):
 
 if ($userlogin->hasRights('publication_edit')):
     echo form_open('bookmarklist/seteditattaccesslevel'); ?>
-        <p class="extended_label">
+        <p class="xlarge_label medium_input">
             <?php
             printf('<label class="block" for="bookmarklist_controls_seteditattaccesslevel">%s</label>',
                    __('Set edit access level for all attachments of bookmarked publications:'));

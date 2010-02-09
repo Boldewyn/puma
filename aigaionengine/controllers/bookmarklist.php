@@ -2,10 +2,16 @@
 
 class Bookmarklist extends Controller {
 
-    function Bookmarklist()
-    {
+    function Bookmarklist() {
         parent::Controller();    
-    }
+        $subnav = array(
+            '/user/' => __('All users'),
+            '/bookmarklist/' => __('My bookmarks'),
+        );
+        $userlogin = getUserLogin();
+        $subnav['/user/'.$userlogin->loginName().'/edit'] = __('My preferences');
+        $this->load->vars(array('subnav' => $subnav, 'subnav_current' => '/bookmarklist/'));
+     }
     
     /** Pass control to the bookmarklist/viewlist/ */
     function index()
@@ -720,8 +726,8 @@ class Bookmarklist extends Controller {
                     $nrskipped++;
                 }
             }
-            appendMessage(sprintf(__('Set %s access level of %s publications to "%s"'),__('edit'),$nrchanged,$editaccesslevel).'<br/>');
-            if ($nrskipped>0)appendMessage(sprintf(__('Skipped %s publications due to insufficient rights.'),$nrskipped).'<br/>');
+            appendMessage(sprintf(__('Set %s access level of %s publications to "%s"'),__('edit'),$nrchanged,$editaccesslevel));
+            if ($nrskipped>0)appendMessage(sprintf(__('Skipped %s publications due to insufficient rights.'),$nrskipped));
             redirect('bookmarklist');
         } else {
             $this->load->view('header', array('title' => __('Set edit access level')));
@@ -766,11 +772,11 @@ class Bookmarklist extends Controller {
         $userlogin  = getUserLogin();
 
         if (!$userlogin->hasRights('bookmarklist') || !$userlogin->hasRights('attachment_edit')) {
-            appendErrorMessage(sprintf(__('Setting %s access levels of attachments from bookmarklist'), __('edit')).': '.__('insufficient rights').'.<br/>');
+            appendErrorMessage(sprintf(__('Setting %s access levels of attachments from bookmarklist: %s'), __('edit'), __('insufficient rights.')));
             redirect('');
         }
         if (!in_array($editaccesslevel,array('public','intern','private'))) {
-            appendErrorMessage(sprintf(__('Setting %s access levels of attachments from bookmarklist'), __('edit')).': '.__('no existing access level specified').'.<br/>');
+            appendErrorMessage(sprintf(__('Setting %s access levels of attachments from bookmarklist: %s'), __('edit'), __('no existing access level specified.')));
             redirect('bookmarklist');
         }
         if ($commit=='commit') {
@@ -790,8 +796,8 @@ class Bookmarklist extends Controller {
                     }
                 }
             }
-            appendMessage(sprintf(__('Set %s access level of %s attachments to "%s".'),__('edit'), $nrchanged,$editaccesslevel).'<br/>');
-            if ($nrskipped>0)appendMessage(sprintf(__('Skipped %s attachments due to insufficient rights.'),$nrskipped),'<br/>');
+            appendMessage(sprintf(__('Set %s access level of %s attachments to &ldquo;%s&rdquo;.'),__('edit'), $nrchanged,$editaccesslevel));
+            if ($nrskipped>0)appendMessage(sprintf(__('Skipped %s attachments due to insufficient rights.'),$nrskipped));
             redirect('bookmarklist');
         } else {
             $this->load->view('header', array('title' => __('Set access level')));
@@ -851,7 +857,7 @@ class Bookmarklist extends Controller {
     {
         $userlogin = getUserLogin();
         if (!$userlogin->hasRights('export_email')) {
-            appendErrorMessage(__('Export through email').': '.__('insufficient rights').'.<br/>');
+            appendErrorMessage(__('Export through email: insufficient rights.'));
             redirect('');
         }
         $this->load->library('email_export');
@@ -869,7 +875,7 @@ class Bookmarklist extends Controller {
         $userlogin = getUserLogin();
         if (!$userlogin->hasRights('bookmarklist'))
         {
-            appendErrorMessage(__("View bookmarklist").": ".__("insufficient rights").".<br/>");
+            appendErrorMessage(__('View bookmarklist: insufficient rights.'));
             redirect('');
         }
 
@@ -879,14 +885,14 @@ class Bookmarklist extends Controller {
         */
         if(!(($email_pdf !='' || $email_bibtex !='' || $email_ris!='' || $email_formatted!='') && $email_address != ''))
         {
-            $header ['title']       = __("Select export format");
+            $header ['title']       = __('Select export format');
 
             $content['attachmentsize']  = $this->email_export->attachmentSize($publications);
             $content['controller']    ='bookmarklist/exportEmail';
             if(isset($recipientaddress))
             {
-                $replace = array("AROBA", "KOMMA");
-                $with   = array("@", ",");
+                $replace = array('AROBA', 'KOMMA');
+                $with   = array('@', ',');
                 $content['recipientaddress'] = str_replace($replace, $with, $recipientaddress);;
             }
 
@@ -904,21 +910,9 @@ class Bookmarklist extends Controller {
             //get output
             $this->load->helper('publication');
 
-            $headerdata = array();
-            $headerdata['title'] = __('Bookmark list');
-            $headerdata['sortPrefix'] = '/bookmarklist/viewlist/';
-            $headerdata['exportCommand']    = 'export/bookmarklist/';
-            $headerdata['exportName']    = __('Export bookmarklist');
-
             $content['header']          = __('Export by email');
-            $this->load->view('header', $headerdata);
-
             $content['publications']    = $publications;
-
             $content['order'] = $order;
-
-
-
 
             $messageBody = __('Export from Aigaion');
 
@@ -999,16 +993,17 @@ class Bookmarklist extends Controller {
             /*
                 Sending MAIL.
             */
-            if($this->email_export->sendEmail($email_address, $messageBody, $publications))
-            {
-                $this->load->view('put', array('data' => __('Mail sent successfully')));
+            if(! $this->email_export->sendEmail($email_address, $messageBody, $publications)) {
+                appendErrorMessage(__('Something went wrong when exporting the publications. Did you input a correct email address?'));
             }
-            else
-            {
-                appendErrorMessage(__('Something went wrong when exporting the publications. Did you input a correct email address?').' <br />');
-                redirect('bookmarklist/exportEmail');
-            }
-
+            
+            $headerdata = array(
+                'title' => __('Bookmark list'),
+                'sortPrefix' => '/bookmarklist/viewlist/',
+                'exportCommand' => 'export/bookmarklist/',
+                'exportName' => __('Export bookmarklist'));
+            $this->load->view('header', $headerdata);
+            $this->load->view('put', array('data' => __('Mail sent successfully')));
             $this->load->view('footer');
         }
     }
