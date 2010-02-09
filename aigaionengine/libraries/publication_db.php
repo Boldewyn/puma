@@ -352,6 +352,7 @@ class Publication_db {
         $editorsFromForm = $CI->input->post('editors'.$suffix);
         if ($editorsFromForm)
         {
+          $CI->load->library('parsecreators');
           $authors_array    = $CI->parsecreators->parse(preg_replace('/[\r\n\t]/', ' and ', $editorsFromForm));
           $authors          = array();
           foreach ($authors_array as $author)
@@ -1192,7 +1193,7 @@ class Publication_db {
     $Q = $CI->db->query("SELECT DISTINCT ".AIGAION_DB_PREFIX."publication.* FROM ".AIGAION_DB_PREFIX."publication, ".AIGAION_DB_PREFIX."userbookmarklists
     WHERE ".AIGAION_DB_PREFIX."userbookmarklists.user_id=".$CI->db->escape($userlogin->userId())."
     AND   ".AIGAION_DB_PREFIX."userbookmarklists.pub_id=".AIGAION_DB_PREFIX."publication.pub_id
-    ORDER BY ".$orderby);
+    ORDER BY ".$orderby." ".$limit);
 
     $result = array();
     foreach ($Q->result() as $row)

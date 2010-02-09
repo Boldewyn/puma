@@ -33,9 +33,8 @@ function _puma() {
   echo puma();
 }
 
-function icon($id, $class='', $js='') {
+function iconpath($id, $fallback=Null) {
   $theme = 'puma';
-  $alt = 'Icon '.$id;
   $path = 'static/'.$theme.'/images/icons/'.$id.'.';
   if (file_exists(dirname(FCPATH).'/'.$path.'png')) {
       $src = base_url().$path.'png';
@@ -43,14 +42,20 @@ function icon($id, $class='', $js='') {
       $src = base_url().$path.'gif';
   } elseif (file_exists(dirname(FCPATH).'/'.$path.'jpg')) {
       $src = base_url().$path.'jpg';
+  } elseif ($fallback) {
+      $src = $fallback;
   } else {
       $src = base_url().'static/puma/images/icons/missing.png';
   }
-  return sprintf('<img class="icon %s" alt="%s" src="%s" %s />', $class, $alt, $src, $js);
+  return $src;
 }
 
-function _icon($id, $class="", $js='') {
-  echo icon($id, $class, $js);
+function icon($id, $class='', $js='', $fallback_id=Null) {
+  return sprintf('<img class="icon %s" alt="Icon %s" src="%s" %s />', $class, $id, iconpath($id, iconpath($fallback_id)), $js);
+}
+
+function _icon($id, $class='', $js='', $fallback_id=Null) {
+  echo icon($id, $class, $js, $fallback_id);
 }
 
 //__END__

@@ -130,8 +130,21 @@ Additional bugs added by Manuel Strehl, 2010.
     });
     $('#nav ul').replaceWith($nav);
   };
+  
+  p.handle_bookmark = function (id, method) {
+      $.get(config.base_url+"bookmarklist/"+method+"publication/"+id,
+          function (data) {
+              if ('src' in data) {
+                  $('#bookmark_icon_'+id+' img').attr('src', data.src);
+                  $('#bookmark_icon_'+id).click(function () {
+                      p.handle_bookmark(id, (method=='add'? 'remove':'add'));
+                  });
+              }
+          }, 'json');
+  };
 
 })(jQuery);
+
 
 
 

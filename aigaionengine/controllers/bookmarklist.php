@@ -4,6 +4,7 @@ class Bookmarklist extends Controller {
 
     function Bookmarklist() {
         parent::Controller();    
+        $this->load->library('bookmarklist_db');
         $subnav = array(
             '/user/' => __('All users'),
             '/bookmarklist/' => __('My bookmarks'),
@@ -75,60 +76,44 @@ class Bookmarklist extends Controller {
         }
         if ($userlogin->getPreference('liststyle')>0) {
             //set these parameters when you want to get a good multipublication list display
-            $content['multipage']       = True;
             $content['currentpage']     = $page;
             $content['multipageprefix'] = 'bookmarklist/viewlist/'.$order.'/';
         }        
         
 
-        $content['publications']    = $this->publication_db->getForBookmarkList($order);
+        $content['publications']    = $this->publication_db->getForBookmarkList($order, $page);
+        $content['pubCount']    = $this->bookmarklist_db->count();
         $content['order'] = $order;
         
         $this->load->view('header', $headerdata);
         $this->load->view('bookmarklist/controls');
+        $this->load->view('sort', array('sortPrefix'=>'/bookmarklist/viewlist/'));
         $this->load->view('publications/list', $content);
         $this->load->view('footer');
     }    
 
     /** 
-    bookmarklist/addpublication
-    
-    Entry point for adding a publication to the bookmark list of the logged user.
-    
-    Fails with error message when one of:
-        adding nonexisting pub_id 
-        insufficient rights
-        
-    Parameters passed via URL segments:
-        3rd: pub_id
-             
-    Returns:
-        A partial DIV containing the 'remove' link for that publication
-    */
-    function addpublication() {
-        $pub_id   = $this->uri->segment(3,-1);
-
-        //check rights is done in the $this->bookmarklist_db->addPublication function, no need to do it twice
-
-        //load publication
-        $publication = $this->publication_db->getByID($pub_id);
-        if ($publication == null)
-        {
-            appendErrorMessage(__('Add publication to bookmarklist: non-existing id passed.'));
-            redirect('');
+     * bookmarklist/addpublication
+     */
+    function addpublication($id=-1) {
+        $publication = $this->publication_db->getByID($id);
+        if ($publication == null) {
+            if (is_ajax()) {
+                header('Content-Type: text/javascript');
+                $this->output->set_output('{"error":true}');
+                return;
+            } else {
+                back_to_referer(__('Add publication to bookmarklist: non-existing id passed.'), '', True);
+            }
+        } else {
+            $this->bookmarklist_db->addPublication($publication->pub_id);
+            if (is_ajax()) {
+                header('Content-Type: text/javascript');
+                $this->output->set_output('{"src":"'.iconpath('bookmarked').'"}');
+            } else {
+                back_to_referer(__('Publication was successfully added to the bookmark list.'));
+            }
         }
-        
-        $this->bookmarklist_db->addPublication($publication->pub_id);
-        $output = '<span title="'.__('Click to UnBookmark publication').'">'
-                 .$this->ajax->link_to_remote("<img border=0 src='".getIconUrl('bookmarked.gif')."'>",
-                  array('url'     => site_url('/bookmarklist/removepublication/'.$publication->pub_id),
-                        'update'  => 'bookmark_pub_'.$publication->pub_id
-                        )
-                  ).'</span>';
-
-        //set output
-        $this->output->set_output($output);        
-      
     }
 
     /** 
@@ -235,43 +220,27 @@ class Bookmarklist extends Controller {
     }    
 
     /** 
-    bookmarklist/removepublication
-    
-    Entry point for removing a publication from the bookmark list of the logged user.
-    
-    Fails with error message when one of:
-        removing nonexisting pub_id 
-        insufficient rights
-        
-    Parameters passed via URL segments:
-        3rd: pub_id
-             
-    Returns:
-        A partial DIV containing the 'add' link for that publication
-    */
-    function removepublication() {
-        $pub_id   = $this->uri->segment(3,-1);
-
-        //check rights is done in the $this->bookmarklist_db->removePublication function, no need to do it twice
-
-        //load publication
-        $publication = $this->publication_db->getByID($pub_id);
-        if ($publication == null)
-        {
-            appendErrorMessage(__("Removing publication from bookmarklist").": ".__("non-existing id passed").".<br/>");
-            redirect('');
+     * bookmarklist/removepublication
+     */
+    function removepublication($id=-1) {
+        $publication = $this->publication_db->getByID($id);
+        if ($publication == null) {
+            if (is_ajax()) {
+                header('Content-Type: text/javascript');
+                $this->output->set_output('{"error":true}');
+                return;
+            } else {
+                back_to_referer(__('Removing publication from bookmarklist: non-existing id passed.'), '', True);
+            }
+        } else {
+            $this->bookmarklist_db->removePublication($publication->pub_id);
+            if (is_ajax()) {
+                header('Content-Type: text/javascript');
+                $this->output->set_output('{"src":"'.iconpath('nonbookmarked').'"}');
+            } else {
+                back_to_referer(__('Publication was successfully removed from the bookmark list.'));
+            }
         }
-        
-        $this->bookmarklist_db->removePublication($publication->pub_id);
-        $output = '<span title="'.__('Click to Bookmark publication').'">'
-                 .$this->ajax->link_to_remote("<img border=0 src='".getIconUrl('nonbookmarked.gif')."'>",
-                  array('url'     => site_url('/bookmarklist/addpublication/'.$publication->pub_id),
-                        'update'  => 'bookmark_pub_'.$publication->pub_id
-                        )
-                  ).'</span>';
-
-        //set output
-        $this->output->set_output($output);        
     }
     
 

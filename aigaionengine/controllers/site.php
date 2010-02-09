@@ -324,6 +324,7 @@ class Site extends Controller {
       redirect('');
     }
 
+    $this->load->library('file_upload');
   	$this->file_upload->the_file = $_FILES['backup_file']['name'];
   	$this->file_upload->http_error = $_FILES['backup_file']['error'];
   	$this->file_upload->extensions = array(".sql");

@@ -1279,6 +1279,52 @@ form.inline p {
 }
 
 
+/** sort controls */
+#content .sortcontrols {
+  margin: 0 0 .625em;
+  overflow: hidden;
+}
+
+#content .sortcontrols p {
+  float: left;
+  line-height: 1.85;
+  padding: 0 .625em 0 0;
+  margin: 0;
+  border-bottom: 1px solid #9BBDBF;
+}
+
+#content .sortcontrols ul.tabs {
+  margin: 0;
+  border-bottom: 1px solid #9BBDBF;
+}
+
+#content .sortcontrols ul.tabs li {
+  margin-bottom: 0;
+}
+
+
+/** publication lists */
+#content .publication_list h3 {
+  background: #d6e4e6;
+  padding: .125em .625em;
+}
+
+
+
+
+/** pagination */
+#content .pagination {
+  text-align: center;
+  margin: 0 0 .625em;
+}
+
+#content .pagination li {
+  display: inline;
+  padding: 0 .625em;
+  margin: 0;
+}
+
+
 
 /**
  * Single pages' layouts

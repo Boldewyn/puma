@@ -62,7 +62,10 @@ header('Content-Type: text/html; charset=UTF-8');
               <?php else: ?>
                 <?php printf(__('Hello, %s %s'), $userlogin->preferences['firstname'], $userlogin->preferences['surname']); ?> |
                 <?php if ($userlogin->hasRights('user_edit_self')): ?>
-                  <?php _a('user/'.$userlogin->loginName().'/edit', __('My Profile')); ?> |
+                  <?php _a('user/'.$userlogin->loginName().'/edit', __('Profile')); ?> |
+                <?php endif ?>
+                <?php if ($userlogin->hasRights('bookmarklist')): ?>
+                  <?php _a('bookmarklist', __('Bookmarks')); ?> |
                 <?php endif ?>
                 <?php _a('help', __('Help')); ?> |
                 <?php _a('login/dologout', __('Logout')); ?>

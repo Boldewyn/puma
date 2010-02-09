@@ -1,0 +1,4 @@
+codeigniter/logs/*.php
+credentials.php
+attachments/*
+.gitignore

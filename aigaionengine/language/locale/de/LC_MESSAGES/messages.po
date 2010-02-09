@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Puma.Phi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-09 07:54+0100\n"
+"POT-Creation-Date: 2010-02-09 22:39+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Manuel Strehl <translate@manuel-strehl.de>\n"
 "Language-Team: \n"
@@ -50,11 +50,10 @@ msgstr "Anhang herunterladen"
 #: ../../controllers/authors.php:124
 #: ../../controllers/authors.php:209
 #: ../../controllers/authors.php:511
-#: ../../controllers/bookmarklist.php:228
-#: ../../controllers/bookmarklist.php:261
-#: ../../controllers/bookmarklist.php:368
-#: ../../controllers/bookmarklist.php:403
-#: ../../controllers/bookmarklist.php:472
+#: ../../controllers/bookmarklist.php:213
+#: ../../controllers/bookmarklist.php:337
+#: ../../controllers/bookmarklist.php:372
+#: ../../controllers/bookmarklist.php:441
 #: ../../controllers/embeddingtest.php:41
 #: ../../controllers/groups.php:37
 #: ../../controllers/groups.php:128
@@ -109,13 +108,13 @@ msgstr "Anhang löschen"
 #: ../../controllers/authors.php:394
 #: ../../controllers/authors.php:426
 #: ../../controllers/authors.php:483
-#: ../../controllers/authors.php:646
-#: ../../controllers/bookmarklist.php:427
-#: ../../controllers/bookmarklist.php:431
-#: ../../controllers/bookmarklist.php:507
-#: ../../controllers/bookmarklist.php:570
-#: ../../controllers/bookmarklist.php:637
-#: ../../controllers/bookmarklist.php:707
+#: ../../controllers/authors.php:647
+#: ../../controllers/bookmarklist.php:396
+#: ../../controllers/bookmarklist.php:400
+#: ../../controllers/bookmarklist.php:476
+#: ../../controllers/bookmarklist.php:539
+#: ../../controllers/bookmarklist.php:606
+#: ../../controllers/bookmarklist.php:676
 #: ../../controllers/groups.php:81
 #: ../../controllers/groups.php:138
 #: ../../controllers/groups.php:194
@@ -145,7 +144,7 @@ msgstr "Anhang löschen"
 #: ../../controllers/site.php:206
 #: ../../controllers/site.php:293
 #: ../../controllers/site.php:323
-#: ../../controllers/site.php:397
+#: ../../controllers/site.php:398
 #: ../../controllers/topics.php:149
 #: ../../controllers/topics.php:189
 #: ../../controllers/topics.php:235
@@ -166,9 +165,9 @@ msgstr "Anhang löschen"
 #: ../../libraries/accesslevels_lib.php:302
 #: ../../libraries/accesslevels_lib.php:325
 #: ../../libraries/accesslevels_lib.php:351
-#: ../../libraries/attachment_db.php:101
-#: ../../libraries/attachment_db.php:305
-#: ../../libraries/attachment_db.php:352
+#: ../../libraries/attachment_db.php:103
+#: ../../libraries/attachment_db.php:307
+#: ../../libraries/attachment_db.php:354
 #: ../../libraries/author_db.php:258
 #: ../../libraries/bookmarklist_db.php:14
 #: ../../libraries/bookmarklist_db.php:29
@@ -185,8 +184,8 @@ msgstr "Anhang löschen"
 #: ../../libraries/note_db.php:110
 #: ../../libraries/note_db.php:145
 #: ../../libraries/note_db.php:178
-#: ../../libraries/publication_db.php:405
-#: ../../libraries/publication_db.php:816
+#: ../../libraries/publication_db.php:406
+#: ../../libraries/publication_db.php:817
 #: ../../libraries/rightsprofile_db.php:142
 #: ../../libraries/topic_db.php:337
 #: ../../libraries/topic_db.php:351
@@ -202,7 +201,7 @@ msgstr "unzureichende Rechte"
 #: ../../controllers/attachments.php:138
 #: ../../controllers/attachments.php:153
 #: ../../controllers/attachments.php:159
-#: ../../libraries/attachment_db.php:101
+#: ../../libraries/attachment_db.php:103
 msgid "Add attachment"
 msgstr "Anhang hinzufügen"
 
@@ -256,7 +255,7 @@ msgid "View Author"
 msgstr "Autor betrachten"
 
 #: ../../controllers/authors.php:46
-#: ../../controllers/authors.php:709
+#: ../../controllers/authors.php:710
 msgid "Export author"
 msgstr "Autor exportieren"
 
@@ -342,6 +341,7 @@ msgstr "Autor existiert nicht"
 
 #: ../../controllers/authors.php:405
 #: ../../controllers/test.php:287
+#: ../../views/sort.php:8
 msgid "Author"
 msgstr "Autor"
 
@@ -383,18 +383,18 @@ msgstr "Autoren zu Thema %s"
 msgid "All authors in the database"
 msgstr "Alle Autoren in der Datenbank"
 
-#: ../../controllers/authors.php:646
+#: ../../controllers/authors.php:647
 #: ../../controllers/publications.php:689
 #: ../../controllers/topics.php:621
 msgid "Export through email"
 msgstr "Export via E-Mail"
 
-#: ../../controllers/authors.php:664
+#: ../../controllers/authors.php:665
 msgid "No author selected for export"
 msgstr "Kein Autor für den Export ausgewählt"
 
-#: ../../controllers/authors.php:676
-#: ../../controllers/bookmarklist.php:888
+#: ../../controllers/authors.php:677
+#: ../../controllers/bookmarklist.php:857
 #: ../../controllers/export.php:34
 #: ../../controllers/export.php:111
 #: ../../controllers/export.php:188
@@ -405,31 +405,31 @@ msgstr "Kein Autor für den Export ausgewählt"
 msgid "Select export format"
 msgstr "Exportformat wählen"
 
-#: ../../controllers/authors.php:706
+#: ../../controllers/authors.php:707
 msgid "Author export"
 msgstr "Autor exportieren"
 
-#: ../../controllers/authors.php:711
-#: ../../controllers/bookmarklist.php:913
+#: ../../controllers/authors.php:712
+#: ../../controllers/bookmarklist.php:882
 #: ../../controllers/publications.php:759
 #: ../../controllers/topics.php:687
 msgid "Export by email"
 msgstr "Export via E-Mail"
 
-#: ../../controllers/authors.php:720
-#: ../../controllers/bookmarklist.php:917
+#: ../../controllers/authors.php:721
+#: ../../controllers/bookmarklist.php:886
 #: ../../controllers/publications.php:768
 #: ../../controllers/topics.php:696
 msgid "Export from Aigaion"
 msgstr "Export von Aigaion"
 
-#: ../../controllers/authors.php:732
-#: ../../controllers/authors.php:780
+#: ../../controllers/authors.php:733
+#: ../../controllers/authors.php:781
 msgid "Exported for author"
 msgstr "Exportiert für Autor"
 
-#: ../../controllers/authors.php:743
-#: ../../controllers/bookmarklist.php:940
+#: ../../controllers/authors.php:744
+#: ../../controllers/bookmarklist.php:909
 #: ../../controllers/publications.php:791
 #: ../../controllers/topics.php:719
 #: ../../views/export/chooseformat.php:51
@@ -438,60 +438,60 @@ msgstr "Exportiert für Autor"
 msgid "Formatted"
 msgstr "Formatiert"
 
-#: ../../controllers/authors.php:801
-#: ../../controllers/bookmarklist.php:1006
+#: ../../controllers/authors.php:802
+#: ../../controllers/bookmarklist.php:975
 #: ../../controllers/publications.php:849
 #: ../../controllers/topics.php:777
 msgid "Mail sent successfully"
 msgstr "E-Mail erfolgreich gesendet"
 
-#: ../../controllers/authors.php:805
-#: ../../controllers/bookmarklist.php:997
+#: ../../controllers/authors.php:806
+#: ../../controllers/bookmarklist.php:966
 #: ../../controllers/publications.php:853
 #: ../../controllers/topics.php:781
 msgid "Something went wrong when exporting the publications. Did you input a correct email address?"
 msgstr "Etwas ist beim Exportieren der Daten schiefgegangen. Hast Du eine korrekte E-Mail-Adresse angegeben?"
 
-#: ../../controllers/bookmarklist.php:8
+#: ../../controllers/bookmarklist.php:9
 #: ../../controllers/usercontroller.php:8
 msgid "All users"
 msgstr "Alle Nutzer"
 
-#: ../../controllers/bookmarklist.php:9
+#: ../../controllers/bookmarklist.php:10
 #: ../../controllers/usercontroller.php:9
 msgid "My bookmarks"
 msgstr "Meine Merkliste"
 
-#: ../../controllers/bookmarklist.php:12
+#: ../../controllers/bookmarklist.php:13
 #: ../../controllers/usercontroller.php:12
 msgid "My preferences"
 msgstr "Meine Einstellungen"
 
-#: ../../controllers/bookmarklist.php:48
+#: ../../controllers/bookmarklist.php:49
 msgid "View bookmarklist: insufficient rights"
 msgstr "Merkliste betrachten: unzureichende Rechte"
 
-#: ../../controllers/bookmarklist.php:56
-#: ../../controllers/bookmarklist.php:1001
+#: ../../controllers/bookmarklist.php:57
+#: ../../controllers/bookmarklist.php:970
 msgid "Bookmark list"
 msgstr "Lesezeichenliste"
 
-#: ../../controllers/bookmarklist.php:59
-#: ../../controllers/bookmarklist.php:1004
+#: ../../controllers/bookmarklist.php:60
+#: ../../controllers/bookmarklist.php:973
 #: ../../views/bookmarklist/controls.php:30
 msgid "Export bookmarklist"
 msgstr "Merkliste exportieren"
 
-#: ../../controllers/bookmarklist.php:61
-#: ../../controllers/bookmarklist.php:64
-#: ../../controllers/bookmarklist.php:67
-#: ../../controllers/bookmarklist.php:70
-#: ../../controllers/bookmarklist.php:73
+#: ../../controllers/bookmarklist.php:62
+#: ../../controllers/bookmarklist.php:65
+#: ../../controllers/bookmarklist.php:68
+#: ../../controllers/bookmarklist.php:71
+#: ../../controllers/bookmarklist.php:74
 #, php-format
 msgid "Bookmarklist of %s"
 msgstr "Merkliste von %s"
 
-#: ../../controllers/bookmarklist.php:64
+#: ../../controllers/bookmarklist.php:65
 #: ../../controllers/keywords.php:148
 #: ../../controllers/publications.php:164
 #: ../../controllers/publications.php:232
@@ -500,7 +500,7 @@ msgstr "Merkliste von %s"
 msgid "sorted by journal and type"
 msgstr "sortiert nach Journal und Typ"
 
-#: ../../controllers/bookmarklist.php:67
+#: ../../controllers/bookmarklist.php:68
 #: ../../controllers/keywords.php:151
 #: ../../controllers/publications.php:167
 #: ../../controllers/publications.php:235
@@ -509,7 +509,7 @@ msgstr "sortiert nach Journal und Typ"
 msgid "sorted by recency"
 msgstr "sortiert nach Aktualität"
 
-#: ../../controllers/bookmarklist.php:70
+#: ../../controllers/bookmarklist.php:71
 #: ../../controllers/keywords.php:154
 #: ../../controllers/publications.php:170
 #: ../../controllers/publications.php:238
@@ -518,164 +518,162 @@ msgstr "sortiert nach Aktualität"
 msgid "sorted by title"
 msgstr "nach Titel sortiert"
 
-#: ../../controllers/bookmarklist.php:73
+#: ../../controllers/bookmarklist.php:74
 #: ../../controllers/keywords.php:157
 #: ../../controllers/topics.php:349
 #: ../../controllers/topics.php:457
 msgid "sorted by first author"
 msgstr "sortiert nach erstem Autor"
 
-#: ../../controllers/bookmarklist.php:117
+#: ../../controllers/bookmarklist.php:106
 msgid "Add publication to bookmarklist: non-existing id passed."
 msgstr "Veröffentlichung zur Merkliste hinzufügen: nicht existierende ID übergeben."
 
-#: ../../controllers/bookmarklist.php:122
-#: ../../views/publications/list.php:224
-msgid "Click to UnBookmark publication"
-msgstr "Klicken, um Veröffentlichung von der Merkliste zu nehmen"
+#: ../../controllers/bookmarklist.php:114
+msgid "Publication was successfully added to the bookmark list."
+msgstr "Veröffentlichung wurde erfolgreich zur Merkliste hinzugefügt."
 
-#: ../../controllers/bookmarklist.php:159
+#: ../../controllers/bookmarklist.php:144
 msgid "Add topic to bookmarklist: non-existing id passed."
 msgstr "Thema zur Merkliste hinzufügen: nicht existierende ID übergeben."
 
-#: ../../controllers/bookmarklist.php:194
+#: ../../controllers/bookmarklist.php:179
 msgid "Add keyword to bookmarklist: non-existing id passed."
 msgstr "Schlüsselwort zur Merkliste hinzufügen: nicht existierende ID übergeben."
 
-#: ../../controllers/bookmarklist.php:228
+#: ../../controllers/bookmarklist.php:213
 msgid "Add author to bookmarklist"
 msgstr "Autor zur Merkliste hinzufügen"
 
-#: ../../controllers/bookmarklist.php:261
-msgid "Removing publication from bookmarklist"
-msgstr "Veröffentlichung von der Merkliste nehmen"
+#: ../../controllers/bookmarklist.php:233
+msgid "Removing publication from bookmarklist: non-existing id passed."
+msgstr "Thema von der Merkliste nehmen: nicht existierende ID übergeben."
 
-#: ../../controllers/bookmarklist.php:266
-#: ../../views/publications/list.php:232
-msgid "Click to Bookmark publication"
-msgstr "Klicken, um Veröffentlichung zu merken"
+#: ../../controllers/bookmarklist.php:241
+msgid "Publication was successfully removed from the bookmark list."
+msgstr "Veröffentlichung wurde erfolgreich von der Merkliste gelöscht."
 
-#: ../../controllers/bookmarklist.php:303
+#: ../../controllers/bookmarklist.php:272
 msgid "Removing topic from bookmarklist: non-existing id passed."
 msgstr "Thema von der Merkliste nehmen: nicht existierende ID übergeben."
 
-#: ../../controllers/bookmarklist.php:335
+#: ../../controllers/bookmarklist.php:304
 msgid "Removing keyword from bookmarklist: non-existing id passed."
 msgstr "Schlüsselwort von der Merkliste nehmen: nicht existierende Schlüsselwort-ID übergeben."
 
-#: ../../controllers/bookmarklist.php:368
+#: ../../controllers/bookmarklist.php:337
 msgid "Removing author from bookmarklist"
 msgstr "Autor von der Merkliste nehmen"
 
-#: ../../controllers/bookmarklist.php:403
+#: ../../controllers/bookmarklist.php:372
 msgid "Add bookmarked publications to topic"
 msgstr "Gemerkte Veröffentlichungen zu Thema hinzufügen"
 
-#: ../../controllers/bookmarklist.php:427
-#: ../../controllers/bookmarklist.php:431
+#: ../../controllers/bookmarklist.php:396
+#: ../../controllers/bookmarklist.php:400
 msgid "Making topic from bookmarklist"
 msgstr "Thema aus Merkliste erzeugen"
 
-#: ../../controllers/bookmarklist.php:436
+#: ../../controllers/bookmarklist.php:405
 msgid "-new from bookmarklist-"
 msgstr "-neu aus der Merkliste-"
 
-#: ../../controllers/bookmarklist.php:438
+#: ../../controllers/bookmarklist.php:407
 msgid "Error creating topic."
 msgstr "Fehler beim Erzeugen eines Themas."
 
-#: ../../controllers/bookmarklist.php:472
+#: ../../controllers/bookmarklist.php:441
 msgid "Remove bookmarked publications from topic"
 msgstr "Alle gemerkten Veröffentlichungen vom gewählten Thema entfernen"
 
-#: ../../controllers/bookmarklist.php:507
+#: ../../controllers/bookmarklist.php:476
 msgid "Deleting publications from bookmarklist"
 msgstr "Veröffentlichungen auf der Merkliste löschen"
 
-#: ../../controllers/bookmarklist.php:527
+#: ../../controllers/bookmarklist.php:496
 #, php-format
 msgid "Deleted %d publications."
 msgstr "%d Veröffentlichungen gelöscht."
 
-#: ../../controllers/bookmarklist.php:528
+#: ../../controllers/bookmarklist.php:497
 #, php-format
 msgid "Skipped %d publications due to insufficient rights."
 msgstr "%d Veröffentlichungen aufgrund unzureichender Rechte übersprungen."
 
-#: ../../controllers/bookmarklist.php:531
+#: ../../controllers/bookmarklist.php:500
 msgid "Delete all from bookmarklist"
 msgstr "von der Merkliste löschen"
 
-#: ../../controllers/bookmarklist.php:533
+#: ../../controllers/bookmarklist.php:502
 msgid "Are you sure that you want to delete all publications on the bookmarklist from your database?"
 msgstr "Bist Du sicher, dass Du alle Veröffentlichungen auf der Merkliste aus der Datenbank löschen willst?"
 
-#: ../../controllers/bookmarklist.php:570
-#: ../../controllers/bookmarklist.php:574
-#: ../../controllers/bookmarklist.php:707
-#: ../../controllers/bookmarklist.php:711
+#: ../../controllers/bookmarklist.php:539
+#: ../../controllers/bookmarklist.php:543
+#: ../../controllers/bookmarklist.php:676
+#: ../../controllers/bookmarklist.php:680
 msgid "Setting access levels of publications from bookmarklist"
 msgstr "Zugriffsebenen von Veröffentlichungen auf der Merkliste setzen"
 
-#: ../../controllers/bookmarklist.php:574
-#: ../../controllers/bookmarklist.php:641
-#: ../../controllers/bookmarklist.php:711
+#: ../../controllers/bookmarklist.php:543
+#: ../../controllers/bookmarklist.php:610
+#: ../../controllers/bookmarklist.php:680
 msgid "no existing access level specified"
 msgstr "keine existierende Zugriffsebene gewählt"
 
-#: ../../controllers/bookmarklist.php:592
-#: ../../controllers/bookmarklist.php:729
+#: ../../controllers/bookmarklist.php:561
+#: ../../controllers/bookmarklist.php:698
 #, php-format
 msgid "Set %s access level of %s publications to \"%s\""
 msgstr "%s Zugriffsebene von %s Veröffentlichungen auf \"%s\" gesetzt"
 
-#: ../../controllers/bookmarklist.php:592
-#: ../../controllers/bookmarklist.php:661
+#: ../../controllers/bookmarklist.php:561
+#: ../../controllers/bookmarklist.php:630
 msgid "read"
 msgstr "lese"
 
-#: ../../controllers/bookmarklist.php:593
-#: ../../controllers/bookmarklist.php:730
+#: ../../controllers/bookmarklist.php:562
+#: ../../controllers/bookmarklist.php:699
 #, php-format
 msgid "Skipped %s publications due to insufficient rights."
 msgstr "%s Veröffentlichungen aufgrund unzureichender Rechte übersprungen."
 
-#: ../../controllers/bookmarklist.php:596
-#: ../../controllers/bookmarklist.php:665
-#: ../../controllers/bookmarklist.php:803
+#: ../../controllers/bookmarklist.php:565
+#: ../../controllers/bookmarklist.php:634
+#: ../../controllers/bookmarklist.php:772
 msgid "Set access level"
 msgstr "Zugriffsebene setzen"
 
-#: ../../controllers/bookmarklist.php:599
+#: ../../controllers/bookmarklist.php:568
 #, php-format
 msgid "Are you sure that you want to set the read access level for all publications on the bookmarklist to &ldquo;%s&rdquo;?"
 msgstr "Bist Du sicher, dass Du die Lesezugriffsebene für alle Veröffentlichungen auf der Merkliste auf &bdquo;%s&ldquo; setzen willst?"
 
-#: ../../controllers/bookmarklist.php:637
-#: ../../controllers/bookmarklist.php:641
+#: ../../controllers/bookmarklist.php:606
+#: ../../controllers/bookmarklist.php:610
 msgid "Setting access levels of attachments from bookmarklist"
 msgstr "Zugriffsebenen von alle Anhängen auf der Merkliste setzen"
 
-#: ../../controllers/bookmarklist.php:661
+#: ../../controllers/bookmarklist.php:630
 #, php-format
 msgid "Set %s access level of %s attachments to \"%s\"."
 msgstr "%s Zugriffsebene von %s Anhängen auf \"%s\" gesetzt."
 
-#: ../../controllers/bookmarklist.php:662
-#: ../../controllers/bookmarklist.php:800
+#: ../../controllers/bookmarklist.php:631
+#: ../../controllers/bookmarklist.php:769
 #, php-format
 msgid "Skipped %s attachments due to insufficient rights."
 msgstr "%s Anhänge aufgrund unzureichender Rechte übersprungen"
 
-#: ../../controllers/bookmarklist.php:669
+#: ../../controllers/bookmarklist.php:638
 #, php-format
 msgid "Are you sure that you want to set the read access level for all attachments of publications on the bookmarklist to &ldquo;%s&rdquo;?"
 msgstr "Bist Du sicher, dass Du die Lesezugriffsebene für alle Anhänge der Veröffentlichungen auf der Merkliste auf &bdquo;%s&ldquo; setzen willst?"
 
-#: ../../controllers/bookmarklist.php:729
-#: ../../controllers/bookmarklist.php:775
-#: ../../controllers/bookmarklist.php:779
-#: ../../controllers/bookmarklist.php:799
+#: ../../controllers/bookmarklist.php:698
+#: ../../controllers/bookmarklist.php:744
+#: ../../controllers/bookmarklist.php:748
+#: ../../controllers/bookmarklist.php:768
 #: ../../views/attachments/summary.php:48
 #: ../../views/authors/single.php:9
 #: ../../views/groups/summary.php:15
@@ -687,53 +685,53 @@ msgstr "Bist Du sicher, dass Du die Lesezugriffsebene für alle Anhänge der Ver
 msgid "edit"
 msgstr "bearbeiten"
 
-#: ../../controllers/bookmarklist.php:733
+#: ../../controllers/bookmarklist.php:702
 msgid "Set edit access level"
 msgstr "Schreibzugriffsebene setzen"
 
-#: ../../controllers/bookmarklist.php:737
+#: ../../controllers/bookmarklist.php:706
 #, php-format
 msgid "Are you sure that you want to set the edit access level for all publications on the bookmarklist to &ldquo;%s&rdquo;?"
 msgstr "Bist Du sicher, dass Du die Schreibzugriffsebene für alle Veröffentlichungen auf der Merkliste auf &bdquo;%s&ldquo; setzen willst?"
 
-#: ../../controllers/bookmarklist.php:775
-#: ../../controllers/bookmarklist.php:779
+#: ../../controllers/bookmarklist.php:744
+#: ../../controllers/bookmarklist.php:748
 #, php-format
 msgid "Setting %s access levels of attachments from bookmarklist: %s"
 msgstr "%s Zugriffsebenen von Anhängen auf der Merkliste setzen: %s"
 
-#: ../../controllers/bookmarklist.php:775
+#: ../../controllers/bookmarklist.php:744
 msgid "insufficient rights."
 msgstr "unzureichende Rechte."
 
-#: ../../controllers/bookmarklist.php:779
+#: ../../controllers/bookmarklist.php:748
 msgid "no existing access level specified."
 msgstr "keine existierende Zugriffsebene gewählt."
 
-#: ../../controllers/bookmarklist.php:799
+#: ../../controllers/bookmarklist.php:768
 #, php-format
 msgid "Set %s access level of %s attachments to &ldquo;%s&rdquo;."
 msgstr "%s Zugriffsebene von %s Anhängen auf &bdquo;%s&ldquo; gesetzt."
 
-#: ../../controllers/bookmarklist.php:807
+#: ../../controllers/bookmarklist.php:776
 #, php-format
 msgid "Are you sure that you want to set the edit access level for all attachments of publications on the bookmarklist to &ldquo;%s&rdquo;?"
 msgstr "Bist Du sicher, dass Du die Lesezugriffsebene für alle Anhänge der Veröffentlichungen auf der Merkliste auf &bdquo;%s&ldquo; setzen willst?"
 
-#: ../../controllers/bookmarklist.php:831
+#: ../../controllers/bookmarklist.php:800
 msgid "Clear bookmarklist: insufficient rights."
 msgstr "Merkliste löschen: unzureichende Rechte."
 
-#: ../../controllers/bookmarklist.php:860
+#: ../../controllers/bookmarklist.php:829
 msgid "Export through email: insufficient rights."
 msgstr "Export via e-Mail: unzureichende Rechte."
 
-#: ../../controllers/bookmarklist.php:878
+#: ../../controllers/bookmarklist.php:847
 msgid "View bookmarklist: insufficient rights."
 msgstr "Merkliste betrachten: unzureichende Rechte."
 
-#: ../../controllers/bookmarklist.php:929
-#: ../../controllers/bookmarklist.php:977
+#: ../../controllers/bookmarklist.php:898
+#: ../../controllers/bookmarklist.php:946
 #: ../../controllers/export.php:309
 msgid "Exported from bookmarklist"
 msgstr "Exportiert aus Merkliste"
@@ -883,6 +881,8 @@ msgid "Export one publication"
 msgstr "Eine Veröffentlichung exportieren"
 
 #: ../../controllers/front.php:16
+#: ../../views/pagination.php:17
+#: ../../views/pagination.php:19
 msgid "Start"
 msgstr "Start"
 
@@ -1007,7 +1007,7 @@ msgstr "Thema kündigen"
 
 #: ../../controllers/help.php:12
 #: ../../views/footer.php:64
-#: ../../views/header.php:67
+#: ../../views/header.php:70
 msgid "Help"
 msgstr "Hilfe"
 
@@ -1282,7 +1282,7 @@ msgid "Edit publication"
 msgstr "Veröffentlichung bearbeiten"
 
 #: ../../controllers/publications.php:311
-#: ../../libraries/publication_db.php:405
+#: ../../libraries/publication_db.php:406
 msgid "Add publication"
 msgstr "Veröffentlichung hinzufügen"
 
@@ -1553,20 +1553,20 @@ msgstr "Datenbank sichern"
 #: ../../controllers/site.php:293
 #: ../../controllers/site.php:297
 #: ../../controllers/site.php:323
-#: ../../controllers/site.php:397
+#: ../../controllers/site.php:398
 msgid "Restore database"
 msgstr "Datenbank wiederherstellen"
 
-#: ../../controllers/site.php:332
+#: ../../controllers/site.php:333
 msgid "The file appears not to be an SQL file. Please select a valid Aigaion backup file."
 msgstr "Die Datei scheint keine gültige SQL-Datei zu sein. Bitte wähle eine gültige Aigaion-Sicherungsdatei."
 
-#: ../../controllers/site.php:356
-#: ../../controllers/site.php:420
+#: ../../controllers/site.php:357
+#: ../../controllers/site.php:421
 msgid "Restored database"
 msgstr "Wiederhergestellte Datenbank"
 
-#: ../../controllers/site.php:404
+#: ../../controllers/site.php:405
 msgid "No data given to restore!"
 msgstr "Keine Daten für die Wiederherstellung übergeben!"
 
@@ -2822,67 +2822,67 @@ msgstr "Du kannst die Zugriffsebene des Wurzelthemas nicht ändern."
 msgid "Cascade of access levels not yet implemented"
 msgstr "Kaskade der Zugriffsebenen noch nicht implementiert"
 
-#: ../../libraries/attachment_db.php:113
+#: ../../libraries/attachment_db.php:115
 #, php-format
 msgid "ERROR UPLOADING: %s is not an allowed extension for remote files."
 msgstr "FEHLER BEIM HOCHLADEN: %s ist keine erlaubte Dateiendung für entfernte Dateien."
 
-#: ../../libraries/attachment_db.php:114
+#: ../../libraries/attachment_db.php:116
 msgid "Allowed types"
 msgstr "Zugelassene Typen"
 
-#: ../../libraries/attachment_db.php:115
+#: ../../libraries/attachment_db.php:117
 #, php-format
 msgid "Need other file types? Ask %s"
 msgstr "Brauchst Du andere Dateitypen? Frage %s"
 
-#: ../../libraries/attachment_db.php:152
-#: ../../libraries/attachment_db.php:234
-#: ../../libraries/attachment_db.php:321
+#: ../../libraries/attachment_db.php:154
+#: ../../libraries/attachment_db.php:236
+#: ../../libraries/attachment_db.php:323
 msgid "Error un-'main'-ing other attachments"
 msgstr "Fehler beim ent-'haupt'-en anderer Anhänge"
 
-#: ../../libraries/attachment_db.php:172
-#: ../../libraries/attachment_db.php:260
+#: ../../libraries/attachment_db.php:174
+#: ../../libraries/attachment_db.php:262
 msgid "Error adding attachment"
 msgstr "Fehler beim Anhang hinzufügen"
 
-#: ../../libraries/attachment_db.php:182
+#: ../../libraries/attachment_db.php:184
 msgid "You cannot upload attachment files to this server (the server is declared write-only); please use remote attachments instead."
 msgstr "Du kannst auf diesen Server keine Dateien hochladen (der Server ist als &bdquo;nur lesen&ldquo; ausgezeichnet); bitte verwende statt dessen entfernte Anhänge."
 
-#: ../../libraries/attachment_db.php:189
-#: ../../libraries/attachment_db.php:278
+#: ../../libraries/attachment_db.php:191
+#: ../../libraries/attachment_db.php:280
 msgid "Error while uploading"
 msgstr "Fehler beim Hochladen"
 
-#: ../../libraries/attachment_db.php:267
+#: ../../libraries/attachment_db.php:269
 msgid "Error uploading. The file was not written to disk."
 msgstr "Fehler beim Hochladen. Die Datei wurde nicht auf die Festplatte geschrieben."
 
-#: ../../libraries/attachment_db.php:269
+#: ../../libraries/attachment_db.php:271
 msgid "Is this error entirely unexpected? You might want to check whether the php settings 'upload_max_filesize', 'post_max_size' and 'max_execution_time' are all large enough for uploading your attachments... Please check this with your administrator."
 msgstr "Kommt dieser Fehler vollkommen unerwartet? Du kannst die PHP-Einstellungen 'upload_max_filesize', 'post_max_size' und 'max_execution_time' auf Werte überprüfen, die für das Hochladen Deiner Anhänge groß genug sind... Bitte kläre dies mit Deinem Administrator."
 
-#: ../../libraries/attachment_db.php:278
+#: ../../libraries/attachment_db.php:280
 #, php-format
 msgid "Is the error due to allowed file types? Ask %s for more types."
 msgstr "Hängt dieser Fehler mit den erlaubten Dateitypen zusammen? Frage %s nach mehr Typen."
 
-#: ../../libraries/attachment_db.php:305
+#: ../../libraries/attachment_db.php:307
 msgid "Update attachment"
 msgstr "Anhang aktualisieren"
 
-#: ../../libraries/attachment_db.php:352
-#: ../../libraries/attachment_db.php:356
+#: ../../libraries/attachment_db.php:354
+#: ../../libraries/attachment_db.php:358
 msgid "Cannot delete attachment"
 msgstr "Kann Anhang nicht löschen"
 
-#: ../../libraries/attachment_db.php:356
+#: ../../libraries/attachment_db.php:358
 #: ../../libraries/author_db.php:262
 #: ../../libraries/group_db.php:146
 #: ../../libraries/note_db.php:182
-#: ../../libraries/publication_db.php:820
+#: ../../libraries/publication_db.php:821
 #: ../../libraries/rightsprofile_db.php:146
 #: ../../libraries/topic_db.php:507
 #: ../../libraries/user_db.php:448
@@ -2900,7 +2900,7 @@ msgid "still has publications (possibly invisible...). Do you need a quick way t
 msgstr "hat noch Veröffentlichungen (eventuell unsichtbar...). Suchst Du einen schnellen Weg, um alle Veröffentlichungen eines Autors zu löschen? Füge sie zur Merkliste hinzu und lösche sie von da..."
 
 #: ../../libraries/author_db.php:301
-#: ../../libraries/publication_db.php:927
+#: ../../libraries/publication_db.php:928
 #, php-format
 msgid "One of the fields %s is required"
 msgstr "Eines der Felder %s ist verpflichtend"
@@ -3131,56 +3131,56 @@ msgstr "Fehlercode"
 msgid "Error text"
 msgstr "Fehlermeldung:"
 
-#: ../../libraries/publication_db.php:816
-#: ../../libraries/publication_db.php:820
-#: ../../libraries/publication_db.php:832
-#: ../../libraries/publication_db.php:836
-#: ../../libraries/publication_db.php:847
-#: ../../libraries/publication_db.php:851
+#: ../../libraries/publication_db.php:817
+#: ../../libraries/publication_db.php:821
+#: ../../libraries/publication_db.php:833
+#: ../../libraries/publication_db.php:837
+#: ../../libraries/publication_db.php:848
+#: ../../libraries/publication_db.php:852
 msgid "Cannot delete publication"
 msgstr "Kann Veröffentlichung nicht löschen"
 
-#: ../../libraries/publication_db.php:832
-#: ../../libraries/publication_db.php:836
+#: ../../libraries/publication_db.php:833
+#: ../../libraries/publication_db.php:837
 msgid "publication contains some attachments that you do not have permission to delete."
 msgstr "Veröffentlichung enthält Anhänge, bei denen Dir die Löschrechte fehlen."
 
-#: ../../libraries/publication_db.php:847
-#: ../../libraries/publication_db.php:851
+#: ../../libraries/publication_db.php:848
+#: ../../libraries/publication_db.php:852
 msgid "publication contains some notes that you do not have permission to delete."
 msgstr "Veröffentlichung enthält Notizen, bei denen Dir die Löschrechte fehlen."
 
-#: ../../libraries/publication_db.php:908
+#: ../../libraries/publication_db.php:909
 #, php-format
 msgid "The %s field is required"
 msgstr "Das %s-Feld ist verpflichtend"
 
-#: ../../libraries/publication_db.php:933
+#: ../../libraries/publication_db.php:934
 msgid "Validation error"
 msgstr "Überprüfungsfehler"
 
-#: ../../libraries/publication_db.php:1278
+#: ../../libraries/publication_db.php:1279
 #, php-format
 msgid "Failed to update the bibtex-id in publication %s"
 msgstr "Aktualisieren der BibTeX-ID in Veröffentlichung %s fehlgeschlagen."
 
-#: ../../libraries/publication_db.php:1391
+#: ../../libraries/publication_db.php:1392
 msgid "resolveXref: merge xref into publication!"
 msgstr "resolveXref: führe Querverweis mit Veröffentlichung zusammen!"
 
-#: ../../libraries/publication_db.php:1427
+#: ../../libraries/publication_db.php:1428
 msgid "A publication with the same title exists. Please make sure that the publication you are importing is not already in the database."
 msgstr "Eine Veröffentlichung mit dem selben Titel existiert bereits. Bitte versichere Dich, dass die Veröffentlichung, die Du importieren möchtest, nicht bereits in der Datenbank vorhanden ist."
 
-#: ../../libraries/publication_db.php:1448
+#: ../../libraries/publication_db.php:1449
 msgid "The cite id is not unique, please choose another cite id."
 msgstr "Die Zitat-ID ist nicht eindeutig, bitte wähle eine andere Zitat-ID."
 
-#: ../../libraries/publication_db.php:1450
+#: ../../libraries/publication_db.php:1451
 msgid "Publication with same cite id"
 msgstr "Veröffentlichung mit der gleichen Zitat-ID"
 
-#: ../../libraries/publication_db.php:1466
+#: ../../libraries/publication_db.php:1467
 msgid "Similar cite ids"
 msgstr "Ähnliche Zitat-IDs"
 
@@ -3695,8 +3695,8 @@ msgstr "Ändern"
 
 #: ../../views/attachments/summary.php:19
 #: ../../views/attachments/summary.php:28
-#: ../../views/publications/list.php:245
-#: ../../views/publications/list.php:254
+#: ../../views/publications/list.php:198
+#: ../../views/publications/list.php:201
 #: ../../views/publications/listClean.php:185
 #: ../../views/publications/listClean.php:194
 #: ../../views/readapi/publist.php:171
@@ -3835,7 +3835,7 @@ msgstr "Zeigen"
 
 #: ../../views/authors/list_items.php:11
 #: ../../views/keywords/list_items.php:58
-#: ../../views/publications/list.php:178
+#: ../../views/publications/list.php:136
 #: ../../views/readapi/publist.php:124
 #, php-format
 msgid "All information on %s"
@@ -4196,10 +4196,14 @@ msgid "Hello, %s %s"
 msgstr "Hallo, %s %s"
 
 #: ../../views/header.php:65
-msgid "My Profile"
-msgstr "Meine Einstellungen"
+msgid "Profile"
+msgstr "Profil"
 
 #: ../../views/header.php:68
+msgid "Bookmarks"
+msgstr "Lesezeichen"
+
+#: ../../views/header.php:71
 msgid "Logout"
 msgstr "Abmelden"
 
@@ -4742,6 +4746,11 @@ msgstr "Text"
 msgid "Access rights"
 msgstr "Zugriffsrechte"
 
+#: ../../views/pagination.php:36
+#: ../../views/pagination.php:38
+msgid "End"
+msgstr "Ende"
+
 #: ../../views/publications/delete.php:13
 #, php-format
 msgid "Are you sure that you want to delete the publication '%s'?"
@@ -4789,6 +4798,7 @@ msgid "Type of publication"
 msgstr "Art der Veröffentlichung"
 
 #: ../../views/publications/edit.php:60
+#: ../../views/sort.php:9
 msgid "Title"
 msgstr "Titel"
 
@@ -4848,15 +4858,15 @@ msgstr "Als neuen Namen erzeugen"
 msgid "Type in name to quick search. Note: use unaccented letters!"
 msgstr "Gib einen Namen für die Schnellsuche ein. Hinweis: verwende unakzentuierte Buchstaben!"
 
-#: ../../views/publications/list.php:123
+#: ../../views/publications/list.php:86
 #: ../../views/publications/listClean.php:65
 #: ../../views/readapi/publist.php:69
 #, php-format
 msgid "Publications of type %s"
 msgstr "Veröffentlichungen vom Typ %s"
 
-#: ../../views/publications/list.php:164
-#: ../../views/publications/list.php:186
+#: ../../views/publications/list.php:122
+#: ../../views/publications/list.php:147
 #: ../../views/publications/listClean.php:120
 #: ../../views/publications/single.php:128
 #: ../../views/readapi/publist.php:110
@@ -4864,13 +4874,16 @@ msgstr "Veröffentlichungen vom Typ %s"
 msgid "View publication details"
 msgstr "Veröffentlichungsdetails betrachten"
 
-#: ../../views/publications/list.php:172
-#: ../../views/publications/single.php:137
-#: ../../views/publications/single.php:154
-msgid "and"
-msgstr "und"
+#: ../../views/publications/list.php:129
+msgid " and "
+msgstr " und "
 
-#: ../../views/publications/list.php:261
+#: ../../views/publications/list.php:131
+#: ../../views/publications/list.php:143
+msgid ", "
+msgstr ", "
+
+#: ../../views/publications/list.php:210
 #: ../../views/readapi/publist.php:187
 msgid "Click to follow Digital Object Identifier link to online publication"
 msgstr "Klicken, um der Digital Object Identifier (DOI)-Verknüpfung zur Online-Veröffentlichung zu folgen"
@@ -4932,6 +4945,11 @@ msgstr "Keine E-Mail-Adresse für einen der Autoren vorhanden"
 #: ../../views/publications/single.php:98
 msgid "This is the BibTeX `key` field, used to define sorting keys"
 msgstr "Das ist das BibTeX 'Schlüssel'-Feld, das verwendet wird, um Sortierschlüssel zu definieren"
+
+#: ../../views/publications/single.php:137
+#: ../../views/publications/single.php:154
+msgid "and"
+msgstr "und"
 
 #: ../../views/publications/single.php:143
 #: ../../views/publications/single.php:160
@@ -5726,6 +5744,22 @@ msgstr "%s Autoren"
 msgid "%s main topics"
 msgstr "%s Hauptthemen"
 
+#: ../../views/sort.php:10
+msgid "Type/Journal"
+msgstr "Typ/Journal"
+
+#: ../../views/sort.php:11
+msgid "Year"
+msgstr "Jahr"
+
+#: ../../views/sort.php:12
+msgid "Recently added"
+msgstr "Erstellungsdatum"
+
+#: ../../views/sort.php:17
+msgid "Sort by:"
+msgstr "Sortiere nach:"
+
 #: ../../views/topics/clean.php:13
 #: ../../views/topics/full.php:18
 msgid "No description"
@@ -6164,6 +6198,12 @@ msgstr "extern verwaltetes Konto"
 msgid "disabled account"
 msgstr "deaktiviertes Konto"
 
+#~ msgid "Click to UnBookmark publication"
+#~ msgstr "Klicken, um Veröffentlichung von der Merkliste zu nehmen"
+#~ msgid "Removing publication from bookmarklist"
+#~ msgstr "Veröffentlichung von der Merkliste nehmen"
+#~ msgid "Click to Bookmark publication"
+#~ msgstr "Klicken, um Veröffentlichung zu merken"
 #~ msgid "View bookmarklist"
 #~ msgstr "Merkliste betrachten"
 #~ msgid "Add publication to bookmarklist"
@@ -6229,14 +6269,6 @@ msgstr "deaktiviertes Konto"
 #~ msgstr "Nicht zugeordnet"
 #~ msgid "Recent"
 #~ msgstr "Aktuell"
-#~ msgid "Sort by"
-#~ msgstr "Sortiere nach"
-#~ msgid "Type/Journal"
-#~ msgstr "Typ/Journal"
-#~ msgid "Year"
-#~ msgstr "Jahr"
-#~ msgid "Recently added"
-#~ msgstr "Erstellungsdatum"
 #~ msgid "New Data"
 #~ msgstr "Erstellen"
 #~ msgid "New Topic"
@@ -6984,8 +7016,6 @@ msgstr "deaktiviertes Konto"
 #~ msgstr "&lt;&lt;&nbsp;dazu"
 #~ msgid "rem&nbsp;&gt;&gt;"
 #~ msgstr "weg&nbsp;&gt;&gt;"
-#~ msgid ", "
-#~ msgstr ", "
 #~ msgid "Sending Method"
 #~ msgstr "Sendemethode"
 #~ msgid "Icon"
@@ -6994,9 +7024,6 @@ msgstr "deaktiviertes Konto"
 #~ msgstr "Suchparameter"
 #~ msgid "Save"
 #~ msgstr "Speichern"
-#~ msgid "The search engine \"%s\" was successfully added to the database.."
-#~ msgstr ""
-#~ "Die Suchmaschine \"%s\" wurde erfolgreich zur Datenbank hinzugefügt."
 #~ msgid "Add another search engine."
 #~ msgstr "Weitere Suchmaschine hinzufügen."
 #~ msgid "Click to activate/deactivate"

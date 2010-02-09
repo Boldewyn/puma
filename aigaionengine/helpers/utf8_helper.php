@@ -8,5 +8,6 @@
 */
 
 require_once(APPPATH.'include/utf8/utf8.php');
+require_once(APPPATH.'include/utf8/trim.php');
 
 ?>

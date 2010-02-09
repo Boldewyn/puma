@@ -6,6 +6,8 @@ class Attachment_db {
   
     function Attachment_db()
     {
+        $CI = &get_instance();
+        $CI->load->library('file_upload');
     }
     
     /** Return the Attachment object with the given id. */

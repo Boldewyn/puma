@@ -9,16 +9,20 @@ Aigaion: Extension of the prep_url function...
  */
 function is_ajax() {
     return !!(array_key_exists('HTTP_X_REQUESTED_WITH', $_SERVER) 
-              && strpos($_SERVER['HTTP_X_REQUESTED_WITH'], 'XMLHttpRequest') > -1);
+              && strpos($_SERVER['HTTP_X_REQUESTED_WITH'], 'XMLHttpRequest') !== FALSE);
 }
 
 
 /**
  * Return to referrer, if it is on the same site
  */
-function back_to_referer($msg='', $alt='') {
+function back_to_referer($msg='', $alt='', $error=False) {
     if ($msg != '') {
-        appendMessage($msg);
+        if ($error) {
+            appendErrorMessage($msg);
+        } else {
+            appendMessage($msg);
+        }
     }
     if (array_key_exists('HTTP_REFERER', $_SERVER)
         && strpos($_SERVER['HTTP_REFERER'], AIGAION_ROOT_URL) === 0) {
@@ -28,6 +32,7 @@ function back_to_referer($msg='', $alt='') {
     }
     exit;
 }
+function back_to_referrer($msg='', $alt='', $error=False) { back_to_referer($msg, $alt, $error); }
 
 
 /**

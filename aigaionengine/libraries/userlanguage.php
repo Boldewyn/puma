@@ -1538,10 +1538,10 @@ class Userlanguage {
     $string = preg_replace ("/[ \t\r\n\x{A0}]/u", "", $string);
     // convert "_" to "-"
     $string = str_replace ("_", "-", $string);
-    $tmp = (strpos ($string, ",") > -1) ? explode (",", $string) : array ($string);
+    $tmp = (strpos ($string, ",") !== FALSE) ? explode (",", $string) : array ($string);
     $lang_array = array ();
     foreach ($tmp as $v) {
-      if (strpos ($v, ";") > -1) {
+      if (strpos ($v, ";") !== FALSE) {
         list ($l, $q) = explode (";", $v);
         $q = substr ($q, 2);
         $this->normalize ($q);

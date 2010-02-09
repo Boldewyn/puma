@@ -604,6 +604,7 @@ class Authors extends Controller {
         echo '';
         return;
     }
+    $this->load->library('parsecreators');
     $authors_array    = $this->parsecreators->parse($name);
     if (count($authors_array)>0) {
       $existingauthor = $this->author_db->getByExactName($authors_array[0]['firstname'], $authors_array[0]['von'], $authors_array[0]['surname'], $authors_array[0]['jr']);
