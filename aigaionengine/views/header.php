@@ -29,8 +29,8 @@ header('Content-Type: text/html; charset=UTF-8');
     </script>
     <script type="text/javascript" src="<?php echo base_url() ?>static/js/jquery.js"></script>
   </head>
-  <body id="<?php echo $this->uri->segment(1).'_'.$this->uri->segment(2)?>"
-     class="<?php echo $this->uri->segment(1).' '.$this->uri->segment(2)?>">
+  <body id="<?php if (isset($body_id)) { echo $body_id; } else { echo h($this->uri->segment(1).'_'.$this->uri->segment(2)); } ?>"
+     class="<?php printf('c%s m%s', h($this->uri->segment(1)), h($this->uri->segment(2)))?>">
     <div id="container">
       <div id="header">
         <div id="header_widgets">
