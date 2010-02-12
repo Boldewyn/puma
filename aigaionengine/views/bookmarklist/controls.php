@@ -11,6 +11,9 @@ Some controls may be shown only dependent on other rights, though.
 $this->load->helper('form');
 $userlogin = getUserLogin();
 ?>
+
+<div id="bookmarklist_controls">
+
 <h2><?php echo __('Bookmark list controls');?></h2>
 
 <p style="float:right">
@@ -82,7 +85,7 @@ if ($userlogin->hasRights('publication_edit')) {
     echo form_open('bookmarklist/setpubaccesslevel');?>
         <p class="xlarge_label medium_input">
             <?php
-            printf('<label class="block" for="bookmarklist_controls_setpubaccesslevel">%s</label> ',
+            printf('<label class="" for="bookmarklist_controls_setpubaccesslevel">%s</label><br/> ',
                   __('Set read access level for all bookmarked publications:'));
             echo form_dropdown('accesslevel',
                   array('public'=>__('public'),'intern'=>__('intern'),'private'=>__('private')),'intern',
@@ -100,7 +103,7 @@ if ($userlogin->hasRights('publication_edit')):
     echo form_open('bookmarklist/setattaccesslevel'); ?>
         <p class="xlarge_label medium_input">
             <?php
-            printf('<label class="block" for="bookmarklist_controls_setattaccesslevel">%s</label>',
+            printf('<label class="" for="bookmarklist_controls_setattaccesslevel">%s</label><br/>',
                    __('Set read access level for all attachments of bookmarked publications:'));
             echo form_dropdown('accesslevel',
                   array('public'=>__('public'),'intern'=>__('intern'),'private'=>__('private')),'intern',
@@ -118,7 +121,7 @@ if ($userlogin->hasRights('publication_edit')):
     echo form_open('bookmarklist/seteditpubaccesslevel'); ?>
         <p class="xlarge_label medium_input">
             <?php
-            printf('<label class="block" for="bookmarklist_controls_seteditpubaccesslevel">%s</label>',
+            printf('<label class="" for="bookmarklist_controls_seteditpubaccesslevel">%s</label><br/>',
                    __('Set edit access level for all bookmarked publications:'));
             echo form_dropdown('accesslevel',
                   array('public'=>__('public'),'intern'=>__('intern'),'private'=>__('private')),'intern',
@@ -136,7 +139,7 @@ if ($userlogin->hasRights('publication_edit')):
     echo form_open('bookmarklist/seteditattaccesslevel'); ?>
         <p class="xlarge_label medium_input">
             <?php
-            printf('<label class="block" for="bookmarklist_controls_seteditattaccesslevel">%s</label>',
+            printf('<label class="" for="bookmarklist_controls_seteditattaccesslevel">%s</label><br/>',
                    __('Set edit access level for all attachments of bookmarked publications:'));
             echo form_dropdown('accesslevel',
                   array('public'=>__('public'),'intern'=>__('intern'),'private'=>__('private')),'intern',
@@ -149,4 +152,6 @@ if ($userlogin->hasRights('publication_edit')):
         </p>
     </form>
 <?php endif; ?>
+
+</div>
 <hr/>

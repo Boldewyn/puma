@@ -34,7 +34,7 @@ $pagination = $this->load->view('pagination', array('paginationPrefix' => $multi
     }
     echo $pagination;
     
-    $b_even = true;
+    $even = 'odd';
     $subheader = '';
     $subsubheader = '';
     if (in_array($order, array('recent', 'type'))) {
@@ -42,11 +42,7 @@ $pagination = $this->load->view('pagination', array('paginationPrefix' => $multi
     }
     foreach ($publications as $publication) {
         if ($publication!=null) {
-            $b_even = !$b_even;
-        if ($b_even)
-            $even = 'even';
-        else
-            $even = 'odd';
+            $even = $even=='odd'? 'even' : 'odd';
        
         //check whether we should display a new header/subheader, depending on the $order parameter
         switch ($order) {
@@ -55,6 +51,7 @@ $pagination = $this->load->view('pagination', array('paginationPrefix' => $multi
             if ($newsubheader!=$subheader) {
               if ($subheader != '') { echo '</div>'; }
               $subheader = $newsubheader;
+              $even = 'odd';
               echo '<div class="section"><h3>',$subheader,'</h3>';
             }
             break;
@@ -65,6 +62,7 @@ $pagination = $this->load->view('pagination', array('paginationPrefix' => $multi
             if ($newsubheader!=$subheader) {
               if ($subheader != '') { echo '</div>'; }
               $subheader = $newsubheader;
+              $even = 'odd';
               echo '<div class="section"><h3>',$subheader,'</h3>';
             }
             break;
@@ -75,6 +73,7 @@ $pagination = $this->load->view('pagination', array('paginationPrefix' => $multi
             if ($newsubheader!=$subheader) {
               if ($subheader != '') { echo '</div>'; }
               $subheader = $newsubheader;
+              $even = 'odd';
               echo '<div class="section"><h3>',$subheader,'</h3>';
             }
             break;
@@ -83,6 +82,7 @@ $pagination = $this->load->view('pagination', array('paginationPrefix' => $multi
             if ($newsubheader!=$subheader) {
               $subheader = $newsubheader;
               if ($publication->pub_type!='Article')
+                $even = 'odd';
                 echo '<h3>',sprintf(__('Publications of type %s'),$subheader),'</h3>';
             }
             if ($publication->pub_type=='Article') {
@@ -105,8 +105,51 @@ $pagination = $this->load->view('pagination', array('paginationPrefix' => $multi
             break;
         }
         
-        ?><div class="publication_summary <?php echo $even?>" id="publicationsummary_<?php echo $publication->pub_id?>">
-            <p><?php
+        ?><div class="publication_summary publication_summary_<?php echo $even?>" id="publicationsummary_<?php echo $publication->pub_id?>">
+
+            <p class="publicationlist_controls"><?php
+              
+                if ((isset($noBookmarkList) && ($noBookmarkList == true))|| $userlogin->hasRights('bookmarklist')) {
+                    if ($publication->isBookmarked) {
+                        _a('bookmarklist/removepublication/'.$publication->pub_id,
+                           icon('bookmarked'),
+                           sprintf('id="bookmark_icon_%1$s" onclick="Puma.handle_bookmark(%1$s, &quot;remove&quot;); return false;"',
+                              $publication->pub_id));
+                    } else {
+                        _a('bookmarklist/addpublication/'.$publication->pub_id,
+                           icon('nonbookmarked'),
+                           sprintf('id="bookmark_icon_%1$s" onclick="Puma.handle_bookmark(%1$s, &quot;add&quot;); return false;"',
+                              $publication->pub_id));
+                    }
+                }
+                
+                $attachments = $publication->getAttachments();
+                if (count($attachments) != 0) {
+                    if ($attachments[0]->isremote) {
+                        _a(prep_url($attachments[0]->location), icon('attachment_html'),
+                            'rel="external" title="'.sprintf(__('Download %s'),h($attachments[0]->name)).'"');
+                    } else {
+                        $extension=strtolower(substr(strrchr($attachments[0]->location,"."),1));
+                        $params = 'title="'.sprintf(__('Download %s'),$attachments[0]->name).'"';
+                        if ($userlogin->getPreference('newwindowforatt')=='TRUE') {
+                            $params .= ' rel="external"';
+                        }
+                        _a('attachments/single/'.$attachments[0]->att_id, icon('attachment_'.$extension, '', '', 'attachment'), $params);
+                    }
+                }
+                
+                if (utf8_trim($publication->doi)!='') {
+                    echo ' <a title="'.__('Click to follow Digital Object Identifier link to online publication').'"
+                          class="doi_link" rel="external" href="http://dx.doi.org/'.$publication->doi.'">DOI</a> ';
+                }
+                
+                if (utf8_trim($publication->url)!='') {
+                    echo ' <a title="'.prep_url($publication->url).'"
+                          class="pub_link" rel="external" href="'.prep_url($publication->url).'">URL</a> ';
+                }
+
+            ?></p>
+            <p class="publicationlist_data"><?php
             $displayTitle = $publication->title;
             //remove braces in list display
             if (strpos($displayTitle,'$')===false &&
@@ -174,49 +217,7 @@ $pagination = $this->load->view('pagination', array('paginationPrefix' => $multi
                     ?></ul><?php
                 }
             }
-            
-            ?><div class="publicationlist_controls"><?php
-              
-                if ((isset($noBookmarkList) && ($noBookmarkList == true))|| $userlogin->hasRights('bookmarklist')) {
-                    if ($publication->isBookmarked) {
-                        _a('bookmarklist/removepublication/'.$publication->pub_id,
-                           icon('bookmarked'),
-                           sprintf('id="bookmark_icon_%1$s" onclick="Puma.handle_bookmark(%1$s, &quot;remove&quot;); return false;"',
-                              $publication->pub_id));
-                    } else {
-                        _a('bookmarklist/addpublication/'.$publication->pub_id,
-                           icon('nonbookmarked'),
-                           sprintf('id="bookmark_icon_%1$s" onclick="Puma.handle_bookmark(%1$s, &quot;add&quot;); return false;"',
-                              $publication->pub_id));
-                    }
-                }
-                
-                $attachments = $publication->getAttachments();
-                if (count($attachments) != 0) {
-                    if ($attachments[0]->isremote) {
-                        _a(prep_url($attachments[0]->location), icon('attachment_html'),
-                            'rel="external" title="'.sprintf(__('Download %s'),h($attachments[0]->name)).'"');
-                    } else {
-                        $extension=strtolower(substr(strrchr($attachments[0]->location,"."),1));
-                        $params = 'title="'.sprintf(__('Download %s'),$attachments[0]->name).'"';
-                        if ($userlogin->getPreference('newwindowforatt')=='TRUE') {
-                            $params .= ' rel="external"';
-                        }
-                        _a('attachments/single/'.$attachments[0]->att_id, icon('attachment_'.$extension, '', '', 'attachment'), $params);
-                    }
-                }
-                
-                if (utf8_trim($publication->doi)!='') {
-                    echo '<a title="'.__('Click to follow Digital Object Identifier link to online publication').'"
-                          class="doi_link" rel="external" href="http://dx.doi.org/'.$publication->doi.'">DOI</a>';
-                }
-                
-                if (utf8_trim($publication->url)!='') {
-                    echo '<a title="'.prep_url($publication->url).'"
-                          class="pub_link" rel="external" href="'.prep_url($publication->url).'">URL</a>';
-                }
 
-            ?></div><?php
         ?></div><?php
         }
     } ?>
