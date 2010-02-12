@@ -61,6 +61,7 @@ Additional bugs added by Manuel Strehl, 2010.
 var LaTeXMathML = window.LaTeXMathML = function (options) {
 
     options = options || {};
+    var initElement = options.element || document.getElementsByTagName("body")[0];
     var mathcolor = options.color || "";       // change it to "" (to inherit) or any other color
     var mathfontfamily = options.fontfamily || "";      // change to "" to inherit (works in IE)
                                   // or another family (e.g. "arial")
@@ -1081,9 +1082,9 @@ var LaTeXMathML = window.LaTeXMathML = function (options) {
      */
     function _init() {
         if (isIE) { // avoid adding MathPlayer info explicitly to each webpage
-          document.getElementsByTagName("body")[0].innerHTML += "<object id=\"mathplayer\"\
-          classid=\"clsid:32F66A20-7614-11D4-BD11-00104BD3F987\"></object>"+
-          "<?import namespace=\"m\" implementation=\"#mathplayer\"?>";
+          document.getElementsByTagName("body")[0].innerHTML += '<object id="mathplayer"'+
+          ' classid="clsid:32F66A20-7614-11D4-BD11-00104BD3F987"></object>'+
+          '<?import namespace="m" implementation="#mathplayer"?>';
         }
         
         AMsymbols.sort(function (s1,s2) {
@@ -1094,7 +1095,7 @@ var LaTeXMathML = window.LaTeXMathML = function (options) {
             AMnames[i] = AMsymbols[i].input;
         }
         
-        AMprocessNode(document.getElementsByTagName("body")[0], false);
+        AMprocessNode(initElement, false);
     }
 
 
