@@ -1444,3 +1444,12 @@ body.group .datatable ul li {
 }
 
 
+
+.wiki_preview {
+  margin: 0 0 0.83333em;
+}
+
+.wiki_preview .wiki_page {
+  border: .08333em solid #61A6A9;
+}
+

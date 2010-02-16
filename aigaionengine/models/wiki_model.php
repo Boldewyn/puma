@@ -11,19 +11,21 @@ class Wiki_model extends Model {
     
     public function get($item, $original = False) {
         $id = $this->_get_current($item);
+        if ($original) {
+            return $this->get_version($id)->original_content;
+        } else {
+            return $this->get_version($id)->content;
+        }
+    }
+    
+    public function get_version($id) {
         if ($id) {
-            $query = $this->db->select('content, original_content')
-                          ->from('wiki_pages')
-                          ->where('id', $id)
-                          ->get();
+            $query = $this->db->where('id', $id)
+                              ->get('wiki_pages');
             if ($query->num_rows() == 0) {
                 return false;
             }
-            if ($original) {
-                return $query->row()->original_content;
-            } else {
-                return $query->row()->content;
-            }
+            return $query->row();
         } else {
             return false;
         }
@@ -46,15 +48,15 @@ class Wiki_model extends Model {
         
     }
     
-    public function set($item) {
+    public function set($item, $content, $description) {
         $userlogin = getUserLogin();
-        if ($content = $this->_sanitize($this->input->post('content'))) {
+        if ($xcontent = $this->_sanitize($content)) {
             $id = $this->_get_current($item);
             $query = $this->db->insert('wiki_pages', array(
                 'item' => $item,
-                'content' => $content,
-                'original_content' => $this->input->post('content'),
-                'description' => $this->input->post('description'),
+                'content' => $xcontent,
+                'original_content' => $content,
+                'description' => $description,
                 'editor' => $userlogin->userId(),
                 'replaces' => $id,
             ));
@@ -93,9 +95,10 @@ class Wiki_model extends Model {
     }
     
     public function get_history($item) {
-        $query = $this->db->where('item', $item)
+        $query = $this->db->from('wiki_pages')->join('users', 'users.user_id = wiki_pages.editor')
+                          ->where('item', $item)
                           ->order_by('created', 'desc')
-                          ->get('wiki_pages');
+                          ->get();
         return $query->result();
     }
     
@@ -104,6 +107,7 @@ class Wiki_model extends Model {
     }
     
     protected function _sanitize($content) {
+        $xcontent = '';
         if ($content) {
             $mask = '___§§§WIKIMASK§§§___';
             $xcontent = preg_replace('#<script.*?/script>#i', '', $content);
@@ -116,6 +120,18 @@ class Wiki_model extends Model {
             $xcontent = preg_replace('#\son([a-z]+)=(["\']).*?\2#i', '', $xcontent);
             $xcontent = preg_replace('#\shref=(["\'])javascript:.*?\1#i', '', $xcontent);
             $xcontent = str_replace($mask, '&lt;', $xcontent);
+            if (strpos($xcontent, '\ref{') !== False) {
+                function _sanitize_get_ref ($m) {
+                    $CI =& get_instance();
+                    $pub = $CI->publication_db->getByBibtexID($m[1]);
+                    if ($pub) {
+                        return anchor('publications/show/'.$pub->pub_id, sprintf('[%s]', $pub->bibtex_id));
+                    } else {
+                        return $m[0];
+                    }
+                }
+                $xcontent = preg_replace_callback('/\\\\ref{([^}]+)}/', '_sanitize_get_ref', $xcontent);
+            }
         }
         return $xcontent;
     }

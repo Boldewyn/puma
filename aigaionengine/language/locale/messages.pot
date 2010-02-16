@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-09 22:39+0100\n"
+"POT-Creation-Date: 2010-02-15 21:39+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -374,7 +374,7 @@ msgstr ""
 
 #: ../../controllers/bookmarklist.php:60
 #: ../../controllers/bookmarklist.php:973
-#: ../../views/bookmarklist/controls.php:30
+#: ../../views/bookmarklist/controls.php:33
 msgid "Export bookmarklist"
 msgstr ""
 
@@ -1747,33 +1747,65 @@ msgstr ""
 msgid "Topic subscription for %s (%s)"
 msgstr ""
 
-#: ../../controllers/wiki.php:11 ../../views/menu.php:19
+#: ../../controllers/wiki.php:15 ../../views/menu.php:19
 msgid "Wiki"
 msgstr ""
 
-#: ../../controllers/wiki.php:11 ../../controllers/wiki.php:53
+#: ../../controllers/wiki.php:15 ../../controllers/wiki.php:122
 msgid "View"
 msgstr ""
 
-#: ../../controllers/wiki.php:18 ../../controllers/wiki.php:26
-#: ../../controllers/wiki.php:38 ../../controllers/wiki.php:45
+#: ../../controllers/wiki.php:26
+#, php-format
+msgid "Page &ldquo;%s&rdquo; does not exist yet."
+msgstr ""
+
+#: ../../controllers/wiki.php:46
+msgid "You must be logged in to edit the wiki."
+msgstr ""
+
+#: ../../controllers/wiki.php:49
+msgid "Content"
+msgstr ""
+
+#: ../../controllers/wiki.php:83
+#, php-format
+msgid "Discussion for &ldquo;%s&rdquo; does not exist yet."
+msgstr ""
+
+#: ../../controllers/wiki.php:88
+#, php-format
+msgid "Discussion: &ldquo;%s&rdquo;"
+msgstr ""
+
+#: ../../controllers/wiki.php:95 ../../controllers/wiki.php:104
+msgid "You must be logged in to view the history of wiki items."
+msgstr ""
+
+#: ../../controllers/wiki.php:108 ../../controllers/wiki.php:142
 #, php-format
 msgid "Wiki » %s"
 msgstr ""
 
-#: ../../controllers/wiki.php:24
-msgid "You must be logged in to edit the wiki."
+#: ../../controllers/wiki.php:112
+#, php-format
+msgid "Old Version: &ldquo;%s&rdquo;"
 msgstr ""
 
-#: ../../controllers/wiki.php:54
+#: ../../controllers/wiki.php:113
+#, php-format
+msgid "This is an old version of &ldquo;%s&rdquo;. Creation date: %s."
+msgstr ""
+
+#: ../../controllers/wiki.php:123
 msgid "Discussion"
 msgstr ""
 
-#: ../../controllers/wiki.php:55
+#: ../../controllers/wiki.php:124
 msgid "Edit"
 msgstr ""
 
-#: ../../controllers/wiki.php:56
+#: ../../controllers/wiki.php:125
 msgid "History"
 msgstr ""
 
@@ -2504,26 +2536,26 @@ msgid "cannot edit access levels of this object"
 msgstr ""
 
 #: ../../libraries/accesslevels_lib.php:102
-#: ../../views/bookmarklist/controls.php:88
-#: ../../views/bookmarklist/controls.php:106
-#: ../../views/bookmarklist/controls.php:124
-#: ../../views/bookmarklist/controls.php:142 ../../views/site/edit.php:518
+#: ../../views/bookmarklist/controls.php:91
+#: ../../views/bookmarklist/controls.php:109
+#: ../../views/bookmarklist/controls.php:127
+#: ../../views/bookmarklist/controls.php:145 ../../views/site/edit.php:518
 msgid "public"
 msgstr ""
 
 #: ../../libraries/accesslevels_lib.php:102
-#: ../../views/bookmarklist/controls.php:88
-#: ../../views/bookmarklist/controls.php:106
-#: ../../views/bookmarklist/controls.php:124
-#: ../../views/bookmarklist/controls.php:142 ../../views/site/edit.php:518
+#: ../../views/bookmarklist/controls.php:91
+#: ../../views/bookmarklist/controls.php:109
+#: ../../views/bookmarklist/controls.php:127
+#: ../../views/bookmarklist/controls.php:145 ../../views/site/edit.php:518
 msgid "intern"
 msgstr ""
 
 #: ../../libraries/accesslevels_lib.php:104
-#: ../../views/bookmarklist/controls.php:88
-#: ../../views/bookmarklist/controls.php:106
-#: ../../views/bookmarklist/controls.php:124
-#: ../../views/bookmarklist/controls.php:142 ../../views/site/edit.php:518
+#: ../../views/bookmarklist/controls.php:91
+#: ../../views/bookmarklist/controls.php:109
+#: ../../views/bookmarklist/controls.php:127
+#: ../../views/bookmarklist/controls.php:145 ../../views/site/edit.php:518
 msgid "private"
 msgstr ""
 
@@ -3543,7 +3575,7 @@ msgstr ""
 
 #: ../../views/attachments/summary.php:19
 #: ../../views/attachments/summary.php:28
-#: ../../views/publications/list.php:198 ../../views/publications/list.php:201
+#: ../../views/publications/list.php:130 ../../views/publications/list.php:133
 #: ../../views/publications/listClean.php:185
 #: ../../views/publications/listClean.php:194
 #: ../../views/readapi/publist.php:171 ../../views/readapi/publist.php:180
@@ -3659,7 +3691,7 @@ msgstr ""
 
 #: ../../views/authors/list_items.php:11
 #: ../../views/keywords/list_items.php:58
-#: ../../views/publications/list.php:136 ../../views/readapi/publist.php:124
+#: ../../views/publications/list.php:179 ../../views/readapi/publist.php:124
 #, php-format
 msgid "All information on %s"
 msgstr ""
@@ -3715,107 +3747,107 @@ msgstr ""
 msgid "Confirmation needed"
 msgstr ""
 
-#: ../../views/bookmarklist/controls.php:14
+#: ../../views/bookmarklist/controls.php:17
 msgid "Bookmark list controls"
 msgstr ""
 
-#: ../../views/bookmarklist/controls.php:17
+#: ../../views/bookmarklist/controls.php:20
 msgid "Clear bookmarklist"
 msgstr ""
 
-#: ../../views/bookmarklist/controls.php:18
+#: ../../views/bookmarklist/controls.php:21
 msgid "Clear the bookmarklist"
 msgstr ""
 
-#: ../../views/bookmarklist/controls.php:21
+#: ../../views/bookmarklist/controls.php:24
 msgid "Make into new topic"
 msgstr ""
 
-#: ../../views/bookmarklist/controls.php:22
+#: ../../views/bookmarklist/controls.php:25
 msgid "Make a new topic from the bookmarked publications"
 msgstr ""
 
-#: ../../views/bookmarklist/controls.php:26
+#: ../../views/bookmarklist/controls.php:29
 msgid "Delete all"
 msgstr ""
 
-#: ../../views/bookmarklist/controls.php:28
+#: ../../views/bookmarklist/controls.php:31
 msgid "Delete all publications on the bookmarklist from the database"
 msgstr ""
 
-#: ../../views/bookmarklist/controls.php:51
+#: ../../views/bookmarklist/controls.php:54
 msgid "Add bookmarked to topic..."
 msgstr ""
 
-#: ../../views/bookmarklist/controls.php:54
+#: ../../views/bookmarklist/controls.php:57
 msgid "Add all bookmarked publications to the selected topic"
 msgstr ""
 
-#: ../../views/bookmarklist/controls.php:55
+#: ../../views/bookmarklist/controls.php:58
 msgid "Add all to topic"
 msgstr ""
 
-#: ../../views/bookmarklist/controls.php:70
+#: ../../views/bookmarklist/controls.php:73
 msgid "Remove bookmarked from topic..."
 msgstr ""
 
-#: ../../views/bookmarklist/controls.php:73
+#: ../../views/bookmarklist/controls.php:76
 msgid "Remove all bookmarked publications from the selected topic"
 msgstr ""
 
-#: ../../views/bookmarklist/controls.php:74
+#: ../../views/bookmarklist/controls.php:77
 msgid "Remove all from topic"
 msgstr ""
 
-#: ../../views/bookmarklist/controls.php:86
+#: ../../views/bookmarklist/controls.php:89
 msgid "Set read access level for all bookmarked publications:"
 msgstr ""
 
-#: ../../views/bookmarklist/controls.php:92
+#: ../../views/bookmarklist/controls.php:95
 msgid "Set the read  access levels for all publications on the bookmarklist"
 msgstr ""
 
-#: ../../views/bookmarklist/controls.php:93
+#: ../../views/bookmarklist/controls.php:96
 msgid "Set publication access level"
 msgstr ""
 
-#: ../../views/bookmarklist/controls.php:104
+#: ../../views/bookmarklist/controls.php:107
 msgid "Set read access level for all attachments of bookmarked publications:"
 msgstr ""
 
-#: ../../views/bookmarklist/controls.php:110
+#: ../../views/bookmarklist/controls.php:113
 msgid ""
 "Set the read access levels for all attachments of publications on the "
 "bookmarklist"
 msgstr ""
 
-#: ../../views/bookmarklist/controls.php:111
+#: ../../views/bookmarklist/controls.php:114
 msgid "Set attachment access level"
 msgstr ""
 
-#: ../../views/bookmarklist/controls.php:122
+#: ../../views/bookmarklist/controls.php:125
 msgid "Set edit access level for all bookmarked publications:"
 msgstr ""
 
-#: ../../views/bookmarklist/controls.php:128
+#: ../../views/bookmarklist/controls.php:131
 msgid "Set the edit  access levels for all publications on the bookmarklist"
 msgstr ""
 
-#: ../../views/bookmarklist/controls.php:129
+#: ../../views/bookmarklist/controls.php:132
 msgid "Set publication edit access level"
 msgstr ""
 
-#: ../../views/bookmarklist/controls.php:140
+#: ../../views/bookmarklist/controls.php:143
 msgid "Set edit access level for all attachments of bookmarked publications:"
 msgstr ""
 
-#: ../../views/bookmarklist/controls.php:146
+#: ../../views/bookmarklist/controls.php:149
 msgid ""
 "Set the edit access levels for all attachments of publications on the "
 "bookmarklist"
 msgstr ""
 
-#: ../../views/bookmarklist/controls.php:147
+#: ../../views/bookmarklist/controls.php:150
 msgid "Set attachment edit access level"
 msgstr ""
 
@@ -4843,23 +4875,23 @@ msgstr ""
 msgid "Publications of type %s"
 msgstr ""
 
-#: ../../views/publications/list.php:122 ../../views/publications/list.php:147
+#: ../../views/publications/list.php:142 ../../views/readapi/publist.php:187
+msgid "Click to follow Digital Object Identifier link to online publication"
+msgstr ""
+
+#: ../../views/publications/list.php:165 ../../views/publications/list.php:190
 #: ../../views/publications/listClean.php:120
 #: ../../views/publications/single.php:128 ../../views/readapi/publist.php:110
 #: ../../views/readapi/publist.php:132
 msgid "View publication details"
 msgstr ""
 
-#: ../../views/publications/list.php:129
+#: ../../views/publications/list.php:172
 msgid " and "
 msgstr ""
 
-#: ../../views/publications/list.php:131 ../../views/publications/list.php:143
+#: ../../views/publications/list.php:174 ../../views/publications/list.php:186
 msgid ", "
-msgstr ""
-
-#: ../../views/publications/list.php:210 ../../views/readapi/publist.php:187
-msgid "Click to follow Digital Object Identifier link to online publication"
 msgstr ""
 
 #: ../../views/publications/listClean.php:86
@@ -5925,7 +5957,7 @@ msgstr ""
 msgid "Message:"
 msgstr ""
 
-#: ../../views/user/contact.php:35
+#: ../../views/user/contact.php:35 ../../views/wiki/edit.php:33
 msgid "Submit"
 msgstr ""
 
@@ -6257,4 +6289,54 @@ msgstr ""
 
 #: ../../views/users/summary.php:31
 msgid "disabled account"
+msgstr ""
+
+#: ../../views/wiki/edit.php:6
+#, php-format
+msgid "Edit Discussion &ldquo;%s&rdquo;"
+msgstr ""
+
+#: ../../views/wiki/edit.php:8
+#, php-format
+msgid "Edit &ldquo;%s&rdquo;"
+msgstr ""
+
+#: ../../views/wiki/edit.php:15
+msgid "Preview:"
+msgstr ""
+
+#: ../../views/wiki/edit.php:26
+msgid "Show/hide richt text editor"
+msgstr ""
+
+#: ../../views/wiki/edit.php:29
+msgid "A short description of this edit:"
+msgstr ""
+
+#: ../../views/wiki/edit.php:34
+msgid "Preview"
+msgstr ""
+
+#: ../../views/wiki/history.php:3
+#, php-format
+msgid "History of &ldquo;%s&rdquo;"
+msgstr ""
+
+#: ../../views/wiki/history.php:7
+#, php-format
+msgid " &mdash; edited by %s"
+msgstr ""
+
+#: ../../views/wiki/index.php:3
+#, php-format
+msgid "%s Wiki"
+msgstr ""
+
+#: ../../views/wiki/index.php:5
+#, php-format
+msgid "Welcome to the %s wiki."
+msgstr ""
+
+#: ../../views/wiki/index.php:8
+msgid "Latest edits:"
 msgstr ""

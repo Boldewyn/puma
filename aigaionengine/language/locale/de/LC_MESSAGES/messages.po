@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Puma.Phi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-09 22:39+0100\n"
+"POT-Creation-Date: 2010-02-15 21:39+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Manuel Strehl <translate@manuel-strehl.de>\n"
 "Language-Team: \n"
@@ -478,7 +478,7 @@ msgstr "Lesezeichenliste"
 
 #: ../../controllers/bookmarklist.php:60
 #: ../../controllers/bookmarklist.php:973
-#: ../../views/bookmarklist/controls.php:30
+#: ../../views/bookmarklist/controls.php:33
 msgid "Export bookmarklist"
 msgstr "Merkliste exportieren"
 
@@ -1946,37 +1946,69 @@ msgstr "ein Fehler ist bei %s aufgetaucht"
 msgid "Topic subscription for %s (%s)"
 msgstr "Themenabo für %s (%s)"
 
-#: ../../controllers/wiki.php:11
+#: ../../controllers/wiki.php:15
 #: ../../views/menu.php:19
 msgid "Wiki"
 msgstr "Wiki"
 
-#: ../../controllers/wiki.php:11
-#: ../../controllers/wiki.php:53
+#: ../../controllers/wiki.php:15
+#: ../../controllers/wiki.php:122
 msgid "View"
 msgstr "Seite"
 
-#: ../../controllers/wiki.php:18
 #: ../../controllers/wiki.php:26
-#: ../../controllers/wiki.php:38
-#: ../../controllers/wiki.php:45
+#, php-format
+msgid "Page &ldquo;%s&rdquo; does not exist yet."
+msgstr "Seite &sbquo;%s&lsquo; existiert noch nicht."
+
+#: ../../controllers/wiki.php:46
+msgid "You must be logged in to edit the wiki."
+msgstr "Du musst angemeldet sein, um das Wiki zu bearbeiten."
+
+#: ../../controllers/wiki.php:49
+msgid "Content"
+msgstr "Inhalt"
+
+#: ../../controllers/wiki.php:83
+#, php-format
+msgid "Discussion for &ldquo;%s&rdquo; does not exist yet."
+msgstr "Diskussion für &bdquo;%s&ldquo; existiert noch nicht."
+
+#: ../../controllers/wiki.php:88
+#, php-format
+msgid "Discussion: &ldquo;%s&rdquo;"
+msgstr "Diskussion: &bdquo;%s&ldquo;"
+
+#: ../../controllers/wiki.php:95
+#: ../../controllers/wiki.php:104
+msgid "You must be logged in to view the history of wiki items."
+msgstr "Du musst angemeldet sein, um alte Versionen von Wiki-Einträgen zu sehen."
+
+#: ../../controllers/wiki.php:108
+#: ../../controllers/wiki.php:142
 #, php-format
 msgid "Wiki » %s"
 msgstr "Wiki » %s"
 
-#: ../../controllers/wiki.php:24
-msgid "You must be logged in to edit the wiki."
-msgstr "Du musst angemeldet sein, um das Wiki zu bearbeiten."
+#: ../../controllers/wiki.php:112
+#, php-format
+msgid "Old Version: &ldquo;%s&rdquo;"
+msgstr "Alte Version: &bdquo;%s&ldquo;"
 
-#: ../../controllers/wiki.php:54
+#: ../../controllers/wiki.php:113
+#, php-format
+msgid "This is an old version of &ldquo;%s&rdquo;. Creation date: %s."
+msgstr "Dies ist eine alte Version von &bdquo;%s&ldquo;. Erstellungsdatum: %s."
+
+#: ../../controllers/wiki.php:123
 msgid "Discussion"
 msgstr "Diskussion"
 
-#: ../../controllers/wiki.php:55
+#: ../../controllers/wiki.php:124
 msgid "Edit"
 msgstr "bearbeiten"
 
-#: ../../controllers/wiki.php:56
+#: ../../controllers/wiki.php:125
 msgid "History"
 msgstr "Geschichte"
 
@@ -2726,28 +2758,28 @@ msgid "cannot edit access levels of this object"
 msgstr "Kann Zugriffsebenen dieses Objekts nicht bearbeiten"
 
 #: ../../libraries/accesslevels_lib.php:102
-#: ../../views/bookmarklist/controls.php:88
-#: ../../views/bookmarklist/controls.php:106
-#: ../../views/bookmarklist/controls.php:124
-#: ../../views/bookmarklist/controls.php:142
+#: ../../views/bookmarklist/controls.php:91
+#: ../../views/bookmarklist/controls.php:109
+#: ../../views/bookmarklist/controls.php:127
+#: ../../views/bookmarklist/controls.php:145
 #: ../../views/site/edit.php:518
 msgid "public"
 msgstr "öffentlich"
 
 #: ../../libraries/accesslevels_lib.php:102
-#: ../../views/bookmarklist/controls.php:88
-#: ../../views/bookmarklist/controls.php:106
-#: ../../views/bookmarklist/controls.php:124
-#: ../../views/bookmarklist/controls.php:142
+#: ../../views/bookmarklist/controls.php:91
+#: ../../views/bookmarklist/controls.php:109
+#: ../../views/bookmarklist/controls.php:127
+#: ../../views/bookmarklist/controls.php:145
 #: ../../views/site/edit.php:518
 msgid "intern"
 msgstr "intern"
 
 #: ../../libraries/accesslevels_lib.php:104
-#: ../../views/bookmarklist/controls.php:88
-#: ../../views/bookmarklist/controls.php:106
-#: ../../views/bookmarklist/controls.php:124
-#: ../../views/bookmarklist/controls.php:142
+#: ../../views/bookmarklist/controls.php:91
+#: ../../views/bookmarklist/controls.php:109
+#: ../../views/bookmarklist/controls.php:127
+#: ../../views/bookmarklist/controls.php:145
 #: ../../views/site/edit.php:518
 msgid "private"
 msgstr "privat"
@@ -3695,8 +3727,8 @@ msgstr "Ändern"
 
 #: ../../views/attachments/summary.php:19
 #: ../../views/attachments/summary.php:28
-#: ../../views/publications/list.php:198
-#: ../../views/publications/list.php:201
+#: ../../views/publications/list.php:130
+#: ../../views/publications/list.php:133
 #: ../../views/publications/listClean.php:185
 #: ../../views/publications/listClean.php:194
 #: ../../views/readapi/publist.php:171
@@ -3835,7 +3867,7 @@ msgstr "Zeigen"
 
 #: ../../views/authors/list_items.php:11
 #: ../../views/keywords/list_items.php:58
-#: ../../views/publications/list.php:136
+#: ../../views/publications/list.php:179
 #: ../../views/readapi/publist.php:124
 #, php-format
 msgid "All information on %s"
@@ -3891,103 +3923,103 @@ msgstr "Autoren mit sehr ähnlichen Namen gefunden. Du kannst die folgenden Auto
 msgid "Confirmation needed"
 msgstr "Bestätigung benötigt"
 
-#: ../../views/bookmarklist/controls.php:14
+#: ../../views/bookmarklist/controls.php:17
 msgid "Bookmark list controls"
 msgstr "Merklisten-Kontrollen"
 
-#: ../../views/bookmarklist/controls.php:17
+#: ../../views/bookmarklist/controls.php:20
 msgid "Clear bookmarklist"
 msgstr "Merkliste leeren"
 
-#: ../../views/bookmarklist/controls.php:18
+#: ../../views/bookmarklist/controls.php:21
 msgid "Clear the bookmarklist"
 msgstr "Die Merkliste leeren"
 
-#: ../../views/bookmarklist/controls.php:21
+#: ../../views/bookmarklist/controls.php:24
 msgid "Make into new topic"
 msgstr "Als neues Thema anlegen"
 
-#: ../../views/bookmarklist/controls.php:22
+#: ../../views/bookmarklist/controls.php:25
 msgid "Make a new topic from the bookmarked publications"
 msgstr "Ein neues Thema aus den gemerkten Veröffentlichungen erzeugen"
 
-#: ../../views/bookmarklist/controls.php:26
+#: ../../views/bookmarklist/controls.php:29
 msgid "Delete all"
 msgstr "Alle löschen"
 
-#: ../../views/bookmarklist/controls.php:28
+#: ../../views/bookmarklist/controls.php:31
 msgid "Delete all publications on the bookmarklist from the database"
 msgstr "Alle Veröffentlichungen auf der Merkliste aus der Datenbank löschen"
 
-#: ../../views/bookmarklist/controls.php:51
+#: ../../views/bookmarklist/controls.php:54
 msgid "Add bookmarked to topic..."
 msgstr "Gemerkte zu Thema hinzufügen..."
 
-#: ../../views/bookmarklist/controls.php:54
+#: ../../views/bookmarklist/controls.php:57
 msgid "Add all bookmarked publications to the selected topic"
 msgstr "Alle gemerkten Veröffentlichungen zum gewählten Thema hinzufügen"
 
-#: ../../views/bookmarklist/controls.php:55
+#: ../../views/bookmarklist/controls.php:58
 msgid "Add all to topic"
 msgstr "Alle zum Thema hinzufügen"
 
-#: ../../views/bookmarklist/controls.php:70
+#: ../../views/bookmarklist/controls.php:73
 msgid "Remove bookmarked from topic..."
 msgstr "Gemerkte vom Thema löschen..."
 
-#: ../../views/bookmarklist/controls.php:73
+#: ../../views/bookmarklist/controls.php:76
 msgid "Remove all bookmarked publications from the selected topic"
 msgstr "Alle gemerkten Veröffentlichungen vom gewählten Thema entfernen"
 
-#: ../../views/bookmarklist/controls.php:74
+#: ../../views/bookmarklist/controls.php:77
 msgid "Remove all from topic"
 msgstr "Alle vom Thema löschen"
 
-#: ../../views/bookmarklist/controls.php:86
+#: ../../views/bookmarklist/controls.php:89
 msgid "Set read access level for all bookmarked publications:"
 msgstr "Lesezugriffsebene für alle gemerkten Veröffentlichungen setzen:"
 
-#: ../../views/bookmarklist/controls.php:92
+#: ../../views/bookmarklist/controls.php:95
 msgid "Set the read  access levels for all publications on the bookmarklist"
 msgstr "Lese-Zugriffsebenen für alle Veröffentlichungen auf der Merkliste setzen"
 
-#: ../../views/bookmarklist/controls.php:93
+#: ../../views/bookmarklist/controls.php:96
 msgid "Set publication access level"
 msgstr "Veröffentlichungs-Zugriffsebene setzen"
 
-#: ../../views/bookmarklist/controls.php:104
+#: ../../views/bookmarklist/controls.php:107
 msgid "Set read access level for all attachments of bookmarked publications:"
 msgstr "Lese-Zugriffsebene für alle Anhänge der Veröffentlichungen auf der Merkliste setzen"
 
-#: ../../views/bookmarklist/controls.php:110
+#: ../../views/bookmarklist/controls.php:113
 msgid "Set the read access levels for all attachments of publications on the bookmarklist"
 msgstr "Lese-Zugriffsebenen für alle Anhänge der Veröffentlichungen auf der Merkliste setzen"
 
-#: ../../views/bookmarklist/controls.php:111
+#: ../../views/bookmarklist/controls.php:114
 msgid "Set attachment access level"
 msgstr "Anhangs-Zugriffsebene setzen"
 
-#: ../../views/bookmarklist/controls.php:122
+#: ../../views/bookmarklist/controls.php:125
 msgid "Set edit access level for all bookmarked publications:"
 msgstr "Lesezugriffsebene für alle gemerkten Veröffentlichungen setzen:"
 
-#: ../../views/bookmarklist/controls.php:128
+#: ../../views/bookmarklist/controls.php:131
 msgid "Set the edit  access levels for all publications on the bookmarklist"
 msgstr "Schreibzugriffsebenen für alle Veröffentlichungen auf der Merkliste setzen"
 
-#: ../../views/bookmarklist/controls.php:129
+#: ../../views/bookmarklist/controls.php:132
 msgid "Set publication edit access level"
 msgstr "Veröffentlichungs-Schreibzugriffsebene setzen"
 
-#: ../../views/bookmarklist/controls.php:140
+#: ../../views/bookmarklist/controls.php:143
 msgid "Set edit access level for all attachments of bookmarked publications:"
 msgstr "Schreibzugriffsebene für alle Anhänge der Veröffentlichungen auf der Merkliste setzen:"
 
-#: ../../views/bookmarklist/controls.php:146
+#: ../../views/bookmarklist/controls.php:149
 msgid "Set the edit access levels for all attachments of publications on the bookmarklist"
 msgstr "Schreibzugriffsebenen für alle Anhänge der Veröffentlichungen auf der Merkliste setzen"
 
-#: ../../views/bookmarklist/controls.php:147
+#: ../../views/bookmarklist/controls.php:150
 msgid "Set attachment edit access level"
 msgstr "Anhangs-Schreibzugriffsebene setzen"
 
@@ -4865,8 +4897,13 @@ msgstr "Gib einen Namen für die Schnellsuche ein. Hinweis: verwende unakzentuie
 msgid "Publications of type %s"
 msgstr "Veröffentlichungen vom Typ %s"
 
-#: ../../views/publications/list.php:122
-#: ../../views/publications/list.php:147
+#: ../../views/publications/list.php:142
+#: ../../views/readapi/publist.php:187
+msgid "Click to follow Digital Object Identifier link to online publication"
+msgstr "Klicken, um der Digital Object Identifier (DOI)-Verknüpfung zur Online-Veröffentlichung zu folgen"
+
+#: ../../views/publications/list.php:165
+#: ../../views/publications/list.php:190
 #: ../../views/publications/listClean.php:120
 #: ../../views/publications/single.php:128
 #: ../../views/readapi/publist.php:110
@@ -4874,19 +4911,14 @@ msgstr "Veröffentlichungen vom Typ %s"
 msgid "View publication details"
 msgstr "Veröffentlichungsdetails betrachten"
 
-#: ../../views/publications/list.php:129
+#: ../../views/publications/list.php:172
 msgid " and "
 msgstr " und "
 
-#: ../../views/publications/list.php:131
-#: ../../views/publications/list.php:143
+#: ../../views/publications/list.php:174
+#: ../../views/publications/list.php:186
 msgid ", "
 msgstr ", "
-
-#: ../../views/publications/list.php:210
-#: ../../views/readapi/publist.php:187
-msgid "Click to follow Digital Object Identifier link to online publication"
-msgstr "Klicken, um der Digital Object Identifier (DOI)-Verknüpfung zur Online-Veröffentlichung zu folgen"
 
 #: ../../views/publications/listClean.php:86
 msgid "Master theses"
@@ -5879,6 +5911,7 @@ msgid "Message:"
 msgstr "Nachricht:"
 
 #: ../../views/user/contact.php:35
+#: ../../views/wiki/edit.php:33
 msgid "Submit"
 msgstr "senden"
 
@@ -6197,6 +6230,56 @@ msgstr "extern verwaltetes Konto"
 #: ../../views/users/summary.php:31
 msgid "disabled account"
 msgstr "deaktiviertes Konto"
+
+#: ../../views/wiki/edit.php:6
+#, php-format
+msgid "Edit Discussion &ldquo;%s&rdquo;"
+msgstr "Diskussion &bdquo;%s&ldquo; bearbeiten"
+
+#: ../../views/wiki/edit.php:8
+#, php-format
+msgid "Edit &ldquo;%s&rdquo;"
+msgstr "&bdquo;%s&ldquo; bearbeiten"
+
+#: ../../views/wiki/edit.php:15
+msgid "Preview:"
+msgstr "Vorschau:"
+
+#: ../../views/wiki/edit.php:26
+msgid "Show/hide richt text editor"
+msgstr "Editor anzeigen/verbergen"
+
+#: ../../views/wiki/edit.php:29
+msgid "A short description of this edit:"
+msgstr "Eine kurze Beschreibung dieser Bearbeitung:"
+
+#: ../../views/wiki/edit.php:34
+msgid "Preview"
+msgstr "Vorschau"
+
+#: ../../views/wiki/history.php:3
+#, php-format
+msgid "History of &ldquo;%s&rdquo;"
+msgstr "Versionsgeschichte von &bdquo;%s&ldquo;"
+
+#: ../../views/wiki/history.php:7
+#, php-format
+msgid " &mdash; edited by %s"
+msgstr "&mdash; bearbeitet von %s"
+
+#: ../../views/wiki/index.php:3
+#, php-format
+msgid "%s Wiki"
+msgstr "%s-Wiki"
+
+#: ../../views/wiki/index.php:5
+#, php-format
+msgid "Welcome to the %s wiki."
+msgstr "Willkommen beim %s-Wiki."
+
+#: ../../views/wiki/index.php:8
+msgid "Latest edits:"
+msgstr "Neueste Änderungen:"
 
 #~ msgid "Click to UnBookmark publication"
 #~ msgstr "Klicken, um Veröffentlichung von der Merkliste zu nehmen"

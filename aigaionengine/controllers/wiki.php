@@ -19,7 +19,7 @@ class Wiki extends Controller {
     
     function item($item) {
         $item = $this->_get_item();
-        list($subnav, $subnav_current) = $this->_get_subnav($item);
+        $this->_get_subnav($item);
         
         $content = $this->wiki->get($item);
         if (! $content) {
@@ -44,22 +44,36 @@ class Wiki extends Controller {
     function edit($item, $discussion=False) {
         $item = $this->_get_item();
         restrict_to_users(__('You must be logged in to edit the wiki.'), '/wiki/'.$item);
-        list($subnav, $subnav_current) = $this->_get_subnav($item, $discussion? 'Edit_Discussion' : 'edit');
+        $this->_get_subnav($item, $discussion? 'Edit_Discussion' : 'edit');
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('content', __('Content'), 'required');
         if ($discussion) {
+            $current_content = $this->wiki->get('Discussion:'.$item, True);
+        } else {
+            $current_content = $this->wiki->get($item, True);
+        }
+        $notedited = False;
+        if ($this->input->post('content') == $current_content && count($current_content) > 0) {
+            $notedited = True;
+        }
+        if ($this->form_validation->run() == FALSE || $this->input->post('preview') || $notedited) {
+            if ($this->input->post('content')) {
+                $content = $this->input->post('content');
+            } else {
+                $content = $current_content;
+            }
             $this->load->view('header');
-            $this->load->view('put', array('data' => 'wiki edit discussion '.$item));
+            $this->load->view('wiki/edit', array('original_content' => $content,
+                                                 'preview' => $this->input->post('preview')? $this->wiki->preview($this->input->post('content')) : '',
+                                                 'description' => $this->input->post('description'),
+                                                 'discussion' => $discussion));
             $this->load->view('footer');
         } else {
-            $this->load->library('form_validation');
-            $this->form_validation->set_rules('content', __('Content'), 'required');
-            if ($this->form_validation->run() == FALSE) {
-                $this->load->view('header');
-                $this->load->view('wiki/edit', array('original_content' => $this->wiki->get($item, True)));
-                $this->load->view('footer');
-            } else {
-                $this->wiki->set($item);
-                redirect('wiki/'.$item);
+            if ($discussion) {
+                $item = 'Discussion:'.$item;
             }
+            $this->wiki->set($item, $this->input->post('content'), $this->input->post('description'));
+            redirect('wiki/'.$item);
         }
     }
 
@@ -69,7 +83,7 @@ class Wiki extends Controller {
 
     function discussion($item) {
         $item = $this->_get_item();
-        list($subnav, $subnav_current) = $this->_get_subnav($item, 'discussion');
+        $this->_get_subnav($item, 'discussion');
 
         $content = $this->wiki->get('Discussion:'.$item);
         if (! $content) {
@@ -77,24 +91,44 @@ class Wiki extends Controller {
             redirect('wiki/Edit_Discussion:'.$item);
         }
         $this->load->view('header');
-        $this->load->view('put', array('data' => '<h2>'.sprintf('Discussion: %s', h($item)).'</h2><div class="wiki_page wiki_discussion">'.$content.'</div>'));
+        $this->load->view('put', array('data' => 
+            '<h2>'.sprintf(__('Discussion: &ldquo;%s&rdquo;'), h($item)).'</h2>'.
+            '<div class="wiki_page wiki_discussion">'.$content.'</div>'));
         $this->load->view('footer');
     }
 
     function history($item) {
         $item = $this->_get_item();
-        list($subnav, $subnav_current) = $this->_get_subnav($item, 'history');
+        restrict_to_users(__('You must be logged in to view the history of wiki items.'));
+        $this->_get_subnav($item, 'history');
+        $data = $this->wiki->get_history($item);
         $this->load->view('header');
-        $this->load->view('put', array('data' => 'wiki history '.$item));
+        $this->load->view('wiki/history', array('data' => $data));
+        $this->load->view('footer');
+    }
+    
+    function show_history($id) {
+        restrict_to_users(__('You must be logged in to view the history of wiki items.'));
+        $data = $this->wiki->get_version($id);
+        $item = $data->item;
+        $this->load->vars(array('item' => $item));
+        $this->load->vars(array('title' => sprintf(__('Wiki » %s'), $item)));
+        $this->_get_subnav($item, 'history');
+        $this->load->view('header');
+        $this->load->view('put', array('data' => 
+            '<h2>'.sprintf(__('Old Version: &ldquo;%s&rdquo;'), h($item)).'</h2>'.
+            '<p class="info">'.sprintf(__('This is an old version of &ldquo;%s&rdquo;. Creation date: %s.'), anchor('wiki/'.$data->item, $data->item), '<em>'.$data->created.'</em>').'</p>'.
+            '<div class="wiki_page wiki_discussion">'.$data->content.'</div>'));
         $this->load->view('footer');
     }
     
     protected function _get_subnav($item, $method='') {
         $method = $method? ucfirst($method).':' : '';
+        $d = (strpos($method, 'iscussion') !== FALSE? '_Discussion': '');
         $subnav = array(
             '/wiki/'.h($item) => __('View'),
             '/wiki/Discussion:'.h($item) => __('Discussion'),
-            '/wiki/Edit:'.h($item) => __('Edit'),
+            '/wiki/Edit'.$d.':'.h($item) => __('Edit'),
             '/wiki/History:'.h($item) => __('History'),
         );
         if ($method == 'Edit_discussion:') { $method = 'Discussion:'; }
@@ -118,3 +152,4 @@ class Wiki extends Controller {
 
 }
 
+//__END__
