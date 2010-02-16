@@ -53,6 +53,8 @@ $route['help/(:any)'] = 'help/index/$1';
 $route['wiki/(:any):(:any)'] = 'wiki/dispatch/$1/$2';
 $route['wiki/(:any)'] = 'wiki/item/$1';
 
+$route['explore/([a-z]+)s$'] = 'explore/$1';
+
 
 
 //__END__

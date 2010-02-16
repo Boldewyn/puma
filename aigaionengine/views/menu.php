@@ -3,19 +3,19 @@ if (! isset($nav_current)) { $nav_current = $this->uri->segment(1); }
 ?>
 <div id="nav">
   <ul>
-    <li class="<?php if($nav_current == "explore") { echo 'current'; } ?> first">
+    <li class="<?php if($nav_current == 'explore') { echo 'current'; } ?> first">
       <?php _a('explore/', icon('edit-find').' '.__('Explore')) ?>
     </li>
-    <li class="<?php if($nav_current == "create") { echo 'current'; } ?>">
+    <li class="<?php if($nav_current == 'create') { echo 'current'; } ?>">
       <?php _a('create/', icon('bookmark-new').' '.__('Create')) ?>
     </li>
-    <li class="<?php if($nav_current == "search") { echo 'current'; } ?>">
+    <li class="<?php if($nav_current == 'search') { echo 'current'; } ?>">
       <?php _a('search/', icon('system-search').' '.__('Search')) ?>
     </li>
-    <li class="<?php if($nav_current == "user") { echo 'current'; } ?>">
+    <li class="<?php if($nav_current == 'user') { echo 'current'; } ?>">
       <?php _a('user/', icon('system-users').' '.__('Users')) ?>
     </li>
-    <li class="<?php if($nav_current == "wiki") { echo 'current'; } ?>">
+    <li class="<?php if($nav_current == 'wiki') { echo 'current'; } ?>">
       <?php _a('wiki/', icon('accessories-text-editor').' '.__('Wiki')) ?>
     </li>
   </ul>

@@ -1,4 +1,7 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+if (isset($parent) && $parent): ?>
+  <p><?php _a('wiki/explore/topic/'.$parent->topic_id, sprintf(__('Back to parent topic: %s'), $parent->name)) ?></p>
+<?php endif ?>
 <ul class="topic-tree">
 <?php
 /*
@@ -17,14 +20,7 @@
     if (!isset($showroot))$showroot = True;
     if (!isset($collapseAll))$collapseAll = False;
     
-    $todo = array();
-    if (isset($topics)) {
-        if (is_array($topics)) {
-            $todo = $topics;
-        } else {
-            $todo = array($topics);
-        }
-    }
+    $todo = (array)$topic->getChildren();
     $currentdepth=0;
     $first = True;
     /* This is an experiment in left traversal of the tree that does not need nested views. (loading nested views seems to be extremely inefficient) */

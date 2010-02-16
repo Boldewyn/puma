@@ -6,10 +6,10 @@ class Explore extends Controller {
         parent::Controller();
         $this->load->vars(array('subnav' => array(
             '/explore/' => __('All'),
-            '/explore/topic' => __('Topics'),
-            '/explore/tag' => __('Tags'),
-            '/explore/publication' => __('Publications'),
-            '/explore/author' => __('Authors'),
+            '/explore/topics' => __('Topics'),
+            '/explore/tags' => __('Tags'),
+            '/explore/publications' => __('Publications'),
+            '/explore/authors' => __('Authors'),
         )));
     }
 
@@ -35,21 +35,25 @@ class Explore extends Controller {
     function topic($topic=Null) {
         $userlogin = getUserLogin();
         $user = $this->user_db->getByID($userlogin->userId());
-        $config = array('onlyIfUserSubscribed'=>($topic? True : False),
+        $config = array('onlyIfUserSubscribed'=>False,
                         'flagCollapsed'=>True,
                         'user'=>$user,
                         'includeGroupSubscriptions'=>True
                         );
         if (is_user()) { $config['user'] = $userlogin->user(); }
         $root = $this->topic_db->getByID($topic? $topic:1, $config);
+        $parent = Null;
+        if ($topic > 1 && $root->parent_id) {
+            $parent = $this->topic_db->getByID($root->parent_id, $config);
+        }
         if ($root == null) {
             appendErrorMessage($topic? __('Explore topics: non-existing id passed.'):
                                        __('Explore topics: no topics yet.'));
-            redirect('/explore/');
+            redirect('/explore/topic');
         }
         $this->load->vars(array('open' => option_get_like('topic_open_%')));
         $this->load->view('header', array('title' => __('Explore » Topic')));
-        $this->load->view('explore/topic', array('topics' => $root->getChildren()));
+        $this->load->view('explore/topic', array('topic' => $root, 'parent'=>$parent));
         $this->load->view('footer');
     }
 

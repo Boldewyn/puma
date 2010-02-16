@@ -9,7 +9,10 @@ switch ($mode) {
         break;
     case 'collapsable':
         if (sizeof($topic->getChildren())>0) {
-            _a('option/set/topic_open_'.$topic->topic_id, icon('list-remove', ''), array('id'=>'control_topic_'.$topic->topic_id));
+            _a('option/set/topic_open_'.$topic->topic_id,
+               icon('list-remove', ''),
+               array('id'=>'control_topic_'.$topic->topic_id,
+                     'title'=>__('open/close this topic')));
             ?><script type="text/javascript">
               $("#control_topic_<?php echo $topic->topic_id ?>").click(function() {
                   var $a = $(this);
