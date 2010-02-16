@@ -15,7 +15,7 @@ function elog() {
       if (! is_string($content) && ! is_numeric($content)) {
         $content = print_r($content, true);
       }
-      if (fwrite($handle, sprintf("[%s] %s\n", date("c"), $content)) === FALSE) {
+      if (fwrite($handle, sprintf("[%s] %s\n", date('c'), $content)) === FALSE) {
         return false;
       }
     }
@@ -25,7 +25,7 @@ function elog() {
   return false;
 }
 
-require_once "credentials.php";
+require_once 'credentials.php';
 
 /*==== OPTIONAL SETTINGS */
 # URL where to store attachments. Default: root_url/attachments

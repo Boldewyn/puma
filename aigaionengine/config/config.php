@@ -23,15 +23,15 @@
 $ROOT_PATH = dirname(FCPATH);
 # Cookie Path
 if (!defined('AIGAION_COOKIE_PATH') || (AIGAION_COOKIE_PATH=='')) {
-    define ('AIGAION_COOKIE_PATH', "/");
+    define ('AIGAION_COOKIE_PATH', '/');
 }
 # URL where to store attachments. Default: root_url/attachments
 if (!defined('AIGAION_ATTACHMENT_URL') || (AIGAION_ATTACHMENT_URL=='')) {
-    define ('AIGAION_ATTACHMENT_URL',AIGAION_ROOT_URL."/attachments");
+    define ('AIGAION_ATTACHMENT_URL',AIGAION_ROOT_URL.'/attachments');
 }
 # Directory where to store attachments. Default: this directory/attachments
 if (!defined('AIGAION_ATTACHMENT_DIR') || (AIGAION_ATTACHMENT_DIR=='')) {
-    define ('AIGAION_ATTACHMENT_DIR',$ROOT_PATH."/attachments");
+    define ('AIGAION_ATTACHMENT_DIR',$ROOT_PATH.'/attachments');
 }
 #URL to the application: default same as AIGAION_ROOT_URL/aigaionengine
 if (!defined('APPURL') || (APPURL=='')) {
@@ -100,9 +100,9 @@ $config['base_url']	= AIGAION_ROOT_URL;
 |
 */
 if (defined('CLEAN_URLS') && CLEAN_URLS)
-	$config['index_page'] = "";
+	$config['index_page'] = '';
 else
-	$config['index_page'] = "index.php";
+	$config['index_page'] = 'index.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -120,7 +120,7 @@ else
 | 'ORIG_PATH_INFO'	Uses the ORIG_PATH_INFO
 |
 */
-$config['uri_protocol']	= "QUERY_STRING";
+$config['uri_protocol']	= 'QUERY_STRING';
 
 /*
 |--------------------------------------------------------------------------
@@ -133,7 +133,7 @@ $config['uri_protocol']	= "QUERY_STRING";
 | http://www.codeigniter.com/user_guide/general/urls.html
 */
 
-$config['url_suffix'] = "";
+$config['url_suffix'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -145,7 +145,7 @@ $config['url_suffix'] = "";
 | than english.
 |
 */
-$config['language']	= "de";
+$config['language']	= 'de';
 
 /*
 |--------------------------------------------------------------------------
@@ -156,7 +156,7 @@ $config['language']	= "de";
 | that require a character set to be provided.
 |
 */
-$config['charset'] = "UTF-8";
+$config['charset'] = 'UTF-8';
 
 /*
 |--------------------------------------------------------------------------
@@ -298,7 +298,7 @@ $config['cache_path'] = '';
 | enabled you MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = "";
+$config['encryption_key'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -331,8 +331,8 @@ $config['sess_time_to_update'] 		= 300;
 | 'cookie_path'   =  Typically will be a forward slash
 |
 */
-$config['cookie_prefix']	= "";
-$config['cookie_domain']	= "";
+$config['cookie_prefix']	= '';
+$config['cookie_domain']	= '';
 $config['cookie_path']		= AIGAION_COOKIE_PATH;
 
 /*
