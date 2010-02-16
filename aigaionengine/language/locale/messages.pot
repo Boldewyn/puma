@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-15 21:39+0100\n"
+"POT-Creation-Date: 2010-02-16 15:51+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1747,65 +1747,90 @@ msgstr ""
 msgid "Topic subscription for %s (%s)"
 msgstr ""
 
-#: ../../controllers/wiki.php:15 ../../views/menu.php:19
+#: ../../controllers/wiki.php:16 ../../views/menu.php:19
 msgid "Wiki"
 msgstr ""
 
-#: ../../controllers/wiki.php:15 ../../controllers/wiki.php:122
-msgid "View"
+#: ../../controllers/wiki.php:17 ../../controllers/wiki.php:132
+msgid "Main Page"
 msgstr ""
 
-#: ../../controllers/wiki.php:26
+#: ../../controllers/wiki.php:17
+msgid "All Pages"
+msgstr ""
+
+#: ../../controllers/wiki.php:29
 #, php-format
 msgid "Page &ldquo;%s&rdquo; does not exist yet."
 msgstr ""
 
-#: ../../controllers/wiki.php:46
+#: ../../controllers/wiki.php:49
 msgid "You must be logged in to edit the wiki."
 msgstr ""
 
-#: ../../controllers/wiki.php:49
+#: ../../controllers/wiki.php:52
 msgid "Content"
 msgstr ""
 
-#: ../../controllers/wiki.php:83
+#: ../../controllers/wiki.php:93
 #, php-format
 msgid "Discussion for &ldquo;%s&rdquo; does not exist yet."
 msgstr ""
 
-#: ../../controllers/wiki.php:88
+#: ../../controllers/wiki.php:98
 #, php-format
 msgid "Discussion: &ldquo;%s&rdquo;"
 msgstr ""
 
-#: ../../controllers/wiki.php:95 ../../controllers/wiki.php:104
+#: ../../controllers/wiki.php:105 ../../controllers/wiki.php:114
 msgid "You must be logged in to view the history of wiki items."
 msgstr ""
 
-#: ../../controllers/wiki.php:108 ../../controllers/wiki.php:142
+#: ../../controllers/wiki.php:118 ../../controllers/wiki.php:176
 #, php-format
 msgid "Wiki » %s"
 msgstr ""
 
-#: ../../controllers/wiki.php:112
+#: ../../controllers/wiki.php:122
 #, php-format
 msgid "Old Version: &ldquo;%s&rdquo;"
 msgstr ""
 
-#: ../../controllers/wiki.php:113
+#: ../../controllers/wiki.php:123
 #, php-format
 msgid "This is an old version of &ldquo;%s&rdquo;. Creation date: %s."
 msgstr ""
 
-#: ../../controllers/wiki.php:123
+#: ../../controllers/wiki.php:129
+msgid "Special pages are viewable for logged in users only."
+msgstr ""
+
+#: ../../controllers/wiki.php:130
+msgid "Wiki » Special page"
+msgstr ""
+
+#: ../../controllers/wiki.php:132
+msgid "Special page"
+msgstr ""
+
+#: ../../controllers/wiki.php:147
+#, php-format
+msgid "Special Page: %s"
+msgstr ""
+
+#: ../../controllers/wiki.php:156
+msgid "View"
+msgstr ""
+
+#: ../../controllers/wiki.php:157
 msgid "Discussion"
 msgstr ""
 
-#: ../../controllers/wiki.php:124
+#: ../../controllers/wiki.php:158
 msgid "Edit"
 msgstr ""
 
-#: ../../controllers/wiki.php:125
+#: ../../controllers/wiki.php:159
 msgid "History"
 msgstr ""
 
@@ -6322,9 +6347,9 @@ msgstr ""
 msgid "History of &ldquo;%s&rdquo;"
 msgstr ""
 
-#: ../../views/wiki/history.php:7
+#: ../../views/wiki/history.php:8
 #, php-format
-msgid " &mdash; edited by %s"
+msgid "edited by %s"
 msgstr ""
 
 #: ../../views/wiki/index.php:3

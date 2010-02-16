@@ -9,6 +9,9 @@ class Wiki_model extends Model {
         parent::Model();
     }
     
+    /**
+     * Get the content of a wiki item
+     */
     public function get($item, $original = False) {
         $id = $this->_get_current($item);
         if ($original) {
@@ -18,6 +21,9 @@ class Wiki_model extends Model {
         }
     }
     
+    /**
+     * Get all info about a specific version of an item
+     */
     public function get_version($id) {
         if ($id) {
             $query = $this->db->where('id', $id)
@@ -31,6 +37,9 @@ class Wiki_model extends Model {
         }
     }
     
+    /**
+     * Get the latest changes in all wiki pages
+     */
     public function get_latest($n=1) {
         $query = $this->db->select('item, created, description')
                           ->order_by('created', 'desc')
@@ -45,9 +54,32 @@ class Wiki_model extends Model {
             $return[$r->item] = array($r->created, $r->description);
         }
         return $return;
-        
     }
     
+    /**
+     * Get all wiki pages (in-/excluding discussion pages)
+     */
+    public function get_all($really_all=False) {
+        $this->db->select('item')
+                 ->order_by('item asc');
+        if (! $really_all) {
+            $this->db->not_like('item', 'Discussion:%');
+        } elseif ($really_all == 'discussion') {
+            $this->db->like('item', 'Discussion:%');
+        }
+        $query = $this->db->get('wiki_active');
+        $result = array();
+        if ($query->num_rows() > 0) {
+            foreach ($query->result_array() as $p) {
+                $result[] = $p['item'];
+            }
+        }
+        return $result;
+    }
+    
+    /**
+     * Edit a wiki item
+     */
     public function set($item, $content, $description) {
         $userlogin = getUserLogin();
         if ($xcontent = $this->_sanitize($content)) {
@@ -73,6 +105,9 @@ class Wiki_model extends Model {
         }
     }
     
+    /**
+     * Revert one or several edits
+     */
     public function revert($item, $steps=1) {
         while ($steps > 0) {
             $steps--;
@@ -94,6 +129,9 @@ class Wiki_model extends Model {
         return true;
     }
     
+    /**
+     * Get the history of an item
+     */
     public function get_history($item) {
         $query = $this->db->from('wiki_pages')->join('users', 'users.user_id = wiki_pages.editor')
                           ->where('item', $item)
@@ -102,6 +140,9 @@ class Wiki_model extends Model {
         return $query->result();
     }
     
+    /**
+     * Generate a preview from any content
+     */
     public function preview($content) {
         return $this->_sanitize($content);
     }

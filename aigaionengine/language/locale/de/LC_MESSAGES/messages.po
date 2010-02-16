@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Puma.Phi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-15 21:39+0100\n"
+"POT-Creation-Date: 2010-02-16 15:51+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Manuel Strehl <translate@manuel-strehl.de>\n"
 "Language-Team: \n"
@@ -1946,69 +1946,94 @@ msgstr "ein Fehler ist bei %s aufgetaucht"
 msgid "Topic subscription for %s (%s)"
 msgstr "Themenabo für %s (%s)"
 
-#: ../../controllers/wiki.php:15
+#: ../../controllers/wiki.php:16
 #: ../../views/menu.php:19
 msgid "Wiki"
 msgstr "Wiki"
 
-#: ../../controllers/wiki.php:15
-#: ../../controllers/wiki.php:122
-msgid "View"
-msgstr "Seite"
+#: ../../controllers/wiki.php:17
+#: ../../controllers/wiki.php:132
+msgid "Main Page"
+msgstr "Hauptseite"
 
-#: ../../controllers/wiki.php:26
+#: ../../controllers/wiki.php:17
+msgid "All Pages"
+msgstr "Alle Seiten"
+
+#: ../../controllers/wiki.php:29
 #, php-format
 msgid "Page &ldquo;%s&rdquo; does not exist yet."
 msgstr "Seite &sbquo;%s&lsquo; existiert noch nicht."
 
-#: ../../controllers/wiki.php:46
+#: ../../controllers/wiki.php:49
 msgid "You must be logged in to edit the wiki."
 msgstr "Du musst angemeldet sein, um das Wiki zu bearbeiten."
 
-#: ../../controllers/wiki.php:49
+#: ../../controllers/wiki.php:52
 msgid "Content"
 msgstr "Inhalt"
 
-#: ../../controllers/wiki.php:83
+#: ../../controllers/wiki.php:93
 #, php-format
 msgid "Discussion for &ldquo;%s&rdquo; does not exist yet."
 msgstr "Diskussion für &bdquo;%s&ldquo; existiert noch nicht."
 
-#: ../../controllers/wiki.php:88
+#: ../../controllers/wiki.php:98
 #, php-format
 msgid "Discussion: &ldquo;%s&rdquo;"
 msgstr "Diskussion: &bdquo;%s&ldquo;"
 
-#: ../../controllers/wiki.php:95
-#: ../../controllers/wiki.php:104
+#: ../../controllers/wiki.php:105
+#: ../../controllers/wiki.php:114
 msgid "You must be logged in to view the history of wiki items."
 msgstr "Du musst angemeldet sein, um alte Versionen von Wiki-Einträgen zu sehen."
 
-#: ../../controllers/wiki.php:108
-#: ../../controllers/wiki.php:142
+#: ../../controllers/wiki.php:118
+#: ../../controllers/wiki.php:176
 #, php-format
 msgid "Wiki » %s"
 msgstr "Wiki » %s"
 
-#: ../../controllers/wiki.php:112
+#: ../../controllers/wiki.php:122
 #, php-format
 msgid "Old Version: &ldquo;%s&rdquo;"
 msgstr "Alte Version: &bdquo;%s&ldquo;"
 
-#: ../../controllers/wiki.php:113
+#: ../../controllers/wiki.php:123
 #, php-format
 msgid "This is an old version of &ldquo;%s&rdquo;. Creation date: %s."
 msgstr "Dies ist eine alte Version von &bdquo;%s&ldquo;. Erstellungsdatum: %s."
 
-#: ../../controllers/wiki.php:123
+#: ../../controllers/wiki.php:129
+msgid "Special pages are viewable for logged in users only."
+msgstr "Sonderseiten sind nur für angemeldete Benutzer sichtbar."
+
+#: ../../controllers/wiki.php:130
+msgid "Wiki » Special page"
+msgstr "Wiki » Sonderseite"
+
+#: ../../controllers/wiki.php:132
+msgid "Special page"
+msgstr "Sonderseite"
+
+#: ../../controllers/wiki.php:147
+#, php-format
+msgid "Special Page: %s"
+msgstr "Sonderseite: %s"
+
+#: ../../controllers/wiki.php:156
+msgid "View"
+msgstr "Seite"
+
+#: ../../controllers/wiki.php:157
 msgid "Discussion"
 msgstr "Diskussion"
 
-#: ../../controllers/wiki.php:124
+#: ../../controllers/wiki.php:158
 msgid "Edit"
 msgstr "bearbeiten"
 
-#: ../../controllers/wiki.php:125
+#: ../../controllers/wiki.php:159
 msgid "History"
 msgstr "Geschichte"
 
@@ -6262,10 +6287,10 @@ msgstr "Vorschau"
 msgid "History of &ldquo;%s&rdquo;"
 msgstr "Versionsgeschichte von &bdquo;%s&ldquo;"
 
-#: ../../views/wiki/history.php:7
+#: ../../views/wiki/history.php:8
 #, php-format
-msgid " &mdash; edited by %s"
-msgstr "&mdash; bearbeitet von %s"
+msgid "edited by %s"
+msgstr "bearbeitet von %s"
 
 #: ../../views/wiki/index.php:3
 #, php-format

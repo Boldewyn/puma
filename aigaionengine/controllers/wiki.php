@@ -12,7 +12,10 @@ class Wiki extends Controller {
 
     /** Wiki */
     function index() {
-        $this->load->view('header', array('title' => __('Wiki'), 'subnav'=>array('/wiki/'=>__('View')), 'subnav_current'=>'/wiki/'));
+        $this->load->view('header', array(
+            'title' => __('Wiki'),
+            'subnav'=>array('/wiki/'=>__('Main Page'), '/wiki/Special:All_Pages'=>__('All Pages')),
+            'subnav_current'=>'/wiki/'));
         $this->load->view('wiki/index', array('entries' => $this->wiki->get_latest(20)));
         $this->load->view('footer');
     }
@@ -119,6 +122,30 @@ class Wiki extends Controller {
             '<h2>'.sprintf(__('Old Version: &ldquo;%s&rdquo;'), h($item)).'</h2>'.
             '<p class="info">'.sprintf(__('This is an old version of &ldquo;%s&rdquo;. Creation date: %s.'), anchor('wiki/'.$data->item, $data->item), '<em>'.$data->created.'</em>').'</p>'.
             '<div class="wiki_page wiki_discussion">'.$data->content.'</div>'));
+        $this->load->view('footer');
+    }
+    
+    function special($id) {
+        restrict_to_users(__('Special pages are viewable for logged in users only.'));
+        $this->load->vars(array('title' => __('Wiki » Special page')));
+        $this->load->vars(array(
+            'subnav' => array('/wiki/'=>__('Main Page'), 'wiki/Special:'.h($id)=>__('Special page')),
+            'subnav_current' => 'wiki/Special:'.h($id)));
+        switch (strtolower($id)) {
+            case 'all_pages':
+                $data = '<ul>';
+                foreach ($this->wiki->get_all() as $page) {
+                    $data .= '<li>'.anchor('wiki/'.h($page), h($page)).'</li>';
+                }
+                $data .= '</ul>';
+                break;
+            default:
+                $data = '';
+        }
+        $this->load->view('header');
+        $this->load->view('put', array('data' => 
+            '<h2>'.sprintf(__('Special Page: %s'), h($id)).'</h2>'.
+            '<div class="wiki_page wiki_special">'.$data.'</div>'));
         $this->load->view('footer');
     }
     
