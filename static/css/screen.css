@@ -1379,6 +1379,27 @@ form.inline p {
 
 
 
+/** tagcloud */
+.tagcloud {
+  margin: 0 0 .8333em;
+  text-align: center;
+  line-height: 1.6667em;
+}
+
+.tagcloud li {
+  margin: 0;
+  display: inline;
+  padding-right: .5em;
+}
+
+.tagcloud .t1 a { font-size: 0.89em; color: #459A9F; }
+.tagcloud .t2 a { font-size: 1em; }
+.tagcloud .t3 a { font-size: 1.5em; color: #003C3F; }
+
+
+
+
+
 /**
  * Single pages' layouts
  */

@@ -113,13 +113,13 @@ $pagination = $this->load->view('pagination', array('paginationPrefix' => $multi
                     if ($publication->isBookmarked) {
                         _a('bookmarklist/removepublication/'.$publication->pub_id,
                            icon('bookmarked'),
-                           sprintf('id="bookmark_icon_%1$s" onclick="Puma.handle_bookmark(%1$s, &quot;remove&quot;); return false;"',
-                              $publication->pub_id));
+                           sprintf('title="%1$s" id="bookmark_icon_%2$s" onclick="Puma.handle_bookmark(%2$s, &quot;remove&quot;); return false;"',
+                              __('remove from bookmark list'), $publication->pub_id));
                     } else {
                         _a('bookmarklist/addpublication/'.$publication->pub_id,
                            icon('nonbookmarked'),
-                           sprintf('id="bookmark_icon_%1$s" onclick="Puma.handle_bookmark(%1$s, &quot;add&quot;); return false;"',
-                              $publication->pub_id));
+                           sprintf('title="%1$s" id="bookmark_icon_%2$s" onclick="Puma.handle_bookmark(%2$s, &quot;add&quot;); return false;"',
+                              __('add to bookmark list'), $publication->pub_id));
                     }
                 }
                 
