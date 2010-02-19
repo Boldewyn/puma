@@ -6,10 +6,10 @@ class Explore extends Controller {
         parent::Controller();
         $this->load->vars(array('subnav' => array(
             '/explore/' => __('All'),
-            '/explore/topics' => __('Topics'),
-            '/explore/tags' => __('Tags'),
-            '/explore/publications' => __('Publications'),
-            '/explore/authors' => __('Authors'),
+            '/topics' => __('Topics'),
+            '/keywords' => __('Tags'),
+            '/publications' => __('Publications'),
+            '/authors' => __('Authors'),
         )));
     }
 
