@@ -45,6 +45,14 @@ function restrict_to_users($msg='', $redirect='') {
     }
 }
 
+function restrict_to_right($right, $msg='', $redirect='') {
+    if (! is_user() || ! $userlogin->hasRights($right)) {
+        if ($msg) { appendErrorMessage($msg); }
+        redirect($redirect);
+        exit;
+    }
+}
+
 function is_user() {
     $userlogin = getUserLogin();
     return ($userlogin->isLoggedIn() && !$userlogin->isAnonymous());
