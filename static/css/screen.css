@@ -37,6 +37,12 @@ body {
 ol, ul {
   list-style: none;
 }
+
+p, li,
+table, dd {
+  margin: 0 0 .83333em;
+}
+
 blockquote, q {
   quotes: none;
 }
@@ -571,6 +577,13 @@ body {
   margin: 0 auto;
 }
 
+#header p, #header li, #header table,
+#nav li, #nav table,
+#subnav li,
+#footer p, #footer li, #footer table {
+  margin: 0;
+}
+
 #header {
   overflow: hidden;
 }
@@ -722,6 +735,7 @@ body {
   line-height: 3.1667em;
   text-align: center;
   color: white;
+  text-shadow: 0 .08333em #003C3F;
 }
 
 #nav table td.current a,
@@ -734,6 +748,7 @@ body {
 #nav ul li a:focus,
 #nav ul li a:hover {
   background-position: left center;
+  text-shadow: none;
 }
 
 #nav img {
@@ -851,13 +866,6 @@ body {
   margin: 0 0 .9375em;
   color: #004B4F;
   text-shadow: #E0EEEF 0 .0625em 0;
-}
-
-#content p,
-#content li,
-#content table,
-#content dd {
-  margin: 0 0 .83333em;
 }
 
 #content em,
@@ -1034,7 +1042,7 @@ form.inline p {
   display: inline;
 }
 
-#content label.block {
+label.block {
   width: 8em;
   display: block;
   float: left;
@@ -1042,23 +1050,23 @@ form.inline p {
   margin: 0 1.25em .833333em 0;
 }
 
-#content p.empty_block {
+p.empty_block {
   padding-left: 9.25em;
 }
 
-#content label.extended_label,
-#content .extended_label label.block {
+label.extended_label,
+.extended_label label.block {
   width: 16em;
 }
 
-#content label.xlarge_label,
-#content .xlarge_label label.block {
+label.xlarge_label,
+.xlarge_label label.block {
   width: 32em;
 }
 
 /** Input fields */
-#content textarea,
-#content input.text {
+textarea,
+input.text {
   border: .08333em solid #00757e;
   border-radius: .16667em;
   -moz-border-radius: .16667em;
@@ -1068,61 +1076,61 @@ form.inline p {
   padding: .25em;
 }
 
-#content textarea,
-#content select,
-#content input.text {
+textarea,
+select,
+input.text {
   width: 16em;
 }
 
-#content select {
+select {
   width: 15em;
 }
 
-#content textarea.extralarge_input,
-#content select.extralarge_input,
-#content input.extralarge_input,
-#content .extralarge_input textarea,
-#content .extralarge_input select,
-#content .extralarge_input input.text {
+textarea.extralarge_input,
+select.extralarge_input,
+input.extralarge_input,
+.extralarge_input textarea,
+.extralarge_input select,
+.extralarge_input input.text {
   width: 73em;
 }
 
-#content textarea.extended_input,
-#content select.extended_input,
-#content input.extended_input,
-#content .extended_input textarea,
-#content .extended_input select,
-#content .extended_input input.text {
+textarea.extended_input,
+select.extended_input,
+input.extended_input,
+.extended_input textarea,
+.extended_input select,
+.extended_input input.text {
   width: 32em;
 }
 
-#content textarea.medium_input,
-#content select.medium_input,
-#content input.medium_input,
-#content .medium_input textarea,
-#content .medium_input select,
-#content .medium_input input.text {
+textarea.medium_input,
+select.medium_input,
+input.medium_input,
+.medium_input textarea,
+.medium_input select,
+.medium_input input.text {
   width: 8em;
 }
 
-#content textarea.short_input,
-#content select.short_input,
-#content input.short_input,
-#content .short_input textarea,
-#content .short_input select,
-#content .short_input input.text {
+textarea.short_input,
+select.short_input,
+input.short_input,
+.short_input textarea,
+.short_input select,
+.short_input input.text {
   width: 4em;
 }
 
-#content textarea:focus,
-#content input.text:focus {
+textarea:focus,
+input.text:focus {
   border-color: #c2fbff;
   background: white;
   color: #002D2F;
 }
 
-#content textarea.readonly,
-#content input.text.readonly {
+textarea.readonly,
+input.text.readonly {
   border-color: #bbb;
   background: #EFEFEF;
   color: #888;
@@ -1130,10 +1138,10 @@ form.inline p {
 
 
 /** Submit buttons */
-#content .pseudobutton,
-#content button,
-#content input.button,
-#content input.submit {
+.pseudobutton,
+button,
+input.button,
+input.submit {
   border: .08333em solid #00757e;
   border-radius: .16667em;
   -moz-border-radius: .16667em;
@@ -1145,42 +1153,42 @@ form.inline p {
   position: relative;
 }
 
-#content .wide_button {
+.wide_button {
   width: 16em;
 }
 
-#content .pseudobutton {
+.pseudobutton {
   line-height: 1.5;
 }
 
-#content .pseudobutton:focus,
-#content button:focus,
-#content input.button:focus,
-#content input.submit:focus,
-#content .pseudobutton:hover,
-#content button:hover,
-#content input.button:hover,
-#content input.submit:hover {
+.pseudobutton:focus,
+button:focus,
+input.button:focus,
+input.submit:focus,
+.pseudobutton:hover,
+button:hover,
+input.button:hover,
+input.submit:hover {
   background-position: left -.8333em;
 }
 
-#content .pseudobutton:active,
-#content button:active,
-#content input.button:active,
-#content input.submit:active {
+.pseudobutton:active,
+button:active,
+input.button:active,
+input.submit:active {
   background-position: left bottom;
 }
 
 
 /** Rich text editors */
-#content .mceEditor table {
+.mceEditor table {
   margin: 0 0 0 3px;
 }
 
 
 
 
-#content form .note {
+form .note {
   margin: 0 0 0 10.09091em;
   display: block;
   font-style: italic;
@@ -1189,41 +1197,41 @@ form.inline p {
   color: #3B5E5F;
 }
 
-#content .extended_label .note {
+.extended_label .note {
   margin-left: 19.18182em;
 }
 
-#content *.pseudolink {
+*.pseudolink {
   background: none;
   border: 0;
   display: inline;
   padding: 0;
 }
 
-#content form p {
+form p {
   clear: left;
   overflow: hidden;
 }
 
-#content .half {
+.half {
   width: 34em;
   margin-right: 1.25em;
   float: left;
   overflow: hidden;
 }
 
-#content .datatable tr.even th,
-#content .datatable tr.even td,
-#content fieldset p.even {
+.datatable tr.even th,
+.datatable tr.even td,
+fieldset p.even {
   background: #d6e4e6;
 }
 
-#content fieldset p.even {
+fieldset p.even {
   background: #d6e4e6;
   padding: .83333em 0;
 }
 
-#content .brick {
+.brick {
   width: 34em;
   overflow: hidden;
 }
@@ -1231,18 +1239,18 @@ form.inline p {
 
 /** in-content tabs */
 
-#content ul.tabs {
+ul.tabs {
   overflow: hidden;
   margin: 0 0 .83333em;
 }
 
-#content ul.tabs li {
+ul.tabs li {
   display: block;
   float: left;
   margin: 0 .08333em .08333em 0;
 }
 
-#content ul.tabs li a {
+ul.tabs li a {
   display: block;
   border: .08333em solid #61A6A9;
   border-bottom: 0;
@@ -1251,11 +1259,11 @@ form.inline p {
   color: white;
 }
 
-#content ul.tabs li a:hover {
+ul.tabs li a:hover {
   background-position: left center;
 }
 
-#content ul.tabs li.active a {
+ul.tabs li.active a {
   background: #CBD9DA;
   color: #002d2f;
 }
@@ -1285,36 +1293,36 @@ form.inline p {
 
 
 /** topic trees */
-#content .topic-tree ul {
+.topic-tree ul {
   margin-left: 1.25em;
 }
 
-#content .topic-tree .icon {
+.topic-tree .icon {
   vertical-align: middle;
   margin-right: .25em;
   cursor: pointer;
 }
 
-#content .topic-tree li {
+.topic-tree li {
   margin: .83333em 0;
 }
 
-#content .topic-tree li.topictree-leaf {
+.topic-tree li.topictree-leaf {
   margin-left: 1.6667em;
 }
 
-#content .topic-tree em {
+.topic-tree em {
   font-size: .91em;
 }
 
 
 /** sort controls */
-#content .sortcontrols {
+.sortcontrols {
   margin: 0 0 .833333em;
   overflow: hidden;
 }
 
-#content .sortcontrols p {
+.sortcontrols p {
   float: left;
   line-height: 1.85;
   padding: 0 .83333em 0 0;
@@ -1322,12 +1330,12 @@ form.inline p {
   border-bottom: .083333em solid #9BBDBF;
 }
 
-#content .sortcontrols ul.tabs {
+.sortcontrols ul.tabs {
   margin: 0;
   border-bottom: .083333em solid #9BBDBF;
 }
 
-#content .sortcontrols ul.tabs li {
+.sortcontrols ul.tabs li {
   margin-bottom: 0;
 }
 
@@ -1348,7 +1356,7 @@ form.inline p {
   background: #C0CECE;
 }
 
-#content .publicationlist_controls {
+.publicationlist_controls {
   float: right;
   margin: 0 0 .83333em .83333em;
 }
@@ -1357,22 +1365,22 @@ form.inline p {
 
 
 /** pagination */
-#content .pagination {
+.pagination {
   text-align: center;
   margin: .83333em 0;
 }
 
-#content .pagination li {
+.pagination li {
   display: inline;
   padding: 0 .83333em;
   margin: 0;
 }
 
-#content .pagination li a {
+.pagination li a {
   padding: .83333em;
 }
 
-#content .pagination li a:hover {
+.pagination li a:hover {
   padding: .75em;
   border: .083333em solid;
 }
@@ -1395,6 +1403,20 @@ form.inline p {
 .tagcloud .t1 a { font-size: 0.89em; color: #459A9F; }
 .tagcloud .t2 a { font-size: 1em; }
 .tagcloud .t3 a { font-size: 1.5em; color: #003C3F; }
+
+
+
+/** option box */
+.optionbox {
+  float: right;
+  margin: -.8333em 0 .8333em .8333em;
+  padding: .8333em;
+  background: #D6E4E6;
+}
+
+.optionbox a {
+  padding-left: .25em;
+}
 
 
 
