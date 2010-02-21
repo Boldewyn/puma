@@ -106,7 +106,7 @@ class Keywords extends Controller {
         $header = array('title' => sprintf(__('Keyword: &ldquo;%s&rdquo;'), $keyword->keyword));
 
         //set data
-        $publicationContent = array('header' => sprintf(__('Publications for keyword &ldquo;%s&rdquo; %s'),$keyword->keyword));
+        $publicationContent = array('header' => sprintf(__('Publications for keyword &ldquo;%s&rdquo;'),$keyword->keyword).' %s');
         switch ($order) {
             case 'type':
                 $publicationContent['header'] = sprintf($publicationContent['header'], __('sorted by journal and type'));

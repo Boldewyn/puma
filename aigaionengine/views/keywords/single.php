@@ -6,7 +6,7 @@ $userlogin = getUserLogin();
     if ($userlogin->hasRights('bookmarklist')) {
       ?><p class="optionbox"><?php
         _a('bookmarklist/addkeyword/'.$keyword->keyword_id, '['.__('BookmarkAll').']').' '.
-        _a('bookmarklist/removekeyword/'.$keyword->keyword_id, __('UnBookmarkAll').']');
+        _a('bookmarklist/removekeyword/'.$keyword->keyword_id, '['.__('UnBookmarkAll').']');
       ?></p><?php
     }
 ?>
