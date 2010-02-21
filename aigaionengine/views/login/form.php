@@ -52,7 +52,7 @@
       </p>
       <p>
         <label for="password" class="block"><?php echo __('Password:');?></label>
-        <input type="text" class="text" name="loginPass" id="password" value="<?php _h($this->input->post('loginPass')); ?>" />
+        <input type="password" class="text" name="loginPass" id="password" value="<?php _h($this->input->post('loginPass')); ?>" />
       </p>
       <p class="empty_block">
         <input type="checkbox" name="remember" id="remember" value="1" />
