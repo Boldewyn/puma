@@ -46,8 +46,10 @@ function restrict_to_users($msg='', $redirect='') {
 }
 
 function restrict_to_right($right, $msg='', $redirect='') {
-    if (! is_user() || ! $userlogin->hasRights($right)) {
-        if ($msg) { appendErrorMessage($msg); }
+    $userlogin = getUserLogin();
+    if ((is_string($right) && ! $userlogin->hasRights($right))
+        || $right != True) {
+        if ($msg) { appendErrorMessage(sprintf(__('Insufficient rights: %s.'), $msg)); }
         redirect($redirect);
         exit;
     }
