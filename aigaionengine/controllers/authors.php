@@ -438,7 +438,8 @@ class Authors extends Controller {
             /*  ELSE process the request and send the email. */
             //get output
             $this->load->helper('publication');
-            $messageBody = __('Export from Aigaion');
+            $messageBody = sprintf(__('Export from %s'), 'Puma.Phi');
+            $exportdata = array();
             if($email_formatted || $email_bibtex) {
                 $this->publication_db->enforceMerge = True;
                 $publicationMap = $this->publication_db->getForAuthorAsMap($author_id);

@@ -4,8 +4,6 @@
 <?php
 
     $userlogin  = getUserLogin();
-    $user       = $this->user_db->getByID($userlogin->userID());
-
 
     if ($topic->name=='') {
         $name = sprintf(__('Topic #%s'), $topic->topic_id);

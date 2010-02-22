@@ -883,7 +883,7 @@ class Bookmarklist extends Controller {
             $content['publications']    = $publications;
             $content['order'] = $order;
 
-            $messageBody = __('Export from Aigaion');
+            $messageBody = sprintf(__('Export from %s'), 'Puma.Phi');
 
             if($email_formatted || $email_bibtex)
             {
