@@ -20,14 +20,15 @@ class Topics extends Controller {
         //no rights check here: anyone can (try) to browse topics (though not all topics may be visible)
         $userlogin = getUserLogin();
         $user = $this->user_db->getByID($userlogin->userId());
-        $root = $this->topic_db->getByID($root_id, array('onlyIfUserSubscribed'=>True,
+        $config = array('onlyIfUserSubscribed'=>True,
                          'flagCollapsed'=>True,
                          'user'=>$user,
                          'includeGroupSubscriptions'=>True
-                        ));
+                        );
+        $root = $this->topic_db->getByID($root_id, $config);
         if ($root == null) {
             appendErrorMessage(__('Browse topics: non-existing id passed.'));
-            redirect('/topics');
+            redirect('');
         }
         $this->load->view('header', array('title' => __('Browse topic tree')));
         $this->load->view('site/stats', array('embed' => True));
@@ -81,7 +82,7 @@ class Topics extends Controller {
             $topic->delete();
             redirect('/topics');
         } else {
-            $this->load->view('header', array('title' => __('Delete topic'));
+            $this->load->view('header', array('title' => __('Delete topic')));
             $this->load->view('topics/delete', array('topic'=>$topic));
             $this->load->view('footer');
         }
@@ -96,7 +97,7 @@ class Topics extends Controller {
         $this->validation->set_error_delimiters('<p class="error">'.__('Changes not committed: '), '</p>');
         $parent = $this->topic_db->getByID($parent_id, array());
         
-        $this->load->view('header', array('title' => __('Add topic'));
+        $this->load->view('header', array('title' => __('Add topic')));
         $this->load->view('topics/edit' , array('parent'=>$parent));
         $this->load->view('footer');
     }
@@ -121,7 +122,7 @@ class Topics extends Controller {
         restrict_to_right(($userlogin->hasRights('topic_edit') && $this->accesslevels_lib->canEditObject($topic)),
             __('Edit topic'), '/topics');
 
-            $this->load->view('header', array('title' => __('Edit topic'));
+            $this->load->view('header', array('title' => __('Edit topic')));
         $this->load->view('topics/edit' , array('topic'=>$topic));
         $this->load->view('footer');
     }
@@ -250,9 +251,9 @@ class Topics extends Controller {
             if(count($topic_ids) == 1) {
                 $topic_id = $topic_ids[0];
             } elseif(count($topic_ids) > 1) {
-                exit(sprintf(__('Topic structure is not unique in %s.'), puma());
+                exit(sprintf(__('Topic structure is not unique in %s.'), puma()));
             } else {
-                exit(sprintf(__('Topic structure is not unique in %s.'), puma());
+                exit(sprintf(__('Topic structure is not unique in %s.'), puma()));
             }
         }
 

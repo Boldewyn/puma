@@ -14,78 +14,52 @@ class Bookmarklist extends Controller {
         $this->load->vars(array('subnav' => $subnav, 'subnav_current' => '/bookmarklist/'));
      }
     
-    /** Pass control to the bookmarklist/viewlist/ */
-    function index()
-    {
+    /**
+     * Pass control to the bookmarklist/viewlist
+     */
+    function index() {
         $this->viewlist();
     }
 
-    /** 
-    bookmarklist/viewlist
-    
-    Entry point for viewing the bookmark list of the logged user.
-    
-    Fails with error message when one of:
-        insufficient rights
-        
-    Parameters passed via URL segments:
-        3rd: list type
-        4rth: page nr
-             
-    Returns:
-        A full HTML page with the list of bookmarked publications
-    */
-    function viewlist() {
-        //get URL segments
-        $order   = $this->uri->segment(3,'year');
+    /**
+     * Entry point for viewing the bookmark list of the logged user.
+     */
+    function viewlist($order='year', $page=0) {
+        restrict_to_right('bookmarklist', __('View bookmarklist'), '');
         if (!in_array($order,array('year','type','recent','title','author'))) {
-          $order='year';
+            $order='year';
         }
-        $page   = $this->uri->segment(4,0);
-        
-        //check rights
-        $userlogin = getUserLogin();
-        if (!$userlogin->hasRights('bookmarklist')) {
-            appendErrorMessage(__('View bookmarklist: insufficient rights'));
-            redirect('');
-        }
-                        
-        //get output
+
         $this->load->helper('publication');
 
-        $headerdata = array();
-        $headerdata['title'] = __('Bookmark list');
-        $headerdata['sortPrefix'] = '/bookmarklist/viewlist/';
-        $headerdata['exportCommand']    = 'export/bookmarklist/';
-        $headerdata['exportName']    = __('Export bookmarklist');
-
-        $content['header']          = sprintf(__('Bookmarklist of %s'),$userlogin->loginName());
+        $content = array('header' => sprintf(__('Bookmarklist of %s %%s'),$userlogin->loginName()));
         switch ($order) {
             case 'type':
-                $content['header']          = sprintf(__('Bookmarklist of %s'),$userlogin->loginName()).' '.__('sorted by journal and type');
+                $content['header'] = sprintf($content['header'], __('sorted by journal and type'));
                 break;
             case 'recent':
-                $content['header']          = sprintf(__('Bookmarklist of %s'),$userlogin->loginName()).' '.__('sorted by recency');
+                $content['header'] = sprintf($content['header'], __('sorted by recency'));
                 break;
             case 'title':
-                $content['header']          = sprintf(__('Bookmarklist of %s'),$userlogin->loginName()).' '.__('sorted by title');
+                $content['header'] = sprintf($content['header'], __('sorted by title'));
                 break;
             case 'author':
-                $content['header']          = sprintf(__('Bookmarklist of %s'),$userlogin->loginName()).' '.__('sorted by first author');
+                $content['header'] = sprintf($content['header'], __('sorted by first author'));
                 break;
+            default:
+                $content['header'] = sprintf($content['header'], '');
         }
+        $userlogin = getUserLogin();
         if ($userlogin->getPreference('liststyle')>0) {
             //set these parameters when you want to get a good multipublication list display
             $content['currentpage']     = $page;
             $content['multipageprefix'] = 'bookmarklist/viewlist/'.$order.'/';
-        }        
-        
-
+        }
         $content['publications']    = $this->publication_db->getForBookmarkList($order, $page);
         $content['pubCount']    = $this->bookmarklist_db->count();
         $content['order'] = $order;
         
-        $this->load->view('header', $headerdata);
+        $this->load->view('header', array('title' => __('Bookmark list')));
         $this->load->view('bookmarklist/controls');
         $this->load->view('sort', array('sortPrefix'=>'/bookmarklist/viewlist/'));
         $this->load->view('publications/list', $content);
@@ -822,13 +796,9 @@ class Bookmarklist extends Controller {
     Returns:
             A full HTML page with the list of bookmarked publications
     */
-    function exportEmail()
-    {
-        $userlogin = getUserLogin();
-        if (!$userlogin->hasRights('export_email')) {
-            appendErrorMessage(__('Export through email: insufficient rights.'));
-            redirect('');
-        }
+    function exportEmail() {
+        restrict_to_right('export_email', __('Export through email'), '/bookmarklist');
+        restrict_to_right('bookmarklist', __('View bookmarklist'), '');
         $this->load->library('email_export');
             
         $email_pdf = $this->input->post('email_pdf');
@@ -840,13 +810,6 @@ class Bookmarklist extends Controller {
         $recipientaddress   = $this->uri->segment(3,-1);
         $publications = $this->publication_db->getForBookmarkList($order);
 
-
-        $userlogin = getUserLogin();
-        if (!$userlogin->hasRights('bookmarklist'))
-        {
-            appendErrorMessage(__('View bookmarklist: insufficient rights.'));
-            redirect('');
-        }
 
 
         /*
