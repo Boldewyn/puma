@@ -1,35 +1,9 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<body>
-  <div id="container">
-    <div id="header">
-        <div id="header_widgets">
-          <p id="header_backlink">
-            <a href="http://www.uni-regensburg.de/">Uni Regensburg</a>
-          </p>
-
-          <div id="header_controls">
-          </div>
-        </div>
-        <h1>
-          <a href="<?php echo base_url()?>"><span><?php _puma()?></span></a>
-        </h1>
-        <h2>
-          <a href="<?php echo base_url()?>"><span>Publication Management for the Faculty of Physics</span></a>        </h2>
-
-    </div>
-
-  <div id="subnav" class="min"></div>
-  <div id="content">
   <?php
     $userlogin=getUserLogin();
     $notice = $userlogin->notice();
     if ($notice != '') {
       echo '<p class="error">',$notice,'</p>';
-    }
-    $err = getErrorMessage();
-    if ($err != '') {
-        echo '<p class="error">',$err,'</p>';
-        clearErrorMessage();
     }
     $formtitle = sprintf(__('Welcome to %s, please login'), puma());
     if ($this->latesession->get('FORMREPOST')==True) {
@@ -41,7 +15,7 @@
         $formtitle = __('Login to proceed with form submission');
     }
 
-    echo form_open_multipart('login/dologin/'.implode('/',$segments), array('id' => 'loginForm')); ?>
+    echo form_open_multipart('login/dologin/'.implode('/', $segments), array('id' => 'loginForm')); ?>
       <h2><?php echo $formtitle; ?></h2>
       <p><?php printf(__('Guest accounts only, please. If you have an NDS account, %s.'),
                         '<a href="'.base_url().'">'.__('use this form').'</a>')?></p>
@@ -72,7 +46,3 @@
         <a href="<?php echo base_url();?>"><?php _e("Back to the front page.");?></a>
       </p>
     </form>
-  </div>
-  </div>
-  <div id="footer"></div>
-</body>

@@ -177,8 +177,14 @@ class Login_puma {
                     $group_ids[] = $R->user_id;
                 } else {
                     //group must also be created...
-                    $CI->db->insert('users', array('surname'=>$groupname,'abbreviation'=>$groupname,'type'=>'group'));
-                    $new_id = $CI->db->insert_id();
+                    $qid = $CI->db->query('SELECT user_id + 1 AS id FROM `'.AIGAION_DB_PREFIX.'users` WHERE user_id < 1000 ORDER BY user_id DESC LIMIT 0,1');
+                    if ($qid->num_rows() > 0) {
+                        $new_id = $qid->row()->id;
+                        $CI->db->insert('users', array('id'=>$new_id, 'surname'=>$groupname, 'abbreviation'=>$groupname, 'type'=>'group'));
+                    } else {
+                        $CI->db->insert('users', array('surname'=>$groupname,'abbreviation'=>$groupname,'type'=>'group'));
+                        $new_id = $CI->db->insert_id();
+                    }
                     //subscribe group to top topic
                     $CI->db->insert('usertopiclink', array('user_id' => $new_id, 'topic_id' => 1));
                     $group_ids[] = $new_id;
