@@ -2,8 +2,7 @@
 
 class Login extends Controller {
 
-    function Login()
-    {
+    function Login() {
         parent::Controller();
     }
 
@@ -11,8 +10,7 @@ class Login extends Controller {
         Note that one may pass a specification of a target page where
         the user should be redirected after a successful login by
         appending a path: 'login/index/path/to/redirect/page' */
-    function index()
-    {
+    function index() {
         $segments = $this->uri->segment_array();
         //remove first two elements
         array_shift($segments);
@@ -25,22 +23,13 @@ class Login extends Controller {
         }
         $data = array('segments' => $segments);
 
-        //set header data
-        $header ['title']       = __('Please login');
-        $header ['javascripts'] = array('tree.js','prototype.js','scriptaculous.js','builder.js','externallinks.js');
-
-        //get output
-        $output  = $this->load->view('header_clean',        $header,  true);
-        $output .= $this->load->view('login/form',          $data,    true);
-        $output .= $this->load->view('footer_clean',        '',       true);
-
-        //set output
-        $this->output->set_output($output);
+        $this->load->view('header', array('title' => __('Please log in')));
+        $this->load->view('login/form',  $data);
+        $this->load->view('footer');
     }
 
     // Same as dologin, but if login fails, show login/fail view instead of login form
-    function dologinnoform()
-    {
+    function dologinnoform() {
       $this->dologin(false);
     }
 
@@ -56,8 +45,7 @@ class Login extends Controller {
 
         When login fails, the user is directed back to the login form if showForm==true, and to the login/fail view, otherwise
         */
-    function dologin($showForm = true)
-    {
+    function dologin($showForm = true) {
         //get login object
         $userlogin = getUserLogin();
 
@@ -87,14 +75,11 @@ class Login extends Controller {
             //note: if cookies are enabled, and we still could not log in here for some reason, we must log out
             //because otherwise we get eternal redirects
             $userlogin->logout(); //it SHOULD be the case that an error message has been set already.
-            if ($showForm)
-            {
-              redirect('/login/index/'.str_replace(' ','%20',implode('/',$segments))); //note: if we don't replace this %20 / space, we sometimes get truncated dfata after some redirects, so e.g. "readapi/link/topic/Emergent games" in the end (after some login redirects) tries to link to "Emergent"
-              //note: the 'remembered form', if any was present, is not forgotten; the session info is still there.
-            }
-            else
-            {
-              redirect('/login/fail/');
+            if ($showForm) {
+                redirect('/login/index/'.str_replace(' ','%20',implode('/',$segments))); //note: if we don't replace this %20 / space, we sometimes get truncated dfata after some redirects, so e.g. "readapi/link/topic/Emergent games" in the end (after some login redirects) tries to link to "Emergent"
+                //note: the 'remembered form', if any was present, is not forgotten; the session info is still there.
+            } else {
+                redirect('/login/fail/');
             }
         }
     }
@@ -137,8 +122,7 @@ class Login extends Controller {
     /** This controller will log the currently logged-in user out, then redirect
         to the dologin controller to allow the system to login an anon account
         (if allowed and posssible). */
-    function dologout()
-    {
+    function dologout() {
         //get login object
         $userlogin = getUserLogin();
         //logout
@@ -146,7 +130,6 @@ class Login extends Controller {
         $this->latesession->set('USERLOGIN', $userlogin);
         //redirect
         redirect('');
-
     }
 
     /**
@@ -166,7 +149,7 @@ class Login extends Controller {
     */
     function anonymous() {
         if (getConfigurationSetting('LOGIN_ENABLE_ANON')!='TRUE') {
-            appendErrorMessage(__('Anonymous accounts are not enabled').'.<br/>');
+            appendErrorMessage(__('Anonymous accounts are not enabled.'));
             redirect('');
         }
         $segments = $this->uri->segment_array();
@@ -176,7 +159,7 @@ class Login extends Controller {
             $user = $this->user_db->getByLogin($user_id);
         }
         if (($user==null)||($user->type!='anon')) {
-            appendErrorMessage(__('Anonymous login: no existing anonymous user_id provided').'.<br/>');
+            appendErrorMessage(__('Anonymous login: no existing anonymous user_id provided.'));
             redirect('');
         }
 
@@ -188,13 +171,14 @@ class Login extends Controller {
         $result = $userlogin->loginAnonymous($user->user_id);
         $this->latesession->set('USERLOGIN', $userlogin);
         if (($result==1)||($result==2)) {
-            appendErrorMessage(__('Error logging in anonymous account').'<br/>');
+            appendErrorMessage(__('Error logging in anonymous account.'));
         }
         array_shift($segments);
         array_shift($segments);
         array_shift($segments);
         redirect(implode('/',$segments));
     }
+    
     /** This controller function displays a failure message in a div. no surrounding
         HTML is included. This can be used for controllers that in themselves do not
         show a full html page but rather a sub-view, and where failure to login should
@@ -203,4 +187,5 @@ class Login extends Controller {
         $this->load->view('login/fail');
     }
 }
-?>
+
+//__END__
