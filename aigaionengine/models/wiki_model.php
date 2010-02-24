@@ -31,7 +31,12 @@ class Wiki_model extends Model {
             if ($query->num_rows() == 0) {
                 return false;
             }
-            return $query->row();
+            $r = $query->row();
+            if ($this->_internal_is_allowed($r->id, 'read', $r->editor, $r->read_access_level)) {
+                return $r;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }
@@ -41,7 +46,7 @@ class Wiki_model extends Model {
      * Get the latest changes in all wiki pages
      */
     public function get_latest($n=1) {
-        $query = $this->db->select('item, created, description')
+        $query = $this->db->select('id, item, created, description, editor, read_access_level')
                           ->order_by('created', 'desc')
                           ->get('wiki_pages');
         if ($query->num_rows() == 0) {
@@ -50,7 +55,10 @@ class Wiki_model extends Model {
         $return = array();
         foreach ($query->result() as $r) {
             if (count($return) == $n) { break; /* we've got enough */ }
-            if (array_key_exists($r->item, $return)) { continue; /* We already counted this page */ }
+            if (array_key_exists($r->item, $return) ||
+                ! $this->_internal_is_allowed($r->id, 'read', $r->editor, $r->read_access_level)) {
+                continue; /* We already counted this page, or it isn't allowed */
+            }
             $return[$r->item] = array($r->created, $r->description);
         }
         return $return;
@@ -60,7 +68,7 @@ class Wiki_model extends Model {
      * Get all wiki pages (in-/excluding discussion pages)
      */
     public function get_all($really_all=False) {
-        $this->db->select('item')
+        $this->db->select('id, item')
                  ->order_by('item asc');
         if (! $really_all) {
             $this->db->not_like('item', 'Discussion:%');
@@ -70,8 +78,10 @@ class Wiki_model extends Model {
         $query = $this->db->get('wiki_active');
         $result = array();
         if ($query->num_rows() > 0) {
-            foreach ($query->result_array() as $p) {
-                $result[] = $p['item'];
+            foreach ($query->result() as $r) {
+                if ($this->is_allowed($r->id, 'read')) {
+                    $result[] = $r->item;
+                }
             }
         }
         return $result;
@@ -81,34 +91,38 @@ class Wiki_model extends Model {
      * Edit a wiki item
      */
     public function set($item, $content, $description) {
+        restrict_to_right('wiki_edit', __('Edit wiki'), '/wiki');
         $userlogin = getUserLogin();
         if ($xcontent = $this->_sanitize($content)) {
             $id = $this->_get_current($item);
-            $query = $this->db->insert('wiki_pages', array(
-                'item' => $item,
-                'content' => $xcontent,
-                'original_content' => $content,
-                'description' => $description,
-                'editor' => $userlogin->userId(),
-                'replaces' => $id,
-            ));
-            $content_id = $this->db->insert_id();
-            if ($id) {
-                $this->db->where('item', $item)
-                         ->update('wiki_active', array('id' => $content_id));
-            } else {
-                $this->db->insert('wiki_active',
-                                  array('id' => $content_id, 'item' => $item));
+            if ($this->is_allowed($id, 'edit')) {
+                $query = $this->db->insert('wiki_pages', array(
+                    'item' => $item,
+                    'content' => $xcontent,
+                    'original_content' => $content,
+                    'description' => $description,
+                    'editor' => $userlogin->userId(),
+                    'replaces' => $id,
+                ));
+                $content_id = $this->db->insert_id();
+                if ($id) {
+                    $this->db->where('item', $item)
+                             ->update('wiki_active', array('id' => $content_id));
+                } else {
+                    $this->db->insert('wiki_active',
+                                      array('id' => $content_id, 'item' => $item));
+                }
+                return $content_id;
             }
-        } else {
-            return false;
         }
+        return False;
     }
     
     /**
      * Revert one or several edits
      */
     public function revert($item, $steps=1) {
+        restrict_to_right('wiki_edit', __('Edit wiki'), '/wiki');
         while ($steps > 0) {
             $steps--;
             $id = $this->_get_current($item);
@@ -120,7 +134,9 @@ class Wiki_model extends Model {
                 return false;
             } else {
                 $next_id = $query->row()->replaces;
-                if (! $next_id) { return false; /* don't remove the very first entry */ }
+                if (! $next_id || ! $this->is_allowed($next_id, 'edit')) {
+                    return false; /* don't remove the very first entry or entries without allowance */
+                }
                 $this->db->delete('wiki_pages', array('id' => $id));
                 $this->db->where('item', $item)
                          ->update('wiki_active', array('id' => $next_id));
@@ -133,6 +149,7 @@ class Wiki_model extends Model {
      * Get the history of an item
      */
     public function get_history($item) {
+        restrict_to_right('wiki_edit', __('Edit wiki'), '/wiki');
         $query = $this->db->from('wiki_pages')->join('users', 'users.user_id = wiki_pages.editor')
                           ->where('item', $item)
                           ->order_by('created', 'desc')
@@ -145,6 +162,35 @@ class Wiki_model extends Model {
      */
     public function preview($content) {
         return $this->_sanitize($content);
+    }
+    
+    /**
+     * check, if a user may see this item (specific to a version == ID)
+     */
+    public function is_allowed($id, $mode='read') {
+        $query = $this->db->select($mode.'_access_level, editor')
+                          ->where('id', $id)->get('wiki_pages');
+        if ($query->num_rows() == 0) {
+            return false;
+        }
+        $data = $query->row_array();
+        return $this->_internal_is_allowed($id, $mode, $data['editor'], $data[$mode.'_access_level']);
+    }
+    
+    /**
+     * check, if a user may see this item (specific to a version == ID)
+     */
+    protected function _internal_is_allowed($id, $mode, $editor, $access_level) {
+        $userlogin = getUserLogin();
+        if ($userlogin->userId() == $editor ||
+            $userlogin->hasRights($mode.'_all_override') ||
+            $access_level == 'public' ||
+            ($userlogin->hasRights('wiki_'.$mode) && in_array($access_level, array('public', 'private')))
+            // || check for group
+        ) {
+            return true;
+        }
+        return false;
     }
     
     protected function _sanitize($content) {

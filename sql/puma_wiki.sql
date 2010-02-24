@@ -18,6 +18,26 @@ CREATE TABLE `puma_wiki_pages` (
   `editor` INT( 10 ) NOT NULL ,
   `replaces` INT( 10 ) NULL DEFAULT NULL ,
   `created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ,
+  `read_access_level` ENUM( 'private', 'public', 'intern', 'group' ) NOT NULL DEFAULT 'intern' ,
+  `edit_access_level` ENUM( 'private', 'public', 'intern', 'group' ) NOT NULL DEFAULT 'intern' ,
   PRIMARY KEY ( `id` ),
   INDEX ( `item`(10) )
 );
+
+INSERT INTO `puma_availablerights`
+( `name` , `description` )
+VALUES
+( 'wiki_read', 'read wiki entries' ),
+( 'wiki_edit', 'edit, change and revert wiki entries' );
+
+INSERT INTO `puma_rightsprofilerightlink`
+(`rightsprofile_id`, `right_name`)
+VALUES
+('2', 'wiki_edit'),
+('3', 'wiki_read');
+
+INSERT INTO `puma_userrights`
+(`user_id`, `right_name`)
+VALUES
+('1', 'wiki_edit'),
+('1', 'wiki_read');
