@@ -155,10 +155,10 @@ class Topics extends Controller {
             if(count($topic_ids) == 1) {
                 $topic_id = $topic_ids[0];
             } elseif(count($topic_ids) > 1) {
-                appendErrorMessage(sprintf(__('Topic structure is not unique in %s.'), puma()));
+                appendErrorMessage(sprintf(__('Topic structure is not unique in %s.'), site_title()));
                 redirect('/topics');
             } else {
-                appendErrorMessage(sprintf(__('Topic structure does not exist in %s.'), puma()));
+                appendErrorMessage(sprintf(__('Topic structure does not exist in %s.'), site_title()));
                 redirect('/topics');
             }
         }
@@ -251,9 +251,9 @@ class Topics extends Controller {
             if(count($topic_ids) == 1) {
                 $topic_id = $topic_ids[0];
             } elseif(count($topic_ids) > 1) {
-                exit(sprintf(__('Topic structure is not unique in %s.'), puma()));
+                exit(sprintf(__('Topic structure is not unique in %s.'), site_title()));
             } else {
-                exit(sprintf(__('Topic structure is not unique in %s.'), puma()));
+                exit(sprintf(__('Topic structure is not unique in %s.'), site_title()));
             }
         }
 
@@ -411,7 +411,7 @@ class Topics extends Controller {
                 'publications' => $publications,
                 'order' => $order);
 
-            $messageBody = __('Export from Aigaion');
+            $messageBody = sprintf(__('Export from %s'), site_title());
 
             if($email_formatted || $email_bibtex) {
                 $this->publication_db->enforceMerge = True;

@@ -1,8 +1,8 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 
-<h2><?php printf(__('%s Wiki'), puma())?></h2>
+<h2><?php printf(__('%s Wiki'), site_title())?></h2>
 
-<p><?php printf(__('Welcome to the %s wiki.'), puma())?></p>
+<p><?php printf(__('Welcome to the %s wiki.'), site_title())?></p>
 
 <?php if(isset($entries) and count($entries) > 0): ?>
   <p><?php _e('Latest edits:')?></p>

@@ -1,5 +1,4 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<?php
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 /**
 views/export/bibtex
 
@@ -12,11 +11,11 @@ xref: map of [id=>publication] for crossreffed-publications
 */
 if (!isset($header)||($header==null))$header='';
 
-$result = "
-%".sprintf(__('Aigaion2 BibTeX export from %s'), getConfigurationSetting("WINDOW_TITLE"))."
-%".date('l d F Y h:i:s A')."
-".$header."
-";
+$result = '
+%'.sprintf(__('BibTeX export from %s'), getConfigurationSetting("WINDOW_TITLE")).'
+%'.date('l d F Y h:i:s A').'
+'.$header.'
+';
 
 
 $this->load->helper('export');
@@ -44,4 +43,4 @@ foreach ($xrefs as $pub_id=>$publication) {
 <?php
 
 
-?>
+//__END__

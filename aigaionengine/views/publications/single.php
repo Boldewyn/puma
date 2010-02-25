@@ -42,9 +42,9 @@ $this->load->helper('translation');
       	  }
         }
         echo  '&nbsp;['
-           .anchor('export/publication/'.$publication->pub_id.'/bibtex',__('BibTeX'),array('target'=>'aigaion_export')).']';
+           .anchor('export/publication/'.$publication->pub_id.'/bibtex',__('BibTeX'),array('rel'=>'external')).']';
         echo  '&nbsp;['
-           .anchor('export/publication/'.$publication->pub_id.'/ris',__('RIS'),array('target'=>'aigaion_export')).']';
+           .anchor('export/publication/'.$publication->pub_id.'/ris',__('RIS'),array('rel'=>'external')).']';
 
         if ($userlogin->hasRights('request_copies')) {
   				$author_email = '';

@@ -43,7 +43,7 @@ class Import extends Controller {
   /**
    * import/submit - Submit a posted publication to the database
    *
-   * POST['format']: Type of input data. If unspecified or unknown or "auto", Aigaion attempts
+   * POST['format']: Type of input data. If unspecified or unknown or "auto", we attempt
    *                 to determine type automatically
    *
    * POST['import_data']: the import data as string
@@ -112,13 +112,9 @@ class Import extends Controller {
 
     if (count($publications)==0)
     {
-      appendErrorMessage("
-      <b>".__("Import").": ".__("Could not extract any valid publication entries from the import data.")."</b> 
-      <ul>
-       <li>".__("Please verify the input.")."</li>
-       <li>".__("If the input is correct, please verify the contents of the \"BibTeX strings\" setting under \"In- and output settings\", in the site configuration screen.")."</li>
-       <li>".__("If that setting is correct, too, please submit a bug report at http://aigaion.nl/")."</li>
-      </ul><br/>");
+      appendErrorMessage(__('Import: Could not extract any valid publication entries from the import data. Please verify the input.').'<br/>'.
+       			 __('If the input is correct, please verify the contents of the &ldquo;BibTeX strings&rdquo; setting under '.
+                            '&ldquo;In- and output settings&rdquo; in the site configuration screen.'), 'severe');
       $this->viewform($import_data);
       return;
     }

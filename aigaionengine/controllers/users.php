@@ -409,7 +409,7 @@ class Users extends Controller {
             }
             if (!$success) {
                 //this is quite unexpected, I think this should not happen if we have no bugs.
-                appendErrorMessage(__("Commit user").": ".sprintf(__("an error occurred at '%s'"),$this->input->post('action')).". ".__("Please contact your Aigaion administrator.")."<br/>");
+                appendErrorMessage(sprintf(__('Commit user: an error occurred at &ldquo;%s&rdquo;.'), $this->input->post('action')), 'severe');
                 redirect ('');
             }
             //redirect somewhere if commit was successfull

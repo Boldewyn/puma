@@ -241,7 +241,7 @@ class Notes extends Controller {
             }
             if (!$success) {
                 //this is quite unexpected, I think this should not happen if we have no bugs.
-                appendErrorMessage(__("Commit note").": ".__("an error occurred").". ".__("Please contact your Aigaion administrator.")."<br/>");
+                appendErrorMessage(__('Commit note: an error occurred.'), 'severe');
                 redirect ('publications/show/'.$note->pub_id);
             }
             //redirect somewhere if commit was successfull

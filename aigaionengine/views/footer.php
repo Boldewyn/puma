@@ -6,7 +6,7 @@ $userlogin = getUserLogin();
     <div id="footer">
       <div id="footer_content">
         <p>
-          <?php _puma()?> — Publication Management for the Faculty of Physics
+          <?php _site_title()?> — Publication Management for the Faculty of Physics
         </p>
       </div>
         <ul class="level1">
@@ -28,7 +28,7 @@ $userlogin = getUserLogin();
             <h3><?php _e('Ask the Admin'); ?></h3>
             <p style="margin-bottom:1em">
               <?php printf(__('Do you have any question regarding %s? Have you spotted an error '.
-              'or do you want to suggest a new feature? Don’t hesitate and drop us a line.'), puma())?>
+              'or do you want to suggest a new feature? Don’t hesitate and drop us a line.'), site_title())?>
             </p>
             <?php echo form_open('user/admin/contact'); ?>
               <p>
@@ -57,7 +57,7 @@ $userlogin = getUserLogin();
               'Lehrstuhl für Medieninformatik und der Fakultät für Physik an der Universität Regensburg. Ziel ist der Aufbau '.
               'eines umfassenden Web 2.0-Angebots für die Regensburger Physiker. '.
               'Die Anwendung basiert auf der freien Publikationsdatenbank %s.'),
-              puma(), '<a href="http://www.aigaion.nl">Aigaion</a>'); ?>
+              site_title(), '<a href="http://www.aigaion.nl">Aigaion</a>'); ?>
             </p>
           </li>
           <li class="level1 level1_last">

@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 <div id="help-about" class="help-content">
-  <h2><?php printf(__('About %s'), puma())?></h2>
+  <h2><?php printf(__('About %s'), site_title())?></h2>
   <p>
 <?php
         $Q = $this->db->get('aigaiongeneral');

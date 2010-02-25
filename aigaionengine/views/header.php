@@ -6,7 +6,7 @@ header('Content-Type: text/html; charset=UTF-8');
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->config->item('current_language'); ?>">
   <head>
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
-    <title><?php echo $title; ?> - Puma.&Phi;</title>
+    <title><?php echo $title; ?> - <?php _site_title(True) ?></title>
     <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/screen.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/print.css" type="text/css" media="print" />
     <script type="text/javascript">
@@ -74,7 +74,7 @@ header('Content-Type: text/html; charset=UTF-8');
           </div>
         </div>
         <h1>
-          <?php _a('','<span>'.puma().'</span>');?>
+          <?php _a('','<span>'.site_title().'</span>');?>
         </h1>
         <h2>
           <?php _a('','<span>Publication Management for the Faculty of Physics</span>');?>

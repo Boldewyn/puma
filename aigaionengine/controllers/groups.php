@@ -300,7 +300,7 @@ class Groups extends Controller {
             }
             if (!$success) {
                 //this is quite unexpected, I think this should not happen if we have no bugs.
-                appendErrorMessage(__("Commit group").": ".__("an error occurred").". ".__("Please contact your Aigaion administrator.")."<br/>");
+                appendErrorMessage(__('Commit group: an error occurred.'), 'severe');
                 redirect ('users/manage');
             }
             //redirect somewhere if commit was successfull

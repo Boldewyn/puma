@@ -2,7 +2,7 @@
 
 <h2><?php _e('All Users')?></h2>
 
-<p><?php printf(__('This is a list of all current users of %s. Click on any link to see a detailed description of the user.'), puma())?></p>
+<p><?php printf(__('This is a list of all current users of %s. Click on any link to see a detailed description of the user.'), site_title())?></p>
 
 <div class="masonry">
   <?php foreach ($groups as $group => $users): if (count($users['users'])): ?>

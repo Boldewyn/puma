@@ -117,7 +117,7 @@
               value="TRUE" <?php if ($user->preferences['utf8bibtex']=="TRUE") { echo 'checked="checked"'; }?> />
         <span class="note"><?php sprintf(__('Check this box if you want all BibTeX output to be in UTF8, i.e. '.
                                             'when you do <strong>not</strong> want %s to convert special '.
-                                            'characters to BibTeX codes such as %s.'), puma(), "{\\'e}")?></span>
+                                            'characters to BibTeX codes such as %s.'), site_title(), "{\\'e}")?></span>
       </p>
     </fieldset>
     <p>

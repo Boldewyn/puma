@@ -25,12 +25,14 @@ function _a() {
   echo call_user_func_array('anchor', (array)$args);
 }
 
-function puma() {
-  return 'Puma.<em style="font-family:serif">Φ</em>';
+function site_title($clean=false) {
+  return $clean?
+    'Puma.Φ':
+    'Puma.<em style="font-family:serif">Φ</em>';
 }
 
-function _puma() {
-  echo puma();
+function _site_title($clean=false) {
+  echo site_title($clean);
 }
 
 function iconpath($id, $fallback=Null) {

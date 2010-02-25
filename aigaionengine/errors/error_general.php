@@ -32,7 +32,7 @@
           </div>
         </div>
         <h1>
-          <a href="<?php echo base_url()?>"><span><?php _puma()?></span></a>
+          <a href="<?php echo base_url()?>"><span><?php _site_title()?></span></a>
         </h1>
         <h2>
           <a href="<?php echo base_url()?>"><span>Publication Management for the Faculty of Physics</span></a>

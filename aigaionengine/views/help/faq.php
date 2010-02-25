@@ -4,7 +4,7 @@
   <p><?php printf(__('This section tries to clarify some of the most common '.
      'questions about %s. If you have a question that isn’t answered here, '.
      'please use the form at the bottom of this site to contact the admin.'), 
-     puma())?></p>
+     site_title())?></p>
   <dl>
     <dt></dt>
     <dd></dd>

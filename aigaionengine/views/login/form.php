@@ -5,7 +5,7 @@
     if ($notice != '') {
       echo '<p class="error">',$notice,'</p>';
     }
-    $formtitle = sprintf(__('Welcome to %s, please login'), puma());
+    $formtitle = sprintf(__('Welcome to %s, please login'), site_title());
     if ($this->latesession->get('FORMREPOST')==True) {
         echo '<p class="error">',
              sprintf(__('You just submitted a form named %s, but it seems that '.

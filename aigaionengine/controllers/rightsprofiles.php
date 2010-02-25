@@ -300,7 +300,7 @@ class Rightsprofiles extends Controller {
             }
             if (!$success) {
                 //this is quite unexpected, I think this should not happen if we have no bugs.
-                appendErrorMessage(__("Commit rights profile").": ".__("an error occurred").". ".__("Please contact your Aigaion administrator.")."<br/>");
+                appendErrorMessage(__('Commit rights profile: an error occurred.'), 'severe');
                 redirect('users/manage');
             }
             //redirect somewhere if commit was successfull

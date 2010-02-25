@@ -267,7 +267,7 @@ class Attachments extends Controller {
         if (!$success) {
             //might happen, e.g. if upload fails due to post size limits, upload size limits, etc.
             //or illegal attachment extensions etc.
-            appendErrorMessage(__("Commit attachment").": ".__("an error occurred").". ".__("Please contact your Aigaion administrator.")."<br/>"); 
+            appendErrorMessage(__('Commit attachment: an error occurred'), 'severe'); 
             redirect('publications/show/'.$attachment->pub_id);
         }
         //redirect somewhere if commit was successfull

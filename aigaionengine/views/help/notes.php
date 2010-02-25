@@ -7,7 +7,7 @@
     <li><?php _e('describe the relevance of a publication')?></li>
     <li><?php _e('summarize the strengths and weaknesses of a publication')?></li>
   </ul>
-  <p><?php _e('Aigaion offers the &lsquo;note&rsquo; facility to create annotations. An annotation might look like the following example:')?></p>
+  <p><?php printf(__('%s offers the &lsquo;note&rsquo; facility to create annotations. An annotation might look like the following example:'), site_title())?></p>
   <div class="message">
   <span title="Example"><b>[EXA]</b></span> :&nbsp;Extensive evaluation of several featuresets and classifiers. The evaluation confirms the results that have been found in <i><a href='#'>aucouturier:04</a></i>.<br/>
   <ul>
