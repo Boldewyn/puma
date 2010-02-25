@@ -177,7 +177,7 @@ class Login_puma {
                     $group_ids[] = $R->user_id;
                 } else {
                     //group must also be created...
-                    $qid = $CI->db->query('SELECT user_id + 1 AS id FROM `'.$this->db->dbprefix('users').'` WHERE user_id < 1000 ORDER BY user_id DESC LIMIT 0,1');
+                    $qid = $CI->db->query('SELECT user_id + 1 AS id FROM `'.$this->db->dbprefix('users').'` WHERE user_id < 1000 ORDER BY user_id DESC LIMIT 1');
                     if ($qid->num_rows() > 0) {
                         $new_id = $qid->row()->id;
                         $CI->db->insert('users', array('id'=>$new_id, 'surname'=>$groupname, 'abbreviation'=>$groupname, 'type'=>'group', 'theme'=>'Puma'));
