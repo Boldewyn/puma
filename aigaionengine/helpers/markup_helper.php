@@ -58,4 +58,13 @@ function _icon($id, $class='', $js='', $fallback_id=Null) {
   echo icon($id, $class, $js, $fallback_id);
 }
 
+function url($url) {
+    // do some magic
+    return $url;
+}
+
+function _url($url) {
+    echo url($url);
+}
+
 //__END__

@@ -1,4 +1,4 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?><?php
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
   $publicationfields = getPublicationFieldArray($publication->pub_type);
   if (!isset($categorize)) $categorize= False;
 
@@ -76,15 +76,14 @@ $this->load->helper('translation');
   		}
 ?>
   </div>
-  <div class='header'><?php echo $publication->title; ?>
-  </div>
-  <table class='publication_details' width='100%'>
+  <h2><?php _h($publication->title); ?></h2>
+  <table class="publication_details" summary="<?php _e('Publication details')?>">
     <tr>
-      <td><?php _e("Type of publication");?>:</td>
+      <th><?php _e('Type of publication:') ?></th>
       <td><?php echo translateType($publication->pub_type); ?></td>
     </tr>
     <tr>
-      <td><?php _e("Citation");?>:</td>
+      <th><?php _e('Citation:') ?></th>
       <td><?php echo $publication->bibtex_id; ?></td>
     </tr>
 <?php
@@ -93,9 +92,10 @@ $this->load->helper('translation');
       if ($publication->$key):
 ?>
     <tr>
-      <td valign='top'><?php
+      <th><?php
         if ($key=='namekey') {
-            echo __('Key').' <span title="'.__('This is the BibTeX `key` field, used to define sorting keys').'">(?)</span>'; //stored in the databse as namekey, it is actually the bibtex field 'key'
+            //stored in the databse as namekey, it is actually the bibtex field 'key'
+            echo __('Key').' <span title="'.__('This is the BibTeX &ldquo;key&rdquo; field used to define sorting keys').'">(?)</span>';
         } else {
             if (in_array($key,$capitalfields)) {
                 echo utf8_strtoupper(translateField($key));
@@ -103,87 +103,92 @@ $this->load->helper('translation');
                 echo translateField($key,true);
             }
         }
-      ?>:</td>
+      ?>:</th>
       <td valign='top'><?php
-        if ($key=='doi') {
-            echo '<a href="http://dx.doi.org/'.$publication->$key.'" class="open_extern">'.$publication->$key.'</a>';
-        } else if ($key=='url') {
-            $this->load->helper('utf8');
-            $urlname = prep_url($publication->url);
-            if (utf8_strlen($urlname)>21) {
-                $urlname = utf8_substr($urlname,0,30)."...";
-            }
-            echo "<a title='".prep_url($publication->url)."' href='".prep_url($publication->url)."' class='open_extern'>".$urlname."</a>\n";
-        } else if ($key == 'month') {
-          echo formatMonthText($publication->month);
-        } else if ($key == 'pages') {
-          echo $publication->pages;
-        } elseif ($key == 'crossref') {
-            $xref_pub = $this->publication_db->getByBibtexID($publication->$key);
-            if ($xref_pub != null) {
-                echo '<i>'.anchor('publications/show/'.$xref_pub->pub_id,$publication->$key).':</i>';
-                //and then the summary of the crossreffed pub. taken from views/publications/list
-                $summaryfields = getPublicationSummaryFieldArray($xref_pub->pub_type);
-                echo "<div class='message'>
-                      <span class='title'>".anchor('publications/show/'.$xref_pub->pub_id, $xref_pub->title, array('title' => __('View publication details')))."</span>";
-
-                //authors of crossref
-                $num_authors    = count($xref_pub->authors);
-                $current_author = 1;
-
-                foreach ($xref_pub->authors as $author)
-                {
-                  if (($current_author == $num_authors) & ($num_authors > 1)) {
-                    echo " ".__("and")." ";
-                  }
-                  else {
-                    echo ", ";
-                  }
-
-                  echo  "<span class='author'>".anchor('authors/show/'.$author->author_id, $author->getName('vlf'), array('title' => __('All information on').' '.$author->cleanname))."</span>";
-                  $current_author++;
+        switch ($key):
+            case 'doi':
+                echo '<a href="http://dx.doi.org/'.$publication->$key.'" rel="external">'.$publication->$key.'</a>';
+                break;
+            case 'url':
+                $this->load->helper('utf8');
+                $urlname = prep_url($publication->url);
+                if (utf8_strlen($urlname)>21) {
+                    $urlname = utf8_substr($urlname,0,30).'&hellip;';
                 }
+                echo '<a title="'.prep_url($publication->url).'" href="'.prep_url($publication->url).'" rel="external">'.$urlname.'</a>';
+                break;
+            case 'month':
+                echo formatMonthText($publication->month);
+                break;
+            case 'pages':
+                echo $publication->pages;
+                break;
+            case 'crossref':
+                $xref_pub = $this->publication_db->getByBibtexID($publication->$key);
+                if ($xref_pub != null) {
+                    echo '<i>'.anchor('publications/show/'.$xref_pub->pub_id,$publication->$key).':</i>';
+                    //and then the summary of the crossreffed pub. taken from views/publications/list
+                    $summaryfields = getPublicationSummaryFieldArray($xref_pub->pub_type);
+                    echo "<div class='message'>
+                          <span class='title'>".anchor('publications/show/'.$xref_pub->pub_id, $xref_pub->title, array('title' => __('View publication details')))."</span>";
 
-                //editors of crossref
-                $num_editors    = count($xref_pub->editors);
-                $current_editor= 1;
+                    //authors of crossref
+                    $num_authors    = count($xref_pub->authors);
+                    $current_author = 1;
 
-                foreach ($xref_pub->editors as $editor)
-                {
-                  if (($current_editor == $num_editors) & ($num_editors > 1)) {
-                    echo " ".__('and')." ";
-                  }
-                  else {
-                    echo ", ";
-                  }
+                    foreach ($xref_pub->authors as $author)
+                    {
+                      if (($current_author == $num_authors) & ($num_authors > 1)) {
+                        echo " ".__("and")." ";
+                      }
+                      else {
+                        echo ", ";
+                      }
 
-                  echo  "<span class='author'>".anchor('authors/show/'.$editor->author_id, $editor->getName('vlf'), array('title' => __('All information on').' '.$editor->cleanname))."</span>";
-                  $current_editor++;
+                      echo  "<span class='author'>".anchor('authors/show/'.$author->author_id, $author->getName('vlf'), array('title' => __('All information on').' '.$author->cleanname))."</span>";
+                      $current_author++;
+                    }
+
+                    //editors of crossref
+                    $num_editors    = count($xref_pub->editors);
+                    $current_editor= 1;
+
+                    foreach ($xref_pub->editors as $editor)
+                    {
+                      if (($current_editor == $num_editors) & ($num_editors > 1)) {
+                        echo " ".__('and')." ";
+                      }
+                      else {
+                        echo ", ";
+                      }
+
+                      echo  "<span class='author'>".anchor('authors/show/'.$editor->author_id, $editor->getName('vlf'), array('title' => __('All information on').' '.$editor->cleanname))."</span>";
+                      $current_editor++;
+                    }
+                    if ($num_editors>1) {
+                        echo ' '.__('(eds)');
+                    } elseif ($num_editors>0) {
+                        echo ' '.__('(ed)');
+                    }
+                    foreach ($summaryfields as $key => $prefix) {
+                      $val = trim($xref_pub->$key);
+                      $postfix='';
+                      if (is_array($prefix)) {
+                        $postfix = $prefix[1];
+                        $prefix = $prefix[0];
+                      }
+                      if ($val) {
+                        echo $prefix.$val.$postfix;
+                      }
+                    }
+                    echo "</div>"; //end of publication_summary div for crossreffed publication
+                } else {
+                    echo $publication->$key;
                 }
-                if ($num_editors>1) {
-                    echo ' '.__('(eds)');
-                } elseif ($num_editors>0) {
-                    echo ' '.__('(ed)');
-                }
-                foreach ($summaryfields as $key => $prefix) {
-                  $val = trim($xref_pub->$key);
-                  $postfix='';
-                  if (is_array($prefix)) {
-                    $postfix = $prefix[1];
-                    $prefix = $prefix[0];
-                  }
-                  if ($val) {
-                    echo $prefix.$val.$postfix;
-                  }
-                }
-                echo "</div>"; //end of publication_summary div for crossreffed publication
-            } else {
-                echo $publication->$key;
-            }
-        }
-        else {
-            echo $publication->$key;
-        }
+                break;
+            default:
+                _h($publication->$key);
+        endswitch;
       ?></td>
     </tr>
 <?php
