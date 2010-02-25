@@ -3,7 +3,7 @@
 class Wiki extends Controller {
 
     
-    function Wiki() {
+    public function Wiki() {
         parent::Controller();
         $this->isDispatched = False;
         $this->load->model('wiki_model', 'wiki');
@@ -11,7 +11,7 @@ class Wiki extends Controller {
     }
 
     /** Wiki */
-    function index() {
+    public function index() {
         $this->load->view('header', array(
             'title' => __('Wiki'),
             'subnav'=>array('/wiki/'=>__('Main Page'), '/wiki/Special:All_Pages'=>__('All Pages')),
@@ -20,7 +20,7 @@ class Wiki extends Controller {
         $this->load->view('footer');
     }
     
-    function item($item) {
+    public function item($item) {
         $item = $this->_get_item();
         $this->_get_subnav($item);
         
@@ -34,7 +34,7 @@ class Wiki extends Controller {
         $this->load->view('footer');
     }
     
-    function dispatch($method, $item) {
+    public function dispatch($method, $item) {
         if (substr($method, 0, 1) != '_' && method_exists($this, strtolower($method))) {
             $method = strtolower($method);
             $this->isDispatched = True;
@@ -44,7 +44,7 @@ class Wiki extends Controller {
         }
     }
     
-    function edit($item, $discussion=False) {
+    public function edit($item, $discussion=False) {
         $item = $this->_get_item();
         restrict_to_users(__('You must be logged in to edit the wiki.'), '/wiki/'.$item);
         $this->_get_subnav($item, $discussion? 'Edit_Discussion' : 'edit');
@@ -75,16 +75,19 @@ class Wiki extends Controller {
             if ($discussion) {
                 $item = 'Discussion:'.$item;
             }
-            $this->wiki->set($item, $this->input->post('content'), $this->input->post('description'));
+            if ($this->wiki->set($item, $this->input->post('content'),
+                                 $this->input->post('description')) === False) {
+                appendErrorMessage(__('Could not edit the wiki page. Do you have edit rights?'));
+            }
             redirect('wiki/'.$item);
         }
     }
 
-    function edit_discussion($item) {
+    public function edit_discussion($item) {
         $this->edit($item, True);
     }
 
-    function discussion($item) {
+    public function discussion($item) {
         $item = $this->_get_item();
         $this->_get_subnav($item, 'discussion');
 
@@ -100,7 +103,7 @@ class Wiki extends Controller {
         $this->load->view('footer');
     }
 
-    function history($item) {
+    public function history($item) {
         $item = $this->_get_item();
         restrict_to_users(__('You must be logged in to view the history of wiki items.'));
         $this->_get_subnav($item, 'history');
@@ -110,7 +113,7 @@ class Wiki extends Controller {
         $this->load->view('footer');
     }
     
-    function show_history($id) {
+    public function show_history($id) {
         restrict_to_users(__('You must be logged in to view the history of wiki items.'));
         $data = $this->wiki->get_version($id);
         $item = $data->item;
@@ -125,7 +128,7 @@ class Wiki extends Controller {
         $this->load->view('footer');
     }
     
-    function special($id) {
+    public function special($id) {
         restrict_to_users(__('Special pages are viewable for logged in users only.'));
         $this->load->vars(array('title' => __('Wiki » Special page')));
         $this->load->vars(array(
@@ -175,6 +178,10 @@ class Wiki extends Controller {
         $this->load->vars(array('item' => $item));
         $this->load->vars(array('title' => sprintf(__('Wiki » %s'), $item)));
         return $item;
+    }
+    
+    protected function _item_exists($item) {
+        return ($this->wiki->get($item) !== False);
     }
 
 }

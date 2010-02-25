@@ -14,7 +14,9 @@ class Wiki_model extends Model {
      */
     public function get($item, $original = False) {
         $id = $this->_get_current($item);
-        if ($original) {
+        if ($id === False) {
+            return '';
+        } elseif ($original) {
             return $this->get_version($id)->original_content;
         } else {
             return $this->get_version($id)->content;
@@ -90,12 +92,12 @@ class Wiki_model extends Model {
     /**
      * Edit a wiki item
      */
-    public function set($item, $content, $description) {
+    public function set($item, $content, $description, $read_access_level='public', $edit_access_level='public') {
         restrict_to_right('wiki_edit', __('Edit wiki'), '/wiki');
-        $userlogin = getUserLogin();
         if ($xcontent = $this->_sanitize($content)) {
             $id = $this->_get_current($item);
             if ($this->is_allowed($id, 'edit')) {
+                $userlogin = getUserLogin();
                 $query = $this->db->insert('wiki_pages', array(
                     'item' => $item,
                     'content' => $xcontent,
@@ -103,6 +105,8 @@ class Wiki_model extends Model {
                     'description' => $description,
                     'editor' => $userlogin->userId(),
                     'replaces' => $id,
+                    'read_access_level' => $read_access_level,
+                    'edit_access_level' => $edit_access_level,
                 ));
                 $content_id = $this->db->insert_id();
                 if ($id) {
@@ -207,8 +211,9 @@ class Wiki_model extends Model {
             $xcontent = preg_replace('#\son([a-z]+)=(["\']).*?\2#i', '', $xcontent);
             $xcontent = preg_replace('#\shref=(["\'])javascript:.*?\1#i', '', $xcontent);
             $xcontent = str_replace($mask, '&lt;', $xcontent);
-            if (strpos($xcontent, '\ref{') !== False) {
-                function _sanitize_get_ref ($m) {
+            $xcontent = preg_replace('/\[\[(.+?)\]\]/', '<a class="interwiki" href="'.base_url().'wiki/$1">$1</a>', $xcontent);
+            if (strpos($xcontent, '\ref{') !== False) { // references to publications
+                function _sanitize_get_ref($m) {
                     $CI =& get_instance();
                     $pub = $CI->publication_db->getByBibtexID($m[1]);
                     if ($pub) {
