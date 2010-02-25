@@ -11,71 +11,54 @@ $user       = $this->user_db->getByID($userlogin->userID());
 $this->load->helper('translation');
 ?>
 <div class='publication'>
-  <div class='optionbox'><?php
-	if (    ($userlogin->hasRights('publication_edit'))
-		&& ($accessLevelEdit)
-        ) {
-		echo "[".anchor('publications/delete/'.$publication->pub_id, __('delete'), array('title' => __('Delete this publication')))."]&nbsp;";
-		echo "[".anchor('publications/edit/'.$publication->pub_id, __('edit'), array('title' => __('Edit this publication')))."]";
-	}
-
-        if ($userlogin->hasRights('bookmarklist')) {
-          echo "&nbsp;<span id='bookmark_pub_".$publication->pub_id."'>";
-          if ($publication->isBookmarked) {
-            echo '['.$this->ajax->link_to_remote(__("UnBookmark"),
-                  array('url'     => site_url('/bookmarklist/removepublication/'.$publication->pub_id),
-                        'update'  => 'bookmark_pub_'.$publication->pub_id
-                        )
-                  ).']';
-          }
-          else {
-            echo '['.$this->ajax->link_to_remote(__("Bookmark"),
-                  array('url'     => site_url('/bookmarklist/addpublication/'.$publication->pub_id),
-                        'update'  => 'bookmark_pub_'.$publication->pub_id
-                        )
-                  ).']';
-          }
-          echo "</span>";
-          echo "</span>";
-          if ($userlogin->hasRights('export_email')) {
-      	    echo  '&nbsp;['.anchor('publications/exportEmail/'.$publication->pub_id.'/',__('E-mail'),array('title'=>__('Export by e-mail'))).']';
-      	  }
+  <p class='optionbox'><?php
+    if ($userlogin->hasRights('publication_edit') && $accessLevelEdit) {
+        _a('publications/delete/'.$publication->pub_id, '['.__('delete').'] ', array('title' => __('Delete this publication')));
+        _a('publications/edit/'.$publication->pub_id, '['.__('edit').'] ', array('title' => __('Edit this publication')));
+    }
+    if ($userlogin->hasRights('bookmarklist')) {
+         if ($publication->isBookmarked) {
+            _a('bookmarklist/removepublication/'.$publication->pub_id,
+               icon('bookmarked'),
+               sprintf('title="%1$s" id="bookmark_icon_%2$s" onclick="Puma.handle_bookmark(%2$s, &quot;remove&quot;); return false;"',
+                  __('remove from bookmark list'), $publication->pub_id));
+        } else {
+            _a('bookmarklist/addpublication/'.$publication->pub_id,
+               icon('nonbookmarked'),
+               sprintf('title="%1$s" id="bookmark_icon_%2$s" onclick="Puma.handle_bookmark(%2$s, &quot;add&quot;); return false;"',
+                  __('add to bookmark list'), $publication->pub_id));
         }
-        echo  '&nbsp;['
-           .anchor('export/publication/'.$publication->pub_id.'/bibtex',__('BibTeX'),array('rel'=>'external')).']';
-        echo  '&nbsp;['
-           .anchor('export/publication/'.$publication->pub_id.'/ris',__('RIS'),array('rel'=>'external')).']';
+        if ($userlogin->hasRights('export_email')) {
+            _a('publications/exportEmail/'.$publication->pub_id.'/', '['.__('E-mail').'] ', array('title'=>__('Export by e-mail')));
+        }
+        _a('export/publication/'.$publication->pub_id.'/bibtex', '['.__('BibTeX').'] ', array('rel'=>'external'));
+        _a('export/publication/'.$publication->pub_id.'/ris',    '['.__('RIS').'] ',    array('rel'=>'external'));
 
         if ($userlogin->hasRights('request_copies')) {
-  				$author_email = '';
-  				if(count($publication->authors)>0)
-  				{
-  					foreach ($publication->authors as $author)
-  					{
-  						if($author->email != '')
-  						{
-	 				        $author_email = $author->email;
-  							break;
-  						}
-  					}
-  			 }
-  			 if($author_email != '')
-  			 {
-            $this->load->helper('encode');
-  					$subject=rawurlencode(sprintf(__('Request for publication: "%s"'), $publication->title));
-  					$bodytext=
-  				 	 rawurlencode(__('Publication').': '.$publication->title.' : '.AIGAION_ROOT_URL.'index.php/publications/show/'.$publication->pub_id)
-  				 	.rawurlencode("\n\n".__("I understand that the document referenced above is subject to copyright.")." ")
-  				 	.rawurlencode("".__("I hereby request a copy strictly for my personal use.")."")
-  				 	.rawurlencode("\n\n".__("Name and contact details").":\n");
-  				 	echo "&nbsp;[<a href='mailto:".$author->email."?Subject=".$subject."&Body=".$bodytext."' title='".__("Request publication by e-mail")."'>".__("Request")."</a>]";
-  			} else 
-        {
-  				echo '<span title="'.__('No e-mail address available for neither of the authors').'">&nbsp;['.__('Request').']</span>';
-  			}
-  		}
-?>
-  </div>
+            $author_email = '';
+            if (count($publication->authors)>0) {
+                foreach ($publication->authors as $author) {
+                    if ($author->email != '') {
+                        $author_email = $author->email;
+                        break;
+                    }
+                }
+            }
+            if($author_email != '') {
+                $this->load->helper('encode');
+                $subject=rawurlencode(sprintf(__('Request for publication &ldquo;%s&rdquo;'), $publication->title));
+                $bodytext=
+                  rawurlencode(__('Publication').': '.$publication->title.' : '.AIGAION_ROOT_URL.'index.php/publications/show/'.$publication->pub_id)
+                 .rawurlencode("\n\n".__('I understand that the document referenced above is subject to copyright.').' ')
+                 .rawurlencode(__('I hereby request a copy strictly for my personal use.'))
+                 .rawurlencode("\n\n".__('Name and contact details:')."\n");
+                 echo '<a href="mailto:'.$author->email.'?Subject='.$subject.'&Body='.$bodytext.'" title="'.__('Request publication by e-mail').'">['.__('Request').']</a>';
+            } else {
+                echo '<span title="'.__('No e-mail address available for neither of the authors').'">['.__('Request').']</span>';
+            }
+        }
+    ?>
+  </p>
   <h2><?php _h($publication->title); ?></h2>
   <table class="publication_details" summary="<?php _e('Publication details')?>">
     <tr>
@@ -126,7 +109,7 @@ $this->load->helper('translation');
             case 'crossref':
                 $xref_pub = $this->publication_db->getByBibtexID($publication->$key);
                 if ($xref_pub != null) {
-                    echo '<i>'.anchor('publications/show/'.$xref_pub->pub_id,$publication->$key).':</i>';
+                    echo '<em>'.anchor('publications/show/'.$xref_pub->pub_id,$publication->$key).':</em>';
                     //and then the summary of the crossreffed pub. taken from views/publications/list
                     $summaryfields = getPublicationSummaryFieldArray($xref_pub->pub_type);
                     echo "<div class='message'>
@@ -196,31 +179,29 @@ $this->load->helper('translation');
     endforeach;
 
     $keywords = $publication->getKeywords();
-    if (is_array($keywords))
-    {
+    if (is_array($keywords)) {
       $keyword_string = "";
-      foreach ($keywords as $keyword)
-      {
-        $keyword_string .= anchor('keywords/single/'.$keyword->keyword_id, $keyword->keyword).", ";
+      foreach ($keywords as $keyword) {
+        $keyword_string .= anchor('keywords/single/'.$keyword->keyword_id, h($keyword->keyword)).", ";
       }
       $keyword_string = substr($keyword_string, 0, -2);
-?>
+    ?>
     <tr>
-      <td valign='top'><?php _e("Keywords");?>:</td>
-      <td valign='top'><?php echo $keyword_string ?></td>
+      <th><?php _e('Keywords:') ?></th>
+      <td><?php echo $keyword_string ?></td>
     </tr>
-<?php
+    <?php
     }
 
     if (count($publication->authors) > 0):
 ?>
     <tr>
-      <td valign='top'><?php _e("Authors");?></td>
-      <td valign='top'>
+      <th><?php _e('Authors:')?></th>
+      <td>
         <span class='authorlist'>
-<?php     foreach ($publication->authors as $author)
-          {
-            echo anchor('authors/show/'.$author->author_id, $author->getName('vlf'), array('title' => __('All information on').' '.$author->cleanname))."<br />\n";
+<?php     foreach ($publication->authors as $author) {
+            echo anchor('authors/show/'.$author->author_id, h($author->getName('vlf')),
+                        array('title' => sprintf(__('All information on %s'), $author->cleanname))).'<br/>';
           }
 ?>
         </span>
@@ -231,12 +212,12 @@ $this->load->helper('translation');
     if (count($publication->editors) > 0):
 ?>
     <tr>
-      <td valign='top'><?php _e("Editors");?></td>
-      <td valign='top'>
+      <th><?php _e('Editors:') ?></th>
+      <td>
         <span class='authorlist'>
-<?php     foreach ($publication->editors as $author)
-          {
-            echo anchor('authors/show/'.$author->author_id, $author->getName('vlf'), array('title' => __('All information on').' '.$author->cleanname))."<br />\n";
+<?php     foreach ($publication->editors as $author) {
+            echo anchor('authors/show/'.$author->author_id, h($author->getName('vlf')),
+                        array('title' => sprintf(__('All information on %s'), $author->cleanname))).'<br/>';
           }
 ?>
         </span>
@@ -249,15 +230,15 @@ $this->load->helper('translation');
     if (count($crossrefpubs)>0):
 ?>
     <tr>
-      <td valign='top'><?php _e("Crossref by");?></td>
-      <td valign='top'>
+      <th><?php _e('Crossref by:') ?></th>
+      <td>
 <?php
         foreach ($crossrefpubs as $crossrefpub) {
             $linkname = $crossrefpub->bibtex_id;
             if ($linkname == '') {
                 $linkname = $crossrefpub->title;
             }
-            echo anchor('/publications/show/'.$crossrefpub->pub_id, $linkname)."<br/>";
+            echo anchor('/publications/show/'.$crossrefpub->pub_id, $linkname).'<br/>';
         }
 ?>
       </td>
@@ -266,16 +247,15 @@ $this->load->helper('translation');
     endif;
 ?>
     <tr>
-      <td valign='top'><?php _e("Added by");?>:</td>
-      <td valign='top'>
-<?php
-        echo '<b>['.getAbbrevForUser($publication->user_id).']</b>';
-?>
+      <th><?php _e('Added by:') ?></th>
+      <td>
+        <?php 
+            $adder = $this->user_db->getByID($publication->user_id);
+             _a('user/'.$adder->login, $adder->abbreviation);
+        ?>
       </td>
     </tr>
-<?php
-    if ($accessLevelEdit)
-    {    
+    <?php if ($accessLevelEdit) :
       $read_icon = $this->accesslevels_lib->getReadAccessLevelIcon($publication);
       $edit_icon = $this->accesslevels_lib->getEditAccessLevelIcon($publication);
 
@@ -289,62 +269,53 @@ $this->load->helper('translation');
                         'update'  => 'publication_rights_'.$publication->pub_id
                        )
                   );
-?>
+    ?>
     <tr>
-      <td valign='top'><?php _e("Access rights");?>:</td>
-      <td valign='top'><?php echo "<span id='publication_rights_".$publication->pub_id."'><span title='".sprintf(__("%s read / edit rights"), __('publication'))."'>r:".$readrights."e:".$editrights."</span></span>";
+      <th><?php _e('Access rights:') ?></th>
+      <td><?php echo "<span id='publication_rights_".$publication->pub_id."'><span title='".sprintf(__("%s read / edit rights"), __('publication'))."'>r:".$readrights."e:".$editrights."</span></span>";
     echo "(".anchor('accesslevels/edit/publication/'.$publication->pub_id,__('Edit all rights'),array('title'=>__('Click to modify access levels'))).")";
     ?>
-</td>
-    </tr>
-<?php
-    }
-?>
-
-    <tr>
-      <td valign='top'><?php _e("Total mark");?>:</td>
-      <td valign='top'>
-<?php
-        echo $publication->mark;
-?>
       </td>
     </tr>
-<?php
-    if ($userlogin->hasRights('note_edit')) {
+    <?php endif ?>
+    <tr>
+      <th><?php _e('Total mark:') ?></th>
+      <td><?php echo $publication->mark; ?></td>
+    </tr>
+    <?php
+    if ($userlogin->hasRights('note_edit')):
       $this->load->helper('form');
-?>
+    ?>
       <tr>
-        <td valign='top'><?php _e("Your mark");?>:</td>
-        <td valign='top'>
-<?php
-          echo form_open('publications/read/'.$publication->pub_id);
+        <th><?php _e('Your mark:') ?></th>
+        <td>
+          <div class="publication_mark">
+            <?php
+              echo form_open('publications/read/'.$publication->pub_id);
 
-          $mark = $publication->getUserMark();
-          if ($mark==-1) {//not read
-            echo form_submit('read',__('Read/Add mark'));
-          } else {
-            echo form_submit('read',__('Update mark'));
-          }
-          echo '1';
-          for ($i = 1; $i < 6; $i++)
-          {
-            echo form_radio('mark',$i,$i==$mark);
-          }
-          echo '5&nbsp;';
-          if ($mark==-1) {//not read
-            echo form_close();
-          } else {
-            echo form_close();
-            echo form_open('publications/unread/'.$publication->pub_id);
-            echo form_submit('unread',__('Unread'));
-            echo form_close();
-          }
-?>
+              $mark = $publication->getUserMark();
+              if ($mark==-1) {//not read
+                echo form_submit('read',__('Read/Add mark'));
+              } else {
+                echo form_submit('read',__('Update mark'));
+              }
+              echo '1';
+              for ($i = 1; $i < 6; $i++)
+              {
+                echo form_radio('mark',$i,$i==$mark);
+              }
+              echo '5&nbsp;';
+              if ($mark!=-1) {// read
+                echo form_close();
+                echo form_open('publications/unread/'.$publication->pub_id);
+                echo form_submit('unread',__('Unread'));
+              }
+            ?>
+            </form>
+          </div>
         </td>
       </tr>
-<?php
-    }
-?>
+    <?php endif ?>
     <tr>
       <td colspan='2' valign='top'>
         <div class='optionbox'>
@@ -431,7 +402,6 @@ $this->load->helper('translation');
         {
 
             echo "<div class='message'>".__("Click on a topic name to change its subscription status.")."</div>";
-            $user = $this->user_db->getByID($userlogin->userId());
             $config = array('onlyIfUserSubscribed'=>True,
                               'user'=>$user,
                               'includeGroupSubscriptions'=>True,
@@ -440,7 +410,6 @@ $this->load->helper('translation');
             $root = $this->topic_db->getByID(1, $config);
             $this->load->vars(array('subviews'  => array('topics/publicationsubscriptiontreerow'=>array())));
         } else {
-            $user = $this->user_db->getByID($userlogin->userId());
             $config = array('onlyIfUserSubscribed'=>True,
                               'user'=>$user,
                               'includeGroupSubscriptions'=>True,

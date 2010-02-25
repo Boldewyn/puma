@@ -136,6 +136,16 @@ Additional bugs added by Manuel Strehl, 2010.
         theme_advanced_statusbar_location : "bottom"
       });
     }
+    $('.publication_mark').each(function () {
+      $(this).hide();
+      var slider = $('<div></div>');
+      slider.slider({
+        min: 1,
+        max: 5,
+        value: $('[name=mark]').val()
+      });
+      $(this).after(slider);
+    });
   });
   
   function _replace_nav() {
