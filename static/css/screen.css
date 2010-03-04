@@ -1139,6 +1139,7 @@ input.text.readonly {
 
 /** Submit buttons */
 .pseudobutton,
+.pseudobutton:visited,
 button,
 input.button,
 input.submit {
@@ -1495,4 +1496,12 @@ body.group .datatable ul li {
 .wiki_preview .wiki_page {
   border: .08333em solid #61A6A9;
 }
+
+
+
+.publication_mark_slider {
+  width: 16em;
+  margin: 0 .2em;
+}
+
 

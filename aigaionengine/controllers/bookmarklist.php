@@ -26,6 +26,7 @@ class Bookmarklist extends Controller {
      */
     function viewlist($order='year', $page=0) {
         restrict_to_right('bookmarklist', __('View bookmarklist'), '');
+        $userlogin = getUserLogin();
         if (!in_array($order,array('year','type','recent','title','author'))) {
             $order='year';
         }

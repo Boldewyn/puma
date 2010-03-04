@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-  $publicationfields = getPublicationFieldArray($publication->pub_type);
-  if (!isset($categorize)) $categorize= False;
+$publicationfields = getPublicationFieldArray($publication->pub_type);
+if (!isset($categorize)) $categorize= False;
 
 //some things are dependent on user rights.
 //$accessLevelEdit is set to true iff the edit access level of the publication does not make it
@@ -19,13 +19,13 @@ $this->load->helper('translation');
     if ($userlogin->hasRights('bookmarklist')) {
          if ($publication->isBookmarked) {
             _a('bookmarklist/removepublication/'.$publication->pub_id,
-               icon('bookmarked'),
-               sprintf('title="%1$s" id="bookmark_icon_%2$s" onclick="Puma.handle_bookmark(%2$s, &quot;remove&quot;); return false;"',
+               '['.__('unbookmark').'] ',
+               sprintf('title="%1$s" id="bookmark_icon_%2$s" class="remove"',
                   __('remove from bookmark list'), $publication->pub_id));
         } else {
             _a('bookmarklist/addpublication/'.$publication->pub_id,
-               icon('nonbookmarked'),
-               sprintf('title="%1$s" id="bookmark_icon_%2$s" onclick="Puma.handle_bookmark(%2$s, &quot;add&quot;); return false;"',
+               '['.__('bookmark').'] ',
+               sprintf('title="%1$s" id="bookmark_icon_%2$s" class="add"',
                   __('add to bookmark list'), $publication->pub_id));
         }
         if ($userlogin->hasRights('export_email')) {
@@ -57,6 +57,7 @@ $this->load->helper('translation');
                 echo '<span title="'.__('No e-mail address available for neither of the authors').'">['.__('Request').']</span>';
             }
         }
+    }
     ?>
   </p>
   <h2><?php _h($publication->title); ?></h2>
@@ -277,7 +278,7 @@ $this->load->helper('translation');
     ?>
       </td>
     </tr>
-    <?php endif ?>
+    <?php endif; ?>
     <tr>
       <th><?php _e('Total mark:') ?></th>
       <td><?php echo $publication->mark; ?></td>
@@ -315,7 +316,7 @@ $this->load->helper('translation');
           </div>
         </td>
       </tr>
-    <?php endif ?>
+    <?php endif; ?>
     <tr>
       <td colspan='2' valign='top'>
         <div class='optionbox'>
