@@ -46,7 +46,8 @@ class Wiki extends Controller {
     
     public function edit($item, $discussion=False) {
         $item = $this->_get_item();
-        restrict_to_users(__('You must be logged in to edit the wiki.'), '/wiki/'.$item);
+        restrict_to_users(__('You must be logged in to edit the wiki.'),
+                          $this->_item_exists($item)? '/wiki/'.$item : '/wiki');
         $this->_get_subnav($item, $discussion? 'Edit_Discussion' : 'edit');
         $this->load->library('form_validation');
         $this->form_validation->set_rules('content', __('Content'), 'required');
@@ -181,7 +182,7 @@ class Wiki extends Controller {
     }
     
     protected function _item_exists($item) {
-        return ($this->wiki->get($item) !== False);
+        return ($this->wiki->get($item) != False);
     }
 
 }

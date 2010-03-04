@@ -59,6 +59,7 @@ header('Content-Type: text/html; charset=UTF-8');
             <p class="userdata header_control">
               <?php if (! is_user()): ?>
                 <?php _e('Guest User:'); ?> <?php _a('login/nds/', __('Login (NDS)')); ?> | <?php _a('login', __('Login (Guest account)')); ?>
+                | <?php _a('help', __('Help')); ?>
               <?php else: ?>
                 <?php printf(__('Hello, %s %s'), $userlogin->preferences['firstname'], $userlogin->preferences['surname']); ?> |
                 <?php if ($userlogin->hasRights('user_edit_self')): ?>
