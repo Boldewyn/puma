@@ -22,9 +22,12 @@ if (!isset($pubCount) || ($pubCount==0))
 $summarystyle = $userlogin->getPreference('summarystyle');  
 $liststyle    = $userlogin->getPreference('liststyle');
 
-
-$pagination = $this->load->view('pagination', array('paginationPrefix' => $multipageprefix,
-    'paginationCounter' => $pubCount, 'paginationCurrent' => $currentpage), true);
+if (isset($multipageprefix) && isset($currentpage)) {
+    $pagination = $this->load->view('pagination', array('paginationPrefix' => $multipageprefix,
+        'paginationCounter' => $pubCount, 'paginationCurrent' => $currentpage), true);
+} else {
+    $pagination = '';
+}
 
 //here the output starts
 ?><div class="publication_list"><?php

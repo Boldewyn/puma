@@ -756,6 +756,9 @@ body {
   padding-bottom: .25em;
   opacity: .67;
   filter:Alpha(Opacity=67);
+  width: 22px;
+  height: 22px;
+  overflow: hidden;
 }
 
 #nav .current img,
@@ -1479,7 +1482,6 @@ body.group .datatable ul li {
 
 #bookmarklist_controls form {
   width: 34em;
-  height: 5em;
   float: left;
 }
 
@@ -1487,6 +1489,13 @@ body.group .datatable ul li {
   overflow: hidden;
 }
 
+#bookmarklist_controls .optionbox {
+  margin-top: -3em;
+}
+
+#bookmarklist_controls label {
+  font-size: .91em;
+}
 
 
 .wiki_preview {

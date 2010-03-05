@@ -175,7 +175,8 @@ class Wiki_model extends Model {
         $query = $this->db->select($mode.'_access_level, editor')
                           ->where('id', $id)->get('wiki_pages');
         if ($query->num_rows() == 0) {
-            return false;
+            $userlogin = getUserLogin();
+            return $userlogin->hasRights('wiki_'.$mode); // wiki page doesn't exist.
         }
         $data = $query->row_array();
         return $this->_internal_is_allowed($id, $mode, $data['editor'], $data[$mode.'_access_level']);

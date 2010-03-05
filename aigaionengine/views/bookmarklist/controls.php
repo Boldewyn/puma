@@ -16,7 +16,7 @@ $userlogin = getUserLogin();
 
 <h2><?php echo __('Bookmark list controls');?></h2>
 
-<p style="float:right">
+<p class="optionbox">
   <?php _a('bookmarklist/clear', __('Clear bookmarklist'),
           sprintf('title="%s" class="pseudobutton"', __('Clear the bookmarklist'))); ?>
   <?php if ($userlogin->hasRights('publication_edit') && $userlogin->hasRights('topic_edit')) {
