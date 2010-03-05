@@ -4,6 +4,17 @@ class Topics extends Controller {
 
     function Topics() {
         parent::Controller();    
+        $this->load->vars(array(
+            'nav_current' => 'explore',
+            'subnav_current' => '/topics',
+            'subnav' => array(
+                '/explore/' => __('All'),
+                '/topics' => __('Topics'),
+                '/keywords' => __('Tags'),
+                '/publications' => __('Publications'),
+                '/authors' => __('Authors'),
+            ),
+        ));
     }
     
     /**
