@@ -1,4 +1,5 @@
 codeigniter/logs/*.php
 credentials.php
 attachments/*
+*.swp
 .gitignore
