@@ -7,7 +7,7 @@ if(! isset($searchengines)) { $searchengines = array(); }
   <fieldset>
     <legend><?php _e('Search term')?></legend>
     <p>
-      <input type="text" class="text extended_input" name="q" id="search_external_query" value="<?php _h($query)?>" />
+      <input type="text" class="text extralarge_input" name="q" id="search_external_query" value="<?php _h($query)?>" />
     </p>
   </fieldset>
   <script type="text/javascript">
@@ -26,7 +26,7 @@ if(! isset($searchengines)) { $searchengines = array(); }
         }
       }
       $f.submit();
-      $('input:hidden', $form).remove();
+      $('input:hidden', $f).remove();
       return false;
     }
   /*   ]]>   */
@@ -53,6 +53,6 @@ if(! isset($searchengines)) { $searchengines = array(); }
     ?>
   </ul>
   <p>
-    <?php _e('This form allows you to search external websites.')?>
+    <?php _e('This form allows you to search external websites. Searches will open in new windows.')?>
   </p>
 </form>

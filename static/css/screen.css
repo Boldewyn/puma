@@ -1098,6 +1098,15 @@ input.extralarge_input,
   width: 73em;
 }
 
+fieldset textarea.extralarge_input,
+fieldset select.extralarge_input,
+fieldset input.extralarge_input,
+fieldset.extralarge_input textarea,
+fieldset.extralarge_input select,
+fieldset.extralarge_input input.text {
+  width: 71em;
+}
+
 textarea.extended_input,
 select.extended_input,
 input.extended_input,
