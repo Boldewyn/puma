@@ -1474,6 +1474,7 @@ body.search form {
 #search_external_form button {
   width: 10em;
   height: 2.5em;
+  white-space: nowrap;
 }
 
 #user_ .brick li {

@@ -2,162 +2,121 @@
 
 class Import extends Controller {
 
-    function Import()
-    {
+    function Import() {
         parent::Controller();
-        
+        restrict_to_right('publication_edit', __('Import'));
         $this->load->helper('publication');
     }
     
-  /** Default function: list publications */
-  function index()
-    {
-    $this->viewform();
+    /** Default function: list publications */
+    function index() {
+        $this->viewform();
     }
 
-  function viewform($import_data = '')
-  {
-    $this->load->library('import_lib');
-    
-    $userlogin  = getUserLogin();
-    $user       = $this->user_db->getByID($userlogin->userID());
-    if (!$userlogin->hasRights('publication_edit'))
-    {
-      appendErrorMessage(__('Import').': '.__('insufficient rights').'.<br/>');
-      redirect('');
+    function viewform($import_data = '') {
+        $this->load->library('import_lib');
+        $this->load->view('header', array('title' => __('Import publications')));
+        $this->load->view('import/importform', array('content'=>$import_data));
+        $this->load->view('footer');
     }
-    
-    $header ['title']       = __("Import publications");
-    $header ['javascripts'] = array();
-    
-    //get output
-    $output  = $this->load->view('header',              $header,  true);
-    $output .= $this->load->view('import/importform', array('content'=>$import_data), true);
-    $output .= $this->load->view('footer',              '',       true);
-    
-    //set output
-    $this->output->set_output($output);
-  }
   
     
-  /**
-   * import/submit - Submit a posted publication to the database
-   *
-   * POST['format']: Type of input data. If unspecified or unknown or "auto", we attempt
-   *                 to determine type automatically
-   *
-   * POST['import_data']: the import data as string
-   *
-   * POST['markasread']: true iff all imported entries should be marked as 'read' for the user
-   */
-  function submit()
-  {
-    $this->load->library('parser_import');
-    $this->load->library('import_lib');
+    /**
+     * import/submit - Submit a posted publication to the database
+     */
+    function submit() {
+        $this->load->library('parser_import');
+        $this->load->library('import_lib');
 
-    $markasread   = $this->input->post('markasread')=='markasread'; // true iff all imported entries should be marked as 'read' for the user
-    
-    $import_data  = $this->input->post('import_data');    
-    if ($import_data == '') 
-    {
-        appendErrorMessage(__("Import").": ".__("no import data entered.")."<br/>");
-        $this->viewform();
-        return;
-    }
-    $type = $this->input->post('format');
-    if (!isset($type)||($type==null))$type="auto";
-    //is the type known?
-    if (($type!="auto") && ($type!="") && !in_array($type,$this->import_lib->getAvailableImportTypes()))
-    {
-      appendErrorMessage(sprintf(__("Unknown import format specified (\"%s\")."),$type)." ".__("Attempting to automatically identify proper format.")."<br/>");
-      $type = "auto";
-    }
-    //try to determine type automatically?
-    if ($type=="auto") 
-    {
-      $type = $this->import_lib->determineImportType($import_data);
-      if ($type == "unknown") 
-      {
-        appendErrorMessage(__("Import").": ".__("can't automatically figure out import data format; please specify correct format.")."<br/>");
-        $this->viewform($import_data);
-        return;
-      }
-      else
-      {
-        appendMessage(sprintf(__("Import").": ".__("Data automatically identified as format \"%s\"."),$type)."<br/>");
-      }
-    }
-    
-    switch ($type) {
-      case 'BibTeX':
-        $this->load->library('parseentries');
-        $this->parser_import->loadData(getConfigurationSetting('BIBTEX_STRINGS_IN')."\n".$import_data);
-        $this->parser_import->parse($this->parseentries);
-        $publications = $this->parser_import->getPublications();
-        break;
-      case 'ris':
-        $this->load->library('parseentries_ris');
-        $this->parser_import->loadData($import_data);
-        $this->parser_import->parse($this->parseentries_ris);
-        $publications = $this->parser_import->getPublications();
-        break;
-      case 'refer':
-        $this->load->library('parseentries_refer');
-        $this->parser_import->loadData($import_data);
-        $this->parser_import->parse($this->parseentries_refer);
-        $publications = $this->parser_import->getPublications();
-        break;
-      default:
-    }
+        $markasread   = $this->input->post('markasread')=='markasread'; // true iff all imported entries should be marked as 'read' for the user
+        
+        $import_data  = $this->input->post('import_data');    
+        if ($import_data == '') {
+            appendErrorMessage(__('Import: no import data entered.'));
+            $this->viewform();
+            return;
+        }
+        $type = $this->input->post('format');
+        if (!isset($type)||($type==null))$type='auto';
+        //is the type known?
+        if (($type!='auto') && ($type!='') && !in_array($type,$this->import_lib->getAvailableImportTypes())) {
+            appendErrorMessage(sprintf(__('Unknown import format specified (&ldquo;%s&rdquo;). Attempting to automatically identify proper format.'),$type));
+            $type = 'auto';
+        }
+        //try to determine type automatically?
+        if ($type=='auto') {
+          $type = $this->import_lib->determineImportType($import_data);
+          if ($type == 'unknown') {
+            appendErrorMessage(__('Import: Can&rsquo;t automatically figure out import data format; please specify correct format.'));
+            $this->viewform($import_data);
+            return;
+          } else {
+            appendMessage(sprintf(__('Import: Data automatically identified as format &ldquo;%s&rdquo;.'),$type));
+          }
+        }
+        
+        switch ($type) {
+          case 'BibTeX':
+            $this->load->library('parseentries');
+            $this->parser_import->loadData(getConfigurationSetting('BIBTEX_STRINGS_IN')."\n".$import_data);
+            $this->parser_import->parse($this->parseentries);
+            $publications = $this->parser_import->getPublications();
+            break;
+          case 'ris':
+            $this->load->library('parseentries_ris');
+            $this->parser_import->loadData($import_data);
+            $this->parser_import->parse($this->parseentries_ris);
+            $publications = $this->parser_import->getPublications();
+            break;
+          case 'refer':
+            $this->load->library('parseentries_refer');
+            $this->parser_import->loadData($import_data);
+            $this->parser_import->parse($this->parseentries_refer);
+            $publications = $this->parser_import->getPublications();
+            break;
+          default:
+        }
 
-    if (count($publications)==0)
-    {
-      appendErrorMessage(__('Import: Could not extract any valid publication entries from the import data. Please verify the input.').'<br/>'.
-       			 __('If the input is correct, please verify the contents of the &ldquo;BibTeX strings&rdquo; setting under '.
-                            '&ldquo;In- and output settings&rdquo; in the site configuration screen.'), 'severe');
-      $this->viewform($import_data);
-      return;
+        if (count($publications)==0) {
+          appendErrorMessage(__('Import: Could not extract any valid publication entries from the import data. Please verify the input.').'<br/>'.
+                     __('If the input is correct, please verify the contents of the &ldquo;BibTeX strings&rdquo; setting under '.
+                                '&ldquo;In- and output settings&rdquo; in the site configuration screen.'), 'severe');
+          $this->viewform($import_data);
+          return;
+        }
+              
+        $reviewed_publications  = array();
+        $review_messages        = array();
+        $count                  = 0;
+        foreach ($publications as $publication) {
+            //get review messages
+            
+            //review title
+            $review['title']     = $this->publication_db->reviewTitle($publication);
+            
+            //review bibtex_id
+            $review['bibtex_id'] = $this->publication_db->reviewBibtexID($publication);
+            
+            //review keywords
+            $review['keywords']  = $this->keyword_db->review($publication->keywords);
+            
+            //review authors and editors
+            $review['authors']   = $this->author_db->review($publication->authors); //each item consists of an array A with A[0] a review message, and A[1] an array of arrays of the similar author IDs
+            $review['editors']   = $this->author_db->review($publication->editors); //each item consists of an array A with A[0] a review message, and A[1] an array of arrays of the similar author IDs
+            
+            $reviewed_publications[$count] = $publication;
+            $review_messages[$count]       = $review;
+            $count++;
+            unset($review);
+          }
+          $this->review($reviewed_publications, $review_messages,$markasread);
     }
-          
-    $reviewed_publications  = array();
-    $review_messages        = array();
-    $count                  = 0;
-    foreach ($publications as $publication) {
-        //get review messages
-        
-        //review title
-        $review['title']     = $this->publication_db->reviewTitle($publication);
-        
-        //review bibtex_id
-        $review['bibtex_id'] = $this->publication_db->reviewBibtexID($publication);
-        
-        //review keywords
-        $review['keywords']  = $this->keyword_db->review($publication->keywords);
-        
-        //review authors and editors
-        $review['authors']   = $this->author_db->review($publication->authors); //each item consists of an array A with A[0] a review message, and A[1] an array of arrays of the similar author IDs
-        $review['editors']   = $this->author_db->review($publication->editors); //each item consists of an array A with A[0] a review message, and A[1] an array of arrays of the similar author IDs
-        
-        $reviewed_publications[$count] = $publication;
-        $review_messages[$count]       = $review;
-        $count++;
-        unset($review);
-      }
-      $this->review($reviewed_publications, $review_messages,$markasread);
-  }
 
     
   /**
    * import/commit - Commit the (parsed & reviewed) publication(s) to the database
-   *
-   * POST['import_count']: number of publications that are posted
-   *
-   * POST['markasread']: true iff all imported entries should be marked as 'read' for the user
-   * 
-   * POST: all publication data
    */
-  function commit()
-  {
+  function commit() {
     $this->load->library('import_lib');
 
     $import_count = $this->input->post('import_count');
@@ -165,9 +124,8 @@ class Import extends Controller {
     
     $markasread   = $this->input->post('markasread')=='markasread'; // true iff all imported entries should be marked as 'read' for the user
 
-    if ($import_count == 0) 
-    {
-      appendErrorMessage(__("Import")."/".__("Commit").": ".__("no publications committed.")."<br/>");
+    if ($import_count == 0) {
+      appendErrorMessage(__('Import: Commit: no publications committed.'));
       $this->viewform();
       return;
     }
@@ -175,13 +133,11 @@ class Import extends Controller {
     $to_import = array();
     $old_bibtex_ids = array();
     $count = 0;
-    for ($i = 0; $i < $import_count; $i++)
-    {
+    for ($i = 0; $i < $import_count; $i++) {
 
-      if ($this->input->post('do_import_'.$i) == 'CHECKED')
-      {
+      if ($this->input->post('do_import_'.$i) == 'CHECKED') {
         $count++;
-        $publication = $this->publication_db->getFromPost("_".$i,True);
+        $publication = $this->publication_db->getFromPost('_'.$i,True);
         $publication->actualyear = $this->input->post('actualyear_'.$i); //note that the actualyear is a field that normally is derived on update or add, but in the case of import, it has been set through the review form!
         $to_import[] = $publication;
         $old_bibtex_ids[$this->input->post('old_bibtex_id_'.$i)] = $count-1;
@@ -200,7 +156,7 @@ class Import extends Controller {
       if ($markasread)$pub_to_import->read('');
       $last_id = $pub_to_import->pub_id;
     }
-    appendMessage(sprintf(__('Succesfully imported %s publications.'),$count)."<br/>");
+    appendMessage(sprintf(__('Succesfully imported %d publications.'),$count));
     if ($count == 1) {
       redirect('publications/show/'.$last_id);
     } else {
@@ -208,30 +164,21 @@ class Import extends Controller {
     }
   }
   
-  
-  function review($publications, $review_data,$markasread)
-  {
-    $userlogin      = getUserLogin();
-    if (!$userlogin->hasRights('publication_edit'))
-    {
-      appendErrorMessage(__('Review publication').': '.__('insufficient rights').'.<br/>');
-      redirect('');
-    }
 
-    $header ['title']       = __("Review publication");
-    $header ['javascripts'] = array('prototype.js', 'effects.js', 'dragdrop.js', 'controls.js');
-    $content['publications'] = $publications;
-    $content['reviews']      = $review_data;
-    $content['markasread']   = $markasread;
-    //get output
-    $output  = $this->load->view('header',              $header,  true);
-    $output .= $this->load->view('import/review',       $content, true);
-    $output .= $this->load->view('footer',              '',       true);
-    
-    //set output
-    $this->output->set_output($output);
-  }
+    /**
+     *
+     */
+    function review($publications, $review_data,$markasread) {
+        $this->load->view('header', array('title' => __('Review publication')));
+        $this->load->view('import/review', array(
+            'publications' => $publications,
+            'reviews' => $review_data,
+            'markasread' => $markasread,
+        ));
+        $this->load->view('footer');
+    }
 
  
 }
-?>
+
+//__END__

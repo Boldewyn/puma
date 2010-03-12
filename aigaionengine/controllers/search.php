@@ -30,55 +30,10 @@ class Search extends Controller {
 
     /** external search */
     public function external() {
+        $Q = $this->db->get_where('external_search', array('active' => 1));
+        $searchengines = $Q->result_array();
         $this->load->view('header', array('title' => __('External search')));
-        $this->load->view('search/external', array('searchengines' => array(
-            array('name' => 'Google Scholar', 'url' => 'http://scholar.google.com/scholar',
-                'q' => 'q', 'active' => 1, 'image' => '', 'charset' => 'utf-8', 'method' => 'get'),
-            array('name' => __('ePub Server (Uni)'), 'url' => 'http://epub.uni-regensburg.de/cgi/search',
-                'p' => '[["_action_search","Search"],["_order","bytitle"],["basic_srchtype","ALL"],["_satisfyall","ALL"]]',
-                'q' => 'q', 'active' => 1, 'image' => '', 'charset' => 'utf-8', 'method' => 'get'),
-            array('name' => 'arXiv.org', 'url' => 'http://arxiv.org/search', 'q' => 'query',
-                'active' => 1, 'image' => '', 'charset' => 'utf-8', 'method' => 'get'),
-            array('name' => 'WorldWideScience', 'url' => 'http://worldwidescience.org/wws/search.html',
-                'q' => 'expression', 'active' => 1, 'image' => '', 'charset' => 'utf-8', 'method' => 'get'),
-            array('name' => 'Inspec', 'url' => 'http://ovidsp.ovid.com/ovidweb.cgi',
-                'p' => '[["T","JS"],["MODE","ovid"],["PAGE","main"],["NEWS","n"],["DBC","y"],["D","insz"]]',
-                'q' => 'textBox', 'active' => 1, 'image' => '', 'charset' => 'utf-8', 'method' => 'get'),
-            array('name' => 'Spires', 'url' => 'http://www.slac.stanford.edu/spires/find/hep/www',
-                'p' => '[["FORMAT","WWW"],["SEQUENCE",""]]',
-                'q' => 'rawcmd', 'active' => 1, 'image' => '', 'charset' => 'utf-8', 'method' => 'get'),
-            array('name' => 'Amazon', 'url' => 'http://www.amazon.de/s/ref=nb_ss_w',
-                'p' => '[["__mk_de_DE","ÅMÅZÕÑ"],["url","search-alias=aps"]]',
-                'q' => 'field-keywords', 'active' => 1, 'image' => '', 'charset' => 'utf-8', 'method' => 'get'),
-            array('name' => 'PubMed', 'url' => 'http://www.ncbi.nlm.nih.gov/sites/entrez',
-                'q' => 'EntrezSystem2.PEntrez.Pubmed.SearchBar.Term',
-                'p' => '[
-                    ["EntrezSystem2.PEntrez.DbConnector.Cmd","Go"],
-                    ["EntrezSystem2.PEntrez.DbConnector.Db","pubmed"],
-                    ["EntrezSystem2.PEntrez.DbConnector.IdsFromResult",""],
-                    ["EntrezSystem2.PEntrez.DbConnector.LastDb","pubmed"],
-                    ["EntrezSystem2.PEntrez.DbConnector.LastIdsFromResult",""],
-                    ["EntrezSystem2.PEntrez.DbConnector.LastQueryKey",""],
-                    ["EntrezSystem2.PEntrez.DbConnector.LastTabCmd","home"],
-                    ["EntrezSystem2.PEntrez.DbConnector.LinkName",""],
-                    ["EntrezSystem2.PEntrez.DbConnector.LinkReadableName",""],
-                    ["EntrezSystem2.PEntrez.DbConnector.LinkSrcDb",""],
-                    ["EntrezSystem2.PEntrez.DbConnector.QueryKey",""],
-                    ["EntrezSystem2.PEntrez.DbConnector.TabCmd",""],
-                    ["EntrezSystem2.PEntrez.DbConnector.Term","{query}"],
-                    ["EntrezSystem2.PEntrez.Pubmed.Entrez_PageController.PreviousPageName","home"],
-                    ["EntrezSystem2.PEntrez.Pubmed.Pubmed_SearchBar.CurrDb","pubmed"],
-                    ["EntrezSystem2.PEntrez.Pubmed.Pubmed_SearchBar.FeedLimit","15"],
-                    ["EntrezSystem2.PEntrez.Pubmed.Pubmed_SearchBar.FeedName",""],
-                    ["EntrezSystem2.PEntrez.Pubmed.Pubmed_SearchBar.SearchResourceList","pubmed"],
-                    ["EntrezSystem2.PEntrez.Pubmed.Pubmed_SearchBar.Term","{query}"],
-                    ["p$a","EntrezSystem2.PEntrez.Pubmed.Pubmed_SearchBar.Search"],
-                    ["p$el",""],
-                    ["p$l","EntrezSystem2"],
-                    ["p$st","entrez"]
-                ]',
-                'active' => 1, 'image' => '', 'charset' => 'utf-8', 'method' => 'post'),
-        )));
+        $this->load->view('search/external', array('searchengines' => $searchengines));
         $this->load->view('footer');
     }
 
