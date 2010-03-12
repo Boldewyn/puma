@@ -8,7 +8,7 @@
     if ($topic->name=='') {
         $name = sprintf(__('Topic #%s'), $topic->topic_id);
     } else {
-        $name = sprintf('Topic: %s', h($topic->name));
+        $name = sprintf(__('Topic: %s'), h($topic->name));
     }
     if ($topic->description != null) {
         $description = $topic->description;
@@ -19,7 +19,7 @@
 $parent = $topic->getParent();
 ?>
 <p class="parent-topic"><?php _a('topics/single/'.$parent->topic_id,$parent->name)?></p>
-<div class="optionbox">
+<p class="optionbox">
   <?php 
   if (($userlogin->hasRights('topic_edit'))
        && $this->accesslevels_lib->canEditObject($topic)) {
@@ -32,7 +32,7 @@ $parent = $topic->getParent();
          array('title'=>__('click to modify access levels')));
   }
   ?>
-</div>
+</p>
 
 <h2><?php echo $name ?></h2>
 

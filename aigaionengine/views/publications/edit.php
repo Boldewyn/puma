@@ -24,18 +24,11 @@ echo "</script>";
         }
     }
     </script>
-  <div class='header'><?php
-    switch ($edit_type) {
-      case 'add':
-        echo __('New Publication');
-        break;
-      case 'edit':
-      default:
-        echo __('Edit Publication');
-        break;
-    }
-    ?>
-    </div>
+  <h2><?php if ($edit_type == 'add') {
+        _e('New Publication');
+    } else {
+        _e('Edit Publication');
+    } ?> </h2>
 <?php
   $isAddForm = $edit_type=='add';
   //open the edit form
@@ -98,22 +91,37 @@ echo "</script>";
       {
         
         $month = $publication->month;          
-        if (array_key_exists($month,getMonthsInternal())) 
-        {
-          $valCol .= "
-            <div id='monthbox' name='monthbox'>
-            </div>
-            <script language='javascript'>monthFieldSwitch(true);</script>
-            "; //note: the script must be placed outside the div. IE crashes on replacing the content of the div, when it includes the script, while the script is still running
-        } 
-        else 
-        {
-          $valCol .= "
-            <div id='monthbox' name='monthbox'>
-            </div>     
-            <script language='javascript'>monthFieldSwitch(false);</script>
-            "; //note: the script must be placed outside the div. IE crashes on replacing the content of the div, when it includes the script, while the script is still running
+        if (array_key_exists($month,getMonthsInternal())) {
+            $simple_style = '';
+            $complex_style = 'style="display:none"';
+            $buttonlabel = __('Complex');
+            $altbuttonlabel = __('Simple');
+        } else {
+            $simple_style = 'style="display:none"';
+            $complex_style = '';
+            $buttonlabel = __('Simple');
+            $altbuttonlabel = __('Complex');
         }
+        $valCol .= '<div id="monthbox">
+            <p id="monthbox_simple" '.$simple_style.'>'.
+              str_replace('"','\\"',str_replace("\n",'',form_dropdown('month', getMonthsInternalNoQuotes(), formatMonthBibtexForEdit($publication->month)).
+            '</p>
+            <div id="monthbox_complex" '.$complex_style.'><p>'.__('In the input field below, you can enter a month '.
+                'using bibtex codes containing things such as the default month abbreviations. '.
+                'Do not forget to use outer braces or quotes for literal strings.').__('Examples:').
+              '</p><ul><li>aug</li><li>nov#{~1st}</li><li>{'.__('Between January and May').'}</li></ul>'.
+              str_replace('"','\\"',str_replace("\n",'',form_input(array('name' => 'month','id' => 'month','size' => '90','alt' => __('optional'),'autocomplete' => 'off','class' => 'optional'),formatMonthBibtexForEdit($publication->month)).'</div>
+            <button type="button" id="publications_edit_monthtoggler">'.$buttonlabel.'</button>
+            <script type="text/javascript">
+                $("#publications_edit_monthtoggler").toggle(function () {
+                  $(this).text("'.$altbuttonlabel.'");
+                  $("#monthbox_simple, #monthbox_complex").toggle();
+                }, function () {
+                  $(this).text("'.$buttonlabel.'");
+                  $("#monthbox_simple, #monthbox_complex").toggle();
+                });
+            </script>
+          </div>';
       }
       else if ($key == "pages")
       {
@@ -282,23 +290,18 @@ echo "</script>";
     </tr>
 
   </table>
-<?php
-     
+  <p>
+    <?php
+    if ($edit_type=='edit') {
+      echo $this->ajax->button_to_function(__('Change'),"submitPublicationForm('publication_".$publication->pub_id."_edit');");
+    } else {
+      echo $this->ajax->button_to_function(__('Add'),"submitPublicationForm('publication_".$publication->pub_id."_edit');");
+    }
 
-if ($edit_type=='edit') {
-  echo $this->ajax->button_to_function(__('Change'),"submitPublicationForm('publication_".$publication->pub_id."_edit');")."\n";
-} else {
-  echo $this->ajax->button_to_function(__('Add'),"submitPublicationForm('publication_".$publication->pub_id."_edit');")."\n";
-}
-  echo form_close()."\n";
-
-if ($edit_type=='edit') {
-  echo form_open('publications/show/'.$publication->pub_id);
-} else {
-  echo form_open('');
-}
-  echo form_submit('cancel', __('Cancel'));
-  echo form_close()."\n";
-
-?>
-</div>
+    if ($edit_type=='edit') {
+      _a('publications/show/'.$publication->pub_id, __('Cancel'), 'class="pseudobutton"');
+    } else {
+      _a('', __('Cancel'), 'class="pseudobutton"');
+    } ?>
+  </p>
+</form>

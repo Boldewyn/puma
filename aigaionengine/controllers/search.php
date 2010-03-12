@@ -2,99 +2,69 @@
 
 class Search extends Controller {
 
-    function Search() {
+    private $query = '';
+
+    public function Search() {
         parent::Controller();
-        $this->subnav = array(
+        $this->load->vars(array('subnav' => array(
             '/search/' => __('Advanced Search'),
-            '/search/external' => __('External Search'),);
+            '/search/external' => __('External Search'),
+            )));
+        if (isset($_REQUEST['q'])) {
+            $this->query = $_REQUEST['q'];
+            $this->load->vars(array('query' => $_REQUEST['q']));
+        } elseif ($this->input->post('q')) {
+            $this->query = $this->input->post('q');
+            $this->load->vars(array('query' => $this->input->post('q')));
+        } else {
+            $this->load->vars(array('query' => ''));
+        }
     }
 
     /** Default: advanced search form */
-    function index() {
-        $headerdata = array('title' => __('Advanced search'),
-          'subnav' => $this->subnav,);
-        $this->load->view('header', $headerdata);
+    public function index() {
+        $this->load->view('header', array('title' => __('Advanced search'), 'subnav_current' => '/search/'));
         $this->load->view('search/advanced');
         $this->load->view('footer');
     }
 
     /** external search */
-    function external() {
-        $headerdata = array('title' => __('External search'),
-          'subnav' => $this->subnav,
-        );
-        $this->load->view('header', $headerdata);
-        $this->load->view('search/external', array('searchengines' => array(
-            array('name' => 'Google Scholar', 'url' => 'http://scholar.google.com/scholar',
-                'parameters' => 'a:1:{s:1:"q";s:7:"{query}";}',
-                'active' => 1, 'image' => 'http://scholar.google.com/favicon.ico', 'charset' => 'utf-8', 'method' => 'get'),
-            array('name' => __('ePub Server (Uni)'), 'url' => 'http://epub.uni-regensburg.de/cgi/search',
-                'parameters' => 'a:5:{s:1:"q";s:7:"{query}";s:14:"_action_search";s:6:"Search";s:6:"_order";s:7:"bytitle";s:14:"basic_srchtype";s:3:"ALL";s:11:"_satisfyall";s:3:"ALL";}',
-                'active' => 1, 'image' => '', 'charset' => 'utf-8', 'method' => 'get'),
-            array('name' => 'arXiv.org', 'url' => 'http://arxiv.org/search', 'parameters' => 'a:1:{s:5:"query";s:7:"{query}";}',
-                'active' => 1, 'image' => '', 'charset' => 'utf-8', 'method' => 'get'),
-            array('name' => 'WorldWideScience', 'url' => 'http://worldwidescience.org/wws/search.html',
-                'parameters' => 'a:1:{s:10:"expression";s:7:"{query}";}', 'active' => 1, 'image' => '', 'charset' => 'utf-8', 'method' => 'get'),
-            array('name' => 'Inspec', 'url' => 'http://web5.silverplatter.com/webspirs/doAndShowSearch.ws',
-                'parameters' => 'a:3:{s:2:"ss";s:7:"{query}";s:4:"orig";s:6:"search";s:10:"basicLimit";s:2:"-1";}',
-                 'active' => 1, 'image' => '', 'charset' => 'utf-8', 'method' => 'post'),
-            array('name' => 'Spires', 'url' => 'http://www.slac.stanford.edu/spires/find/hep/www',
-                'parameters' => 'a:3:{s:6:"rawcmd";s:7:"{query}";s:6:"FORMAT";s:3:"WWW";s:8:"SEQUENCE";s:0:"";}', 
-                'active' => 1, 'image' => '', 'charset' => 'utf-8', 'method' => 'get'),
-            array('name' => 'Amazon', 'url' => 'http://www.amazon.de/s/ref=nb_ss_w',
-                'parameters' => 'a:3:{s:10:"__mk_de_DE";s:10:"ÅMÅZÕÑ";s:3:"url";s:16:"search-alias=aps";s:14:"field-keywords";s:7:"{query}";}',
-                'active' => 1, 'image' => '', 'charset' => 'utf-8', 'method' => 'get'),
-            array('name' => 'PubMed', 'url' => 'http://www.ncbi.nlm.nih.gov/sites/entrez',
-                'parameters' => 'a:3:{s:43:"EntrezSystem2.PEntrez.Pubmed.SearchBar.Term";s:7:"{query}";s:41:"EntrezSystem2.PEntrez.Pubmed.SearchBar.Db";s:6:"pubmed";s:41:"EntrezSystem2.PEntrez.Pubmed.SearchBar.Go";s:1:"1";}',
-                'active' => 1, 'image' => '', 'charset' => 'utf-8', 'method' => 'post'),
-        )));
+    public function external() {
+        $Q = $this->db->get_where('external_search', array('active' => 1));
+        $searchengines = $Q->result_array();
+        $this->load->view('header', array('title' => __('External search')));
+        $this->load->view('search/external', array('searchengines' => $searchengines));
         $this->load->view('footer');
     }
 
     /**
-    search/quicksearch
-
-    Fails not
-
-    Parameters:
-        search query through form value
-
-    Returns a full html page with a search result. */
-    function quicksearch() {
-        $query = $this->input->post('q');
-        if (trim($query)=='') {
-            appendErrorMessage(__('Search: No query.'));
-            redirect('');
+     * search/quicksearch
+     * Returns a full html page with a search result.
+     */
+    public function quicksearch() {
+        if (trim($this->query)=='') {
+            back_to_referer(__('Search: no query.'), '', True);
         }
         $this->load->library('search_lib');
-        $searchresults = $this->search_lib->simpleSearch($query,null);
+        $searchresults = $this->search_lib->simpleSearch($this->query,null);
 
-        //get output: search result page
-        $headerdata = array('title' => __('Search results'),
-          'subnav' => $this->subnav,);
-        $this->load->view('header', $headerdata);
+        $this->load->view('header', array('title' => __('Search results')));
         $this->load->view('search/results',
-                           array('quicksearch'=>True, 'searchresults'=>$searchresults, 'query'=>$query));
+                           array('quicksearch'=>True, 'searchresults'=>$searchresults));
         $this->load->view('footer');
     }
 
     /**
-    search/advancedresults
-
-    Fails not
-
-    Parameters:
-        search query through form values
-
-    Returns a full html page with a search result. */
-    function advancedresults()
+     * search/advancedresults
+     * Returns a full html page with a search result.
+     */
+    public function advancedresults()
     {
         if ($this->input->post('formname')!='advancedsearch') {
             $this->index();
             return;
         }
       //process query
-      $query = $this->input->post('searchstring');
       $anyAll = $this->input->post('anyAll');
       $doConditions = array();
       $dontConditions = array();
@@ -116,11 +86,11 @@ class Search extends Controller {
             $dontConditions[] = $topic;
           }
       }
-      if (($query == '')&& ((count($doConditions)>0)||(count($dontConditions)>0))) {
+      if ((trim($this->query) == '')&& ((count($doConditions)>0)||(count($dontConditions)>0))) {
         //appendMessage("No query, but some topic restrictions: interpret as a search for ALL publications within topics; don't query for all authors, topics or keywords");
-        $query="*";
-      } else if ($query == '') {
-        appendMessage(__("No query at all: please give at least a search term or a topic condition"));
+        $this->query='*';
+      } else if (trim($this->query) == '') {
+        appendMessage(__('No query at all: please give at least a search term or a topic condition'));
         $this->index();
         return;
       }
@@ -146,23 +116,14 @@ class Search extends Controller {
 
       $this->load->library('search_lib');
       if ((count($doConditions>0))||(count($dontConditions>0))) {
-        $searchresults = $this->search_lib->topicConditionSearch($query,$searchoptions,$doConditions,$dontConditions,$anyAll);
+        $searchresults = $this->search_lib->topicConditionSearch($this->query,$searchoptions,$doConditions,$dontConditions,$anyAll);
       } else {
-          $searchresults = $this->search_lib->simpleSearch($query,$searchoptions,"");
+          $searchresults = $this->search_lib->simpleSearch($this->query,$searchoptions,'');
         }
 
-        //get output: search result page
-        $headerdata = array('title' => __('Advanced search results'),
-          'subnav' => $this->subnav,);
-
-        $this->load->view('header', $headerdata);
-
-        $this->load->view('search/results',
-                           array('searchresults'=>$searchresults, 'query'=>$query));
-
-        $this->load->view('search/advanced',
-                           array('query'=>$query,'options'=>$searchoptions));
-
+        $this->load->view('header', array('title' => __('Advanced search results'), 'subnav_current' => '/search/'));
+        $this->load->view('search/results', array('searchresults'=>$searchresults));
+        $this->load->view('search/advanced', array('options'=>$searchoptions));
         $this->load->view('footer');
     }
 }

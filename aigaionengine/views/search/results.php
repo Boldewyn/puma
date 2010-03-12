@@ -4,7 +4,7 @@ $this->load->helper('publication');?>
 
 <?php if (isset ($quicksearch) && $quicksearch): ?>
   <h2><?php _e('Quicksearch results')?></h2>
-  <p><?php _a('search', __('(Proceed to advanced search)'))?></p>
+  <p><?php _a('search?q='.$query, __('(Proceed to advanced search)'))?></p>
 <?php else: ?>
   <h2><?php _e('Advanced Search Results')?></h2>
 <?php endif ?>

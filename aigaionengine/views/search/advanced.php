@@ -17,7 +17,7 @@ if (!isset($options)||($options==null))
   <fieldset>
     <legend><?php _e('Search terms')?></legend>
     <p>
-      <input type="text" class="text extended_input" name="searchstring" value="<?php _h($query)?>" />
+      <input type="text" class="text extended_input" name="q" value="<?php _h($query)?>" />
     </p>
   </fieldset>
   <fieldset class="half">
@@ -66,7 +66,7 @@ if (!isset($options)||($options==null))
     <legend><?php _e('Search terms')?></legend>
     <p><?php _e('Leave empty if you want to search all publications')?></p>
     <p>
-      <input type="text" class="text extended_input" name="searchstring" value="<?php _h($query)?>" />
+      <input type="text" class="text extended_input" name="q" value="<?php _h($query)?>" />
       <input type="hidden" name="return_publications" value="return_publications" />
     </p>
     <p><?php _e('Search publications with these terms in the following fields:')?></p>

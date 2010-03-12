@@ -221,7 +221,17 @@ class Publications extends Controller {
             'edit_type'   => $edit_type,
             'publication' => $publication);
 
-        //get output
+        $this->load->vars(array(
+            'subnav' => array(
+                '/import/' => __('Import'),
+                '/publications/add' => __('Publication'),
+                '/topics/add' => __('Topic'),
+                '/authors/add' => __('Author'),
+                '/keywords/add' => __('Tag'),
+            ),
+            'subnav_current' => '/publications/add',
+            'nav_current' => 'create',
+        ));
         $this->load->view('header', $header);
         $this->load->view('publications/edit', $content);
         $this->load->view('footer');

@@ -1,6 +1,4 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<!-- topic browse displays -->
-<?php        
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 /*
 
     'topics'       => $topics, //array of topics to be shown
@@ -9,9 +7,7 @@
     'selected'      => 1;        //which topic is selected?
     'header'        => 'Select new parent...'
     'dropdownname' => 'parent_id'; //the name of the dropdown element
-                             */
-?>
-<?php
+ */
     if (!isset($depth))$depth = -1;
     if (!isset($showroot))$showroot = False;
     if (!isset($selected))$selected = 1;
@@ -72,4 +68,3 @@
     echo form_dropdown($dropdownname,$options,$selected, $add);
     
 ?>
-<!-- End of topic  browse displays -->

@@ -1098,6 +1098,15 @@ input.extralarge_input,
   width: 73em;
 }
 
+fieldset textarea.extralarge_input,
+fieldset select.extralarge_input,
+fieldset input.extralarge_input,
+fieldset.extralarge_input textarea,
+fieldset.extralarge_input select,
+fieldset.extralarge_input input.text {
+  width: 71em;
+}
+
 textarea.extended_input,
 select.extended_input,
 input.extended_input,
@@ -1105,6 +1114,15 @@ input.extended_input,
 .extended_input select,
 .extended_input input.text {
   width: 32em;
+}
+
+textarea.standard_input,
+select.standard_input,
+input.standard_input,
+.standard_input textarea,
+.standard_input select,
+.standard_input input.text {
+  width: 16em;
 }
 
 textarea.medium_input,
@@ -1465,6 +1483,7 @@ body.search form {
 #search_external_form button {
   width: 10em;
   height: 2.5em;
+  white-space: nowrap;
 }
 
 #user_ .brick li {
