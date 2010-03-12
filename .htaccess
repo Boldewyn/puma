@@ -23,7 +23,7 @@
 #
 # S T A T I C   C O N T E N T
 #
-<Directory /home/manuel/public_html/puma/static>
+<FilesMatch "static/.+">
 
 # Set some principal options
 Options -ExecCGI -FollowSymLinks -Includes -IncludesNOEXEC -Indexes MultiViews SymLinksIfOwnerMatch
@@ -70,4 +70,4 @@ AddType video/x-flv .flv
   ExpiresDefault "access plus 3 weeks"
 </IfModule>
 
-</Directory>
+</FilesMatch>
