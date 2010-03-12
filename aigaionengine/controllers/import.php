@@ -6,6 +6,16 @@ class Import extends Controller {
         parent::Controller();
         restrict_to_right('publication_edit', __('Import'));
         $this->load->helper('publication');
+        $this->load->vars(array(
+            'subnav' => array(
+                '/import/' => __('Import'),
+                '/publications/add' => __('Publication'),
+                '/topics/add' => __('Topic'),
+                '/authors/add' => __('Author'),
+                '/keywords/add' => __('Tag'),
+            ),
+            'subnav_current' => '/import/',
+        ));
     }
     
     /** Default function: list publications */

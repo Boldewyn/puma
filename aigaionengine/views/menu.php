@@ -7,7 +7,7 @@ if (! isset($nav_current)) { $nav_current = $this->uri->segment(1); }
       <?php _a('explore/', icon('edit-find').' '.__('Explore')) ?>
     </li>
     <li class="<?php if($nav_current == 'create') { echo 'current'; } ?>">
-      <?php _a('create/', icon('bookmark-new').' '.__('Create')) ?>
+      <?php _a('import/', icon('bookmark-new').' '.__('Create')) ?>
     </li>
     <li class="<?php if($nav_current == 'search') { echo 'current'; } ?>">
       <?php _a('search/', icon('system-search').' '.__('Search')) ?>

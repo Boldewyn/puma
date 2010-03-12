@@ -14,14 +14,14 @@ if (!isset($content)||($content==null)) {
     <p>
       <input type="hidden" name="submit_type" value="submit" />
       <input type="hidden" name="formname" value="import" />
-      <textarea name="import_data" "id"="import_data" rows="20" cols="60"><?php _h($content) ?></textarea>
+      <textarea name="import_data" id="import_data" rows="20" cols="60" class="extralarge_input"><?php _h($content) ?></textarea>
     </p>
     <p>
-      <input type="submit" class="submit" value="<?php _e('Import')?>" /> &nbsp;
+      <input type="submit" class="submit standard_input" value="<?php _e('Import')?>" /> &nbsp;
       <label for="import_importform_format"
          title="<?php printf(__('Select the format of the data entered in the form above, '.
                'or &ldquo;auto&rdquo; to let %s automatically detect the format.'),
-               site_title()) ?>"><?php _e('Format:') ?></label>
+               site_title(true)) ?>"><?php _e('Format:') ?></label>
       <?php echo form_dropdown('format',$importTypes,'auto') ?> &nbsp;
       <?php echo form_checkbox('markasread','markasread',False); ?>
       <label for="import_importform_markasread"><?php _e('Mark imported entries as read.')?></label>

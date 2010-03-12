@@ -8,7 +8,7 @@
     if ($topic->name=='') {
         $name = sprintf(__('Topic #%s'), $topic->topic_id);
     } else {
-        $name = sprintf('Topic: %s', h($topic->name));
+        $name = sprintf(__('Topic: %s'), h($topic->name));
     }
     if ($topic->description != null) {
         $description = $topic->description;

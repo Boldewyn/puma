@@ -55,10 +55,11 @@ class Topics extends Controller {
         //no rights check here: anyone can (try) to browse topics (though not all topics may be visible)
         $userlogin = getUserLogin();
         $user = $this->user_db->getByID($userlogin->userId());
-        $root = $this->topic_db->getByID($root_id, array('onlyIfUserSubscribed'=>False,
+        $config = array('onlyIfUserSubscribed'=>False,
                          'flagCollapsed'=>True,
                          'user'=>$user,
-                         'includeGroupSubscriptions'=>True));
+                         'includeGroupSubscriptions'=>True);
+        $root = $this->topic_db->getByID($root_id, $config);
         if ($root == null) {
             appendErrorMessage(__('Browse topics: non-existing id passed.'));
             redirect('/topics');
@@ -106,8 +107,20 @@ class Topics extends Controller {
         restrict_to_right('topic_edit', __('Add topic'), '/topics');
         $this->load->library('validation');
         $this->validation->set_error_delimiters('<p class="error">'.__('Changes not committed: '), '</p>');
-        $parent = $this->topic_db->getByID($parent_id, array());
+        $config = array();
+        $parent = $this->topic_db->getByID($parent_id, $config);
         
+        $this->load->vars(array(
+            'subnav' => array(
+                '/import/' => __('Import'),
+                '/publications/add' => __('Publication'),
+                '/topics/add' => __('Topic'),
+                '/authors/add' => __('Author'),
+                '/keywords/add' => __('Tag'),
+            ),
+            'subnav_current' => '/topics/add',
+            'nav_current' => 'create',
+        ));
         $this->load->view('header', array('title' => __('Add topic')));
         $this->load->view('topics/edit' , array('parent'=>$parent));
         $this->load->view('footer');
@@ -122,7 +135,8 @@ class Topics extends Controller {
         if ($topic_id==1) {
             redirect('/topics');
         }
-        $topic = $this->topic_db->getByID($topic_id, array());
+        $config = array();
+        $topic = $this->topic_db->getByID($topic_id, $config);
         if ($topic==null) {
             appendErrorMessage(__('Edit topic: non-existing id passed.'));
             redirect('/topics');
@@ -132,8 +146,19 @@ class Topics extends Controller {
         $userlogin  = getUserLogin();
         restrict_to_right(($userlogin->hasRights('topic_edit') && $this->accesslevels_lib->canEditObject($topic)),
             __('Edit topic'), '/topics');
-
-            $this->load->view('header', array('title' => __('Edit topic')));
+ 
+        $this->load->vars(array(
+            'subnav' => array(
+                '/import/' => __('Import'),
+                '/publications/add' => __('Publication'),
+                '/topics/add' => __('Topic'),
+                '/authors/add' => __('Author'),
+                '/keywords/add' => __('Tag'),
+            ),
+            'subnav_current' => '/topics/add',
+            'nav_current' => 'create',
+        ));
+        $this->load->view('header', array('title' => __('Edit topic')));
         $this->load->view('topics/edit' , array('topic'=>$topic));
         $this->load->view('footer');
     }
@@ -183,7 +208,8 @@ class Topics extends Controller {
         if ($topic_id==1) {
             redirect('/topics');
         }
-        $topic = $this->topic_db->getByID($topic_id, array());
+        $config = array();
+        $topic = $this->topic_db->getByID($topic_id, $config);
         $userlogin=getUserLogin();
         if ($topic==null) {
             appendErrorMessage(__('Show topic: non-existing id passed.'));
@@ -493,4 +519,5 @@ class Topics extends Controller {
     }
 
 }
-?>
+
+//__END__
