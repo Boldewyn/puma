@@ -23,7 +23,7 @@ class Search extends Controller {
 
     /** Default: advanced search form */
     public function index() {
-        $this->load->view('header', array('title' => __('Advanced search')));
+        $this->load->view('header', array('title' => __('Advanced search'), 'subnav_current' => '/search/'));
         $this->load->view('search/advanced');
         $this->load->view('footer');
     }
@@ -121,7 +121,7 @@ class Search extends Controller {
           $searchresults = $this->search_lib->simpleSearch($this->query,$searchoptions,'');
         }
 
-        $this->load->view('header', array('title' => __('Advanced search results')));
+        $this->load->view('header', array('title' => __('Advanced search results'), 'subnav_current' => '/search/'));
         $this->load->view('search/results', array('searchresults'=>$searchresults));
         $this->load->view('search/advanced', array('options'=>$searchoptions));
         $this->load->view('footer');

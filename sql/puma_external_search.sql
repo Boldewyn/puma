@@ -17,15 +17,15 @@ CREATE TABLE `puma_external_search` (
 INSERT INTO `puma_external_search` 
 ( `name`, `url`, `q`, `image`, `method`, `p` )
 VALUES
-('Google Scholar', 'http://scholar.google.com/scholar', 'q', '', 'get', ''),
-('ePub Server (Uni)', 'http://epub.uni-regensburg.de/cgi/search', 'q', '', 'get', '[["_action_search","Search"],["_order","bytitle"],["basic_srchtype","ALL"],["_satisfyall","ALL"]]'),
-('arXiv.org', 'http://arxiv.org/search', 'query', '', 'get', ''),
-('WorldWideScience', 'http://worldwidescience.org/wws/search.html', 'expression', '', 'get', ''),
-('Inspec', 'http://ovidsp.ovid.com/ovidweb.cgi', 'textBox', '', 'get', '[["T","JS"],["MODE","ovid"],["PAGE","main"],["NEWS","n"],["DBC","y"],["D","insz"]]'),
-('Spires', 'http://www.slac.stanford.edu/spires/find/hep/www', 'rawcmd', '', 'get', '[["FORMAT","WWW"],["SEQUENCE",""]]'),
-('Amazon', 'http://www.amazon.de/s/ref=nb_ss_w', 'field-keywords', '', 'get', '[["__mk_de_DE","ÅMÅZÕÑ"],["url","search-alias=aps"]]'),
-('OPAC', 'https://ubbx6.bib-bvb.de/InfoGuideClient.ubrsis/start.do', 'searchString[0]', '', 'get', '[["Login","igubr"]]'),
-('PubMed', 'http://www.ncbi.nlm.nih.gov/sites/entrez', 'EntrezSystem2.PEntrez.Pubmed.SearchBar.Term', '', 'post',
+('Google Scholar', 'http://scholar.google.com/scholar', 'q', 'static/images/external_search/google.png', 'get', ''),
+('ePub Server (Uni)', 'http://epub.uni-regensburg.de/cgi/search', 'q', 'static/images/external_search/epub.png', 'get', '[["_action_search","Search"],["_order","bytitle"],["basic_srchtype","ALL"],["_satisfyall","ALL"]]'),
+('arXiv.org', 'http://arxiv.org/search', 'query', 'static/images/external_search/arxiv.png', 'get', ''),
+('WorldWideScience', 'http://worldwidescience.org/wws/search.html', 'expression', 'static/images/external_search/wws.png', 'get', ''),
+('Inspec', 'http://ovidsp.ovid.com/ovidweb.cgi', 'textBox', 'static/images/external_search/inspec.png', 'get', '[["T","JS"],["MODE","ovid"],["PAGE","main"],["NEWS","n"],["DBC","y"],["D","insz"]]'),
+('Spires', 'http://www.slac.stanford.edu/spires/find/hep/www', 'rawcmd', 'static/images/external_search/spires.png', 'get', '[["FORMAT","WWW"],["SEQUENCE",""]]'),
+('Amazon', 'http://www.amazon.de/s/ref=nb_ss_w', 'field-keywords', 'static/images/external_search/amazon.png', 'get', '[["__mk_de_DE","ÅMÅZÕÑ"],["url","search-alias=aps"]]'),
+('OPAC', 'https://ubbx6.bib-bvb.de/InfoGuideClient.ubrsis/start.do', 'searchString[0]', 'static/images/external_search/opac.png', 'get', '[["Login","igubr"]]'),
+('PubMed', 'http://www.ncbi.nlm.nih.gov/sites/entrez', 'EntrezSystem2.PEntrez.Pubmed.SearchBar.Term', 'static/images/external_search/pubmed.png', 'post',
       '[
           ["EntrezSystem2.PEntrez.DbConnector.Cmd","Go"],
           ["EntrezSystem2.PEntrez.DbConnector.Db","pubmed"],
@@ -50,7 +50,8 @@ VALUES
           ["p$el",""],
           ["p$l","EntrezSystem2"],
           ["p$st","entrez"]
-      ]')
+      ]'),
+('Bibsonomy', 'http://www.bibsonomy.org/search', 'search', 'static/images/external_search/bibsonomy.png' , 'get', '')
 ; 
 
 

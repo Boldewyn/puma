@@ -38,10 +38,10 @@ if(! isset($searchengines)) { $searchengines = array(); }
           <li>
             <button type="button" title="<?php echo $e['url'];?>"
                 onclick="search_external_submit('<?php _h($e['url']) ?>', '<?php echo $e['method'];?>', '<?php echo $e['q'] ?>'
-                <?php if(isset($e['p'])) { echo ', ',h($e['p']); }?>
+                <?php if(isset($e['p']) && strlen($e['p']) > 0) { echo ', ',h($e['p']); }?>
                 );"><?php
               if (isset ($e['image']) && $e['image'] != '') {
-                echo '<img src="',$e['image'],'" alt="',$e['name'],'" />';
+                echo '<img src="',base_url(),$e['image'],'" alt="',$e['name'],'" />';
               } else {
                 echo '<span class="text">',$e['name'],'</span>';
               }
