@@ -15,6 +15,7 @@ class Import extends Controller {
                 '/keywords/add' => __('Tag'),
             ),
             'subnav_current' => '/import/',
+            'nav_current' => 'create',
         ));
     }
     
