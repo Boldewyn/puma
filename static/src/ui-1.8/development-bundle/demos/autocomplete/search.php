@@ -588,13 +588,13 @@ function array_to_json( $array ){
             if( is_numeric($key) ){
                 $key = "key_$key";
             }
-            $key = "'".addslashes($key)."'";
+            $key = "\"".addslashes($key)."\"";
 
             // Format the value:
             if( is_array( $value )){
                 $value = array_to_json( $value );
             } else if( !is_numeric( $value ) || is_string( $value ) ){
-                $value = "'".addslashes($value)."'";
+                $value = "\"".addslashes($value)."\"";
             }
 
             // Add to staging array:
@@ -632,7 +632,7 @@ foreach ($items as $key=>$value) {
 	if (strpos(strtolower($key), $q) !== false) {
 		array_push($result, array("id"=>$value, "label"=>$key, "value" => strip_tags($key)));
 	}
-	if (count($result) > 12)
+	if (count($result) > 11)
 		break;
 }
 echo array_to_json($result);

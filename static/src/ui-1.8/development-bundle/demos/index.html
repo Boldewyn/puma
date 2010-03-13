@@ -3,9 +3,9 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>jQuery UI Demos</title>
-	<link type="text/css" href="../themes/base/ui.all.css" rel="stylesheet" />
+	<link type="text/css" href="../themes/base/jquery.ui.all.css" rel="stylesheet" />
 	<link type="text/css" href="demos.css" rel="stylesheet" />
-	<script type="text/javascript" src="../jquery-1.4.1.js"></script>
+	<script type="text/javascript" src="../jquery-1.4.2.js"></script>
 	<script type="text/javascript" src="../external/jquery.bgiframe-2.1.1.js"></script>
 	<script type="text/javascript" src="../ui/jquery.ui.core.js"></script>
 	<script type="text/javascript" src="../ui/jquery.ui.widget.js"></script>
@@ -85,6 +85,7 @@
 	<script type="text/javascript" src="../ui/i18n/jquery.ui.datepicker-uk.js"></script>
 	<script type="text/javascript" src="../ui/i18n/jquery.ui.datepicker-vi.js"></script>
 	<script type="text/javascript" src="../ui/i18n/jquery.ui.datepicker-zh-CN.js"></script>
+	<script type="text/javascript" src="../ui/i18n/jquery.ui.datepicker-zh-HK.js"></script>
 	<script type="text/javascript" src="../ui/i18n/jquery.ui.datepicker-zh-TW.js"></script>
 	<script type="text/javascript">
 	jQuery(function($) {
@@ -228,7 +229,7 @@
 				}).end().find(">div").hide();
 			}
 			var cleanedSource = source
-				.replace('themes/base/ui.all.css', 'theme/ui.all.css')
+				.replace('themes/base/jquery.ui.all.css', 'theme/jquery.ui.all.css')
 				.replace(/\s*\x3Clink.*demos\x2Ecss.*\x3E\s*/, '\r\n\t')
 				.replace(/\x2E\x2E\x2F\x2E\x2E\x2F/g, '');
 

@@ -2,8 +2,8 @@
 <html>
 <head>
 	<title>jQuery UI Autocomplete Combobox Demo</title>
-	<link type="text/css" href="../../themes/base/ui.all.css" rel="stylesheet" />
-	<script type="text/javascript" src="../../jquery-1.4.1.js"></script>
+	<link type="text/css" href="../../themes/base/jquery.ui.all.css" rel="stylesheet" />
+	<script type="text/javascript" src="../../jquery-1.4.2.js"></script>
 	<script type="text/javascript" src="../../ui/jquery.ui.core.js"></script>
 	<script type="text/javascript" src="../../ui/jquery.ui.widget.js"></script>
 	<script type="text/javascript" src="../../ui/jquery.ui.button.js"></script>
@@ -47,8 +47,7 @@
 						},
 						minLength: 0
 					})
-					.removeClass("ui-corner-all")
-					.addClass("ui-corner-left");
+					.addClass("ui-widget ui-widget-content ui-corner-left");
 				$("<button>&nbsp;</button>")
 				.insertAfter(input)
 				.button({

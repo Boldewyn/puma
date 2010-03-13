@@ -1,5 +1,5 @@
 /*
- * jQuery UI Effects 1.8rc1
+ * jQuery UI Effects 1.8rc3
  *
  * Copyright (c) 2010 AUTHORS.txt (http://jqueryui.com/about)
  * Dual licensed under the MIT (MIT-LICENSE.txt)
@@ -301,7 +301,7 @@ $.fn.extend({
 /******************************************************************************/
 
 $.extend($.effects, {
-	version: "1.8rc1",
+	version: "1.8rc3",
 
 	// Saves a set of properties in a data storage
 	save: function(element, set) {
@@ -365,6 +365,7 @@ $.extend($.effects, {
 				});
 
 		element.wrap(wrapper);
+		wrapper = element.parent(); //Hotfix for jQuery 1.4 since some change in wrap() seems to actually loose the reference to the wrapped element
 
 		// transfer positioning properties to the wrapper
 		if (element.css('position') == 'static') {
@@ -417,7 +418,7 @@ function _normalizeArguments(effect, options, speed, callback) {
 		speed = null;
 		options = {};
 	}
-	if (typeof options == 'number') {
+	if (typeof options == 'number' || $.fx.speeds[options]) {
 		callback = speed;
 		speed = options;
 		options = {};
