@@ -1,4 +1,7 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+if (is_ajax()):
+    $this->load->view('footer_clean');
+else:
 $userlogin = getUserLogin();
 ?>
       </div>
@@ -76,3 +79,5 @@ $userlogin = getUserLogin();
     <script type="text/javascript" src="<?php echo base_url(); ?>static/js/puma.js"></script>
   </body>
 </html>
+<?php endif;
+//__END__

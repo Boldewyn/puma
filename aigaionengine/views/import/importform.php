@@ -2,7 +2,7 @@
 $importTypes = $this->import_lib->getAvailableImportTypes();
 $importTypes['auto'] = 'auto';
 if (!isset($content)||($content==null)) {
-   $content = '';
+    $content = '';
 }
 ?>
 <div class="publication">
@@ -22,8 +22,8 @@ if (!isset($content)||($content==null)) {
          title="<?php printf(__('Select the format of the data entered in the form above, '.
                'or &ldquo;auto&rdquo; to let %s automatically detect the format.'),
                site_title(true)) ?>"><?php _e('Format:') ?></label>
-      <?php echo form_dropdown('format',$importTypes,'auto') ?> &nbsp;
-      <?php echo form_checkbox('markasread','markasread',False); ?>
+      <?php echo form_dropdown('format',$importTypes,'auto', 'id="import_importform_format"') ?> &nbsp;
+      <input type="checkbox" name="markasread" value="markasread" id="import_importform_markasread" />
       <label for="import_importform_markasread"><?php _e('Mark imported entries as read.')?></label>
     </p>
   </form>

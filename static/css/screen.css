@@ -1045,6 +1045,7 @@ form.inline p {
   display: inline;
 }
 
+.block label,
 label.block {
   width: 8em;
   display: block;
@@ -1058,12 +1059,12 @@ p.empty_block {
 }
 
 label.extended_label,
-.extended_label label.block {
+.extended_label label {
   width: 16em;
 }
 
 label.xlarge_label,
-.xlarge_label label.block {
+.xlarge_label label {
   width: 32em;
 }
 
@@ -1079,6 +1080,13 @@ input.text {
   padding: .25em;
 }
 
+input.required,
+textarea.required,
+select.required {
+  border: 1px solid #7E0011;
+  background: #FFEFFE;
+}
+
 textarea,
 select,
 input.text {
@@ -1089,54 +1097,66 @@ select {
   width: 15em;
 }
 
+.pseudobutton.extralarge_input,
 textarea.extralarge_input,
 select.extralarge_input,
 input.extralarge_input,
+.extralarge_input .pseudobutton,
 .extralarge_input textarea,
 .extralarge_input select,
 .extralarge_input input.text {
   width: 73em;
 }
 
+fieldset .pseudobutton.extralarge_input,
 fieldset textarea.extralarge_input,
 fieldset select.extralarge_input,
 fieldset input.extralarge_input,
+fieldset.extralarge_input .pseudobutton,
 fieldset.extralarge_input textarea,
 fieldset.extralarge_input select,
 fieldset.extralarge_input input.text {
   width: 71em;
 }
 
+.pseudobutton.extended_input,
 textarea.extended_input,
 select.extended_input,
 input.extended_input,
+.extended_input .pseudobutton,
 .extended_input textarea,
 .extended_input select,
 .extended_input input.text {
   width: 32em;
 }
 
+.pseudobutton.standard_input,
 textarea.standard_input,
 select.standard_input,
 input.standard_input,
+.standard_input .pseudobutton,
 .standard_input textarea,
 .standard_input select,
 .standard_input input.text {
   width: 16em;
 }
 
+.pseudobutton.medium_input,
 textarea.medium_input,
 select.medium_input,
 input.medium_input,
+.medium_input .pseudobutton,
 .medium_input textarea,
 .medium_input select,
 .medium_input input.text {
   width: 8em;
 }
 
+.pseudobutton.short_input,
 textarea.short_input,
 select.short_input,
 input.short_input,
+.short_input .pseudobutton,
 .short_input textarea,
 .short_input select,
 .short_input input.text {
@@ -1173,6 +1193,7 @@ input.submit {
   padding: .25em;
   display: inline-block;
   position: relative;
+  text-align: center;
 }
 
 .wide_button {

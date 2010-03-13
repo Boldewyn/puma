@@ -1,4 +1,7 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+if (is_ajax()):
+    $this->load->view('header_clean');
+else:
 $userlogin = getUserLogin();
 header('Content-Type: text/html; charset=UTF-8');
 
@@ -101,3 +104,5 @@ header('Content-Type: text/html; charset=UTF-8');
       ?>
 
       <div id="content">
+<?php endif;
+//__END__

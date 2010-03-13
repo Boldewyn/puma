@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-04 07:38+0100\n"
+"POT-Creation-Date: 2010-03-13 22:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,7 +39,7 @@ msgstr ""
 #: ../../controllers/attachments.php:36 ../../controllers/attachments.php:77
 #: ../../controllers/attachments.php:138 ../../controllers/attachments.php:193
 #: ../../controllers/attachments.php:298 ../../controllers/attachments.php:326
-#: ../../controllers/authors.php:142 ../../controllers/bookmarklist.php:188
+#: ../../controllers/authors.php:153 ../../controllers/bookmarklist.php:188
 #: ../../controllers/bookmarklist.php:312
 #: ../../controllers/bookmarklist.php:347
 #: ../../controllers/bookmarklist.php:416
@@ -72,7 +72,6 @@ msgstr ""
 #: ../../controllers/groups.php:138 ../../controllers/groups.php:194
 #: ../../controllers/groups.php:257 ../../controllers/groups.php:344
 #: ../../controllers/groups.php:413 ../../controllers/groups.php:467
-#: ../../controllers/import.php:26 ../../controllers/import.php:217
 #: ../../controllers/notes.php:58 ../../controllers/notes.php:105
 #: ../../controllers/notes.php:150 ../../controllers/rightsprofiles.php:80
 #: ../../controllers/rightsprofiles.php:138
@@ -145,162 +144,188 @@ msgstr ""
 msgid "Commit attachment: an error occurred"
 msgstr ""
 
-#: ../../controllers/authors.php:13 ../../controllers/authors.php:335
-#: ../../controllers/explore.php:12 ../../controllers/keywords.php:14
-#: ../../controllers/publications.php:14 ../../views/publications/edit.php:212
+#: ../../controllers/authors.php:11 ../../controllers/explore.php:8
+#: ../../controllers/keywords.php:10 ../../controllers/publications.php:10
+#: ../../controllers/topics.php:11 ../../views/site/edit.php:477
+#: ../../views/user/edit.php:90 ../../views/users/edit.php:315
+msgid "All"
+msgstr ""
+
+#: ../../controllers/authors.php:12 ../../controllers/explore.php:9
+#: ../../controllers/keywords.php:11 ../../controllers/publications.php:11
+#: ../../controllers/topics.php:12 ../../views/publications/single.php:393
+msgid "Topics"
+msgstr ""
+
+#: ../../controllers/authors.php:13 ../../controllers/explore.php:10
+#: ../../controllers/keywords.php:12 ../../controllers/publications.php:12
+#: ../../controllers/topics.php:13
+msgid "Tags"
+msgstr ""
+
+#: ../../controllers/authors.php:14 ../../controllers/explore.php:11
+#: ../../controllers/keywords.php:13 ../../controllers/publications.php:13
+#: ../../controllers/topics.php:14
+msgid "Publications"
+msgstr ""
+
+#: ../../controllers/authors.php:15 ../../controllers/authors.php:24
+#: ../../controllers/authors.php:346 ../../controllers/explore.php:12
+#: ../../controllers/keywords.php:14 ../../controllers/publications.php:14
+#: ../../controllers/topics.php:15 ../../views/publications/edit.php:125
 msgid "Authors"
 msgstr ""
 
-#: ../../controllers/authors.php:15
+#: ../../controllers/authors.php:26
 msgid "All authors in the database"
 msgstr ""
 
-#: ../../controllers/authors.php:37 ../../controllers/authors.php:92
+#: ../../controllers/authors.php:48 ../../controllers/authors.php:103
 msgid "View Author: non-existing id passed."
 msgstr ""
 
-#: ../../controllers/authors.php:43 ../../controllers/authors.php:98
-#: ../../controllers/authors.php:149
+#: ../../controllers/authors.php:54 ../../controllers/authors.php:109
+#: ../../controllers/authors.php:160
 #, php-format
 msgid "Publications of %s"
 msgstr ""
 
-#: ../../controllers/authors.php:46 ../../controllers/authors.php:101
-#: ../../controllers/authors.php:152 ../../controllers/bookmarklist.php:39
+#: ../../controllers/authors.php:57 ../../controllers/authors.php:112
+#: ../../controllers/authors.php:163 ../../controllers/bookmarklist.php:39
 #: ../../controllers/keywords.php:112 ../../controllers/publications.php:106
-#: ../../controllers/publications.php:150 ../../controllers/topics.php:189
-#: ../../controllers/topics.php:276
+#: ../../controllers/publications.php:150 ../../controllers/topics.php:226
+#: ../../controllers/topics.php:313
 msgid "sorted by journal and type"
 msgstr ""
 
-#: ../../controllers/authors.php:49 ../../controllers/authors.php:104
-#: ../../controllers/authors.php:155 ../../controllers/bookmarklist.php:42
+#: ../../controllers/authors.php:60 ../../controllers/authors.php:115
+#: ../../controllers/authors.php:166 ../../controllers/bookmarklist.php:42
 #: ../../controllers/keywords.php:115 ../../controllers/publications.php:109
-#: ../../controllers/publications.php:153 ../../controllers/topics.php:192
-#: ../../controllers/topics.php:279
+#: ../../controllers/publications.php:153 ../../controllers/topics.php:229
+#: ../../controllers/topics.php:316
 msgid "sorted by recency"
 msgstr ""
 
-#: ../../controllers/authors.php:52 ../../controllers/authors.php:107
-#: ../../controllers/authors.php:158 ../../controllers/bookmarklist.php:45
+#: ../../controllers/authors.php:63 ../../controllers/authors.php:118
+#: ../../controllers/authors.php:169 ../../controllers/bookmarklist.php:45
 #: ../../controllers/keywords.php:118 ../../controllers/publications.php:112
-#: ../../controllers/publications.php:156 ../../controllers/topics.php:195
-#: ../../controllers/topics.php:282
+#: ../../controllers/publications.php:156 ../../controllers/topics.php:232
+#: ../../controllers/topics.php:319
 msgid "sorted by title"
 msgstr ""
 
-#: ../../controllers/authors.php:55 ../../controllers/authors.php:110
-#: ../../controllers/authors.php:161 ../../controllers/bookmarklist.php:48
-#: ../../controllers/keywords.php:121 ../../controllers/topics.php:198
-#: ../../controllers/topics.php:285
+#: ../../controllers/authors.php:66 ../../controllers/authors.php:121
+#: ../../controllers/authors.php:172 ../../controllers/bookmarklist.php:48
+#: ../../controllers/keywords.php:121 ../../controllers/topics.php:235
+#: ../../controllers/topics.php:322
 msgid "sorted by first author"
 msgstr ""
 
-#: ../../controllers/authors.php:142 ../../controllers/embeddingtest.php:41
+#: ../../controllers/authors.php:153 ../../controllers/embeddingtest.php:41
 msgid "View Author"
 msgstr ""
 
-#: ../../controllers/authors.php:170
+#: ../../controllers/authors.php:181
 msgid "No publications found."
 msgstr ""
 
-#: ../../controllers/authors.php:187 ../../controllers/authors.php:274
-#: ../../controllers/authors.php:315
+#: ../../controllers/authors.php:198 ../../controllers/authors.php:285
+#: ../../controllers/authors.php:326
 msgid "Edit author"
 msgstr ""
 
-#: ../../controllers/authors.php:192 ../../views/authors/edit.php:14
+#: ../../controllers/authors.php:203 ../../views/authors/edit.php:14
 msgid "Edit Author"
 msgstr ""
 
-#: ../../controllers/authors.php:197 ../../views/authors/edit.php:10
+#: ../../controllers/authors.php:208 ../../views/authors/edit.php:10
 msgid "New Author"
 msgstr ""
 
-#: ../../controllers/authors.php:214 ../../controllers/authors.php:233
+#: ../../controllers/authors.php:225 ../../controllers/authors.php:244
 msgid "Cannot merge authors"
 msgstr ""
 
-#: ../../controllers/authors.php:218 ../../controllers/authors.php:238
+#: ../../controllers/authors.php:229 ../../controllers/authors.php:249
 msgid "Cannot merge authors: missing parameters."
 msgstr ""
 
-#: ../../controllers/authors.php:252
+#: ../../controllers/authors.php:263
 msgid "Delete author"
 msgstr ""
 
-#: ../../controllers/authors.php:255
+#: ../../controllers/authors.php:266
 msgid "Delete author: author does not exist."
 msgstr ""
 
-#: ../../controllers/authors.php:264
+#: ../../controllers/authors.php:275
 msgid "Delete Author"
 msgstr ""
 
-#: ../../controllers/authors.php:295
+#: ../../controllers/authors.php:306
 #, php-format
 msgid "Author &ldquo;%s&rdquo; already exists in the database."
 msgstr ""
 
-#: ../../controllers/authors.php:316
+#: ../../controllers/authors.php:327
 msgid "Review author"
 msgstr ""
 
-#: ../../controllers/authors.php:332
+#: ../../controllers/authors.php:343
 msgid "Authors for topic: non-existing id passed"
 msgstr ""
 
-#: ../../controllers/authors.php:337
+#: ../../controllers/authors.php:348
 #, php-format
 msgid "Authors for topic %s"
 msgstr ""
 
-#: ../../controllers/authors.php:409 ../../controllers/bookmarklist.php:801
-#: ../../controllers/publications.php:468 ../../controllers/topics.php:373
+#: ../../controllers/authors.php:420 ../../controllers/bookmarklist.php:801
+#: ../../controllers/publications.php:478 ../../controllers/topics.php:410
 msgid "Export through email"
 msgstr ""
 
-#: ../../controllers/authors.php:419
+#: ../../controllers/authors.php:430
 msgid "No author selected for export."
 msgstr ""
 
-#: ../../controllers/authors.php:433 ../../controllers/bookmarklist.php:821
+#: ../../controllers/authors.php:444 ../../controllers/bookmarklist.php:821
 #: ../../controllers/export.php:34 ../../controllers/export.php:111
 #: ../../controllers/export.php:188 ../../controllers/export.php:259
-#: ../../controllers/export.php:361 ../../controllers/publications.php:496
-#: ../../controllers/topics.php:401
+#: ../../controllers/export.php:361 ../../controllers/publications.php:506
+#: ../../controllers/topics.php:438
 msgid "Select export format"
 msgstr ""
 
-#: ../../controllers/authors.php:441 ../../controllers/bookmarklist.php:850
-#: ../../controllers/publications.php:502 ../../controllers/topics.php:414
+#: ../../controllers/authors.php:452 ../../controllers/bookmarklist.php:850
+#: ../../controllers/publications.php:512 ../../controllers/topics.php:451
 #, php-format
 msgid "Export from %s"
 msgstr ""
 
-#: ../../controllers/authors.php:452 ../../controllers/authors.php:488
+#: ../../controllers/authors.php:463 ../../controllers/authors.php:499
 msgid "Exported for author"
 msgstr ""
 
-#: ../../controllers/authors.php:458 ../../controllers/bookmarklist.php:873
-#: ../../controllers/publications.php:521 ../../controllers/topics.php:431
+#: ../../controllers/authors.php:469 ../../controllers/bookmarklist.php:873
+#: ../../controllers/publications.php:531 ../../controllers/topics.php:468
 #: ../../views/export/chooseformat.php:51
 #: ../../views/export/chooseformatEmail.php:54
 #: ../../views/export/chooseformatEmail.php:57
 msgid "Formatted"
 msgstr ""
 
-#: ../../controllers/authors.php:500
+#: ../../controllers/authors.php:511
 msgid "Export Author"
 msgstr ""
 
-#: ../../controllers/authors.php:501 ../../controllers/bookmarklist.php:939
-#: ../../controllers/publications.php:566 ../../controllers/topics.php:475
+#: ../../controllers/authors.php:512 ../../controllers/bookmarklist.php:939
+#: ../../controllers/publications.php:576 ../../controllers/topics.php:512
 msgid "Mail sent successfully"
 msgstr ""
 
-#: ../../controllers/authors.php:504 ../../controllers/bookmarklist.php:930
-#: ../../controllers/publications.php:569 ../../controllers/topics.php:478
+#: ../../controllers/authors.php:515 ../../controllers/bookmarklist.php:930
+#: ../../controllers/publications.php:579 ../../controllers/topics.php:515
 msgid ""
 "Something went wrong when exporting the publications. Did you input a "
 "correct email address?"
@@ -539,7 +564,7 @@ msgstr ""
 msgid "Clear bookmarklist: insufficient rights."
 msgstr ""
 
-#: ../../controllers/bookmarklist.php:846 ../../controllers/topics.php:410
+#: ../../controllers/bookmarklist.php:846 ../../controllers/topics.php:447
 msgid "Export by email"
 msgstr ""
 
@@ -579,28 +604,6 @@ msgstr ""
 
 #: ../../controllers/errorhandler.php:5
 msgid "Error: Resource not found"
-msgstr ""
-
-#: ../../controllers/explore.php:8 ../../controllers/keywords.php:10
-#: ../../controllers/publications.php:10 ../../views/site/edit.php:477
-#: ../../views/user/edit.php:90 ../../views/users/edit.php:315
-msgid "All"
-msgstr ""
-
-#: ../../controllers/explore.php:9 ../../controllers/keywords.php:11
-#: ../../controllers/publications.php:11
-#: ../../views/publications/single.php:393
-msgid "Topics"
-msgstr ""
-
-#: ../../controllers/explore.php:10 ../../controllers/keywords.php:12
-#: ../../controllers/publications.php:12
-msgid "Tags"
-msgstr ""
-
-#: ../../controllers/explore.php:11 ../../controllers/keywords.php:13
-#: ../../controllers/publications.php:13
-msgid "Publications"
 msgstr ""
 
 #: ../../controllers/explore.php:18 ../../views/menu.php:7
@@ -790,7 +793,7 @@ msgid "Unsubscribe topic"
 msgstr ""
 
 #: ../../controllers/help.php:12 ../../views/footer.php:64
-#: ../../views/header.php:70
+#: ../../views/header.php:62 ../../views/header.php:71
 msgid "Help"
 msgstr ""
 
@@ -813,77 +816,96 @@ msgstr ""
 msgid "Video tutorial"
 msgstr ""
 
-#: ../../controllers/import.php:26 ../../controllers/import.php:63
-#: ../../controllers/import.php:81 ../../controllers/import.php:87
-#: ../../controllers/import.php:170 ../../views/import/importform.php:11
+#: ../../controllers/import.php:7 ../../controllers/import.php:11
+#: ../../controllers/publications.php:226 ../../controllers/topics.php:115
+#: ../../controllers/topics.php:152 ../../views/import/importform.php:11
 #: ../../views/import/importform.php:20 ../../views/import/review.php:314
 msgid "Import"
 msgstr ""
 
-#: ../../controllers/import.php:30 ../../controllers/publications.php:236
+#: ../../controllers/import.php:12 ../../controllers/publications.php:227
+#: ../../controllers/topics.php:116 ../../controllers/topics.php:153
+#: ../../views/accesslevels/editforpublication.php:38
+#: ../../views/publications/single.php:51
+msgid "Publication"
+msgstr ""
+
+#: ../../controllers/import.php:13 ../../controllers/publications.php:228
+#: ../../controllers/topics.php:117 ../../controllers/topics.php:154
+#: ../../controllers/topics.php:362
+#: ../../views/accesslevels/editfortopic.php:22
+#: ../../views/accesslevels/editfortopic.php:23 ../../views/topics/clean.php:6
+#: ../../views/topics/clean.php:18
+msgid "Topic"
+msgstr ""
+
+#: ../../controllers/import.php:14 ../../controllers/publications.php:229
+#: ../../controllers/test.php:287 ../../controllers/topics.php:118
+#: ../../controllers/topics.php:155 ../../views/sort.php:8
+msgid "Author"
+msgstr ""
+
+#: ../../controllers/import.php:15 ../../controllers/publications.php:230
+#: ../../controllers/topics.php:119 ../../controllers/topics.php:156
+msgid "Tag"
+msgstr ""
+
+#: ../../controllers/import.php:29 ../../controllers/publications.php:246
 #: ../../views/import/importform.php:9
 msgid "Import publications"
 msgstr ""
 
-#: ../../controllers/import.php:63
-msgid "no import data entered."
+#: ../../controllers/import.php:46
+msgid "Import: no import data entered."
 msgstr ""
 
-#: ../../controllers/import.php:72
+#: ../../controllers/import.php:54
 #, php-format
-msgid "Unknown import format specified (\"%s\")."
-msgstr ""
-
-#: ../../controllers/import.php:72
-msgid "Attempting to automatically identify proper format."
-msgstr ""
-
-#: ../../controllers/import.php:81
 msgid ""
-"can't automatically figure out import data format; please specify correct "
-"format."
+"Unknown import format specified (&ldquo;%s&rdquo;). Attempting to "
+"automatically identify proper format."
 msgstr ""
 
-#: ../../controllers/import.php:87
+#: ../../controllers/import.php:61
+msgid ""
+"Import: Can&rsquo;t automatically figure out import data format; please "
+"specify correct format."
+msgstr ""
+
+#: ../../controllers/import.php:65
 #, php-format
-msgid "Data automatically identified as format \"%s\"."
+msgid "Import: Data automatically identified as format &ldquo;%s&rdquo;."
 msgstr ""
 
-#: ../../controllers/import.php:115
+#: ../../controllers/import.php:92
 msgid ""
 "Import: Could not extract any valid publication entries from the import "
 "data. Please verify the input."
 msgstr ""
 
-#: ../../controllers/import.php:116
+#: ../../controllers/import.php:93
 msgid ""
 "If the input is correct, please verify the contents of the &ldquo;BibTeX "
 "strings&rdquo; setting under &ldquo;In- and output settings&rdquo; in the "
 "site configuration screen."
 msgstr ""
 
-#: ../../controllers/import.php:170
-msgid "Commit"
+#: ../../controllers/import.php:139
+msgid "Import: Commit: no publications committed."
 msgstr ""
 
 #: ../../controllers/import.php:170
-msgid "no publications committed."
-msgstr ""
-
-#: ../../controllers/import.php:203
 #, php-format
-msgid "Succesfully imported %s publications."
+msgid "Succesfully imported %d publications."
 msgstr ""
 
-#: ../../controllers/import.php:217 ../../controllers/import.php:221
-#: ../../controllers/publications.php:338
-#: ../../controllers/publications.php:342
+#: ../../controllers/import.php:183 ../../controllers/publications.php:348
+#: ../../controllers/publications.php:352
 msgid "Review publication"
 msgstr ""
 
 #: ../../controllers/keywords.php:27 ../../views/authors/single.php:86
-#: ../../views/import/review.php:268 ../../views/publications/edit.php:192
-#: ../../views/publications/review.php:73
+#: ../../views/import/review.php:268 ../../views/publications/review.php:73
 msgid "Keywords"
 msgstr ""
 
@@ -1054,69 +1076,69 @@ msgstr ""
 msgid "Add publication"
 msgstr ""
 
-#: ../../controllers/publications.php:235
+#: ../../controllers/publications.php:245
 msgid "Import publication"
 msgstr ""
 
-#: ../../controllers/publications.php:250
+#: ../../controllers/publications.php:260
 msgid "Delete publication: non-existing id passed."
 msgstr ""
 
-#: ../../controllers/publications.php:259
 #: ../../controllers/publications.php:269
+#: ../../controllers/publications.php:279
 msgid "Delete publication"
 msgstr ""
 
-#: ../../controllers/publications.php:289
+#: ../../controllers/publications.php:299
 msgid ""
 "There are validation errors with this entry. You may want to correct them."
 msgstr ""
 
-#: ../../controllers/publications.php:314
+#: ../../controllers/publications.php:324
 msgid "Commit publication"
 msgstr ""
 
-#: ../../controllers/publications.php:373
-#: ../../controllers/publications.php:413
+#: ../../controllers/publications.php:383
+#: ../../controllers/publications.php:423
 msgid "Subscribe topic: non-existing id passed."
 msgstr ""
 
-#: ../../controllers/publications.php:377
+#: ../../controllers/publications.php:387
 msgid "Subscribe"
 msgstr ""
 
-#: ../../controllers/publications.php:385
+#: ../../controllers/publications.php:395
 msgid "Successfully subscribed publication."
 msgstr ""
 
-#: ../../controllers/publications.php:417
+#: ../../controllers/publications.php:427
 msgid "Unsubscribe"
 msgstr ""
 
-#: ../../controllers/publications.php:425
+#: ../../controllers/publications.php:435
 msgid "Successfully unsubscribed publication."
 msgstr ""
 
-#: ../../controllers/publications.php:434
-#: ../../controllers/publications.php:452
+#: ../../controllers/publications.php:444
+#: ../../controllers/publications.php:462
 msgid "Mark publication"
 msgstr ""
 
-#: ../../controllers/publications.php:439
-#: ../../controllers/publications.php:457
+#: ../../controllers/publications.php:449
+#: ../../controllers/publications.php:467
 msgid "Mark publication: non-existing id passed."
 msgstr ""
 
-#: ../../controllers/publications.php:482
+#: ../../controllers/publications.php:492
 msgid "Export publication: non-existing id passed."
 msgstr ""
 
-#: ../../controllers/publications.php:514
-#: ../../controllers/publications.php:552
+#: ../../controllers/publications.php:524
+#: ../../controllers/publications.php:562
 msgid "Exported publication"
 msgstr ""
 
-#: ../../controllers/publications.php:565
+#: ../../controllers/publications.php:575
 msgid "Export publication"
 msgstr ""
 
@@ -1238,44 +1260,40 @@ msgstr ""
 msgid "Commit rights profile: an error occurred."
 msgstr ""
 
-#: ../../controllers/search.php:8 ../../views/search/advanced.php:15
+#: ../../controllers/search.php:10 ../../views/search/advanced.php:15
 msgid "Advanced Search"
 msgstr ""
 
-#: ../../controllers/search.php:9
+#: ../../controllers/search.php:11
 msgid "External Search"
 msgstr ""
 
-#: ../../controllers/search.php:14
+#: ../../controllers/search.php:26
 msgid "Advanced search"
 msgstr ""
 
-#: ../../controllers/search.php:23
+#: ../../controllers/search.php:35
 msgid "External search"
 msgstr ""
 
-#: ../../controllers/search.php:31
-msgid "ePub Server (Uni)"
+#: ../../controllers/search.php:46
+msgid "Search: no query."
 msgstr ""
 
-#: ../../controllers/search.php:66
-msgid "Search: No query."
-msgstr ""
-
-#: ../../controllers/search.php:73
+#: ../../controllers/search.php:51
 msgid "Search results"
 msgstr ""
 
-#: ../../controllers/search.php:110
+#: ../../controllers/search.php:80
 msgid "Nonexisting topic ID in advanced search condition"
 msgstr ""
 
-#: ../../controllers/search.php:123
+#: ../../controllers/search.php:93
 msgid ""
 "No query at all: please give at least a search term or a topic condition"
 msgstr ""
 
-#: ../../controllers/search.php:155
+#: ../../controllers/search.php:124
 msgid "Advanced search results"
 msgstr ""
 
@@ -1410,10 +1428,6 @@ msgstr ""
 msgid "Import should contain %s authors, but does contain %s authors."
 msgstr ""
 
-#: ../../controllers/test.php:287 ../../views/sort.php:8
-msgid "Author"
-msgstr ""
-
 #: ../../controllers/test.php:292
 #, php-format
 msgid "First name(s) should have been \"%s\" but is \"%s\"."
@@ -1434,106 +1448,99 @@ msgstr ""
 msgid "jr-part should have been \"%s\" but is \"%s\"."
 msgstr ""
 
-#: ../../controllers/topics.php:30 ../../controllers/topics.php:52
+#: ../../controllers/topics.php:41 ../../controllers/topics.php:64
 msgid "Browse topics: non-existing id passed."
 msgstr ""
 
-#: ../../controllers/topics.php:33
+#: ../../controllers/topics.php:44
 msgid "Browse topic tree"
 msgstr ""
 
-#: ../../controllers/topics.php:55
+#: ../../controllers/topics.php:67
 msgid "Browse topic tree (include all topics)"
 msgstr ""
 
-#: ../../controllers/topics.php:70
+#: ../../controllers/topics.php:82
 msgid "Delete topic: non-existing id passed."
 msgstr ""
 
-#: ../../controllers/topics.php:78 ../../controllers/topics.php:85
+#: ../../controllers/topics.php:90 ../../controllers/topics.php:97
 msgid "Delete topic"
 msgstr ""
 
-#: ../../controllers/topics.php:95 ../../controllers/topics.php:100
+#: ../../controllers/topics.php:107 ../../controllers/topics.php:124
 #: ../../libraries/topic_db.php:396
 msgid "Add topic"
 msgstr ""
 
-#: ../../controllers/topics.php:97 ../../controllers/topics.php:110
-#: ../../controllers/topics.php:302
+#: ../../controllers/topics.php:109 ../../controllers/topics.php:134
+#: ../../controllers/topics.php:339
 msgid "Changes not committed: "
 msgstr ""
 
-#: ../../controllers/topics.php:116
+#: ../../controllers/topics.php:141
 msgid "Edit topic: non-existing id passed."
 msgstr ""
 
-#: ../../controllers/topics.php:123 ../../controllers/topics.php:125
+#: ../../controllers/topics.php:148 ../../controllers/topics.php:161
 #: ../../libraries/topic_db.php:441
 msgid "Edit topic"
 msgstr ""
 
-#: ../../controllers/topics.php:158 ../../controllers/topics.php:254
-#: ../../controllers/topics.php:256
+#: ../../controllers/topics.php:194 ../../controllers/topics.php:291
+#: ../../controllers/topics.php:293
 #, php-format
 msgid "Topic structure is not unique in %s."
 msgstr ""
 
-#: ../../controllers/topics.php:161
+#: ../../controllers/topics.php:197
 #, php-format
 msgid "Topic structure does not exist in %s."
 msgstr ""
 
-#: ../../controllers/topics.php:178
+#: ../../controllers/topics.php:215
 msgid "Show topic: non-existing id passed."
 msgstr ""
 
-#: ../../controllers/topics.php:186 ../../controllers/topics.php:273
+#: ../../controllers/topics.php:223 ../../controllers/topics.php:310
 #, php-format
 msgid "Publications for topic &ldquo;%s&rdquo; %%s"
 msgstr ""
 
-#: ../../controllers/topics.php:214
+#: ../../controllers/topics.php:251 ../../views/topics/full.php:11
 #, php-format
 msgid "Topic: %s"
 msgstr ""
 
-#: ../../controllers/topics.php:268
+#: ../../controllers/topics.php:305
 msgid "Embed topic: non-existing id passed."
 msgstr ""
 
-#: ../../controllers/topics.php:309
+#: ../../controllers/topics.php:346
 msgid "Commit topic: no data to commit."
 msgstr ""
 
-#: ../../controllers/topics.php:321
+#: ../../controllers/topics.php:358
 msgid "Topic Name"
 msgstr ""
 
-#: ../../controllers/topics.php:325
-#: ../../views/accesslevels/editfortopic.php:22
-#: ../../views/accesslevels/editfortopic.php:23 ../../views/topics/clean.php:6
-#: ../../views/topics/clean.php:18
-msgid "Topic"
-msgstr ""
-
-#: ../../controllers/topics.php:341
+#: ../../controllers/topics.php:378
 msgid "Commit topic: an error occurred."
 msgstr ""
 
-#: ../../controllers/topics.php:357
+#: ../../controllers/topics.php:394
 msgid "Collapse topic: non-existing id passed."
 msgstr ""
 
-#: ../../controllers/topics.php:388
+#: ../../controllers/topics.php:425
 msgid "Export topic: non-existing id passed."
 msgstr ""
 
-#: ../../controllers/topics.php:425 ../../controllers/topics.php:461
+#: ../../controllers/topics.php:462 ../../controllers/topics.php:498
 msgid "Exported from topic"
 msgstr ""
 
-#: ../../controllers/topics.php:474
+#: ../../controllers/topics.php:511
 msgid "Topic export"
 msgstr ""
 
@@ -1735,7 +1742,7 @@ msgstr ""
 msgid "Wiki"
 msgstr ""
 
-#: ../../controllers/wiki.php:17 ../../controllers/wiki.php:135
+#: ../../controllers/wiki.php:17 ../../controllers/wiki.php:136
 msgid "Main Page"
 msgstr ""
 
@@ -1752,73 +1759,73 @@ msgstr ""
 msgid "You must be logged in to edit the wiki."
 msgstr ""
 
-#: ../../controllers/wiki.php:52
+#: ../../controllers/wiki.php:53
 msgid "Content"
 msgstr ""
 
-#: ../../controllers/wiki.php:80
+#: ../../controllers/wiki.php:81
 msgid "Could not edit the wiki page. Do you have edit rights?"
 msgstr ""
 
-#: ../../controllers/wiki.php:96
+#: ../../controllers/wiki.php:97
 #, php-format
 msgid "Discussion for &ldquo;%s&rdquo; does not exist yet."
 msgstr ""
 
-#: ../../controllers/wiki.php:101
+#: ../../controllers/wiki.php:102
 #, php-format
 msgid "Discussion: &ldquo;%s&rdquo;"
 msgstr ""
 
-#: ../../controllers/wiki.php:108 ../../controllers/wiki.php:117
+#: ../../controllers/wiki.php:109 ../../controllers/wiki.php:118
 msgid "You must be logged in to view the history of wiki items."
 msgstr ""
 
-#: ../../controllers/wiki.php:121 ../../controllers/wiki.php:179
+#: ../../controllers/wiki.php:122 ../../controllers/wiki.php:180
 #, php-format
 msgid "Wiki » %s"
 msgstr ""
 
-#: ../../controllers/wiki.php:125
+#: ../../controllers/wiki.php:126
 #, php-format
 msgid "Old Version: &ldquo;%s&rdquo;"
 msgstr ""
 
-#: ../../controllers/wiki.php:126
+#: ../../controllers/wiki.php:127
 #, php-format
 msgid "This is an old version of &ldquo;%s&rdquo;. Creation date: %s."
 msgstr ""
 
-#: ../../controllers/wiki.php:132
+#: ../../controllers/wiki.php:133
 msgid "Special pages are viewable for logged in users only."
 msgstr ""
 
-#: ../../controllers/wiki.php:133
+#: ../../controllers/wiki.php:134
 msgid "Wiki » Special page"
 msgstr ""
 
-#: ../../controllers/wiki.php:135
+#: ../../controllers/wiki.php:136
 msgid "Special page"
 msgstr ""
 
-#: ../../controllers/wiki.php:150
+#: ../../controllers/wiki.php:151
 #, php-format
 msgid "Special Page: %s"
 msgstr ""
 
-#: ../../controllers/wiki.php:159
+#: ../../controllers/wiki.php:160
 msgid "View"
 msgstr ""
 
-#: ../../controllers/wiki.php:160
+#: ../../controllers/wiki.php:161
 msgid "Discussion"
 msgstr ""
 
-#: ../../controllers/wiki.php:161
+#: ../../controllers/wiki.php:162
 msgid "Edit"
 msgstr ""
 
-#: ../../controllers/wiki.php:162
+#: ../../controllers/wiki.php:163
 msgid "History"
 msgstr ""
 
@@ -1828,7 +1835,7 @@ msgstr ""
 
 #: ../../errors/error_general.php:24 ../../errors/error_general.php:55
 #: ../../views/error/404.php:13 ../../views/header.php:45
-#: ../../views/menu.php:13 ../../views/publications/edit.php:272
+#: ../../views/menu.php:13 ../../views/publications/edit.php:185
 #: ../../views/search/advanced.php:57 ../../views/search/advanced.php:147
 msgid "Search"
 msgstr ""
@@ -1907,7 +1914,7 @@ msgstr ""
 msgid "Security"
 msgstr ""
 
-#: ../../helpers/checkupdates_helper.php:93 ../../views/topics/edit.php:76
+#: ../../helpers/checkupdates_helper.php:93 ../../views/topics/edit.php:57
 msgid "Description"
 msgstr ""
 
@@ -3379,11 +3386,6 @@ msgstr ""
 msgid "Individual per-object access levels"
 msgstr ""
 
-#: ../../views/accesslevels/editforpublication.php:38
-#: ../../views/publications/single.php:51
-msgid "Publication"
-msgstr ""
-
 #: ../../views/accesslevels/editforpublication.php:76
 #: ../../views/help/attachments.php:3 ../../views/help/header.php:10
 #: ../../views/publications/single.php:330
@@ -3541,11 +3543,11 @@ msgstr ""
 #: ../../views/authors/merge.php:48 ../../views/bookmarklist/ask.php:19
 #: ../../views/groups/edit.php:107 ../../views/notes/delete.php:17
 #: ../../views/notes/edit.php:113 ../../views/publications/delete.php:17
-#: ../../views/publications/edit.php:300 ../../views/repostform.php:22
+#: ../../views/publications/edit.php:209 ../../views/repostform.php:22
 #: ../../views/rightsprofiles/delete.php:20
 #: ../../views/rightsprofiles/edit.php:85 ../../views/site/edit.php:614
 #: ../../views/site/restore.php:52 ../../views/topics/delete.php:17
-#: ../../views/topics/edit.php:105 ../../views/users/delete.php:18
+#: ../../views/topics/edit.php:76 ../../views/users/delete.php:18
 #: ../../views/users/edit.php:495
 msgid "Cancel"
 msgstr ""
@@ -3610,14 +3612,14 @@ msgstr ""
 
 #: ../../views/attachments/edit.php:66 ../../views/authors/edit.php:53
 #: ../../views/groups/edit.php:98 ../../views/notes/edit.php:104
-#: ../../views/publications/edit.php:289
-#: ../../views/rightsprofiles/edit.php:76 ../../views/topics/edit.php:96
+#: ../../views/publications/edit.php:204
+#: ../../views/rightsprofiles/edit.php:76 ../../views/topics/edit.php:74
 msgid "Change"
 msgstr ""
 
 #: ../../views/attachments/summary.php:19
 #: ../../views/attachments/summary.php:28
-#: ../../views/publications/list.php:130 ../../views/publications/list.php:133
+#: ../../views/publications/list.php:133 ../../views/publications/list.php:136
 #: ../../views/publications/listClean.php:185
 #: ../../views/publications/listClean.php:194
 #: ../../views/readapi/publist.php:171 ../../views/readapi/publist.php:180
@@ -3705,8 +3707,8 @@ msgid "Institute"
 msgstr ""
 
 #: ../../views/authors/edit.php:55 ../../views/groups/edit.php:96
-#: ../../views/notes/edit.php:102 ../../views/publications/edit.php:291
-#: ../../views/rightsprofiles/edit.php:74 ../../views/topics/edit.php:94
+#: ../../views/notes/edit.php:102 ../../views/publications/edit.php:206
+#: ../../views/rightsprofiles/edit.php:74 ../../views/topics/edit.php:69
 #: ../../views/users/edit.php:480
 msgid "Add"
 msgstr ""
@@ -3733,7 +3735,7 @@ msgstr ""
 
 #: ../../views/authors/list_items.php:11
 #: ../../views/keywords/list_items.php:54
-#: ../../views/publications/list.php:179
+#: ../../views/publications/list.php:182
 #: ../../views/publications/single.php:205
 #: ../../views/publications/single.php:221 ../../views/readapi/publist.php:124
 #, php-format
@@ -3770,7 +3772,7 @@ msgstr ""
 msgid "Edit this author"
 msgstr ""
 
-#: ../../views/authors/single.php:40 ../../views/topics/edit.php:83
+#: ../../views/authors/single.php:40 ../../views/topics/edit.php:61
 #: ../../views/topics/full.php:46
 msgid "URL"
 msgstr ""
@@ -4028,7 +4030,7 @@ msgid ""
 msgstr ""
 
 #: ../../views/footer.php:36 ../../views/groups/edit.php:54
-#: ../../views/rightsprofiles/edit.php:51 ../../views/topics/edit.php:48
+#: ../../views/rightsprofiles/edit.php:51 ../../views/topics/edit.php:36
 msgid "Name"
 msgstr ""
 
@@ -4112,20 +4114,20 @@ msgstr ""
 msgid "Login (Guest account)"
 msgstr ""
 
-#: ../../views/header.php:63
+#: ../../views/header.php:64
 #, php-format
 msgid "Hello, %s %s"
 msgstr ""
 
-#: ../../views/header.php:65
+#: ../../views/header.php:66
 msgid "Profile"
 msgstr ""
 
-#: ../../views/header.php:68
+#: ../../views/header.php:69
 msgid "Bookmarks"
 msgstr ""
 
-#: ../../views/header.php:71
+#: ../../views/header.php:72
 msgid "Logout"
 msgstr ""
 
@@ -4699,8 +4701,7 @@ msgstr ""
 msgid "Import:"
 msgstr ""
 
-#: ../../views/import/review.php:54 ../../views/publications/edit.php:67
-#: ../../views/publications/review.php:38
+#: ../../views/import/review.php:54 ../../views/publications/review.php:38
 msgid "Citation"
 msgstr ""
 
@@ -4836,139 +4837,138 @@ msgstr ""
 msgid "Are you sure that you want to delete the publication '%s'?"
 msgstr ""
 
-#: ../../views/publications/edit.php:19
-msgid "Special"
+#: ../../views/publications/edit.php:11
+msgid "New Publication"
 msgstr ""
 
-#: ../../views/publications/edit.php:23
+#: ../../views/publications/edit.php:13
+msgid "Edit Publication"
+msgstr ""
+
+#: ../../views/publications/edit.php:17 ../../views/publications/single.php:66
+msgid "Type of publication:"
+msgstr ""
+
+#: ../../views/publications/edit.php:21
+msgid "Title:"
+msgstr ""
+
+#: ../../views/publications/edit.php:25 ../../views/publications/single.php:70
+msgid "Citation:"
+msgstr ""
+
+#: ../../views/publications/edit.php:38 ../../views/publications/single.php:82
+msgid "Key"
+msgstr ""
+
+#: ../../views/publications/edit.php:38
+msgid "This is the bibtex &ldquo;key&rdquo; field, used to define sorting keys"
+msgstr ""
+
+#: ../../views/publications/edit.php:45
+msgid "This field might not be used by BibTeX for this publication type"
+msgstr ""
+
+#: ../../views/publications/edit.php:56 ../../views/publications/edit.php:62
+msgid "Complex"
+msgstr ""
+
+#: ../../views/publications/edit.php:57 ../../views/publications/edit.php:61
+msgid "Simple"
+msgstr ""
+
+#: ../../views/publications/edit.php:68
 msgid ""
 "In the input field below, you can enter a month using bibtex codes "
 "containing things such as the default month abbreviations. Do not forget to "
 "use outer braces or quotes for literal strings."
 msgstr ""
 
-#: ../../views/publications/edit.php:23
-msgid "Examples"
+#: ../../views/publications/edit.php:70
+msgid "Examples:"
 msgstr ""
 
-#: ../../views/publications/edit.php:23
+#: ../../views/publications/edit.php:71
 msgid "Between January and May"
 msgstr ""
 
-#: ../../views/publications/edit.php:23
-msgid "optional field"
+#: ../../views/publications/edit.php:116
+#: ../../views/publications/single.php:191 ../../views/topics/full.php:70
+msgid "Keywords:"
 msgstr ""
 
-#: ../../views/publications/edit.php:23
-msgid "optional"
-msgstr ""
-
-#: ../../views/publications/edit.php:23
-msgid "Simple"
-msgstr ""
-
-#: ../../views/publications/edit.php:30
-msgid "New Publication"
-msgstr ""
-
-#: ../../views/publications/edit.php:34
-msgid "Edit Publication"
-msgstr ""
-
-#: ../../views/publications/edit.php:56
-msgid "Type of publication"
-msgstr ""
-
-#: ../../views/publications/edit.php:60 ../../views/sort.php:9
-msgid "Title"
-msgstr ""
-
-#: ../../views/publications/edit.php:83 ../../views/publications/single.php:82
-msgid "Key"
-msgstr ""
-
-#: ../../views/publications/edit.php:83
-msgid "This is the bibtex `key` field, used to define sorting keys"
-msgstr ""
-
-#: ../../views/publications/edit.php:93
-msgid "This field might not be used by BibTeX for this publication type"
-msgstr ""
-
-#: ../../views/publications/edit.php:120 ../../views/publications/edit.php:130
-#: ../../views/publications/edit.php:142 ../../views/publications/edit.php:193
-#: ../../views/publications/review.php:39
-#: ../../views/publications/review.php:74
-#, php-format
-msgid "%s field"
-msgstr ""
-
-#: ../../views/publications/edit.php:229 ../../views/publications/edit.php:256
+#: ../../views/publications/edit.php:142 ../../views/publications/edit.php:169
 msgid "add"
 msgstr ""
 
-#: ../../views/publications/edit.php:230 ../../views/publications/edit.php:257
+#: ../../views/publications/edit.php:143 ../../views/publications/edit.php:170
 msgid "rem"
 msgstr ""
 
-#: ../../views/publications/edit.php:236 ../../views/publications/edit.php:263
+#: ../../views/publications/edit.php:149 ../../views/publications/edit.php:176
 msgid "up"
 msgstr ""
 
-#: ../../views/publications/edit.php:237 ../../views/publications/edit.php:264
+#: ../../views/publications/edit.php:150 ../../views/publications/edit.php:177
 msgid "down"
 msgstr ""
 
-#: ../../views/publications/edit.php:240
+#: ../../views/publications/edit.php:153
 msgid "Editors"
 msgstr ""
 
-#: ../../views/publications/edit.php:271
+#: ../../views/publications/edit.php:184
 msgid "Create as new name"
 msgstr ""
 
-#: ../../views/publications/edit.php:272
+#: ../../views/publications/edit.php:185
 msgid "Type in name to quick search. Note: use unaccented letters!"
 msgstr ""
 
-#: ../../views/publications/list.php:86
+#: ../../views/publications/list.php:89
 #: ../../views/publications/listClean.php:65
 #: ../../views/readapi/publist.php:69
 #, php-format
 msgid "Publications of type %s"
 msgstr ""
 
-#: ../../views/publications/list.php:117
+#: ../../views/publications/list.php:120
 #: ../../views/publications/single.php:24
 msgid "remove from bookmark list"
 msgstr ""
 
-#: ../../views/publications/list.php:122
+#: ../../views/publications/list.php:125
 #: ../../views/publications/single.php:29
 msgid "add to bookmark list"
 msgstr ""
 
-#: ../../views/publications/list.php:142 ../../views/readapi/publist.php:187
+#: ../../views/publications/list.php:145 ../../views/readapi/publist.php:187
 msgid "Click to follow Digital Object Identifier link to online publication"
 msgstr ""
 
-#: ../../views/publications/list.php:165 ../../views/publications/list.php:190
+#: ../../views/publications/list.php:168 ../../views/publications/list.php:193
 #: ../../views/publications/listClean.php:120
 #: ../../views/publications/single.php:117 ../../views/readapi/publist.php:110
 #: ../../views/readapi/publist.php:132
 msgid "View publication details"
 msgstr ""
 
-#: ../../views/publications/list.php:172
+#: ../../views/publications/list.php:175
 msgid " and "
 msgstr ""
 
-#: ../../views/publications/list.php:174 ../../views/publications/list.php:186
+#: ../../views/publications/list.php:177 ../../views/publications/list.php:189
 msgid ", "
 msgstr ""
 
 #: ../../views/publications/listClean.php:86
 msgid "Master theses"
+msgstr ""
+
+#: ../../views/publications/review.php:39
+#: ../../views/publications/review.php:74
+#, php-format
+msgid "%s field"
 msgstr ""
 
 #: ../../views/publications/single.php:16
@@ -5026,14 +5026,6 @@ msgstr ""
 msgid "Publication details"
 msgstr ""
 
-#: ../../views/publications/single.php:66
-msgid "Type of publication:"
-msgstr ""
-
-#: ../../views/publications/single.php:70
-msgid "Citation:"
-msgstr ""
-
 #: ../../views/publications/single.php:82
 msgid "This is the BibTeX &ldquo;key&rdquo; field used to define sorting keys"
 msgstr ""
@@ -5054,10 +5046,6 @@ msgstr ""
 
 #: ../../views/publications/single.php:155
 msgid "(ed)"
-msgstr ""
-
-#: ../../views/publications/single.php:191 ../../views/topics/full.php:70
-msgid "Keywords:"
 msgstr ""
 
 #: ../../views/publications/single.php:200
@@ -5294,8 +5282,10 @@ msgstr ""
 msgid "Search term"
 msgstr ""
 
-#: ../../views/search/external.php:76
-msgid "This form allows you to search external websites."
+#: ../../views/search/external.php:56
+msgid ""
+"This form allows you to search external websites. Searches will open in new "
+"windows."
 msgstr ""
 
 #: ../../views/search/results.php:6
@@ -5924,6 +5914,10 @@ msgstr ""
 msgid "%s main topics"
 msgstr ""
 
+#: ../../views/sort.php:9
+msgid "Title"
+msgstr ""
+
 #: ../../views/sort.php:10
 msgid "Type/Journal"
 msgstr ""
@@ -5949,16 +5943,16 @@ msgstr ""
 msgid "Are you sure that you want to delete topic \"%s\"?"
 msgstr ""
 
-#: ../../views/topics/edit.php:40
+#: ../../views/topics/edit.php:28
 msgid "Add a topic"
 msgstr ""
 
-#: ../../views/topics/edit.php:42
+#: ../../views/topics/edit.php:30
 #, php-format
-msgid "Change topic \"%s\""
+msgid "Change topic &ldquo;%s&rdquo;"
 msgstr ""
 
-#: ../../views/topics/edit.php:54
+#: ../../views/topics/edit.php:40
 msgid "Parent"
 msgstr ""
 
