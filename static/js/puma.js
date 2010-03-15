@@ -145,7 +145,7 @@ window._ = gettext;
     $('#ask_name').focus(function () { if (this.value == 'Name') { this.value=""; } });
     $('#ask_email').focus(function () { if (/^[eE].?[Mm]ail$/.test(this.value)) { this.value=""; } });
     $('p + p').addClass("after_p");
-    $('fieldset p:not(.note):not(.ui-helper-hidden):odd').addClass('even');
+    $('fieldset > *:not(.note):not(.ui-helper-hidden):odd').addClass('even');
     $('.datatable tr:odd').addClass('even');
     $('.datatable tr th:first-child').addClass('first');
     $('.half + *:not(.half)').css('clear', 'left');

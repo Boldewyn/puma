@@ -1119,6 +1119,17 @@ fieldset.extralarge_input input.text {
   width: 71em;
 }
 
+.half .pseudobutton.extended_input,
+.half textarea.extended_input,
+.half select.extended_input,
+.half input.extended_input {
+  width: 23.6667em;
+}
+
+.half select.extended_input {
+  width: 21.6667em;
+}
+
 .pseudobutton.extended_input,
 textarea.extended_input,
 select.extended_input,
@@ -1244,6 +1255,10 @@ form .note {
   margin-left: 19.18182em;
 }
 
+form .inline_note {
+  margin: 0;
+}
+
 *.pseudolink {
   background: none;
   border: 0;
@@ -1263,15 +1278,21 @@ form p {
   overflow: hidden;
 }
 
+#container fieldset div,
+#container fieldset p {
+  margin: .25em 0;
+}
+
 .datatable tr.even th,
 .datatable tr.even td,
+fieldset div.even,
 fieldset p.even {
   background: #d6e4e6;
 }
 
+fieldset div.even,
 fieldset p.even {
-  background: #d6e4e6;
-  padding: .83333em 0;
+  padding: .25em 0;
 }
 
 .brick {

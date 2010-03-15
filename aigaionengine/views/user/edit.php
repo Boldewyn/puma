@@ -23,33 +23,33 @@
       <legend><?php _e('Account settings')?></legend>
       <p>
         <label class="block" for="user_edit_initials"><?php _e('Initials')?></label>
-        <input type="text" class="text" name="initials" id="user_edit_initials"
+        <input type="text" class="short_input text" name="initials" id="user_edit_initials"
               size="5" value="<?php _h($user->initials)?>" />
       </p>
       <p>
         <label class="block" for="user_edit_firstname"><?php _e('First name')?></label>
-        <input type="text" class="text" name="firstname" id="user_edit_firstname"
+        <input type="text" class="extended_input text" name="firstname" id="user_edit_firstname"
               size="5" value="<?php _h($user->firstname)?>" />
       </p>
       <p>
         <label class="block" for="user_edit_betweenname"><?php _e('Middle name')?></label>
-        <input type="text" class="text" name="betweenname" id="user_edit_betweenname"
+        <input type="text" class="extended_input text" name="betweenname" id="user_edit_betweenname"
               size="5" value="<?php _h($user->betweenname)?>" />
       </p>
       <p>
         <label class="block" for="user_edit_surname"><?php _e('Surname')?></label>
-        <input type="text" class="text" name="surname" id="user_edit_surname"
+        <input type="text" class="extended_input text" name="surname" id="user_edit_surname"
               size="5" value="<?php _h($user->surname)?>" />
       </p>
       <p>
         <label class="block" for="user_edit_abbreviation"><?php _e('Abbreviation')?></label>
-        <input type="text" class="text" name="abbreviation" id="user_edit_abbreviation"
+        <input type="text" class="extended_input text" name="abbreviation" id="user_edit_abbreviation"
               size="5" value="<?php _h($user->abbreviation)?>" />
-        <span class="note"><?php _e("This is not your login name, but the name others will see in the ‘Who created this’ fields.")?></span>
+        <span class="note"><?php _e('This is not your login name, but the name others will see in the ‘Who created this’ fields.')?></span>
       </p>
       <p class="extended_input">
         <label class="block" for="user_edit_email"><?php _e('Email address')?></label>
-        <input type="text" class="text" name="email" id="user_edit_email"
+        <input type="text" class="extended_input text" name="email" id="user_edit_email"
               size="5" value="<?php _h($user->email)?>" />
       </p>
     </fieldset>

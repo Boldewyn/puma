@@ -12,19 +12,24 @@ $isAddForm = $edit_type=='add';
     } else {
         _e('Edit Publication');
     } ?></h2>
-  <?php echo form_open('publications/commit', array('id' => 'publication_'.$publication->pub_id.'_edit', 'class' => 'block')) ?>
+  <?php echo form_open('publications/commit', array('id' => 'publication_edit_form', 'class' => 'block')) ?>
     <fieldset class="half">
     <p>
       <label for="publication_edit_pub_type"><?php _e('Type of publication:') ?></label>
-      <?php echo form_dropdown('pub_type', getPublicationTypes(), $publication->pub_type, 'id="publication_edit_pub_type"') ?>
+      <?php echo form_dropdown('pub_type', getPublicationTypes(), $publication->pub_type, 'id="publication_edit_pub_type" class="extended_input"') ?>
+      <script type="text/javascript">
+      $('#publication_edit_pub_type').change(function () {
+        $('#publication_edit_form :input').removeClass('required');
+      });
+      </script>
     </p>
     <p>
       <label for="publication_edit_title"><?php _e('Title:') ?></label>
-      <input type="text" class="required text" name="title" id="publication_edit_title" value="<?php _h($publication->title)?>" />
+      <input type="text" class="required extended_input text" name="title" id="publication_edit_title" value="<?php _h($publication->title)?>" />
     </p>
     <p>
       <label for="publication_edit_bibtex_id"><?php _e('Citation:') ?></label>
-      <input type="text" class="text" name="bibtex_id" id="publication_edit_bibtex_id" value="<?php _h($publication->bibtex_id) ?>" />
+      <input type="text" class="text extended_input" name="bibtex_id" id="publication_edit_bibtex_id" value="<?php _h($publication->bibtex_id) ?>" />
     </p>
     <?php 
     $capitalfields = getCapitalFieldArray();
@@ -53,45 +58,34 @@ $isAddForm = $edit_type=='add';
           $markup = 'div';
           $month = $publication->month;
           if (array_key_exists($month,getMonthsInternal())) {
-              $simple_style = '';
-              $complex_style = 'style="display:none"';
-              $buttonlabel = __('Complex');
-              $altbuttonlabel = __('Simple');
+              $simple_style = 'style="clear:none;"';
+              $complex_style = 'style="display:none; clear:none;"';
           } else {
-              $simple_style = 'style="display:none"';
-              $complex_style = '';
-              $buttonlabel = __('Simple');
-              $altbuttonlabel = __('Complex');
+              $simple_style = 'style="display:none; clear:none;"';
+              $complex_style = 'style="clear:none;"';
           }
           $valCol .= '<div id="publication_edit_month">
               <p id="monthbox_simple" '.$simple_style.'>'.
                   form_dropdown('month', getMonthsInternalNoQuotes(), formatMonthBibtexForEdit($publication->month)).
-              '</p>
-              <div id="monthbox_complex" '.$complex_style.'><p>'.__('In the input field below, you can enter a month '.
+                  ' <button type="button" onclick="$(\'#monthbox_simple\').hide();$(\'#monthbox_complex\').show();">'.__('Complex').'</button>
+              </p>
+              <p id="monthbox_complex" '.$complex_style.'>
+                <input type="text" class="optional text" name="month" id="month" value="'.formatMonthBibtexForEdit($publication->month).'"/>
+                <button type="button" onclick="$(\'#monthbox_complex\').hide();$(\'#monthbox_simple\').show();">'.__('Simple').'</button><br/>
+                <span class="inline_note note">'.__('In the input field above, you can enter a month '.
                   'using bibtex codes containing things such as the default month abbreviations. '.
                   'Do not forget to use outer braces or quotes for literal strings.').'<br/>'.__('Examples:').
-                '</p><ul><li>aug</li><li>nov#{~1st}</li><li>{'.__('Between January and May').'}</li></ul>
-                    <input type="text" class="optional text" name="month" id="month" value="'.formatMonthBibtexForEdit($publication->month).'"/>
-                </div>
-              <button type="button" id="publications_edit_monthtoggler">'.$buttonlabel.'</button>
-              <script type="text/javascript">
-                  $("#publications_edit_monthtoggler").toggle(function () {
-                    $(this).text("'.$altbuttonlabel.'");
-                    $("#monthbox_simple, #monthbox_complex").toggle();
-                  }, function () {
-                    $(this).text("'.$buttonlabel.'");
-                    $("#monthbox_simple, #monthbox_complex").toggle();
-                  });
-              </script>
+                ' <code>aug</code>, <code>nov#{~1st}</code>, <code>{'.__('Between January and May').'}</code></span>
+              </p>
             </div>';
         } else if ($key == 'pages') {
-            $valCol .= '<input type="text" class="'.$class.' text" 
+            $valCol .= '<input type="text" class="'.$class.' extended_input text" 
                          name="pages" id="publication_edit_pages" 
                          value="'.h($publication->pages).'"/>';
         } elseif ($key == 'abstract' || $key == 'userfields') {
-            $valCol .= '<textarea class="'.h($class).'" name="'.$key.'" id="publication_edit_'.$key.'" cols="87" rows="3">'.h($publication->$key).'</textarea>';
+            $valCol .= '<textarea class="extended_input '.h($class).'" name="'.$key.'" id="publication_edit_'.$key.'" cols="87" rows="3">'.h($publication->$key).'</textarea>';
         } else {
-            $valCol .= '<input type="text" class="'.$class.' text" name="'.h($key).
+            $valCol .= '<input type="text" class="extended_input '.$class.' text" name="'.h($key).
                        '" id="publication_edit_'.h($key).'" value="'.
                        h($publication->$key).'" />';
         }
@@ -121,7 +115,7 @@ $isAddForm = $edit_type=='add';
 ?>      
       <p>
         <label for="publication_edit_keywords"><?php _e('Keywords:') ?></label>
-        <input type="text" class="optional text" name="keywords" id="publication_edit_keywords" value="<?php _h($keywords) ?>" />
+        <input type="text" class="optional extended_input text" name="keywords" id="publication_edit_keywords" value="<?php _h($keywords) ?>" />
         <?php /*echo $this->ajax->auto_complete_field('keywords', $options = array('url' => base_url().'index.php/keywords/li_keywords/', 'update' => 'keyword_autocomplete', 'tokens' => array(",", ";"), 'frequency' => '0.01'))."\n";*/?>
       </p>
     </fieldset>
