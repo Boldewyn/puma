@@ -238,6 +238,19 @@ class Publications extends Controller {
     }
 
     /*
+     * Get required/hidden/optional fields for a certain pubtype
+     */
+    function fields($pubtype) {
+        $fields = getPublicationFieldArray($pubtype);
+        $output = array();
+        foreach ($fields as $key => $value) {
+            $output[] = '"'.$key.'":"'.$value.'"';
+        }
+        $this->output->set_header('Content-Type: application/json; charset=utf-8');
+        $this->output->set_output('{'.join(',',$output).'}');
+    }
+
+    /*
      * Call publication import page
      * DR: is this controller ever called?
      */

@@ -222,8 +222,8 @@ window._ = gettext;
       else
         tinyMCE.execCommand('mceRemoveControl', false, id);
     }
-  }
-
+  };
+  
 })(jQuery);
 
 

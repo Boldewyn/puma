@@ -19,7 +19,22 @@ $isAddForm = $edit_type=='add';
       <?php echo form_dropdown('pub_type', getPublicationTypes(), $publication->pub_type, 'id="publication_edit_pub_type" class="extended_input"') ?>
       <script type="text/javascript">
       $('#publication_edit_pub_type').change(function () {
-        $('#publication_edit_form :input').removeClass('required');
+        $.getJSON(config.base_url+"publications/fields/"+$(this).val(), function (data) {
+          var key, val;
+          $('#publication_edit_form :input').removeClass('required')
+            .removeClass('hidden').removeClass('optional').removeClass('optional');
+          $('#publication_edit_form p').removeClass('ui-helper-hidden');
+          for (key in data) {
+            val = data[key];
+            $('#publication_edit_'+key).addClass(val);
+            if (val == 'hidden' && $('#publication_edit_'+key).val() == '') {
+              $('#publication_edit_'+key).parent().addClass('ui-helper-hidden');
+            }
+          }
+          $('#publication_edit_title').addClass('required');
+          $('fieldset > *.even').removeClass('even');
+          $('fieldset > *:not(.note):not(.ui-helper-hidden):odd').addClass('even');
+        });
       });
       </script>
     </p>
