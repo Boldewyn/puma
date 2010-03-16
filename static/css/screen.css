@@ -1283,6 +1283,11 @@ form p {
   margin: .25em 0;
 }
 
+fieldset.disguised {
+  border: none;
+  padding: 0;
+}
+
 .datatable tr.even th,
 .datatable tr.even td,
 fieldset div.even,

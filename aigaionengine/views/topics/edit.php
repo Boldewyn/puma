@@ -32,6 +32,7 @@ if ($isAddForm) : ?>
 //validation feedback
 echo $this->validation->error_string;
 ?>
+  <fieldset class="disguised">
     <p>
       <label class="block" for="topics_edit_name"><?php echo __('Name');?></label>
       <input type="text" class="text" name="name" id="topics_edit_name" value="<?php _h($topic->name) ?>" />
@@ -60,7 +61,8 @@ echo $this->validation->error_string;
     <p>
       <label class="block" for="topics_edit_url"><?php echo __('URL');?></label>
       <input type="text" class="text" name="url" id="topics_edit_url" value="<?php _h($topic->url) ?>" />
-  </p>    
+  </p>
+  </fieldset>
   <p>
     <input type="hidden" name="formname" value="topic" />
     <?php if ($isAddForm) : ?>

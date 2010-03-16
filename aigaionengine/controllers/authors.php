@@ -211,6 +211,17 @@ class Authors extends Controller {
             $edit_type = $this->input->post('edit_type');
         }
         
+        $this->load->vars(array(
+            'subnav' => array(
+                '/import/' => __('Import'),
+                '/publications/add' => __('Publication'),
+                '/topics/add' => __('Topic'),
+                '/authors/add' => __('Author'),
+                '/keywords/add' => __('Tag'),
+            ),
+            'subnav_current' => '/authors/add',
+            'nav_current' => 'create',
+        ));
         $this->load->view('header', array('title' => $title));
         $this->load->view('authors/edit', array(
             'edit_type' => $edit_type,

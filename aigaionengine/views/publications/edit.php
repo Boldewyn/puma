@@ -1,6 +1,18 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); 
 
 $publicationfields  = getPublicationFieldArray($publication->pub_type);
+
+$authors = array();
+$editors = array();
+foreach($publication->authors as $autor) {
+  $authors[] = $author->author_id;
+}
+foreach($publication->editors as $editor) {
+  $editors[] = $editor->author_id;
+}
+$authors = join(',', $authors);
+$editors = join(',', $editors);
+
 $userlogin          = getUserLogin();
 $user               = $this->user_db->getByID($userlogin->userID());
 $this->load->helper('translation');
@@ -12,6 +24,7 @@ $isAddForm = $edit_type=='add';
     } else {
         _e('Edit Publication');
     } ?></h2>
+  <p class="note"><?php _e('Fields with a red border are required.')?></p>
   <?php echo form_open('publications/commit', array('id' => 'publication_edit_form', 'class' => 'block')) ?>
     <fieldset class="half">
     <p>
@@ -73,26 +86,33 @@ $isAddForm = $edit_type=='add';
           $markup = 'div';
           $month = $publication->month;
           if (array_key_exists($month,getMonthsInternal())) {
-              $simple_style = 'style="clear:none;"';
-              $complex_style = 'style="display:none; clear:none;"';
+              $simple_style = '';
+              $complex_style = 'display:none;';
           } else {
-              $simple_style = 'style="display:none; clear:none;"';
-              $complex_style = 'style="clear:none;"';
+              $simple_style = 'display:none;';
+              $complex_style = '';
           }
           $valCol .= '<div id="publication_edit_month">
-              <p id="monthbox_simple" '.$simple_style.'>'.
-                  form_dropdown('month', getMonthsInternalNoQuotes(), formatMonthBibtexForEdit($publication->month)).
-                  ' <button type="button" onclick="$(\'#monthbox_simple\').hide();$(\'#monthbox_complex\').show();">'.__('Complex').'</button>
+              <p id="monthbox_simple" style="clear:none;'.$simple_style.'">'.
+                  form_dropdown($simple_style?'':'month', getMonthsInternalNoQuotes(), formatMonthBibtexForEdit($publication->month)).
+                  ' <button type="button" onclick="toggleMonth(\'simple\',\'complex\')">'.__('Complex').'</button>
               </p>
-              <p id="monthbox_complex" '.$complex_style.'>
-                <input type="text" class="optional text" name="month" id="month" value="'.formatMonthBibtexForEdit($publication->month).'"/>
-                <button type="button" onclick="$(\'#monthbox_complex\').hide();$(\'#monthbox_simple\').show();">'.__('Simple').'</button><br/>
+              <p id="monthbox_complex" style="clear:none;'.$complex_style.'">
+                <input type="text" class="optional text" name="'.($complex_style?'':'month').'"
+                  id="month" value="'.formatMonthBibtexForEdit($publication->month).'"/>
+                <button type="button" onclick="toggleMonth(\'complex\',\'simple\')">'.__('Simple').'</button><br/>
                 <span class="inline_note note">'.__('In the input field above, you can enter a month '.
                   'using bibtex codes containing things such as the default month abbreviations. '.
                   'Do not forget to use outer braces or quotes for literal strings.').'<br/>'.__('Examples:').
                 ' <code>aug</code>, <code>nov#{~1st}</code>, <code>{'.__('Between January and May').'}</code></span>
               </p>
-            </div>';
+            </div>
+            <script type="text/javascript">
+            function toggleMonth (v1, v2) {
+              $("#monthbox_"+v1).hide().find("select, input").removeAttr("name");
+              $("#monthbox_"+v2).show().find("select, input").attr("name", "month");
+            }
+            </script>';
         } else if ($key == 'pages') {
             $valCol .= '<input type="text" class="'.$class.' extended_input text" 
                          name="pages" id="publication_edit_pages" 
@@ -148,23 +168,24 @@ $isAddForm = $edit_type=='add';
                   <select name='selectedauthors' id='selectedauthors' style='width:100%;' size='5'>
                     <?php if (is_array($publication->authors)) {
                         foreach ($publication->authors as $author) {
-                            echo "<option value=".$author->author_id.">".$author->getName('vlf')."</option>\n";
+                            echo '<option value='.$author->author_id.'>'.$author->getName('vlf').'</option>';
                         }
                     } ?>
                   </select>
+                  <input type="hidden" name="pubform_authors" id="pubform_authors" value="<?php _h($authors) ?>" />
                 </td>
               </tr>
               <tr>
                 <td colspan="2">
-                  <?php _a('#', icon('go-up', __('up')), 'onclick="AuthorUp()"') ?>
-                  <?php _a('#', icon('go-down', __('down')), 'onclick="AuthorDown()"') ?>
+                  <?php _a('#', icon('go-up', ''), 'onclick="AuthorUp()" title="'.__('up').'"') ?>
+                  <?php _a('#', icon('go-down', ''), 'onclick="AuthorDown()" title="'.__('down').'"') ?>
                 </td>
               </tr>
             </table>
           </td>
           <td>
-            <?php _a('#', icon('go-previous', __('add')), 'onclick="AddAuthor()"') ?><br/>
-            <?php _a('#', icon('go-next', __('rem')), 'onclick="RemoveAuthor()"') ?>
+            <?php _a('#', icon('go-previous', ''), 'onclick="AddAuthor()" title="'.__('add').'"') ?><br/>
+            <?php _a('#', icon('go-next', ''), 'onclick="RemoveAuthor()" title="'.__('remove').'"') ?>
           </td>
           <td rowspan="2" style="width:45%">
             <?php _e('Search:') ?> <input title="<?php _e('Type in name to quick search. Note: use unaccented letters!');?>" type='text' onkeyup='AuthorSearch();' name='authorinputtext' id='authorinputtext' />
@@ -183,26 +204,40 @@ $isAddForm = $edit_type=='add';
                   <select name='selectededitors' id='selectededitors' style='width: 100%;' size='5'>
                     <?php if (is_array($publication->editors)) {
                         foreach ($publication->editors as $editor) {
-                            echo "<option value=".$editor->author_id.">".$editor->getName('vlf')."</option>\n";
+                            echo '<option value='.$editor->author_id.'>'.$editor->getName('vlf').'</option>';
                         }
                     } ?>
                   </select>
+                  <input type="hidden" name="pubform_editors" id="pubform_editors" value="<?php _h($editors) ?>" />
                 </td>
               </tr>
               <tr>
                 <td>
-                  <?php _a('#', icon('go-up', __('up')), 'onclick="EditorUp()"') ?>
-                  <?php _a('#', icon('go-down', __('down')), 'onclick="EditorDown()"') ?>
+                  <?php _a('#', icon('go-up', ''), 'onclick="EditorUp()" title="'.__('up').'"') ?>
+                  <?php _a('#', icon('go-down', ''), 'onclick="EditorDown()" title="'.__('down').'"') ?>
                 </td>
               </tr>
             </table>
           </td>
           <td>
-            <?php _a('#', icon('go-previous', __('add')), 'onclick="AddEditor()"') ?><br/>
-            <?php _a('#', icon('go-next', __('rem')), 'onclick="RemoveEditor()"') ?>
+            <?php _a('#', icon('go-previous', ''), 'onclick="AddEditor()" title="'.__('add').'"') ?><br/>
+            <?php _a('#', icon('go-next', ''), 'onclick="RemoveEditor()" title="'.__('remove').'"') ?>
           </td>
         </tr>
       </table>
+      <script type="text/javascript">
+      function AddEditor() {
+        $('#authorinputselect option:selected').each(function () {
+          $(this).clone().appendTo($('#selectededitors'));
+          var cur = $('#pubform_editors').val();
+          if (cur.length) {
+            $('#pubform_editors').val(cur+','+$(this).val());
+          } else {
+            $('#pubform_editors').val($(this).val());
+          }
+        });
+      };
+      </script>
     </fieldset>
     <p>
       <input type="hidden" name="edit_type" value="<?php _h($edit_type)?>" />
@@ -210,8 +245,6 @@ $isAddForm = $edit_type=='add';
       <input type="hidden" name="user_id" value="<?php _h($publication->user_id)?>" />
       <input type="hidden" name="submit_type" value="submit" />
       <input type="hidden" name="formname" value="publication" />
-      <input type="hidden" name="pubform_authors" id="pubform_authors" value="" />
-      <input type="hidden" name="pubform_editors" id="pubform_editors" value="" />
       <input type="submit" class="submit standard_input" value="<?php $edit_type=='edit'? _e('Change') : _e('Add') ?>" />
       <?php _a($edit_type=='edit'? 'publications/show/'.$publication->pub_id : '', __('Cancel'), 'class="pseudobutton standard_input"') ?>
     </p>
