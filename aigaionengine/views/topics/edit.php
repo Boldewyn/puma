@@ -12,7 +12,6 @@ if $topic is not null, but $action == 'add', the edit form will be restyled as a
 pre filled 'add new topic' form
 */
 
-echo form_open('topics/commit', array('class'=>'extended_input'));
 $isAddForm = False;
 $userlogin  = getUserLogin();
 $user       = $this->user_db->getByID($userlogin->userID());
@@ -23,19 +22,18 @@ if (!isset($topic)||($topic==null)||(isset($action)&&$action=='add')) {
         $topic = new Topic;
 }
 
-
-if ($isAddForm) : ?>
-    <h2><?php _e('Add a topic') ?></h2>
-<?php else: ?>
-    <h2><?php printf(__('Change topic &ldquo;%s&rdquo;'), $topic->name) ?></h2>
-<?php endif;
-//validation feedback
-echo $this->validation->error_string;
 ?>
+<form method="post" action="<?php echo base_url()?>topics/commit">
+  <?php if ($isAddForm) : ?>
+    <h2><?php _e('Add a topic') ?></h2>
+  <?php else: ?>
+    <h2><?php printf(__('Change topic &ldquo;%s&rdquo;'), $topic->name) ?></h2>
+  <?php endif;
+  echo $this->validation->error_string; ?>
   <fieldset class="disguised">
     <p>
       <label class="block" for="topics_edit_name"><?php echo __('Name');?></label>
-      <input type="text" class="text" name="name" id="topics_edit_name" value="<?php _h($topic->name) ?>" />
+      <input type="text" class="extended_input text" name="name" id="topics_edit_name" value="<?php _h($topic->name) ?>" />
     </p>
     <p>
       <label class="block" for="topics_edit_parent_id"><?php echo __('Parent');?></label>
@@ -43,25 +41,24 @@ echo $this->validation->error_string;
         $config = array('onlyIfUserSubscribed'=>True,
                         'includeGroupSubscriptions'=>True,
                         'user'=>$user);
-        $parent_id = (isset($parent))? $parent->topic_id : $parent_id = $topic->parent_id;
-        echo $this->load->view('topics/optiontree',
+        $this->load->view('topics/optiontree',
                        array('topics'   => $this->topic_db->getByID(1,$config),
                             'showroot'  => True,
                             'depth'     => -1,
-                            'selected'  => $parent_id,
+                            'selected'  => (isset($parent))? $parent->topic_id : $topic->parent_id,
                             'id'        => 'topics_edit_parent_id',
-                            ),  
-                       true);
+                            'add'       => 'class="extended_input"',
+                            ));
        ?>
     </p>
     <p>
       <label class="block" for='topics_edit_description'><?php echo __('Description');?></label>
-      <textarea name="description" id="topics_edit_description" rows="7" cols="70"><?php _h($topic->description) ?></textarea>
+      <textarea name="description" id="topics_edit_description" rows="7" cols="70" class="extended_input"><?php _h($topic->description) ?></textarea>
     </p>
     <p>
       <label class="block" for="topics_edit_url"><?php echo __('URL');?></label>
-      <input type="text" class="text" name="url" id="topics_edit_url" value="<?php _h($topic->url) ?>" />
-  </p>
+      <input type="text" class="text extended_input" name="url" id="topics_edit_url" value="<?php _h($topic->url) ?>" />
+    </p>
   </fieldset>
   <p>
     <input type="hidden" name="formname" value="topic" />

@@ -13,6 +13,7 @@
     if (!isset($selected))$selected = 1;
     if (!isset($dropdownname))$dropdownname = 'parent_id';
     if (!isset($header))$header = '';
+    if (!isset($add))$add = '';
     
     $todo = array();
     if (isset($topics)) {
@@ -63,8 +64,7 @@
         }
          //reindex
     }    
-    $add = '';
-    if (isset($id)) { $add = 'id="'.$id.'"'; }
+    if (isset($id)) { $add .= ' id="'.$id.'"'; }
     echo form_dropdown($dropdownname,$options,$selected, $add);
     
 ?>

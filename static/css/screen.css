@@ -1224,6 +1224,7 @@ button:hover,
 input.button:hover,
 input.submit:hover {
   background-position: left -.8333em;
+  color: white;
 }
 
 .pseudobutton:active,
@@ -1231,6 +1232,7 @@ button:active,
 input.button:active,
 input.submit:active {
   background-position: left bottom;
+  color: white;
 }
 
 

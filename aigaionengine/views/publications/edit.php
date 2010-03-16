@@ -184,13 +184,18 @@ $isAddForm = $edit_type=='add';
             </table>
           </td>
           <td>
-            <?php _a('#', icon('go-previous', ''), 'onclick="AddAuthor()" title="'.__('add').'"') ?><br/>
-            <?php _a('#', icon('go-next', ''), 'onclick="RemoveAuthor()" title="'.__('remove').'"') ?>
+            <?php _a('#', icon('go-previous', ''), 'id="publication_edit_add_author" title="'.__('add').'"') ?><br/>
+            <?php _a('#', icon('go-next', ''), 'id="publication_edit_remove_author" title="'.__('remove').'"') ?>
           </td>
           <td rowspan="2" style="width:45%">
-            <?php _e('Search:') ?> <input title="<?php _e('Type in name to quick search. Note: use unaccented letters!');?>" type='text' onkeyup='AuthorSearch();' name='authorinputtext' id='authorinputtext' />
+            <?php _e('Search:') ?> <input title="<?php _e('Type in name to quick search. Note: use unaccented letters!');?>" type='text' id='authorinputtext' />
             [<a href="#" onclick="AddNewAuthor(); return false;"><?php _e('Create as new name') ?></a>]<br/>
-            <select style='width:22em;' size='12' name='authorinputselect' id='authorinputselect'></select>
+            <select size="12" id="authorinputselect">
+              <?php $Q = $this->db->orderby('cleanname')->get("author");
+                foreach ($Q->result() as $author):?>
+                  <option value="<?php echo $author->author_id ?>"><?php _h($author->cleanname) ?></option>
+              <?php endforeach; ?>
+            </select>
           </td>
         </tr>
         <tr>
@@ -220,23 +225,59 @@ $isAddForm = $edit_type=='add';
             </table>
           </td>
           <td>
-            <?php _a('#', icon('go-previous', ''), 'onclick="AddEditor()" title="'.__('add').'"') ?><br/>
-            <?php _a('#', icon('go-next', ''), 'onclick="RemoveEditor()" title="'.__('remove').'"') ?>
+            <?php _a('#', icon('go-previous', ''), 'id="publication_edit_add_editor" title="'.__('add').'"') ?><br/>
+            <?php _a('#', icon('go-next', ''), 'id="publication_edit_remove_editor" title="'.__('remove').'"') ?>
           </td>
         </tr>
       </table>
       <script type="text/javascript">
-      function AddEditor() {
+      function getOptionVals(who) {
+        var val = [];
+        $('#selected'+who+' option').each(function () {
+          val.push($(this).attr('value'));
+        });
+        return val.join(',');
+      };
+      function add(who) {
         $('#authorinputselect option:selected').each(function () {
-          $(this).clone().appendTo($('#selectededitors'));
-          var cur = $('#pubform_editors').val();
-          if (cur.length) {
-            $('#pubform_editors').val(cur+','+$(this).val());
-          } else {
-            $('#pubform_editors').val($(this).val());
+          if ($('#selected'+who+' option[value='+$(this).val()+']').length == 0) {
+            $(this).clone().appendTo($('#selected'+who));
+            $('#pubform_'+who).val(getOptionVals(who));
           }
         });
       };
+      function remove(who) {
+        $('#selected'+who+' option:selected').each(function () {
+          $(this).remove();
+          $('#pubform_'+who).val(getOptionVals(who));
+        });
+      };
+      $('#publication_edit_add_author').click(function () {
+        add('authors');
+        return false;
+      });
+      $('#publication_edit_add_editor').click(function () {
+        add('editors');
+        return false;
+      });
+      $('#publication_edit_remove_author').click(function () {
+        remove('authors');
+        return false;
+      });
+      $('#publication_edit_remove_editor').click(function () {
+        remove('editors');
+        return false;
+      });
+      $('#authorinputtext').keyup(function () {
+        var val = $(this).val().toLowerCase();
+        $('#authorinputselect option').each(function () {
+          if ($(this).text().toLowerCase().indexOf(val) > -1) {
+            $(this).removeClass('ui-helper-hidden');
+          } else {
+            $(this).addClass('ui-helper-hidden');
+          }
+        });
+      });
       </script>
     </fieldset>
     <p>
