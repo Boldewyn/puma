@@ -229,7 +229,7 @@ $this->load->helper('translation');
         function add(who) {
           $('#authorinputselect option:selected').each(function () {
             if ($('#selected'+who+' option[value='+$(this).val()+']').length == 0) {
-              $(this).clone().appendTo($('#selected'+who)).focus();
+              $(this).clone().appendTo($('#selected'+who)).get(0).selected = true;
               $('#pubform_'+who).val(getOptionVals(who));
             }
           });
@@ -299,7 +299,8 @@ $this->load->helper('translation');
                 var values = data.split(';');
                 var id = values.shift();
                 var $opt = $('<option value="'+id+'">'+values.join(';')+'<'+'/option>');
-                $('#authorinputselect').append($opt);
+                $('#authorinputselect').prepend($opt);
+                $opt.get(0).selected = true;
               } else {
                 alert('Error creating new author!');
               }

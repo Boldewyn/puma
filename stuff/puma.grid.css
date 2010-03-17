@@ -1,0 +1,146 @@
+/*
+85em
+
+1em 83em 1em
+
+83em = 12*6em + 11*1em
+
+ 1 column:   6em
+ 2 columns: 13em
+ 3 columns: 20em
+ 4 columns: 27em
+ 5 columns: 34em
+ 6 columns: 41em
+ 7 columns: 48em
+ 8 columns: 55em
+ 9 columns: 62em
+10 columns: 69em
+11 columns: 76em
+12 columns: 83em
+*/
+
+.column {
+  margin-left: 1em;
+  float: left;
+}
+
+.first_column {
+  margin-left: 0; /* if #content has no padding-left, this could be cancelled... (iff we always have at least one column) */
+}
+
+.bordered {
+  border: 0.08333em solid #00757E;
+  padding: 0.916667em;
+}
+
+.element {
+  border: 0.08333em solid #00757E;
+  padding: 0.08333em;
+}
+
+.full {
+  width: 83em;
+}
+
+.bordered_full {
+  width: 81em;
+}
+
+.full_element {
+  width: 82.6667em;
+}
+
+.bordered_full .full_element {
+  width: 80.6667em;
+}
+
+.twothird {
+  width: 55em;
+}
+
+.bordered_twothird {
+  width: 53em;
+}
+
+.twothird_element {
+  width: 54.6667em;
+}
+
+.bordered_twothird .twothird_element {
+  width: 52.6667em;
+}
+
+.half {
+  width: 41em;
+}
+
+.bordered_half {
+  width: 39em;
+}
+
+.half_element {
+  width: 40.6667em;
+}
+
+.bordered_half .half_element {
+  width: 38.6667em;
+}
+
+.third {
+  width: 27em;
+}
+
+.bordered_third {
+  width: 25em;
+}
+
+.third_element {
+  width: 26.6667em;
+}
+
+.bordered_third .third_element {
+  width: 24.6667em;
+}
+
+.fourth {
+  width: 20em;
+}
+
+.bordered_fourth {
+  width: 18em;
+}
+
+.fourth_element {
+  width: 19.6667em;
+}
+
+.bordered_fourth .fourth_element {
+  width: 17.6667em;
+}
+
+.sixth {
+  width: 13em;
+}
+
+.bordered_sixth {
+  width: 11em;
+}
+
+.sixth_element {
+  width: 12.6667em;
+}
+
+.twelfth_element {
+  width: 5.6667em;
+}
+
+label.element {
+  display: block;
+  float: left;
+  padding: 0 .3333em .3333em 0;
+  margin: 0 1em 0 0;
+  border: none;
+}
+
+
+
