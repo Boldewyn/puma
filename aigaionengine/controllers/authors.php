@@ -397,7 +397,7 @@ class Authors extends Controller {
      * create a new author from the text in the post value 'authorname'
      */
     function quickcreate() {
-        require_once(APPPATH."include/utf8/trim.php");
+        require_once(APPPATH.'include/utf8/trim.php');
         $this->load->helper('encode');
         $name = $this->input->post('authorname');
         if (utf8_trim($name) == '') {
@@ -415,7 +415,7 @@ class Authors extends Controller {
                       $authors_array[0]['firstname'], $authors_array[0]['von'],
                       $authors_array[0]['surname'], $authors_array[0]['jr']);
                 $result = $this->author_db->add($newauthor);
-                echo $result->author_id;
+                echo $result->author_id.';'.$result->getName('vlf');
             } else {
                 echo '';
             }

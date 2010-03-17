@@ -202,17 +202,20 @@ class Wiki_model extends Model {
         $xcontent = '';
         if ($content) {
             $mask = '___§§§WIKIMASK§§§___';
-            $xcontent = preg_replace('#<script.*?/script>#i', '', $content);
+            $xcontent = preg_replace('#<script.*?/script>#i', '', $content); # No JS allowed
             $xcontent = str_replace('<', $mask, $xcontent);
             $xcontent = preg_replace('#'.$mask.'(/?(?:a(?:bbr|cronym)?|br?|i(?:mg)?'.
                                      '|em|strong|p|blockquote|q|div|s(?:ub|up|pan|amp)'.
                                      '|[oud]l|li|dt|dd|pre|h[r1-6]|var'.
                                      '|t(?:able|r|body|head|foot|h|d)))(>|\s)#i',
                                      '<$1$2', $xcontent);
-            $xcontent = preg_replace('#\son([a-z]+)=(["\']).*?\2#i', '', $xcontent);
-            $xcontent = preg_replace('#\shref=(["\'])javascript:.*?\1#i', '', $xcontent);
-            $xcontent = str_replace($mask, '&lt;', $xcontent);
-            $xcontent = preg_replace('/\[\[(.+?)\]\]/', '<a class="interwiki" href="'.base_url().'wiki/$1">$1</a>', $xcontent);
+            $xcontent = preg_replace('#\son([a-z]+)=(["\']).*?\2#i', '', $xcontent); # No events allowed
+            $xcontent = preg_replace('#\shref=(["\'])javascript:.*?\1#i', '', $xcontent); # No javascript: links allowed
+            $xcontent = str_replace($mask, '&lt;', $xcontent); # all but the above elements disallowed
+            $xcontent = preg_replace('/\[\[(.+?)|(.+?)\]\]/', 
+                        '<a class="interwiki" href="'.base_url().'wiki/$1">$2</a>', $xcontent); # Interwiki links w/ alt text
+            $xcontent = preg_replace('/\[\[(.+?)\]\]/', 
+                        '<a class="interwiki" href="'.base_url().'wiki/$1">$1</a>', $xcontent); # Interwiki links
             if (strpos($xcontent, '\ref{') !== False) { // references to publications
                 function _sanitize_get_ref($m) {
                     $CI =& get_instance();

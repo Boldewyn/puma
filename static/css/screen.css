@@ -1363,6 +1363,16 @@ ul.tabs li.active a {
 
 
 
+.formtable {
+  width: 100%;
+}
+
+.formtable td, .formtable th {
+  vertical-align: top;
+}
+
+
+
 /** topic trees */
 .topic-tree ul {
   margin-left: 1.25em;
@@ -1488,6 +1498,23 @@ ul.tabs li.active a {
 .optionbox a {
   padding-left: .25em;
 }
+
+
+
+
+/* 'real' text */
+.regular-text ul li {
+  background: url(images/bullet.png) no-repeat left .4em;
+  padding-left: .75em;
+  margin-left: -.75em;
+}
+
+.regular-text ol li {
+  list-style-type: decimal;
+  padding-left: 0;
+  margin-left: 1.5em;
+}
+
 
 
 

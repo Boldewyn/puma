@@ -1,7 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); 
 
-$publicationfields  = getPublicationFieldArray($publication->pub_type);
-
 $authors = array();
 $editors = array();
 foreach($publication->authors as $autor) {
@@ -13,10 +11,7 @@ foreach($publication->editors as $editor) {
 $authors = join(',', $authors);
 $editors = join(',', $editors);
 
-$userlogin          = getUserLogin();
-$user               = $this->user_db->getByID($userlogin->userID());
 $this->load->helper('translation');
-$isAddForm = $edit_type=='add';
 ?>
 <div class='publication'>
   <h2><?php if ($edit_type == 'add') {
@@ -62,7 +57,7 @@ $isAddForm = $edit_type=='add';
     <?php 
     $capitalfields = getCapitalFieldArray();
     $i = 3;
-    foreach ($publicationfields as $key => $class):
+    foreach (getPublicationFieldArray($publication->pub_type) as $key => $class):
         $markup = 'p';
         //fields that are hidden but non empty are shown nevertheless
         if (($class == 'hidden') && ($publication->$key != '')) {
@@ -156,41 +151,40 @@ $isAddForm = $edit_type=='add';
     </fieldset>
     <fieldset>
       <legend><?php _e('Authors and Editors') ?></legend>
-      <table width='100%'>
+      <table class="formtable">
+        <colgroup>
+          <col style="width:45%" />
+          <col />
+          <col style="width:45%" />
+        </colgroup>
         <tr>
-          <td style="width:45%">
-            <table width="100%">
-              <tr>
-                <th><?php _e('Authors') ?></th>
-              </tr>
-              <tr>
-                <td>
-                  <select name='selectedauthors' id='selectedauthors' style='width:100%;' size='5'>
-                    <?php if (is_array($publication->authors)) {
-                        foreach ($publication->authors as $author) {
-                            echo '<option value='.$author->author_id.'>'.$author->getName('vlf').'</option>';
-                        }
-                    } ?>
-                  </select>
-                  <input type="hidden" name="pubform_authors" id="pubform_authors" value="<?php _h($authors) ?>" />
-                </td>
-              </tr>
-              <tr>
-                <td colspan="2">
-                  <?php _a('#', icon('go-up', ''), 'onclick="AuthorUp()" title="'.__('up').'"') ?>
-                  <?php _a('#', icon('go-down', ''), 'onclick="AuthorDown()" title="'.__('down').'"') ?>
-                </td>
-              </tr>
-            </table>
-          </td>
           <td>
-            <?php _a('#', icon('go-previous', ''), 'id="publication_edit_add_author" title="'.__('add').'"') ?><br/>
-            <?php _a('#', icon('go-next', ''), 'id="publication_edit_remove_author" title="'.__('remove').'"') ?>
+            <h4><?php _e('Authors') ?></h4>
+            <p>
+              <select id='selectedauthors' style="width:30em" size='5'>
+                <?php if (is_array($publication->authors)) {
+                    foreach ($publication->authors as $author) {
+                        echo '<option value='.$author->author_id.'>'.$author->getName('vlf').'</option>';
+                    }
+                } ?>
+              </select>
+              <input type="hidden" name="pubform_authors" id="pubform_authors" value="<?php _h($authors) ?>" />
+            </p>
+            <p>
+              <?php _a('#', icon('go-up', ''), 'id="publication_edit_up_authors" title="'.__('up').'"') ?>
+              <?php _a('#', icon('go-down', ''), 'id="publication_edit_down_authors" title="'.__('down').'"') ?>
+            </p>
           </td>
-          <td rowspan="2" style="width:45%">
-            <?php _e('Search:') ?> <input title="<?php _e('Type in name to quick search. Note: use unaccented letters!');?>" type='text' id='authorinputtext' />
-            [<a href="#" onclick="AddNewAuthor(); return false;"><?php _e('Create as new name') ?></a>]<br/>
-            <select size="12" id="authorinputselect">
+          <td style="text-align:center;">
+            <?php _a('#', icon('go-previous', ''), 'id="publication_edit_add_authors" title="'.__('add').'"') ?><br/>
+            <?php _a('#', icon('go-next', ''), 'id="publication_edit_remove_authors" title="'.__('remove').'"') ?>
+          </td>
+          <td rowspan="2">
+            <?php _e('Search:') ?>
+            <input title="<?php _e('Type in name to quick search. Note: use unaccented letters!');?>"
+              type='text' class="text standard_input" id='authorinputtext' />
+            (<a href="#" id="publication_edit_add_new_author"><?php _e('Create as new name') ?></a>)<br/><br/>
+            <select size="12" id="authorinputselect" style="width:30em; height: 15em">
               <?php $Q = $this->db->orderby('cleanname')->get("author");
                 foreach ($Q->result() as $author):?>
                   <option value="<?php echo $author->author_id ?>"><?php _h($author->cleanname) ?></option>
@@ -200,84 +194,130 @@ $isAddForm = $edit_type=='add';
         </tr>
         <tr>
           <td>
-            <table width='100%'>
-              <tr>
-                <th><?php _e('Editors') ?></th>
-              </tr>
-              <tr>
-                <td>
-                  <select name='selectededitors' id='selectededitors' style='width: 100%;' size='5'>
-                    <?php if (is_array($publication->editors)) {
-                        foreach ($publication->editors as $editor) {
-                            echo '<option value='.$editor->author_id.'>'.$editor->getName('vlf').'</option>';
-                        }
-                    } ?>
-                  </select>
-                  <input type="hidden" name="pubform_editors" id="pubform_editors" value="<?php _h($editors) ?>" />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <?php _a('#', icon('go-up', ''), 'onclick="EditorUp()" title="'.__('up').'"') ?>
-                  <?php _a('#', icon('go-down', ''), 'onclick="EditorDown()" title="'.__('down').'"') ?>
-                </td>
-              </tr>
-            </table>
+            <h4><?php _e('Editors') ?></h4>
+            <p>
+              <select id="selectededitors" style="width:30em" size='5'>
+                <?php if (is_array($publication->editors)) {
+                    foreach ($publication->editors as $editor) {
+                        echo '<option value='.$editor->author_id.'>'.$editor->getName('vlf').'</option>';
+                    }
+                } ?>
+              </select>
+              <input type="hidden" name="pubform_editors" id="pubform_editors" value="<?php _h($editors) ?>" />
+            </p>
+            <p>
+              <?php _a('#', icon('go-up', ''), 'id="publication_edit_up_editors" title="'.__('up').'"') ?>
+              <?php _a('#', icon('go-down', ''), 'id="publication_edit_down_editors" title="'.__('down').'"') ?>
+            </p>
           </td>
-          <td>
-            <?php _a('#', icon('go-previous', ''), 'id="publication_edit_add_editor" title="'.__('add').'"') ?><br/>
-            <?php _a('#', icon('go-next', ''), 'id="publication_edit_remove_editor" title="'.__('remove').'"') ?>
+          <td style="text-align:center;">
+            <?php _a('#', icon('go-previous', ''), 'id="publication_edit_add_editors" title="'.__('add').'"') ?><br/>
+            <?php _a('#', icon('go-next', ''), 'id="publication_edit_remove_editors" title="'.__('remove').'"') ?>
           </td>
         </tr>
       </table>
       <script type="text/javascript">
-      function getOptionVals(who) {
-        var val = [];
-        $('#selected'+who+' option').each(function () {
-          val.push($(this).attr('value'));
-        });
-        return val.join(',');
-      };
-      function add(who) {
-        $('#authorinputselect option:selected').each(function () {
-          if ($('#selected'+who+' option[value='+$(this).val()+']').length == 0) {
-            $(this).clone().appendTo($('#selected'+who));
+      /*<![CDATA[*/
+      (function($) {
+        function getOptionVals(who) {
+          var val = [];
+          $('#selected'+who+' option').each(function () {
+            val.push($(this).attr('value'));
+          });
+          return val.join(',');
+        };
+        function add(who) {
+          $('#authorinputselect option:selected').each(function () {
+            if ($('#selected'+who+' option[value='+$(this).val()+']').length == 0) {
+              $(this).clone().appendTo($('#selected'+who)).focus();
+              $('#pubform_'+who).val(getOptionVals(who));
+            }
+          });
+        };
+        function remove(who) {
+          $('#selected'+who+' option:selected').each(function () {
+            $(this).remove();
             $('#pubform_'+who).val(getOptionVals(who));
-          }
+          });
+        };
+        function up(who) {
+          $('#selected'+who+' option:selected').each(function () {
+            var $this = $(this);
+            var $that = $(this).prev();
+            if ($that.length) {
+              $that.before($this);
+              $('#pubform_'+who).val(getOptionVals(who));
+            }
+          });
+        };
+        function down(who) {
+          $('#selected'+who+' option:selected').each(function () {
+            var $this = $(this);
+            var $that = $(this).next();
+            if ($that.length) {
+              $that.after($this);
+              $('#pubform_'+who).val(getOptionVals(who));
+            }
+          });
+        };
+        $('#publication_edit_add_authors').click(function () {
+          add('authors');
+          return false;
         });
-      };
-      function remove(who) {
-        $('#selected'+who+' option:selected').each(function () {
-          $(this).remove();
-          $('#pubform_'+who).val(getOptionVals(who));
+        $('#publication_edit_add_editors').click(function () {
+          add('editors');
+          return false;
         });
-      };
-      $('#publication_edit_add_author').click(function () {
-        add('authors');
-        return false;
-      });
-      $('#publication_edit_add_editor').click(function () {
-        add('editors');
-        return false;
-      });
-      $('#publication_edit_remove_author').click(function () {
-        remove('authors');
-        return false;
-      });
-      $('#publication_edit_remove_editor').click(function () {
-        remove('editors');
-        return false;
-      });
-      $('#authorinputtext').keyup(function () {
-        var val = $(this).val().toLowerCase();
-        $('#authorinputselect option').each(function () {
-          if ($(this).text().toLowerCase().indexOf(val) > -1) {
-            $(this).removeClass('ui-helper-hidden');
-          } else {
-            $(this).addClass('ui-helper-hidden');
-          }
+        $('#publication_edit_remove_authors').click(function () {
+          remove('authors');
+          return false;
         });
-      });
+        $('#publication_edit_remove_editors').click(function () {
+          remove('editors');
+          return false;
+        });
+        $('#publication_edit_up_authors').click(function () {
+          up('authors');
+          return false;
+        });
+        $('#publication_edit_down_authors').click(function () {
+          down('authors');
+          return false;
+        });
+        $('#publication_edit_up_editors').click(function () {
+          up('editors');
+          return false;
+        });
+        $('#publication_edit_down_editors').click(function () {
+          down('editors');
+          return false;
+        });
+        $('#publication_edit_add_new_author').click(function () {
+          $.post(config.base_url + 'authors/quickcreate', {'authorname':$('#authorinputtext').val()},
+            function (data, textStatus) {
+              if (data.length > 0 && data.indexOf(';') > 0) {
+                var values = data.split(';');
+                var id = values.shift();
+                var $opt = $('<option value="'+id+'">'+values.join(';')+'<'+'/option>');
+                $('#authorinputselect').append($opt);
+              } else {
+                alert('Error creating new author!');
+              }
+            }, 'text');
+          return false;
+        });
+        $('#authorinputtext').keyup(function () {
+          var val = $(this).val().toLowerCase();
+          $('#authorinputselect option').each(function () {
+            if ($(this).text().toLowerCase().indexOf(val) > -1) {
+              $(this).removeClass('ui-helper-hidden');
+            } else {
+              $(this).addClass('ui-helper-hidden');
+            }
+          });
+        });
+      })(jQuery);
+      /*   ]]>   */
       </script>
     </fieldset>
     <p>
