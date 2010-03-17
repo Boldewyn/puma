@@ -10,6 +10,7 @@
 <IfModule mod_rewrite.c>
   RewriteEngine on
   RewriteBase /
+  RewriteRule ^favicon.ico - [L]
   RewriteRule ^aigaionengine/(.*) aigaionengine/$1 [L]
   RewriteRule ^static/(.*)        -                [L]
   RewriteRule ^index.php/(.*)$    index.php?$1     [L,QSA]
