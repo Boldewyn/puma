@@ -13,4 +13,5 @@
   <li class="<?php if($topic == 'crossref'        ) { echo 'active'; }?>"><?php _a('help/crossref', __('Crossreferencing')); ?></li>
 <?php /*  <li class="<?php if($topic == 'themes'          ) { echo 'active'; }?>"><?php _a('help/themes', __('Themes')); ?></li> */?>
   <li class="<?php if($topic == 'goodpractices'   ) { echo 'active'; }?> last"><?php _a('help/goodpractices', __('Good Practices')); ?></li>
+  <li class="<?php if($topic == 'wiki'   ) { echo 'active'; }?> last"><?php _a('help/wiki', __('Wiki')); ?></li>
 </ul>

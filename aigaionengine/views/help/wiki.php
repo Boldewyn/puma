@@ -1,7 +1,7 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 <div id="help-wiki" class="help-content regular-text">
   <h2><?php printf(__('The %s Wiki'), site_title())?></h2>
-  <p><?php _e('The wiki works just like a regular wiki, but uses ordinary HTML for markup.')?></p>
+  <p><?php _e('The wiki works just like a regular wiki, but uses ordinary HTML for markup. To simplify entering text, the edit pages provide an optional rich text editor.')?></p>
   <p><?php _e('Some specialities:')?></p>
   <ul>
     <li><?php printf(__('The only wiki syntax from Wikipedia, that is recognized, is the link to another wiki page: %s.'), sprintf('<code>[[%s]]</code>', __('Other page')))?></li>
