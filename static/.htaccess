@@ -1,0 +1,58 @@
+#
+# P U M A . P H I
+#
+
+
+
+#
+# S T A T I C   C O N T E N T
+#
+#<IfModule negotiation_module>
+<IfModule puma_debug_dummy_module>
+
+# Set some principal options
+Options -ExecCGI -FollowSymLinks -Includes -IncludesNOEXEC -Indexes MultiViews SymLinksIfOwnerMatch
+
+# See YSlow tips: INode can be problematic
+FileETag MTime Size
+
+# All files should be utf-8 encoded
+AddDefaultCharset utf-8
+
+# Unknown file types should be served as text/plain
+DefaultType text/plain
+
+# .gz files are gzip'ed
+AddEncoding x-gzip .gz .tgz
+
+# Common types to be delivered
+AddType application/octet-stream .exe .otf .ttf
+AddType application/pdf .pdf
+AddType application/rdf+xml .rdf
+RemoveType .gz
+AddType application/x-httpd-php .php
+AddType application/x-latex .tex .latex
+AddType application/x-shockwave-flash .swf
+AddType application/x-zip .zip
+AddType application/xhtml+xml .xhtml
+AddType application/xml .xml .xht
+AddType application/xml-dtd .dtd
+AddType application/xslt+xml .xsl .xslt
+AddType audio/ogg .oga .ogg
+AddType image/svg+xml .svg .svgz
+AddType image/vnd.microsoft.icon .ico
+AddType message/rfc822 .eml
+AddType text/csv .csv
+AddType text/html .htm .html
+AddType text/javascript .js
+AddType text/rtf .rtf
+AddType video/ogg .ogv
+AddType video/x-flv .flv
+
+<IfModule expires_module>
+  # Lets files expire after 3 weeks
+  ExpiresActive On
+  ExpiresDefault "access plus 3 weeks"
+</IfModule>
+
+</IfModule>
