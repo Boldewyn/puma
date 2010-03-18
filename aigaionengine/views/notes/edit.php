@@ -1,4 +1,4 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?><?php
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 /**
 views/notes/edit
 
@@ -13,15 +13,9 @@ pre filled 'add new note' form
 */
 
 $this->load->helper('form');
-echo "<div class='editform'>";
 echo form_open('notes/commit');
-//formname is used to check whether the POST data is coming from the right form.
-//not as security mechanism, but just to avoid painful bugs where data was submitted 
-//to the wrong commit and the database is corrupted
-echo form_hidden('formname','note');
 $isAddForm = False;
 $userlogin  = getUserLogin();
-$user       = $this->user_db->getByID($userlogin->userID());
 
 if (!isset($note)||($note==null)||(isset($action)&&$action=='add')) {
     $isAddForm = True;
@@ -44,40 +38,39 @@ if ($isAddForm): ?>
   <h2><?php _e('Add a note') ?></h2>
 <?php else: ?>
   <h2><?php _e('Change note') ?></h2>
-  <?php endif;
-  echo $this->validation->error_string;
-  ?>
-    <p>
-      <label for="text"><?php _e('Text:') ?></label>
-      <textarea name="text" id="text" class="extralarge_input richtext" rows="10" cols="30"><?php _h($note->text); ?></textarea>
-      <script type="text/javascript" src="<?php echo base_url()?>static/js/tiny_mce/tiny_mce.js"></script>
-    </p>
-    <p style="text-align:right;">
-      <button type="button" onclick="Puma.toggleEditor('text')"><?php _e('Show/hide rich text editor')?></button>
-    </p>
-    <?php if (!$isAddForm):
-      $read_icon = $this->accesslevels_lib->getReadAccessLevelIcon($note);
-      $edit_icon = $this->accesslevels_lib->getEditAccessLevelIcon($note);
-      
-      $readrights = $this->ajax->link_to_remote($read_icon,
-                    array('url'     => site_url('/accesslevels/toggle/note/'.$note->note_id.'/read'),
-                          'update'  => 'note_rights_'.$note->note_id
-                         )
-                    );
-      $editrights = $this->ajax->link_to_remote($edit_icon,
-                    array('url'     => site_url('/accesslevels/toggle/note/'.$note->note_id.'/edit'),
-                          'update'  => 'note_rights_'.$note->note_id
-                         )
-                    );
-        ?>
-        <p>
-          <?php echo __('Access rights').": <span id='note_rights_".$note->note_id."' title='".sprintf(__('%s read / edit rights'), __('note'))."'>r:".$readrights."e:".$editrights."</span>";?>
-        </p>
-      <?php endif ?>
-    <p>
-      <input type="hidden" name="formname" value="note" />
-      <input type="submit" class="submit standard_input" value="<?php $isAddForm? _e('Add') : _e('Change') ?>" />
-      <?php _a($isAddForm? '' : 'publications/show/'.$note->pub_id, __('Cancel'), 'class="pseudobutton standard_input"') ?>
-    </p>
-  </form>
-</div>
+<?php endif;
+echo $this->validation->error_string;
+?>
+  <p>
+    <label for="text"><?php _e('Text:') ?></label>
+    <textarea name="text" id="text" class="extralarge_input richtext" rows="10" cols="30"><?php _h($note->text); ?></textarea>
+    <script type="text/javascript" src="<?php echo base_url()?>static/js/tiny_mce/tiny_mce.js"></script>
+  </p>
+  <p style="text-align:right;">
+    <button type="button" onclick="Puma.toggleEditor('text')"><?php _e('Show/hide rich text editor')?></button>
+  </p>
+  <?php if (!$isAddForm):
+    $read_icon = $this->accesslevels_lib->getReadAccessLevelIcon($note);
+    $edit_icon = $this->accesslevels_lib->getEditAccessLevelIcon($note);
+    
+    $readrights = $this->ajax->link_to_remote($read_icon,
+                  array('url'     => site_url('/accesslevels/toggle/note/'.$note->note_id.'/read'),
+                        'update'  => 'note_rights_'.$note->note_id
+                       )
+                  );
+    $editrights = $this->ajax->link_to_remote($edit_icon,
+                  array('url'     => site_url('/accesslevels/toggle/note/'.$note->note_id.'/edit'),
+                        'update'  => 'note_rights_'.$note->note_id
+                       )
+                  );
+      ?>
+      <p>
+        <?php echo __('Access rights').": <span id='note_rights_".$note->note_id."' title='".sprintf(__('%s read / edit rights'), __('note'))."'>r:".$readrights."e:".$editrights."</span>";?>
+      </p>
+    <?php endif ?>
+  <p>
+    <input type="hidden" name="formname" value="note" />
+    <input type="submit" class="submit standard_input" value="<?php $isAddForm? _e('Add') : _e('Change') ?>" />
+    <?php _a($isAddForm? '' : 'publications/show/'.$note->pub_id, __('Cancel'), 'class="pseudobutton standard_input"') ?>
+  </p>
+</form>
