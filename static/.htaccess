@@ -50,9 +50,12 @@ AddType video/ogg .ogv
 AddType video/x-flv .flv
 
 <IfModule expires_module>
-  # Lets files expire after 3 weeks
+  # Lets files expire after some time
   ExpiresActive On
-  ExpiresDefault "access plus 3 weeks"
+  ExpiresDefault "access plus 1 day"
+  ExpiresByType image/gif "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
 </IfModule>
 
 </IfModule>

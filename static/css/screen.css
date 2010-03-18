@@ -871,6 +871,22 @@ body {
   text-shadow: #E0EEEF 0 .0625em 0;
 }
 
+#content h4 {
+  font-size: 1.16667em;
+  line-height: .9333;
+  margin: 0 0 .9333em;
+  color: #004B4F;
+  text-shadow: #E0EEEF 0 .071428em 0;
+}
+
+#content h5 {
+  font-size: 1em;
+  font-style: italic;
+  line-height: 1.25;
+  margin: 0 0 1.25em;
+  color: #004B4F;
+}
+
 #content em,
 #content .caption,
 #content i {
