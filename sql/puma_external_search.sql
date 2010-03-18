@@ -10,7 +10,7 @@ CREATE TABLE `puma_external_search` (
   `image` VARCHAR( 255 ) NOT NULL DEFAULT "",
   `charset` VARCHAR( 12 ) NOT NULL DEFAULT "utf-8",
   `method` VARCHAR( 6 ) NOT NULL DEFAULT "get",
-  `p` MEDIUMTEXT NOT NULL DEFAULT "",
+  `p` MEDIUMTEXT NOT NULL,
   PRIMARY KEY( `name` )
 );
 
