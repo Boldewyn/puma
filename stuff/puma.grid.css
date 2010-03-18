@@ -1,9 +1,7 @@
 /*
-85em
-
-1em 83em 1em
-
-83em = 12*6em + 11*1em
+site: 85em
+content: 1em 83em 1em
+grid: 83em = 12*6em + 11*1em
 
  1 column:   6em
  2 columns: 13em
@@ -18,6 +16,17 @@
 11 columns: 76em
 12 columns: 83em
 */
+
+#container {
+  width: 85em;
+  margin: 0 auto;
+}
+
+#content {
+  border: .08333em solid #61a6a9;
+  border-top: 0;
+  padding: .916667em;
+}
 
 .column {
   margin-left: 1em;
@@ -52,6 +61,22 @@
 
 .bordered_full .full_element {
   width: 80.6667em;
+}
+
+.threefourth {
+  width: 62em;
+}
+
+.bordered_threefourth {
+  width: 60em;
+}
+
+.threefourth_element {
+  width: 61.6667em;
+}
+
+.bordered_threefourth .threefourth_element {
+  width: 59.6667em;
 }
 
 .twothird {
@@ -130,17 +155,22 @@
   width: 12.6667em;
 }
 
+.twelfth {
+  width: 6em;
+}
+
+.bordered_twelfth {
+  width: 4em;
+}
+
 .twelfth_element {
   width: 5.6667em;
 }
 
-label.element {
+.label {
   display: block;
   float: left;
-  padding: 0 .3333em .3333em 0;
+  padding: 0;
   margin: 0 1em 0 0;
   border: none;
 }
-
-
-
