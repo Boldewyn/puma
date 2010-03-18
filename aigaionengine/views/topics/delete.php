@@ -1,21 +1,10 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?><?php
-/**
-views/topics/delete
-
-Shows the confirm form for deleting a topic.
-
-Parameters:
-    $topic=>the topic object that is to be deleted
-*/
-$this->load->helper('form');
-echo "<div class='confirmform'>";
-echo form_open('topics/delete/'.$topic->topic_id.'/commit');
-echo sprintf(__('Are you sure that you want to delete topic "%s"?'),$topic->name)."<p>\n";
-echo form_submit('confirm',__('Confirm'));
-echo form_close();
-echo form_open('');
-echo form_submit('cancel',__('Cancel'));
-echo form_close();
-echo "</div>";
-
-?>
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
+<form method="post" action="<?php echo base_url()?>topics/delete/<?php echo $topic->topic_id?>/commit" class="confirmform">
+  <p>
+    <?php printf(__('Are you sure, that you want to delete the topic &ldquo;%s&rdquo;?'), h($topic->name)) ?>
+  </p>
+  <p>
+    <input type="submit" class="submit standard_input" value="<?php _e('Confirm') ?>" />
+    <?php _a('topics/single/'.$topic->topic_id, __('Cancel'), 'class="pseudobutton standard_input"') ?>
+  </p>
+</form>

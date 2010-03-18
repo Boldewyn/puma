@@ -23,7 +23,7 @@ if (isset($discussion) && $discussion) { $d = '_Discussion'; } else { $discussio
     <script type="text/javascript" src="<?php echo base_url()?>static/js/tiny_mce/tiny_mce.js"></script>
   </p>
   <p style="text-align:right;">
-    <button type="button" onclick="Puma.toggleEditor('wiki_edit_content')"><?php _e('Show/hide richt text editor')?></button>
+    <button type="button" onclick="Puma.toggleEditor('wiki_edit_content')"><?php _e('Show/hide rich text editor')?></button>
   </p>
   <p>
     <label for="wiki_edit_description"><?php _e('A short description of this edit:')?></label>
