@@ -106,7 +106,8 @@ class Wiki extends Controller {
 
     public function history($item) {
         $item = $this->_get_item();
-        restrict_to_users(__('You must be logged in to view the history of wiki items.'));
+        restrict_to_users(__('You must be logged in to view the history of wiki items.')
+                          $this->_item_exists($item)? '/wiki/'.$item : '/wiki');
         $this->_get_subnav($item, 'history');
         $data = $this->wiki->get_history($item);
         $this->load->view('header');
@@ -115,7 +116,8 @@ class Wiki extends Controller {
     }
     
     public function show_history($id) {
-        restrict_to_users(__('You must be logged in to view the history of wiki items.'));
+        restrict_to_users(__('You must be logged in to view the history of wiki items.')
+                          $this->_item_exists($item)? '/wiki/'.$item : '/wiki');
         $data = $this->wiki->get_version($id);
         $item = $data->item;
         $this->load->vars(array('item' => $item));
