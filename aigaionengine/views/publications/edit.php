@@ -25,33 +25,13 @@ $this->load->helper('translation');
     <p>
       <label for="publication_edit_pub_type"><?php _e('Type of publication:') ?></label>
       <?php echo form_dropdown('pub_type', getPublicationTypes(), $publication->pub_type, 'id="publication_edit_pub_type" class="extended_input"') ?>
-      <script type="text/javascript">
-      $('#publication_edit_pub_type').change(function () {
-        $.getJSON(config.base_url+"publications/fields/"+$(this).val(), function (data) {
-          var key, val;
-          $('#publication_edit_form :input').removeClass('required')
-            .removeClass('hidden').removeClass('optional').removeClass('optional');
-          $('#publication_edit_form p').removeClass('ui-helper-hidden');
-          for (key in data) {
-            val = data[key];
-            $('#publication_edit_'+key).addClass(val);
-            if (val == 'hidden' && $('#publication_edit_'+key).val() == '') {
-              $('#publication_edit_'+key).parent().addClass('ui-helper-hidden');
-            }
-          }
-          $('#publication_edit_title').addClass('required');
-          $('fieldset > *.even').removeClass('even');
-          $('fieldset > *:not(.note):not(.ui-helper-hidden):odd').addClass('even');
-        });
-      });
-      </script>
     </p>
     <p>
       <label for="publication_edit_title"><?php _e('Title:') ?></label>
       <input type="text" class="required extended_input text" name="title" id="publication_edit_title" value="<?php _h($publication->title)?>" />
     </p>
     <p>
-      <label for="publication_edit_bibtex_id"><?php _e('Citation:') ?></label>
+      <label for="publication_edit_bibtex_id"><?php _e('Citation/BibTeX ID:') ?></label>
       <input type="text" class="text extended_input" name="bibtex_id" id="publication_edit_bibtex_id" value="<?php _h($publication->bibtex_id) ?>" />
     </p>
     <?php 
@@ -315,6 +295,24 @@ $this->load->helper('translation');
             } else {
               $(this).addClass('ui-helper-hidden');
             }
+          });
+        });
+        $('#publication_edit_pub_type').change(function () {
+          $.getJSON(config.base_url+"publications/fields/"+$(this).val(), function (data) {
+            var key, val;
+            $('#publication_edit_form :input').removeClass('required')
+              .removeClass('hidden').removeClass('optional').removeClass('optional');
+            $('#publication_edit_form p').removeClass('ui-helper-hidden');
+            for (key in data) {
+              val = data[key];
+              $('#publication_edit_'+key).addClass(val);
+              if (val == 'hidden' && $('#publication_edit_'+key).val() == '') {
+                $('#publication_edit_'+key).parent().addClass('ui-helper-hidden');
+              }
+            }
+            $('#publication_edit_title').addClass('required');
+            $('fieldset > *.even').removeClass('even');
+            $('fieldset > *:not(.note):not(.ui-helper-hidden):odd').addClass('even');
           });
         });
       })(jQuery);

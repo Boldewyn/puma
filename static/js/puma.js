@@ -152,7 +152,11 @@ window._ = gettext;
     $('.half:odd').css('margin-right', '0');
     $('.masonry .brick').css('float', 'none');
     $('.masonry').masonry({itemSelector:'.brick', columnWidth:'446'});
+    
+    /** init LaTeXMathML */
     new LaTeXMathML({autostart:1, element:document.getElementById("content")});
+    
+    /** init TinyMCE, if necessary */
     if ($('textarea.richtext').length > 0 && ('tinyMCE' in window)) {
       tinyMCE.init({
         mode: 'specific_textareas',
@@ -172,6 +176,8 @@ window._ = gettext;
         theme_advanced_statusbar_location : "bottom"
       });
     }
+    
+    /** publication rating: create a UI slider */
     $('.publication_mark').each(function () {
       $(this).hide();
       var slider = $('<div class="publication_mark_slider"></div>');
@@ -183,26 +189,32 @@ window._ = gettext;
       });
       $(this).after(slider);
     });
-  });
-  $('[id^=bookmark_icon_]').each(function () {
-    var $this = $(this);
-    $this.click(function () {
-      var method = $this.hasClass('add')? 'add' : 'remove';
-      $.get(config.base_url+"bookmarklist/"+method+"publication/"+$this.attr('id').substr(14),
-          function (data) {
-              if ('src' in data) {
-                  if ($('img', $this).length == 0) {
-                      $this.text('['+_(method=='add'? 'unbookmark':'bookmark')+'] ');
-                  } else {
-                      $('img', $this).attr('src', data.src);
-                  }
-                  $this.toggleClass('add');
-              }
-          }, 'json');
-      return false;
+  
+    /** bookmark icons: intercept link with AJAX magic */
+    $('[id^=bookmark_icon_]').each(function () {
+      var $this = $(this);
+      $this.click(function () {
+        var method = $this.hasClass('add')? 'add' : 'remove';
+        $.get(config.base_url+"bookmarklist/"+method+"publication/"+$this.attr('id').substr(14),
+            function (data) {
+                if ('src' in data) {
+                    if ($('img', $this).length == 0) {
+                        $this.text('['+_(method=='add'? 'unbookmark':'bookmark')+'] ');
+                    } else {
+                        $('img', $this).attr('src', data.src);
+                    }
+                    $this.toggleClass('add');
+                }
+            }, 'json');
+        return false;
+      });
     });
+  
   });
   
+  /**
+   * IE6: replace top navigation with a table
+   */
   function _replace_nav() {
     var $nav = $('<table cellspacing="0"><tbody><tr></tr></tbody></table>');
     var $td;
@@ -215,7 +227,10 @@ window._ = gettext;
     $('#nav ul').replaceWith($nav);
   };
   
-  p.toggleEditor = function (id) {
+  /**
+   * Puma.toggleEditor: switch on/off TinyMCE
+   */
+  p.toggleEditor = function toggleEditor (id) {
     if ('tinyMCE' in window) {
       if (!tinyMCE.get(id))
         tinyMCE.execCommand('mceAddControl', false, id);
