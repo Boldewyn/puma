@@ -15,6 +15,7 @@ $result = '
 %'.sprintf(__('BibTeX export from %s'), getConfigurationSetting("WINDOW_TITLE")).'
 %'.date('l d F Y h:i:s A').'
 '.$header.'
+
 ';
 
 
