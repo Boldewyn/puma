@@ -144,6 +144,7 @@ window._ = gettext;
     $('#footer li.level1').css('height', $('#footer ul.level1').css('height'));
     $('#ask_name').focus(function () { if (this.value == 'Name') { this.value=""; } });
     $('#ask_email').focus(function () { if (/^[eE].?[Mm]ail$/.test(this.value)) { this.value=""; } });
+    $(':text.labeled').focus(function () { if(this.value != this.defaultValue) { this.value = ""; } });
     $('p + p').addClass("after_p");
     $('fieldset > *:not(.note):not(.ui-helper-hidden):odd').addClass('even');
     $('.datatable tr:odd').addClass('even');

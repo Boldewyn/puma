@@ -2,14 +2,15 @@
 
 class Export extends Controller {
 
-	function Export()
-	{
-		parent::Controller();	
+	function Export() {
+		parent::Controller();
+        $this->load->library('parsecreators');
+        $this->load->library('parsemonth');
+        $this->load->library('parsepage');
 	}
 	
 	/** Pass control to the export/all/ */
-	function index()
-	{
+	function index() {
 		$this->all();
 	}
 	
@@ -28,61 +29,20 @@ class Export extends Controller {
     Returns:
         A clean text page with exported publications
     */
-    function all() {
-	    $type = $this->uri->segment(3,'');
+    function all($type='') {
+        if ($type == 'email') { redirect('topics/exportEmail/1'); }
 	    if (!in_array($type,array('bibtex','ris','formatted','email'))) {
-            $header ['title']       = __("Select export format");
-            $header ['javascripts'] = array('prototype.js', 'effects.js', 'dragdrop.js', 'controls.js','externallinks.js');
-            
-            //get output
-            $output  = $this->load->view('header',        $header,  true);
-            $output .= $this->load->view('export/chooseformat',  array('header'=>__('Export all publications'),'exportCommand'=>'export/all/'), true);
-            $output .= $this->load->view('footer',        '',       true);
-            
-            //set output
-            $this->output->set_output($output);
+            $this->load->view('header', array('title' => __('Select export format')));
+            $this->load->view('export/chooseformat', array('header'=>__('Export all publications'),'exportCommand'=>'export/all/'));
+            $this->load->view('footer');
             return;
 	    }
-	    $exportdata = array();
-        $userlogin = getUserLogin();
-        //for export, bibtex should NOT merge crossrefs; ris and formatted SHOULD merge crossrefs
-        switch ($type) {
-            case 'bibtex':
-                $this->publication_db->suppressMerge = True;
-                break;
-            case 'ris':
-                $this->publication_db->enforceMerge = True;
-                break;
-            case 'formatted':
-                $this->publication_db->enforceMerge = True;
-                $exportdata['format'] = $this->input->post('format');
-                $exportdata['sort'] = $this->input->post('sort');
-                $exportdata['style'] = $this->input->post('style');
-                break;
-            case 'email':
-            		redirect ('topics/exportEmail/1/');
-            default:
-                break;
-                
-        }
-        #collect to-be-exported publications 
-        $publicationMap = $this->publication_db->getAllPublicationsAsMap();
-        #split into publications and crossreffed publications, adding crossreffed publications as needed
-        $splitpubs = $this->publication_db->resolveXref($publicationMap,false);
-        $pubs = $splitpubs[0];
-        $xrefpubs = $splitpubs[1];
-        
-        #send to right export view
-        $exportdata['nonxrefs'] = $pubs;
-        $exportdata['xrefs']    = $xrefpubs;
+	    $exportdata = $this->_get_exportdata($type, $this->publication_db->getAllPublicationsAsMap());
         $exportdata['header']   = __('All publications');
 
-        $output = $this->load->view('export/'.$type, $exportdata, True);
-
-        //set output
-        $this->output->set_output($output);        
-
+        $this->load->view('export/'.$type, $exportdata);
     }    
+
     /** 
     export/topic
     
@@ -98,69 +58,25 @@ class Export extends Controller {
     Returns:
         A clean text page with exported publications
     */
-    function topic() {
-	    $topic_id = $this->uri->segment(3,-1);
-	    $type = $this->uri->segment(4,'');
+    function topic($topic_id=-1, $type='') {
+        if ($type == 'email') { redirect('topics/exportEmail/'.$topic_id); }
 	    $config = array();
 	    $topic = $this->topic_db->getByID($topic_id,$config);
 	    if ($topic==null) {
-	        appendErrorMessage(__('Export requested for non existing topic.').'<br/>');
-	        redirect ('');
+	        appendErrorMessage(__('Export requested for non existing topic.'));
+	        redirect('');
 	    }
 	    if (!in_array($type,array('bibtex','ris','formatted','email'))) {
-            $header ['title']       = __("Select export format");
-            $header ['javascripts'] = array('prototype.js', 'effects.js', 'dragdrop.js', 'controls.js','externallinks.js');
-            
-            //get output
-            $output  = $this->load->view('header',        $header,  true);
-            $output .= $this->load->view('export/chooseformat',  array('header'=>sprintf(__('Export all for topic %s'),$topic->name),'exportCommand'=>'export/topic/'.$topic->topic_id.'/'), true);
-            $output .= $this->load->view('footer',        '',       true);
-            
-            //set output
-            $this->output->set_output($output);
+            $this->load->view('header', array('title'=>__('Select export format')));
+            $this->load->view('export/chooseformat',  array('header'=>sprintf(__('Export all for topic %s'),$topic->name),'exportCommand'=>'export/topic/'.$topic->topic_id.'/'));
+            $this->load->view('footer');
             return;
 	    }
-	    $exportdata = array();
-        $userlogin = getUserLogin();
-        //for export, bibtex should NOT merge crossrefs; ris SHOULD merge crossrefs
-        switch ($type) {
-            case 'bibtex':
-                $this->publication_db->suppressMerge = True;
-                break;
-            case 'ris':
-                $this->publication_db->enforceMerge = True;
-                break;
-            case 'formatted':
-                $this->publication_db->enforceMerge = True;
-                $exportdata['format'] = $this->input->post('format');
-                $exportdata['sort'] = $this->input->post('sort');
-                $exportdata['style'] = $this->input->post('style');
-                break;
-            case 'email':
-            		redirect ('topics/exportEmail/'.$topic_id.'/');
-            		break;
-            default:
-                break;
-                
-        }
-
-        #collect to-be-exported publications 
-        $publicationMap = $this->publication_db->getForTopicAsMap($topic->topic_id);
-        #split into publications and crossreffed publications, adding crossreffed publications as needed
-        $splitpubs = $this->publication_db->resolveXref($publicationMap,false);
-        $pubs = $splitpubs[0];
-        $xrefpubs = $splitpubs[1];
-        
-        #send to right export view
-        $exportdata['nonxrefs'] = $pubs;
-        $exportdata['xrefs']    = $xrefpubs;
-        $exportdata['header']   = sprintf(__('All publications for topic "%s"',$topic->name));
-        $output = $this->load->view('export/'.$type, $exportdata, True);
-
-        //set output
-        $this->output->set_output($output);        
-
+	    $exportdata = $this->_get_exportdata($type, $this->publication_db->getForTopicAsMap($topic->topic_id));
+        $exportdata['header']   = sprintf(__('All publications for topic &ldquo;%s&rdquo;',$topic->name));
+        $this->load->view('export/'.$type, $exportdata);
     }        
+
     /** 
     export/author
     
@@ -176,69 +92,25 @@ class Export extends Controller {
     Returns:
         A clean text page with exported publications
     */
-    function author() {
-	    $author_id = $this->uri->segment(3,-1);
-	    $type = $this->uri->segment(4,'');
+    function author($author_id=-1, $type='') {
+        if ($type == 'email') { redirect('authors/exportEmail/'.$author_id); }
 	    $author = $this->author_db->getByID($author_id);
 	    if ($author==null) {
-	        appendErrorMessage(__('Export requested for non existing author.').'<br/>');
-	        redirect ('');
+	        appendErrorMessage(__('Export requested for non existing author.'));
+	        redirect('');
 	    }
 	    if (!in_array($type,array('bibtex','ris','formatted','email'))) {
-            $header ['title']       = __("Select export format");
-            $header ['javascripts'] = array('prototype.js', 'effects.js', 'dragdrop.js', 'controls.js','externallinks.js');
-            
-            //get output
-            $output  = $this->load->view('header',        $header,  true);
-            $output .= $this->load->view('export/chooseformat',  array('header'=>sprintf(__('Export all for author %s'),$author->getName()),'exportCommand'=>'export/author/'.$author->author_id.'/'), true);
-            $output .= $this->load->view('footer',        '',       true);
-            
-            //set output
-            $this->output->set_output($output);
+            $this->load->view('header', array('title'=>__('Select export format')));
+            $this->load->view('export/chooseformat',  array('header'=>sprintf(__('Export all for author %s'),$author->getName()),'exportCommand'=>'export/author/'.$author->author_id.'/'));
+            $this->load->view('footer');
             return;
 	    }
-	    $exportdata = array();
-        $userlogin = getUserLogin();
-        //for export, bibtex should NOT merge crossrefs; ris SHOULD merge crossrefs
-        switch ($type) {
-            case 'bibtex':
-                $this->publication_db->suppressMerge = True;
-                break;
-            case 'ris':
-                $this->publication_db->enforceMerge = True;
-                break;
-            case 'formatted':
-                $this->publication_db->enforceMerge = True;
-                $exportdata['format'] = $this->input->post('format');
-                $exportdata['sort'] = $this->input->post('sort');
-                $exportdata['style'] = $this->input->post('style');
-                break;
-            case 'email':
-            		redirect ('authors/exportEmail/'.$author_id);
-            		break;
-            default:
-                break;
-                
-        }
-
-        #collect to-be-exported publications 
-        $publicationMap = $this->publication_db->getForAuthorAsMap($author->author_id);
-        #split into publications and crossreffed publications, adding crossreffed publications as needed
-        $splitpubs = $this->publication_db->resolveXref($publicationMap,false);
-        $pubs = $splitpubs[0];
-        $xrefpubs = $splitpubs[1];
-        
-        #send to right export view
-        $exportdata['nonxrefs'] = $pubs;
-        $exportdata['xrefs']    = $xrefpubs;
+	    $exportdata = $this->_get_exportdata($type, $this->publication_db->getForAuthorAsMap($author->author_id));
         $exportdata['header']   = sprintf(__('All publications for %s'),$author->getName());
 
-        $output = $this->load->view('export/'.$type, $exportdata, True);
-
-        //set output
-        $this->output->set_output($output);        
-
+        $this->load->view('export/'.$type, $exportdata);
     }       
+
     /** 
     export/bookmarklist
     
@@ -253,66 +125,19 @@ class Export extends Controller {
     Returns:
         A clean text page with exported publications
     */
-    function bookmarklist() {
-	    $type = $this->uri->segment(3,'');
-	    if (!in_array($type,array('bibtex','ris','formatted','email'))) {
-            $header ['title']       = __("Select export format");
-            $header ['javascripts'] = array('prototype.js', 'effects.js', 'dragdrop.js', 'controls.js','externallinks.js');
-            
-            //get output
-            $output  = $this->load->view('header',        $header,  true);
-            $output .= $this->load->view('export/chooseformat',  array('header'=>__('Export all publications on bookmarklist'),'exportCommand'=>'export/bookmarklist/'), true);
-            $output .= $this->load->view('footer',        '',       true);
-            
-            //set output
-            $this->output->set_output($output);
+    function bookmarklist($type='') {
+        restrict_to_right('bookmarklist', __('Export bookmarklist'));
+        if ($type == 'email') { redirect('/bookmarklist/exportEmail'); }
+	    if (!in_array($type,array('bibtex','ris','formatted'))) {
+            $this->load->view('header', array('title'=>__('Select export format')));
+            $this->load->view('export/chooseformat',  array('header'=>__('Export all publications on bookmarklist'),'exportCommand'=>'export/bookmarklist/'));
+            $this->load->view('footer');
             return;
 	    }
-	    $exportdata = array();
-        $userlogin = getUserLogin();
-        if (!$userlogin->hasRights('bookmarklist')) {
-	        appendErrorMessage(__('Export').': '.__('no bookmarklist rights').'.<br/>');
-	        redirect ('');
-	    }
-        //for export, bibtex should NOT merge crossrefs; ris SHOULD merge crossrefs
-        switch ($type) {
-            case 'bibtex':
-                $this->publication_db->suppressMerge = True;
-                break;
-            case 'ris':
-                $this->publication_db->enforceMerge = True;
-                break;
-            case 'formatted':
-                $this->publication_db->enforceMerge = True;
-                $exportdata['format'] = $this->input->post('format');
-                $exportdata['sort'] = $this->input->post('sort');
-                $exportdata['style'] = $this->input->post('style');
-                break;
-            case 'email':
-            		redirect ('bookmarklist/exportEmail/');
-            		break;
-            default:
-                break;
-                
-        }
-	    
-        #collect to-be-exported publications 
-        $publicationMap = $this->publication_db->getForBookmarkListAsMap();
-        #split into publications and crossreffed publications, adding crossreffed publications as needed
-        $splitpubs = $this->publication_db->resolveXref($publicationMap,false);
-        $pubs = $splitpubs[0];
-        $xrefpubs = $splitpubs[1];
-        
-        #send to right export view
-        $exportdata['nonxrefs'] = $pubs;
-        $exportdata['xrefs']    = $xrefpubs;
+	    $exportdata = $this->_get_exportdata($type, $this->publication_db->getForBookmarkListAsMap());
         $exportdata['header']   = __('Exported from bookmarklist');
 
-        $output = $this->load->view('export/'.$type, $exportdata, True);
-
-        //set output
-        $this->output->set_output($output);        
-
+        $this->load->view('export/'.$type, $exportdata);
     }        
         
     /** 
@@ -330,9 +155,27 @@ class Export extends Controller {
     Returns:
         A clean text page with exported publications
     */
-    function publication() {
-	    $pub_id = $this->uri->segment(3,-1);
-	    $type = $this->uri->segment(4,'');
+    function publication($pub_id=-1, $type='') {
+	    if (!in_array($type,array('bibtex','ris','formatted'))) {
+            $this->load->view('header', array('title'=>__('Select export format')));
+            $this->load->view('export/chooseformat',  array('header'=>__('Export one publication'),'exportCommand'=>'export/publication/'.$publication->pub_id.'/'));
+            $this->load->view('footer');
+            return;
+	    }
+	    $publication = $this->publication_db->getByID($pub_id);
+	    if ($publication==null) {
+	        appendErrorMessage(__('Export requested for non existing publication.'));
+	        redirect('');
+	    }
+	    $exportdata = $this->_get_exportdata($type, array($publication->pub_id=>$publication));
+
+        $this->load->view('export/'.$type, $exportdata);
+    }
+
+    /**
+     *
+     */
+    protected function _get_exportdata($type, $publicationMap) {
         //for export, bibtex should NOT merge crossrefs; ris SHOULD merge crossrefs
 	    $exportdata = array();
         switch ($type) {
@@ -350,44 +193,13 @@ class Export extends Controller {
                 break;
             default:
                 break;
-                
         }
-	    $publication = $this->publication_db->getByID($pub_id);
-	    if ($publication==null) {
-	        appendErrorMessage(__('Export requested for non existing publication.').'<br/>');
-	        redirect ('');
-	    }
-	    if (!in_array($type,array('bibtex','ris','formatted'))) {
-            $header ['title']       = __("Select export format");
-            $header ['javascripts'] = array('prototype.js', 'effects.js', 'dragdrop.js', 'controls.js','externallinks.js');
-            
-            //get output
-            $output  = $this->load->view('header',        $header,  true);
-            $output .= $this->load->view('export/chooseformat',  array('header'=>__('Export one publication'),'exportCommand'=>'export/publication/'.$publication->pub_id.'/'), true);
-            $output .= $this->load->view('footer',        '',       true);
-            
-            //set output
-            $this->output->set_output($output);
-            return;
-	    }
-        $userlogin = getUserLogin();
-
-        #collect to-be-exported publications 
-        $publicationMap = array($publication->pub_id=>$publication);
-        #split into publications and crossreffed publications, adding crossreffed publications as needed
+        // split into publications and crossreffed publications, adding crossreffed publications as needed
         $splitpubs = $this->publication_db->resolveXref($publicationMap,false);
-        $pubs = $splitpubs[0];
-        $xrefpubs = $splitpubs[1];
-        
-        #send to right export view
-        $exportdata['nonxrefs'] = $pubs;
-        $exportdata['xrefs']    = $xrefpubs;
-
-        $output = $this->load->view('export/'.$type, $exportdata, True);
-
-        //set output
-        $this->output->set_output($output);        
-
-    }    
+        $exportdata['nonxrefs'] = $splitpubs[0];
+        $exportdata['xrefs']    = $splitpubs[1];
+        return $exportdata;
+    }
 }
-?>
+
+//__END__
