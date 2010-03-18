@@ -228,6 +228,7 @@ class Wiki_model extends Model {
                 }
                 $xcontent = preg_replace_callback('/\\\\ref{([^}]+)}/', '_sanitize_get_ref', $xcontent);
             }
+            $xcontent = $this->_handle_latex($xcontent);
         }
         return $xcontent;
     }
@@ -241,6 +242,119 @@ class Wiki_model extends Model {
             return false;
         }
         return $query->row()->id;
+    }
+
+    protected function _handle_latex($string) {
+        $newstring = '';
+        $map = array(
+            '\\\\textbf{' => array('<strong>','</strong>'),
+            '\\\\textit{' => array('<em>','</em>'),
+            '\\\\textsc{' => array('<span style="font-variant:small-caps">','</span>'),
+            '\\\\texttt{' => array('<span style="font-family:monospace">','</span>'),
+            '\\\\textrm{' => array('<span style="font-weight:normal;font-style:normal;font-variant:normal">','</span>'),
+            '\\\\textsf{' => array('<span style="font-family:sans-serif">','</span>'),
+            '\\\\emph{' => array('<em>','</em>'),
+            '\\\\underline{' => array('<span style="text-decoration:underline">','</span>'),
+            '\\\\overline{' => array('<span style="text-decoration:overline">','</span>'),
+            '{\\\\bf\\s+' => array('<strong>','</strong>'),
+            '{\\\\em\\s+' => array('<em>','</em>'),
+            '{\\\\it\\s+' => array('<em>','</em>'),
+            '{\\\\sc\\s+' => array('<span style="font-variant:small-caps">','</span>'),
+            '{\\\\tt\\s+' => array('<span style="font-family:monospace">','</span>'),
+            '{\\\\rm\\s+' => array('<span style="font-weight:normal;font-style:normal;font-variant:normal">','</span>'),
+            '{\\\\sf\\s+' => array('<span style="font-family:sans-serif">','</span>'),
+            '{\\\\tiny\\s+' => array('<span style="font-size:xx-small">','</span>'),
+            '{\\\\scriptsize\\s+' => array('<span style="font-size:x-small">','</span>'),
+            '{\\\\footnotesize\\s+' => array('<span style="font-size:x-small">','</span>'),
+            '{\\\\small\\s+' => array('<span style="font-size:small">','</span>'),
+            '{\\\\normalsize\\s+' => array('<span style="font-size:normal">','</span>'),
+            '{\\\\large\\s+' => array('<span style="font-size:large">','</span>'),
+            '{\\\\Large\\s+' => array('<span style="font-size:x-large">','</span>'),
+            '{\\\\LARGE\\s+' => array('<span style="font-size:x-large">','</span>'),
+            '{\\\\huge\\s+' => array('<span style="font-size:xx-large">','</span>'),
+            '{\\\\Huge\\s+' => array('<span style="font-size:xx-large">','</span>'),
+        );
+        $parts = preg_split('/('.join('|', array_keys($map)).'|})/', $string, -1, PREG_SPLIT_DELIM_CAPTURE);
+        $level = array();
+        foreach ($parts as $part) {
+            if (array_key_exists($part, $map)) {
+                array_unshift($level, $map[$part][1]);
+                $newstring .= $map[$part][0];
+            } elseif (array_key_exists(str_replace('\\', '\\\\', $part), $map)) {
+                array_unshift($level, $map[str_replace('\\', '\\\\', $part)][1]);
+                $newstring .= $map[str_replace('\\', '\\\\', $part)][0];
+            } elseif (array_key_exists(str_replace('\\', '\\\\', rtrim($part)).'\\s+', $map)) {
+                array_unshift($level, $map[str_replace('\\', '\\\\', rtrim($part)).'\\s+'][1]);
+                $newstring .= $map[str_replace('\\', '\\\\', rtrim($part)).'\\s+'][0];
+            } elseif ($part == '}') {
+                if (count($level) == 0 || substr($newstring, -1) == '\\') {
+                    array_shift($level);
+                    $newstring .= '}';
+                } else {
+                    $newstring .= array_shift($level);
+                }
+            } else {
+                $newstring .= $part;
+            }
+        }
+        $pregmap = array(
+            '/\\\\\'([AEIOUYaeiouy])\\s+/' => '&$1acute;',
+            '/\\\\\"([AEIOUaeiouy])\\s+/' => '&$1uml;', 
+            '/\\\\\`([AEIOUaeiou])\\s+/' => '&$1grave;',
+            '/\\\\\^([AEIOUaeiou])\\s+/' => '&$1circ;', 
+            '/\\\\\~([ANOano])\\s+/' => '&$1tilde;',
+            '/\\\\\,([Cc])\\s+/' => '&$1cedil;',
+            '/\\\\([aoAO][Ee])\\s+/' => '&$1lig;',
+            '/\\\\(alpha|eta|nu|tau|beta|theta|xi|upsilon|gamma|iota|phi|delta|kappa|pi|'.
+              'chi|epsilon|lambda|rho|psi|zeta|mu|sigma|omega|Gamma|Lambda|Sigma|Psi|Delta|'.
+              'Xi|Upsilon|Omega|Theta|Pi|Phi)\\s+/' => '&$1;',
+        );
+        $strmap = array(
+            '\\ss' => '&szlig;',
+            '\\aa' => '&aring;',
+            '\\AA' => '&Aring;',
+            '\\o' => '&oslash;',
+            '\\O' => '&Oslash;',
+            '\\ldots' => '&hellip;',
+            '\\leq' => '&le;',
+            '\\geq' => '&ge;',
+            '---' => '&mdash;',
+            '``' => '&ldquo;',
+            "''" => '&rdquo;',
+            '\\qquad' => '&emsp;&emsp;',
+            '\\quad' => '&emsp;',
+            '\\ ' => '&nbsp;',
+            '\\,' => '&#8198;',
+            '\\-' => '&shy;',
+            '\\P' => '&para;',
+            '\\dag' => '&;',
+            '\\ddag' => '&;',
+            '\\textbar' => '|',
+            '\\textgreater' => '&gt;',
+            '\\textless' => '&lt;',
+            '\\textemdash' => '&mdash;',
+            '\\textendash' => '&ndash;',
+            '\\texttrademark' => '&trade;',
+            '\\textregistered' => '&reg;',
+            '\\copyright' => '&copy;',
+            '\\textexclamdown' => '&iexcl;',
+            '\\textquestiondown' => '&iquest;',
+            '\\S' => '&sect;',
+            '\\%' => '%',
+            '\\$' => '$',
+            '\\/' => '', // we don't need the italic correction...
+            '\\backslash' => '\\',
+        );
+        foreach ($pregmap as $pattern => $replacement) {
+            $newstring = preg_replace($pattern, $replacement, $newstring);
+        }
+        foreach ($strmap as $pattern => $replacement) {
+            $newstring = str_replace($pattern, $replacement, $newstring);
+        }
+        $newstring = preg_replace('/([^!])--/', '$1&ndash;', $newstring);
+        $newstring = preg_replace('/([^\\\\])~/', '$1&nbsp;', $newstring);
+        $newstring = str_replace('\\&', '&amp;', $newstring);
+        return $newstring;
     }
     
 }
