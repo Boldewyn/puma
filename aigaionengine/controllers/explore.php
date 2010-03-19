@@ -22,7 +22,7 @@ class Explore extends Controller {
 
         $this->load->view('header', array('title' => __('Explore'), 'nav_current' => 'explore', 'subnav_current' => '/explore/'));
         $this->load->view('site/stats', array('embed'=>1));
-        $this->load->view('explore/index', array('data' => "Hallo Puma.&Phi;!"));
+        $this->load->view('explore', array('data' => "Hallo Puma.&Phi;!"));
         $this->load->view('footer');
     }
 
