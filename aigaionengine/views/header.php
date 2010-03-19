@@ -29,6 +29,9 @@ header('Content-Type: text/html; charset=UTF-8');
       }
       //]]>
     </script>
+    <!--[if lt IE 9]>
+      <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta3)/IE9.js"></script>
+    <![endif]-->
     <script type="text/javascript" src="<?php echo base_url() ?>static/js/jquery.js"></script>
   </head>
   <body id="<?php if (isset($body_id)) { echo $body_id; } else { echo h($this->uri->segment(1).'_'.$this->uri->segment(2)); } ?>"
