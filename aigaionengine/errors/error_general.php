@@ -4,8 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
     <title><?php _e('Error')?> - Puma.&Phi;</title>
-    <link rel="stylesheet" href="<?php echo base_url()?>static/css/screen.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="<?php echo base_url()?>static/css/print.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="<?php echo base_url()?>static/css/style.css" type="text/css" />
     <script type="text/javascript" src="<?php echo base_url()?>static/js/jquery.js"></script>
   </head>
   <body id="error_general" class="errorbody">

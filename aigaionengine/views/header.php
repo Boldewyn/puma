@@ -10,8 +10,7 @@ header('Content-Type: text/html; charset=UTF-8');
   <head>
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
     <title><?php echo $title; ?> - <?php _site_title(True) ?></title>
-    <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/screen.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/print.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/style.css" type="text/css" />
     <script type="text/javascript">
       //<![CDATA[
       var config = {

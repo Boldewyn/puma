@@ -4,5 +4,5 @@
   <head>
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
     <title><?php echo $title; ?> - Puma.&Phi;</title>
-    <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/screen.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/style.css" type="text/css" />
   </head>
