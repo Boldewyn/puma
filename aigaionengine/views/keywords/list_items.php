@@ -37,8 +37,8 @@ foreach ($keywordList as $keyword) {
     //get li class
     if ($isCloud)
     {
-      if ($keyword->count < $threshold2) {
-        if ($keyword->count < $threshold1) {
+      if ($keyword->count <= $threshold2) {
+        if ($keyword->count <= $threshold1) {
           $liClass='class="t1"';
         }
         else {
