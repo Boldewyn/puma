@@ -53,7 +53,7 @@ header('Content-Type: text/html; charset=UTF-8');
               <?php
                 global $AIGAION_SHORTLIST_LANGUAGES; $larr = array();
                 foreach ($AIGAION_SHORTLIST_LANGUAGES as $lang):
-                  $larr[] = anchor('language/set/'.$lang.'/'.implode('/',$this->uri->segment_array()),
+                  $larr[] = anchor('language/set/'.$lang,
                                    $lang, array('title' => $this->userlanguage->getLanguageName($lang)));
                 endforeach;
                 echo implode(', ', $larr);
