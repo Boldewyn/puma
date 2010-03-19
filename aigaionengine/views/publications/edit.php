@@ -2,7 +2,7 @@
 
 $authors = array();
 $editors = array();
-foreach($publication->authors as $autor) {
+foreach($publication->authors as $author) {
   $authors[] = $author->author_id;
 }
 foreach($publication->editors as $editor) {

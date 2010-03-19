@@ -25,9 +25,9 @@ if (!isset($topic)||($topic==null)||(isset($action)&&$action=='add')) {
 ?>
 <form method="post" action="<?php echo base_url()?>topics/commit">
   <?php if ($isAddForm) : ?>
-    <h2><?php _e('Add a topic') ?></h2>
+    <h2><?php _e('New Topic') ?></h2>
   <?php else: ?>
-    <h2><?php printf(__('Change topic &ldquo;%s&rdquo;'), $topic->name) ?></h2>
+    <h2><?php printf(__('Change Topic &ldquo;%s&rdquo;'), $topic->name) ?></h2>
   <?php endif;
   echo $this->validation->error_string; ?>
   <fieldset class="disguised">

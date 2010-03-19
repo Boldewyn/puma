@@ -86,7 +86,7 @@ class Topics extends Controller {
         //besides the rights needed to READ this topic, checked by topic_db->getByID, we need to check:
         //edit_access_level and the user edit rights
         $userlogin  = getUserLogin();
-        restrict_to_right(($userlogin->hasRights('topic_edit') && $this->accesslevels_lib->canEditObject($topic)),
+        restrict_to_right(($userlogin->hasRights('topic_edit') || $this->accesslevels_lib->canEditObject($topic)),
             __('Delete topic'), '/topics');
 
         if ($commit=='commit') {
@@ -116,12 +116,11 @@ class Topics extends Controller {
                 '/publications/add' => __('Publication'),
                 '/topics/add' => __('Topic'),
                 '/authors/add' => __('Author'),
-                '/keywords/add' => __('Tag'),
             ),
             'subnav_current' => '/topics/add',
             'nav_current' => 'create',
         ));
-        $this->load->view('header', array('title' => __('Add topic')));
+        $this->load->view('header', array('title' => __('New Topic')));
         $this->load->view('topics/edit' , array('parent'=>$parent));
         $this->load->view('footer');
     }
@@ -144,7 +143,7 @@ class Topics extends Controller {
         //besides the rights needed to READ this topic, checked by topic_db->getByID, we need to check:
         //edit_access_level and the user edit rights
         $userlogin  = getUserLogin();
-        restrict_to_right(($userlogin->hasRights('topic_edit') && $this->accesslevels_lib->canEditObject($topic)),
+        restrict_to_right(($userlogin->hasRights('topic_edit') || $this->accesslevels_lib->canEditObject($topic)),
             __('Edit topic'), '/topics');
  
         $this->load->vars(array(
@@ -153,7 +152,6 @@ class Topics extends Controller {
                 '/publications/add' => __('Publication'),
                 '/topics/add' => __('Topic'),
                 '/authors/add' => __('Author'),
-                '/keywords/add' => __('Tag'),
             ),
             'subnav_current' => '/topics/add',
             'nav_current' => 'create',

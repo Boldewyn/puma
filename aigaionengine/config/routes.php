@@ -39,7 +39,7 @@
 |
 */
 
-$route['default_controller'] = 'front';
+$route['default_controller'] = 'explore';
 $route['scaffolding_trigger'] = '';
 
 $route['login/nds:any'] = 'login/nds';

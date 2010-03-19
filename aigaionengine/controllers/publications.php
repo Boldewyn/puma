@@ -205,7 +205,7 @@ class Publications extends Controller {
         }
 
         $userlogin  = getUserLogin();
-        restrict_to_right(($userlogin->hasRights('publication_edit') &&
+        restrict_to_right(($userlogin->hasRights('publication_edit') ||
                            $this->accesslevels_lib->canEditObject($publication)),
             __('Edit publication'), '/publications');
 
@@ -227,7 +227,6 @@ class Publications extends Controller {
                 '/publications/add' => __('Publication'),
                 '/topics/add' => __('Topic'),
                 '/authors/add' => __('Author'),
-                '/keywords/add' => __('Tag'),
             ),
             'subnav_current' => '/publications/add',
             'nav_current' => 'create',
@@ -277,7 +276,7 @@ class Publications extends Controller {
         //besides the rights needed to READ this publication, checked by publication_db->getByID, we need to check:
         //edit_access_level and the user edit rights
         $userlogin  = getUserLogin();
-        restrict_to_right(($userlogin->hasRights('publication_edit') &&
+        restrict_to_right(($userlogin->hasRights('publication_edit') ||
                            $this->accesslevels_lib->canEditObject($publication)),
             __('Delete publication'), '/publications');
 
@@ -331,8 +330,8 @@ class Publications extends Controller {
             if (!$bReview) {
                 //do actual commit, depending on the edit_type, choose add or update
                 $userlogin  = getUserLogin();
-                restrict_to_right(($userlogin->hasRights('publication_edit') &&
-                                   ($oldpublication != null && $edit_type == 'add') &&
+                restrict_to_right(($userlogin->hasRights('publication_edit') ||
+                                   ($oldpublication != null && $edit_type == 'add') ||
                                    ($oldpublication == null && $this->accesslevels_lib->canEditObject($oldpublication))),
                     __('Commit publication'),
                     '/publications');
@@ -355,8 +354,8 @@ class Publications extends Controller {
     function review($publication, $review_data) {
         $oldpublication = $this->publication_db->getByID($publication->pub_id); //needed to check access levels, as post data may be rigged
         $userlogin      = getUserLogin();
-        restrict_to_right(($userlogin->hasRights('publication_edit') &&
-                           ($oldpublication != null && $review_data['edit_type'] == 'add') &&
+        restrict_to_right(($userlogin->hasRights('publication_edit') ||
+                           ($oldpublication != null && $review_data['edit_type'] == 'add') ||
                            ($oldpublication == null && $this->accesslevels_lib->canEditObject($oldpublication))),
             __('Review publication'),
             '/publications');

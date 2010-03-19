@@ -217,7 +217,6 @@ class Authors extends Controller {
                 '/publications/add' => __('Publication'),
                 '/topics/add' => __('Topic'),
                 '/authors/add' => __('Author'),
-                '/keywords/add' => __('Tag'),
             ),
             'subnav_current' => '/authors/add',
             'nav_current' => 'create',
