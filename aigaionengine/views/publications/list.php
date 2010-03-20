@@ -223,7 +223,9 @@ if (isset($multipageprefix) && isset($currentpage)) {
 
         ?></div><?php
         }
-    } ?>
-    </div>
-  <?php echo $pagination; ?>
+    }
+    if (in_array($order, array('recent', 'type'))) {
+        echo '</div>';
+    }
+    echo $pagination; ?>
 </div>

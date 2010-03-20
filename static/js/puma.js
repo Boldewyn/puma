@@ -154,6 +154,27 @@ window._ = gettext;
     $('.masonry .brick').css('float', 'none');
     $('.masonry').masonry({itemSelector:'.brick', columnWidth:'446'});
     
+    /** Intercept rights changing click */
+    $('.rights_switch').click(function () {
+      var $sw = $(this);
+      $.getJSON($sw.attr('href'), function (data) {
+        if (data.length = 2) {
+          console.log($sw.parent().find('a.rights_switch.read_switch'));
+          console.log($sw.parent().find('a.rights_switch.read_switch').find('img'));
+          $sw.parent()
+            .find('a.rights_switch.read_switch').removeClass('private public intern').addClass(data[0])
+              .find('img').attr('src', function (i, attr) { return attr.replace(/rights_([a-z]+)/, 'rights_'+data[0]); })
+            .end()
+          .end()
+            .find('a.rights_switch.edit_switch').removeClass('private public intern').addClass(data[1])
+              .find('img').attr('src', function (i, attr) { return attr.replace(/rights_([a-z]+)/, 'rights_'+data[1]); })
+            .end()
+          .end();
+        }
+      });
+      return false;
+    });
+    
     /** init LaTeXMathML */
     new LaTeXMathML({autostart:1, element:document.getElementById("content")});
     

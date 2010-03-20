@@ -88,7 +88,7 @@ class Notes extends Controller {
         $this->load->view('notes/edit' , array('note' => $note));
         $this->load->view('publications/list', array(
             'publications' => array($this->publication_db->getByID($note->pub_id)),
-            'header' => __('Publication belonging to note').':',
+            'header' => __('Publication belonging to note:'),
             'noNotes' => true, 'noBookmarkList' => true,
             'order' => 'none'));
         $this->load->view('footer');

@@ -8,10 +8,9 @@ Aigaion: Extension of the prep_url function...
  * Test, if the request was an AJAX request (or a faked one with ?ajax=1)
  */
 function is_ajax() {
-    return !!((array_key_exists('HTTP_X_REQUESTED_WITH', $_SERVER) 
-               && strpos($_SERVER['HTTP_X_REQUESTED_WITH'], 'XMLHttpRequest') !== FALSE) ||
-              (array_key_exists('ajax', $_REQUEST) && $_REQUEST['ajax'] == '1')
-            );
+    return (bool)((array_key_exists('HTTP_X_REQUESTED_WITH', $_SERVER) 
+                   && strpos($_SERVER['HTTP_X_REQUESTED_WITH'], 'XMLHttpRequest') !== FALSE) ||
+                  (array_key_exists('ajax', $_REQUEST) && $_REQUEST['ajax'] == '1'));
 }
 
 

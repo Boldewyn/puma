@@ -144,6 +144,11 @@ hr {
 
 
 
+/**
+ * M E D I A   D E C L A R A T I O N :   S C R E E N
+ *
+ */
+@media screen, handheld, projector {
 
 
 /**
@@ -1622,6 +1627,30 @@ body.group .datatable ul li {
 .publication_mark_slider {
   width: 16em;
   margin: 0 .2em;
+}
+
+
+/**
+ * E N D :   M E D I A   D E C L A R A T I O N :   S C R E E N
+ */
+}
+
+
+/**
+ * M E D I A   D E C L A R A T I O N :   P R I N T
+ *
+ */
+@media print {
+
+button, select, input.submit, .pseudobutton,
+.mceToolbar,
+#header_widgets,
+#nav, #subnav,
+#footer { display: none; }
+
+/**
+ * E N D :   M E D I A   D E C L A R A T I O N :   P R I N T
+ */
 }
 
 
