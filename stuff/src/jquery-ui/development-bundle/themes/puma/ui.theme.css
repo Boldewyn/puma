@@ -1,55 +1,55 @@
 
 
-
-
 /*
 * jQuery UI CSS Framework
-* Copyright (c) 2009 AUTHORS.txt (http://jqueryui.com/about)
+* Copyright (c) 2010 AUTHORS.txt (http://jqueryui.com/about)
 * Dual licensed under the MIT (MIT-LICENSE.txt) and GPL (GPL-LICENSE.txt) licenses.
-* To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Frutiger%20Next%20Pro,Frutiger%20Next,Segoe%20UI,Verdana,sans-serif&fwDefault=normal&fsDefault=1.1em&cornerRadius=3px&bgColorHeader=def7f5&bgTextureHeader=03_highlight_soft.png&bgImgOpacityHeader=100&borderColorHeader=aeeae6&fcHeader=222222&iconColorHeader=72cfc8&bgColorContent=f2f5f7&bgTextureContent=04_highlight_hard.png&bgImgOpacityContent=100&borderColorContent=dddddd&fcContent=2b3136&iconColorContent=72cfc7&bgColorDefault=d7f9f7&bgTextureDefault=02_glass.png&bgImgOpacityDefault=80&borderColorDefault=aeeae8&fcDefault=27aaa0&iconColorDefault=3db3ab&bgColorHover=e4fbfb&bgTextureHover=02_glass.png&bgImgOpacityHover=100&borderColorHover=74e2df&fcHover=00a39b&iconColorHover=26e8e8&bgColorActive=1a9e98&bgTextureActive=02_glass.png&bgImgOpacityActive=50&borderColorActive=1dc9c2&fcActive=ffffff&iconColorActive=ffffff&bgColorHighlight=18e2d6&bgTextureHighlight=02_glass.png&bgImgOpacityHighlight=25&borderColorHighlight=00b8b8&fcHighlight=363636&iconColorHighlight=006b6b&bgColorError=cd0a0a&bgTextureError=01_flat.png&bgImgOpacityError=15&borderColorError=cd0a0a&fcError=ffffff&iconColorError=ffd1d1&bgColorOverlay=eeeeee&bgTextureOverlay=08_diagonals_thick.png&bgImgOpacityOverlay=90&opacityOverlay=80&bgColorShadow=000000&bgTextureShadow=04_highlight_hard.png&bgImgOpacityShadow=70&opacityShadow=30&thicknessShadow=7px&offsetTopShadow=-7px&offsetLeftShadow=-7px&cornerRadiusShadow=3px
+* To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Frutiger%20Next%20Pro,Frutiger%20Next,Segoe%20UI,Verdana,sans-serif&fwDefault=normal&fsDefault=1em&cornerRadius=2px&bgColorHeader=008993&bgTextureHeader=03_highlight_soft.png&bgImgOpacityHeader=100&borderColorHeader=339299&fcHeader=ffffff&iconColorHeader=99f8ff&bgColorContent=CBD9DA&bgTextureContent=22_spotlight.png&bgImgOpacityContent=70&borderColorContent=61A6A9&fcContent=002d2f&iconColorContent=00585c&bgColorDefault=008993&bgTextureDefault=03_highlight_soft.png&bgImgOpacityDefault=50&borderColorDefault=61A6A9&fcDefault=ffffff&iconColorDefault=99f8ff&bgColorHover=008993&bgTextureHover=02_glass.png&bgImgOpacityHover=70&borderColorHover=61a6a9&fcHover=ffffff&iconColorHover=99f8ff&bgColorActive=CBD9DA&bgTextureActive=03_highlight_soft.png&bgImgOpacityActive=50&borderColorActive=61a6a9&fcActive=002D2F&iconColorActive=00585c&bgColorHighlight=0aeeff&bgTextureHighlight=07_diagonals_medium.png&bgImgOpacityHighlight=50&borderColorHighlight=61a6a9&fcHighlight=002D2F&iconColorHighlight=002D2F&bgColorError=cd0a0a&bgTextureError=07_diagonals_medium.png&bgImgOpacityError=25&borderColorError=cd0a0a&fcError=ffffff&iconColorError=ffd1d1&bgColorOverlay=afced0&bgTextureOverlay=01_flat.png&bgImgOpacityOverlay=90&opacityOverlay=80&bgColorShadow=000000&bgTextureShadow=01_flat.png&bgImgOpacityShadow=70&opacityShadow=30&thicknessShadow=7px&offsetTopShadow=-7px&offsetLeftShadow=-7px&cornerRadiusShadow=2px
 */
 
 
 /* Component containers
 ----------------------------------*/
-.ui-widget { font-family: Frutiger Next Pro,Frutiger Next,Segoe UI,Verdana,sans-serif; font-size: 1.1em; }
+.ui-widget { font-family: Frutiger Next Pro,Frutiger Next,Segoe UI,Verdana,sans-serif; font-size: 1em; }
+.ui-widget .ui-widget { font-size: 1em; }
 .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: Frutiger Next Pro,Frutiger Next,Segoe UI,Verdana,sans-serif; font-size: 1em; }
-.ui-widget-content { border: 1px solid #dddddd; background: #f2f5f7 url(images/ui-bg_highlight-hard_100_f2f5f7_1x100.png) 50% top repeat-x; color: #2b3136; }
-.ui-widget-content a { color: #2b3136; }
-.ui-widget-header { border: 1px solid #aeeae6; background: #def7f5 url(images/ui-bg_highlight-soft_100_def7f5_1x100.png) 50% 50% repeat-x; color: #222222; font-weight: bold; }
-.ui-widget-header a { color: #222222; }
+.ui-widget-content { border: 1px solid #61A6A9; background: #CBD9DA url(images/ui-bg_spotlight_70_CBD9DA_600x600.png) 50% 2% repeat-x; color: #002d2f; }
+.ui-widget-content a { color: #002d2f; }
+.ui-widget-header { border: 1px solid #339299; background: #008993 url(images/ui-bg_highlight-soft_100_008993_1x100.png) 50% 50% repeat-x; color: #ffffff; font-weight: bold; }
+.ui-widget-header a { color: #ffffff; }
 
 /* Interaction states
 ----------------------------------*/
-.ui-state-default, .ui-widget-content .ui-state-default { border: 1px solid #aeeae8; background: #d7f9f7 url(images/ui-bg_glass_80_d7f9f7_1x400.png) 50% 50% repeat-x; font-weight: normal; color: #27aaa0; outline: none; }
-.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited { color: #27aaa0; text-decoration: none; outline: none; }
-.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus { border: 1px solid #74e2df; background: #e4fbfb url(images/ui-bg_glass_100_e4fbfb_1x400.png) 50% 50% repeat-x; font-weight: normal; color: #00a39b; outline: none; }
-.ui-state-hover a, .ui-state-hover a:hover { color: #00a39b; text-decoration: none; outline: none; }
-.ui-state-active, .ui-widget-content .ui-state-active { border: 1px solid #1dc9c2; background: #1a9e98 url(images/ui-bg_glass_50_1a9e98_1x400.png) 50% 50% repeat-x; font-weight: normal; color: #ffffff; outline: none; }
-.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited { color: #ffffff; outline: none; text-decoration: none; }
+.ui-state-default, .ui-widget-content .ui-state-default { border: 1px solid #61A6A9; background: #008993 url(images/ui-bg_highlight-soft_50_008993_1x100.png) 50% 50% repeat-x; font-weight: normal; color: #ffffff; }
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited { color: #ffffff; text-decoration: none; }
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus { border: 1px solid #61a6a9; background: #008993 url(images/ui-bg_glass_70_008993_1x400.png) 50% 50% repeat-x; font-weight: normal; color: #ffffff; }
+.ui-state-hover a, .ui-state-hover a:hover { color: #ffffff; text-decoration: none; }
+.ui-state-active, .ui-widget-content .ui-state-active { border: 1px solid #61a6a9; background: #CBD9DA url(images/ui-bg_highlight-soft_50_CBD9DA_1x100.png) 50% 50% repeat-x; font-weight: normal; color: #002D2F; }
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited { color: #002D2F; text-decoration: none; }
+.ui-widget :active { outline: none; }
 
 /* Interaction Cues
 ----------------------------------*/
-.ui-state-highlight, .ui-widget-content .ui-state-highlight {border: 1px solid #00b8b8; background: #18e2d6 url(images/ui-bg_glass_25_18e2d6_1x400.png) 50% 50% repeat-x; color: #363636; }
-.ui-state-highlight a, .ui-widget-content .ui-state-highlight a { color: #363636; }
-.ui-state-error, .ui-widget-content .ui-state-error {border: 1px solid #cd0a0a; background: #cd0a0a url(images/ui-bg_flat_15_cd0a0a_40x100.png) 50% 50% repeat-x; color: #ffffff; }
+.ui-state-highlight, .ui-widget-content .ui-state-highlight {border: 1px solid #61a6a9; background: #0aeeff url(images/ui-bg_diagonals-medium_50_0aeeff_40x40.png) 50% 50% repeat; color: #002D2F; }
+.ui-state-highlight a, .ui-widget-content .ui-state-highlight a { color: #002D2F; }
+.ui-state-error, .ui-widget-content .ui-state-error {border: 1px solid #cd0a0a; background: #cd0a0a url(images/ui-bg_diagonals-medium_25_cd0a0a_40x40.png) 50% 50% repeat; color: #ffffff; }
 .ui-state-error a, .ui-widget-content .ui-state-error a { color: #ffffff; }
 .ui-state-error-text, .ui-widget-content .ui-state-error-text { color: #ffffff; }
-.ui-state-disabled, .ui-widget-content .ui-state-disabled { opacity: .35; filter:Alpha(Opacity=35); background-image: none; }
 .ui-priority-primary, .ui-widget-content .ui-priority-primary { font-weight: bold; }
 .ui-priority-secondary, .ui-widget-content .ui-priority-secondary { opacity: .7; filter:Alpha(Opacity=70); font-weight: normal; }
+.ui-state-disabled, .ui-widget-content .ui-state-disabled { opacity: .35; filter:Alpha(Opacity=35); background-image: none; }
 
 /* Icons
 ----------------------------------*/
 
 /* states and images */
-.ui-icon { width: 16px; height: 16px; background-image: url(images/ui-icons_72cfc7_256x240.png); }
-.ui-widget-content .ui-icon {background-image: url(images/ui-icons_72cfc7_256x240.png); }
-.ui-widget-header .ui-icon {background-image: url(images/ui-icons_72cfc8_256x240.png); }
-.ui-state-default .ui-icon { background-image: url(images/ui-icons_3db3ab_256x240.png); }
-.ui-state-hover .ui-icon, .ui-state-focus .ui-icon {background-image: url(images/ui-icons_26e8e8_256x240.png); }
-.ui-state-active .ui-icon {background-image: url(images/ui-icons_ffffff_256x240.png); }
-.ui-state-highlight .ui-icon {background-image: url(images/ui-icons_006b6b_256x240.png); }
+.ui-icon { width: 16px; height: 16px; background-image: url(images/ui-icons_00585c_256x240.png); }
+.ui-widget-content .ui-icon {background-image: url(images/ui-icons_00585c_256x240.png); }
+.ui-widget-header .ui-icon {background-image: url(images/ui-icons_99f8ff_256x240.png); }
+.ui-state-default .ui-icon { background-image: url(images/ui-icons_99f8ff_256x240.png); }
+.ui-state-hover .ui-icon, .ui-state-focus .ui-icon {background-image: url(images/ui-icons_99f8ff_256x240.png); }
+.ui-state-active .ui-icon {background-image: url(images/ui-icons_00585c_256x240.png); }
+.ui-state-highlight .ui-icon {background-image: url(images/ui-icons_002D2F_256x240.png); }
 .ui-state-error .ui-icon, .ui-state-error-text .ui-icon {background-image: url(images/ui-icons_ffd1d1_256x240.png); }
 
 /* positioning */
@@ -188,6 +188,8 @@
 .ui-icon-seek-next { background-position: -32px -160px; }
 .ui-icon-seek-prev { background-position: -48px -160px; }
 .ui-icon-seek-end { background-position: -64px -160px; }
+.ui-icon-seek-start { background-position: -80px -160px; }
+/* ui-icon-seek-first is deprecated, use ui-icon-seek-start instead */
 .ui-icon-seek-first { background-position: -80px -160px; }
 .ui-icon-stop { background-position: -96px -160px; }
 .ui-icon-eject { background-position: -112px -160px; }
@@ -232,16 +234,16 @@
 ----------------------------------*/
 
 /* Corner radius */
-.ui-corner-tl { -moz-border-radius-topleft: 3px; -webkit-border-top-left-radius: 3px; }
-.ui-corner-tr { -moz-border-radius-topright: 3px; -webkit-border-top-right-radius: 3px; }
-.ui-corner-bl { -moz-border-radius-bottomleft: 3px; -webkit-border-bottom-left-radius: 3px; }
-.ui-corner-br { -moz-border-radius-bottomright: 3px; -webkit-border-bottom-right-radius: 3px; }
-.ui-corner-top { -moz-border-radius-topleft: 3px; -webkit-border-top-left-radius: 3px; -moz-border-radius-topright: 3px; -webkit-border-top-right-radius: 3px; }
-.ui-corner-bottom { -moz-border-radius-bottomleft: 3px; -webkit-border-bottom-left-radius: 3px; -moz-border-radius-bottomright: 3px; -webkit-border-bottom-right-radius: 3px; }
-.ui-corner-right {  -moz-border-radius-topright: 3px; -webkit-border-top-right-radius: 3px; -moz-border-radius-bottomright: 3px; -webkit-border-bottom-right-radius: 3px; }
-.ui-corner-left { -moz-border-radius-topleft: 3px; -webkit-border-top-left-radius: 3px; -moz-border-radius-bottomleft: 3px; -webkit-border-bottom-left-radius: 3px; }
-.ui-corner-all { -moz-border-radius: 3px; -webkit-border-radius: 3px; }
+.ui-corner-tl { -moz-border-radius-topleft: 2px; -webkit-border-top-left-radius: 2px; border-top-left-radius: 2px; }
+.ui-corner-tr { -moz-border-radius-topright: 2px; -webkit-border-top-right-radius: 2px; border-top-right-radius: 2px; }
+.ui-corner-bl { -moz-border-radius-bottomleft: 2px; -webkit-border-bottom-left-radius: 2px; border-bottom-left-radius: 2px; }
+.ui-corner-br { -moz-border-radius-bottomright: 2px; -webkit-border-bottom-right-radius: 2px; border-bottom-right-radius: 2px; }
+.ui-corner-top { -moz-border-radius-topleft: 2px; -webkit-border-top-left-radius: 2px; border-top-left-radius: 2px; -moz-border-radius-topright: 2px; -webkit-border-top-right-radius: 2px; border-top-right-radius: 2px; }
+.ui-corner-bottom { -moz-border-radius-bottomleft: 2px; -webkit-border-bottom-left-radius: 2px; border-bottom-left-radius: 2px; -moz-border-radius-bottomright: 2px; -webkit-border-bottom-right-radius: 2px; border-bottom-right-radius: 2px; }
+.ui-corner-right {  -moz-border-radius-topright: 2px; -webkit-border-top-right-radius: 2px; border-top-right-radius: 2px; -moz-border-radius-bottomright: 2px; -webkit-border-bottom-right-radius: 2px; border-bottom-right-radius: 2px; }
+.ui-corner-left { -moz-border-radius-topleft: 2px; -webkit-border-top-left-radius: 2px; border-top-left-radius: 2px; -moz-border-radius-bottomleft: 2px; -webkit-border-bottom-left-radius: 2px; border-bottom-left-radius: 2px; }
+.ui-corner-all { -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; }
 
 /* Overlays */
-.ui-widget-overlay { background: #eeeeee url(images/ui-bg_diagonals-thick_90_eeeeee_40x40.png) 50% 50% repeat; opacity: .80;filter:Alpha(Opacity=80); }
-.ui-widget-shadow { margin: -7px 0 0 -7px; padding: 7px; background: #000000 url(images/ui-bg_highlight-hard_70_000000_1x100.png) 50% top repeat-x; opacity: .30;filter:Alpha(Opacity=30); -moz-border-radius: 3px; -webkit-border-radius: 3px; }
+.ui-widget-overlay { background: #afced0 url(images/ui-bg_flat_90_afced0_40x100.png) 50% 50% repeat-x; opacity: .80;filter:Alpha(Opacity=80); }
+.ui-widget-shadow { margin: -7px 0 0 -7px; padding: 7px; background: #000000 url(images/ui-bg_flat_70_000000_40x100.png) 50% 50% repeat-x; opacity: .30;filter:Alpha(Opacity=30); -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; }
