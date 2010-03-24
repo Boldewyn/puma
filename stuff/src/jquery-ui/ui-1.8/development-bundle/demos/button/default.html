@@ -1,6 +1,7 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
+	<meta charset="UTF-8" />
 	<title>jQuery UI Button - Default demo</title>
 	<link type="text/css" href="../../themes/base/jquery.ui.all.css" rel="stylesheet" />
 	<script type="text/javascript" src="../../jquery-1.4.2.js"></script>
@@ -11,6 +12,8 @@
 	<script type="text/javascript">
 	$(function() {
 		$("button, input:submit, a", ".demo").button();
+		
+		$("a", ".demo").click(function() { return false; });
 	});
 	</script>
 	<style>
@@ -23,7 +26,7 @@
 
 	<button>A button element</button>
 	
-	<input type="submit" value="A submit button">
+	<input type="submit" value="A submit button"/>
 	
 	<a href="#">An anchor</a>
 

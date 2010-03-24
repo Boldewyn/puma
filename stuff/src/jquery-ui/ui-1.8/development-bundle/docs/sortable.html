@@ -42,13 +42,12 @@ A simple jQuery UI Sortable.<br />
 <pre>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;link type=&quot;text/css&quot; href=&quot;http://jqueryui.com/latest/themes/base/jquery.ui.all.css&quot; rel=&quot;stylesheet&quot; /&gt;
-  &lt;script type=&quot;text/javascript&quot; src=&quot;http://jqueryui.com/latest/jquery-1.4.2.js&quot;&gt;&lt;/script&gt;
-  &lt;script type=&quot;text/javascript&quot; src=&quot;http://jquery-ui.googlecode.com/svn/tags/1.8rc1/jquery-1.4.1.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;http://jquery-ui.googlecode.com/svn/tags/1.8rc1/ui/jquery-ui.js&quot;&gt;&lt;/script&gt;
-
-  &lt;script type="text/javascript"&gt;
-  $(document).ready(function(){
+  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+  
+  &lt;script&gt;
+  $(document).ready(function() {
     $(&quot;#sortable&quot;).sortable();
   });
   &lt;/script&gt;
@@ -74,6 +73,48 @@ A simple jQuery UI Sortable.<br />
     <h2 class="top-header">Options</h2>
     <ul class="options-list">
       
+<li class="option" id="option-disabled">
+  <div class="option-header">
+    <h3 class="option-name"><a href="#option-disabled">disabled</a></h3>
+    <dl>
+      <dt class="option-type-label">Type:</dt>
+        <dd class="option-type">Boolean</dd>
+      
+      <dt class="option-default-label">Default:</dt>
+        <dd class="option-default">false</dd>
+      
+    </dl>
+  </div>
+  <div class="option-description">
+    <p>Disables (true) or enables (false) the sortable. Can be set when initialising (first creating) the sortable.</p>
+  </div>
+  <div class="option-examples">
+    <h4>Code examples</h4>
+    <dl class="option-examples-list">
+    
+<dt>
+  Initialize a sortable with the <code>disabled</code> option specified.
+</dt>
+<dd>
+<pre><code>$( ".selector" ).sortable( { disabled: true } );</code></pre>
+</dd>
+
+    
+<dt>
+  Get or set the <code>disabled</code> option, after init.
+</dt>
+<dd>
+<pre><code>//getter
+var disabled = $( ".selector" ).sortable( "option", "disabled" );
+//setter
+$( ".selector" ).sortable( "option", "disabled", true );</code></pre>
+</dd>
+
+    </dl>
+  </div>
+</li>
+
+
 <li class="option" id="option-appendTo">
   <div class="option-header">
     <h3 class="option-name"><a href="#option-appendTo">appendTo</a></h3>
@@ -97,7 +138,7 @@ A simple jQuery UI Sortable.<br />
   Initialize a sortable with the <code>appendTo</code> option specified.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({ appendTo: 'body' });</code></pre>
+<pre><code>$( ".selector" ).sortable( { appendTo: 'body' } );</code></pre>
 </dd>
 
     
@@ -106,9 +147,9 @@ A simple jQuery UI Sortable.<br />
 </dt>
 <dd>
 <pre><code>//getter
-var appendTo = $('.selector').sortable('option', 'appendTo');
+var appendTo = $( ".selector" ).sortable( "option", "appendTo" );
 //setter
-$('.selector').sortable('option', 'appendTo', 'body');</code></pre>
+$( ".selector" ).sortable( "option", "appendTo", 'body' );</code></pre>
 </dd>
 
     </dl>
@@ -139,7 +180,7 @@ $('.selector').sortable('option', 'appendTo', 'body');</code></pre>
   Initialize a sortable with the <code>axis</code> option specified.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({ axis: 'x' });</code></pre>
+<pre><code>$( ".selector" ).sortable( { axis: 'x' } );</code></pre>
 </dd>
 
     
@@ -148,9 +189,9 @@ $('.selector').sortable('option', 'appendTo', 'body');</code></pre>
 </dt>
 <dd>
 <pre><code>//getter
-var axis = $('.selector').sortable('option', 'axis');
+var axis = $( ".selector" ).sortable( "option", "axis" );
 //setter
-$('.selector').sortable('option', 'axis', 'x');</code></pre>
+$( ".selector" ).sortable( "option", "axis", 'x' );</code></pre>
 </dd>
 
     </dl>
@@ -181,7 +222,7 @@ $('.selector').sortable('option', 'axis', 'x');</code></pre>
   Initialize a sortable with the <code>cancel</code> option specified.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({ cancel: 'button' });</code></pre>
+<pre><code>$( ".selector" ).sortable( { cancel: 'button' } );</code></pre>
 </dd>
 
     
@@ -190,9 +231,9 @@ $('.selector').sortable('option', 'axis', 'x');</code></pre>
 </dt>
 <dd>
 <pre><code>//getter
-var cancel = $('.selector').sortable('option', 'cancel');
+var cancel = $( ".selector" ).sortable( "option", "cancel" );
 //setter
-$('.selector').sortable('option', 'cancel', 'button');</code></pre>
+$( ".selector" ).sortable( "option", "cancel", 'button' );</code></pre>
 </dd>
 
     </dl>
@@ -223,7 +264,7 @@ $('.selector').sortable('option', 'cancel', 'button');</code></pre>
   Initialize a sortable with the <code>connectWith</code> option specified.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({ connectWith: '.otherlist' });</code></pre>
+<pre><code>$( ".selector" ).sortable( { connectWith: '.otherlist' } );</code></pre>
 </dd>
 
     
@@ -232,9 +273,9 @@ $('.selector').sortable('option', 'cancel', 'button');</code></pre>
 </dt>
 <dd>
 <pre><code>//getter
-var connectWith = $('.selector').sortable('option', 'connectWith');
+var connectWith = $( ".selector" ).sortable( "option", "connectWith" );
 //setter
-$('.selector').sortable('option', 'connectWith', '.otherlist');</code></pre>
+$( ".selector" ).sortable( "option", "connectWith", '.otherlist' );</code></pre>
 </dd>
 
     </dl>
@@ -265,7 +306,7 @@ $('.selector').sortable('option', 'connectWith', '.otherlist');</code></pre>
   Initialize a sortable with the <code>containment</code> option specified.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({ containment: 'parent' });</code></pre>
+<pre><code>$( ".selector" ).sortable( { containment: 'parent' } );</code></pre>
 </dd>
 
     
@@ -274,9 +315,9 @@ $('.selector').sortable('option', 'connectWith', '.otherlist');</code></pre>
 </dt>
 <dd>
 <pre><code>//getter
-var containment = $('.selector').sortable('option', 'containment');
+var containment = $( ".selector" ).sortable( "option", "containment" );
 //setter
-$('.selector').sortable('option', 'containment', 'parent');</code></pre>
+$( ".selector" ).sortable( "option", "containment", 'parent' );</code></pre>
 </dd>
 
     </dl>
@@ -307,7 +348,7 @@ $('.selector').sortable('option', 'containment', 'parent');</code></pre>
   Initialize a sortable with the <code>cursor</code> option specified.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({ cursor: 'crosshair' });</code></pre>
+<pre><code>$( ".selector" ).sortable( { cursor: 'crosshair' } );</code></pre>
 </dd>
 
     
@@ -316,9 +357,9 @@ $('.selector').sortable('option', 'containment', 'parent');</code></pre>
 </dt>
 <dd>
 <pre><code>//getter
-var cursor = $('.selector').sortable('option', 'cursor');
+var cursor = $( ".selector" ).sortable( "option", "cursor" );
 //setter
-$('.selector').sortable('option', 'cursor', 'crosshair');</code></pre>
+$( ".selector" ).sortable( "option", "cursor", 'crosshair' );</code></pre>
 </dd>
 
     </dl>
@@ -349,7 +390,7 @@ $('.selector').sortable('option', 'cursor', 'crosshair');</code></pre>
   Initialize a sortable with the <code>cursorAt</code> option specified.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({ cursorAt: 'top' });</code></pre>
+<pre><code>$( ".selector" ).sortable( { cursorAt: 'top' } );</code></pre>
 </dd>
 
     
@@ -358,9 +399,9 @@ $('.selector').sortable('option', 'cursor', 'crosshair');</code></pre>
 </dt>
 <dd>
 <pre><code>//getter
-var cursorAt = $('.selector').sortable('option', 'cursorAt');
+var cursorAt = $( ".selector" ).sortable( "option", "cursorAt" );
 //setter
-$('.selector').sortable('option', 'cursorAt', 'top');</code></pre>
+$( ".selector" ).sortable( "option", "cursorAt", 'top' );</code></pre>
 </dd>
 
     </dl>
@@ -391,7 +432,7 @@ $('.selector').sortable('option', 'cursorAt', 'top');</code></pre>
   Initialize a sortable with the <code>delay</code> option specified.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({ delay: 500 });</code></pre>
+<pre><code>$( ".selector" ).sortable( { delay: 500 } );</code></pre>
 </dd>
 
     
@@ -400,9 +441,9 @@ $('.selector').sortable('option', 'cursorAt', 'top');</code></pre>
 </dt>
 <dd>
 <pre><code>//getter
-var delay = $('.selector').sortable('option', 'delay');
+var delay = $( ".selector" ).sortable( "option", "delay" );
 //setter
-$('.selector').sortable('option', 'delay', 500);</code></pre>
+$( ".selector" ).sortable( "option", "delay", 500 );</code></pre>
 </dd>
 
     </dl>
@@ -433,7 +474,7 @@ $('.selector').sortable('option', 'delay', 500);</code></pre>
   Initialize a sortable with the <code>distance</code> option specified.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({ distance: 30 });</code></pre>
+<pre><code>$( ".selector" ).sortable( { distance: 30 } );</code></pre>
 </dd>
 
     
@@ -442,9 +483,9 @@ $('.selector').sortable('option', 'delay', 500);</code></pre>
 </dt>
 <dd>
 <pre><code>//getter
-var distance = $('.selector').sortable('option', 'distance');
+var distance = $( ".selector" ).sortable( "option", "distance" );
 //setter
-$('.selector').sortable('option', 'distance', 30);</code></pre>
+$( ".selector" ).sortable( "option", "distance", 30 );</code></pre>
 </dd>
 
     </dl>
@@ -475,7 +516,7 @@ $('.selector').sortable('option', 'distance', 30);</code></pre>
   Initialize a sortable with the <code>dropOnEmpty</code> option specified.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({ dropOnEmpty: false });</code></pre>
+<pre><code>$( ".selector" ).sortable( { dropOnEmpty: false } );</code></pre>
 </dd>
 
     
@@ -484,9 +525,9 @@ $('.selector').sortable('option', 'distance', 30);</code></pre>
 </dt>
 <dd>
 <pre><code>//getter
-var dropOnEmpty = $('.selector').sortable('option', 'dropOnEmpty');
+var dropOnEmpty = $( ".selector" ).sortable( "option", "dropOnEmpty" );
 //setter
-$('.selector').sortable('option', 'dropOnEmpty', false);</code></pre>
+$( ".selector" ).sortable( "option", "dropOnEmpty", false );</code></pre>
 </dd>
 
     </dl>
@@ -517,7 +558,7 @@ $('.selector').sortable('option', 'dropOnEmpty', false);</code></pre>
   Initialize a sortable with the <code>forceHelperSize</code> option specified.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({ forceHelperSize: true });</code></pre>
+<pre><code>$( ".selector" ).sortable( { forceHelperSize: true } );</code></pre>
 </dd>
 
     
@@ -526,9 +567,9 @@ $('.selector').sortable('option', 'dropOnEmpty', false);</code></pre>
 </dt>
 <dd>
 <pre><code>//getter
-var forceHelperSize = $('.selector').sortable('option', 'forceHelperSize');
+var forceHelperSize = $( ".selector" ).sortable( "option", "forceHelperSize" );
 //setter
-$('.selector').sortable('option', 'forceHelperSize', true);</code></pre>
+$( ".selector" ).sortable( "option", "forceHelperSize", true );</code></pre>
 </dd>
 
     </dl>
@@ -559,7 +600,7 @@ $('.selector').sortable('option', 'forceHelperSize', true);</code></pre>
   Initialize a sortable with the <code>forcePlaceholderSize</code> option specified.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({ forcePlaceholderSize: true });</code></pre>
+<pre><code>$( ".selector" ).sortable( { forcePlaceholderSize: true } );</code></pre>
 </dd>
 
     
@@ -568,9 +609,9 @@ $('.selector').sortable('option', 'forceHelperSize', true);</code></pre>
 </dt>
 <dd>
 <pre><code>//getter
-var forcePlaceholderSize = $('.selector').sortable('option', 'forcePlaceholderSize');
+var forcePlaceholderSize = $( ".selector" ).sortable( "option", "forcePlaceholderSize" );
 //setter
-$('.selector').sortable('option', 'forcePlaceholderSize', true);</code></pre>
+$( ".selector" ).sortable( "option", "forcePlaceholderSize", true );</code></pre>
 </dd>
 
     </dl>
@@ -601,7 +642,7 @@ $('.selector').sortable('option', 'forcePlaceholderSize', true);</code></pre>
   Initialize a sortable with the <code>grid</code> option specified.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({ grid: [50, 20] });</code></pre>
+<pre><code>$( ".selector" ).sortable( { grid: [50, 20] } );</code></pre>
 </dd>
 
     
@@ -610,9 +651,9 @@ $('.selector').sortable('option', 'forcePlaceholderSize', true);</code></pre>
 </dt>
 <dd>
 <pre><code>//getter
-var grid = $('.selector').sortable('option', 'grid');
+var grid = $( ".selector" ).sortable( "option", "grid" );
 //setter
-$('.selector').sortable('option', 'grid', [50, 20]);</code></pre>
+$( ".selector" ).sortable( "option", "grid", [50, 20] );</code></pre>
 </dd>
 
     </dl>
@@ -643,7 +684,7 @@ $('.selector').sortable('option', 'grid', [50, 20]);</code></pre>
   Initialize a sortable with the <code>handle</code> option specified.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({ handle: 'h2' });</code></pre>
+<pre><code>$( ".selector" ).sortable( { handle: 'h2' } );</code></pre>
 </dd>
 
     
@@ -652,9 +693,9 @@ $('.selector').sortable('option', 'grid', [50, 20]);</code></pre>
 </dt>
 <dd>
 <pre><code>//getter
-var handle = $('.selector').sortable('option', 'handle');
+var handle = $( ".selector" ).sortable( "option", "handle" );
 //setter
-$('.selector').sortable('option', 'handle', 'h2');</code></pre>
+$( ".selector" ).sortable( "option", "handle", 'h2' );</code></pre>
 </dd>
 
     </dl>
@@ -685,7 +726,7 @@ $('.selector').sortable('option', 'handle', 'h2');</code></pre>
   Initialize a sortable with the <code>helper</code> option specified.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({ helper: 'clone' });</code></pre>
+<pre><code>$( ".selector" ).sortable( { helper: 'clone' } );</code></pre>
 </dd>
 
     
@@ -694,9 +735,9 @@ $('.selector').sortable('option', 'handle', 'h2');</code></pre>
 </dt>
 <dd>
 <pre><code>//getter
-var helper = $('.selector').sortable('option', 'helper');
+var helper = $( ".selector" ).sortable( "option", "helper" );
 //setter
-$('.selector').sortable('option', 'helper', 'clone');</code></pre>
+$( ".selector" ).sortable( "option", "helper", 'clone' );</code></pre>
 </dd>
 
     </dl>
@@ -727,7 +768,7 @@ $('.selector').sortable('option', 'helper', 'clone');</code></pre>
   Initialize a sortable with the <code>items</code> option specified.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({ items: 'li' });</code></pre>
+<pre><code>$( ".selector" ).sortable( { items: 'li' } );</code></pre>
 </dd>
 
     
@@ -736,9 +777,9 @@ $('.selector').sortable('option', 'helper', 'clone');</code></pre>
 </dt>
 <dd>
 <pre><code>//getter
-var items = $('.selector').sortable('option', 'items');
+var items = $( ".selector" ).sortable( "option", "items" );
 //setter
-$('.selector').sortable('option', 'items', 'li');</code></pre>
+$( ".selector" ).sortable( "option", "items", 'li' );</code></pre>
 </dd>
 
     </dl>
@@ -769,7 +810,7 @@ $('.selector').sortable('option', 'items', 'li');</code></pre>
   Initialize a sortable with the <code>opacity</code> option specified.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({ opacity: 0.6 });</code></pre>
+<pre><code>$( ".selector" ).sortable( { opacity: 0.6 } );</code></pre>
 </dd>
 
     
@@ -778,9 +819,9 @@ $('.selector').sortable('option', 'items', 'li');</code></pre>
 </dt>
 <dd>
 <pre><code>//getter
-var opacity = $('.selector').sortable('option', 'opacity');
+var opacity = $( ".selector" ).sortable( "option", "opacity" );
 //setter
-$('.selector').sortable('option', 'opacity', 0.6);</code></pre>
+$( ".selector" ).sortable( "option", "opacity", 0.6 );</code></pre>
 </dd>
 
     </dl>
@@ -811,7 +852,7 @@ $('.selector').sortable('option', 'opacity', 0.6);</code></pre>
   Initialize a sortable with the <code>placeholder</code> option specified.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({ placeholder: 'ui-state-highlight' });</code></pre>
+<pre><code>$( ".selector" ).sortable( { placeholder: 'ui-state-highlight' } );</code></pre>
 </dd>
 
     
@@ -820,9 +861,9 @@ $('.selector').sortable('option', 'opacity', 0.6);</code></pre>
 </dt>
 <dd>
 <pre><code>//getter
-var placeholder = $('.selector').sortable('option', 'placeholder');
+var placeholder = $( ".selector" ).sortable( "option", "placeholder" );
 //setter
-$('.selector').sortable('option', 'placeholder', 'ui-state-highlight');</code></pre>
+$( ".selector" ).sortable( "option", "placeholder", 'ui-state-highlight' );</code></pre>
 </dd>
 
     </dl>
@@ -853,7 +894,7 @@ $('.selector').sortable('option', 'placeholder', 'ui-state-highlight');</code></
   Initialize a sortable with the <code>revert</code> option specified.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({ revert: true });</code></pre>
+<pre><code>$( ".selector" ).sortable( { revert: true } );</code></pre>
 </dd>
 
     
@@ -862,9 +903,9 @@ $('.selector').sortable('option', 'placeholder', 'ui-state-highlight');</code></
 </dt>
 <dd>
 <pre><code>//getter
-var revert = $('.selector').sortable('option', 'revert');
+var revert = $( ".selector" ).sortable( "option", "revert" );
 //setter
-$('.selector').sortable('option', 'revert', true);</code></pre>
+$( ".selector" ).sortable( "option", "revert", true );</code></pre>
 </dd>
 
     </dl>
@@ -895,7 +936,7 @@ $('.selector').sortable('option', 'revert', true);</code></pre>
   Initialize a sortable with the <code>scroll</code> option specified.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({ scroll: false });</code></pre>
+<pre><code>$( ".selector" ).sortable( { scroll: false } );</code></pre>
 </dd>
 
     
@@ -904,9 +945,9 @@ $('.selector').sortable('option', 'revert', true);</code></pre>
 </dt>
 <dd>
 <pre><code>//getter
-var scroll = $('.selector').sortable('option', 'scroll');
+var scroll = $( ".selector" ).sortable( "option", "scroll" );
 //setter
-$('.selector').sortable('option', 'scroll', false);</code></pre>
+$( ".selector" ).sortable( "option", "scroll", false );</code></pre>
 </dd>
 
     </dl>
@@ -937,7 +978,7 @@ $('.selector').sortable('option', 'scroll', false);</code></pre>
   Initialize a sortable with the <code>scrollSensitivity</code> option specified.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({ scrollSensitivity: 40 });</code></pre>
+<pre><code>$( ".selector" ).sortable( { scrollSensitivity: 40 } );</code></pre>
 </dd>
 
     
@@ -946,9 +987,9 @@ $('.selector').sortable('option', 'scroll', false);</code></pre>
 </dt>
 <dd>
 <pre><code>//getter
-var scrollSensitivity = $('.selector').sortable('option', 'scrollSensitivity');
+var scrollSensitivity = $( ".selector" ).sortable( "option", "scrollSensitivity" );
 //setter
-$('.selector').sortable('option', 'scrollSensitivity', 40);</code></pre>
+$( ".selector" ).sortable( "option", "scrollSensitivity", 40 );</code></pre>
 </dd>
 
     </dl>
@@ -979,7 +1020,7 @@ $('.selector').sortable('option', 'scrollSensitivity', 40);</code></pre>
   Initialize a sortable with the <code>scrollSpeed</code> option specified.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({ scrollSpeed: 40 });</code></pre>
+<pre><code>$( ".selector" ).sortable( { scrollSpeed: 40 } );</code></pre>
 </dd>
 
     
@@ -988,9 +1029,9 @@ $('.selector').sortable('option', 'scrollSensitivity', 40);</code></pre>
 </dt>
 <dd>
 <pre><code>//getter
-var scrollSpeed = $('.selector').sortable('option', 'scrollSpeed');
+var scrollSpeed = $( ".selector" ).sortable( "option", "scrollSpeed" );
 //setter
-$('.selector').sortable('option', 'scrollSpeed', 40);</code></pre>
+$( ".selector" ).sortable( "option", "scrollSpeed", 40 );</code></pre>
 </dd>
 
     </dl>
@@ -1027,7 +1068,7 @@ $('.selector').sortable('option', 'scrollSpeed', 40);</code></pre>
   Initialize a sortable with the <code>tolerance</code> option specified.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({ tolerance: 'pointer' });</code></pre>
+<pre><code>$( ".selector" ).sortable( { tolerance: 'pointer' } );</code></pre>
 </dd>
 
     
@@ -1036,9 +1077,9 @@ $('.selector').sortable('option', 'scrollSpeed', 40);</code></pre>
 </dt>
 <dd>
 <pre><code>//getter
-var tolerance = $('.selector').sortable('option', 'tolerance');
+var tolerance = $( ".selector" ).sortable( "option", "tolerance" );
 //setter
-$('.selector').sortable('option', 'tolerance', 'pointer');</code></pre>
+$( ".selector" ).sortable( "option", "tolerance", 'pointer' );</code></pre>
 </dd>
 
     </dl>
@@ -1069,7 +1110,7 @@ $('.selector').sortable('option', 'tolerance', 'pointer');</code></pre>
   Initialize a sortable with the <code>zIndex</code> option specified.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({ zIndex: 5 });</code></pre>
+<pre><code>$( ".selector" ).sortable( { zIndex: 5 } );</code></pre>
 </dd>
 
     
@@ -1078,9 +1119,9 @@ $('.selector').sortable('option', 'tolerance', 'pointer');</code></pre>
 </dt>
 <dd>
 <pre><code>//getter
-var zIndex = $('.selector').sortable('option', 'zIndex');
+var zIndex = $( ".selector" ).sortable( "option", "zIndex" );
 //setter
-$('.selector').sortable('option', 'zIndex', 5);</code></pre>
+$( ".selector" ).sortable( "option", "zIndex", 5 );</code></pre>
 </dd>
 
     </dl>
@@ -1112,7 +1153,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
   Supply a callback function to handle the <code>start</code> event as an init option.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({
+<pre><code>$( &quot;.selector&quot; ).sortable({
    start: function(event, ui) { ... }
 });</code></pre>
 </dd>
@@ -1122,7 +1163,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
   Bind to the <code>start</code> event by type: <code>sortstart</code>.
 </dt>
 <dd>
-<pre><code>$('.selector').bind('sortstart', function(event, ui) {
+<pre><code>$( &quot;.selector&quot; ).bind( &quot;sortstart&quot;, function(event, ui) {
   ...
 });</code></pre>
 </dd>
@@ -1151,7 +1192,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
   Supply a callback function to handle the <code>sort</code> event as an init option.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({
+<pre><code>$( &quot;.selector&quot; ).sortable({
    sort: function(event, ui) { ... }
 });</code></pre>
 </dd>
@@ -1161,7 +1202,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
   Bind to the <code>sort</code> event by type: <code>sort</code>.
 </dt>
 <dd>
-<pre><code>$('.selector').bind('sort', function(event, ui) {
+<pre><code>$( &quot;.selector&quot; ).bind( &quot;sort&quot;, function(event, ui) {
   ...
 });</code></pre>
 </dd>
@@ -1190,7 +1231,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
   Supply a callback function to handle the <code>change</code> event as an init option.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({
+<pre><code>$( &quot;.selector&quot; ).sortable({
    change: function(event, ui) { ... }
 });</code></pre>
 </dd>
@@ -1200,7 +1241,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
   Bind to the <code>change</code> event by type: <code>sortchange</code>.
 </dt>
 <dd>
-<pre><code>$('.selector').bind('sortchange', function(event, ui) {
+<pre><code>$( &quot;.selector&quot; ).bind( &quot;sortchange&quot;, function(event, ui) {
   ...
 });</code></pre>
 </dd>
@@ -1229,7 +1270,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
   Supply a callback function to handle the <code>beforeStop</code> event as an init option.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({
+<pre><code>$( &quot;.selector&quot; ).sortable({
    beforeStop: function(event, ui) { ... }
 });</code></pre>
 </dd>
@@ -1239,7 +1280,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
   Bind to the <code>beforeStop</code> event by type: <code>sortbeforeStop</code>.
 </dt>
 <dd>
-<pre><code>$('.selector').bind('sortbeforeStop', function(event, ui) {
+<pre><code>$( &quot;.selector&quot; ).bind( &quot;sortbeforeStop&quot;, function(event, ui) {
   ...
 });</code></pre>
 </dd>
@@ -1268,7 +1309,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
   Supply a callback function to handle the <code>stop</code> event as an init option.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({
+<pre><code>$( &quot;.selector&quot; ).sortable({
    stop: function(event, ui) { ... }
 });</code></pre>
 </dd>
@@ -1278,7 +1319,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
   Bind to the <code>stop</code> event by type: <code>sortstop</code>.
 </dt>
 <dd>
-<pre><code>$('.selector').bind('sortstop', function(event, ui) {
+<pre><code>$( &quot;.selector&quot; ).bind( &quot;sortstop&quot;, function(event, ui) {
   ...
 });</code></pre>
 </dd>
@@ -1307,7 +1348,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
   Supply a callback function to handle the <code>update</code> event as an init option.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({
+<pre><code>$( &quot;.selector&quot; ).sortable({
    update: function(event, ui) { ... }
 });</code></pre>
 </dd>
@@ -1317,7 +1358,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
   Bind to the <code>update</code> event by type: <code>sortupdate</code>.
 </dt>
 <dd>
-<pre><code>$('.selector').bind('sortupdate', function(event, ui) {
+<pre><code>$( &quot;.selector&quot; ).bind( &quot;sortupdate&quot;, function(event, ui) {
   ...
 });</code></pre>
 </dd>
@@ -1346,7 +1387,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
   Supply a callback function to handle the <code>receive</code> event as an init option.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({
+<pre><code>$( &quot;.selector&quot; ).sortable({
    receive: function(event, ui) { ... }
 });</code></pre>
 </dd>
@@ -1356,7 +1397,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
   Bind to the <code>receive</code> event by type: <code>sortreceive</code>.
 </dt>
 <dd>
-<pre><code>$('.selector').bind('sortreceive', function(event, ui) {
+<pre><code>$( &quot;.selector&quot; ).bind( &quot;sortreceive&quot;, function(event, ui) {
   ...
 });</code></pre>
 </dd>
@@ -1385,7 +1426,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
   Supply a callback function to handle the <code>remove</code> event as an init option.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({
+<pre><code>$( &quot;.selector&quot; ).sortable({
    remove: function(event, ui) { ... }
 });</code></pre>
 </dd>
@@ -1395,7 +1436,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
   Bind to the <code>remove</code> event by type: <code>sortremove</code>.
 </dt>
 <dd>
-<pre><code>$('.selector').bind('sortremove', function(event, ui) {
+<pre><code>$( &quot;.selector&quot; ).bind( &quot;sortremove&quot;, function(event, ui) {
   ...
 });</code></pre>
 </dd>
@@ -1424,7 +1465,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
   Supply a callback function to handle the <code>over</code> event as an init option.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({
+<pre><code>$( &quot;.selector&quot; ).sortable({
    over: function(event, ui) { ... }
 });</code></pre>
 </dd>
@@ -1434,7 +1475,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
   Bind to the <code>over</code> event by type: <code>sortover</code>.
 </dt>
 <dd>
-<pre><code>$('.selector').bind('sortover', function(event, ui) {
+<pre><code>$( &quot;.selector&quot; ).bind( &quot;sortover&quot;, function(event, ui) {
   ...
 });</code></pre>
 </dd>
@@ -1463,7 +1504,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
   Supply a callback function to handle the <code>out</code> event as an init option.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({
+<pre><code>$( &quot;.selector&quot; ).sortable({
    out: function(event, ui) { ... }
 });</code></pre>
 </dd>
@@ -1473,7 +1514,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
   Bind to the <code>out</code> event by type: <code>sortout</code>.
 </dt>
 <dd>
-<pre><code>$('.selector').bind('sortout', function(event, ui) {
+<pre><code>$( &quot;.selector&quot; ).bind( &quot;sortout&quot;, function(event, ui) {
   ...
 });</code></pre>
 </dd>
@@ -1502,7 +1543,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
   Supply a callback function to handle the <code>activate</code> event as an init option.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({
+<pre><code>$( &quot;.selector&quot; ).sortable({
    activate: function(event, ui) { ... }
 });</code></pre>
 </dd>
@@ -1512,7 +1553,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
   Bind to the <code>activate</code> event by type: <code>sortactivate</code>.
 </dt>
 <dd>
-<pre><code>$('.selector').bind('sortactivate', function(event, ui) {
+<pre><code>$( &quot;.selector&quot; ).bind( &quot;sortactivate&quot;, function(event, ui) {
   ...
 });</code></pre>
 </dd>
@@ -1541,7 +1582,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
   Supply a callback function to handle the <code>deactivate</code> event as an init option.
 </dt>
 <dd>
-<pre><code>$('.selector').sortable({
+<pre><code>$( &quot;.selector&quot; ).sortable({
    deactivate: function(event, ui) { ... }
 });</code></pre>
 </dd>
@@ -1551,7 +1592,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
   Bind to the <code>deactivate</code> event by type: <code>sortdeactivate</code>.
 </dt>
 <dd>
-<pre><code>$('.selector').bind('sortdeactivate', function(event, ui) {
+<pre><code>$( &quot;.selector&quot; ).bind( &quot;sortdeactivate&quot;, function(event, ui) {
   ...
 });</code></pre>
 </dd>
@@ -1571,7 +1612,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
     <h3 class="method-name"><a href="#method-destroy">destroy</a></h3>
     <dl>
       <dt class="method-signature-label">Signature:</dt>
-        <dd class="method-signature">.sortable( 'destroy'
+        <dd class="method-signature">.sortable( "destroy"
 
 
 
@@ -1593,7 +1634,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
     <h3 class="method-name"><a href="#method-disable">disable</a></h3>
     <dl>
       <dt class="method-signature-label">Signature:</dt>
-        <dd class="method-signature">.sortable( 'disable'
+        <dd class="method-signature">.sortable( "disable"
 
 
 
@@ -1615,7 +1656,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
     <h3 class="method-name"><a href="#method-enable">enable</a></h3>
     <dl>
       <dt class="method-signature-label">Signature:</dt>
-        <dd class="method-signature">.sortable( 'enable'
+        <dd class="method-signature">.sortable( "enable"
 
 
 
@@ -1637,7 +1678,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
     <h3 class="method-name"><a href="#method-option">option</a></h3>
     <dl>
       <dt class="method-signature-label">Signature:</dt>
-        <dd class="method-signature">.sortable( 'option'
+        <dd class="method-signature">.sortable( "option"
 
 , optionName
 
@@ -1654,12 +1695,34 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
 </li>
 
 
+<li class="method" id="method-widget">
+  <div class="method-header">
+    <h3 class="method-name"><a href="#method-widget">widget</a></h3>
+    <dl>
+      <dt class="method-signature-label">Signature:</dt>
+        <dd class="method-signature">.sortable( "widget"
+
+
+
+
+
+
+
+)</dd>
+    </dl>
+  </div>
+  <div class="method-description">
+    <p>Returns the .ui-sortable element.</p>
+  </div>
+</li>
+
+
 <li class="method" id="method-serialize">
   <div class="method-header">
     <h3 class="method-name"><a href="#method-serialize">serialize</a></h3>
     <dl>
       <dt class="method-signature-label">Signature:</dt>
-        <dd class="method-signature">.sortable( 'serialize'
+        <dd class="method-signature">.sortable( "serialize"
 
 , <span class="optional">[</span>options<span class="optional">] </span>
 
@@ -1684,7 +1747,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
     <h3 class="method-name"><a href="#method-toArray">toArray</a></h3>
     <dl>
       <dt class="method-signature-label">Signature:</dt>
-        <dd class="method-signature">.sortable( 'toArray'
+        <dd class="method-signature">.sortable( "toArray"
 
 
 
@@ -1719,7 +1782,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
     <h3 class="method-name"><a href="#method-refresh">refresh</a></h3>
     <dl>
       <dt class="method-signature-label">Signature:</dt>
-        <dd class="method-signature">.sortable( 'refresh'
+        <dd class="method-signature">.sortable( "refresh"
 
 
 
@@ -1741,7 +1804,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
     <h3 class="method-name"><a href="#method-refreshPositions">refreshPositions</a></h3>
     <dl>
       <dt class="method-signature-label">Signature:</dt>
-        <dd class="method-signature">.sortable( 'refreshPositions'
+        <dd class="method-signature">.sortable( "refreshPositions"
 
 
 
@@ -1763,7 +1826,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
     <h3 class="method-name"><a href="#method-cancel">cancel</a></h3>
     <dl>
       <dt class="method-signature-label">Signature:</dt>
-        <dd class="method-signature">.sortable( 'cancel'
+        <dd class="method-signature">.sortable( "cancel"
 
 
 
@@ -1793,7 +1856,7 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
     <h2 class="top-header">Theming</h2>
     <p>The jQuery UI Sortable plugin uses the jQuery UI CSS Framework to style its look and feel, including colors and background textures. We recommend using the ThemeRoller tool to create and download custom themes that are easy to build and maintain.
 </p>
-  <p>If a deeper level of customization is needed, there are widget-specific classes referenced within the ui.sortable.css stylesheet that can be modified. These classes are highlighed in bold below.
+  <p>If a deeper level of customization is needed, there are widget-specific classes referenced within the jquery.ui.sortable.css stylesheet that can be modified. These classes are highlighed in bold below.
 </p>
     
   <h3>Sample markup with jQuery UI CSS Framework classes</h3>
@@ -1816,10 +1879,10 @@ $('.selector').sortable('option', 'zIndex', 5);</code></pre>
 </div>
 
 </p><!-- 
-Pre-expand include size: 68728 bytes
-Post-expand include size: 120347 bytes
-Template argument size: 70336 bytes
+Pre-expand include size: 72190 bytes
+Post-expand include size: 126876 bytes
+Template argument size: 72301 bytes
 Maximum: 2097152 bytes
 -->
 
-<!-- Saved in parser cache with key jqdocs_docs:pcache:idhash:3772-1!1!0!!en!2 and timestamp 20100228032515 -->
+<!-- Saved in parser cache with key jqdocs_docs:pcache:idhash:3772-1!1!0!!en!2 and timestamp 20100318122752 -->

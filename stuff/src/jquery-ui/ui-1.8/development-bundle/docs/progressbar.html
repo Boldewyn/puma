@@ -38,13 +38,12 @@ A simple jQuery UI Progressbar.<br />
 <pre>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;link type=&quot;text/css&quot; href=&quot;http://jqueryui.com/latest/themes/base/jquery.ui.all.css&quot; rel=&quot;stylesheet&quot; /&gt;
-  &lt;script type=&quot;text/javascript&quot; src=&quot;http://jqueryui.com/latest/jquery-1.4.2.js&quot;&gt;&lt;/script&gt;
-  &lt;script type=&quot;text/javascript&quot; src=&quot;http://jquery-ui.googlecode.com/svn/tags/1.8rc1/jquery-1.4.1.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;http://jquery-ui.googlecode.com/svn/tags/1.8rc1/ui/jquery-ui.js&quot;&gt;&lt;/script&gt;
-
-  &lt;script type="text/javascript"&gt;
-  $(document).ready(function(){
+  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+  
+  &lt;script&gt;
+  $(document).ready(function() {
     $(&quot;#progressbar&quot;).progressbar({ value: 37 });
   });
   &lt;/script&gt;
@@ -64,6 +63,48 @@ A simple jQuery UI Progressbar.<br />
     <h2 class="top-header">Options</h2>
     <ul class="options-list">
       
+<li class="option" id="option-disabled">
+  <div class="option-header">
+    <h3 class="option-name"><a href="#option-disabled">disabled</a></h3>
+    <dl>
+      <dt class="option-type-label">Type:</dt>
+        <dd class="option-type">Boolean</dd>
+      
+      <dt class="option-default-label">Default:</dt>
+        <dd class="option-default">false</dd>
+      
+    </dl>
+  </div>
+  <div class="option-description">
+    <p>Disables (true) or enables (false) the progressbar. Can be set when initialising (first creating) the progressbar.</p>
+  </div>
+  <div class="option-examples">
+    <h4>Code examples</h4>
+    <dl class="option-examples-list">
+    
+<dt>
+  Initialize a progressbar with the <code>disabled</code> option specified.
+</dt>
+<dd>
+<pre><code>$( ".selector" ).progressbar( { disabled: true } );</code></pre>
+</dd>
+
+    
+<dt>
+  Get or set the <code>disabled</code> option, after init.
+</dt>
+<dd>
+<pre><code>//getter
+var disabled = $( ".selector" ).progressbar( "option", "disabled" );
+//setter
+$( ".selector" ).progressbar( "option", "disabled", true );</code></pre>
+</dd>
+
+    </dl>
+  </div>
+</li>
+
+
 <li class="option" id="option-value">
   <div class="option-header">
     <h3 class="option-name"><a href="#option-value">value</a></h3>
@@ -87,7 +128,7 @@ A simple jQuery UI Progressbar.<br />
   Initialize a progressbar with the <code>value</code> option specified.
 </dt>
 <dd>
-<pre><code>$('.selector').progressbar({ value: 37 });</code></pre>
+<pre><code>$( ".selector" ).progressbar( { value: 37 } );</code></pre>
 </dd>
 
     
@@ -96,9 +137,9 @@ A simple jQuery UI Progressbar.<br />
 </dt>
 <dd>
 <pre><code>//getter
-var value = $('.selector').progressbar('option', 'value');
+var value = $( ".selector" ).progressbar( "option", "value" );
 //setter
-$('.selector').progressbar('option', 'value', 37);</code></pre>
+$( ".selector" ).progressbar( "option", "value", 37 );</code></pre>
 </dd>
 
     </dl>
@@ -130,7 +171,7 @@ $('.selector').progressbar('option', 'value', 37);</code></pre>
   Supply a callback function to handle the <code>change</code> event as an init option.
 </dt>
 <dd>
-<pre><code>$('.selector').progressbar({
+<pre><code>$( &quot;.selector&quot; ).progressbar({
    change: function(event, ui) { ... }
 });</code></pre>
 </dd>
@@ -140,7 +181,7 @@ $('.selector').progressbar('option', 'value', 37);</code></pre>
   Bind to the <code>change</code> event by type: <code>progressbarchange</code>.
 </dt>
 <dd>
-<pre><code>$('.selector').bind('progressbarchange', function(event, ui) {
+<pre><code>$( &quot;.selector&quot; ).bind( &quot;progressbarchange&quot;, function(event, ui) {
   ...
 });</code></pre>
 </dd>
@@ -160,7 +201,7 @@ $('.selector').progressbar('option', 'value', 37);</code></pre>
     <h3 class="method-name"><a href="#method-destroy">destroy</a></h3>
     <dl>
       <dt class="method-signature-label">Signature:</dt>
-        <dd class="method-signature">.progressbar( 'destroy'
+        <dd class="method-signature">.progressbar( "destroy"
 
 
 
@@ -182,7 +223,7 @@ $('.selector').progressbar('option', 'value', 37);</code></pre>
     <h3 class="method-name"><a href="#method-disable">disable</a></h3>
     <dl>
       <dt class="method-signature-label">Signature:</dt>
-        <dd class="method-signature">.progressbar( 'disable'
+        <dd class="method-signature">.progressbar( "disable"
 
 
 
@@ -204,7 +245,7 @@ $('.selector').progressbar('option', 'value', 37);</code></pre>
     <h3 class="method-name"><a href="#method-enable">enable</a></h3>
     <dl>
       <dt class="method-signature-label">Signature:</dt>
-        <dd class="method-signature">.progressbar( 'enable'
+        <dd class="method-signature">.progressbar( "enable"
 
 
 
@@ -226,7 +267,7 @@ $('.selector').progressbar('option', 'value', 37);</code></pre>
     <h3 class="method-name"><a href="#method-option">option</a></h3>
     <dl>
       <dt class="method-signature-label">Signature:</dt>
-        <dd class="method-signature">.progressbar( 'option'
+        <dd class="method-signature">.progressbar( "option"
 
 , optionName
 
@@ -243,12 +284,34 @@ $('.selector').progressbar('option', 'value', 37);</code></pre>
 </li>
 
 
+<li class="method" id="method-widget">
+  <div class="method-header">
+    <h3 class="method-name"><a href="#method-widget">widget</a></h3>
+    <dl>
+      <dt class="method-signature-label">Signature:</dt>
+        <dd class="method-signature">.progressbar( "widget"
+
+
+
+
+
+
+
+)</dd>
+    </dl>
+  </div>
+  <div class="method-description">
+    <p>Returns the .ui-progressbar element.</p>
+  </div>
+</li>
+
+
 <li class="method" id="method-value">
   <div class="method-header">
     <h3 class="method-name"><a href="#method-value">value</a></h3>
     <dl>
       <dt class="method-signature-label">Signature:</dt>
-        <dd class="method-signature">.progressbar( 'value'
+        <dd class="method-signature">.progressbar( "value"
 
 , <span class="optional">[</span>value<span class="optional">] </span>
 
@@ -270,7 +333,7 @@ $('.selector').progressbar('option', 'value', 37);</code></pre>
     <h2 class="top-header">Theming</h2>
     <p>The jQuery UI Progressbar plugin uses the jQuery UI CSS Framework to style its look and feel, including colors and background textures. We recommend using the ThemeRoller tool to create and download custom themes that are easy to build and maintain.
 </p>
-  <p>If a deeper level of customization is needed, there are widget-specific classes referenced within the ui.progressbar.css stylesheet that can be modified. These classes are highlighed in bold below.
+  <p>If a deeper level of customization is needed, there are widget-specific classes referenced within the jquery.ui.progressbar.css stylesheet that can be modified. These classes are highlighed in bold below.
 </p>
     
   <h3>Sample markup with jQuery UI CSS Framework classes</h3>
@@ -287,10 +350,10 @@ $('.selector').progressbar('option', 'value', 37);</code></pre>
 </div>
 
 </p><!-- 
-Pre-expand include size: 14343 bytes
-Post-expand include size: 16401 bytes
-Template argument size: 7613 bytes
+Pre-expand include size: 17428 bytes
+Post-expand include size: 20557 bytes
+Template argument size: 8366 bytes
 Maximum: 2097152 bytes
 -->
 
-<!-- Saved in parser cache with key jqdocs_docs:pcache:idhash:3780-1!1!0!!en!2 and timestamp 20100228032518 -->
+<!-- Saved in parser cache with key jqdocs_docs:pcache:idhash:3780-1!1!0!!en!2 and timestamp 20100318122802 -->

@@ -35,6 +35,7 @@ The demos all focus on different variations of the source-option - look for the 
         <ul>
 <li>UI Core</li>
 <li>UI Widget</li>
+<li>UI Position</li>
 </ul>
     </div>
     <div id="overview-example">
@@ -53,12 +54,12 @@ A simple jQuery UI Autocomplete.<br />
 <pre>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;link type=&quot;text/css&quot; href=&quot;http://jqueryui.com/latest/themes/base/jquery.ui.all.css&quot; rel=&quot;stylesheet&quot; /&gt;
-  &lt;script type=&quot;text/javascript&quot; src=&quot;http://jqueryui.com/latest/jquery-1.4.2.js&quot;&gt;&lt;/script&gt;
-  &lt;script type=&quot;text/javascript&quot; src=&quot;http://jquery-ui.googlecode.com/svn/tags/1.8rc1/jquery-1.4.1.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;http://jquery-ui.googlecode.com/svn/tags/1.8rc1/ui/jquery-ui.js&quot;&gt;&lt;/script&gt;
-  &lt;script type="text/javascript"&gt;
-  $(document).ready(function(){
+  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+  
+  &lt;script&gt;
+  $(document).ready(function() {
     $(&quot;input#autocomplete&quot;).autocomplete({
     source: [&quot;c++&quot;, &quot;java&quot;, &quot;php&quot;, &quot;coldfusion&quot;, &quot;javascript&quot;, &quot;asp&quot;, &quot;ruby&quot;]
 });
@@ -80,6 +81,48 @@ A simple jQuery UI Autocomplete.<br />
     <h2 class="top-header">Options</h2>
     <ul class="options-list">
       
+<li class="option" id="option-disabled">
+  <div class="option-header">
+    <h3 class="option-name"><a href="#option-disabled">disabled</a></h3>
+    <dl>
+      <dt class="option-type-label">Type:</dt>
+        <dd class="option-type">Boolean</dd>
+      
+      <dt class="option-default-label">Default:</dt>
+        <dd class="option-default">false</dd>
+      
+    </dl>
+  </div>
+  <div class="option-description">
+    <p>Disables (true) or enables (false) the autocomplete. Can be set when initialising (first creating) the autocomplete.</p>
+  </div>
+  <div class="option-examples">
+    <h4>Code examples</h4>
+    <dl class="option-examples-list">
+    
+<dt>
+  Initialize a autocomplete with the <code>disabled</code> option specified.
+</dt>
+<dd>
+<pre><code>$( ".selector" ).autocomplete( { disabled: true } );</code></pre>
+</dd>
+
+    
+<dt>
+  Get or set the <code>disabled</code> option, after init.
+</dt>
+<dd>
+<pre><code>//getter
+var disabled = $( ".selector" ).autocomplete( "option", "disabled" );
+//setter
+$( ".selector" ).autocomplete( "option", "disabled", true );</code></pre>
+</dd>
+
+    </dl>
+  </div>
+</li>
+
+
 <li class="option" id="option-delay">
   <div class="option-header">
     <h3 class="option-name"><a href="#option-delay">delay</a></h3>
@@ -103,7 +146,7 @@ A simple jQuery UI Autocomplete.<br />
   Initialize a autocomplete with the <code>delay</code> option specified.
 </dt>
 <dd>
-<pre><code>$('.selector').autocomplete({ delay: 0 });</code></pre>
+<pre><code>$( ".selector" ).autocomplete( { delay: 0 } );</code></pre>
 </dd>
 
     
@@ -112,9 +155,9 @@ A simple jQuery UI Autocomplete.<br />
 </dt>
 <dd>
 <pre><code>//getter
-var delay = $('.selector').autocomplete('option', 'delay');
+var delay = $( ".selector" ).autocomplete( "option", "delay" );
 //setter
-$('.selector').autocomplete('option', 'delay', 0);</code></pre>
+$( ".selector" ).autocomplete( "option", "delay", 0 );</code></pre>
 </dd>
 
     </dl>
@@ -145,7 +188,7 @@ $('.selector').autocomplete('option', 'delay', 0);</code></pre>
   Initialize a autocomplete with the <code>minLength</code> option specified.
 </dt>
 <dd>
-<pre><code>$('.selector').autocomplete({ minLength: 0 });</code></pre>
+<pre><code>$( ".selector" ).autocomplete( { minLength: 0 } );</code></pre>
 </dd>
 
     
@@ -154,9 +197,9 @@ $('.selector').autocomplete('option', 'delay', 0);</code></pre>
 </dt>
 <dd>
 <pre><code>//getter
-var minLength = $('.selector').autocomplete('option', 'minLength');
+var minLength = $( ".selector" ).autocomplete( "option", "minLength" );
 //setter
-$('.selector').autocomplete('option', 'minLength', 0);</code></pre>
+$( ".selector" ).autocomplete( "option", "minLength", 0 );</code></pre>
 </dd>
 
     </dl>
@@ -188,7 +231,7 @@ $('.selector').autocomplete('option', 'minLength', 0);</code></pre>
   Initialize a autocomplete with the <code>source</code> option specified.
 </dt>
 <dd>
-<pre><code>$('.selector').autocomplete({ source: [&quot;c++&quot;, &quot;java&quot;, &quot;php&quot;, &quot;coldfusion&quot;, &quot;javascript&quot;, &quot;asp&quot;, &quot;ruby&quot;] });</code></pre>
+<pre><code>$( ".selector" ).autocomplete( { source: [&quot;c++&quot;, &quot;java&quot;, &quot;php&quot;, &quot;coldfusion&quot;, &quot;javascript&quot;, &quot;asp&quot;, &quot;ruby&quot;] } );</code></pre>
 </dd>
 
     
@@ -197,9 +240,9 @@ $('.selector').autocomplete('option', 'minLength', 0);</code></pre>
 </dt>
 <dd>
 <pre><code>//getter
-var source = $('.selector').autocomplete('option', 'source');
+var source = $( ".selector" ).autocomplete( "option", "source" );
 //setter
-$('.selector').autocomplete('option', 'source', [&quot;c++&quot;, &quot;java&quot;, &quot;php&quot;, &quot;coldfusion&quot;, &quot;javascript&quot;, &quot;asp&quot;, &quot;ruby&quot;]);</code></pre>
+$( ".selector" ).autocomplete( "option", "source", [&quot;c++&quot;, &quot;java&quot;, &quot;php&quot;, &quot;coldfusion&quot;, &quot;javascript&quot;, &quot;asp&quot;, &quot;ruby&quot;] );</code></pre>
 </dd>
 
     </dl>
@@ -231,7 +274,7 @@ $('.selector').autocomplete('option', 'source', [&quot;c++&quot;, &quot;java&quo
   Supply a callback function to handle the <code>search</code> event as an init option.
 </dt>
 <dd>
-<pre><code>$('.selector').autocomplete({
+<pre><code>$( &quot;.selector&quot; ).autocomplete({
    search: function(event, ui) { ... }
 });</code></pre>
 </dd>
@@ -241,7 +284,7 @@ $('.selector').autocomplete('option', 'source', [&quot;c++&quot;, &quot;java&quo
   Bind to the <code>search</code> event by type: <code>autocompletesearch</code>.
 </dt>
 <dd>
-<pre><code>$('.selector').bind('autocompletesearch', function(event, ui) {
+<pre><code>$( &quot;.selector&quot; ).bind( &quot;autocompletesearch&quot;, function(event, ui) {
   ...
 });</code></pre>
 </dd>
@@ -260,7 +303,7 @@ $('.selector').autocomplete('option', 'source', [&quot;c++&quot;, &quot;java&quo
     </dl>
   </div>
   <div class="event-description">
-    <p>After a request with the data ready, before it is actually displayed; also indicates the suggestion menu will be opened.</p>
+    <p>Triggered when the suggestion menu is opened.</p>
   </div>
   <div class="event-examples">
     <h4>Code examples</h4>
@@ -270,7 +313,7 @@ $('.selector').autocomplete('option', 'source', [&quot;c++&quot;, &quot;java&quo
   Supply a callback function to handle the <code>open</code> event as an init option.
 </dt>
 <dd>
-<pre><code>$('.selector').autocomplete({
+<pre><code>$( &quot;.selector&quot; ).autocomplete({
    open: function(event, ui) { ... }
 });</code></pre>
 </dd>
@@ -280,7 +323,7 @@ $('.selector').autocomplete('option', 'source', [&quot;c++&quot;, &quot;java&quo
   Bind to the <code>open</code> event by type: <code>autocompleteopen</code>.
 </dt>
 <dd>
-<pre><code>$('.selector').bind('autocompleteopen', function(event, ui) {
+<pre><code>$( &quot;.selector&quot; ).bind( &quot;autocompleteopen&quot;, function(event, ui) {
   ...
 });</code></pre>
 </dd>
@@ -309,7 +352,7 @@ $('.selector').autocomplete('option', 'source', [&quot;c++&quot;, &quot;java&quo
   Supply a callback function to handle the <code>focus</code> event as an init option.
 </dt>
 <dd>
-<pre><code>$('.selector').autocomplete({
+<pre><code>$( &quot;.selector&quot; ).autocomplete({
    focus: function(event, ui) { ... }
 });</code></pre>
 </dd>
@@ -319,7 +362,7 @@ $('.selector').autocomplete('option', 'source', [&quot;c++&quot;, &quot;java&quo
   Bind to the <code>focus</code> event by type: <code>autocompletefocus</code>.
 </dt>
 <dd>
-<pre><code>$('.selector').bind('autocompletefocus', function(event, ui) {
+<pre><code>$( &quot;.selector&quot; ).bind( &quot;autocompletefocus&quot;, function(event, ui) {
   ...
 });</code></pre>
 </dd>
@@ -348,7 +391,7 @@ $('.selector').autocomplete('option', 'source', [&quot;c++&quot;, &quot;java&quo
   Supply a callback function to handle the <code>select</code> event as an init option.
 </dt>
 <dd>
-<pre><code>$('.selector').autocomplete({
+<pre><code>$( &quot;.selector&quot; ).autocomplete({
    select: function(event, ui) { ... }
 });</code></pre>
 </dd>
@@ -358,7 +401,7 @@ $('.selector').autocomplete('option', 'source', [&quot;c++&quot;, &quot;java&quo
   Bind to the <code>select</code> event by type: <code>autocompleteselect</code>.
 </dt>
 <dd>
-<pre><code>$('.selector').bind('autocompleteselect', function(event, ui) {
+<pre><code>$( &quot;.selector&quot; ).bind( &quot;autocompleteselect&quot;, function(event, ui) {
   ...
 });</code></pre>
 </dd>
@@ -387,7 +430,7 @@ $('.selector').autocomplete('option', 'source', [&quot;c++&quot;, &quot;java&quo
   Supply a callback function to handle the <code>close</code> event as an init option.
 </dt>
 <dd>
-<pre><code>$('.selector').autocomplete({
+<pre><code>$( &quot;.selector&quot; ).autocomplete({
    close: function(event, ui) { ... }
 });</code></pre>
 </dd>
@@ -397,7 +440,7 @@ $('.selector').autocomplete('option', 'source', [&quot;c++&quot;, &quot;java&quo
   Bind to the <code>close</code> event by type: <code>autocompleteclose</code>.
 </dt>
 <dd>
-<pre><code>$('.selector').bind('autocompleteclose', function(event, ui) {
+<pre><code>$( &quot;.selector&quot; ).bind( &quot;autocompleteclose&quot;, function(event, ui) {
   ...
 });</code></pre>
 </dd>
@@ -426,7 +469,7 @@ $('.selector').autocomplete('option', 'source', [&quot;c++&quot;, &quot;java&quo
   Supply a callback function to handle the <code>change</code> event as an init option.
 </dt>
 <dd>
-<pre><code>$('.selector').autocomplete({
+<pre><code>$( &quot;.selector&quot; ).autocomplete({
    change: function(event, ui) { ... }
 });</code></pre>
 </dd>
@@ -436,7 +479,7 @@ $('.selector').autocomplete('option', 'source', [&quot;c++&quot;, &quot;java&quo
   Bind to the <code>change</code> event by type: <code>autocompletechange</code>.
 </dt>
 <dd>
-<pre><code>$('.selector').bind('autocompletechange', function(event, ui) {
+<pre><code>$( &quot;.selector&quot; ).bind( &quot;autocompletechange&quot;, function(event, ui) {
   ...
 });</code></pre>
 </dd>
@@ -456,7 +499,7 @@ $('.selector').autocomplete('option', 'source', [&quot;c++&quot;, &quot;java&quo
     <h3 class="method-name"><a href="#method-destroy">destroy</a></h3>
     <dl>
       <dt class="method-signature-label">Signature:</dt>
-        <dd class="method-signature">.autocomplete( 'destroy'
+        <dd class="method-signature">.autocomplete( "destroy"
 
 
 
@@ -478,7 +521,7 @@ $('.selector').autocomplete('option', 'source', [&quot;c++&quot;, &quot;java&quo
     <h3 class="method-name"><a href="#method-disable">disable</a></h3>
     <dl>
       <dt class="method-signature-label">Signature:</dt>
-        <dd class="method-signature">.autocomplete( 'disable'
+        <dd class="method-signature">.autocomplete( "disable"
 
 
 
@@ -500,7 +543,7 @@ $('.selector').autocomplete('option', 'source', [&quot;c++&quot;, &quot;java&quo
     <h3 class="method-name"><a href="#method-enable">enable</a></h3>
     <dl>
       <dt class="method-signature-label">Signature:</dt>
-        <dd class="method-signature">.autocomplete( 'enable'
+        <dd class="method-signature">.autocomplete( "enable"
 
 
 
@@ -522,7 +565,7 @@ $('.selector').autocomplete('option', 'source', [&quot;c++&quot;, &quot;java&quo
     <h3 class="method-name"><a href="#method-option">option</a></h3>
     <dl>
       <dt class="method-signature-label">Signature:</dt>
-        <dd class="method-signature">.autocomplete( 'option'
+        <dd class="method-signature">.autocomplete( "option"
 
 , optionName
 
@@ -539,12 +582,34 @@ $('.selector').autocomplete('option', 'source', [&quot;c++&quot;, &quot;java&quo
 </li>
 
 
+<li class="method" id="method-widget">
+  <div class="method-header">
+    <h3 class="method-name"><a href="#method-widget">widget</a></h3>
+    <dl>
+      <dt class="method-signature-label">Signature:</dt>
+        <dd class="method-signature">.autocomplete( "widget"
+
+
+
+
+
+
+
+)</dd>
+    </dl>
+  </div>
+  <div class="method-description">
+    <p>Returns the .ui-autocomplete element.</p>
+  </div>
+</li>
+
+
 <li class="method" id="method-search">
   <div class="method-header">
     <h3 class="method-name"><a href="#method-search">search</a></h3>
     <dl>
       <dt class="method-signature-label">Signature:</dt>
-        <dd class="method-signature">.autocomplete( 'search'
+        <dd class="method-signature">.autocomplete( "search"
 
 , <span class="optional">[</span>value<span class="optional">] </span>
 
@@ -566,7 +631,7 @@ $('.selector').autocomplete('option', 'source', [&quot;c++&quot;, &quot;java&quo
     <h3 class="method-name"><a href="#method-close">close</a></h3>
     <dl>
       <dt class="method-signature-label">Signature:</dt>
-        <dd class="method-signature">.autocomplete( 'close'
+        <dd class="method-signature">.autocomplete( "close"
 
 
 
@@ -588,11 +653,22 @@ $('.selector').autocomplete('option', 'source', [&quot;c++&quot;, &quot;java&quo
     <h2 class="top-header">Theming</h2>
     <p>The jQuery UI Autocomplete plugin uses the jQuery UI CSS Framework to style its look and feel, including colors and background textures. We recommend using the ThemeRoller tool to create and download custom themes that are easy to build and maintain.
 </p>
-  <p>If a deeper level of customization is needed, there are widget-specific classes referenced within the ui.autocomplete.css stylesheet that can be modified. These classes are highlighed in bold below.
+  <p>If a deeper level of customization is needed, there are widget-specific classes referenced within the jquery.ui.autocomplete.css stylesheet that can be modified. These classes are highlighed in bold below.
 </p>
     
   <h3>Sample markup with jQuery UI CSS Framework classes</h3>
-  &lt;input class=&quot;<strong>ui-autocomplete</strong>&quot;/&gt;
+  &lt;input class=&quot;ui-autocomplete-input&quot;/&gt;<br />
+&lt;ul class=&quot;ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all&quot;&gt;<br />
+&nbsp;&nbsp;&lt;li class=&quot;ui-menu-item&quot;&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class=&quot;ui-corner-all&quot;&gt;item 1&lt;/a&gt;<br />
+&nbsp;&nbsp;&lt;/li&gt;<br />
+&nbsp;&nbsp;&lt;li class=&quot;ui-menu-item&quot;&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class=&quot;ui-corner-all&quot;&gt;item 2&lt;/a&gt;<br />
+&nbsp;&nbsp;&lt;/li&gt;<br />
+&nbsp;&nbsp;&lt;li class=&quot;ui-menu-item&quot;&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class=&quot;ui-corner-all&quot;&gt;item 3&lt;/a&gt;<br />
+&nbsp;&nbsp;&lt;/li&gt;<br />
+&lt;/ul&gt;
   <p class="theme-note">
     <strong>
       Note: This is a sample of markup generated by the autocomplete plugin, not markup you should use to create a autocomplete. The only markup needed for that is &lt;input/&gt;.
@@ -603,10 +679,10 @@ $('.selector').autocomplete('option', 'source', [&quot;c++&quot;, &quot;java&quo
 </div>
 
 </p><!-- 
-Pre-expand include size: 25375 bytes
-Post-expand include size: 41912 bytes
-Template argument size: 24386 bytes
+Pre-expand include size: 28471 bytes
+Post-expand include size: 46356 bytes
+Template argument size: 26019 bytes
 Maximum: 2097152 bytes
 -->
 
-<!-- Saved in parser cache with key jqdocs_docs:pcache:idhash:3766-1!1!0!!en!2 and timestamp 20100227124822 -->
+<!-- Saved in parser cache with key jqdocs_docs:pcache:idhash:3766-1!1!0!!en!2 and timestamp 20100318122756 -->
