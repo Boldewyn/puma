@@ -1031,19 +1031,26 @@ var LaTeXMathML = window.LaTeXMathML = function (options) {
       return newFrag;
     }
 
-    function AMprocessNodeR(n, linebreaks) {
+    function _checkNodeName(name) {
+        name = name.toLowerCase();
+        blockers = ['math', 'form', 'textarea', 'pre', 'script', 'abbr', 'acronym', 'object', 'head', 'style', 'iframe'];
+        for (var i = 0; i < blockers.length; i++) {
+            if (name == blockers[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function AMprocessNodeR(n) {
       var mtch, str, arr, frg, i;
-      if (n.childNodes.length == 0) {
-       if ((n.nodeType!=8 || linebreaks) &&
-        n.parentNode.nodeName!="form" && n.parentNode.nodeName!="FORM" &&
-        n.parentNode.nodeName!="textarea" && n.parentNode.nodeName!="TEXTAREA" &&
-        n.parentNode.nodeName!="pre" && n.parentNode.nodeName!="PRE") {
+      if (n.nodeType == 3) {
         str = n.nodeValue;
         if (!(str == null)) {
           str = str.replace(/\r\n\r\n/g,"\n\n");
           str = str.replace(/\x20+/g," ");
           str = str.replace(/\s*\r\n/g," ");
-    // DELIMITERS:
+          // DELIMITERS:
           mtch = (str.indexOf("\$")==-1 ? false : true);
           str = str.replace(/([^\\])\$/g,"$1 \$");
           str = str.replace(/^\$/," \$");  // in case \$ at start of string
@@ -1057,23 +1064,12 @@ var LaTeXMathML = window.LaTeXMathML = function (options) {
               return len-1;
           }
         }
-       } else return 0;
-      } else if (n.nodeName!="math") {
-        for (i=0; i<n.childNodes.length; i++)
-          i += AMprocessNodeR(n.childNodes[i], linebreaks);
+      } else if (n.nodeType == 1 && _checkNodeName(n.nodeName)) {
+        for (i=0; i<n.childNodes.length; i++) {
+          i += AMprocessNodeR(n.childNodes[i]);
+        }
       }
       return 0;
-    }
-
-    function AMprocessNode(n, linebreaks) {
-      var frag;
-      if (n.innerHTML.indexOf("\$")!=-1) {
-        AMprocessNodeR(n,linebreaks);
-      }
-      if (isIE) { //needed to match size and font of formula to surrounding text
-        frag = document.getElementsByTagName('math');
-        for (var i=0;i<frag.length;i++) frag[i].update()
-      }
     }
 
 
@@ -1095,7 +1091,14 @@ var LaTeXMathML = window.LaTeXMathML = function (options) {
             AMnames[i] = AMsymbols[i].input;
         }
         
-        AMprocessNode(initElement, false);
+        var frag;
+        if (initElement.innerHTML.indexOf("\$")!=-1) {
+          AMprocessNodeR(initElement);
+        }
+        if (isIE) { //needed to match size and font of formula to surrounding text
+          frag = document.getElementsByTagName('math');
+          for (var i=0;i<frag.length;i++) frag[i].update()
+        }
     }
 
 
