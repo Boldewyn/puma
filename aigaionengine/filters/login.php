@@ -50,6 +50,10 @@ class Login_filter extends Filter {
       //  redirect('/login/dologinnoform/'.str_replace(' ','%20',implode('/',$segments)));//note: if we don't replace this %20 / space, we sometimes get truncated dfata after some redirects, so e.g. "readapi/link/topic/Emergent games" in the end (after some login redirects) tries to link to "Emergent"
       //}
     } else {
+        if ($userlogin->userId()) {
+            // last seen this user at NOW()
+            $CI->db->where('user_id', $userlogin->userId())->set('last_seen', 'NOW()', False)->update('users');
+        }
         if ($CI->latesession->get('FORMREPOST')==True) {
             if ($CI->input->post('form_reposted')!==false) {
                 //if you are logged in, and you were reposting a form, and this is the reposted form, 
@@ -63,4 +67,5 @@ class Login_filter extends Filter {
     }
   }
 }
-?>
+
+//__END__
