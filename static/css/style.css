@@ -222,7 +222,7 @@ hr {
 ----------------------------------*/
 .ui-state-highlight, .ui-widget-content .ui-state-highlight {border: 1px solid #00ad00; background: #66ff66 url(images/ui-bg_highlight-soft_25_66ff66_1x100.png) 50% top repeat-x; color: #002d2f; }
 .ui-state-highlight a, .ui-widget-content .ui-state-highlight a { color: #002d2f; }
-.ui-state-error, .ui-widget-content .ui-state-error {border: 1px solid #ad0000; background: #ff6666 url(images/ui-bg_flat_15_ff6666_40x100.png) 50% 50% repeat-x; color: #002d2f; }
+.ui-state-error, .ui-widget-content .ui-state-error {border: 1px solid #ad0000; background: #ff6666; color: #002d2f; }
 .ui-state-error a, .ui-widget-content .ui-state-error a { color: #002d2f; }
 .ui-state-error-text, .ui-widget-content .ui-state-error-text { color: #002d2f; }
 .ui-priority-primary, .ui-widget-content .ui-priority-primary { font-weight: bold; }
@@ -435,8 +435,8 @@ hr {
 .ui-corner-all { -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; }
 
 /* Overlays */
-.ui-widget-overlay { background: #effeff url(images/ui-bg_flat_100_effeff_40x100.png) 50% 50% repeat-x; opacity: .70;filter:Alpha(Opacity=70); }
-.ui-widget-shadow { margin: -7px 0 0 -7px; padding: 7px; background: #000000 url(images/ui-bg_flat_100_000000_40x100.png) 50% 50% repeat-x; opacity: .25;filter:Alpha(Opacity=25); -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; }/* Resizable
+.ui-widget-overlay { background: #effeff; opacity: .70;filter:Alpha(Opacity=70); }
+.ui-widget-shadow { margin: -7px 0 0 -7px; padding: 7px; background: #000000; opacity: .25;filter:Alpha(Opacity=25); -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; }/* Resizable
 ----------------------------------*/
 .ui-resizable { position: relative;}
 .ui-resizable-handle { position: absolute;font-size: 0.1px;z-index: 99999; display: block;}
