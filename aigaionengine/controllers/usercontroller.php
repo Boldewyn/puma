@@ -153,16 +153,8 @@ class Usercontroller extends Controller {
      */
     protected function is_online ($id, $user) {
         restrict_to_users('');
-        $last_seen = $user->preferences['last_seen'];
-        $timestamp = mktime(substr($last_seen, 11,2), substr($last_seen, 14,2),
-            substr($last_seen, 17,2), substr($last_seen, 5,2), substr($last_seen, 8,2),
-            substr($last_seen, 0,4));
-        $output = 'false';
-        if (time() - $timestamp < 180) {
-            $output = 'true';
-        }
         $this->output->set_header('Content-Type: text/javascript; charset=utf-8');
-        $this->output->set_output($output);
+        $this->output->set_output(is_online($user)? 'true' : 'false');
     }
     
     /**
