@@ -34,6 +34,7 @@ INSERT INTO `puma_usertopiclink` VALUES (0,6,1,0),(0,7,1,0);
 UPDATE `puma_config` SET `value` = 'Manuel Strehl' WHERE `setting` = 'CFG_ADMIN';
 UPDATE `puma_config` SET `value` = 'manuel.strehl@physik.uni-regensburg.de' WHERE `setting` = 'CFG_ADMINMAIL';
 UPDATE `puma_config` SET `value` = 'A Publication Management System' WHERE `setting` = 'WINDOW_TITLE';
+UPDATE `puma_config` SET `value` = 'TRUE' WHERE `setting` = 'ALLOW_ALL_EXTERNAL_ATTACHMENTS';
 UPDATE `puma_config` SET `value` = 'TRUE' WHERE `setting` = 'SHOW_TOPICS_ON_FRONTPAGE';
 UPDATE `puma_config` SET `value` = 'TRUE' WHERE `setting` = 'LOGIN_ENABLE_ANON';
 UPDATE `puma_config` SET `value` = '6'    WHERE `setting` = 'LOGIN_DEFAULT_ANON';
