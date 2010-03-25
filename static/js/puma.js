@@ -206,14 +206,16 @@ window._ = gettext;
     /** publication rating: create a UI slider */
     $('.publication_mark').each(function () {
       $(this).hide();
-      var slider = $('<div class="publication_mark_slider"></div>');
+      var slide_container = $('<div class="publication_mark_slider"></div>');
+      var slider = $('<div></div>');
       slider.slider({
         range: 'min',
-        min: 1,
+        min: 0,
         max: 5,
         value: $('[name=mark]').val()
       });
-      $(this).after(slider);
+      slide_container.append(slider);
+      $(this).after(slide_container);
     });
   
     /** bookmark icons: intercept link with AJAX magic */

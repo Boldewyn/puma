@@ -1695,8 +1695,30 @@ body.group .datatable ul li {
 
 
 .publication_mark_slider {
-  width: 16em;
-  margin: 0 .2em;
+  width: 116px;
+  padding: 0 8px;
+  height: 16px;
+  margin: 0;
+  background: url(images/publication_mark.png) no-repeat 8px center;
+}
+
+.publication_mark_slider .ui-slider {
+  background: none;
+  height: 16px;
+  border: none;
+}
+
+.publication_mark_slider .ui-slider-range {
+  background: url(images/publication_mark_select.png) no-repeat left center;
+}
+
+.publication_mark_slider .ui-slider-handle {
+  margin-left: -8px;
+  top: 0;
+  height: 16px;
+  width: 16px;
+  background: url(images/publication_mark_select.png) no-repeat right center;
+  border: none;
 }
 
 
