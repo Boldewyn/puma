@@ -369,7 +369,7 @@ class Authors extends Controller {
         if ($author_search) { // user pressed show, so redirect to single author page
             $authorList = $this->author_db->getAuthorsLike($author_search);
             if (sizeof($authorList) > 0) {
-                $this->show($authorList[0]->author_id);
+                redirect('authors/show/'.$authorList[0]->author_id);
             }
         } else {
             $author_search  = $this->uri->segment(3);
