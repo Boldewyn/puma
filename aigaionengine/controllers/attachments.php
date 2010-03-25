@@ -121,7 +121,12 @@ class Attachments extends Controller {
 	    }
 	    $attachment->ismain=true;
 	    $attachment->update();
-	    redirect('publications/show/'.$attachment->pub_id);
+        if (is_ajax()) {
+            $this->output->set_header('Content-Type: text/javascript; charset=utf-8');
+            $this->output->set_output('true');
+        } else {
+	        redirect('publications/show/'.$attachment->pub_id);
+        }
     }
     
     /** 
@@ -135,7 +140,12 @@ class Attachments extends Controller {
 	    }
 	    $attachment->ismain=false;
 	    $attachment->update();
-	    redirect('publications/show/'.$attachment->pub_id);
+        if (is_ajax()) {
+            $this->output->set_header('Content-Type: text/javascript; charset=utf-8');
+            $this->output->set_output('true');
+        } else {
+	        redirect('publications/show/'.$attachment->pub_id);
+        }
     }
 
 }
