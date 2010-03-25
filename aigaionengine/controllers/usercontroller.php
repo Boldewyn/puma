@@ -46,7 +46,7 @@ class Usercontroller extends Controller {
             if ($user == null) {
                 appendErrorMessage(sprintf(__('User %s does not exist.'), h($id)));
                 redirect('');
-            } elseif ($action && ! in_array($action, array('contact', 'edit'))) {
+            } elseif ($action && ! in_array($action, array('contact', 'edit', 'is_online'))) {
                 appendErrorMessage(sprintf(__('Unknown action requested: %s.'), h($action)));
                 redirect('');
             } elseif ($id != 'admin') {
@@ -146,6 +146,23 @@ class Usercontroller extends Controller {
         $this->load->view('header', array('title'=>sprintf(__('Edit user %s'), $id)));
         $this->load->view('user/edit', $data);
         $this->load->view('footer');
+    }
+    
+    /**
+     * Check if a user was online in the last 3 minutes
+     */
+    protected function is_online ($id, $user) {
+        restrict_to_users('');
+        $last_seen = $user->preferences['last_seen'];
+        $timestamp = mktime(substr($last_seen, 11,2), substr($last_seen, 14,2),
+            substr($last_seen, 17,2), substr($last_seen, 5,2), substr($last_seen, 8,2),
+            substr($last_seen, 0,4));
+        $output = 'false';
+        if (time() - $timestamp < 180) {
+            $output = 'true';
+        }
+        $this->output->set_header('Content-Type: text/javascript; charset=utf-8');
+        $this->output->set_output($output);
     }
     
     /**

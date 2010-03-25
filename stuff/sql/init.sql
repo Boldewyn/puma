@@ -41,3 +41,4 @@ UPDATE `puma_config` SET `value` = 'puma' WHERE `setting` = 'DEFAULTPREF_THEME';
 UPDATE `puma_config` SET `value` = 'de'   WHERE `setting` = 'DEFAULTPREF_LANGUAGE';
 UPDATE `puma_config` SET `value` = 'TRUE' WHERE `setting` = 'LOGIN_CREATE_MISSING_USER';
 UPDATE `puma_config` SET `value` = 'TRUE' WHERE `setting` = 'ENABLE_TINYMCE';
+UPDATE `puma_config` SET `value` =  'il'  WHERE `setting` = 'DEFAULTPREF_SIMILAR_AUTHOR_TEST';
