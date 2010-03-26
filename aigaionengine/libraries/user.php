@@ -93,5 +93,20 @@ class User {
         return $this->update();
     }
 
+    /**
+     * Check, if the user was online the last three minutes 
+     */
+    public function is_online () {
+        $last_seen = $this->preferences['last_seen'];
+        $timestamp = mktime(substr($last_seen, 11,2), substr($last_seen, 14,2),
+            substr($last_seen, 17,2), substr($last_seen, 5,2), substr($last_seen, 8,2),
+            substr($last_seen, 0,4));
+        if (time() - $timestamp < 180) {
+            return True;
+        }
+        return False;
+    }
+    
 }
-?>
+
+//__END__
