@@ -184,7 +184,7 @@ if (isset($multipageprefix) && isset($currentpage)) {
                 $current_author++;
             }
 
-            if ($summarystyle == 'author') {
+            if ($summarystyle != 'title') {
                 if ($num_authors > 0) {
                     echo __(', ');
                 }
