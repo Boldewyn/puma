@@ -38,12 +38,13 @@ function _site_title($clean=false) {
 function iconpath($id, $fallback=Null) {
   $theme = 'puma';
   $path = STATICPATH.'themes/'.$theme.'/images/icons/'.$id.'.';
-  if (file_exists(dirname(FCPATH).'/'.$path.'png')) {
-      $src = base_url().$path.'png';
-  } elseif (file_exists(dirname(FCPATH).'/'.$path.'gif')) {
-      $src = base_url().$path.'gif';
-  } elseif (file_exists(dirname(FCPATH).'/'.$path.'jpg')) {
-      $src = base_url().$path.'jpg';
+  $url = site_url('static/themes/'.$theme.'/images/icons').'/';
+  if (file_exists($path.'png')) {
+      $src = $url.$id.'.png';
+  } elseif (file_exists($path.'gif')) {
+      $src = $url.$id.'.gif';
+  } elseif (file_exists($path.'jpg')) {
+      $src = $url.$id.'.jpg';
   } elseif ($fallback) {
       $src = $fallback;
   } else {
