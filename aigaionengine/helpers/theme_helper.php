@@ -23,15 +23,14 @@
     /* Return a list of available themes. Themes are subdirectories of ROOT/themes/
        other than the CVS directory. */
     function getThemes() {
-    	$themepath = APPPATH."/themes/";
+    	$themepath = STATICPATH.'themes/';
     	$themelist = array();
     	if ($handle = opendir($themepath)) {
     		while (false !== ($nextfile = readdir($handle))) {
-    			if (   ($nextfile != "." && $nextfile != "..") 
-    			    && (strtolower($nextfile)!="cvs") 
-    			    && (strtolower($nextfile)!=".svn") 
-    			    && (is_dir($themepath."/".$nextfile))
-    			    && file_exists($themepath."/".$nextfile."/css/styling.css")
+    			if (substr($nextfile, 0, 1) != '.' 
+    			    && (strtolower($nextfile)!='cvs') 
+    			    && (is_dir($themepath.'/'.$nextfile))
+    			    && file_exists($themepath.'/'.$nextfile.'/style.css')
     			    ) {
     				$themelist[] = $nextfile;
     			}
@@ -47,42 +46,44 @@
        even if the theme is gone). So we also check for theme/css/style.css */
     function themeExists($themeName) {
     	#don't accidentally accept CVS directory...
-    	if (strtolower($themeName) == "cvs") return false;
-    	$path = APPPATH."/themes/".$themeName."/";
-    	return (file_exists($path) && file_exists($path."css/styling.css") && is_dir($path));
+    	if (strtolower($themeName) == 'cvs') return false;
+    	if (strtolower($themeName) == 'puma') return true;
+    	$path = STATICPATH.'/themes/'.$themeName.'/';
+    	return (file_exists($path) && file_exists($path.'style.css') && is_dir($path));
     }
 
     /** If a user is logged in, return name of theme, otherwise return name of default theme. */
     function getThemeName() {
       $userlogin = getUserLogin();
         if ($userlogin->isLoggedIn()) {
-            return $userlogin->getPreference('theme');
+            $return = $userlogin->getPreference('theme');
+            return themeExists($return)? $return : 'puma';
         } else {
-            return "default";
+            return 'puma';
         }
     }
     
     /* Return true iff icon exists at all */
     function iconExists($iconName) {
-        return file_exists(APPPATH."/themes/".getThemeName()."/icons/".$iconName) || file_exists(APPPATH."/themes/default/icons/".$iconName);
+        return file_exists(STATICPATH.'themes/'.getThemeName().'/images/icons/'.$iconName) || file_exists(STATICPATH.'themes/puma/images/icons/'.$iconName);
     }
     /* Return true iff icon exists in current theme */
     function iconExistsInTheme($iconName) {
-        return file_exists(APPPATH."/themes/".getThemeName()."/icons/".$iconName);
+        return file_exists(STATICPATH.'themes/'.getThemeName().'/images/icons/'.$iconName);
     }
     /** Return the Url of the requested icon (full file name!), taking current theme
         into account. */
     function getIconUrl($iconName) {
         if (iconExistsInTheme($iconName)) {
-            return APPURL."themes/".getThemeName()."/icons/".$iconName;
+            return STATICURL.'themes/'.getThemeName().'/images/icons/'.$iconName;
         } else {
-            return APPURL."themes/default/icons/".$iconName;
+            return STATICURL.'themes/puma/images/icons/'.$iconName;
         }
     }
     /** Return the Url of the requested css file (full file name!), taking current 
         theme into account. */
     function getCssUrl($cssName) {
-        return APPURL."themes/".getThemeName()."/css/".$cssName;
+        return STATICURL.'themes/'.getThemeName().'/'.$cssName;
     }
 
-?>
+//__END__

@@ -206,7 +206,7 @@ class UserLogin {
                     if ($key=='theme') {
                         if (!themeExists($val)) {
                             appendErrorMessage(sprintf(__('Theme &lsquo;%s&rsquo; no longer exists.'), $val));
-                            $val = 'default';
+                            $val = 'puma';
                         }
                     }
                     if ($key=='language')

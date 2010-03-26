@@ -51,6 +51,7 @@ define('AIGAION_COOKIE_PATH','/');
 #We need to know where your aigaion - engine is located. WITH trailing slash.
 #By default this is http://localhost/aigaion2root/aigaionengine/
 define('APPURL',AIGAION_ROOT_URL.'aigaionengine/');
+define('STATICURL',AIGAION_ROOT_URL.'static/');
 
 # Enable/disable clean URLs.
 # If set to true, you can use URLS like http://<server>/aigaion2root/topics instead of http://<server>/aigaion2root/index.php/topics
@@ -165,6 +166,7 @@ define('EXT', '.'.pathinfo(__FILE__, PATHINFO_EXTENSION));
 define('FCPATH', __FILE__);
 define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
 define('BASEPATH', $system_folder.'/');
+define('STATICPATH', dirname(__FILE__).'/static/');
 
 if (is_dir($application_folder))
 {

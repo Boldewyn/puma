@@ -37,7 +37,7 @@ function _site_title($clean=false) {
 
 function iconpath($id, $fallback=Null) {
   $theme = 'puma';
-  $path = 'static/'.$theme.'/images/icons/'.$id.'.';
+  $path = STATICPATH.'themes/'.$theme.'/images/icons/'.$id.'.';
   if (file_exists(dirname(FCPATH).'/'.$path.'png')) {
       $src = base_url().$path.'png';
   } elseif (file_exists(dirname(FCPATH).'/'.$path.'gif')) {
@@ -47,7 +47,7 @@ function iconpath($id, $fallback=Null) {
   } elseif ($fallback) {
       $src = $fallback;
   } else {
-      $src = base_url().'static/puma/images/icons/missing.png';
+      $src = base_url().'static/themes/puma/images/icons/missing.png';
   }
   return $src;
 }
