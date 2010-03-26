@@ -68,7 +68,7 @@ function icon($id, $fallback_id=Null, $attributes=array()) {
         }
         $icon .= sprintf(' %s="%s"', $att, $val);
     }
-    return $icon.' />';
+    return $icon.$class.$alt.' />';
 }
 
 function _icon($id, $fallback_id=Null, $attributes=array()) {
