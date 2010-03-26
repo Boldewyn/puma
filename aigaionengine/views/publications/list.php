@@ -138,7 +138,7 @@ if (isset($multipageprefix) && isset($currentpage)) {
                         if ($userlogin->getPreference('newwindowforatt')=='TRUE') {
                             $params .= ' rel="external"';
                         }
-                        _a('attachments/single/'.$attachments[0]->att_id, icon('attachment_'.$extension, '', '', 'attachment'), $params);
+                        _a('attachments/single/'.$attachments[0]->att_id, icon('attachment_'.$extension, 'attachment'), $params);
                     }
                 }
                 

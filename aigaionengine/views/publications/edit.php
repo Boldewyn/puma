@@ -151,13 +151,13 @@ $this->load->helper('translation');
               <input type="hidden" name="pubform_authors" id="pubform_authors" value="<?php _h($authors) ?>" />
             </p>
             <p>
-              <?php _a('#', icon('go-up', ''), 'id="publication_edit_up_authors" title="'.__('up').'"') ?>
-              <?php _a('#', icon('go-down', ''), 'id="publication_edit_down_authors" title="'.__('down').'"') ?>
+              <?php _a('#', icon('go-up'), 'id="publication_edit_up_authors" title="'.__('up').'"') ?>
+              <?php _a('#', icon('go-down'), 'id="publication_edit_down_authors" title="'.__('down').'"') ?>
             </p>
           </td>
           <td style="text-align:center;">
-            <?php _a('#', icon('go-previous', ''), 'id="publication_edit_add_authors" title="'.__('add').'"') ?><br/>
-            <?php _a('#', icon('go-next', ''), 'id="publication_edit_remove_authors" title="'.__('remove').'"') ?>
+            <?php _a('#', icon('go-previous'), 'id="publication_edit_add_authors" title="'.__('add').'"') ?><br/>
+            <?php _a('#', icon('go-next'), 'id="publication_edit_remove_authors" title="'.__('remove').'"') ?>
           </td>
           <td rowspan="2">
             <?php _e('Search:') ?>
@@ -186,13 +186,13 @@ $this->load->helper('translation');
               <input type="hidden" name="pubform_editors" id="pubform_editors" value="<?php _h($editors) ?>" />
             </p>
             <p>
-              <?php _a('#', icon('go-up', ''), 'id="publication_edit_up_editors" title="'.__('up').'"') ?>
-              <?php _a('#', icon('go-down', ''), 'id="publication_edit_down_editors" title="'.__('down').'"') ?>
+              <?php _a('#', icon('go-up'), 'id="publication_edit_up_editors" title="'.__('up').'"') ?>
+              <?php _a('#', icon('go-down'), 'id="publication_edit_down_editors" title="'.__('down').'"') ?>
             </p>
           </td>
           <td style="text-align:center;">
-            <?php _a('#', icon('go-previous', ''), 'id="publication_edit_add_editors" title="'.__('add').'"') ?><br/>
-            <?php _a('#', icon('go-next', ''), 'id="publication_edit_remove_editors" title="'.__('remove').'"') ?>
+            <?php _a('#', icon('go-previous'), 'id="publication_edit_add_editors" title="'.__('add').'"') ?><br/>
+            <?php _a('#', icon('go-next'), 'id="publication_edit_remove_editors" title="'.__('remove').'"') ?>
           </td>
         </tr>
       </table>

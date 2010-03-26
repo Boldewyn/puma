@@ -19,7 +19,7 @@ if (utf8_strlen($name)>31) {
         $params['rel'] = 'external';
     }
     _a('attachments/single/'.$attachment->att_id, 
-       $name.' '.icon('attachment_'.$extension, '', '', 'attachment'), $params);
+       $name.' '.icon('attachment_'.$extension, 'attachment'), $params);
   endif;
     
   if ($userlogin->hasRights('attachment_edit') && 

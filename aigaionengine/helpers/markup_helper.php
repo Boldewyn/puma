@@ -35,7 +35,7 @@ function _site_title($clean=false) {
   echo site_title($clean);
 }
 
-function iconpath($id, $fallback=Null) {
+function iconpath($id, $fallback_id=Null) {
   $theme = 'puma';
   $path = STATICPATH.'themes/'.$theme.'/images/icons/'.$id.'.';
   $url = site_url('static/themes/'.$theme.'/images/icons').'/';
@@ -45,20 +45,34 @@ function iconpath($id, $fallback=Null) {
       $src = $url.$id.'.gif';
   } elseif (file_exists($path.'jpg')) {
       $src = $url.$id.'.jpg';
-  } elseif ($fallback) {
-      $src = $fallback;
+  } elseif ($fallback_id) {
+      $src = iconpath($fallback_id);
   } else {
       $src = base_url().'static/themes/puma/images/icons/missing.png';
   }
   return $src;
 }
 
-function icon($id, $class='', $js='', $fallback_id=Null) {
-  return sprintf('<img class="icon %s" alt="Icon %s" src="%s" %s />', $class, $id, iconpath($id, iconpath($fallback_id)), $js);
+function icon($id, $fallback_id=Null, $attributes=array()) {
+    $icon = sprintf('<img src="%s"', iconpath($id, $fallback_id));
+    $class = ' class="icon"';
+    $alt = sprintf(' alt="Icon %s"', $id);
+    foreach($attributes as $att => $val) {
+        switch ($att) {
+            case 'class':
+                $class = '';
+                break;
+            case 'alt':
+                $alt = '';
+                break;
+        }
+        $icon .= sprintf(' %s="%s"', $att, $val);
+    }
+    return $icon.' />';
 }
 
-function _icon($id, $class='', $js='', $fallback_id=Null) {
-  echo icon($id, $class, $js, $fallback_id);
+function _icon($id, $fallback_id=Null, $attributes=array()) {
+    echo icon($id, $fallback_id, $attributes);
 }
 
 function url($url) {
