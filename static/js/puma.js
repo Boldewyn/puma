@@ -106,7 +106,7 @@ Additional bugs added by Manuel Strehl, 2010.
 (function () {
 var catalog = { de: { LC_MESSAGES: {
   'bookmark': 'merken',
-  'unbookmark': 'entmerken',
+  'unbookmark': 'entmerken'
 }}};
 var LC_MESSAGES = "de";
 try {
@@ -241,7 +241,7 @@ window._ = gettext;
   });
   
   /**
-   * IE6: replace top navigation with a table
+   * IE: replace top navigation with a table
    */
   function _replace_nav() {
     var $nav = $('<table cellspacing="0"><tbody><tr></tr></tbody></table>');

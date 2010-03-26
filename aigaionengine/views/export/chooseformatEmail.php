@@ -46,6 +46,6 @@ foreach ($styles as $style=>$longname) {
   </p>
   <p>
     <input type="hidden" name="sort" value="nothing" />
-    <input type="submit" class="submit" name="Formatted" title="<?php _e('Export formatted entrie')?>" value="<?php _e('Export')?>" />
+    <input type="submit" class="submit" name="Formatted" title="<?php _e('Export formatted entries')?>" value="<?php _e('Export')?>" />
   </p>
 </form>
