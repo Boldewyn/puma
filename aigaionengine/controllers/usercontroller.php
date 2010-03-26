@@ -59,25 +59,18 @@ class Usercontroller extends Controller {
             $user->groups = $groups;
 
             if (! $action) {
-                /*
-                $Q = $this->db->distinct('*')->from('publication')->join('topicpublicationlink', '')
-                WHERE ".AIGAION_DB_PREFIX."topicpublicationlink.topic_id = ".$CI->db->escape($topic_id)."
-                AND ".AIGAION_DB_PREFIX."publication.pub_id = ".AIGAION_DB_PREFIX."topicpublicationlink.pub_id
-                ORDER BY ".$orderby." ".$limit);
-
-                $result = array();
-                foreach ($Q->result() as $row)
-                {
-                  $next = $this->getFromRow($row);
-                  if ($next != null)
-                  {
-                    $result[] = $next;
+                $Q = $this->db->distinct('*')->limit(20)
+                     ->where('user_id', $user->user_id)->get('publication');
+                $pubs = array();
+                foreach ($Q->result() as $row) {
+                  $next = $this->publication_db->getFromRow($row);
+                  if ($next != null) {
+                    $pubs[] = $next;
                   }
                 }
-                */
             
                 $this->load->view('header', array('title'=>sprintf(__('User %s'), $id)));
-                $this->load->view('user/full', array('user' => $user));
+                $this->load->view('user/full', array('user' => $user, 'publications' => $pubs));
                 $this->load->view('footer');
             } else {
                 $this->$action($id, $user);

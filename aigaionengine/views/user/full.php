@@ -41,3 +41,8 @@
   </tbody>
 </table>
 
+<?php $this->load->view('publications/list', array(
+    'publications' => $publications,
+    'header' => sprintf(__('Last %d publications uploaded by this user:'), min(count($publications), 20)),
+    'order' => 'recent',
+    )) ?>

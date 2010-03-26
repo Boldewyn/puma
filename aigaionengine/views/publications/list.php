@@ -9,6 +9,7 @@
 //
 
 $userlogin  = getUserLogin();
+$this->load->helper('publication');
 
 //note that when 'order' is set, this view supposes that the data is actually ordered in that way!
 //use 'none' or other nonexisting fieldname for no headers.
