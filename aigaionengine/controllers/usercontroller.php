@@ -171,7 +171,7 @@ class Usercontroller extends Controller {
     protected function is_online ($id, $user) {
         restrict_to_users('');
         $this->output->set_header('Content-Type: text/javascript; charset=utf-8');
-        $this->output->set_output(is_online($user)? 'true' : 'false');
+        $this->output->set_output($user->is_online()? 'true' : 'false');
     }
     
     /**

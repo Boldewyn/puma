@@ -12,7 +12,7 @@ class User_model extends Model {
                               "initials", "firstname", "betweenname", "surname", "csname",
                               "abbreviation", "email", "u_rights", "lastreviewedtopic",
                               "type", "lastupdatecheck", "exportinbrowser", "utf8bibtex",
-                              "modified");
+                              "last_seen");
 
     /**
      *
@@ -78,19 +78,17 @@ class User_model extends Model {
     
     
     /**
-     * Update last modified status
+     * Check, if the user was online the last three minutes 
      */
-    public function touch($id) {
-        $query = $this->db->set('modified', 'NOW()', FALSE)->where('user_id =', $id)->update($this->table);
-        return $query->num_rows();
-    }
-    
-    
-    /**
-     * Get the last modification as UNIX timestamp
-     */
-    public function get_modified($id) {
-        return $this->get_field($id, "UNIX_TIMESTAMP(`modified`)", FALSE);
+    public function is_online () {
+        $last_seen = $this->preferences['last_seen'];
+        $timestamp = mktime(substr($last_seen, 11,2), substr($last_seen, 14,2),
+            substr($last_seen, 17,2), substr($last_seen, 5,2), substr($last_seen, 8,2),
+            substr($last_seen, 0,4));
+        if (time() - $timestamp < 180) {
+            return True;
+        }
+        return False;
     }
     
     

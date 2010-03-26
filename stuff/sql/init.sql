@@ -1,6 +1,4 @@
 
-ALTER TABLE `puma_users` ADD COLUMN modified TIMESTAMP NOT NULL;
-
 INSERT INTO `puma_grouprightsprofilelink` VALUES (7,5);
 INSERT INTO `puma_rightsprofilerightlink` VALUES (5,'attachment_edit'),(5,'attachment_read'),(5,'bookmarklist'),
                                                  (5,'export_email'),(5,'note_edit'),(5,'note_read'),(5,'publication_edit'),
