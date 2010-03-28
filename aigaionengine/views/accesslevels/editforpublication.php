@@ -1,11 +1,11 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?><?php 
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 $userlogin=getUserLogin();
 $user_id = $userlogin->userId();
 $this->load->helper('form');
+$this->load->helper('user');
 ?>
-<div class='header'><?php echo __('Edit access levels')."</div>\n";
-echo '['.anchor('publications/show/'.$publication->pub_id,__('Back to publication')).']'; ?>
-<br/><br/>
+<p><?php _a('publications/show/'.$publication->pub_id,__('Back to publication')) ?></p>
+<h2><?php echo __('Edit access levels')?></h2>
 <div style='border:1px solid grey'>
 <table>
     <tr >
@@ -61,9 +61,7 @@ echo '['.anchor('publications/show/'.$publication->pub_id,__('Back to publicatio
             ?>
         </td>
         <td>
-            <?php
-            echo $this->accesslevels_lib->getAccessLevelEditPanel($publication,'publication',$publication->pub_id);
-            ?>
+            <?php $this->load->view('accesslevels/editpanel', array('object'=>$publication,'type'=>'publication','object_id'=>$publication->pub_id)); ?>
         </td>
     </tr>
 
@@ -102,9 +100,7 @@ foreach ($publication->getAttachments() as $attachment) {
             ?>
         </td>
         <td>
-            <?php
-            echo $this->accesslevels_lib->getAccessLevelEditPanel($attachment,'attachment',$attachment->att_id);
-            ?>
+            <?php $this->load->view('accesslevels/editpanel', array('object'=>$attachment,'type'=>'attachment','object_id'=>$attachment->att_id)); ?>
         </td>
     </tr>
 <?php  
@@ -146,9 +142,7 @@ foreach ($publication->getNotes() as $note) {
             ?>
         </td>
         <td>
-            <?php
-            echo $this->accesslevels_lib->getAccessLevelEditPanel($note,'note',$note->note_id);
-            ?>
+            <?php $this->load->view('accesslevels/editpanel', array('object'=>$note,'type'=>'note','object_id'=>$note->note_id)); ?>
         </td>
     </tr>
 <?php  
@@ -158,24 +152,7 @@ foreach ($publication->getNotes() as $note) {
 
 </table>
 </div>
-<br/><br/>
-<div style='border:1px solid black;'>
-    <div style='border:1px solid black;'>
-        <b><?php echo __('Legend');?></b>
-    </div>
-    <?php
-    echo "
-    r:<img class='rights_icon' src='".getIconurl('rights_public.gif')."'/> ".__('read public')."<br/> 
-    r:<img class='rights_icon' src='".getIconurl('rights_intern.gif')."'/> ".__('read intern')."<br/> 
-    r:<img class='rights_icon' src='".getIconurl('rights_private.gif')."'/> ".__('read private')."<br/> 
-    e:<img class='rights_icon' src='".getIconurl('rights_public.gif')."'/> ".__('edit public')."<br/> 
-    e:<img class='rights_icon' src='".getIconurl('rights_intern.gif')."'/> ".__('edit intern')."<br/> 
-    e:<img class='rights_icon' src='".getIconurl('rights_private.gif')."'/> ".__('edit private')."<br/> 
-    - ".__("If nothing is shown, access level is 'intern'")."<br/>
-    ";
-    ?>
-</div>
-<br/>
+<?php $this->load->view('accesslevels/legenda') ?>
 <?php
 echo "
 <p>".__("When you modify access levels of individual objects, this may have consequences for the final 'effective' access level of other objects. For example, when you set a publication to private, the effective access level of all objects belonging to that publication will be set to private as well.")."</p>

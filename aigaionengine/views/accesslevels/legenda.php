@@ -1,18 +1,10 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<div style='border:1px solid black;'>
-    <div style='border:1px solid black;'>
-        <b><?php echo __('Legenda');?></b>
-    </div>
-    <?php
-        echo "
-    r:<img class='rights_icon' src='".getIconurl('rights_public.gif')."'/> ".__('read public')."<br/> 
-    r:<img class='rights_icon' src='".getIconurl('rights_intern.gif')."'/> ".__('read intern')."<br/> 
-    r:<img class='rights_icon' src='".getIconurl('rights_private.gif')."'/> ".__('read private')."<br/> 
-    e:<img class='rights_icon' src='".getIconurl('rights_public.gif')."'/> ".__('edit public')."<br/> 
-    e:<img class='rights_icon' src='".getIconurl('rights_intern.gif')."'/> ".__('edit intern')."<br/> 
-    e:<img class='rights_icon' src='".getIconurl('rights_private.gif')."'/> ".__('edit private')."<br/> 
-    - ".__("If nothing is shown, access level is 'intern'")."<br/>
-    ";
-    ?>
-</div>
-<br/>
+<h3><?php _e('Legenda')?></h3>
+<p>
+  r:<?php _icon('rights_public') ?> <?php _e('read public') ?><br/>
+  r:<?php _icon('rights_private') ?> <?php _e('read private') ?><br/>
+  e:<?php _icon('rights_public') ?> <?php _e('edit public') ?><br/>
+  e:<?php _icon('rights_intern') ?> <?php _e('edit intern') ?><br/>
+  e:<?php _icon('rights_private') ?> <?php _e('edit private') ?><br/>
+  <?php _e('If nothing is shown, the access level is &ldquo;intern&rdquo;.')?>
+</p>

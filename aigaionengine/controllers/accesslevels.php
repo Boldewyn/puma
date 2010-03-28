@@ -120,16 +120,29 @@ class Accesslevels extends Controller {
 
     /**
      * accesslevels/set
-     *
-     * access point to actually new access levels for an object
      */
-    function set($type, $object_id, $eorr, $newlevel) {
-        if ($eorr=='r') {
-            $this->accesslevels_lib->setReadAccessLevel($type,$object_id,$newlevel);
+    function set() {
+        $type = $this->input->post('type');
+        $id = $this->input->post('id');
+        $read = $this->input->post('read');
+        $edit = $this->input->post('edit');
+        if ($type && $id) {
+            if ($read) {
+                $this->accesslevels_lib->setReadAccessLevel($type,$id,$read);
+            }
+            if ($edit) {
+                $this->accesslevels_lib->setEditAccessLevel($type,$id,$edit);
+            }
+            $r = true;
         } else {
-            $this->accesslevels_lib->setEditAccessLevel($type,$object_id,$newlevel);
+            $r = false;
         }
-        redirect('accesslevels/edit/'.$type.'/'.$object_id);
+        if (is_ajax()) {
+            $this->output->set_header('Content-Type: text/javascript; charset=utf-8');
+            $this->output->set_output($r? 'true' : 'false');
+        } else {
+            back_to_referer($r? '' : __('The access levels could not be set.'), 'accesslevels/edit/'.$type.'/'.$id, !$r);
+        }
     }
 
 }

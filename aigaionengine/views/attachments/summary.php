@@ -32,8 +32,8 @@ if (utf8_strlen($name)>31) {
         <?php _a('attachments/setmain/'.$attachment->att_id, '['.__('set main').']', array('title'=>__('Set as main attachment'))) ?>
     <?php endif; ?>
     
-    <?php _e('Attachment access rights:')?> <span>r:
-      <a href="<?php echo site_url('/accesslevels/toggle/attachment/'.$attachment->att_id.'/read') ?>"
+    <?php _e('Attachment access rights:')?> <span>
+      r: <a href="<?php echo site_url('/accesslevels/toggle/attachment/'.$attachment->att_id.'/read') ?>"
         class="rights_switch read_switch <?php echo $attachment->derived_read_access_level ?>"><?php _icon('rights_'.$attachment->derived_read_access_level) ?></a>
       e: <a href="<?php echo site_url('/accesslevels/toggle/attachment/'.$attachment->att_id.'/edit') ?>"
         class="rights_switch edit_switch <?php echo $attachment->derived_edit_access_level ?>"><?php _icon('rights_'.$attachment->derived_edit_access_level) ?></a></span>

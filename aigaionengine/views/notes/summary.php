@@ -12,6 +12,7 @@ Parameters:
     
 appropriate read rights are assumed. Edit block depends on other rights.
 */
+$this->load->helper('user');
 //get text, replace links
 $text = auto_link($note->text);
 
