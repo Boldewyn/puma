@@ -9,7 +9,7 @@ if ($this->accesslevels_lib->canEditObject($object)) {
         $options['private'] = __('private');
     }
     $editR = form_dropdown('read', $options, $object->read_access_level, ' id="accesslevels_edit_read_'.$type.'_'.$object_id.'"');
-    $editE = form_dropdown('edit', $options, $object->read_access_level, ' id="accesslevels_edit_edit_'.$type.'_'.$object_id.'"');
+    $editE = form_dropdown('edit', $options, $object->edit_access_level, ' id="accesslevels_edit_edit_'.$type.'_'.$object_id.'"');
 } ?>
 <form method="post" action="<?php echo site_url('accesslevels/set') ?>">
   <p>

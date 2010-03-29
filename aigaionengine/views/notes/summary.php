@@ -58,8 +58,8 @@ if (    ($userlogin->hasRights('note_edit'))
     echo "<br/>[".anchor('notes/delete/'.$note->note_id,__('delete'));
     echo "]&nbsp;[".anchor('notes/edit/'.$note->note_id,__('edit')).']';
     
-    $read_icon = $this->accesslevels_lib->getReadAccessLevelIcon($note);
-    $edit_icon = $this->accesslevels_lib->getEditAccessLevelIcon($note);
+    $read_icon = _icon('rights_'.$note->derived_read_access_level, Null, array('alt'=>__('read access level')));
+    $edit_icon = _icon('rights_'.$note->derived_edit_access_level, Null, array('alt'=>__('edit access level')));
     
     $readrights = $this->ajax->link_to_remote($read_icon,
                   array('url'     => site_url('/accesslevels/toggle/note/'.$note->note_id.'/read'),

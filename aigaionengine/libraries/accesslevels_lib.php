@@ -20,58 +20,24 @@ the user has publication_edit or other necessary rights.
 */
 class Accesslevels_lib {
   
-    function Accesslevels_lib()
-    {
-    }
-
-    function canReadObject(&$object) {
+    function canReadObject($object) {
         $userlogin=getUserLogin();
         if ($object->derived_read_access_level=='public') return true;  //public
         if ($userlogin->isAnonymous()) return false;                    //anonymous, not public
-        return (
-                (    ($object->derived_read_access_level != 'private') 
-                  || ($object->user_id == $userlogin->userId()) 
-                  || ($userlogin->hasRights('read_all_override'))
-                 )
-                ); //private or not
+        return ($object->derived_read_access_level != 'private'
+                  || $object->user_id == $userlogin->userId() 
+                  || $userlogin->hasRights('read_all_override')); //private or not
     }
-    function canEditObject(&$object) {
+    
+    function canEditObject($object) {
         if ($object==null)return false;
         $userlogin=getUserLogin();
         if ($object->derived_edit_access_level=='public') return true;  //public
         if ($userlogin->isAnonymous())                    return false; //anonymous, not public
-        return (
-                (    ($object->derived_edit_access_level != 'private') 
-                  || ($object->user_id == $userlogin->userId()) 
-                  || ($userlogin->hasRights('edit_all_override'))
-                 )
-                ); //private or not
-//                (    ($oldtune->edit_access_level == 'private') 
-//                  && ($userlogin->userId() != $oldtune->user_id) 
-//                  && (!$userlogin->hasRights('tune_edit_all'))
-//                 )                
-//             ||
-//                (    ($oldtune->edit_access_level == 'group') 
-//                  && (!in_array($oldtune->group_id,$user->group_ids) ) 
-//                  && (!$userlogin->hasRights('tune_edit_all'))
-//                 )                  
+        return ($object->derived_edit_access_level != 'private'
+                  || $object->user_id == $userlogin->userId() 
+                  || $userlogin->hasRights('edit_all_override'));
     }
-    
-    //new function for migration to toggling access levels
-    function getReadAccessLevelIcon(&$object) {
-        if ($object->derived_read_access_level!='group')
-          return "<img class='al_icon' title='".__("read access")."' src='".getIconurl('rights_'.$object->derived_read_access_level.'.gif')."' alt='".__("read access level")."' /> ";
-        else
-          return "";
-    }
-    
-    function getEditAccessLevelIcon(&$object) {
-        if ($object->derived_edit_access_level!='group')
-          return "<img class='al_icon' title='".__("edit access")."' src='".getIconurl('rights_'.$object->derived_edit_access_level.'.gif')."' alt='".__("Edit access level")."' /> ";
-        else
-          return "";
-    }
-    
     
     
     /** set the new access level. set feedback in a message. all cascades are taken care of. 
@@ -331,6 +297,7 @@ class Accesslevels_lib {
     function cascadeAccessLevelsForTopics() {
         appendMessage(__('Cascade of access levels not yet implemented.'));
     }
+    
     /**     Long method... as it defines all dependencies for derived access levels.
     Note: the cascades are done directly on table queries, and not on publication->getAttachments etc, 
     as you need to affect 'invisible' objects as well!!!!! 
@@ -369,6 +336,7 @@ class Accesslevels_lib {
         if (in_array('intern',$levels))return 'intern';
         return 'public';
     }
+    
     /** initialize the access levels for the given publication. Note: the publication is in the database; both the access
     levels of the publication object, and in the database table, are set. 
     All levels set to intern. */
@@ -384,6 +352,7 @@ class Accesslevels_lib {
                                              'edit_access_level'=>$publication->edit_access_level,
                                              'derived_edit_access_level'=>$publication->derived_edit_access_level));
     }
+    
     /** initialize the access levels for the given attachment. Note: the object is in the database; both the access
     levels of the object, and in the database table, are set. 
     All levels set to 'intern'. */
@@ -397,6 +366,7 @@ class Accesslevels_lib {
                                              'edit_access_level'=>$attachment->edit_access_level));
         $this->cascadeAccessLevelsForPublication($attachment->pub_id);
     }
+    
     /** initialize the access levels for the given note. Note: the object is in the database; both the access
     levels of the object, and in the database table, are set. 
     All levels set to 'intern'. */
@@ -427,6 +397,7 @@ class Accesslevels_lib {
                                         'edit_access_level'=>$topic->edit_access_level,
                                         'derived_edit_access_level'=>$topic->derived_edit_access_level));
     }
+    
 }
 
 //__END__

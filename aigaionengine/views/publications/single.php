@@ -257,8 +257,8 @@ $this->load->helper('translation');
       </td>
     </tr>
     <?php if ($accessLevelEdit) :
-      $read_icon = $this->accesslevels_lib->getReadAccessLevelIcon($publication);
-      $edit_icon = $this->accesslevels_lib->getEditAccessLevelIcon($publication);
+      $read_icon = _icon('rights_'.$publication->derived_read_access_level, Null, array('alt'=>__('read access level')));
+      $edit_icon = _icon('rights_'.$publication->derived_edit_access_level, Null, array('alt'=>__('edit access level')));
 
       $readrights = $this->ajax->link_to_remote($read_icon,
                   array('url'     => site_url('/accesslevels/toggle/publication/'.$publication->pub_id.'/read'),

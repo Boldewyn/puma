@@ -16,7 +16,9 @@ class Accesslevels extends Controller {
      */
     function edit($type, $object_id) {
         if ($type=='topic') {
-            $this->_edittopic($object_id);
+            $this->load->view('header', array('title'=>__('Edit access levels')));
+            $this->load->view('accesslevels/editfortopic', array('topic_id'=>$object_id));
+            $this->load->view('footer');
             return;
         }
         //determine publication
@@ -109,13 +111,6 @@ class Accesslevels extends Controller {
         } else {
             back_to_referer(__('The rights have been updated.'));
         }
-    }
-
-    /** private function to edit a topic */
-    protected function _edittopic($object_id) {
-        $this->load->view('header', array('title'=>__('Edit access levels')));
-        $this->load->view('accesslevels/editfortopic', array('topic_id'=>$object_id));
-        $this->load->view('footer');
     }
 
     /**
