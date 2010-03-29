@@ -20,7 +20,7 @@ $this->load->helper('user');
       <?php _e('Owner') ?>
       <?php _icon('info', Null, array('title' => __('Owner of topic (only owner can change objects with private edit levels&hellip;)'))) ?>
     </th>
-    <th colspan='2'>
+    <th>
       <?php _e('Individual per-object access levels') ?>
       <?php _icon('info', Null, array('title' => __('Per-object access levels'))) ?>
     </th>
@@ -75,8 +75,6 @@ while (sizeof($todo)>0){
                 </td>
                 <td>
                   <?php $this->load->view('accesslevels/editpanel', array('object'=>$topic,'type'=>'topic','object_id'=>$topic->topic_id)); ?>
-                </td>
-                <td>
                 </td>
             </tr>
             <?php

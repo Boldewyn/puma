@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-26 08:12+0100\n"
+"POT-Creation-Date: 2010-03-29 22:57+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,21 +16,25 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../controllers/accesslevels.php:38
+#: ../../controllers/accesslevels.php:19
+#: ../../views/accesslevels/editforpublication.php:7
+msgid "Edit access levels"
+msgstr ""
+
+#: ../../controllers/accesslevels.php:40
 msgid "Couldn&rsquo;t find publication to edit access levels."
 msgstr ""
 
-#: ../../controllers/accesslevels.php:42
+#: ../../controllers/accesslevels.php:44
 msgid "Eit access levels"
 msgstr ""
 
-#: ../../controllers/accesslevels.php:110
+#: ../../controllers/accesslevels.php:112
 msgid "The rights have been updated."
 msgstr ""
 
-#: ../../controllers/accesslevels.php:116
-#: ../../views/accesslevels/editforpublication.php:6
-msgid "Edit access levels"
+#: ../../controllers/accesslevels.php:139
+msgid "The access levels could not be set."
 msgstr ""
 
 #: ../../controllers/attachments.php:20
@@ -197,17 +201,15 @@ msgstr ""
 
 #: ../../controllers/authors.php:217 ../../controllers/import.php:12
 #: ../../controllers/publications.php:227 ../../controllers/topics.php:116
-#: ../../controllers/topics.php:152
-#: ../../views/accesslevels/editforpublication.php:38
-#: ../../views/publications/single.php:51
+#: ../../controllers/topics.php:152 ../../views/publications/single.php:51
 msgid "Publication"
 msgstr ""
 
 #: ../../controllers/authors.php:218 ../../controllers/import.php:13
 #: ../../controllers/publications.php:228 ../../controllers/topics.php:117
 #: ../../controllers/topics.php:153 ../../controllers/topics.php:360
-#: ../../views/accesslevels/editfortopic.php:22
-#: ../../views/accesslevels/editfortopic.php:23 ../../views/topics/clean.php:6
+#: ../../views/accesslevels/editfortopic.php:16
+#: ../../views/accesslevels/editfortopic.php:17 ../../views/topics/clean.php:6
 #: ../../views/topics/clean.php:18
 msgid "Topic"
 msgstr ""
@@ -403,17 +405,9 @@ msgstr ""
 #: ../../controllers/users.php:178 ../../controllers/users.php:236
 #: ../../controllers/users.php:294 ../../controllers/users.php:355
 #: ../../controllers/users.php:456 ../../controllers/users.php:532
-#: ../../controllers/users.php:593 ../../libraries/accesslevels_lib.php:137
-#: ../../libraries/accesslevels_lib.php:159
-#: ../../libraries/accesslevels_lib.php:181
-#: ../../libraries/accesslevels_lib.php:221
-#: ../../libraries/accesslevels_lib.php:276
-#: ../../libraries/accesslevels_lib.php:302
-#: ../../libraries/accesslevels_lib.php:325
-#: ../../libraries/accesslevels_lib.php:351
-#: ../../libraries/attachment_db.php:103 ../../libraries/attachment_db.php:307
-#: ../../libraries/attachment_db.php:354 ../../libraries/author_db.php:258
-#: ../../libraries/bookmarklist_db.php:14
+#: ../../controllers/users.php:593 ../../libraries/attachment_db.php:103
+#: ../../libraries/attachment_db.php:307 ../../libraries/attachment_db.php:354
+#: ../../libraries/author_db.php:258 ../../libraries/bookmarklist_db.php:14
 #: ../../libraries/bookmarklist_db.php:29
 #: ../../libraries/bookmarklist_db.php:44
 #: ../../libraries/bookmarklist_db.php:60
@@ -543,7 +537,7 @@ msgstr ""
 #: ../../controllers/bookmarklist.php:723
 #: ../../controllers/bookmarklist.php:743
 #: ../../views/attachments/summary.php:28 ../../views/authors/single.php:7
-#: ../../views/groups/summary.php:15 ../../views/notes/summary.php:58
+#: ../../views/groups/summary.php:15 ../../views/notes/summary.php:59
 #: ../../views/publications/single.php:17
 #: ../../views/rightsprofiles/summary.php:14 ../../views/topics/full.php:26
 #: ../../views/users/summary.php:19
@@ -1486,90 +1480,90 @@ msgstr ""
 msgid "You must be logged in to view this user’s page."
 msgstr ""
 
-#: ../../controllers/usercontroller.php:62
+#: ../../controllers/usercontroller.php:72
 #, php-format
 msgid "User %s"
 msgstr ""
 
-#: ../../controllers/usercontroller.php:76
+#: ../../controllers/usercontroller.php:86
 msgid "Please log in to contact other users."
 msgstr ""
 
-#: ../../controllers/usercontroller.php:79
+#: ../../controllers/usercontroller.php:89
 #, php-format
 msgid "A %s is required."
 msgstr ""
 
-#: ../../controllers/usercontroller.php:80
+#: ../../controllers/usercontroller.php:90
 #, php-format
 msgid "The %s may not exceed 511 characters."
 msgstr ""
 
-#: ../../controllers/usercontroller.php:82
+#: ../../controllers/usercontroller.php:92
 msgid "message"
 msgstr ""
 
-#: ../../controllers/usercontroller.php:92
+#: ../../controllers/usercontroller.php:102
 #, php-format
 msgid "A message from Puma user %s %s"
 msgstr ""
 
-#: ../../controllers/usercontroller.php:102
+#: ../../controllers/usercontroller.php:112
 msgid "There was an error trying to send the e-Mail."
 msgstr ""
 
-#: ../../controllers/usercontroller.php:106
+#: ../../controllers/usercontroller.php:116
 #, php-format
 msgid "Contact user %s"
 msgstr ""
 
-#: ../../controllers/usercontroller.php:119
+#: ../../controllers/usercontroller.php:129
 msgid "You are not allowed to edit other users."
 msgstr ""
 
-#: ../../controllers/usercontroller.php:123
+#: ../../controllers/usercontroller.php:133
 #, php-format
 msgid "The field %s is required."
 msgstr ""
 
-#: ../../controllers/usercontroller.php:124
+#: ../../controllers/usercontroller.php:134
 #, php-format
 msgid "The field %s is too long."
 msgstr ""
 
-#: ../../controllers/usercontroller.php:129 ../../views/users/edit.php:107
+#: ../../controllers/usercontroller.php:139 ../../views/users/edit.php:107
 #: ../../views/users/edit.php:146 ../../views/users/edit.php:156
 #: ../../views/users/edit.php:165
 msgid "Password"
 msgstr ""
 
-#: ../../controllers/usercontroller.php:130
+#: ../../controllers/usercontroller.php:140
 msgid "Password repeat"
 msgstr ""
 
-#: ../../controllers/usercontroller.php:137
+#: ../../controllers/usercontroller.php:147
 msgid "The account was successfully updated."
 msgstr ""
 
-#: ../../controllers/usercontroller.php:139
+#: ../../controllers/usercontroller.php:149
 msgid "The changes could not be stored."
 msgstr ""
 
-#: ../../controllers/usercontroller.php:146
+#: ../../controllers/usercontroller.php:156
 #, php-format
 msgid "Edit user %s"
 msgstr ""
 
-#: ../../controllers/usercontroller.php:174
+#: ../../controllers/usercontroller.php:184
 msgid "The option was successfully set."
 msgstr ""
 
-#: ../../controllers/usercontroller.php:188
+#: ../../controllers/usercontroller.php:198
 #, php-format
 msgid "Group %s does not exist."
 msgstr ""
 
-#: ../../controllers/usercontroller.php:197
+#: ../../controllers/usercontroller.php:207
 #, php-format
 msgid "Group %s"
 msgstr ""
@@ -2394,7 +2388,7 @@ msgstr ""
 msgid "school"
 msgstr ""
 
-#: ../../helpers/translation_helper.php:39 ../../views/notes/summary.php:73
+#: ../../helpers/translation_helper.php:39 ../../views/notes/summary.php:74
 msgid "note"
 msgstr ""
 
@@ -2439,140 +2433,66 @@ msgstr ""
 msgid "institute"
 msgstr ""
 
-#: ../../libraries/accesslevels_lib.php:64
-msgid "read level"
+#: ../../helpers/user_helper.php:20
+msgid "unknown"
 msgstr ""
 
-#: ../../libraries/accesslevels_lib.php:66
-msgid "edit level"
-msgstr ""
-
-#: ../../libraries/accesslevels_lib.php:67
-msgid "effective access levels"
-msgstr ""
-
-#: ../../libraries/accesslevels_lib.php:73
-msgid "read access"
-msgstr ""
-
-#: ../../libraries/accesslevels_lib.php:73
-msgid "read access level"
-msgstr ""
-
-#: ../../libraries/accesslevels_lib.php:80
-msgid "edit access"
-msgstr ""
-
-#: ../../libraries/accesslevels_lib.php:80
-#: ../../libraries/accesslevels_lib.php:137
-#: ../../libraries/accesslevels_lib.php:159
-#: ../../libraries/accesslevels_lib.php:181
+#: ../../libraries/accesslevels_lib.php:56
+#: ../../libraries/accesslevels_lib.php:78
+#: ../../libraries/accesslevels_lib.php:100
+#: ../../libraries/accesslevels_lib.php:140
+#: ../../libraries/accesslevels_lib.php:195
 #: ../../libraries/accesslevels_lib.php:221
-#: ../../libraries/accesslevels_lib.php:276
-#: ../../libraries/accesslevels_lib.php:281
-#: ../../libraries/accesslevels_lib.php:302
-#: ../../libraries/accesslevels_lib.php:325
-#: ../../libraries/accesslevels_lib.php:351
-msgid "Edit access level"
+#: ../../libraries/accesslevels_lib.php:244
+#: ../../libraries/accesslevels_lib.php:270
+msgid "Edit access level: insufficient rights."
 msgstr ""
 
-#: ../../libraries/accesslevels_lib.php:95
-msgid "cannot edit access levels of this object"
-msgstr ""
-
-#: ../../libraries/accesslevels_lib.php:102
-#: ../../views/bookmarklist/controls.php:91
-#: ../../views/bookmarklist/controls.php:109
-#: ../../views/bookmarklist/controls.php:127
-#: ../../views/bookmarklist/controls.php:145 ../../views/site/edit.php:518
-msgid "public"
-msgstr ""
-
-#: ../../libraries/accesslevels_lib.php:102
-#: ../../views/bookmarklist/controls.php:91
-#: ../../views/bookmarklist/controls.php:109
-#: ../../views/bookmarklist/controls.php:127
-#: ../../views/bookmarklist/controls.php:145 ../../views/site/edit.php:518
-msgid "intern"
-msgstr ""
-
-#: ../../libraries/accesslevels_lib.php:104
-#: ../../views/bookmarklist/controls.php:91
-#: ../../views/bookmarklist/controls.php:109
-#: ../../views/bookmarklist/controls.php:127
-#: ../../views/bookmarklist/controls.php:145 ../../views/site/edit.php:518
-msgid "private"
-msgstr ""
-
-#: ../../libraries/accesslevels_lib.php:110
-#: ../../libraries/accesslevels_lib.php:117
-msgid "effective access level is different"
-msgstr ""
-
-#: ../../libraries/accesslevels_lib.php:145
-#: ../../libraries/accesslevels_lib.php:150
-#: ../../libraries/accesslevels_lib.php:167
-#: ../../libraries/accesslevels_lib.php:172
-#: ../../libraries/accesslevels_lib.php:189
-#: ../../libraries/accesslevels_lib.php:194
-#: ../../libraries/accesslevels_lib.php:203
-#: ../../libraries/accesslevels_lib.php:208
-#: ../../libraries/accesslevels_lib.php:229
-#: ../../libraries/accesslevels_lib.php:234
-#: ../../libraries/accesslevels_lib.php:243
-#: ../../libraries/accesslevels_lib.php:248
-#: ../../libraries/accesslevels_lib.php:287
-#: ../../libraries/accesslevels_lib.php:293
-#: ../../libraries/accesslevels_lib.php:308
-#: ../../libraries/accesslevels_lib.php:314
-#: ../../libraries/accesslevels_lib.php:331
-#: ../../libraries/accesslevels_lib.php:337
-#: ../../libraries/accesslevels_lib.php:357
-#: ../../libraries/accesslevels_lib.php:363
-msgid "Modify access level"
-msgstr ""
-
-#: ../../libraries/accesslevels_lib.php:145
-#: ../../libraries/accesslevels_lib.php:150
-#: ../../libraries/accesslevels_lib.php:167
-#: ../../libraries/accesslevels_lib.php:172
-#: ../../libraries/accesslevels_lib.php:189
-#: ../../libraries/accesslevels_lib.php:194
-#: ../../libraries/accesslevels_lib.php:229
-#: ../../libraries/accesslevels_lib.php:234
-#: ../../libraries/accesslevels_lib.php:287
-#: ../../libraries/accesslevels_lib.php:293
-#: ../../libraries/accesslevels_lib.php:308
-#: ../../libraries/accesslevels_lib.php:314
-#: ../../libraries/accesslevels_lib.php:331
-#: ../../libraries/accesslevels_lib.php:337
-#: ../../libraries/accesslevels_lib.php:357
-#: ../../libraries/accesslevels_lib.php:363
-msgid "Restricted edit level to match read level"
-msgstr ""
-
-#: ../../libraries/accesslevels_lib.php:203
-#: ../../libraries/accesslevels_lib.php:208
-msgid ""
-"Increased read level for publication to match new read level for attachment"
-msgstr ""
-
+#: ../../libraries/accesslevels_lib.php:64
+#: ../../libraries/accesslevels_lib.php:69
+#: ../../libraries/accesslevels_lib.php:86
+#: ../../libraries/accesslevels_lib.php:91
+#: ../../libraries/accesslevels_lib.php:108
+#: ../../libraries/accesslevels_lib.php:113
+#: ../../libraries/accesslevels_lib.php:148
+#: ../../libraries/accesslevels_lib.php:153
+#: ../../libraries/accesslevels_lib.php:206
 #: ../../libraries/accesslevels_lib.php:212
-#: ../../libraries/accesslevels_lib.php:252
-msgid "Couldn't propagate new level all the way up"
+#: ../../libraries/accesslevels_lib.php:227
+#: ../../libraries/accesslevels_lib.php:233
+#: ../../libraries/accesslevels_lib.php:250
+#: ../../libraries/accesslevels_lib.php:256
+#: ../../libraries/accesslevels_lib.php:276
+#: ../../libraries/accesslevels_lib.php:282
+msgid "Modify access level: Restricted edit level to match read level."
 msgstr ""
 
-#: ../../libraries/accesslevels_lib.php:243
-#: ../../libraries/accesslevels_lib.php:248
-msgid "Increased read level for publication to match new read level for note"
+#: ../../libraries/accesslevels_lib.php:122
+#: ../../libraries/accesslevels_lib.php:127
+msgid ""
+"Modify access level: Increased read level for publication to match new read "
+"level for attachment."
 msgstr ""
 
-#: ../../libraries/accesslevels_lib.php:281
-msgid "You cannot change the access levels of the top topic"
+#: ../../libraries/accesslevels_lib.php:131
+#: ../../libraries/accesslevels_lib.php:171
+msgid "Couldn&rsquo;t propagate new level all the way up."
 msgstr ""
 
-#: ../../libraries/accesslevels_lib.php:379
-msgid "Cascade of access levels not yet implemented"
+#: ../../libraries/accesslevels_lib.php:162
+#: ../../libraries/accesslevels_lib.php:167
+msgid ""
+"Modify access level: Increased read level for publication to match new read "
+"level for note."
+msgstr ""
+
+#: ../../libraries/accesslevels_lib.php:200
+msgid ""
+"Edit access level: You cannot change the access levels of the top topic."
+msgstr ""
+
+#: ../../libraries/accesslevels_lib.php:298
+msgid "Cascade of access levels not yet implemented."
 msgstr ""
 
 #: ../../libraries/attachment_db.php:115
@@ -3272,177 +3192,211 @@ msgstr ""
 msgid "Edit wiki"
 msgstr ""
 
-#: ../../views/accesslevels/editforpublication.php:7
+#: ../../views/accesslevels/editforpublication.php:6
 msgid "Back to publication"
 msgstr ""
 
-#: ../../views/accesslevels/editforpublication.php:13
-#: ../../views/accesslevels/editfortopic.php:18
-msgid "Effective access levels (after combining all relevant access levels)"
-msgstr ""
-
-#: ../../views/accesslevels/editforpublication.php:14
-#: ../../views/accesslevels/editfortopic.php:19
+#: ../../views/accesslevels/editforpublication.php:11
+#: ../../views/accesslevels/editfortopic.php:12
 msgid "Effective"
 msgstr ""
 
-#: ../../views/accesslevels/editforpublication.php:17
-#: ../../views/accesslevels/editforpublication.php:18
+#: ../../views/accesslevels/editforpublication.php:12
+#: ../../views/accesslevels/editfortopic.php:13
+msgid "Effective access levels (after combining all relevant access levels)"
+msgstr ""
+
+#: ../../views/accesslevels/editforpublication.php:15
+#: ../../views/accesslevels/editforpublication.php:16
 msgid "Object"
 msgstr ""
 
-#: ../../views/accesslevels/editforpublication.php:21
-msgid ""
-"Owner of object (only owner can change objects with private edit levels)"
-msgstr ""
-
-#: ../../views/accesslevels/editforpublication.php:22
-#: ../../views/accesslevels/editfortopic.php:27
+#: ../../views/accesslevels/editforpublication.php:19
+#: ../../views/accesslevels/editfortopic.php:20
 msgid "Owner"
 msgstr ""
 
-#: ../../views/accesslevels/editforpublication.php:26
-#: ../../views/accesslevels/editfortopic.php:30
-msgid "Per-object access levels"
+#: ../../views/accesslevels/editforpublication.php:20
+msgid ""
+"Owner of object (only owner can change objects with private edit "
+"levels&hellip;)"
 msgstr ""
 
-#: ../../views/accesslevels/editforpublication.php:27
-#: ../../views/accesslevels/editfortopic.php:31
+#: ../../views/accesslevels/editforpublication.php:23
+#: ../../views/accesslevels/editfortopic.php:24
 msgid "Individual per-object access levels"
 msgstr ""
 
-#: ../../views/accesslevels/editforpublication.php:76
-#: ../../views/help/attachments.php:3 ../../views/help/header.php:10
-#: ../../views/publications/single.php:330
-msgid "Attachments"
+#: ../../views/accesslevels/editforpublication.php:24
+#: ../../views/accesslevels/editfortopic.php:25
+msgid "Per-object access levels"
 msgstr ""
 
-#: ../../views/accesslevels/editforpublication.php:120
-#: ../../views/publications/single.php:358
-msgid "Notes"
+#: ../../views/accesslevels/editforpublication.php:29
+msgid "Publication:"
 msgstr ""
 
-#: ../../views/accesslevels/editforpublication.php:164
-msgid "Legend"
+#: ../../views/accesslevels/editforpublication.php:59
+msgid "Attachments:"
 msgstr ""
 
-#: ../../views/accesslevels/editforpublication.php:168
-#: ../../views/accesslevels/editfortopic.php:117
-#: ../../views/accesslevels/legenda.php:8
-msgid "read public"
+#: ../../views/accesslevels/editforpublication.php:91
+msgid "Notes:"
 msgstr ""
 
-#: ../../views/accesslevels/editforpublication.php:169
-#: ../../views/accesslevels/editfortopic.php:118
-#: ../../views/accesslevels/legenda.php:9
-msgid "read intern"
-msgstr ""
-
-#: ../../views/accesslevels/editforpublication.php:170
-#: ../../views/accesslevels/editfortopic.php:119
-#: ../../views/accesslevels/legenda.php:10
-msgid "read private"
-msgstr ""
-
-#: ../../views/accesslevels/editforpublication.php:171
-#: ../../views/accesslevels/editfortopic.php:120
-#: ../../views/accesslevels/legenda.php:11
-msgid "edit public"
-msgstr ""
-
-#: ../../views/accesslevels/editforpublication.php:172
-#: ../../views/accesslevels/editfortopic.php:121
-#: ../../views/accesslevels/legenda.php:12
-msgid "edit intern"
-msgstr ""
-
-#: ../../views/accesslevels/editforpublication.php:173
-#: ../../views/accesslevels/editfortopic.php:122
-#: ../../views/accesslevels/legenda.php:13
-msgid "edit private"
-msgstr ""
-
-#: ../../views/accesslevels/editforpublication.php:174
-#: ../../views/accesslevels/editfortopic.php:123
-#: ../../views/accesslevels/legenda.php:14
-msgid "If nothing is shown, access level is 'intern'"
-msgstr ""
-
-#: ../../views/accesslevels/editforpublication.php:181
+#: ../../views/accesslevels/editforpublication.php:124
 msgid ""
 "When you modify access levels of individual objects, this may have "
-"consequences for the final 'effective' access level of other objects. For "
-"example, when you set a publication to private, the effective access level "
-"of all objects belonging to that publication will be set to private as well."
+"consequences for the final &ldquo;effective&rdquo; access level of other "
+"objects. For example, when you set a publication to private, the effective "
+"access level of all objects belonging to that publication will be set to "
+"private as well."
 msgstr ""
 
-#: ../../views/accesslevels/editforpublication.php:182
+#: ../../views/accesslevels/editforpublication.php:125
 msgid ""
 "On the other hand, when you edit the read access level of for example an "
 "attachment, and the new level is higher than that of the publication it "
-"belongs to, the <b>actual</b> read level of the publication is updated as "
-"well!"
+"belongs to, the <strong>actual</strong> read level of the publication is "
+"updated, too."
 msgstr ""
 
-#: ../../views/accesslevels/editforpublication.php:183
+#: ../../views/accesslevels/editforpublication.php:126
 msgid ""
-"Note that the effective access levels are shown on the left; the access "
-"levels defined per individual object are shown on the right. Editing of "
-"access levels is done through the right column."
+"The effective access levels are shown on the left; the access levels defined "
+"per individual object are shown on the right. Editing of access levels is "
+"done in the right column."
 msgstr ""
 
-#: ../../views/accesslevels/editforpublication.php:184
+#: ../../views/accesslevels/editforpublication.php:127
+msgid "Unsure how the access levels turn out?"
+msgstr ""
+
+#: ../../views/accesslevels/editforpublication.php:127
 msgid ""
-"<b>Unsure how the access levels turned out?</b> The column on the left shows "
-"which objects are effectively accessible with what levels!"
+"The column on the left shows which objects are effectively accessible with "
+"what levels."
 msgstr ""
 
-#: ../../views/accesslevels/editforpublication.php:185
+#: ../../views/accesslevels/editforpublication.php:128
+#: ../../views/publications/edit.php:81
+msgid "Examples:"
+msgstr ""
+
+#: ../../views/accesslevels/editforpublication.php:130
 msgid ""
-"Example: Publication is 'intern'; attachment is 'intern'. SET attachment to "
-"'public' &rarr; publication will become 'public' as well."
+"Publication is &ldquo;intern&rdquo;; attachment is &ldquo;intern&rdquo;. "
+"<em>Set</em> attachment to &ldquo;public&rdquo; &rarr; publication will "
+"become &ldquo;public&rdquo; as well."
 msgstr ""
 
-#: ../../views/accesslevels/editforpublication.php:186
+#: ../../views/accesslevels/editforpublication.php:131
 msgid ""
-"Example: Publication is 'intern'; attachment is 'intern'. SET publication to "
-"'private' &rarr; attachment stays 'intern', but EFFECTIVE access level of "
-"attachment becomes 'private'. When you set the publication to 'intern' "
-"again, the effective access level of the attachment reverts to 'intern'."
+"Publication is &ldquo;intern&rdquo;; attachment is &ldquo;intern&rdquo;. "
+"<em>Set</em> publication to &ldquo;private&rdquo; &rarr; attachment stays "
+"&ldquo;intern&rdquo;, but <em>effective</em> access level of attachment "
+"becomes &ldquo;private&rdquo;. When you set the publication to &ldquo;"
+"intern&rdquo; again, the effective access level of the attachment reverts to "
+"&ldquo;intern&rdquo;."
 msgstr ""
 
-#: ../../views/accesslevels/editforpublication.php:187
+#: ../../views/accesslevels/editforpublication.php:132
 msgid ""
-"Example: Attachment read is 'public', attachment edit is 'intern'. Set "
-"attachment read to 'private' &rarr; attachment edit will also change to "
-"'private'."
+"Attachment read is &ldquo;public&rdquo;, attachment edit is &ldquo;"
+"intern&rdquo;. Set attachment read to &ldquo;private&rdquo; &rarr; "
+"attachment edit will also change to &ldquo;private&rdquo;."
 msgstr ""
 
-#: ../../views/accesslevels/editforpublication.php:188
+#: ../../views/accesslevels/editforpublication.php:133
 msgid ""
-"Example: A publication has edit level 'intern'. You are not the owner. You "
-"change the edit level to 'private'. &rarr; Subsequently, you can no longer "
-"edit that publication :o)"
+"A publication has edit level &ldquo;intern&rdquo;. You are not the owner. "
+"You change the edit level to &ldquo;private&rdquo;. &rarr; Subsequently, you "
+"can no longer edit that publication :o)"
 msgstr ""
 
-#: ../../views/accesslevels/editfortopic.php:11
+#: ../../views/accesslevels/editfortopic.php:7
 msgid "Edit topic access levels"
 msgstr ""
 
-#: ../../views/accesslevels/editfortopic.php:12
+#: ../../views/accesslevels/editfortopic.php:8
 msgid ""
-"You have to manually edit all access levels - there is no automatic "
+"You have to manually edit all access levels &ndash; there is no automatic "
 "propagation of changes up or down the tree."
 msgstr ""
 
-#: ../../views/accesslevels/editfortopic.php:26
+#: ../../views/accesslevels/editfortopic.php:21
 msgid ""
-"Owner of topic (only owner can change objects with private edit levels...)"
+"Owner of topic (only owner can change objects with private edit "
+"levels&hellip;)"
 msgstr ""
 
-#: ../../views/accesslevels/editfortopic.php:113
-#: ../../views/accesslevels/legenda.php:4
+#: ../../views/accesslevels/editpanel.php:3
+msgid "Cannot edit access levels of this object"
+msgstr ""
+
+#: ../../views/accesslevels/editpanel.php:6
+#: ../../views/bookmarklist/controls.php:91
+#: ../../views/bookmarklist/controls.php:109
+#: ../../views/bookmarklist/controls.php:127
+#: ../../views/bookmarklist/controls.php:145 ../../views/site/edit.php:518
+msgid "public"
+msgstr ""
+
+#: ../../views/accesslevels/editpanel.php:6
+#: ../../views/bookmarklist/controls.php:91
+#: ../../views/bookmarklist/controls.php:109
+#: ../../views/bookmarklist/controls.php:127
+#: ../../views/bookmarklist/controls.php:145 ../../views/site/edit.php:518
+msgid "intern"
+msgstr ""
+
+#: ../../views/accesslevels/editpanel.php:9
+#: ../../views/bookmarklist/controls.php:91
+#: ../../views/bookmarklist/controls.php:109
+#: ../../views/bookmarklist/controls.php:127
+#: ../../views/bookmarklist/controls.php:145 ../../views/site/edit.php:518
+msgid "private"
+msgstr ""
+
+#: ../../views/accesslevels/editpanel.php:18
+#: ../../views/accesslevels/editpanel.php:25
+msgid "effective access level is different"
+msgstr ""
+
+#: ../../views/accesslevels/editpanel.php:32
+#: ../../views/attachments/edit.php:66 ../../views/authors/edit.php:29
+#: ../../views/groups/edit.php:98 ../../views/notes/edit.php:65
+#: ../../views/publications/edit.php:328
+#: ../../views/rightsprofiles/edit.php:76 ../../views/topics/edit.php:73
+msgid "Change"
+msgstr ""
+
+#: ../../views/accesslevels/legenda.php:2
 msgid "Legenda"
+msgstr ""
+
+#: ../../views/accesslevels/legenda.php:4
+msgid "read public"
+msgstr ""
+
+#: ../../views/accesslevels/legenda.php:5
+msgid "read private"
+msgstr ""
+
+#: ../../views/accesslevels/legenda.php:6
+msgid "edit public"
+msgstr ""
+
+#: ../../views/accesslevels/legenda.php:7
+msgid "edit intern"
+msgstr ""
+
+#: ../../views/accesslevels/legenda.php:8
+msgid "edit private"
+msgstr ""
+
+#: ../../views/accesslevels/legenda.php:9
+msgid "If nothing is shown, the access level is &ldquo;intern&rdquo;."
 msgstr ""
 
 #: ../../views/attachments/add.php:28
@@ -3535,16 +3489,9 @@ msgstr ""
 msgid "Set URL"
 msgstr ""
 
-#: ../../views/attachments/edit.php:66 ../../views/authors/edit.php:29
-#: ../../views/groups/edit.php:98 ../../views/notes/edit.php:65
-#: ../../views/publications/edit.php:328
-#: ../../views/rightsprofiles/edit.php:76 ../../views/topics/edit.php:73
-msgid "Change"
-msgstr ""
-
 #: ../../views/attachments/summary.php:14
 #: ../../views/attachments/summary.php:17
-#: ../../views/publications/list.php:133 ../../views/publications/list.php:136
+#: ../../views/publications/list.php:134 ../../views/publications/list.php:137
 #: ../../views/publications/listClean.php:185
 #: ../../views/publications/listClean.php:194
 #: ../../views/readapi/publist.php:171 ../../views/readapi/publist.php:180
@@ -3553,7 +3500,7 @@ msgid "Download %s"
 msgstr ""
 
 #: ../../views/attachments/summary.php:27 ../../views/authors/single.php:6
-#: ../../views/groups/summary.php:16 ../../views/notes/summary.php:57
+#: ../../views/groups/summary.php:16 ../../views/notes/summary.php:58
 #: ../../views/publications/single.php:16
 #: ../../views/rightsprofiles/summary.php:15 ../../views/topics/full.php:27
 #: ../../views/users/summary.php:20
@@ -4203,6 +4150,11 @@ msgstr ""
 msgid "the section about access rights"
 msgstr ""
 
+#: ../../views/help/attachments.php:3 ../../views/help/header.php:10
+#: ../../views/publications/single.php:330
+msgid "Attachments"
+msgstr ""
+
 #: ../../views/help/attachments.php:4
 msgid ""
 "It is possible to attach files to your publications in two ways: by "
@@ -4708,7 +4660,7 @@ msgid "select to use editor as found in BibTeX"
 msgstr ""
 
 #: ../../views/keywords/list_items.php:54
-#: ../../views/publications/list.php:182
+#: ../../views/publications/list.php:183
 #: ../../views/publications/single.php:205
 #: ../../views/publications/single.php:221 ../../views/readapi/publist.php:124
 #, php-format
@@ -4813,7 +4765,15 @@ msgstr ""
 msgid "Access rights:"
 msgstr ""
 
-#: ../../views/notes/summary.php:73 ../../views/publications/single.php:276
+#: ../../views/notes/summary.php:61 ../../views/publications/single.php:260
+msgid "read access level"
+msgstr ""
+
+#: ../../views/notes/summary.php:62 ../../views/publications/single.php:261
+msgid "edit access level"
+msgstr ""
+
+#: ../../views/notes/summary.php:74 ../../views/publications/single.php:276
 #, php-format
 msgid "%s read / edit rights"
 msgstr ""
@@ -4882,10 +4842,6 @@ msgid ""
 "use outer braces or quotes for literal strings."
 msgstr ""
 
-#: ../../views/publications/edit.php:81
-msgid "Examples:"
-msgstr ""
-
 #: ../../views/publications/edit.php:82
 msgid "Between January and May"
 msgstr ""
@@ -4926,39 +4882,39 @@ msgstr ""
 msgid "Editors"
 msgstr ""
 
-#: ../../views/publications/list.php:89
+#: ../../views/publications/list.php:90
 #: ../../views/publications/listClean.php:65
 #: ../../views/readapi/publist.php:69
 #, php-format
 msgid "Publications of type %s"
 msgstr ""
 
-#: ../../views/publications/list.php:120
+#: ../../views/publications/list.php:121
 #: ../../views/publications/single.php:24
 msgid "remove from bookmark list"
 msgstr ""
 
-#: ../../views/publications/list.php:125
+#: ../../views/publications/list.php:126
 #: ../../views/publications/single.php:29
 msgid "add to bookmark list"
 msgstr ""
 
-#: ../../views/publications/list.php:145 ../../views/readapi/publist.php:187
+#: ../../views/publications/list.php:146 ../../views/readapi/publist.php:187
 msgid "Click to follow Digital Object Identifier link to online publication"
 msgstr ""
 
-#: ../../views/publications/list.php:168 ../../views/publications/list.php:193
+#: ../../views/publications/list.php:169 ../../views/publications/list.php:194
 #: ../../views/publications/listClean.php:120
 #: ../../views/publications/single.php:117 ../../views/readapi/publist.php:110
 #: ../../views/readapi/publist.php:132
 msgid "View publication details"
 msgstr ""
 
-#: ../../views/publications/list.php:175
+#: ../../views/publications/list.php:176
 msgid " and "
 msgstr ""
 
-#: ../../views/publications/list.php:177 ../../views/publications/list.php:189
+#: ../../views/publications/list.php:178 ../../views/publications/list.php:190
 msgid ", "
 msgstr ""
 
@@ -5103,6 +5059,10 @@ msgstr ""
 
 #: ../../views/publications/single.php:327
 msgid "add attachment"
+msgstr ""
+
+#: ../../views/publications/single.php:358
+msgid "Notes"
 msgstr ""
 
 #: ../../views/publications/single.php:386
@@ -6213,6 +6173,11 @@ msgstr ""
 
 #: ../../views/user/full.php:38
 msgid "Groups:"
+msgstr ""
+
+#: ../../views/user/full.php:46
+#, php-format
+msgid "Last %d publications uploaded by this user:"
 msgstr ""
 
 #: ../../views/user/group.php:5
