@@ -404,7 +404,7 @@ class Publications extends Controller {
             if (is_ajax()) {
                 echo '<div/>';
             } else {
-                back_to_referer(__('Successfully subscribed publication.'), '/publications/show/'.$pub_id);
+                back_to_referrer(__('Successfully subscribed publication.'), '/publications/show/'.$pub_id);
             }
         }
     }
@@ -444,7 +444,7 @@ class Publications extends Controller {
             if (is_ajax()) {
                 echo '<div/>';
             } else {
-                back_to_referer(__('Successfully unsubscribed publication.'), '/publications/show/'.$pub_id);
+                back_to_referrer(__('Successfully unsubscribed publication.'), '/publications/show/'.$pub_id);
             }
         }
     }

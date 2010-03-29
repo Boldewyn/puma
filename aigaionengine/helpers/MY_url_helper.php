@@ -17,7 +17,7 @@ function is_ajax() {
 /**
  * Return to referrer, if it is on the same site
  */
-function back_to_referer($msg='', $alt='', $error=False) {
+function back_to_referrer($msg='', $alt='', $error=False) {
     if ($msg != '') {
         if ($error) {
             appendErrorMessage($msg);
@@ -33,7 +33,6 @@ function back_to_referer($msg='', $alt='', $error=False) {
     }
     exit;
 }
-function back_to_referrer($msg='', $alt='', $error=False) { back_to_referer($msg, $alt, $error); }
 
 
 /**

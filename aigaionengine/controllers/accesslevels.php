@@ -109,7 +109,7 @@ class Accesslevels extends Controller {
             $this->output->set_header('Content-Type: text/javascript');
             $this->output->set_output('["'.$read.'","'.$edit.'"]');
         } else {
-            back_to_referer(__('The rights have been updated.'));
+            back_to_referrer(__('The rights have been updated.'));
         }
     }
 
@@ -136,7 +136,7 @@ class Accesslevels extends Controller {
             $this->output->set_header('Content-Type: text/javascript; charset=utf-8');
             $this->output->set_output($r? 'true' : 'false');
         } else {
-            back_to_referer($r? '' : __('The access levels could not be set.'), 'accesslevels/edit/'.$type.'/'.$id, !$r);
+            back_to_referrer($r? '' : __('The access levels could not be set.'), 'accesslevels/edit/'.$type.'/'.$id, !$r);
         }
     }
 

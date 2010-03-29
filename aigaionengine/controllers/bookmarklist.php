@@ -78,7 +78,7 @@ class Bookmarklist extends Controller {
                 $this->output->set_output('{"error":true}');
                 return;
             } else {
-                back_to_referer(__('Add publication to bookmarklist: non-existing id passed.'), '', True);
+                back_to_referrer(__('Add publication to bookmarklist: non-existing id passed.'), '', True);
             }
         } else {
             $this->bookmarklist_db->addPublication($publication->pub_id);
@@ -86,7 +86,7 @@ class Bookmarklist extends Controller {
                 header('Content-Type: text/javascript');
                 $this->output->set_output('{"src":"'.iconpath('bookmarked').'"}');
             } else {
-                back_to_referer(__('Publication was successfully added to the bookmark list.'));
+                back_to_referrer(__('Publication was successfully added to the bookmark list.'));
             }
         }
     }
@@ -205,7 +205,7 @@ class Bookmarklist extends Controller {
                 $this->output->set_output('{"error":true}');
                 return;
             } else {
-                back_to_referer(__('Removing publication from bookmarklist: non-existing id passed.'), '', True);
+                back_to_referrer(__('Removing publication from bookmarklist: non-existing id passed.'), '', True);
             }
         } else {
             $this->bookmarklist_db->removePublication($publication->pub_id);
@@ -213,7 +213,7 @@ class Bookmarklist extends Controller {
                 header('Content-Type: text/javascript');
                 $this->output->set_output('{"src":"'.iconpath('nonbookmarked').'"}');
             } else {
-                back_to_referer(__('Publication was successfully removed from the bookmark list.'));
+                back_to_referrer(__('Publication was successfully removed from the bookmark list.'));
             }
         }
     }

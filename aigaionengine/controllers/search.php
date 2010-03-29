@@ -43,7 +43,7 @@ class Search extends Controller {
      */
     public function quicksearch() {
         if (trim($this->query)=='') {
-            back_to_referer(__('Search: no query.'), '', True);
+            back_to_referrer(__('Search: no query.'), '', True);
         }
         $this->load->library('search_lib');
         $searchresults = $this->search_lib->simpleSearch($this->query,null);

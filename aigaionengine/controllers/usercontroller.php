@@ -181,7 +181,7 @@ class Usercontroller extends Controller {
             $this->output->set_header('Content-Type: text/javascript; charset=utf-8');
             $this->output->set_output(json_encode($option));
         } else {
-            back_to_referer(__('The option was successfully set.'));
+            back_to_referrer(__('The option was successfully set.'));
         }
     }
     

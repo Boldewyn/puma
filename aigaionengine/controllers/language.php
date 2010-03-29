@@ -27,7 +27,7 @@ class Language extends Controller {
             $userlogin->effectivePreferences['language'] = $language;
             $this->latesession->set('USERLOGIN',$userlogin);
         }
-        back_to_referer();
+        back_to_referrer();
     }  
     
 }
