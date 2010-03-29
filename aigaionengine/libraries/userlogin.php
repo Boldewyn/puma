@@ -133,6 +133,8 @@ class UserLogin {
     /** Initially, the user is NOT logged in. */
     function UserLogin() {
         //...no construction stuff needed, really. everything happens when the user logs in.
+        $CI = &get_instance();
+        $CI->load->helper('schema');
     }
 
     /* ================ Access methods for user rights and preferences ================ */
