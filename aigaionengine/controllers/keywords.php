@@ -59,7 +59,13 @@ class Keywords extends Controller {
         if ($keyword != '') {
             $content = array('keywordList' => $this->keyword_db->getKeywordsLike($keyword),
                              'useHeaders'  => false);
-            $this->load->view('keywords/list_items', $content);
+            //$this->load->view('keywords/list_items', $content);
+            $this->output->set_header('Content-Type: text/javascript');
+            $r = array();
+            foreach ($content['keywordList'] as $key) {
+                $r[] = $key->keyword;
+            }
+            $this->output->set_output(json_encode($r));
         }
     }
   

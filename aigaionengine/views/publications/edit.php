@@ -60,7 +60,7 @@ $this->load->helper('translation');
           
           $markup = 'div';
           $month = $publication->month;
-          if (array_key_exists($month,getMonthsInternal())) {
+          if (substr($month, 1, -1) && array_key_exists(substr($month, 1, -1),getMonthsInternal())) {
               $simple_style = '';
               $complex_style = 'display:none;';
           } else {
@@ -69,7 +69,7 @@ $this->load->helper('translation');
           }
           $valCol .= '<div id="publication_edit_month">
               <p id="monthbox_simple" style="clear:none;'.$simple_style.'">'.
-                  form_dropdown($simple_style?'':'month', getMonthsInternalNoQuotes(), formatMonthBibtexForEdit($publication->month)).
+                  form_dropdown($simple_style?'':'month', getMonthsInternal(), formatMonthBibtexForEdit($publication->month)).
                   ' <button type="button" onclick="toggleMonth(\'simple\',\'complex\')">'.__('Complex').'</button>
               </p>
               <p id="monthbox_complex" style="clear:none;'.$complex_style.'">
@@ -126,7 +126,35 @@ $this->load->helper('translation');
       <p>
         <label for="publication_edit_keywords"><?php _e('Keywords:') ?></label>
         <input type="text" class="optional extended_input text" name="keywords" id="publication_edit_keywords" value="<?php _h($keywords) ?>" />
-        <?php /*echo $this->ajax->auto_complete_field('keywords', $options = array('url' => base_url().'index.php/keywords/li_keywords/', 'update' => 'keyword_autocomplete', 'tokens' => array(",", ";"), 'frequency' => '0.01'))."\n";*/?>
+        <script type="text/javascript">
+        $(function() {
+          var val = [];
+          $('#publication_edit_keywords').autocomplete({
+            'search': function (e, ui) {
+              return !! $(this).val().split(/\s*[,;]\s*/).pop();
+            },
+            'source': function (request, response) {
+              val = request.term.split(/\s*[,;]\s*/);
+              var kw = val.pop(); val.push(kw);
+              $.post('<?php echo site_url('keywords/li_keywords')?>',
+                {'keywords': kw}, function (data) {
+                    response(data);
+                }, 'json');
+            },
+            'focus': function (e, ui) {
+                val.pop(); val.push(ui.item.value);
+                $(this).val(val.join(', '));
+                return false;
+            },
+            'select': function (e, ui) {
+                val.pop(); val.push(ui.item.value);
+                $(this).val(val.join(', '));
+                $(this).trigger('autocompleteclose');
+                return false;
+            }
+          });
+        });
+        </script>
       </p>
     </fieldset>
     <fieldset>
@@ -144,7 +172,7 @@ $this->load->helper('translation');
               <select id='selectedauthors' style="width:30em" size='5'>
                 <?php if (is_array($publication->authors)) {
                     foreach ($publication->authors as $author) {
-                        echo '<option value='.$author->author_id.'>'.$author->getName('vlf').'</option>';
+                        echo '<option value="'.$author->author_id.'">'.$author->getName('vlf').'</option>';
                     }
                 } ?>
               </select>
@@ -179,7 +207,7 @@ $this->load->helper('translation');
               <select id="selectededitors" style="width:30em" size='5'>
                 <?php if (is_array($publication->editors)) {
                     foreach ($publication->editors as $editor) {
-                        echo '<option value='.$editor->author_id.'>'.$editor->getName('vlf').'</option>';
+                        echo '<option value="'.$editor->author_id.'">'.$editor->getName('vlf').'</option>';
                     }
                 } ?>
               </select>
