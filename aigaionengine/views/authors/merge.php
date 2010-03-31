@@ -1,12 +1,13 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<?php
-  $authorfields = array('firstname'=>__('First name(s)'), 'von'=>__('von-part'), 'surname'=>__('Last name(s)'), 'jr'=>__('jr-part'), 'email'=>__('Email'), 'institute'=>__('Institute'));
-  $formAttributes = array('ID' => 'author_'.$author->author_id.'_edit');
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+$authorfields = array('firstname'=>__('First name(s)'), 'von'=>__('von-part'), 'surname'=>__('Last name(s)'), 'jr'=>__('jr-part'), 'email'=>__('Email'), 'institute'=>__('Institute'));
+$formAttributes = array('ID' => 'author_'.$author->author_id.'_edit');
 ?>
 <div class='author'>
-  <div class='header'><?php echo __('Merge authors'); ?></div>
-  <?php echo __('Merges the source author with the target author. The source author will be deleted, all publications will be transferred to the target author.');
-
+  <h2><?php _e('Merge authors') ?></h2>
+  <p><?php _e('Merges the source author with the target author. The source '.
+    'author will be deleted, all publications will be transferred to the target '.
+    'author.') ?></p>
+  <?php
     //open the edit form
     echo form_open('authors/mergecommit', $formAttributes)."\n";
     echo form_hidden('author_id',   $author->author_id)."\n";
@@ -27,7 +28,7 @@
         <tr>
         <td valign='top'><?php echo $display; ?>:</td>
         <td valign='top'><?php echo form_input(array('name' => $field, 'id' => $field, 'size' => '30', 'alt' => $field), $author->$field);?></td>
-        <td valign='top'><?php echo $this->ajax->button_to_function('<<', "$('".$field."').value=$('sim".$field."').value;");?></td>
+        <td valign='top'><button type="button" onclick="$('#<?php echo $field?>').val($('#sim<?php echo $field ?>').val());">&lt;&lt;</button></td>
         <td valign='top'><?php echo $display; ?>:</td>
         <td valign='top'><?php echo form_input(array('name' => 'sim'.$field, 'id' => 'sim'.$field, 'size' => '30', 'alt' => $field), $simauthor->$field);?></td>
         </tr>
@@ -37,16 +38,9 @@
     </table>
     </td></tr>
     <tr><td colspan='2'>
-      <?php echo form_submit('merge_submit', __('Merge'))."\n"; ?>
+      <input type="submit" class="submit" value="<?php _e('Merge')?>" />
+      <?php _a('authors/show/'.$author->author_id, __('Cancel'), 'class="pseudobutton"'); ?>
     </td></tr>
   </table>
-
-<?php
-    
-  echo form_close()."\n";
-echo form_open('authors/show/'.$author->author_id);
-echo form_submit('cancel',__('Cancel'));
-echo form_close();
-
-?>
+</form>
 </div>
