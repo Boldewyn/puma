@@ -265,13 +265,14 @@ for ($i = 0; $i < $importCount; $i++)
         <td colspan = 2><div class='errormessage'><?php echo $reviews[$i]['keywords'] ?></div></td>
       </tr>
       <tr>
-        <td valign='top'><?php __('Keywords')?>:</td>
+        <td valign='top'><label for="import_review_keywords_<?php echo $i?>"><?php _e('Keywords:')?></label></td>
         <td valign='top'>
-          <?php
-          echo form_input(array('name' => 'keywords_'.$i, 'id' => 'keywords_'.$i, 'size' => '45', 'alt' => 'keywords', 'autocomplete' => 'off'), $keywords);
-          echo "<div name='keyword_autocomplete_".$i."' id='keyword_autocomplete_".$i."' class='autocomplete'></div>\n";
-          echo $this->ajax->auto_complete_field('keywords_'.$i, $options = array('url' => base_url().'index.php/keywords/li_keywords/keywords_'.$i, 'update' => 'keyword_autocomplete_'.$i, 'tokens'=> ',', 'frequency' => '0.01'))."\n";
-          ?>
+          <input type="text" class="optional extended_input text" name="keywords_<?php echo $i?>" id="import_review_keywords_<?php echo $i?>" value="<?php _h($keywords) ?>" />
+          <script type="text/javascript">
+          $(function () {
+            Puma.tokenized_autocomplete('#import_review_keywords_<?php echo $i?>', '<?php echo site_url('keywords/li_keywords')?>', 'keywords');
+          });
+          </script>
         </td>
       </tr>
     <?php

@@ -113,8 +113,10 @@ $this->load->helper('translation');
                     echo '<em>'.anchor('publications/show/'.$xref_pub->pub_id,$publication->$key).':</em>';
                     //and then the summary of the crossreffed pub. taken from views/publications/list
                     $summaryfields = getPublicationSummaryFieldArray($xref_pub->pub_type);
-                    echo "<div class='message'>
-                          <span class='title'>".anchor('publications/show/'.$xref_pub->pub_id, $xref_pub->title, array('title' => __('View publication details')))."</span>";
+                    echo '<div class="message">
+                          <span class="title">'.anchor('publications/show/'.$xref_pub->pub_id,
+                            $xref_pub->title, array('title' => __('View publication details'))).
+                          '</span>';
 
                     //authors of crossref
                     $num_authors    = count($xref_pub->authors);
@@ -123,13 +125,15 @@ $this->load->helper('translation');
                     foreach ($xref_pub->authors as $author)
                     {
                       if (($current_author == $num_authors) & ($num_authors > 1)) {
-                        echo " ".__("and")." ";
+                        echo ' '.__('and').' ';
                       }
                       else {
-                        echo ", ";
+                        echo ', ';
                       }
 
-                      echo  "<span class='author'>".anchor('authors/show/'.$author->author_id, $author->getName('vlf'), array('title' => __('All information on').' '.$author->cleanname))."</span>";
+                      echo '<span class="author">'.anchor('authors/show/'.$author->author_id,
+                        $author->getName('vlf'), array('title' => __('All information on').' '.$author->cleanname)).
+                        '</span>';
                       $current_author++;
                     }
 
@@ -140,13 +144,15 @@ $this->load->helper('translation');
                     foreach ($xref_pub->editors as $editor)
                     {
                       if (($current_editor == $num_editors) & ($num_editors > 1)) {
-                        echo " ".__('and')." ";
+                        echo ' '.__('and').' ';
                       }
                       else {
-                        echo ", ";
+                        echo ', ';
                       }
 
-                      echo  "<span class='author'>".anchor('authors/show/'.$editor->author_id, $editor->getName('vlf'), array('title' => __('All information on').' '.$editor->cleanname))."</span>";
+                      echo  '<span class="author">'.anchor('authors/show/'.$editor->author_id,
+                        $editor->getName('vlf'), array('title' => __('All information on').' '.$editor->cleanname)).
+                        '</span>';
                       $current_editor++;
                     }
                     if ($num_editors>1) {
@@ -165,7 +171,7 @@ $this->load->helper('translation');
                         echo $prefix.$val.$postfix;
                       }
                     }
-                    echo "</div>"; //end of publication_summary div for crossreffed publication
+                    echo '</div>'; //end of publication_summary div for crossreffed publication
                 } else {
                     echo $publication->$key;
                 }
@@ -181,9 +187,9 @@ $this->load->helper('translation');
 
     $keywords = $publication->getKeywords();
     if (is_array($keywords)) {
-      $keyword_string = "";
+      $keyword_string = '';
       foreach ($keywords as $keyword) {
-        $keyword_string .= anchor('keywords/single/'.$keyword->keyword_id, h($keyword->keyword)).", ";
+        $keyword_string .= anchor('keywords/single/'.$keyword->keyword_id, h($keyword->keyword)).', ';
       }
       $keyword_string = substr($keyword_string, 0, -2);
     ?>
@@ -201,8 +207,8 @@ $this->load->helper('translation');
       <td>
         <span class='authorlist'>
 <?php     foreach ($publication->authors as $author) {
-            echo anchor('authors/show/'.$author->author_id, h($author->getName('vlf')),
-                        array('title' => sprintf(__('All information on %s'), $author->cleanname))).'<br/>';
+            echo anchor('authors/show/'.$author->author_id, h($author->getName('fvl')),
+                        array('title' => sprintf(__('All information on %s'), $author->cleanname))).', ';
           }
 ?>
         </span>
@@ -217,8 +223,8 @@ $this->load->helper('translation');
       <td>
         <span class='authorlist'>
 <?php     foreach ($publication->editors as $author) {
-            echo anchor('authors/show/'.$author->author_id, h($author->getName('vlf')),
-                        array('title' => sprintf(__('All information on %s'), $author->cleanname))).'<br/>';
+            echo anchor('authors/show/'.$author->author_id, h($author->getName('fvl')),
+                        array('title' => sprintf(__('All information on %s'), $author->cleanname))).', ';
           }
 ?>
         </span>
@@ -239,7 +245,7 @@ $this->load->helper('translation');
             if ($linkname == '') {
                 $linkname = $crossrefpub->title;
             }
-            echo anchor('/publications/show/'.$crossrefpub->pub_id, $linkname).'<br/>';
+            echo anchor('/publications/show/'.$crossrefpub->pub_id, $linkname).', ';
         }
 ?>
       </td>
@@ -256,26 +262,17 @@ $this->load->helper('translation');
         ?>
       </td>
     </tr>
-    <?php if ($accessLevelEdit) :
-      $read_icon = _icon('rights_'.$publication->derived_read_access_level, Null, array('alt'=>__('read access level')));
-      $edit_icon = _icon('rights_'.$publication->derived_edit_access_level, Null, array('alt'=>__('edit access level')));
-
-      $readrights = $this->ajax->link_to_remote($read_icon,
-                  array('url'     => site_url('/accesslevels/toggle/publication/'.$publication->pub_id.'/read'),
-                        'update'  => 'publication_rights_'.$publication->pub_id
-                       )
-                  );
-      $editrights = $this->ajax->link_to_remote($edit_icon,
-                  array('url'     => site_url('/accesslevels/toggle/publication/'.$publication->pub_id.'/edit'),
-                        'update'  => 'publication_rights_'.$publication->pub_id
-                       )
-                  );
-    ?>
+    <?php if ($accessLevelEdit): ?>
     <tr>
       <th><?php _e('Access rights:') ?></th>
-      <td><?php echo "<span id='publication_rights_".$publication->pub_id."'><span title='".sprintf(__("%s read / edit rights"), __('publication'))."'>r:".$readrights."e:".$editrights."</span></span>";
-    echo "(".anchor('accesslevels/edit/publication/'.$publication->pub_id,__('Edit all rights'),array('title'=>__('Click to modify access levels'))).")";
-    ?>
+      <td>
+        r: <a href="<?php echo site_url('/accesslevels/toggle/publication/'.$publication->pub_id.'/read') ?>"
+          class="rights_switch read_switch <?php echo $publication->derived_read_access_level ?>"><?php
+          _icon('rights_'.$publication->derived_read_access_level) ?></a>
+        e: <a href="<?php echo site_url('/accesslevels/toggle/publication/'.$publication->pub_id.'/edit') ?>"
+          class="rights_switch edit_switch <?php echo $publication->derived_edit_access_level ?>"><?php
+          _icon('rights_'.$publication->derived_edit_access_level) ?></a>
+        (<?php _a('accesslevels/edit/publication/'.$publication->pub_id, __('Edit all rights')) ?>)
       </td>
     </tr>
     <?php endif; ?>
@@ -292,7 +289,7 @@ $this->load->helper('translation');
         <td>
           <div class="publication_mark">
             <?php
-              echo form_open('publications/read/'.$publication->pub_id);
+              echo form_open('publications/read/'.$publication->pub_id).'<p>';
 
               $mark = $publication->getUserMark();
               if ($mark==-1) {//not read
@@ -307,129 +304,86 @@ $this->load->helper('translation');
               }
               echo '5&nbsp;';
               if ($mark!=-1) {// read
-                echo form_close();
-                echo form_open('publications/unread/'.$publication->pub_id);
+                echo '</p></form>';
+                echo form_open('publications/unread/'.$publication->pub_id).'<p>';
                 echo form_submit('unread',__('Unread'));
               }
             ?>
+            </p>
             </form>
           </div>
         </td>
       </tr>
     <?php endif; ?>
-    <tr>
-      <td colspan='2' valign='top'>
-        <div class='optionbox'>
-<?php
-    if (    ($userlogin->hasRights('attachment_edit'))
-         && ($accessLevelEdit)
-        )
-        echo '['.anchor('attachments/add/'.$publication->pub_id,__('add attachment')).']';
-?>
-        </div>
-        <div class='header'><?php _e("Attachments");?></div>
-      </td>
-    </tr>
-    <tr>
-        <td colspan='2' valign='top'>
-<?php
-    $attachments = $publication->getAttachments();
-    echo "<ul class='attachmentlist'>";
-    foreach ($attachments as $attachment) {
-        echo "<li>".$this->load->view('attachments/summary',
-                          array('attachment'   => $attachment),
-                          true)."</li>";
-    }
-    echo "</ul>";
-?>
-        </td>
-    </tr>
-
-    <tr>
-      <td colspan='2' valign='top'>
-        <div class='optionbox'>
-<?php
-    if (    ($userlogin->hasRights('note_edit'))
-         && ($accessLevelEdit)
-        )
-        echo '['.anchor('notes/add/'.$publication->pub_id,__('add note')).']';
-?>
-        </div>
-        <div class='header'><?php _e("Notes");?></div>
-      </td>
-    </tr>
-    <tr>
-        <td colspan='2' valign='top'>
-<?php
-    $notes = $publication->getNotes();
-    echo "<ul class='notelist'>";
-    foreach ($notes as $note) {
-        echo "<li>".$this->load->view('notes/summary',
-                          array('note'   => $note),
-                          true)."</li>";
-    }
-    echo "</ul>";
-?>
-        </td>
-    </tr>
-
-    <tr>
-      <td colspan='2' valign='top'>
-        <div class='optionbox'>
-<?php
-
-    if (    ($userlogin->hasRights('publication_edit'))
-         && ($accessLevelEdit)
-        )
-    {
-        if ($categorize == True) {
-            echo '['.anchor('publications/show/'.$publication->pub_id,__('finish categorization')).']';
-        } else {
-            echo '['.anchor('publications/show/'.$publication->pub_id.'/categorize',__('categorize publication')).']';
-        }
-    }
-?>
-        </div>
-        <div class='header'><?php _e("Topics");?></div>
-      </td>
-    </tr>
-    <tr>
-      <td colspan='2' valign='top'>
-<?php
-        if (    ($userlogin->hasRights('publication_edit'))
-             && ($accessLevelEdit)
-             && ($categorize == True)
-            )
-        {
-
-            echo "<div class='message'>".__("Click on a topic name to change its subscription status.")."</div>";
-            $config = array('onlyIfUserSubscribed'=>True,
-                              'user'=>$user,
-                              'includeGroupSubscriptions'=>True,
-                              'publicationId'=>$publication->pub_id
-                                    );
-            $root = $this->topic_db->getByID(1, $config);
-            $this->load->vars(array('subviews'  => array('topics/publicationsubscriptiontreerow'=>array())));
-        } else {
-            $config = array('onlyIfUserSubscribed'=>True,
-                              'user'=>$user,
-                              'includeGroupSubscriptions'=>True,
-                              'onlyIfPublicationSubscribed'=>True,
-                              'publicationId'=>$publication->pub_id
-                                    );
-            $root = $this->topic_db->getByID(1, $config);
-            $this->load->vars(array('subviews'  => array('topics/maintreerow'=>array())));
-        }
-        echo "<div id='topictree-holder'>\n<ul class='topictree-list'>\n"
-                    .$this->load->view('topics/tree',
-                                      array('topics'   => $root->getChildren(),
-                                            'showroot'  => True,
-                                            /*'collapseAll'  => $categorize,*/
-                                            'depth'     => -1
-                                            ),
-                                      true)."</ul>\n</div>\n";
-?>
-      </td>
-    </tr>
   </table>
+  <div>
+    <?php if ($userlogin->hasRights('attachment_edit') && $accessLevelEdit): ?>
+      <p class='optionbox'>
+        <?php _a('attachments/add/'.$publication->pub_id, '['.__('add attachment').']')?>
+      </p>
+    <?php endif ?>
+    <h3><?php _e('Attachments') ?></h3>
+    <ul class="attachmentlist">
+    <?php
+      $attachments = $publication->getAttachments();
+      foreach ($attachments as $attachment) {
+          echo '<li>'.$this->load->view('attachments/summary',
+                            array('attachment'   => $attachment),
+                            true).'</li>';
+      }
+    ?>
+    </ul>
+  </div>
+  <div>
+    <?php if ($userlogin->hasRights('note_edit') && $accessLevelEdit): ?>
+      <p class='optionbox'>
+        <?php _a('notes/add/'.$publication->pub_id, '['.__('add note').']') ?>
+      </p>
+    <?php endif ?>
+    <h3><?php _e('Notes') ?></h3>
+    <ul class="notelist">
+    <?php
+        $notes = $publication->getNotes();
+        foreach ($notes as $note) {
+            echo '<li>'.$this->load->view('notes/summary',
+                              array('note'   => $note),
+                              true).'</li>';
+        }
+    ?>
+    </ul>
+  </div>
+  <div>
+    <p class='optionbox'>
+      <?php if ($userlogin->hasRights('publication_edit') && $accessLevelEdit):
+        if ($categorize == True): ?>
+          <?php _a('publications/show/'.$publication->pub_id, '['.__('finish categorization').']') ?>
+      <?php else: ?>
+          <?php _a('publications/show/'.$publication->pub_id.'/categorize', '['.__('categorize publication').']') ?>
+      <?php endif;
+    endif ?>
+    </p>
+    <h3><?php _e('Topics') ?></h3>
+    <?php if ($userlogin->hasRights('publication_edit') && $accessLevelEdit && $categorize == True) {
+        echo '<p class="info">'.__('Click on a topic name to change its subscription status.').'</p>';
+        $config = array('onlyIfUserSubscribed'=>True,
+                          'user'=>$user,
+                          'includeGroupSubscriptions'=>True,
+                          'publicationId'=>$publication->pub_id,);
+        $root = $this->topic_db->getByID(1, $config);
+        $this->load->vars(array('subviews'  => array('topics/publicationsubscriptiontreerow'=>array())));
+    } else {
+        $config = array('onlyIfUserSubscribed'=>True,
+                          'user'=>$user,
+                          'includeGroupSubscriptions'=>True,
+                          'onlyIfPublicationSubscribed'=>True,
+                          'publicationId'=>$publication->pub_id, );
+        $root = $this->topic_db->getByID(1, $config);
+        $this->load->vars(array('subviews'  => array('topics/maintreerow'=>array())));
+    } ?>
+    <ul class='topictree-list'>
+      <?php $this->load->view('topics/tree', array('topics'   => $root->getChildren(),
+                                                   'showroot'  => True,
+                                                   'depth'     => -1,)) ?>
+    </ul>
+  </div>
 </div>

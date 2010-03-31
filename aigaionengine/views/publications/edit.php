@@ -127,32 +127,8 @@ $this->load->helper('translation');
         <label for="publication_edit_keywords"><?php _e('Keywords:') ?></label>
         <input type="text" class="optional extended_input text" name="keywords" id="publication_edit_keywords" value="<?php _h($keywords) ?>" />
         <script type="text/javascript">
-        $(function() {
-          var val = [];
-          $('#publication_edit_keywords').autocomplete({
-            'search': function (e, ui) {
-              return !! $(this).val().split(/\s*[,;]\s*/).pop();
-            },
-            'source': function (request, response) {
-              val = request.term.split(/\s*[,;]\s*/);
-              var kw = val.pop(); val.push(kw);
-              $.post('<?php echo site_url('keywords/li_keywords')?>',
-                {'keywords': kw}, function (data) {
-                    response(data);
-                }, 'json');
-            },
-            'focus': function (e, ui) {
-                val.pop(); val.push(ui.item.value);
-                $(this).val(val.join(', '));
-                return false;
-            },
-            'select': function (e, ui) {
-                val.pop(); val.push(ui.item.value);
-                $(this).val(val.join(', '));
-                $(this).trigger('autocompleteclose');
-                return false;
-            }
-          });
+        $(function () {
+          Puma.tokenized_autocomplete('#publication_edit_keywords', '<?php echo site_url('keywords/li_keywords')?>', 'keywords');
         });
         </script>
       </p>

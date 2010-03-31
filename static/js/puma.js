@@ -267,6 +267,35 @@ window._ = gettext;
     }
   };
   
+  /**
+   * Tokenized autocompleter
+   */
+  p.tokenized_autocomplete = function (id, url, key) {
+    var val = [];
+    $(id).autocomplete({
+      'search': function (e, ui) {
+        return $(this).val().split(/\s*[,;]\s*/).pop().length >= 1;
+      },
+      'source': function (request, response) {
+        val = request.term.split(/\s*[,;]\s*/);
+        var kw = val.pop(); val.push(kw);
+        var d = {}; d[key] = kw;
+        $.post(url, d, response, 'json');
+      },
+      'focus': function (e, ui) {
+          val.pop(); val.push(ui.item.value);
+          $(this).val(val.join(', '));
+          return false;
+      },
+      'select': function (e, ui) {
+          val.pop(); val.push(ui.item.value);
+          $(this).val(val.join(', '));
+          $(this).trigger('autocompleteclose');
+          return false;
+      }
+    });
+  }
+  
 })(jQuery);
 
 
