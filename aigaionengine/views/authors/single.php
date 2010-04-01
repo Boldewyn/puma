@@ -3,11 +3,16 @@ $userlogin = getUserLogin();
 ?>
 <div class='author'>
   <?php if ($userlogin->hasRights('publication_edit')): ?>
-    <p class='optionbox'><?php _a('authors/delete/'.$author->author_id, '['.__('delete').']', array('title' => __('Delete this author'))) ?>
-      <?php _a('authors/edit/'.$author->author_id, '['.__('edit').']', array('title' => __('Edit this author'))) ?>
+    <p class='optionbox'>
+      <?php _a('authors/delete/'.$author->author_id, '['.__('delete').']',
+        array('title' => __('Delete this author'))) ?>
+      <?php _a('authors/edit/'.$author->author_id, '['.__('edit').']',
+        array('title' => __('Edit this author'))) ?>
       <?php  if ($userlogin->hasRights('bookmarklist')): ?>
-        <?php _a('bookmarklist/addauthor/'.$author->author_id, '['.__('BookmarkAll').']', array('title' => __('Bookmark all publications of this author'))) ?>
-        <?php _a('bookmarklist/removeauthor/'.$author->author_id, '['.__('UnBookmarkAll').']', array('title' => __('Unbookmark all publications of this author'))) ?>
+        <?php _a('bookmarklist/addauthor/'.$author->author_id, '['.__('BookmarkAll').']',
+          array('title' => __('Bookmark all publications of this author'))) ?>
+        <?php _a('bookmarklist/removeauthor/'.$author->author_id, '['.__('UnBookmarkAll').']',
+          array('title' => __('Unbookmark all publications of this author'))) ?>
       <?php endif; ?>
     </p>
   <?php endif; ?>
