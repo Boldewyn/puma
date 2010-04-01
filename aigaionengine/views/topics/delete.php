@@ -1,5 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<form method="post" action="<?php echo base_url()?>topics/delete/<?php echo $topic->topic_id?>/commit" class="confirmform">
+<form method="post" action="<?php echo site_url('topics/delete/'.$topic->topic_id.'/commit') ?>" class="confirmform">
   <p>
     <?php printf(__('Are you sure, that you want to delete the topic &ldquo;%s&rdquo;?'), h($topic->name)) ?>
   </p>
