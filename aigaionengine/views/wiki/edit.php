@@ -17,7 +17,7 @@ if (isset($discussion) && $discussion) { $d = '_Discussion'; } else { $discussio
   </div>
 <?php endif ?>
 
-<?php echo form_open('wiki/Edit'.$d.':'.h($item), array('class'=>'extralarge_input wiki_edit')); ?>
+<form method="post" action="<?php _url('wiki/Edit'.$d.':'.h($item)) ?>" class="extralarge_input wiki_edit">
   <p>
     <textarea name="content" id="wiki_edit_content" class="richtext" rows="10" cols="30"><?php _h($original_content); ?></textarea>
     <script type="text/javascript" src="<?php echo base_url()?>static/js/tiny_mce/tiny_mce.js"></script>

@@ -6,7 +6,6 @@ It needs several view parameters:
 header              Default: "Export all publications"
 exportCommand       Default: "export/all/"; will be suffixed with type. May also be, e.g., "export/topic/12/"
 */
-$this->load->helper('form');
 $userlogin  = getUserLogin();
 
 if (!isset($header))$header=__('Export all publications');

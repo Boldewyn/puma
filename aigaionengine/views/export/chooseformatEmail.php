@@ -6,7 +6,6 @@ It needs several view parameters:
 header              Default: "Export all publications"
 exportCommand       Default: "export/all/"; will be suffixed with type. May also be, e.g., "export/topic/12/"
 */
-$this->load->helper('form');
 
 if (!isset($header))$header=__('Export all publications');
 if (!isset($exportCommand))$exportCommand='export/all/';
@@ -28,10 +27,10 @@ foreach ($styles as $style=>$longname) {
 } ?>
   <p>
     <?php if(MAXIMUM_ATTACHMENT_SIZE > $attachmentsize): ?>
-	  <input type="radio" name="format" id="export_chooseformat_pdf" value="pdf" /> <label for="export_chooseformat_pdf">PDF</label>
+    <input type="radio" name="format" id="export_chooseformat_pdf" value="pdf" /> <label for="export_chooseformat_pdf">PDF</label>
       &nbsp;&nbsp;&nbsp; <?php printf(__('Attachment size: %s KB'), $attachmentsize);
     else: ?>
-	  <input type="radio" name="format" id="export_chooseformat_pdf" value="pdf" disabled="disabled" /> <label for="export_chooseformat_pdf">PDF</label>
+    <input type="radio" name="format" id="export_chooseformat_pdf" value="pdf" disabled="disabled" /> <label for="export_chooseformat_pdf">PDF</label>
       <?php printf(__('Maximum attachment size: %s KB'), MAXIMUM_ATTACHMENT_SIZE).' '.printf(__('Current attachment size: %s KB'), $attachmentsize);
     endif;?><br/>
     <input type="radio" name="format" id="export_chooseformat_bibtex" value="bibtex" /> <label for="export_chooseformat_bibtex">BibTeX</label><br/>

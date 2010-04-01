@@ -2,7 +2,6 @@
 $userlogin = getUserLogin();
 $user = $this->user_db->getByID($userlogin->userId());
 ?>
-
 <div id="bookmarklist_controls">
 
 <h2><?php echo __('Bookmark list controls');?></h2>
@@ -64,74 +63,70 @@ $user = $this->user_db->getByID($userlogin->userId());
 
 <?php if ($userlogin->hasRights('publication_edit')): ?>
   <form method="post" action="<?php _url('bookmarklist/setpubaccesslevel') ?>">
-        <p class="xlarge_label medium_input">
-            <?php
-            printf('<label class="" for="bookmarklist_controls_setpubaccesslevel">%s</label><br/> ',
-                  __('Set read access level for all bookmarked publications:'));
-            echo form_dropdown('accesslevel',
-                  array('public'=>__('public'),'intern'=>__('intern'),'private'=>__('private')),'intern',
-                  'id="bookmarklist_controls_setpubaccesslevel"');
-            echo ' ';
-            echo form_submit(array('name'=>'setpubaccesslevel',
-                 'title'=>__('Set the read  access levels for all publications on the bookmarklist'),
-                 'class'=>'submit'),__('Set publication access level'));
-            ?>
-        </p>
-    </form>
+    <p class="xlarge_label medium_input">
+      <?php
+      printf('<label class="" for="bookmarklist_controls_setpubaccesslevel">%s</label><br/> ',
+            __('Set read access level for all bookmarked publications:'));
+      echo form_dropdown('accesslevel',
+            array('public'=>__('public'),'intern'=>__('intern'),'private'=>__('private')),'intern',
+            'id="bookmarklist_controls_setpubaccesslevel"');
+      ?>
+      <input type="submit" class="submit" name="setpubaccesslevel" title="<?php 
+        _e('Set the read  access levels for all publications on the bookmarklist') ?>"
+        value="<?php _e('Set publication access level') ?>" />
+    </p>
+  </form>
 <?php endif;
 
-if ($userlogin->hasRights('publication_edit')):
-    echo form_open('bookmarklist/setattaccesslevel'); ?>
-        <p class="xlarge_label medium_input">
-            <?php
-            printf('<label class="" for="bookmarklist_controls_setattaccesslevel">%s</label><br/>',
-                   __('Set read access level for all attachments of bookmarked publications:'));
-            echo form_dropdown('accesslevel',
-                  array('public'=>__('public'),'intern'=>__('intern'),'private'=>__('private')),'intern',
-                  'id="bookmarklist_controls_setattaccesslevel"');
-            echo ' ';
-            echo form_submit(array('name'=>'setattaccesslevel',
-                  'title'=>__('Set the read access levels for all attachments of publications on the bookmarklist'),
-                  'class'=>'submit'), __('Set attachment access level'));
-            ?>
-        </p>
-    </form>
+if ($userlogin->hasRights('publication_edit')): ?>
+  <form method="post" action="<?php _url('bookmarklist/setattaccesslevel') ?>">
+    <p class="xlarge_label medium_input">
+      <?php
+      printf('<label class="" for="bookmarklist_controls_setattaccesslevel">%s</label><br/>',
+             __('Set read access level for all attachments of bookmarked publications:'));
+      echo form_dropdown('accesslevel',
+            array('public'=>__('public'),'intern'=>__('intern'),'private'=>__('private')),'intern',
+            'id="bookmarklist_controls_setattaccesslevel"');
+      ?>
+      <input type="submit" class="submit" name="setattaccesslevel" title="<?php 
+        _e('Set the read access levels for all attachments of publications on the bookmarklist') ?>"
+        value="<?php _e('Set attachment access level') ?>" />
+    </p>
+  </form>
 <?php endif;
 
-if ($userlogin->hasRights('publication_edit')):
-    echo form_open('bookmarklist/seteditpubaccesslevel'); ?>
-        <p class="xlarge_label medium_input">
-            <?php
-            printf('<label class="" for="bookmarklist_controls_seteditpubaccesslevel">%s</label><br/>',
-                   __('Set edit access level for all bookmarked publications:'));
-            echo form_dropdown('accesslevel',
-                  array('public'=>__('public'),'intern'=>__('intern'),'private'=>__('private')),'intern',
-                  'id="bookmarklist_controls_seteditpubaccesslevel"');
-            echo ' ';
-            echo form_submit(array('name'=>'seteditpubaccesslevel',
-                  'title'=>__('Set the edit  access levels for all publications on the bookmarklist'),
-                  'class'=>'submit'),__('Set publication edit access level'));
-            ?>
-        </p>
-    </form>
+if ($userlogin->hasRights('publication_edit')): ?>
+  <form method="post" action="<?php _url('bookmarklist/seteditpubaccesslevel') ?>">
+    <p class="xlarge_label medium_input">
+      <?php
+      printf('<label class="" for="bookmarklist_controls_seteditpubaccesslevel">%s</label><br/>',
+             __('Set edit access level for all bookmarked publications:'));
+      echo form_dropdown('accesslevel',
+            array('public'=>__('public'),'intern'=>__('intern'),'private'=>__('private')),'intern',
+            'id="bookmarklist_controls_seteditpubaccesslevel"');
+      ?>
+      <input type="submit" class="submit" name="seteditpubaccesslevel" title="<?php 
+        _e('Set the edit access levels for all publications on the bookmarklist') ?>"
+        value="<?php _e('Set publication edit access level') ?>" />
+    </p>
+  </form>
 <?php endif;
 
-if ($userlogin->hasRights('publication_edit')):
-    echo form_open('bookmarklist/seteditattaccesslevel'); ?>
-        <p class="xlarge_label medium_input">
-            <?php
-            printf('<label class="" for="bookmarklist_controls_seteditattaccesslevel">%s</label><br/>',
-                   __('Set edit access level for all attachments of bookmarked publications:'));
-            echo form_dropdown('accesslevel',
-                  array('public'=>__('public'),'intern'=>__('intern'),'private'=>__('private')),'intern',
-                  'id="bookmarklist_controls_seteditattaccesslevel"');
-            echo ' ';
-            echo form_submit(array('name'=>'seteditattaccesslevel',
-                  'title'=>__('Set the edit access levels for all attachments of publications on the bookmarklist'),
-                  'class'=>'submit'),__('Set attachment edit access level'));
-            ?>
-        </p>
-    </form>
+if ($userlogin->hasRights('publication_edit')): ?>
+  <form method="post" action="<?php _url('bookmarklist/seteditattaccesslevel') ?>">
+    <p class="xlarge_label medium_input">
+      <?php
+      printf('<label class="" for="bookmarklist_controls_seteditattaccesslevel">%s</label><br/>',
+             __('Set edit access level for all attachments of bookmarked publications:'));
+      echo form_dropdown('accesslevel',
+            array('public'=>__('public'),'intern'=>__('intern'),'private'=>__('private')),'intern',
+            'id="bookmarklist_controls_seteditattaccesslevel"');
+      ?>
+      <input type="submit" class="submit" name="seteditattaccesslevel" title="<?php 
+        _e('Set the edit access levels for all attachments of publications on the bookmarklist') ?>"
+        value="<?php _e('Set attachment edit access level') ?>" />
+    </p>
+  </form>
 <?php endif; ?>
 
 </div>
