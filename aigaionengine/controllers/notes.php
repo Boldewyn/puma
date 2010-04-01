@@ -51,8 +51,8 @@ class Notes extends Controller {
                 'url' => 'notes/delete/'.$note->note_id.'/commit',
                 'question' => __('Are you sure, that you want to delete the note below?'),
                 'cancel_url' => 'publications/show/'.$note->pub_id,
-                'additional_info' => '<h3>'.('Note text:').'</h3>'.$note->text,
             ));
+            $this->load->view('put', array('data' => '<h3>'.('Note text:').'</h3>'.$note->text));
             $this->load->view('footer');
         }
     }

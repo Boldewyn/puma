@@ -8,7 +8,4 @@
     <?php _a((isset($cancel_url)? $cancel_url : ''), __('Cancel'), 'class="pseudobutton standard_input"') ?>
   </p>
 </form>
-<?php if (isset($additional_info)):
-  echo $additional_info;
-endif; ?>
 
