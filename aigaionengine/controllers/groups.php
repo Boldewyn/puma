@@ -201,21 +201,12 @@ class Groups extends Controller {
             $group->delete();
             redirect('users/manage');
         } else {
-            //get output
-            $headerdata = array();
-            $headerdata['title'] = __('Group');
-            $headerdata['javascripts'] = array('tree.js','prototype.js','scriptaculous.js','builder.js');
-            
-            $output = $this->load->view('header', $headerdata, true);
-    
-            $output .= $this->load->view('groups/delete',
-                                          array('group'=>$group),  
-                                          true);
-            
-            $output .= $this->load->view('footer','', true);
-    
-            //set output
-            $this->output->set_output($output);
+            $this->load->view('header', array('title' => __('Group')));
+            $this->load->view('confirm', array(
+                'url' => 'groups/delete/'.$group->group_id.'/commit',
+                'question' => sprintf(__('Are you sure, that you want to delete the group &ldquo;%s&rdquo;?'), h($group->name)),
+            ));
+            $this->load->view('footer');
         }
     }
     

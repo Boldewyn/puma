@@ -283,7 +283,11 @@ class Authors extends Controller {
             redirect('/authors');
         } else {
             $this->load->view('header', array('title' => __('Delete Author')));
-            $this->load->view('authors/delete', array('author' => $author));
+            $this->load->view('confirm', array(
+                'url' => 'authors/delete/'.$author->author_id.'/commit',
+                'question' => sprintf(__('Are you sure, that you want to delete the author &ldquo;%s&rdquo;?'), h($author->getName())),
+                'cancel_url' => 'authors/show/'.$author->author_id,
+            ));
             $this->load->view('footer');
         }
     }

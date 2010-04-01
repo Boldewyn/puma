@@ -289,7 +289,11 @@ class Publications extends Controller {
             }
         } else {
             $this->load->view('header', array('title' => __('Delete publication')));
-            $this->load->view('publications/delete', array('publication'=>$publication));
+            $this->load->view('confirm', array(
+                'url' => 'publications/delete/'.$publication->pub_id.'/commit',
+                'question' => sprintf(__('Are you sure, that you want to delete the publication &ldquo;%s&rdquo;?'), h($publication->title)),
+                'cancel_url' => 'publications/show/'.$publication->pub_id,
+            ));
             $this->load->view('footer');
         }
     }

@@ -300,21 +300,12 @@ class Users extends Controller {
             $user->delete();
             redirect('users/manage');
         } else {
-            //get output
-            $headerdata = array();
-            $headerdata['title'] = __('User');
-            $headerdata['javascripts'] = array('tree.js','prototype.js','scriptaculous.js','builder.js');
-
-            $output = $this->load->view('header', $headerdata, true);
-
-            $output .= $this->load->view('users/delete',
-                                          array('user'=>$user),
-                                          true);
-
-            $output .= $this->load->view('footer','', true);
-
-            //set output
-            $this->output->set_output($output);
+            $this->load->view('header',array('title' => __('User'))); 
+            $this->load->view('confirm', array(
+                'url' => 'users/delete/'.$user->user_id.'/commit',
+                'question' => sprintf(__('Are you sure, that you want to delete the user &ldquo;%s&rdquo;?'), h($user->login)),
+            ));
+            $this->load->view('footer');
         }
     }
 

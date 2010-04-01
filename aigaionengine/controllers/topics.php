@@ -77,7 +77,8 @@ class Topics extends Controller {
      * be requested before actually deleting. 
      */
     function delete($topic_id, $commit='') {
-        $topic = $this->topic_db->getByID($topic_id, array());
+        $config = array();
+        $topic = $this->topic_db->getByID($topic_id, $config);
         if ($topic==null) {
             appendErrorMessage(__('Delete topic: non-existing id passed.'));
             redirect('/topics');
@@ -95,7 +96,11 @@ class Topics extends Controller {
             redirect('/topics');
         } else {
             $this->load->view('header', array('title' => __('Delete topic')));
-            $this->load->view('topics/delete', array('topic'=>$topic));
+            $this->load->view('confirm', array(
+                'url' => 'topics/delete/'.$topic->topic_id.'/commit',
+                'question' => sprintf(__('Are you sure, that you want to delete the topic &ldquo;%s&rdquo;?'), h($topic->name)),
+                'cancel_url' => 'topics/single/'.$topic->topic_id,
+            ));
             $this->load->view('footer');
         }
     }

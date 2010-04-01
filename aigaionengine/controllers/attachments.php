@@ -41,7 +41,10 @@ class Attachments extends Controller {
             redirect('publications/show/'.$attachment->pub_id);
         } else {
             $this->load->view('header', array('title' => __('Delete attachment')));
-            $this->load->view('attachments/delete', array('attachment'=>$attachment));
+            $this->load->view('confirm', array(
+                'url' => 'attachments/delete/'.$attachment->att_id.'/commit',
+                'question' => sprintf(__('Are you sure that you want to delete the attachment &ldquo;%s&rdquo;?'), h($attachment->name)),
+            ));
             $this->load->view('footer');
         }
     }
