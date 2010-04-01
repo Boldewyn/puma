@@ -380,20 +380,6 @@ class Authors extends Controller {
     }
   
     /**
-     *
-     */
-    function li_authors($fieldname = '') {
-        if ($fieldname == '') {
-            $fieldname = 'authors';
-        }
-        $author = $this->input->post($fieldname);
-        if ($author != '') {
-            $this->load->view('authors/li_authors', array(
-                'authors' => $this->author_db->getAuthorsLike($author)));
-        }
-    }
-  
-    /**
      * create a new author from the text in the post value 'authorname'
      */
     function quickcreate() {
