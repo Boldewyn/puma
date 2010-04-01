@@ -1,4 +1,4 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?><?php
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class Authors extends Controller {
 
@@ -89,13 +89,10 @@ class Authors extends Controller {
     /**
      * A controller that should return only the basic contents of the single author publication listing.
      */
-    function embed() {
-        $author_id   = $this->uri->segment(3);
-        $order   = $this->uri->segment(4,'year');
+    function embed($author_id, $order='year', $page=0) {
         if (!in_array($order,array('year','type','recent','title','author'))) {
             $order='year';
         }
-        $page   = $this->uri->segment(5,0);
         
         //load author
         $author = $this->author_db->getByID($author_id);

@@ -14,16 +14,16 @@ $userlogin = getUserLogin();
   
   <h2><?php _h($author->getName()) ?></h2>
   <div class='author_details'>
-    <?php
-      $authorfields = array('firstname'=>__('First name(s)'), 'von'=>__('von-part'), 'surname'=>__('Last name(s)'), 'jr'=>__('jr-part'), 'email'=>__('Email'), 'institute'=>__('Institute'));
-      foreach ($authorfields as $field=>$display) {
+    <?php foreach (array('firstname'=>__('First name(s)'), 'von'=>__('von-part'), 
+                  'surname'=>__('Last name(s)'), 'jr'=>__('jr-part'), 
+                  'email'=>__('Email'), 'institute'=>__('Institute')) as $field=>$display):
         if (trim($author->$field) != ''): ?>
           <p>
             <label class="block"><?php _h($display) ?>:</label>
             <span><?php _h($author->$field) ?></span>
           </p>
         <?php endif;
-      }
+    endforeach;
       if ($author->url != '') {
         $this->load->helper('utf8');
         $urlname = $url = prep_url($author->url);
