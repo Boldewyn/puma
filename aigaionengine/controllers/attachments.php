@@ -2,36 +2,36 @@
 
 class Attachments extends Controller {
 
-	function Attachments() {
-		parent::Controller();	
-	}
-	
-	/** There is no default controller for attachments. */
-	function index() {
-		redirect('');
-	}
+    function Attachments() {
+        parent::Controller();
+    }
+    
+    /** There is no default controller for attachments. */
+    function index() {
+        redirect('');
+    }
 
     /** 
      * display a single attachment
      */
-	function single($att_id) {
-	    $attachment = $this->attachment_db->getByID($att_id);
-	    if ($attachment==null) {
-	        appendErrorMessage(__('Download attachment: non-existing id passed.'));
-	        redirect('');
-	    }
-        $output = $this->load->view('attachments/download', array('attachment'   => $attachment));
-	}
+    function single($att_id) {
+        $attachment = $this->attachment_db->getByID($att_id);
+        if ($attachment==null) {
+            appendErrorMessage(__('Download attachment: non-existing id passed.'));
+            redirect('');
+        }
+        $this->load->view('attachments/download', array('attachment'   => $attachment));
+    }
 
-	/** 
-	 * delete a single attachment
-     */
-	function delete($att_id, $commit='') {
-	    $attachment = $this->attachment_db->getByID($att_id);
-	    if ($attachment==null) {
-	        appendErrorMessage(__('Delete attachment: non-existing id passed'));
-	        redirect('');
-	    }
+    /** 
+     * delete a single attachment
+       */
+    function delete($att_id, $commit='') {
+        $attachment = $this->attachment_db->getByID($att_id);
+        if ($attachment==null) {
+            appendErrorMessage(__('Delete attachment: non-existing id passed'));
+            redirect('');
+        }
         $userlogin  = getUserLogin();
         restrict_to_right($userlogin->hasRights('attachment_edit') && 
                           $this->accesslevels_lib->canEditObject($attachment), __('Delete attachment'));
@@ -50,10 +50,10 @@ class Attachments extends Controller {
     }
 
 
-	/** 
-	 * add a single attachment
-	 */
-	function add($pub_id) {
+    /** 
+     * add a single attachment
+     */
+    function add($pub_id) {
         $publication = $this->publication_db->getByID($pub_id);
         if ($publication == null) {
             appendErrorMessage(__('Add attachment: non-existing id passed.'));
@@ -72,30 +72,30 @@ class Attachments extends Controller {
      * edit a single attachment
      */
     function edit($att_id=-1) {
-	    $attachment = $this->attachment_db->getByID($att_id);
-	    if ($attachment==null) {
-	        appendErrorMessage(__('Edit attachment: non-existing id passed.'));
-	        redirect('');
-	    }
+        $attachment = $this->attachment_db->getByID($att_id);
+        if ($attachment==null) {
+            appendErrorMessage(__('Edit attachment: non-existing id passed.'));
+            redirect('');
+        }
         $userlogin  = getUserLogin();
         restrict_to_right($userlogin->hasRights('attachment_edit') &&
                           $this->accesslevels_lib->canEditObject($attachment),
                           __('Edit attachment'));
-	    
+        
         $this->load->view('header', array('title' => __('Attachment')));
         $this->load->view('attachments/edit', array('attachment'=>$attachment));
         $this->load->view('footer');
-	}
+    }
     
     /** 
      * commit changes to an attachment
      */
     function commit() {
         $attachment = $this->attachment_db->getFromPost();
-	    if ($attachment==null) {
-	        appendErrorMessage(__('Commit attachment: no data to commit.'));
-	        redirect('');
-	    }
+        if ($attachment==null) {
+            appendErrorMessage(__('Commit attachment: no data to commit.'));
+            redirect('');
+        }
 
         //if validation was successfull: add or change.
         $success = False;
@@ -110,44 +110,43 @@ class Attachments extends Controller {
             appendErrorMessage(__('Commit attachment: an error occurred'), 'severe'); 
         }
         redirect('publications/show/'.$attachment->pub_id);
-
-	}
+    }
     
     /** 
      * set an attachment as main attachment
      */
-    function setmain($att_id=-1) {
-	    $attachment = $this->attachment_db->getByID($att_id);
-	    if ($attachment==null) {
-	        appendErrorMessage(__('Edit attachment: non-existing id passed.'));
-	        redirect('');
-	    }
-	    $attachment->ismain=true;
-	    $attachment->update();
+    function setmain($att_id) {
+        $attachment = $this->attachment_db->getByID($att_id);
+        if ($attachment==null) {
+            appendErrorMessage(__('Edit attachment: non-existing id passed.'));
+            redirect('');
+        }
+        $attachment->ismain=true;
+        $attachment->update();
         if (is_ajax()) {
             $this->output->set_header('Content-Type: text/javascript; charset=utf-8');
             $this->output->set_output('true');
         } else {
-	        redirect('publications/show/'.$attachment->pub_id);
+            redirect('publications/show/'.$attachment->pub_id);
         }
     }
     
     /** 
      * reset main status for an attachment
      */
-    function unsetmain($att_id=-1) {
-	    $attachment = $this->attachment_db->getByID($att_id);
-	    if ($attachment==null) {
-	        appendErrorMessage(__('Edit attachment: non-existing id passed.'));
-	        redirect('');
-	    }
-	    $attachment->ismain=false;
-	    $attachment->update();
+    function unsetmain($att_id) {
+        $attachment = $this->attachment_db->getByID($att_id);
+        if ($attachment==null) {
+            appendErrorMessage(__('Edit attachment: non-existing id passed.'));
+            redirect('');
+        }
+        $attachment->ismain=false;
+        $attachment->update();
         if (is_ajax()) {
             $this->output->set_header('Content-Type: text/javascript; charset=utf-8');
             $this->output->set_output('true');
         } else {
-	        redirect('publications/show/'.$attachment->pub_id);
+            redirect('publications/show/'.$attachment->pub_id);
         }
     }
 

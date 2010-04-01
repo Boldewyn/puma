@@ -1,4 +1,4 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?><?php
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 /** This class regulates the database access for Attachments. Several accessors are present that return a Attachment or 
 array of Attachment's. */
 class Attachment_db {
