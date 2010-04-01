@@ -75,13 +75,8 @@ function _icon($id, $fallback_id=Null, $attributes=array()) {
     echo icon($id, $fallback_id, $attributes);
 }
 
-function url($url) {
-    // do some magic
-    return $url;
-}
-
 function _url($url) {
-    echo url($url);
+    echo site_url($url);
 }
 
 //__END__

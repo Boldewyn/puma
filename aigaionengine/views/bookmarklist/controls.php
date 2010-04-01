@@ -1,15 +1,6 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?><?php
-/**
-views/bookmarklist/controls
-
-Shows the controls for using the bookmarklist
-
-access rights: we presume that this view is not loaded when the user doesn't have the bookmarklist rights.
-Some controls may be shown only dependent on other rights, though.
-
-*/
-$this->load->helper('form');
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 $userlogin = getUserLogin();
+$user = $this->user_db->getByID($userlogin->userId());
 ?>
 
 <div id="bookmarklist_controls">
@@ -34,55 +25,45 @@ $userlogin = getUserLogin();
               'class="pseudobutton"'); ?>
 </p>
 
-<?php     
-//add to topic only if you are allowed to edit publications. Note that
-//for some publicatibns in the bookmarklist the operation might still fail if the access levels are wrong.
-//In that case the user will be notified after the (failed) attempts
-if ($userlogin->hasRights('publication_edit')) {
-    echo form_open('bookmarklist/addtotopic');
-    $user = $this->user_db->getByID($userlogin->userId());
-    $config = array('onlyIfUserSubscribed'=>True,
-                    'includeGroupSubscriptions'=>True,
-                    'user'=>$user);
-    ?><p><?php
-    $this->load->view('topics/optiontree',
+<?php if ($userlogin->hasRights('publication_edit')): ?>
+  <form method="post" action="<?php echo site_url('bookmarklist/addtotopic') ?>">
+    <p>
+      <?php $config = array('onlyIfUserSubscribed'=>True, 'user' => $user,
+                            'includeGroupSubscriptions'=>True);
+      $this->load->view('topics/optiontree',
                        array('topics'   => $this->topic_db->getByID(1,$config),
                             'showroot'  => False,
                             'depth'     => -1,
                             'selected'  => -1,
                             'dropdownname' => 'topic_id',
                             'header'    => __('Add bookmarked to topic...')
-                            ));
-    echo form_submit(array('name'=>'addtotopic',
-        'title'=>__('Add all bookmarked publications to the selected topic'),
-        'class'=>'submit'),__('Add all to topic'));
-    ?></p></form><?php
-    
-    echo form_open('bookmarklist/removefromtopic');
-    $user = $this->user_db->getByID($userlogin->userId());
-    $config = array('onlyIfUserSubscribed'=>True,
-                    'includeGroupSubscriptions'=>True,
-                    'user'=>$user);
-    ?><p><?php
-    $this->load->view('topics/optiontree',
+                            )); ?>
+      <input type="submit" class="submit" name="addtotopic" title="<?php 
+        _e('Add all bookmarked publications to the selected topic') ?>"
+        value="<?php _e('Add all to topic') ?>" />
+    </p>
+  </form>
+  <form method="post" action="<?php echo site_url('bookmarklist/removefromtopic') ?>">
+    <p>
+      <?php $config = array('onlyIfUserSubscribed'=>True, 'user'=>$user,
+                    'includeGroupSubscriptions'=>True);
+      $this->load->view('topics/optiontree',
                        array('topics'   => $this->topic_db->getByID(1,$config),
                             'showroot'  => False,
                             'depth'     => -1,
                             'selected'  => -1,
                             'dropdownname' => 'topic_id',
                             'header'    => __('Remove bookmarked from topic...')
-                            ));
-    echo form_submit(array('name'=>'removefromtopic',
-        'title'=>__('Remove all bookmarked publications from the selected topic'),
-        'class'=>'submit'),__('Remove all from topic'));
-    ?></p></form><?php
-    
+                            ));?>
+      <input type="submit" class="submit" name="removefromtopic" title="<?php 
+        _e('Remove all bookmarked publications from the selected topic') ?>"
+        value="<?php _e('Remove all from topic') ?>" />
+    </p>
+  </form>
+<?php endif; ?>
 
-}
-?>
-
-<?php if ($userlogin->hasRights('publication_edit')):
-    echo form_open('bookmarklist/setpubaccesslevel');?>
+<?php if ($userlogin->hasRights('publication_edit')): ?>
+  <form method="post" action="<?php _url('bookmarklist/setpubaccesslevel') ?>">
         <p class="xlarge_label medium_input">
             <?php
             printf('<label class="" for="bookmarklist_controls_setpubaccesslevel">%s</label><br/> ',
