@@ -1,5 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<form method="post" action="<?php echo site_url('authors/commit') ?>">
+<form method="post" action="<?php _url('authors/commit') ?>">
   <h2><?php echo $edit_type == 'new'? __('New Author') : __('Edit Author') ?></h2>
   <fieldset class="disguised">
     <?php if (isset($review)): ?>

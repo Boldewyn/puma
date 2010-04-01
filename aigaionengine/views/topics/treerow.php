@@ -14,7 +14,7 @@ if ($topic->flags['userIsSubscribed']) {
 } else {
     $class .= 'unsubscribedtopic';
 }?>
-  <a id="subscription_<?php echo $topic->topic_id ?>" class="<?php echo $class ?>" href="<?php echo site_url('topics/toggle_subscription/'.$topic->topic_id) ?>">
+  <a id="subscription_<?php echo $topic->topic_id ?>" class="<?php echo $class ?>" href="<?php _url('topics/toggle_subscription/'.$topic->topic_id) ?>">
      <?php _h($topic->name) ?>
   </a>
 

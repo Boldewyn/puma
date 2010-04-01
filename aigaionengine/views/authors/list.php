@@ -1,7 +1,7 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 <h2><?php _h($header) ?></h2>
 <?php if (isset($searchbox) && $searchbox): ?>
-  <form method="post" action="<?php echo site_url('authors/searchlist')?>">
+  <form method="post" action="<?php _url('authors/searchlist')?>">
     <p>
       <input type="text" class="text" name="author_search" id="author_search" />
       <input type="submit" class="submit" value="<?php _e('Show')?>" />

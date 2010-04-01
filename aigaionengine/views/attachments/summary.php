@@ -38,10 +38,10 @@ if (utf8_strlen($name)>31) {
     <?php endif; ?>
     
     <?php _e('Attachment access rights:')?> <span class="rights">[
-      r: <a href="<?php echo site_url('/accesslevels/toggle/attachment/'.$attachment->att_id.'/read') ?>"
+      r: <a href="<?php _url('/accesslevels/toggle/attachment/'.$attachment->att_id.'/read') ?>"
         class="rights_switch read_switch <?php echo $attachment->derived_read_access_level
         ?>"><?php _icon('rights_'.$attachment->derived_read_access_level) ?></a>
-      e: <a href="<?php echo site_url('/accesslevels/toggle/attachment/'.$attachment->att_id.'/edit') ?>"
+      e: <a href="<?php _url('/accesslevels/toggle/attachment/'.$attachment->att_id.'/edit') ?>"
         class="rights_switch edit_switch <?php echo $attachment->derived_edit_access_level
         ?>"><?php _icon('rights_'.$attachment->derived_edit_access_level) ?></a>
       ]</span>

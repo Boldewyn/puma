@@ -48,9 +48,9 @@ echo $this->validation->error_string;
   <?php if (!$isAddForm): ?>
     <p>
       <?php _e('Access rights:')?> <span>r:
-      <a href="<?php echo site_url('/accesslevels/toggle/note/'.$note->note_id.'/read') ?>"
+      <a href="<?php _url('/accesslevels/toggle/note/'.$note->note_id.'/read') ?>"
         class="rights_switch read_switch <?php echo $note->derived_read_access_level ?>"><?php _icon('rights_'.$note->derived_read_access_level) ?></a>
-      e: <a href="<?php echo site_url('/accesslevels/toggle/note/'.$note->note_id.'/edit') ?>"
+      e: <a href="<?php _url('/accesslevels/toggle/note/'.$note->note_id.'/edit') ?>"
         class="rights_switch edit_switch <?php echo $note->derived_edit_access_level ?>"><?php _icon('rights_'.$note->derived_edit_access_level) ?></a></span>
     </p>
   <?php endif ?>

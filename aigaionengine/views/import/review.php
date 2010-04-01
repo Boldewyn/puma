@@ -270,7 +270,7 @@ for ($i = 0; $i < $importCount; $i++)
           <input type="text" class="optional extended_input text" name="keywords_<?php echo $i?>" id="import_review_keywords_<?php echo $i?>" value="<?php _h($keywords) ?>" />
           <script type="text/javascript">
           $(function () {
-            Puma.tokenized_autocomplete('#import_review_keywords_<?php echo $i?>', '<?php echo site_url('keywords/li_keywords')?>', 'keywords');
+            Puma.tokenized_autocomplete('#import_review_keywords_<?php echo $i?>', '<?php _url('keywords/li_keywords')?>', 'keywords');
           });
           </script>
         </td>

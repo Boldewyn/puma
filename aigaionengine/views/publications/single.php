@@ -266,10 +266,10 @@ $this->load->helper('translation');
     <tr>
       <th><?php _e('Access rights:') ?></th>
       <td>
-        r: <a href="<?php echo site_url('/accesslevels/toggle/publication/'.$publication->pub_id.'/read') ?>"
+        r: <a href="<?php _url('/accesslevels/toggle/publication/'.$publication->pub_id.'/read') ?>"
           class="rights_switch read_switch <?php echo $publication->derived_read_access_level ?>"><?php
           _icon('rights_'.$publication->derived_read_access_level) ?></a>
-        e: <a href="<?php echo site_url('/accesslevels/toggle/publication/'.$publication->pub_id.'/edit') ?>"
+        e: <a href="<?php _url('/accesslevels/toggle/publication/'.$publication->pub_id.'/edit') ?>"
           class="rights_switch edit_switch <?php echo $publication->derived_edit_access_level ?>"><?php
           _icon('rights_'.$publication->derived_edit_access_level) ?></a>
         (<?php _a('accesslevels/edit/publication/'.$publication->pub_id, __('Edit all rights')) ?>)

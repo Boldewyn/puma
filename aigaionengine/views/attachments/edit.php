@@ -1,5 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<form method="post" action="<?php echo site_url('attachments/commit') ?>">
+<form method="post" action="<?php _url('attachments/commit') ?>">
   <h2><?php printf(__('Edit attachment info for &ldquo;%s&rdquo;'), h($attachment->name)) ?></h2>
   <p>
     <?php echo $attachment->isremote? __('Link to remote attachment.') : __('Attachment stored on server.') ?>

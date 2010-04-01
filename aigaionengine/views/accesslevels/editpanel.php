@@ -11,7 +11,7 @@ if ($this->accesslevels_lib->canEditObject($object)) {
     $editR = form_dropdown('read', $options, $object->read_access_level, ' id="accesslevels_edit_read_'.$type.'_'.$object_id.'"');
     $editE = form_dropdown('edit', $options, $object->edit_access_level, ' id="accesslevels_edit_edit_'.$type.'_'.$object_id.'"');
 } ?>
-<form method="post" action="<?php echo site_url('accesslevels/set') ?>">
+<form method="post" action="<?php _url('accesslevels/set') ?>">
   <p>
     <span class="read_level">
       <?php if ($object->derived_read_access_level!=$object->read_access_level): ?>
@@ -35,14 +35,14 @@ if ($this->accesslevels_lib->canEditObject($object)) {
     $(function () {
       $('#accesslevels_edit_<?php echo $type.'_'.$object_id ?>').hide();
       $('#accesslevels_edit_read_<?php echo $type.'_'.$object_id ?>').change(function () {
-        $.post('<?php echo site_url('accesslevels/set') ?>', {
+        $.post('<?php _url('accesslevels/set') ?>', {
           'type': '<?php echo $type ?>',
           'id': '<?php echo $object_id ?>',
           'read': $(this).val()
         });
       });
       $('#accesslevels_edit_edit_<?php echo $type.'_'.$object_id ?>').change(function () {
-        $.post('<?php echo site_url('accesslevels/set') ?>', {
+        $.post('<?php _url('accesslevels/set') ?>', {
           'type': '<?php echo $type ?>',
           'id': '<?php echo $object_id ?>',
           'edit': $(this).val()

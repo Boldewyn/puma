@@ -128,7 +128,7 @@ $this->load->helper('translation');
         <input type="text" class="optional extended_input text" name="keywords" id="publication_edit_keywords" value="<?php _h($keywords) ?>" />
         <script type="text/javascript">
         $(function () {
-          Puma.tokenized_autocomplete('#publication_edit_keywords', '<?php echo site_url('keywords/li_keywords')?>', 'keywords');
+          Puma.tokenized_autocomplete('#publication_edit_keywords', '<?php _url('keywords/li_keywords')?>', 'keywords');
         });
         </script>
       </p>

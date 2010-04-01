@@ -1,5 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<form method="post" action="<?php echo site_url('authors/mergecommit') ?>">
+<form method="post" action="<?php _url('authors/mergecommit') ?>">
   <h2><?php _e('Merge authors') ?></h2>
   <p><?php _e('Merges the source author with the target author. The source '.
     'author will be deleted, all publications will be transferred to the target '.

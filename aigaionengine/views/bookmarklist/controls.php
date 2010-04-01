@@ -26,7 +26,7 @@ $user = $this->user_db->getByID($userlogin->userId());
 </p>
 
 <?php if ($userlogin->hasRights('publication_edit')): ?>
-  <form method="post" action="<?php echo site_url('bookmarklist/addtotopic') ?>">
+  <form method="post" action="<?php _url('bookmarklist/addtotopic') ?>">
     <p>
       <?php $config = array('onlyIfUserSubscribed'=>True, 'user' => $user,
                             'includeGroupSubscriptions'=>True);
@@ -43,7 +43,7 @@ $user = $this->user_db->getByID($userlogin->userId());
         value="<?php _e('Add all to topic') ?>" />
     </p>
   </form>
-  <form method="post" action="<?php echo site_url('bookmarklist/removefromtopic') ?>">
+  <form method="post" action="<?php _url('bookmarklist/removefromtopic') ?>">
     <p>
       <?php $config = array('onlyIfUserSubscribed'=>True, 'user'=>$user,
                     'includeGroupSubscriptions'=>True);
