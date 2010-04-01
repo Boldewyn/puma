@@ -3,8 +3,9 @@
 array of User's. */
 class User_db {
   
-    function User_db()
-    {
+    function User_db() {
+        $CI =& get_instance();
+        $CI->load->helper('rights');
     }
     
     function getByID($user_id)

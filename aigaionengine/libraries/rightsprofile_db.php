@@ -3,8 +3,9 @@
 class Rightsprofile_db {
   
   
-    function Rightsprofile_db()
-    {
+    function Rightsprofile_db() {
+        $CI =& get_instance();
+        $CI->load->helper('rights');
     }
     
     function getByID($rightsprofile_id)

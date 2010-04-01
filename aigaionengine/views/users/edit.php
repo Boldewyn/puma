@@ -16,6 +16,7 @@ we assume that this view is not loaded if you don't have the appropriate read an
 the rights-checkboxes and group assignment however are still visible only contingent on the appropriate rights
 */
 $this->load->helper('form');
+$this->load->helper('rights');
 echo "<div class='editform'>";
 echo form_open('users/commit');
 //formname is used to check whether the POST data is coming from the right form.
