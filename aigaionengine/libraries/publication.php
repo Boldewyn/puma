@@ -141,12 +141,12 @@ class Publication {
   function read($mark) {
     $CI = &get_instance();
     $userlogin = getUserLogin();
-    $CI->publication_db->read($mark,$this->getUserMark(),$this->pub_id,$userlogin->userId());
+    $CI->publication_db->read($mark,$this->pub_id,$userlogin->userId());
   }
   function unread() {
     $CI = &get_instance();
     $userlogin = getUserLogin();
-    $CI->publication_db->unread($this->getUserMark(),$this->pub_id,$userlogin->userId());
+    $CI->publication_db->unread($this->pub_id,$userlogin->userId());
   }
 }
 ?>

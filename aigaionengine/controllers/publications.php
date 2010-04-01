@@ -452,15 +452,13 @@ class Publications extends Controller {
     /**
      * marks a publication as read
      */
-    function read() {
-        restrict_to_rights('note_edit', __('Mark publication'), 'publications/show/'.$publication->pub_id);
-        $pub_id = $this->uri->segment(3,-1);
-
+    function read($pub_id) {
         $publication = $this->publication_db->getByID($pub_id);
         if ($publication == null) {
             appendErrorMessage(__('Mark publication: non-existing id passed.'));
             redirect('/publications');
         }
+        restrict_to_rights('note_edit', __('Mark publication'), 'publications/show/'.$publication->pub_id);
         $mark = $this->input->post('mark', '');
         if ($mark==0) $mark='';
         $publication->read($mark);
@@ -470,15 +468,13 @@ class Publications extends Controller {
     /**
      * marks a publication as not-read
      */
-    function unread() {
-        restrict_to_rights('note_edit', __('Mark publication'), 'publications/show/'.$publication->pub_id);
-        $pub_id = $this->uri->segment(3,-1);
-
+    function unread($pub_id) {
         $publication = $this->publication_db->getByID($pub_id);
         if ($publication == null) {
             appendErrorMessage(__('Mark publication: non-existing id passed.'));
             redirect('/publications');
         }
+        restrict_to_rights('note_edit', __('Mark publication'), 'publications/show/'.$publication->pub_id);
         $publication->unread();
         redirect('publications/show/'.$publication->pub_id);
     }

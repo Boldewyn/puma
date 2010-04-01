@@ -392,20 +392,14 @@ if ($userlogin->hasRights('user_assign_rights')) {
             <tr>
             <td>".__('Check all rights').":</td>
             <td>
-            ";
-    echo $this->ajax->button_to_function(__('Check all'), "selectAllRights();");
-    
-    echo "
+              <button type=\"button\" onclick=\"selectAllRights();return false;\">".__('Check all')."</button>
             </td>
             </tr>
 
             <tr>
             <td>".__('Uncheck all rights').":</td>
             <td>
-            ";
-    echo $this->ajax->button_to_function(__('Uncheck all'), "deselectAllRights();");
-    
-    echo "
+              <button type=\"button\" onclick=\"deselectAllRights();return false;\">".__('Uncheck all')."</button>
             </td>
             </tr>
 
@@ -437,10 +431,7 @@ if ($userlogin->hasRights('user_assign_rights')) {
             <tr>
             <td>".__('Restore old state').":</td>
             <td>
-            ";
-    echo $this->ajax->button_to_function(__('Restore'), "restoreRights();");
-    
-    echo "
+              <button type=\"button\" onclick=\"restoreRights();return false;\">".__('Restore')."</button>
             </td>
             </tr>
             

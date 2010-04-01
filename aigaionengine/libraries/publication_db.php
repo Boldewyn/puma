@@ -1489,7 +1489,7 @@ class Publication_db {
         }
         return $R->mark;
     }
-    function read($mark,$oldmark,$pub_id,$user_id) {
+    function read($mark,$pub_id,$user_id) {
         $CI = &get_instance();
         if (trim($pub_id)=='') return;
         //set proper mark for user
@@ -1501,7 +1501,7 @@ class Publication_db {
         //and now fix total mark
         $this->recalcTotalMark($pub_id);
     }
-    function unread($oldmark,$pub_id,$user_id) {
+    function unread($pub_id,$user_id) {
         $CI = &get_instance();
         if (trim($pub_id)=='') return;
         //set proper mark for user
