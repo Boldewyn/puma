@@ -1,111 +1,46 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-/**
-views/groups/edit
-
-Shows a form for editing or adding groups.
-
-Parameters:
-    $group=>the group object to be edited
-    
-If $group is null, the edit for will be restyled as an 'add new group' form
-if $group is not null, but $action == 'add', the edit form will be restyled as a
-pre filled 'add new group' form
-
-we assume that this view is not loaded if you don't have the appropriate read and edit rights
-
-the rights-checkboxes however are still visible only contingent on the appropriate rights
-*/
-
-$this->load->helper('form');
-echo "<div class='editform'>";
-echo form_open('groups/commit');
-//formname is used to check whether the POST data is coming from the right form.
-//not as security mechanism, but just to avoid painful bugs where data was submitted 
-//to the wrong commit and the database is corrupted
-echo form_hidden('formname','group');
 $isAddForm = False;
 if (!isset($group)||($group==null)||(isset($action)&&$action=='add')) {
     $isAddForm = True;
-    echo form_hidden('action','add');
     if (!isset($action)||$action!='add')
         $group = new Group;
-} else {
-    echo form_hidden('action','edit');
-    echo form_hidden('group_id',$group->group_id);
-}
-
-if ($isAddForm) {
-    echo "<p class='header2'>".__('Create a new group')."</p>";
-} else {
-    echo "<p class='header2'>".__('Edit group settings')."</p>";
-}
-
-//validation feedback
-echo $this->validation->error_string;
-
-echo "
-    <table width='100%'>
-        
-        <tr><td colspan='2'>
-        <hr><b>".__('Group details:')."</b><hr>
-        </td></tr>
-
-        <tr>
-        <td>".__('Name')."</td>
-        <td>"
-        .form_input(array('name'=>'name',
-                          'size'=>'15',
-                          'value'=>$group->name))."
-        </td>
-        </tr>
-        <tr>
-        <td>".__('Abbreviation')."</td>
-        <td>"
-        .form_input(array('name'=>'abbreviation',
-                          'size'=>'5',
-                          'value'=>$group->abbreviation))."
-        </td>
-        </tr>
-
-        <tr><td colspan='2'>
-        <hr><b>".__('Rights profiles:')."</b><hr>
-        </td></tr>";
-
-$userlogin = getUserLogin(); 
-if ($userlogin->hasRights('user_assign_rights')) {    
-    echo "        
-        <tr><td colspan='2'>
-        ".__('The following rights profiles will by default be assigned to a user when it is added to this group.')."
-        </td></tr>
-        ";
-        
-        //list all profiles as checkboxes
-        foreach ($this->rightsprofile_db->getAllRightsprofiles() as $rightsprofile) {
-            $checked = FALSE;
-            if (in_array($rightsprofile->rightsprofile_id,$group->rightsprofile_ids)) $checked=TRUE;
-            echo "<tr><td>".$rightsprofile->name."</td><td>".form_checkbox('rightsprofile_'.$rightsprofile->rightsprofile_id, 'rightsprofile_'.$rightsprofile->rightsprofile_id, $checked)."</td></tr>";
-        }
-}
-echo    "
-        
-        <tr>
-        <td colspan=2><hr></td>
-        </tr>
-        <tr><td>";
-if ($isAddForm) {
-    echo form_submit('submit',__('Add'));
-} else {
-    echo form_submit('submit',__('Change'));
-}
-echo "
-        </td>
-        </tr>
-    </table>
-     ";
-echo form_close();
-echo form_open('');
-echo form_submit('cancel',__('Cancel'));
-echo form_close();
-echo "</div>";
-
-?>
+}?>
+<form method="post" action="<?php _url('groups/commit') ?>">
+  <h2><?php $isAddForm? _e('Create a new group') : _e('Edit group settings') ?></h2>
+  <?php echo $this->validation->error_string; ?>
+  <h3><?php _e('Group details:') ?></h3>
+  <p>
+    <label class="block" for="groups_edit_name"><?php _e('Name') ?></label>
+    <input type="text" class="text" name="name" id="groups_edit_name" 
+      value="<?php _h($group->name) ?>" />
+  </p>
+  <p>
+    <label class="block" for="groups_edit_abbreviation"><?php _e('Abbreviation') ?></label>
+    <input type="text" class="text" name="abbreviation" id="groups_edit_abbreviation"
+      value="<?php _h($group->abbreviation) ?>" />
+  </p>
+  <?php
+  $userlogin = getUserLogin(); 
+  if ($userlogin->hasRights('user_assign_rights')): ?>
+    <h3><?php _e('Rights profiles:') ?></h3>
+    <p><?php _e('The following rights profiles will by default be assigned to '.
+      'a user when it is added to this group.') ?></p>
+    <?php foreach ($this->rightsprofile_db->getAllRightsprofiles() as $rightsprofile):
+      $checked = FALSE;
+      if (in_array($rightsprofile->rightsprofile_id,$group->rightsprofile_ids)) $checked=TRUE; ?>
+      <p>
+        <label class="block" for="rightsprofile_<?php
+          echo $rightsprofile->rightsprofile_id ?>"><?php _h($rightsprofile->name) ?></label>
+        <input type="checkbox" name="rightsprofile_<?php echo $rightsprofile->rightsprofile_id ?>"
+          id="rightsprofile_<?php echo $rightsprofile->rightsprofile_id ?>"
+          <?php echo $checked? 'checked="checked"' : '' ?> />
+    <?php endforeach;
+  endif; ?>
+  <p>
+    <input type="hidden" name="action" value="<?php echo $isAddForm? 'add' : 'edit' ?>" />
+    <input type="hidden" name="group_id" value="<?php echo $isAddForm? '' : $group->group_id ?>" />
+    <input type="hidden" name="formname" value="group" />
+    <input type="submit" class="submit" value="<?php $isAddForm? _e('Add') : _e('Change') ?>" />
+    <a href="<?php _url() ?>" class="pseudobutton"><?php _e('Cancel') ?></a>
+  </p>
+</form>
