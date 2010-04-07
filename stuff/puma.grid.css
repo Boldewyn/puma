@@ -28,16 +28,16 @@ http://jqueryui.com/themeroller/?ffDefault=Frutiger%20Next%20Pro,Frutiger%20Next
 #content {
   border: .08333em solid #61a6a9;
   border-top: 0;
-  padding: .916667em;
+  padding: .916667em 0 .916667em .916667em;
 }
 
 .column {
-  margin-left: 1em;
+  margin-right: 1em;
   float: left;
 }
 
-.first_column {
-  margin-left: 0; /* if #content has no padding-left, this could be cancelled... (iff we always have at least one column) */
+.last_column {
+  margin-right: 0; /* if #content has no padding-right, this could be cancelled... (iff we always have at least one column) */
 }
 
 .bordered {
@@ -179,3 +179,26 @@ http://jqueryui.com/themeroller/?ffDefault=Frutiger%20Next%20Pro,Frutiger%20Next
   margin: 0 1em 0 0;
   border: none;
 }
+
+.textcolumn {
+  column-width: 6em;
+  column-gap: 1em;
+  -moz-column-width: 6em;
+  -moz-column-gap: 1em;
+  -webkit-column-width: 6em;
+  -webkit-column-gap: 1em;
+}
+
+.double_textcolumn {
+  column-width: 13em;
+  -moz-column-width: 13em;
+  -webkit-column-width: 13em;
+}
+
+.triple_textcolumn {
+  column-width: 20em;
+  -moz-column-width: 20em;
+  -webkit-column-width: 20em;
+}
+
+
