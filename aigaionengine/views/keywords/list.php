@@ -5,7 +5,7 @@
 if (isset($searchbox)&&$searchbox) {
     echo form_open('keywords/searchlist');?>
       <p>
-        <input type="text" class="text extended_input" name="keyword_search" id="keyword_search" autocomplete="off" />
+        <input type="text" class="text extended_input" name="keyword_search" id="keyword_search" />
         <input type="submit" class="submit" value="<?php _e('Show')?>" />
         <script type="text/javascript">
           $('#keyword_search').keyup(function () {
@@ -19,9 +19,6 @@ if (isset($searchbox)&&$searchbox) {
     </form><?php
 }
 ?>
-  <div id="autocomplete_results">
-    <?php 
-      $this->load->view('keywords/list_items', array('keywordList' => $keywordList, 'useHeaders' => true, 'isCloud' => false));
-    ?>
-  </div>
+<div id="autocomplete_results">
+  <?php $this->load->view('keywords/list_items', array('keywordList' => $keywordList, 'useHeaders' => true, 'isCloud' => false)) ?>
 </div>

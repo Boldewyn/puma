@@ -51,7 +51,7 @@ foreach ($keywordList as $keyword) {
     }
     
 
-    echo "  <li ".$liClass.">".anchor('keywords/single/'.$keyword->keyword_id, $keyword->keyword, array('title' => sprintf(__('All information on %s'), $keyword->cleankeyword)));
+    echo "  <li ".$liClass.">".anchor('keywords/single/'.$keyword->keyword_id, h($keyword->keyword), array('title' => sprintf(__('All information on %s'), h($keyword->cleankeyword))));
     echo "</li>\n";
 }
 ?>
