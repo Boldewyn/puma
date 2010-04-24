@@ -29,7 +29,7 @@
         <input type="password" class="text" name="loginPass" id="password" value="<?php _h($this->input->post('loginPass')); ?>" />
       </p>
       <p class="empty_block">
-        <input type="checkbox" name="remember" id="remember" value="1" />
+        <input type="checkbox" name="remember" id="remember" value="1" checked="checked" />
         <label for="remember"><?php echo __('Remember me');?></label>
       </p>
       <p class="empty_block">
