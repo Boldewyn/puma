@@ -18,7 +18,7 @@ class Login extends Controller {
         //IF ALREADY LOGGED IN: LINK ON.... TO ANOTHER PAGE
         //get login object
         $userlogin = getUserLogin();
-        if ($userlogin->isLoggedIn()) {
+        if ($userlogin->isLoggedIn() && !$userlogin->isAnonymous()) {
             redirect(str_replace(' ','%20',implode('/',$segments)));
         }
         $data = array('segments' => $segments);
@@ -51,7 +51,7 @@ class Login extends Controller {
 
         //try to login
         $userlogin->login();
-        if ($userlogin->isLoggedIn()) {
+        if ($userlogin->isLoggedIn() && !$userlogin->isAnonymous()) {
             //if success: redirect
             $this->latesession->set('USERLOGIN', $userlogin);
             $segments = $this->uri->segment_array();
@@ -93,7 +93,7 @@ class Login extends Controller {
 
         //try to login
         $userlogin->login(true);
-        if ($userlogin->isLoggedIn()) {
+        if ($userlogin->isLoggedIn() && !$userlogin->isAnonymous()) {
             //if success: redirect
             $this->latesession->set('USERLOGIN', $userlogin);
             $segments = $this->uri->segment_array();

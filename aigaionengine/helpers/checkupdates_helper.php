@@ -20,6 +20,7 @@
 */
     /** Returns a piece of HTML giving the result of the check for updates, or empty string if no update available. */
     function checkUpdates() {
+        return '';
         $CI = &get_instance();
         $CI->load->helper('readremote');
         //return '<div class="message">no info on updates available</div>';
