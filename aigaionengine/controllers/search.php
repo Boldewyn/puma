@@ -75,7 +75,7 @@ class Search extends Controller {
           $do = $this->input->post('doOrNot'.$i);
           $topic_id = $this->input->post('topicSelection'.$i);
           if ($topic_id=='header')continue;
-          $topic = $this->topic_db->getById($topic_id,$config);
+          $topic = $this->topic_db->getByID($topic_id,$config);
           if ($topic==null) {
             appendMessage(__('Nonexisting topic ID in advanced search condition'));
             continue;
