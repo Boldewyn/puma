@@ -10,6 +10,9 @@ all: static/js/jquery.js static/js/puma.js static/css/style.css
 	gzip -c static/js/jquery.js > static/js/jquery.js.gz
 	gzip -c static/js/puma.js > static/js/puma.js.gz
 
+export:
+	puma send -av
+
 .PHONY: clean
 
 clean:
