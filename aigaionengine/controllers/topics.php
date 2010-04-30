@@ -44,7 +44,7 @@ class Topics extends Controller {
         $this->load->view('header', array('title' => __('Browse topic tree')));
         $this->load->view('site/stats', array('embed' => True));
         $this->load->vars(array('subviews'  => array('topics/maintreerow'=>array('useCollapseCallback'=>True))));
-        $this->load->view('topics/index', array('topics' => $root->getChildren()));
+        $this->load->view('topics/index', array('all' => false, 'topics' => $root->getChildren()));
         $this->load->view('footer');
     }
     
@@ -67,7 +67,7 @@ class Topics extends Controller {
         $this->load->view('header', array('title' => __('Browse topic tree (include all topics)')));
         $this->load->view('site/stats', array('embed' => 'true'));
         $this->load->vars(array('subviews'  => array('topics/maintreerow'=>array('useCollapseCallback'=>True))));
-        $this->load->view('topics/index', array('topics' => $root->getChildren()));
+        $this->load->view('topics/index', array('all' => true, 'topics' => $root->getChildren()));
         $this->load->view('footer');
     }
     /**

@@ -633,6 +633,11 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 .ui-progressbar .ui-progressbar-value {margin: -1px; height:100%; }
 /** END jQuery UI */
 
+
+
+/**
+ * Customization of jQuery UI
+ */
 .ui-state-default, .ui-widget-content .ui-state-default { background: #008993 url(images/nav.png) left center repeat-x; }
 .ui-state-hover, .ui-widget-content .ui-state-hover { background: #008993 url(images/nav.png) left -.8333em repeat-x; }
 .ui-state-active, .ui-widget-content .ui-state-active { background: #008993 url(images/nav.png) left bottom repeat-x; }
@@ -640,6 +645,7 @@ body .ui-button { color: white; }
 .ui-button-icon-only .ui-button-text, .ui-button-icons-only .ui-button-text { padding: .25em .4em; }
 .ui-button-text-icon .ui-button-text, .ui-button-text-icons .ui-button-text { padding: .25em 1em .25em 2.1em; }
 input.ui-button, .ui-button-text-only .ui-button-text { padding: .25em 1em; }
+/** End of Customization jQuery UI */
 
 
 
@@ -672,7 +678,11 @@ input.ui-button, .ui-button-text-only .ui-button-text { padding: .25em 1em; }
 #content {
   border: .08333em solid #61a6a9;
   border-top: 0;
-  padding: .916667em 0 .916667em .916667em;
+  padding: .916667em;
+}
+
+#content.grid {
+  padding-right: 0;
 }
 
 .column {
@@ -863,7 +873,6 @@ body {
 }
 
 #container {
-  x-width: 77em;
   margin: 0 auto;
 }
 
@@ -984,7 +993,6 @@ body {
   width: 62em;
   margin: 1.25em 0;
 }
-
 
 #nav table,
 #nav ul {
@@ -1138,10 +1146,7 @@ body {
 
 
 #content {
-  border: .08333em solid #61a6a9;
-  border-top: 0;
   background: #cbd9da;
-  x-padding: 1.16667em;
   margin: 1.25em 0;
   clear: left;
   overflow: auto;
@@ -1197,18 +1202,18 @@ body {
   font-weight: bold;
 }
 
-#content .wiki_page ul,
-#content .wiki_page ol,
+.wiki_page ul,
+.wiki_page ol,
 #content .reallist {
   padding-left: 1.3333em;
 }
 
-#content .wiki_page ul,
+.wiki_page ul,
 #content ul.reallist {
   list-style: disc;
 }
 
-#content .wiki_page ol,
+.wiki_page ol,
 #content ol.reallist {
   list-style: decimal;
 }
@@ -1300,34 +1305,13 @@ body {
   color: #002D2F;
 }
 
-#header input.submit,
 #footer input.submit {
-  border: .08333em solid #00757e;
-  border-radius: .16667em;
-  -moz-border-radius: .16667em;
-  -webkit-border-radius: .16667em;
-  background: url(images/nav.png) repeat-x left center;
-  color: white;
   width: 16.25em;
-  padding: .25em;
 }
 
 #header input.submit {
   width: 6.25em;
 }
-
-#header input.submit:focus,
-#header input.submit:hover,
-#footer input.submit:focus,
-#footer input.submit:hover {
-  background-position: left -.8333em;
-}
-
-#header input.submit:active,
-#footer input.submit:active {
-  background-position: left bottom;
-}
-
 
 
 
@@ -1500,49 +1484,8 @@ input.text.readonly {
 
 
 /** Submit buttons */
-x.pseudobutton,
-x.pseudobutton:visited,
-xbutton,
-xinput.button,
-xinput.submit {
-  border: .08333em solid #00757e;
-  border-radius: .16667em;
-  -moz-border-radius: .16667em;
-  -webkit-border-radius: .16667em;
-  background: url(images/nav.png) repeat-x left center;
-  color: white;
-  padding: .25em;
-  display: inline-block;
-  position: relative;
-  text-align: center;
-}
-
-.wide_button {
+body *.wide_button {
   width: 16em;
-}
-
-x.pseudobutton {
-  line-height: 1.5;
-}
-
-x.pseudobutton:focus,
-xbutton:focus,
-xinput.button:focus,
-xinput.submit:focus,
-x.pseudobutton:hover,
-xbutton:hover,
-xinput.button:hover,
-xinput.submit:hover {
-  background-position: left -.8333em;
-  color: white;
-}
-
-x.pseudobutton:active,
-xbutton:active,
-xinput.button:active,
-xinput.submit:active {
-  background-position: left bottom;
-  color: white;
 }
 
 
