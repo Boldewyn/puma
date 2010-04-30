@@ -874,10 +874,6 @@ body {
   margin: 0;
 }
 
-#header {
-  overflow: hidden;
-}
-
 #header_widgets a {
   color: white;
 }
@@ -919,13 +915,13 @@ body {
 
 #header h1 a {
   display: block;
-  width: 15em;
+  width: 20em;
   height: 10.8333em;
 }
 
 #header h1 a:focus,
 #header h1 a:hover {
-  background: url(images/header_hover.png) no-repeat 2.75em 1.41667em;
+  background: url(images/header_hover.png) no-repeat 6.7em 1.41667em;
 }
 
 #header h1 a span {
@@ -933,7 +929,8 @@ body {
 }
 
 #header h2 {
-  margin: 5em 0 0 15em;
+  margin: 5em 0 0 23em;
+  display: none;
 }
 
 #header h2 a {
@@ -981,6 +978,12 @@ body {
 
 
 
+
+#nav {
+  float: right;
+  width: 62em;
+  margin: 1.25em 0;
+}
 
 
 #nav table,
@@ -1063,6 +1066,7 @@ body {
   margin: 1.25em 0 -1.25em;
   border-bottom: .08333em solid #61a6a9;
   height: 2.5em;
+  clear: both;
 }
 
 #subnav.min {
