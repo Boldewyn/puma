@@ -633,6 +633,14 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 .ui-progressbar .ui-progressbar-value {margin: -1px; height:100%; }
 /** END jQuery UI */
 
+.ui-state-default, .ui-widget-content .ui-state-default { background: #008993 url(images/nav.png) left center repeat-x; }
+.ui-state-hover, .ui-widget-content .ui-state-hover { background: #008993 url(images/nav.png) left -.8333em repeat-x; }
+.ui-state-active, .ui-widget-content .ui-state-active { background: #008993 url(images/nav.png) left bottom repeat-x; }
+body .ui-button { color: white; }
+.ui-button-icon-only .ui-button-text, .ui-button-icons-only .ui-button-text { padding: .25em .4em; }
+.ui-button-text-icon .ui-button-text, .ui-button-text-icons .ui-button-text { padding: .25em 1em .25em 2.1em; }
+input.ui-button, .ui-button-text-only .ui-button-text { padding: .25em 1em; }
+
 
 
 /**
@@ -1488,8 +1496,8 @@ input.text.readonly {
 
 
 /** Submit buttons */
-.pseudobutton,
-.pseudobutton:visited,
+x.pseudobutton,
+x.pseudobutton:visited,
 button,
 input.button,
 input.submit {
@@ -1509,15 +1517,15 @@ input.submit {
   width: 16em;
 }
 
-.pseudobutton {
+x.pseudobutton {
   line-height: 1.5;
 }
 
-.pseudobutton:focus,
+x.pseudobutton:focus,
 button:focus,
 input.button:focus,
 input.submit:focus,
-.pseudobutton:hover,
+x.pseudobutton:hover,
 button:hover,
 input.button:hover,
 input.submit:hover {

@@ -237,6 +237,8 @@ window._ = gettext;
         return false;
       });
     });
+    
+    $('button:not(.pseudolink), :submit:not(.pseudolink), .pseudobutton').button();
   
   });
   
