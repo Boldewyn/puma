@@ -45,7 +45,8 @@ class Keywords extends Controller {
         } else {
             $keyword = $this->uri->segment(3);
             $content = array('keywordList' => $this->keyword_db->getKeywordsLike($keyword),
-                             'useHeaders'  => true);
+                             'useHeaders'  => true,
+                             'columnize' => true);
             $this->load->view('keywords/list_items', $content);
         }
     }

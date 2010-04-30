@@ -1,6 +1,11 @@
 ﻿<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 if (! isset($isCloud)) { $isCloud = False; }
 $className = $isCloud? 'tagcloud' : 'nosymbol';
+if (isset($columnize) && $columnize) {
+  $className .= " textcolumn double_textcolumn";
+} else {
+  $columnize = false;
+}
 
 ?><ul class="<?php echo $className ?>"><?php
 
@@ -35,17 +40,14 @@ foreach ($keywordList as $keyword) {
         echo '<li><strong>',$initial,'</strong></li>';
     }
     //get li class
-    if ($isCloud)
-    {
+    if ($isCloud) {
       if ($keyword->count <= $threshold2) {
         if ($keyword->count <= $threshold1) {
           $liClass='class="t1"';
-        }
-        else {
+        } else {
           $liClass='class="t2"';
         }
-      }
-      else {
+      } else {
         $liClass='class="t3"';
       }  
     }

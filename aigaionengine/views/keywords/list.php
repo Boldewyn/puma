@@ -20,5 +20,5 @@ if (isset($searchbox)&&$searchbox) {
 }
 ?>
 <div id="autocomplete_results">
-  <?php $this->load->view('keywords/list_items', array('keywordList' => $keywordList, 'useHeaders' => true, 'isCloud' => false)) ?>
+  <?php $this->load->view('keywords/list_items', array('keywordList' => $keywordList, 'useHeaders' => true, 'isCloud' => false, 'columnize' => True)) ?>
 </div>
