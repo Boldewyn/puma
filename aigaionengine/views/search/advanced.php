@@ -54,7 +54,7 @@ if (!isset($options)||($options==null))
   </fieldset>
   <p>
     <input type="hidden" name="formname" value="advancedsearch" />
-    <input type="submit" name="submit_search" class="submit wide_button" value="<?php _e('Search')?>" />
+    <input type="submit" name="submit_search" class="wide_button" value="<?php _e('Search')?>" />
   </p>
 </form>
 
@@ -144,6 +144,6 @@ $this->load->view('topics/optiontree',
   </fieldset>
   <p>
     <input type="hidden" name="formname" value="advancedsearch" />
-    <input type="submit" name="submit_search" class="submit wide_button" value="<?php _e('Search')?>" />
+    <input type="submit" name="submit_search" class="wide_button" value="<?php _e('Search')?>" />
   </p>
 </form>

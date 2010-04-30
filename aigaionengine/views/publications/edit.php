@@ -329,7 +329,7 @@ $this->load->helper('translation');
       <input type="hidden" name="user_id" value="<?php _h($publication->user_id)?>" />
       <input type="hidden" name="submit_type" value="submit" />
       <input type="hidden" name="formname" value="publication" />
-      <input type="submit" class="submit standard_input" value="<?php $edit_type=='edit'? _e('Change') : _e('Add') ?>" />
+      <input type="submit" class="standard_input" value="<?php $edit_type=='edit'? _e('Change') : _e('Add') ?>" />
       <?php _a($edit_type=='edit'? 'publications/show/'.$publication->pub_id : '', __('Cancel'), 'class="pseudobutton standard_input"') ?>
     </p>
   </form>

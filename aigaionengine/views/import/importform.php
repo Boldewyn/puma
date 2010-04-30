@@ -17,7 +17,7 @@ if (!isset($content)||($content==null)) {
     <textarea name="import_data" id="import_data" rows="20" cols="60" class="extralarge_input"><?php _h($content) ?></textarea>
   </p>
   <p>
-    <input type="submit" class="submit standard_input" value="<?php _e('Import')?>" /> &nbsp;
+    <input type="submit" class="standard_input" value="<?php _e('Import')?>" /> &nbsp;
     <label for="import_importform_format"
        title="<?php printf(__('Select the format of the data entered in the form above, '.
              'or &ldquo;auto&rdquo; to let %s automatically detect the format.'),

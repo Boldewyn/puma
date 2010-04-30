@@ -29,7 +29,7 @@
     <input type="hidden" name="author_id" value="<?php echo $author->author_id?>" />
     <input type="hidden" name="simauthor_id" value="<?php echo $simauthor->author_id?>" />
     <input type="hidden" name="formname" value="author" />
-    <input type="submit" class="submit" value="<?php _e('Merge')?>" />
+    <input type="submit" value="<?php _e('Merge')?>" />
     <?php _a('authors/show/'.$author->author_id, __('Cancel'), 'class="pseudobutton"'); ?>
   </p>
 </form>

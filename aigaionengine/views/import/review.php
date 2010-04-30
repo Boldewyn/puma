@@ -304,6 +304,6 @@ $b_even = true; ?>
     <input type="hidden" name="import_count" value="<?php echo $importCount ?>" />
     <input type="hidden" name="markasread" value="<?php echo $markasread? 'markasread' : '' ?>" />
     <input type="hidden" name="formname" value="import" />
-    <input type="submit" class="submit" value="<?php _e('Import') ?>" />
+    <input type="submit" value="<?php _e('Import') ?>" />
   </p>
 </form>

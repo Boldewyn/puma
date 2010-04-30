@@ -7,7 +7,7 @@ if (! isset($accesslevel)) { $accesslevel = ''; } ?>
   </p>
   <p>
     <?php if ($accesslevel) { echo '<input type="hidden" name="accesslevel" value="'.$accesslevel.'" />'); } ?>
-    <input type="submit" class="submit" name="confirm" value="<?php _e('Confirm') ?>" />
+    <input type="submit" name="confirm" value="<?php _e('Confirm') ?>" />
     <?php _a('bookmarklist', __('Cancel'), 'class="pseudobutton"')?>
   </p>
 </form>

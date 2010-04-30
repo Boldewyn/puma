@@ -49,7 +49,7 @@ $userlogin = getUserLogin();
                 <textarea name="message" id="footer_ask_question" rows="2" cols="20"></textarea>
               </p>
               <p style="text-align:center">
-                <input type="submit" class="submit" value="<?php _e('ask the admin'); ?>" />
+                <input type="submit" value="<?php _e('ask the admin'); ?>" />
               </p>
             </form>
           </li>

@@ -30,7 +30,7 @@ if (isset($discussion) && $discussion) { $d = '_Discussion'; } else { $discussio
     <input type="text" class="text" name="description" id="wiki_edit_description" value="<?php _h($description) ?>" />
   </p>
   <p>
-    <input type="submit" class="submit wide_button" value="<?php _e('Save') ?>" />
-    <input type="submit" class="submit wide_button" name="preview" value="<?php _e('Preview') ?>" />
+    <input type="submit" class="wide_button" value="<?php _e('Save') ?>" />
+    <input type="submit" class="wide_button" name="preview" value="<?php _e('Preview') ?>" />
   </p>
 </form>

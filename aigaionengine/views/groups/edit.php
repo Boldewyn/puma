@@ -40,7 +40,7 @@ if (!isset($group)||($group==null)||(isset($action)&&$action=='add')) {
     <input type="hidden" name="action" value="<?php echo $isAddForm? 'add' : 'edit' ?>" />
     <input type="hidden" name="group_id" value="<?php echo $isAddForm? '' : $group->group_id ?>" />
     <input type="hidden" name="formname" value="group" />
-    <input type="submit" class="submit" value="<?php $isAddForm? _e('Add') : _e('Change') ?>" />
+    <input type="submit" value="<?php $isAddForm? _e('Add') : _e('Change') ?>" />
     <a href="<?php _url() ?>" class="pseudobutton"><?php _e('Cancel') ?></a>
   </p>
 </form>

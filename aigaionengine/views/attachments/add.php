@@ -28,7 +28,7 @@ $userlogin = getUserLogin();
         <input type="hidden" name="ismain" value="" />
         <input type="hidden" name="formname" value="attachment" />
         <input type="hidden" name="user_id" value="<?php echo $userlogin->userId()?>" />
-        <input type="submit" class="submit" value="<?php _e('Upload attachment')?>" />
+        <input type="submit" value="<?php _e('Upload attachment')?>" />
         <?php _a('', __('Cancel'), 'class="pseudobutton"')?>
       </p>
     </form>
@@ -58,7 +58,7 @@ $userlogin = getUserLogin();
       <input type="hidden" name="ismain" value="" />
       <input type="hidden" name="formname" value="attachment" />
       <input type="hidden" name="user_id" value="<?php echo $userlogin->userId()?>" />
-      <input type="submit" class="submit" value="<?php _e('Add file link')?>" />
+      <input type="submit" value="<?php _e('Add file link')?>" />
       <?php _a('', __('Cancel'), 'class="pseudobutton"')?>
     </p>
   </form>

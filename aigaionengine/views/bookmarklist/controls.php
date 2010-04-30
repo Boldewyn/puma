@@ -37,7 +37,7 @@ $user = $this->user_db->getByID($userlogin->userId());
                             'dropdownname' => 'topic_id',
                             'header'    => __('Add bookmarked to topic...')
                             )); ?>
-      <input type="submit" class="submit" name="addtotopic" title="<?php 
+      <input type="submit" name="addtotopic" title="<?php 
         _e('Add all bookmarked publications to the selected topic') ?>"
         value="<?php _e('Add all to topic') ?>" />
     </p>
@@ -54,7 +54,7 @@ $user = $this->user_db->getByID($userlogin->userId());
                             'dropdownname' => 'topic_id',
                             'header'    => __('Remove bookmarked from topic...')
                             ));?>
-      <input type="submit" class="submit" name="removefromtopic" title="<?php 
+      <input type="submit" name="removefromtopic" title="<?php 
         _e('Remove all bookmarked publications from the selected topic') ?>"
         value="<?php _e('Remove all from topic') ?>" />
     </p>
@@ -71,7 +71,7 @@ $user = $this->user_db->getByID($userlogin->userId());
             array('public'=>__('public'),'intern'=>__('intern'),'private'=>__('private')),'intern',
             'id="bookmarklist_controls_setpubaccesslevel"');
       ?>
-      <input type="submit" class="submit" name="setpubaccesslevel" title="<?php 
+      <input type="submit" name="setpubaccesslevel" title="<?php 
         _e('Set the read  access levels for all publications on the bookmarklist') ?>"
         value="<?php _e('Set publication access level') ?>" />
     </p>
@@ -88,7 +88,7 @@ if ($userlogin->hasRights('publication_edit')): ?>
             array('public'=>__('public'),'intern'=>__('intern'),'private'=>__('private')),'intern',
             'id="bookmarklist_controls_setattaccesslevel"');
       ?>
-      <input type="submit" class="submit" name="setattaccesslevel" title="<?php 
+      <input type="submit" name="setattaccesslevel" title="<?php 
         _e('Set the read access levels for all attachments of publications on the bookmarklist') ?>"
         value="<?php _e('Set attachment access level') ?>" />
     </p>
@@ -105,7 +105,7 @@ if ($userlogin->hasRights('publication_edit')): ?>
             array('public'=>__('public'),'intern'=>__('intern'),'private'=>__('private')),'intern',
             'id="bookmarklist_controls_seteditpubaccesslevel"');
       ?>
-      <input type="submit" class="submit" name="seteditpubaccesslevel" title="<?php 
+      <input type="submit" name="seteditpubaccesslevel" title="<?php 
         _e('Set the edit access levels for all publications on the bookmarklist') ?>"
         value="<?php _e('Set publication edit access level') ?>" />
     </p>
@@ -122,7 +122,7 @@ if ($userlogin->hasRights('publication_edit')): ?>
             array('public'=>__('public'),'intern'=>__('intern'),'private'=>__('private')),'intern',
             'id="bookmarklist_controls_seteditattaccesslevel"');
       ?>
-      <input type="submit" class="submit" name="seteditattaccesslevel" title="<?php 
+      <input type="submit" name="seteditattaccesslevel" title="<?php 
         _e('Set the edit access levels for all attachments of publications on the bookmarklist') ?>"
         value="<?php _e('Set attachment edit access level') ?>" />
     </p>

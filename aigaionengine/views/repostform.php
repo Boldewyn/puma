@@ -19,7 +19,7 @@ echo form_open($this->latesession->get('FORMREPOST_uri')); ?>
   </p>
   <?php endif; ?>
   <p>
-    <input type="submit" class="submit" name="repost_form" value="<?php _e('Repost')?>" />
+    <input type="submit" name="repost_form" value="<?php _e('Repost')?>" />
     <?php foreach($this->latesession->get('FORMREPOST_post') as $field=>$val): ?>
       <input type="hidden" name="<?php _h($field)?>" value="<?php _h($val)?>" />
     <?php endforeach ?>

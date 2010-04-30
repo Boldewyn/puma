@@ -33,7 +33,7 @@
         <label for="remember"><?php echo __('Remember me');?></label>
       </p>
       <p class="empty_block">
-        <input type="submit" class="submit" name="submitlogin" value="<?php _e('Login');?>" />
+        <input type="submit" name="submitlogin" value="<?php _e('Login');?>" />
       </p>
       <p class="smallprint">
         <?php echo sprintf(__('If you have no NDS account and want a guest access, please '.

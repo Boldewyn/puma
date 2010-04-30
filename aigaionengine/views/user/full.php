@@ -15,7 +15,7 @@
   <form accept-charset="ISO-8859-1" action="http://www-cgi.uni-regensburg.de/Fakultaeten/Physik/Fakultaet/people/mit_abfrage.php" method="post">
     <p>
       <input type="hidden" name="Bruch" value="<?php _h($user->surname) ?>" />
-      <input type="submit" class="pseudolink submit" value="<?php _e('Search this user in the faculty’s user database');?>" />
+      <input type="submit" class="pseudolink" value="<?php _e('Search this user in the faculty’s user database');?>" />
     </p>
   </form>
 <?php endif ?>

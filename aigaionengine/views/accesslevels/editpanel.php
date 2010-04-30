@@ -29,7 +29,7 @@ if ($this->accesslevels_lib->canEditObject($object)) {
     </span>
     <input type="hidden" name="type" value="<?php echo $type ?>" />
     <input type="hidden" name="id" value="<?php echo $object_id ?>" />
-    <input type="submit" class="submit" value="<?php _e('Change') ?>" id="accesslevels_edit_<?php echo $type.'_'.$object_id ?>" />
+    <input type="submit" value="<?php _e('Change') ?>" id="accesslevels_edit_<?php echo $type.'_'.$object_id ?>" />
   </p>
   <script type="text/javascript">
     $(function () {

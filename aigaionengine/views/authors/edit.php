@@ -21,7 +21,7 @@
     <input type="hidden" name="author_id" value="<?php _h($author->author_id)?>" />
     <input type="hidden" name="submit_type" value="<?php echo isset($review)? 'review':'submit'?>" />
     <input type="hidden" name="formname" value="author" />
-    <input type="submit" class="submit standard_input" value="<?php $edit_type=='edit'? _e('Change') : _e('Add') ?>" />
+    <input type="submit" class="standard_input" value="<?php $edit_type=='edit'? _e('Change') : _e('Add') ?>" />
     <?php _a($edit_type=='edit'? 'authors/show/'.$author->author_id : '', __('Cancel'), 'class="pseudobutton standard_input"') ?>
   </p>
 </form>

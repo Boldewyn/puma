@@ -62,7 +62,7 @@ echo $this->validation->error_string;
       <input type="hidden" name="note_id" value="<?php echo $note->note_id ?>" />
     <?php endif; ?>
     <input type="hidden" name="formname" value="note" />
-    <input type="submit" class="submit standard_input" value="<?php $isAddForm? _e('Add') : _e('Change') ?>" />
+    <input type="submit" class="standard_input" value="<?php $isAddForm? _e('Add') : _e('Change') ?>" />
     <?php _a($isAddForm? '' : 'publications/show/'.$note->pub_id, __('Cancel'), 'class="pseudobutton standard_input"') ?>
   </p>
 </form>

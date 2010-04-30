@@ -6,7 +6,7 @@ if (isset($searchbox)&&$searchbox) {
     echo form_open('keywords/searchlist');?>
       <p>
         <input type="text" class="text extended_input" name="keyword_search" id="keyword_search" />
-        <input type="submit" class="submit" value="<?php _e('Show')?>" />
+        <input type="submit" value="<?php _e('Show')?>" />
         <script type="text/javascript">
           $('#keyword_search').keyup(function () {
               var url = config.base_url + 'keywords/searchlist/' + this.value;

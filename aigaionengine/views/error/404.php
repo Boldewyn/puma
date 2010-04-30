@@ -10,6 +10,6 @@
   <p>
     <input type="hidden" name="formname" value="simplesearch" />
     <input type="text" class="text" name="q" value="" />
-    <input type="submit" class="submit" name="submit_search" value="<?php _e('Search')?>" />
+    <input type="submit" name="submit_search" value="<?php _e('Search')?>" />
   </p>
 </form>

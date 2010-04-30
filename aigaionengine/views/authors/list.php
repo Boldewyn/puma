@@ -4,7 +4,7 @@
   <form method="post" action="<?php _url('authors/searchlist')?>">
     <p>
       <input type="text" class="text" name="author_search" id="author_search" />
-      <input type="submit" class="submit" value="<?php _e('Show')?>" />
+      <input type="submit" value="<?php _e('Show')?>" />
       <script type='text/javascript'>
         $('#author_search').keyup(function () {
           $('#authorlist').load('authors/searchlist/'+$(this).val());

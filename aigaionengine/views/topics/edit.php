@@ -65,12 +65,12 @@ if (!isset($topic)||($topic==null)||(isset($action)&&$action=='add')) {
     <?php if ($isAddForm) : ?>
         <input type="hidden" name="action" value="add" />
         <input type="hidden" name="user_id" value="<?php _h($userlogin->userId()) ?>" />
-        <input type="submit" class="submit standard_input" value="<?php _e('Add') ?>" />
+        <input type="submit" class="standard_input" value="<?php _e('Add') ?>" />
     <?php else : ?>
         <input type="hidden" name="action" value="edit" />
         <input type="hidden" name="topic_id" value="<?php _h($topic->topic_id) ?>"/>
         <input type="hidden" name="user_id" value="<?php _h($topic->user_id) ?>" />
-        <input type="submit" class="submit standard_input" value="<?php _e('Change') ?>" />
+        <input type="submit" class="standard_input" value="<?php _e('Change') ?>" />
     <?php endif; ?>
     <?php _a('/topics/single/'.$topic->topic_id, __('Cancel'), 'class="standard_input pseudobutton"') ?>
   </p>

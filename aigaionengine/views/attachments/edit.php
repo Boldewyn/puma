@@ -29,7 +29,7 @@
     <input type="hidden" name="user_id" value="<?php echo $attachment->user_id ?>" />
     <input type="hidden" name="mime" value="<?php echo $attachment->mime ?>" />
     <input type="hidden" name="formname" value="attachment" />
-    <input type="submit" class="submit" value="<?php _e('Change') ?> "/>
+    <input type="submit" value="<?php _e('Change') ?> "/>
     <?php _a('publications/show/'.$attachment->pub_id, __('Cancel'), 'class="pseudobutton"') ?>
   </p>
 </form>

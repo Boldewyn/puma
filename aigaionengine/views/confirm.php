@@ -4,7 +4,7 @@
     <?php echo $question ?>
   </p>
   <p>
-    <input type="submit" class="submit standard_input" value="<?php _e('Confirm') ?>" />
+    <input type="submit" class="standard_input" value="<?php _e('Confirm') ?>" />
     <?php _a((isset($cancel_url)? $cancel_url : ''), __('Cancel'), 'class="pseudobutton standard_input"') ?>
   </p>
 </form>
