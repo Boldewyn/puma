@@ -1498,9 +1498,9 @@ input.text.readonly {
 /** Submit buttons */
 x.pseudobutton,
 x.pseudobutton:visited,
-button,
-input.button,
-input.submit {
+xbutton,
+xinput.button,
+xinput.submit {
   border: .08333em solid #00757e;
   border-radius: .16667em;
   -moz-border-radius: .16667em;
@@ -1522,21 +1522,21 @@ x.pseudobutton {
 }
 
 x.pseudobutton:focus,
-button:focus,
-input.button:focus,
-input.submit:focus,
+xbutton:focus,
+xinput.button:focus,
+xinput.submit:focus,
 x.pseudobutton:hover,
-button:hover,
-input.button:hover,
-input.submit:hover {
+xbutton:hover,
+xinput.button:hover,
+xinput.submit:hover {
   background-position: left -.8333em;
   color: white;
 }
 
-.pseudobutton:active,
-button:active,
-input.button:active,
-input.submit:active {
+x.pseudobutton:active,
+xbutton:active,
+xinput.button:active,
+xinput.submit:active {
   background-position: left bottom;
   color: white;
 }
