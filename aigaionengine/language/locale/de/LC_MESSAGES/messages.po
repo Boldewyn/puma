@@ -4875,7 +4875,7 @@ msgstr "andere Seite"
 msgid ""
 "To reference any paper or publication inside %s, use LaTeX style markup: %s."
 msgstr ""
-"Um auf irgendeine Publikation in %s zu verweisen, nutze LaTeX-Referenzen: %s."
+"Um auf eine Publikation in %s zu verweisen, nutze LaTeX-Referenzen: %s."
 
 #: ../../views/help/wiki.php:9
 msgid "JavaScript is not allowed on wiki pages."
@@ -6925,7 +6925,7 @@ msgid ""
 "Do you have any question regarding %s? Have you spotted an error or do you "
 "want to suggest a new feature? Don’t hesitate and drop us a line."
 msgstr ""
-"Hast Du irgendeine Frage zu %s? Hast Du einen Fehler entdeckt oder möchtest "
+"Hast Du eine Frage zu %s? Hast Du einen Fehler entdeckt oder möchtest "
 "ein neues Feature vorschlagen? Zögere nicht und schreib uns."
 
 #: ../../views/footer.php:44
