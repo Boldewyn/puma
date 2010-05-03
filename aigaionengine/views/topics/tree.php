@@ -1,6 +1,4 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<!-- topic browse displays -->
-<?php        
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 /*
 
     'topics'       => $topics, //array of topics to be shown
@@ -18,8 +16,6 @@
     Typically loaded with $this->load->vars(
   
                              */
-?>
-<?php
     if (!isset($depth))$depth = -1;
     if (!isset($showroot))$showroot = False;
     if (!isset($collapseAll))$collapseAll = False;
@@ -78,7 +74,7 @@
                 //(calling Element.hide() directly from a piece of javascript)
                 $collapse='';
                 if ($collapseAll||array_key_exists('flagCollapsed',$next->configuration)&&$next->flags['userIsCollapsed']) {
-                    $collapse = "<script type='text/javascript'>Element.hide('topic_children_".$next->topic_id."')</script>";
+                    $collapse = "<script type='text/javascript'>$('#topic_children_".$next->topic_id."').hide()</script>";
                 }
                 $todo = array_merge($children,array('end',$collapse),array(),$todo); //merge and reindex
             } else {

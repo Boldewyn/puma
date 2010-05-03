@@ -20,7 +20,7 @@ of the topic.
 /*=== COLLAPSE LINK ===*/
     #make hide scripts to show and hide proper parts 
     $hide1="";
-    $hide2="Element.hide('plus_topic_".$topic->topic_id."');";
+    $hide2="$('#plus_topic_".$topic->topic_id."').hide();";
     #
     if (count($topic->getChildren())>0) {
         echo "\n<img id      = 'min_topic_".$topic->topic_id."' 

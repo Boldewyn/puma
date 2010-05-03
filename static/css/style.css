@@ -205,7 +205,7 @@ hr {
 .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: Frutiger Next Pro,Frutiger Next,Segoe UI,Verdana,sans-serif; font-size: 1em; }
 .ui-widget-content { border: 1px solid #00757e; background: #effeff url(images/ui-bg_highlight-hard_100_effeff_1x100.png) 50% top repeat-x; color: #005a5f; }
 .ui-widget-content a { color: #005a5f; }
-.ui-widget-header { border: 1px solid #67bbc1; background: #cbd9da url(images/ui-bg_highlight-soft_100_cbd9da_1x100.png) 50% 50% repeat-x; color: #004b4f; font-weight: bold; }
+.ui-widget-header { border: 1px solid #67bbc1; background: #E7EFEF url(images/ui-bg_highlight-soft_100_cbd9da_1x100.png) 50% 50% repeat-x; color: #004b4f; font-weight: bold; }
 .ui-widget-header a { color: #004b4f; }
 
 /* Interaction states
@@ -1113,8 +1113,8 @@ body {
   padding-bottom: .25em;
   height: 2em;
   line-height: 2em;
-  border-bottom-color: #cbd9da;
-  background: #cbd9da;
+  border-bottom-color: #E7EFEF;
+  background: #E7EFEF;
   color: #008891;
 }
 
@@ -1146,7 +1146,7 @@ body {
 
 
 #content {
-  background: #cbd9da;
+  background: #E7EFEF;
   margin: 1.25em 0;
   clear: left;
   overflow: auto;
@@ -1583,12 +1583,13 @@ ul.tabs li a {
   color: white;
 }
 
+ul.tabs li a:focus,
 ul.tabs li a:hover {
   background-position: left center;
 }
 
 ul.tabs li.active a {
-  background: #CBD9DA;
+  background: #E7EFEF;
   color: #002d2f;
 }
 
@@ -1647,6 +1648,11 @@ ul.tabs li.active a {
 
 .topic-tree em {
   font-size: .91em;
+}
+
+
+ul ul.topictree-list {
+  padding-left:1em
 }
 
 
@@ -1714,6 +1720,7 @@ ul.tabs li.active a {
   padding: .83333em;
 }
 
+.pagination li a:focus,
 .pagination li a:hover {
   padding: .75em;
   border: .083333em solid;
