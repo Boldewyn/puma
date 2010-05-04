@@ -1650,6 +1650,11 @@ ul.tabs li.active a {
   font-size: .91em;
 }
 
+span.tree-blank {
+  display: block;
+  float: left;
+  width: 1em;
+}
 
 ul ul.topictree-list {
   padding-left:1em

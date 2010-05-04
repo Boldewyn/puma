@@ -302,18 +302,18 @@ window._ = gettext;
    *
    */
   p.topic = {};
-  p.topic.collapse = function (id) {
+  p.topic.collapse = function (id, callhome) {
     $('#min_topic_'+id).hide();
     $('#topic_children_'+id).hide();
     $('#plus_topic_'+id).show();
-    $.get(config.base_url+'topics/collapse/'+id+'/1');
+    if (callhome) { $.get(config.base_url+'topics/collapse/'+id+'/1'); }
     return false;
   };
-  p.topic.expand = function (id) {
+  p.topic.expand = function (id, callhome) {
     $('#plus_topic_'+id).hide();
     $('#min_topic_'+id).show();
     $('#topic_children_'+id).show();
-    $.get(config.base_url+'topics/collapse/'+id+'/0');
+    if (callhome) { $.get(config.base_url+'topics/collapse/'+id+'/0'); }
     return false;
   };
   

@@ -391,13 +391,14 @@ class Topics extends Controller {
      * by clicking one of the collapse or expand buttons in a topic tree 
      * rendered by subview 'maintreerow' with argument 'useCollapseCallback'=>True
      */
-    function collapse($topic_id=-1, $collapse=1) {
-        $topic = $this->topic_db->getByID($topic_id, array());
+    function collapse($topic_id=-1, $collapse='1') {
+        $config = array();
+        $topic = $this->topic_db->getByID($topic_id, $config);
         if ($topic == null) {
             echo '<p class="error">',__('Collapse topic: non-existing id passed.'),'</p>';
         } else {
             //do collapse
-            if ($collapse==1) {
+            if ($collapse == '1') {
                 $topic->collapse();
             } else {
                 $topic->expand();

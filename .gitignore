@@ -3,4 +3,5 @@ credentials.php
 attachments/*
 static/*/*.gz
 *.swp
+Session.vim
 .gitignore
