@@ -144,6 +144,7 @@ window._ = gettext;
 (function($) {
 
   var p = window.Puma = {};
+  var columns = ['threefourth', 'twothird', 'half', 'third', 'fourth', 'sixth', 'twelfth'];
 
   $(document).ready(function () {
     if ($.browser.msie) { _replace_nav(); }
@@ -159,6 +160,9 @@ window._ = gettext;
     $('.half:odd').css('margin-right', '0');
     $('.masonry .brick').css('float', 'none');
     $('.masonry').masonry({itemSelector:'.brick', columnWidth:'446'});
+    for (var x in columns) {
+      $('.bordered.'+columns[x]).addClass('bordered_'+columns[x]);
+    }
     
     /** Intercept rights changing click */
     $('.rights_switch').click(function () {

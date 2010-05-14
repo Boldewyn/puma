@@ -20,7 +20,7 @@ if (!isset($options)||($options==null))
       <input type="text" class="text extended_input" name="q" value="<?php _h($query)?>" />
     </p>
   </fieldset>
-  <fieldset class="half">
+  <fieldset class="bordered half column">
     <legend><?php _e('Result types')?></legend>
     <p><?php _e('Choose which types of results you want returned')?></p>
     <p>
@@ -34,7 +34,7 @@ if (!isset($options)||($options==null))
           <label for="search_advanced_keywords"><?php _e('Return tags')?></label>
     </p>
   </fieldset>
-  <fieldset class="half">
+  <fieldset class="bordered half column">
     <legend><?php _e('Publication search')?></legend>
     <p><?php _e('Choose, if you are searching for publications (see above!), which fields are searched')?></p>
     <p>
@@ -62,7 +62,7 @@ if (!isset($options)||($options==null))
 
 <h2><?php _e('Advanced Search: Publications on topic restriction')?></h2>
 <?php echo form_open('search/advancedresults')?>
-  <fieldset class="half">
+  <fieldset class="bordered half column">
     <legend><?php _e('Search terms')?></legend>
     <p><?php _e('Leave empty if you want to search all publications')?></p>
     <p>
@@ -85,7 +85,7 @@ if (!isset($options)||($options==null))
           <label for="search_advanced_2_publications_abstracts"><?php _e('Search publication abstract')?></label>
     </p>
   </fieldset>
-  <fieldset class="half">
+  <fieldset class="bordered half column">
     <legend><?php _e('Choose the topic restrictions that apply.')?></legend>
     <p>
       <?php printf( __('Return all publications that satisfy %s of the following conditions:'),

@@ -21,7 +21,7 @@ $this->load->helper('translation');
     } ?></h2>
   <p class="note"><?php _e('Fields with a red border are required.')?></p>
   <?php echo form_open('publications/commit', array('id' => 'publication_edit_form', 'class' => 'block')) ?>
-    <fieldset class="half">
+    <fieldset class="bordered half column">
     <p>
       <label for="publication_edit_pub_type"><?php _e('Type of publication:') ?></label>
       <?php echo form_dropdown('pub_type', getPublicationTypes(), $publication->pub_type, 'id="publication_edit_pub_type" class="extended_input"') ?>
@@ -105,7 +105,7 @@ $this->load->helper('translation');
         } else {
             $emarkup = $markup;
             if ($i % 10 == 0) {
-                $markup = '/fieldset><fieldset class="half"><'.$markup;
+                $markup = '/fieldset><fieldset class="bordered half column"><'.$markup;
             }
             $i++;
             echo '<'.$markup.'>'.$fieldCol.$valCol.'</'.$emarkup.'>';

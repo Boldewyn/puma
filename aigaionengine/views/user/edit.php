@@ -19,7 +19,7 @@
       </p>
     </fieldset> */ ?>
 
-    <fieldset class="half">
+    <fieldset class="bordered half column">
       <legend><?php _e('Account settings')?></legend>
       <p>
         <label class="block" for="user_edit_initials"><?php _e('Initials')?></label>
@@ -54,7 +54,7 @@
       </p>
     </fieldset>
 
-    <fieldset class="extended_label half">
+    <fieldset class="extended_label bordered half column">
       <legend><?php _e('Display preferences')?></legend>
       <p>
         <label class="block" for="user_edit_language"><?php _e('Language')?></label>

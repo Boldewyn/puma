@@ -1530,12 +1530,12 @@ form p {
   overflow: hidden;
 }
 
-.half {
+/*.half {
   width: 34em;
   margin-right: 1.25em;
   float: left;
   overflow: hidden;
-}
+} */
 
 #container fieldset div,
 #container fieldset p {
