@@ -30,76 +30,50 @@ class Users extends Controller {
     function manage() {
         restrict_to_right('user_edit_all', __('Manage accounts'));
 
-        //get output
-        $headerdata = array();
-        $headerdata['title'] = __('User');
-        $headerdata['javascripts'] = array('tree.js','prototype.js','scriptaculous.js','builder.js');
+        $this->load->view('header', array('title' => __('User')));
 
-        $output = $this->load->view('header', $headerdata, true);
-
-        $output .= '<div class="optionbox">['.anchor('users/add',__('add a new user'))."]</div>\n";
+        $output = '<div class="optionbox">['.anchor('users/add',__('add a new user'))."]</div>";
         $output .= "
-            <div class='header'>".__("Users")."</div>
+            <h3>".__("Users")."</h3>
             <ul>
             ";
-        $users = $this->user_db->getAllNormalUsers();
-
-        foreach ($users as $user) {
+        foreach ($this->user_db->getAllNormalUsers() as $user) {
             $output .= "<li>".$this->load->view('users/summary',
                                           array('user'   => $user),
                                           true)."</li>";
         }
-
-        $users = $this->user_db->getAllExternalUsers();
-
-        foreach ($users as $user) {
+        foreach ($this->user_db->getAllExternalUsers() as $user) {
             $output .= "<li>".$this->load->view('users/summary',
                                           array('user'   => $user),
                                           true)."</li>";
         }
-
-        $users = $this->user_db->getAllAnonUsers();
-
-        foreach ($users as $user) {
+        foreach ($this->user_db->getAllAnonUsers() as $user) {
             $output .= "<li>".$this->load->view('users/summary',
                                           array('user'   => $user),
                                           true)."</li>";
         }
-        $output .= "</ul><br/><br/>\n";
-
-        $output .= '<div class="optionbox">['.anchor('groups/add',__('add a new group'))."]</div>\n";
-        $output .= "
-            <div class='header'>".__("Groups")."</div>
-            <ul>
-            ";
-        $groups = $this->group_db->getAllGroups();
-
-        foreach ($groups as $group) {
+        $output .= '</ul>';
+        $output .= '<div class="optionbox">['.anchor('groups/add',__('add a new group'))."]</div>";
+        $output .= "<h3>".__("Groups")."</h3>
+            <ul>";
+        foreach ($this->group_db->getAllGroups() as $group) {
             $output .= "<li>".$this->load->view('groups/summary',
                                           array('group'   => $group),
                                           true)."</li>";
         }
-        $output .= "</ul><br/><br/>\n";
-
-        $output .= '<div class="optionbox">['.anchor('rightsprofiles/add',__('add a new rightsprofile'))."]</div>\n";
-
-        $output .= "
-            <div class='header'>".__("Rights profiles")."</div>
-            <ul>
-            ";
-        $rightsprofiles = $this->rightsprofile_db->getAllRightsprofiles();
-
-        foreach ($rightsprofiles as $rightsprofile) {
+        $output .= "</ul>";
+        $output .= '<div class="optionbox">['.anchor('rightsprofiles/add',__('add a new rightsprofile'))."]</div>";
+        $output .= "<h3>".__("Rights profiles")."</h3>
+            <ul>";
+        foreach ($this->rightsprofile_db->getAllRightsprofiles() as $rightsprofile) {
             $output .= "<li>".$this->load->view('rightsprofiles/summary',
                                           array('rightsprofile'   => $rightsprofile),
                                           true)."</li>";
         }
-        $output .= "</ul>\n";
+        $output .= "</ul>";
 
-        $output .= $this->load->view('footer','', true);
-
-        //set output
-        $this->output->set_output($output);
+        $this->load->view('put', array('data' => $output));
+        $this->load->view('footer');
     }
 
     /**
@@ -300,7 +274,7 @@ class Users extends Controller {
 
         if ($this->validation->run() == FALSE) {
             //return to add/edit form if validation failed
-            $this->load->view('header', array('title' => __('User')))
+            $this->load->view('header', array('title' => __('User')));
             $this->load->view('users/edit', array('user'   => $user,
                                                   'action' => $this->input->post('action')));
             $this->load->view('footer');
@@ -412,34 +386,41 @@ class Users extends Controller {
             $user_id = $userlogin->userId();
         }
 
+        $error = '';
         $user = $this->user_db->getByID($user_id);
         if ($user == null) {
-            echo "<div class='errormessage'>".__("Subscribe topic").": ".__("non-existing id passed").".</div>";
-            return;
+            $error = __('Subscribe topic: non-existing id passed');
+        } else {
+            //check user rights
+            $userlogin = getUserLogin();
+            if (! $userlogin->hasRights('topic_subscription') ||
+                (! $userlogin->hasRights('user_edit_all') && $userlogin->userId() != $user->user_id)) {
+                $error = __('Topic subscription: insufficient rights');
+            } else {
+                $config = array('user'=>$user);
+                $topic = $this->topic_db->getByID($topic_id,$config);
+                if ($topic == null) {
+                    $error = __("Subscribe topic: non-existing id passed.");
+                } else {
+                    $topic->subscribeUser();
+                }
+            }
         }
 
-        //check user rights
-        $userlogin = getUserLogin();
-        if (    (!$userlogin->hasRights('topic_subscription') )
-             ||
-                (  !$userlogin->hasRights('user_edit_all')
-                    &&
-                   ($userlogin->userId() != $user->user_id)
-                 )
-            )
-        {
-            echo __('Topic subscription').': '.__('insufficient rights').'.<br/>';
-            return;
+        if (is_ajax()) {
+            $this->output->set_header('Content-Type: text/javascript');
+            if ($error) {
+                $this->output->set_output('{"result":false,"message":"'.$error.'"}');
+            } else {
+                $this->output->set_output('{"result":true}');
+            }
+        } else {
+            if ($error) {
+                back_to_referrer($error, '', True);
+            } else {
+                back_to_referrer(__('The topic has been unsubscribed.'));
+            }
         }
-
-        $config = array('user'=>$user);
-        $topic = $this->topic_db->getByID($topic_id,$config);
-        if ($topic == null) {
-            echo "<div class='errormessage'>".__("Subscribe topic").": ".__("non-existing id passed").".</div>";
-        }
-        //do subscribe
-        $topic->subscribeUser();
-        echo "<div/>";
     }
 
 
@@ -463,40 +444,47 @@ class Users extends Controller {
         an div containing an error message, otherwise
 
     */
-    function unsubscribe(i$topic_id, $user_id=False) {
+    function unsubscribe($topic_id, $user_id=False) {
         $userlogin = getUserLogin();
         if ($user_id === False) {
             $user_id = $userlogin->userId();
         }
 
+        $error = '';
         $user = $this->user_db->getByID($user_id);
         if ($user == null) {
-            echo "<div class='errormessage'>".__("Unsubscribe topic").": ".__("non-existing id passed").".</div>";
-            return;
+            $error = __('Unsubscribe topic: non-existing id passed');
+        } else {
+            //check user rights
+            $userlogin = getUserLogin();
+            if (! $userlogin->hasRights('topic_subscription') ||
+                (! $userlogin->hasRights('user_edit_all') && $userlogin->userId() != $user->user_id)) {
+                $error = __('Topic subscription: insufficient rights');
+            } else {
+                $config = array('user'=>$user);
+                $topic = $this->topic_db->getByID($topic_id,$config);
+                if ($topic == null) {
+                    $error = __("Unsubscribe topic: non-existing id passed.");
+                } else {
+                    $topic->unsubscribeUser();
+                }
+            }
         }
 
-        //check user rights
-        $userlogin = getUserLogin();
-        if (    (!$userlogin->hasRights('topic_subscription') )
-             ||
-                (  !$userlogin->hasRights('user_edit_all')
-                    &&
-                   ($userlogin->userId() != $user->user_id)
-                 )
-            )
-        {
-            echo __('Topic subscription').': '.__('insufficient rights').'.<br/>';
-            return;
+        if (is_ajax()) {
+            $this->output->set_header('Content-Type: text/javascript');
+            if ($error) {
+                $this->output->set_output('{"result":false,"message":"'.$error.'"}');
+            } else {
+                $this->output->set_output('{"result":true}');
+            }
+        } else {
+            if ($error) {
+                back_to_referrer($error, '', True);
+            } else {
+                back_to_referrer(__('The topic has been unsubscribed.'));
+            }
         }
-
-        $config = array('user'=>$user);
-        $topic = $this->topic_db->getByID($topic_id,$config);
-        if ($topic == null) {
-            echo "<div class='errormessage'>".__("Unsubscribe topic").": ".__("non-existing id passed")."</div>";
-        }
-        //do unsubscribe
-        $topic->unsubscribeUser();
-        echo "<div/>";
     }
 
 }
