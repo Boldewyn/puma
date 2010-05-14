@@ -21,6 +21,19 @@ if (! isset($nav_current)) { $nav_current = $this->uri->segment(1); }
   </ul>
 </div>
 
+<?php
+    $err = getErrorMessage();
+    if ($err != '') {
+        echo '<p class="error global-error">',$err,'</p>';
+        clearErrorMessage();
+    }
+    $msg = getMessage();
+    if ($msg != '') {
+        echo '<p class="info global-info">',$msg,'</p>';
+        clearMessage();
+    }
+?>
+
 <div id="subnav" class="<?php if(! isset($subnav) || count($subnav) == 0): echo 'min">'; else: ?>">
   <ul>
     <?php

@@ -1321,6 +1321,7 @@ body {
 
 /** infos, errors */
 .info, .error {
+  clear: both;
   margin: 0 0 1.25em;
   padding: 0.83333em;
 }
@@ -1363,6 +1364,7 @@ label.xlarge_label,
 }
 
 /** Input fields */
+select,
 textarea,
 input.text {
   border: .08333em solid #00757e;
@@ -1468,6 +1470,7 @@ input.short_input,
   width: 4em;
 }
 
+select:focus,
 textarea:focus,
 input.text:focus {
   border-color: #c2fbff;
@@ -1475,6 +1478,7 @@ input.text:focus {
   color: #002D2F;
 }
 
+select.readonly,
 textarea.readonly,
 input.text.readonly {
   border-color: #bbb;
@@ -1659,6 +1663,17 @@ span.tree-blank {
 ul ul.topictree-list {
   padding-left:1em
 }
+
+.topic-leaf-info {
+  opacity: .01;
+}
+
+.topictree-node:hover .topic-leaf-info,
+.topictree-leaf:hover .topic-leaf-info {
+  opacity: 1;
+}
+
+
 
 
 /** sort controls */

@@ -88,19 +88,6 @@ header('Content-Type: text/html; charset=UTF-8');
       </div>
 
       <?php
-          $err = getErrorMessage();
-          if ($err != '') {
-              echo '<p class="error global-error">',$err,'</p>';
-              clearErrorMessage();
-          }
-          $msg = getMessage();
-          if ($msg != '') {
-              echo '<p class="info global-info">',$msg,'</p>';
-              clearMessage();
-          }
-      ?>
-
-      <?php
           if (! isset($subnav)) { $subnav = array(); }
           $this->load->view('menu', array('subnav'=>$subnav));
       ?>
