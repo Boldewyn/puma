@@ -14,12 +14,16 @@ Parameters:
   } else {
     $callhome = 'true';
   }
+  $isSubscr = $topic->flags['userIsSubscribed'];
   $hide1 = '';
   $hide2 = 'display: none';
   if (array_key_exists('flagCollapsed',$topic->configuration) && ($topic->flags['userIsCollapsed']==True)) {
       $hide1 = $hide2;
       $hide2 = '';
   }
+  $publicationCount     = $this->topic_db->getPublicationCountForTopic($topic->topic_id);
+  $publicationReadCount = $this->topic_db->getReadPublicationCountForTopic($topic->topic_id);
+
   if (sizeof($topic->getChildren())>0) {
     _icon('tree_min', Null, array('alt'=>'[-]', 'id'=>'min_topic_'.$topic->topic_id,
           'class'=>'topic-toggler topic-toggler-min', 'style' => $hide1,
@@ -30,9 +34,15 @@ Parameters:
   } else {
     echo '<span class="tree-blank">&nbsp;</span>';
   }
-  $publicationCount     = $this->topic_db->getPublicationCountForTopic($topic->topic_id);
-  $publicationReadCount = $this->topic_db->getReadPublicationCountForTopic($topic->topic_id);
-
-  _a('topics/single/'.$topic->topic_id, h($topic->name));
-  echo ' <em title="',sprintf(__('read: %s of %s publications'), $publicationReadCount, $publicationCount),
-       '">',$publicationReadCount,'/',$publicationCount,'</em>';
+  _a('topics/single/'.$topic->topic_id, h($topic->name)); ?>
+  <span class="topic-leaf-info">
+    <em title="<?php printf(__('read: %s of %s publications'), $publicationReadCount, $publicationCount)?>">
+    <?php echo $publicationReadCount ?>/<?php echo $publicationCount ?></em>
+    <?php if (! isset($subscribed) || $subscribed == False) {
+      if ($isSubscr):
+        _a('#', '<span>'.__('Unsubscribe').'</span>', array('onclick' => 'Puma.topic.unsubscribe('.$topic->topic_id.', this);return false;'));
+      else:
+        _a('#', '<span>'.__('Subscribe').'</span>', array('onclick' => 'Puma.topic.subscribe('.$topic->topic_id.', this);return false;'));
+      endif;
+    } ?>
+  </span>
