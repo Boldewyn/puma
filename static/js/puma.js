@@ -316,6 +316,20 @@ window._ = gettext;
     if (callhome) { $.get(config.base_url+'topics/collapse/'+id+'/0'); }
     return false;
   };
+  p.topic.subscribe = function (id, paintElement) {
+    $.getJSON(config.base_url+'users/subscribe/'+id, function (data) {
+      if (data && ('result' in data) && data.result && paintElement) {
+        $(paintElement).addClass('subscribed');
+      }
+    });
+  };
+  p.topic.unsubscribe = function (id, paintElement) {
+    $.getJSON(config.base_url+'users/unsubscribe/'+id, function (data) {
+      if (data && ('result' in data) && data.result && paintElement) {
+        $(paintElement).removeClass('subscribed');
+      }
+    });
+  };
   
 })(jQuery);
 
