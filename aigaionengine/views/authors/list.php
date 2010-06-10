@@ -13,6 +13,6 @@
     </p>
   </form>
 <?php endif; ?>
-<div id="authorlist">
+<div id="authorlist" class="textcolumn double_textcolumn">
   <?php $this->load->view('authors/list_items', $authorlist); ?>
 </div>
