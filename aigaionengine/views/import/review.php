@@ -26,7 +26,7 @@ $b_even = true; ?>
             echo __('Import:')." <b>".$publications[$i]->title."</b>\n"; 
             
             if ($reviews[$i]['title'] != null)
-              echo "<div class='errormessage'>".$reviews[$i]['title']."</div>\n";
+              echo "<p class='error'>".$reviews[$i]['title'].'</p>';
             ?>
             </td>
         </tr>
@@ -35,7 +35,7 @@ $b_even = true; ?>
         {
         ?>
         <tr>
-          <td colspan = 2><div class='errormessage'><?php echo $reviews[$i]['bibtex_id'] ?></div></td>
+          <td colspan = 2><p class='error'><?php echo $reviews[$i]['bibtex_id'] ?></p></td>
         </tr>
         <?php
         }
@@ -253,7 +253,7 @@ $b_even = true; ?>
 
           ?>
           <tr>
-            <td colspan = 2><div class='errormessage'><?php echo $reviews[$i]['keywords'] ?></div></td>
+            <td colspan = 2><p class='error'><?php echo $reviews[$i]['keywords'] ?></p></td>
           </tr>
           <tr>
             <td valign='top'><label for="import_review_keywords_<?php echo $i?>"><?php _e('Keywords:')?></label></td>
