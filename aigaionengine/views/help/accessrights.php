@@ -1,5 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<div id="help-accessrights" class="help-content">
+<div id="help-accessrights" class="help-content regular-text">
   <h2><?php _e('Access rights on different levels')?></h2>
   <p><?php _e('The users can be anonymous or not, can be assigned to different '.
      'groups, and can be assigned different user rights. This makes it possible '.

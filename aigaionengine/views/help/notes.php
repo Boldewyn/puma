@@ -1,5 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<div id="help-notes" class="help-content">
+<div id="help-notes" class="help-content regular-text">
   <h2><?php _e('Annotating the Bibliography')?></h2>
   <p><?php _e('Where a publication abstract is a purely descriptive summary of a publication, a annotation can be both descriptive and critical. Annotations are commonly used to:')?></p>
   <ul>

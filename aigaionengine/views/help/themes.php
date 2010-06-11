@@ -1,5 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<div id="help-themes" class="help-content">
+<div id="help-themes" class="help-content regular-text">
   <h2><?php _e('Themes')?></h2>
   <p>Aigaion supports the use of themes, you can select it on your 'profile' page. If you don't like the standard themes, feel free to create one yourself. Here is how to do it:</p>
     <ul>

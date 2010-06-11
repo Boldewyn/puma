@@ -1,5 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<div id="help-goodpractices" class="help-content">
+<div id="help-goodpractices" class="help-content regular-text">
   <h2><?php _e('Good Practices')?></h2>
   <p><?php _e('This is a list of things that have been known to work for various users. Read them at your leisure, and use what you think might work for you as well. Or ignore everything that you think to be nonsense.')?></p>
   <ul>

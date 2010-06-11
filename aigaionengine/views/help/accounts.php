@@ -1,5 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<div id="help-accounts" class="help-content">
+<div id="help-accounts" class="help-content regular-text">
   <h2><?php _e('Groups, user accounts and rights profiles')?></h2>
   <p><?php _e('Access to the database is possible through logging in with a NDS or a guest user account. Individual users can have certain access rights assigned to them. Individual users can also be assigned to groups. Groups facilitate group-defined topic subscriptions, quick assignment of default right profiles and restriction of read and write access for certain notes, publications, attachments or topics to a subset of users.')?></p>
 
