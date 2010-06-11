@@ -8,5 +8,5 @@
     <li><?php printf(__('To reference any paper or publication inside %s, use LaTeX style markup: %s.'), site_title(), '<code>\\ref{bibtex_id}</code>')?></li>
     <li><?php _e('JavaScript is not allowed on wiki pages.')?></li>
   </ul>
-  <p><?php printf(__('The wiki allows additionally a subset of LaTeX commandos to be used. The recognized commandos are mostly text styles, like %s, or escape sequences, like %s.'), '<code>\\textbf{}</code>', sprintf('<code>\\ss</code> %1$s <code>ß</code> %2$s <code>\\alpha</code> %1$s <code>&alpha</code>', 'for', 'or')) ?></p>
+  <p><?php printf(__('The wiki allows additionally a subset of LaTeX commandos to be used. The recognized commandos are mostly text styles, like %s, or escape sequences, like %s.'), '<code>\\textbf{}</code>', sprintf('<code>\\ss</code> %1$s <code>ß</code> %2$s <code>\\alpha</code> %1$s <code>&alpha</code>', __('for'), __('or'))) ?></p>
 </div>
