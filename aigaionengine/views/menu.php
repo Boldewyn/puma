@@ -50,7 +50,7 @@ if (! isset($nav_current)) { $nav_current = $this->uri->segment(1); }
           if ($subnav_current == $url) {
             echo ' current';
           }
-          ?>"><a href="<?php _h($url)?>"><?php _h($title)?></a></li>
+          ?>"><?php _a($url, $title) ?></li>
       <?php $i++;
       endforeach; ?>
   </ul>
