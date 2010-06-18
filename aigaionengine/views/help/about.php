@@ -15,6 +15,6 @@
     <?php printf(__('URL of this installation: %s'), AIGAION_ROOT_URL)?><br/>
     <?php printf(__('PHP version: %s'), phpversion())?><br/>
     <?php printf(__('Database Version: %s'), $version)?><br/>
-    <?php printf(__('Based on the %s framework.'), '<a href="http://codeigniter.com/">CodeIgniter</a>')?>
+    <?php printf(__('Based on the %s framework and %s.'), '<a href="http://codeigniter.com/">CodeIgniter</a>', '<a href="http://aigaion.nl">Aigaion</a>')?>
   </p>
 </div>
