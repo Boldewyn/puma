@@ -1,9 +1,9 @@
 <?php
 /*
    Copyright (c) 2005 Steven Armstrong <sa at c-area dot ch>
-   
+
    Drop in replacement for native gettext.
-   
+
    This file is part of PHP-gettext.
 
    PHP-gettext is free software; you can redistribute it and/or modify
@@ -121,15 +121,15 @@ function _encode($text) {
 /**
  * Sets a requested locale, if needed emulates it.
  */
-function _setlocale($category, $locale) 
+function _setlocale($category, $locale)
 {
     global $CURRENTLOCALE, $EMULATEGETTEXT;
     if ($locale === 0) { // use === to differentiate between string "0"
-      if ($CURRENTLOCALE != '') 
+      if ($CURRENTLOCALE != '')
       {
         return $CURRENTLOCALE;
       }
-      else 
+      else
       {
       // obey LANG variable, maybe extend to support all of LC_* vars
       // even if we tried to read locale without setting it first
@@ -145,12 +145,12 @@ function _setlocale($category, $locale)
       {
         $ret = setlocale($category, $locale);
       }
-      if (($ret and $locale == '') or ($ret == $locale)) 
+      if (($ret and $locale == '') or ($ret == $locale))
       {
         $EMULATEGETTEXT = 0;
         $CURRENTLOCALE = $ret;
-      } 
-      else 
+      }
+      else
       {
         if ($locale == '') // emulate variable support
         {
@@ -163,7 +163,7 @@ function _setlocale($category, $locale)
         $EMULATEGETTEXT = 1;
       }
       */
-      if ($locale == '') 
+      if ($locale == '')
       {
         $CURRENTLOCALE = 'en';
       }

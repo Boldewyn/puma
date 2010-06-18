@@ -515,7 +515,7 @@ Aigaion now runs on CodeIgniter version 1.7
             return False;
         }
         $CI->db->insert('config',array('setting'=>'DEFAULTPREF_THEME','value'=>'default'));
-        $CI->db->insert('config',array('setting'=>'DEFAULTPREF_LANGUAGE','value'=>'english'));
+        $CI->db->insert('config',array('setting'=>'DEFAULTPREF_LANGUAGE','value'=>'de'));
         $CI->db->insert('config',array('setting'=>'DEFAULTPREF_SUMMARYSTYLE','value'=>'author'));
         $CI->db->insert('config',array('setting'=>'DEFAULTPREF_AUTHORDISPLAYSTYLE','value'=>'fvl'));
         $CI->db->insert('config',array('setting'=>'DEFAULTPREF_LISTSTYLE','value'=>'50'));
@@ -536,7 +536,7 @@ Aigaion now runs on CodeIgniter version 1.7
             return False;
         }
         //ATTEMPT TO RUN DATABASE UPDATING CODE FOR THIS VERSION... if fail, rollback?
-        mysql_query("ALTER TABLE `".AIGAION_DB_PREFIX."users` ADD COLUMN `language` VARCHAR(20) NOT NULL DEFAULT 'english';");
+        mysql_query("ALTER TABLE `".AIGAION_DB_PREFIX."users` ADD COLUMN `language` VARCHAR(20) NOT NULL DEFAULT 'de';");
         if (mysql_error()) 
             return False;
         

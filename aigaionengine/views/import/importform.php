@@ -1,41 +1,29 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<?php
-
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 $importTypes = $this->import_lib->getAvailableImportTypes();
-
-
-if (!isset($content)||($content==null)) 
-{
-   $content = '';
+$importTypes['auto'] = 'auto';
+if (!isset($content)||($content==null)) {
+    $content = '';
 }
 ?>
-<div class='publication'>
-  <div class='header'><?php echo __('Import publications'); ?></div>
+<form method="post" action="<?php _url('import/submit') ?>">
+  <h2><?php _e('Import publications') ?></h2>
   <p>
-    <?php echo sprintf(__('Paste the entries (%s) to import in the text area below and then press "%s"'), implode(', ',$importTypes), __('Import'));?>. </p>
-<?php
-  //open the edit form
-  $formAttributes     = array('ID' => 'import_form');
-  echo form_open('import/submit', $formAttributes)."\n";
-  echo form_hidden('submit_type', 'submit')."\n";
-  echo form_hidden('formname','import');
-?>
-
-  <table class='publication_edit_form' width='100%'>
-    <tr>
-      <td>
-<?php
-        echo form_textarea(array('name' => 'import_data', 'id' => 'import_data', 'rows' => '20', 'cols' => '60', 'value'=>$content));
-?>
-      </td>      
-    </tr>
-    
-  </table>
-<?php
-  $importTypes["auto"] = "auto";
-  echo form_submit('publication_submit', __('Import'))
-       .'&nbsp;<span title="'.__('Select the format of the data entered in the form above, or auto to let Aigaion automatically detect the format.').'">'.__('Format:').' '.form_dropdown('format',$importTypes,'auto')."</span>\n"
-       .'&nbsp;'.form_checkbox('markasread','markasread',False).' '.__('Mark imported entries as read.')."\n";
-  echo form_close()."\n";
-?>
-</div>
+    <?php printf(__('Paste the entries (%s) to import in the text area below '.
+    'and then press &ldquo;%s&rdquo;.'), implode(', ',$importTypes), __('Import'));?>
+  </p>
+  <p>
+    <input type="hidden" name="submit_type" value="submit" />
+    <input type="hidden" name="formname" value="import" />
+    <textarea name="import_data" id="import_data" rows="20" cols="60" class="extralarge_input"><?php _h($content) ?></textarea>
+  </p>
+  <p>
+    <input type="submit" class="standard_input" value="<?php _e('Import')?>" /> &nbsp;
+    <label for="import_importform_format"
+       title="<?php printf(__('Select the format of the data entered in the form above, '.
+             'or &ldquo;auto&rdquo; to let %s automatically detect the format.'),
+             site_title(true)) ?>"><?php _e('Format:') ?></label>
+    <?php echo form_dropdown('format',$importTypes,'auto', 'id="import_importform_format"') ?> &nbsp;
+    <input type="checkbox" name="markasread" value="markasread" id="import_importform_markasread" />
+    <label for="import_importform_markasread"><?php _e('Mark imported entries as read.')?></label>
+  </p>
+</form>

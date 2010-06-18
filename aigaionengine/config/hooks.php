@@ -23,5 +23,13 @@ $hook['post_controller'][] = array(
                                 'filepath' => 'hooks/filters',
                                 'params'   => array()
                                 );
-                                
-?>
+$hook['post_controller_constructor'][] = array(
+                                'class'    => 'Statistics',
+                                'function' => 'set',
+                                'filename' => 'statistics.php',
+                                'filepath' => 'libraries',
+                                'params'   => array()
+                                );
+
+
+//__END__

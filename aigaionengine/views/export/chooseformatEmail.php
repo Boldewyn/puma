@@ -6,56 +6,45 @@ It needs several view parameters:
 header              Default: "Export all publications"
 exportCommand       Default: "export/all/"; will be suffixed with type. May also be, e.g., "export/topic/12/"
 */
-$this->load->helper('form');
 
 if (!isset($header))$header=__('Export all publications');
-if (!isset($exportCommand))$exportCommand="export/all/";
+if (!isset($exportCommand))$exportCommand='export/all/';
 ?>
-<p class='header'><?php echo $header; ?></p>
+<h2><?php _h($header) ?></h2>
 <p>
-  <?php echo __('Please select the format(s) in which you want to export the publications and enter the email address(es) you want to send it to:'); ?><br/>
+  <?php _e('Please select the format(s) in which you want to export the publications and enter the email address(es) you want to send it to:') ?>
+</p>
+<p>
+  <?php _e('Style:') ?>
 </p>
 <?php
 $this->load->helper('osbib');
-echo " Style: ";
+echo form_open($controller);
 $style_options = array();
 $styles = LOADSTYLE::loadDir(APPPATH."include/OSBib/styles/bibliography");
 foreach ($styles as $style=>$longname) {
     $style_options[$style] = $style;
-}
-$email_input = array(
-	'name'        => 'email_address',
-	'value'       => __('Input email addresses here separated by ,'),
-	'size'        => '100%',
-);
-if(isset($recipientaddress) && $recipientaddress != -1)
-{
-	$email_input = array(
-		'name'        => 'email_address',
-		'value'       => $recipientaddress,
-		'size'        => '135',
-	);
-}
-
-
-echo form_open($controller);
-
-if(MAXIMUM_ATTACHMENT_SIZE > $attachmentsize)
-{
-	echo '<table><tr><td>PDF </td><td>'.form_checkbox('email_pdf', 'pdf', FALSE).'</td><td>'.sprintf(__('Attachment size: %s KB'), $attachmentsize).'</td></tr>';
-}
-else
-{
-	echo '<table><tr><td>PDF </td><td>'.sprintf(__('Maximum attachment size: %s KB'), MAXIMUM_ATTACHMENT_SIZE).'</td><td>'.sprintf(__('Current attachment size: %s KB'), $attachmentsize).'</td></tr>';
-}
-
-echo '<tr><td>BibTeX </td><td>'.form_checkbox('email_bibtex', 'bibtex', FALSE).'</td></tr>';
-echo '<tr><td>RIS </td><td>'.form_checkbox('email_ris', 'ris', FALSE).'</td></tr>';
-echo '<tr><td>'.__('Formatted').' </td><td>'.form_checkbox('email_formatted', 'html', FALSE).'</td><td>'.form_dropdown('style',$style_options).'</td></tr>';
-echo '<tr><td colspan="3">'.form_input($email_input).'</td></tr>';
-echo form_hidden('sort','nothing');
-echo '<tr><td>'.form_submit(array('name'=>__('Formatted'),'title'=>__('Export formatted entries')),__('Export')).'</td></tr>';
-echo '</table>';
-echo form_close();
-
-?>
+} ?>
+  <p>
+    <?php if(MAXIMUM_ATTACHMENT_SIZE > $attachmentsize): ?>
+    <input type="radio" name="format" id="export_chooseformat_pdf" value="pdf" /> <label for="export_chooseformat_pdf">PDF</label>
+      &nbsp;&nbsp;&nbsp; <?php printf(__('Attachment size: %s KB'), $attachmentsize);
+    else: ?>
+    <input type="radio" name="format" id="export_chooseformat_pdf" value="pdf" disabled="disabled" /> <label for="export_chooseformat_pdf">PDF</label>
+      <?php printf(__('Maximum attachment size: %s KB'), MAXIMUM_ATTACHMENT_SIZE).' '.printf(__('Current attachment size: %s KB'), $attachmentsize);
+    endif;?><br/>
+    <input type="radio" name="format" id="export_chooseformat_bibtex" value="bibtex" /> <label for="export_chooseformat_bibtex">BibTeX</label><br/>
+    <input type="radio" name="format" id="export_chooseformat_ris" value="ris" /> <label for="export_chooseformat_ris">RIS</label><br/>
+    <input type="radio" name="format" id="export_chooseformat_formatted" value="html" /> <label for="export_chooseformat_formatted"><?php _e('Formatted')?></label>
+     &nbsp;&nbsp;&nbsp; <?php echo form_dropdown('style',$style_options) ?>
+  </p>
+  <p>
+    <input type="text" class="<?php if(! isset($recipientaddress) || $recipientaddress == -1) echo 'labeled'?> text"
+        name="email_address" value="<?php (isset($recipientaddress) && $recipientaddress != -1)?
+        _h($recipientaddress) : _e('Input email addresses here, separated by comma'); ?>" />
+  </p>
+  <p>
+    <input type="hidden" name="sort" value="nothing" />
+    <input type="submit" name="Formatted" title="<?php _e('Export formatted entries')?>" value="<?php _e('Export')?>" />
+  </p>
+</form>

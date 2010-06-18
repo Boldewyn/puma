@@ -1,38 +1,46 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); 
 $userlogin = getUserLogin();
-$this->load->helper('publication');
+$this->load->helper('publication');?>
 
+<?php if (isset ($quicksearch) && $quicksearch): ?>
+  <h2><?php _e('Quicksearch results')?></h2>
+  <p><?php _a('search?q='.$query, __('(Proceed to advanced search)'))?></p>
+<?php else: ?>
+  <h2><?php _e('Advanced Search Results')?></h2>
+<?php endif ?>
+
+<?php
 //$resulttabs will be 'title'=>'resultdisplay'.
 //later on, display will take care of surrounding divs, and show-and-hide-scripts for the tabs
 $resulttabs = array();
 foreach ($searchresults as $type=>$resultList) {
     switch ($type) {
         case 'authors':
-            $authordisplay = "<ul>";
+            $authordisplay = '<ul>';
             foreach ($resultList as $author) {
                 $authordisplay .= '<li>'.anchor('authors/show/'.$author->author_id,$author->getName()).'</li>';
             }
-            $authordisplay .= "</ul>";
+            $authordisplay .= '</ul>';
             $resulttabs[sprintf(__('Authors: %s'),count($resultList))] = $authordisplay;
             break;
         case 'topics':
-            $topicdisplay = "<ul>";
+            $topicdisplay = '<ul>';
             foreach ($resultList as $topic) {
                 $topicdisplay .= '<li>'.anchor('topics/single/'.$topic->topic_id,$topic->name).'</li>';
             }
-            $topicdisplay .= "</ul>";
+            $topicdisplay .= '</ul>';
             $resulttabs[sprintf(__('Topics: %s'),count($resultList))] = $topicdisplay;
             break;
         case 'keywords':
-            $keyworddisplay = "<ul>";
+            $keyworddisplay = '<ul>';
             foreach ($resultList as $kw) {
                 $keyworddisplay .= '<li>'.anchor('keywords/single/'.$kw->keyword_id,$kw->keyword).'</li>';
             }
-            $keyworddisplay .= "</ul>";
+            $keyworddisplay .= '</ul>';
             $resulttabs[sprintf(__('Keywords: %s'),count($resultList))] = $keyworddisplay;
             break;
 /*        case 'publications_titles':
-            $pubdisplay = "<ul>";
+            $pubdisplay = '<ul>';
             foreach ($resultList as $publication) {
                 $pubdisplay .= '<li>';
                 $pubdisplay .= anchor('publications/show/'.$publication->pub_id,$publication->title);
@@ -74,74 +82,54 @@ foreach ($searchresults as $type=>$resultList) {
 
 //show all relevant result tabs
 foreach ($resulttabs as $title=>$tabdisplay) {
-    echo '<div class="header">'.sprintf(__('%s matches'), $title).'</div>';
+    echo '<h3>'.sprintf(__('%s matches'), $title).'</h3>';
     echo $tabdisplay;
 }
 
 $types = array();
 $resultHeaders = array();
 $result_div_ids = array();
-foreach ($searchresults as $title=>$content)
-{
-  if (substr($title, 0, strlen("publication")) == "publication")
-  {
-    $type = substr($title, strlen("publication") + 2);
+foreach ($searchresults as $title=>$content) {
+  if (substr($title, 0, strlen('publication')) == 'publication') {
+    $type = substr($title, strlen('publication') + 2);
     $types[] = $type;
-    $resultHeaders[$type] = ucfirst($type)." (".count($content).")";
-    $result_div_ids[$type] = "result_".$type;
+    $resultHeaders[$type] = ucfirst($type).' ('.count($content).')';
+    $result_div_ids[$type] = 'result_'.$type;
     $result_views[$type] = $this->load->view('publications/list', array('publications' => $content, 'order' => 'year'), true);
   }
 }
 
-if (count($types) > 0)
-{
-  echo "<div class='header'>".__('Publication matches')."</div>\n";
-  $cells = "";
-  $divs  = "";
-  $hideall = "";
-  foreach ($types as $type)
-  {
-    $cells .= "<td><div class='header'><a onclick=\"";
-    foreach ($types as $type2)
-    {
+if (count($types) > 0) {
+  echo '<h3>'.__('Publication matches').'</h3>';
+  $cells = '';
+  $divs  = '';
+  $hideall = '';
+  foreach ($types as $type) {
+    $cells .= '<td><h4><a href="#" onclick="';
+    foreach ($types as $type2) {
       if ($type2 == $type)
-        $cells .= $this->ajax->show($result_div_ids[$type2])."; ";
+        $cells .= '$(\'#'.$result_div_ids[$type2].'\').show();';
       else
-        $cells .= $this->ajax->hide($result_div_ids[$type2])."; ";
+        $cells .= '$(\'#'.$result_div_ids[$type2].'\').hide();';
     }
-    
-    $cells .= "\">".$resultHeaders[$type]."</a></div></td>\n";
-    $divs .= "<div id='".$result_div_ids[$type]."'>\n".$result_views[$type]."\n</div>\n\n";
-    $hideall .= $this->ajax->hide($result_div_ids[$type])."; ";
-    
+    $cells .= '">'.$resultHeaders[$type].'</a></h4></td>';
+    $divs .= '<div id="'.$result_div_ids[$type].'">'.$result_views[$type].'</div></div>';
+    $hideall .= '$(\'#'.$result_div_ids[$type].'\').hide();';
   }
-  $showfirst = $this->ajax->show($result_div_ids[$types[0]])."; ";
+  $showfirst = '$(\'#'.$result_div_ids[$types[0]].'\').show();';
 ?>  
-  <table>
+  <table style="width:100%">
     <tr>
-<?php
-    echo $cells;
-?>
+      <?php echo $cells ?>
     </tr>
   </table>
 <?php
   echo $divs;
-  echo "<script>".$hideall.$showfirst."</script>";
+  echo '<script type="text/javascript">'.$hideall.$showfirst.'</script>';
 } else { //no publication results
-    if (count($resulttabs)==0)
-    {
-        echo "<div class='message'>".sprintf(__('No search results found for query: %s'), "<b>".htmlentities($query,ENT_QUOTES, 'utf-8')."</b>")."</div>\n";
-    }
-    else
-    {
-        echo "<div class='message'>".sprintf(__('Search results for query: %s'), "<b>".htmlentities($query,ENT_QUOTES, 'utf-8')."</b>")."</div>\n";
+    if (count($resulttabs)==0) {
+        echo '<p class="info">'.sprintf(__('No search results found for query: %s'), '<strong>'.h($query).'</strong>').'</p>';
+    } else {
+        echo '<p class="info">'.sprintf(__('Search results for query: %s'), '<strong>'.h($query).'</strong>').'</p>';
     } 
 }
-/*
-$content['publications']    = $this->publication_db->getForTopic('1',$order);
-        $content['order'] = $order;
-        
-        $output = $this->load->view('header', $headerdata, true);
-        $output .= $this->load->view('publications/list', $content, true);
-        */
-?>

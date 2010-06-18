@@ -173,5 +173,15 @@ class Bookmarklist_db {
         }
         appendMessage(__("Bookmarked publications removed from topic").".<br/>");
     }
+    
+    function count() {
+        $CI = &get_instance();
+        $userlogin = getUserLogin();
+        $Q = $CI->db->query("SELECT COUNT(*) AS count FROM ".AIGAION_DB_PREFIX."publication, ".AIGAION_DB_PREFIX."userbookmarklists
+        WHERE ".AIGAION_DB_PREFIX."userbookmarklists.user_id=".$CI->db->escape($userlogin->userId())."
+        AND   ".AIGAION_DB_PREFIX."userbookmarklists.pub_id=".AIGAION_DB_PREFIX."publication.pub_id");
+        $result = $Q->result();
+        return $result[0]->count;
+    }
 }
 ?>

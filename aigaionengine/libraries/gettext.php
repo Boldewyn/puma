@@ -5,7 +5,7 @@ require_once (APPPATH."libraries/gettext/gettext.inc");
 /**
  * This class was originally contributed by Manuel Strehl.
  *
- * This class is intended as an convenience interface between Aigaion and 
+ * This class is intended as an convenience interface between Aigaion and
  * the php gettext library of Steven Armstrong.
  *
  * This class uses the variables $AIGAION_SUPPORTED_LANGUAGES and AIGAION_DEFAULT_LANGUAGE
@@ -17,11 +17,11 @@ class Gettext {
   function __construct () {
     return $this->Gettext ();
   }
-  
+
   function Gettext () {
     global $AIGAION_SUPPORTED_LANGUAGES;
     $CI =& get_instance ();
-    
+
     // user login for language preferences
     $userlogin = getUserLogin ();
     $lang = $userlogin->getPreference('language');
@@ -41,22 +41,23 @@ class Gettext {
       //this is still needed, because we are not *quite* sure that the language exists. Better to init the right locale :)
       $lang = $CI->userlanguage->get();
       //appendMessage("available: ".$lang."<br>");
-      
+
       #uncomment this line if you have all languages installed for CodeIgniter under their correct short name
       #to make CodeIgniter follow the same language switches:
       //$CI->config->set_item ("language", $lang);
-      
+
     // do the gettext stuff here
     !defined ('LC_MESSAGES') ? define ('LC_MESSAGES', 5) : false;
     _bind_textdomain_codeset ('messages', "UTF-8");
     _bindtextdomain ('messages', APPPATH.'language/locale');
     $lang = _setlocale (LC_MESSAGES, $lang);
+    $CI->config->set_item('current_language', $lang);
     //appendMessage("actually set: ".$lang."<br>");
- 
+
     _textdomain ('messages');
     return true;
   }
-  
+
   function debug ($switch = true) {
     // should here be any code?
   }

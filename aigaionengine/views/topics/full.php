@@ -4,53 +4,39 @@
 <?php
 
     $userlogin  = getUserLogin();
-    $user       = $this->user_db->getByID($userlogin->userID());
 
-
-    if ($topic->name=="") {
-        $name = __('Topic')." #".$topic->topic_id;
+    if ($topic->name=='') {
+        $name = sprintf(__('Topic #%s'), $topic->topic_id);
     } else {
-        $name = $topic->name;
+        $name = sprintf(__('Topic: %s'), h($topic->name));
     }
     if ($topic->description != null) {
         $description = $topic->description;
     } else {
-        $description = "-".__('No description')."-";
+        $description = __('&ndash; No description &ndash;');
     }
 
 $parent = $topic->getParent();
-echo anchor('topics/single/'.$parent->topic_id,$parent->name);
-echo '<br/>&nbsp;&nbsp;<img class="icon" src="'.getIconUrl('small_arrow.gif').'" alt="icon"/><br/>';
 ?>
-<div class='optionbox'>
-    <?php 
-    if (($userlogin->hasRights('topic_edit'))
-         && $this->accesslevels_lib->canEditObject($topic)      
-        ) 
-    {
-        echo '['.anchor('topics/edit/'.$topic->topic_id,__('edit'))."]&nbsp;[".anchor('topics/delete/'.$topic->topic_id,__('delete')).']'; 
-    }
-    echo "\n";
-    ?>
-</div>
-<div class='header'>
-<?php 
-    echo __('Topic').": ";
-    echo $name;
-    $accesslevels = "&nbsp;&nbsp;r:<img class='rights_icon' src='".getIconurl('rights_'.$topic->derived_read_access_level.'.gif')."' alt='rights icon'/> e:<img class='rights_icon' src='".getIconurl('rights_'.$topic->derived_edit_access_level.'.gif')."' alt='rights_icon'/>";
-    if (($userlogin->hasRights('topic_edit')) && $this->accesslevels_lib->canEditObject($topic)) 
-    {
-    echo anchor('accesslevels/edit/topic/'.$topic->topic_id,$accesslevels,array('title'=>'click to modify access levels'));
-    }
+<p class="parent-topic"><?php _a('topics/single/'.$parent->topic_id,$parent->name)?></p>
+<p class="optionbox">
+  <?php 
+  if (($userlogin->hasRights('topic_edit'))
+       && $this->accesslevels_lib->canEditObject($topic)) {
+        _a('topics/edit/'.$topic->topic_id, '['.__('edit').'] ');
+        _a('topics/delete/'.$topic->topic_id, '['.__('delete').'] ');
+  }
+  if (($userlogin->hasRights('topic_edit')) && $this->accesslevels_lib->canEditObject($topic)) {
+      _a('accesslevels/edit/topic/'.$topic->topic_id,
+         'r:'.icon('rights_'.$topic->derived_read_access_level).' e:'.icon('rights_'.$topic->derived_edit_access_level),
+         array('title'=>__('click to modify access levels')));
+  }
+  ?>
+</p>
 
-?>
-</div>
+<h2><?php echo $name ?></h2>
 
-<table class='fullwidth'>
-<tr>
-    <td class='fullwidth'>
 <?php
-
     if ($topic->url != '') {
         $this->load->helper('utf8');
         $urlname = prep_url($topic->url);
@@ -62,39 +48,36 @@ echo '<br/>&nbsp;&nbsp;<img class="icon" src="'.getIconUrl('small_arrow.gif').'"
     if ($description)
         echo "<p>".$description."</p>\n";
         
-echo "<p class=header2>".__('Subtopics').":</p>\n";        
-$this->load->vars(array('subviews'  => array('topics/simpletreerow'=>array())));
-
-echo "<div id='topictree-holder'>\n<ul class='topictree-list'>\n"
-            .$this->load->view('topics/tree',
-                              array('topics'   => $topic,
-                                    'showroot'  => False,
-                                    'depth'     => 2
-                                    ),  
-                              true)."<li></li></ul>\n</div>\n";
-
+?>
+<div id='topictree-holder'>
+  <h3><?php echo __('Subtopics:')?></h3>
+  <ul class='topictree-list'>
+  <?php
+  $this->load->vars(array('subviews'  => array('topics/simpletreerow'=>array())));
+  echo $this->load->view('topics/tree',
+                          array('topics'   => $topic,
+                                'showroot'  => False,
+                                'depth'     => 2),
+                          true);
+  ?></ul>
+</div>
+<?php
 $keywords = $topic->getKeywords();
-if (sizeof($keywords) > 0)
-{
-  echo "<p class=header2>".__('Keywords').":</p>\n";
-  echo "<div id='tagcloud'>\n";
+if (sizeof($keywords) > 0) {
   $keywordContent['keywordList'] = $keywords;
   $keywordContent['isCloud'] = true;
-  echo $this->load->view('keywords/list_items', $keywordContent, true);
-  echo "</div>\n"; //tagcloud
+  ?><div id='tagcloud'>
+    <h3><?php echo __('Keywords:')?></h3>
+    <?php echo $this->load->view('keywords/list_items', $keywordContent, true) ?>
+  </div><?php
 }
 
-
-?>
-    </td>
-    <td>
-<?php 
-  $topicstatBlock = "";
-	//Get statistics for this topic
-  $authorCount          = $this->topic_db->getAuthorCountForTopic($topic->topic_id);
-  $topicCount           = count($topic->getChildren());
-	$publicationCount     = $this->topic_db->getPublicationCountForTopic($topic->topic_id);
-	$publicationReadCount = $this->topic_db->getReadPublicationCountForTopic($topic->topic_id);
+$topicstatBlock = "";
+//Get statistics for this topic
+$authorCount          = $this->topic_db->getAuthorCountForTopic($topic->topic_id);
+$topicCount           = count($topic->getChildren());
+$publicationCount     = $this->topic_db->getPublicationCountForTopic($topic->topic_id);
+$publicationReadCount = $this->topic_db->getReadPublicationCountForTopic($topic->topic_id);
 
 if ($publicationCount == 1) 
 	$topicstatBlock .= "
@@ -139,9 +122,5 @@ if ($topicstatBlock != '')
   </div>";
 }
 ?>
-      
-   </td>
-</tr>
-</table>
 
 </div> 

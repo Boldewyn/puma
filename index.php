@@ -1,47 +1,71 @@
 <?php
 
+define('PUMA', 1);
+
+/** my own error log ;-) */
+function elog() {
+  $filename = '../../error.log';
+  if (is_writable($filename)) {
+    if (!$handle = fopen($filename, 'a')) {
+      return false;
+    }
+    $arg_list = func_get_args();
+    for ($i = 0; $i < count($arg_list); $i++) {
+      $content = $arg_list[$i];
+      if (! is_string($content) && ! is_numeric($content)) {
+        $content = print_r($content, true);
+      }
+      if (fwrite($handle, sprintf("[%s] %s\n", date('c'), $content)) === FALSE) {
+        return false;
+      }
+    }
+    fclose($handle);
+    return true;
+  }
+  return false;
+}
+
+require_once 'credentials.php';
+
 /*==== OPTIONAL SETTINGS */
 # URL where to store attachments. Default: root_url/attachments
-# Only uncomment and fill this line if your directory for storing attachments on server 
+# Only uncomment and fill this line if your directory for storing attachments on server
 # is different from the default
 //define('AIGAION_ATTACHMENT_URL', 'http://url/for/attachments/');
 
 # Directory where to store attachments. Default: this directory/attachments
-# Only uncomment and fill this line if your directory for storing attachments on server 
+# Only uncomment and fill this line if your directory for storing attachments on server
 # is different from the default
 //define('AIGAION_ATTACHMENT_DIR', '/Path/for/attachments');
 
-# Table prefix for database. 
-# By default, no table prefix is defined. If your tables have been defined 
+# Table prefix for database.
+# By default, no table prefix is defined. If your tables have been defined
 # with a table prefix, uncomment the following line and fill in the prefix:
-define('AIGAION_DB_PREFIX', 'puma_');
+define('AIGAION_DB_PREFIX', 'pute_');
 
 /*==== MANDATORY SETTINGS */
 #Root URL of this instance Aigaion, WITH trailing slash
-define('AIGAION_ROOT_URL','http://www-alab.uni-regensburg.de/puma/');
-#Unique ID of this site, to keep it separate from other installations that use same engine 
-#NOTE: use only alphanumeric characters, no spaces, and at least one letter. Otherwise Aigaion won't work at all.
-define('AIGAION_SITEID', 'Puma');
-# Host where database runs
-define('AIGAION_DB_HOST', 'localhost');
-# Database user
-define('AIGAION_DB_USER', 'manuel');
-# Database password
-define('AIGAION_DB_PWD', 'my5q1pwd');
-# Name of the standard database
-define('AIGAION_DB_NAME', 'manuel');
+define('AIGAION_ROOT_URL','http://www-alab.uni-regensburg.de/~manuel/puma_testing/');
+define('AIGAION_COOKIE_PATH','/~manuel/puma_testing/');
+$_SERVER['REDIRECT_URL'] = isset($_SERVER['REDIRECT_URL'])? str_replace(AIGAION_COOKIE_PATH, '', $_SERVER['REDIRECT_URL']) : '/';
 
 #We need to know where your aigaion - engine is located. WITH trailing slash.
 #By default this is http://localhost/aigaion2root/aigaionengine/
-define('APPURL','http://www-alab.uni-regensburg.de/puma/aigaionengine/');
+define('APPURL',AIGAION_ROOT_URL.'aigaionengine/');
+define('STATICURL',AIGAION_ROOT_URL.'static/');
 
-# Enable/disable clean URLs. 
+# Enable/disable clean URLs.
 # If set to true, you can use URLS like http://<server>/aigaion2root/topics instead of http://<server>/aigaion2root/index.php/topics
 #
 #This requires the webserver to rewrite URLs to /index.php
 #see sample.htaccess for what you need to put in the .htaccess file to achieve these rewrite rules
 # addition by Michael Gorven
-define('CLEAN_URLS', FALSE);
+define('CLEAN_URLS', TRUE);
+
+#
+# Restrict supported languages to a useful set
+#
+$AIGAION_SUPPORTED_LANGUAGES = array ('de', 'en');
 
 /*
 |---------------------------------------------------------------
@@ -53,11 +77,6 @@ define('CLEAN_URLS', FALSE);
 |
 |
 */
-
-# set this to the name of the email address you want to use as 'sender' when publications are exported by email
-# 
-define('EXPORT_REPLY_ADDRESS', '...@........');
-
 # Defines the maximum size of email attachments
 define('MAXIMUM_ATTACHMENT_SIZE', '10000');
 
@@ -71,7 +90,7 @@ define('MAXIMUM_ATTACHMENT_SIZE', '10000');
 | For more info visit:  http://www.php.net/error_reporting
 |
 */
-	error_reporting(E_ALL);
+error_reporting(E_ALL);
 
 /*
 |---------------------------------------------------------------
@@ -87,7 +106,7 @@ define('MAXIMUM_ATTACHMENT_SIZE', '10000');
 | NO TRAILING SLASH!
 |
 */
-	$system_folder = './codeigniter';
+$system_folder = './codeigniter';
 
 /*
 |---------------------------------------------------------------
@@ -108,7 +127,7 @@ define('MAXIMUM_ATTACHMENT_SIZE', '10000');
 | NO TRAILING SLASH!
 |
 */
-	$application_folder = './aigaionengine';
+$application_folder = './aigaionengine';
 
 
 /*
@@ -148,6 +167,7 @@ define('EXT', '.'.pathinfo(__FILE__, PATHINFO_EXTENSION));
 define('FCPATH', __FILE__);
 define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
 define('BASEPATH', $system_folder.'/');
+define('STATICPATH', dirname(__FILE__).'/static/');
 
 if (is_dir($application_folder))
 {
@@ -169,7 +189,7 @@ else
 |---------------------------------------------------------------
 |
 | Some older versions of PHP don't support the E_STRICT constant
-| so we need to explicitly define it otherwise the Exception class 
+| so we need to explicitly define it otherwise the Exception class
 | will generate errors.
 |
 */
@@ -187,4 +207,5 @@ if ( ! defined('E_STRICT'))
 |
 */
 require_once BASEPATH.'codeigniter/CodeIgniter'.EXT;
-?>
+
+//__END__

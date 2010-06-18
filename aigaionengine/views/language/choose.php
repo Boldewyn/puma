@@ -1,11 +1,13 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<div style='float:bottom;font-size:90%;'>
-  <p class='header'><?php _e('All available languages'); ?></p>
-<?php 
-global $AIGAION_SUPPORTED_LANGUAGES;
-foreach ($AIGAION_SUPPORTED_LANGUAGES as $lang)
-{
-  echo anchor('language/set/'.$lang.'/'.implode('/',$this->uri->segment_array()),$this->userlanguage->getLanguageName($lang)).'<br/>';
-}
-?>
+<div class="regular-text">
+    <h2><?php _e('All available languages'); ?></h2>
+    <p><?php _e('Choose your preferred display language:') ?></p>
+    <ul>
+      <?php 
+      global $AIGAION_SUPPORTED_LANGUAGES;
+      foreach ($AIGAION_SUPPORTED_LANGUAGES as $lang) :?>
+        <li><?php _a('language/set/'.$lang, $this->userlanguage->getLanguageName($lang)) ?></li>
+      <?php endforeach ?>
+    </ul>
 </div>
+

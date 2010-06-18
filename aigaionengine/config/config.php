@@ -6,7 +6,7 @@
 | -------------------------------------------------------------------
 |
 | Generally, there is no need to adapt the values in this file for an
-| instance of Aigaion. If you want to change settings you should 
+| instance of Aigaion. If you want to change settings you should
 | probably adapt the settings specified in the main index.php file for
 | this instance of Aigaion.
 */
@@ -17,17 +17,21 @@
 | -------------------------------------------------------------------
 |
 | Here we initialize some settings that MAY have been set in the main index.php.
-| If they have not been set, default values will be used. Directories are relative 
+| If they have not been set, default values will be used. Directories are relative
 | to the directory of the main index.php
 */
 $ROOT_PATH = dirname(FCPATH);
+# Cookie Path
+if (!defined('AIGAION_COOKIE_PATH') || (AIGAION_COOKIE_PATH=='')) {
+    define ('AIGAION_COOKIE_PATH', '/');
+}
 # URL where to store attachments. Default: root_url/attachments
 if (!defined('AIGAION_ATTACHMENT_URL') || (AIGAION_ATTACHMENT_URL=='')) {
-    define ('AIGAION_ATTACHMENT_URL',AIGAION_ROOT_URL."/attachments");
+    define ('AIGAION_ATTACHMENT_URL',AIGAION_ROOT_URL.'/attachments');
 }
 # Directory where to store attachments. Default: this directory/attachments
 if (!defined('AIGAION_ATTACHMENT_DIR') || (AIGAION_ATTACHMENT_DIR=='')) {
-    define ('AIGAION_ATTACHMENT_DIR',$ROOT_PATH."/attachments");
+    define ('AIGAION_ATTACHMENT_DIR',$ROOT_PATH.'/attachments');
 }
 #URL to the application: default same as AIGAION_ROOT_URL/aigaionengine
 if (!defined('APPURL') || (APPURL=='')) {
@@ -79,7 +83,7 @@ define('AIGSTR','A1I2G3A4I5O6N7');
 | -------------------------------------------------------------------
 | NOTE FOR AIGAION:
 | -------------------------------------------------------------------
-| 
+|
 | This setting is determined by the mandatory define of AIGAION_ROOT_URL
 | in the main index.php of the instance of the site.
 */
@@ -96,9 +100,9 @@ $config['base_url']	= AIGAION_ROOT_URL;
 |
 */
 if (defined('CLEAN_URLS') && CLEAN_URLS)
-	$config['index_page'] = "";
+	$config['index_page'] = '';
 else
-	$config['index_page'] = "index.php";
+	$config['index_page'] = 'index.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -116,7 +120,7 @@ else
 | 'ORIG_PATH_INFO'	Uses the ORIG_PATH_INFO
 |
 */
-$config['uri_protocol']	= "AUTO";
+$config['uri_protocol']	= 'REDIRECT_URL';
 
 /*
 |--------------------------------------------------------------------------
@@ -129,7 +133,7 @@ $config['uri_protocol']	= "AUTO";
 | http://www.codeigniter.com/user_guide/general/urls.html
 */
 
-$config['url_suffix'] = "";
+$config['url_suffix'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -141,7 +145,7 @@ $config['url_suffix'] = "";
 | than english.
 |
 */
-$config['language']	= "english";
+$config['language']	= 'de';
 
 /*
 |--------------------------------------------------------------------------
@@ -152,7 +156,7 @@ $config['language']	= "english";
 | that require a character set to be provided.
 |
 */
-$config['charset'] = "UTF-8";
+$config['charset'] = 'UTF-8';
 
 /*
 |--------------------------------------------------------------------------
@@ -199,6 +203,8 @@ $config['subclass_prefix'] = 'MY_';
 |
 */
 $config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
+if(strpos($_SERVER['REQUEST_URI'], 'login/nds')!==FALSE) {$config['permitted_uri_chars'] = '';}
+if(strpos($_SERVER['REQUEST_URI'], '/wiki/')===0) {$config['permitted_uri_chars'] = 'a-zA-ZäöüÄÖÜß !?*+=0-9~%.:,;_\-';}
 
 
 /*
@@ -233,7 +239,7 @@ $config['function_trigger'] = 'm';
 | Error Logging Threshold
 |--------------------------------------------------------------------------
 |
-| If you have enabled error logging, you can set an error threshold to 
+| If you have enabled error logging, you can set an error threshold to
 | determine what gets logged. Threshold options are:
 | You can enable error logging by setting a threshold over zero. The
 | threshold determines what gets logged. Threshold options are:
@@ -292,7 +298,7 @@ $config['cache_path'] = '';
 | enabled you MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = "";
+$config['encryption_key'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -325,9 +331,9 @@ $config['sess_time_to_update'] 		= 300;
 | 'cookie_path'   =  Typically will be a forward slash
 |
 */
-$config['cookie_prefix']	= "";
-$config['cookie_domain']	= "";
-$config['cookie_path']		= "/";
+$config['cookie_prefix']	= '';
+$config['cookie_domain']	= '';
+$config['cookie_path']		= AIGAION_COOKIE_PATH;
 
 /*
 |--------------------------------------------------------------------------
@@ -386,4 +392,17 @@ $config['time_reference'] = 'local';
 $config['rewrite_short_tags'] = FALSE;
 
 
-?>
+
+
+
+/*
+  CUSTOM ERROR HANDLING
+*/
+$config['error']['directory'] = '';
+
+$config['error']['controller'] = 'errorhandler';
+
+$config['error']['method'] = 'index';
+
+
+//__END__

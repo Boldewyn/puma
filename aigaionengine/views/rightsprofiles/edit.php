@@ -15,6 +15,7 @@ we assume that this view is not loaded if you don't have the appropriate read an
 
 */
 $this->load->helper('form');
+$this->load->helper('rights');
 
 //note: the validation library must be loaded in the controller!
 

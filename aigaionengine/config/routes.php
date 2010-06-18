@@ -39,11 +39,22 @@
 |
 */
 
-$route['default_controller'] = "front";
-$route['scaffolding_trigger'] = "";
+$route['default_controller'] = 'explore';
+$route['scaffolding_trigger'] = '';
+
+$route['login/nds:any'] = 'login/nds';
+$route['group/(:any)'] = 'usercontroller/group/$1';
+$route['option/set/(:any)'] = 'usercontroller/option/set/$1';
+$route['option/get/(:any)'] = 'usercontroller/option/get/$1';
+$route['user/(:any)'] = 'usercontroller/index/$1';
+$route['user'] = 'usercontroller/index';
+$route['help/(:any)'] = 'help/index/$1';
+
+$route['wiki/(:any):(:any)'] = 'wiki/dispatch/$1/$2';
+$route['wiki/(:any)'] = 'wiki/item/$1';
+
+$route['explore/([a-z]+)s$'] = 'explore/$1';
 
 
 
-
-
-?>
+//__END__

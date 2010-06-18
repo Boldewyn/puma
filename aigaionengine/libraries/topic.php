@@ -13,6 +13,7 @@ topic_db library which handles database access for topics.
 class Topic {
   
     #ID
+    var $id        = '';
     var $topic_id        = '';
     #content variables; to be changed by user when necessary
     var $parent_id          = 1;
@@ -181,6 +182,7 @@ class Topic {
     function add() {
         $CI = &get_instance();
         $this->topic_id = $CI->topic_db->add($this);
+        $this->id = $this->topic_id;
         return ($this->topic_id > 0);
     }
 

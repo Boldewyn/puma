@@ -352,6 +352,7 @@ class Publication_db {
         $editorsFromForm = $CI->input->post('editors'.$suffix);
         if ($editorsFromForm)
         {
+          $CI->load->library('parsecreators');
           $authors_array    = $CI->parsecreators->parse(preg_replace('/[\r\n\t]/', ' and ', $editorsFromForm));
           $authors          = array();
           foreach ($authors_array as $author)
@@ -1192,7 +1193,7 @@ class Publication_db {
     $Q = $CI->db->query("SELECT DISTINCT ".AIGAION_DB_PREFIX."publication.* FROM ".AIGAION_DB_PREFIX."publication, ".AIGAION_DB_PREFIX."userbookmarklists
     WHERE ".AIGAION_DB_PREFIX."userbookmarklists.user_id=".$CI->db->escape($userlogin->userId())."
     AND   ".AIGAION_DB_PREFIX."userbookmarklists.pub_id=".AIGAION_DB_PREFIX."publication.pub_id
-    ORDER BY ".$orderby);
+    ORDER BY ".$orderby." ".$limit);
 
     $result = array();
     foreach ($Q->result() as $row)
@@ -1488,7 +1489,7 @@ class Publication_db {
         }
         return $R->mark;
     }
-    function read($mark,$oldmark,$pub_id,$user_id) {
+    function read($mark,$pub_id,$user_id) {
         $CI = &get_instance();
         if (trim($pub_id)=='') return;
         //set proper mark for user
@@ -1500,7 +1501,7 @@ class Publication_db {
         //and now fix total mark
         $this->recalcTotalMark($pub_id);
     }
-    function unread($oldmark,$pub_id,$user_id) {
+    function unread($pub_id,$user_id) {
         $CI = &get_instance();
         if (trim($pub_id)=='') return;
         //set proper mark for user

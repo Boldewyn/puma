@@ -1,4 +1,4 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?><?php
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 /** This class holds the data structure of an Attachment.
 
 Database access for Attachments is done through the Attachment_db library */

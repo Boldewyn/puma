@@ -201,20 +201,13 @@ class Rightsprofiles extends Controller {
             redirect('users/manage');
         } else {
             //get output
-            $headerdata = array();
-            $headerdata['title'] = __('Rightsprofile');
-            $headerdata['javascripts'] = array('tree.js','prototype.js','scriptaculous.js','builder.js');
-            
-            $output = $this->load->view('header', $headerdata, true);
-    
-            $output .= $this->load->view('rightsprofiles/delete',
-                                          array('rightsprofile'=>$rightsprofile),  
-                                          true);
-            
-            $output .= $this->load->view('footer','', true);
-    
-            //set output
-            $this->output->set_output($output);
+            $this->load->view('header', array('title' => __('Rightsprofile')));
+            $this->load->view('confirm', array(
+                'url' => 'rightsprofiles/delete/'.$rightsprofile->rightsprofile_id.'/commit',
+                'question' => sprintf(__('Are you sure, that you want to delete the rights profile &ldquo;%s&rdquo;?'), h($rightsprofile->name)),
+                'cancel_url' => 'users/manage/',
+            ));
+            $this->load->view('footer');
         }
     }
     
@@ -300,7 +293,7 @@ class Rightsprofiles extends Controller {
             }
             if (!$success) {
                 //this is quite unexpected, I think this should not happen if we have no bugs.
-                appendErrorMessage(__("Commit rights profile").": ".__("an error occurred").". ".__("Please contact your Aigaion administrator.")."<br/>");
+                appendErrorMessage(__('Commit rights profile: an error occurred.'), 'severe');
                 redirect('users/manage');
             }
             //redirect somewhere if commit was successfull

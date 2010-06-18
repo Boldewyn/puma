@@ -6,51 +6,42 @@ It needs several view parameters:
 header              Default: "Export all publications"
 exportCommand       Default: "export/all/"; will be suffixed with type. May also be, e.g., "export/topic/12/"
 */
-$this->load->helper('form');
 $userlogin  = getUserLogin();
 
 if (!isset($header))$header=__('Export all publications');
 if (!isset($exportCommand))$exportCommand="export/all/";
 ?>
-<p class='header'><?php echo $header; ?></p>
+<h2><?php _h($header) ?></h2>
 <p>
-  <?php echo __('Please select the format in which you want to export the publications:')?><br/>
+  <?php _e('Please select the format in which you want to export the publications:')?>
 </p>
-<?php
-echo form_open($exportCommand.'bibtex');
-echo "<div>".form_submit(array('name'=>'BibTeX','title'=>__('Export to BibTeX')),__('BibTeX'));
-echo "</div>\n";
-echo form_close();
-echo '<br/>';
-echo form_open($exportCommand.'ris');
-echo "<div>".form_submit(array('name'=>'RIS','title'=>__('Export to RIS')),__('RIS'));
-echo "</div>\n";
-echo form_close();
-echo '<br/>';
-if ($userlogin->hasRights('export_email')) {
-  echo form_open($exportCommand.'email');
-  echo "<div>".form_submit(array('name'=>'E-mail','title'=>__('Export by E-mail')),__('E-mail'));
-  echo "</div>\n";
-  echo form_close();
-}
+<?php echo form_open($exportCommand.'bibtex') ?>
+  <p><input type="submit" name="BibTeX" title="<?php _e('Export to BibTeX')?>" value="<?php _e('BibTeX')?>" /></p>
+</form>
+<?php echo form_open($exportCommand.'ris') ?>
+  <p><input type="submit" name="RIS" title="<?php _e('Export to RIS')?>" value="<?php _e('RIS')?>" /></p>
+</form>
+<?php if ($userlogin->hasRights('export_email')):
+  echo form_open($exportCommand.'email') ?>
+  <p><input type="submit" name="E-mail" title="<?php _e('Export by e-Mail')?>" value="<?php _e('E-mail')?>" /></p>
+</form>
+<?php endif; ?>
+<hr/>
 
-echo "<br/><hr/>";
+<?php $this->load->helper('osbib');
+echo form_open($exportCommand.'formatted'); ?>
+  <p><?php _e('Format:');
+    echo form_dropdown('format',array('html'=>'HTML','rtf'=>'RTF','plain'=>'TXT'),'html');?>
+    <?php _e('Style:'); 
+    $style_options = array();
+    $styles = LOADSTYLE::loadDir(APPPATH."include/OSBib/styles/bibliography");
+    foreach ($styles as $style=>$longname) {
+        $style_options[$style] = $style;
+    }
+    echo form_dropdown('style',$style_options);
+    ?>
+    <input type="hidden" name="sort" value="nothing" />
+    <input type="submit" name="Formatted" title="<?php _e('Export formatted entries')?>" value="<?php _e('Export')?>" />
+  </p>
+</form>
 
-$this->load->helper('osbib');
-echo form_open($exportCommand.'formatted');
-echo "<div>".__('Format').": ";
-echo form_dropdown('format',array('html'=>'HTML','rtf'=>'RTF','plain'=>'TXT'),'html');//,'sxw'=>__('Open Office')
-echo " ".__('Style').": ";
-$style_options = array();
-$styles = LOADSTYLE::loadDir(APPPATH."include/OSBib/styles/bibliography");
-foreach ($styles as $style=>$longname) {
-    $style_options[$style] = $style;
-}
-echo form_dropdown('style',$style_options);
-echo form_hidden('sort','nothing');
-echo '&nbsp;'.form_submit(array('name'=>__('Formatted'),'title'=>__('Export formatted entries')),__('Export'));
-echo "</div>";
-echo form_close();
-
-
-?>

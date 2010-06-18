@@ -16,6 +16,7 @@ we assume that this view is not loaded if you don't have the appropriate read an
 the rights-checkboxes and group assignment however are still visible only contingent on the appropriate rights
 */
 $this->load->helper('form');
+$this->load->helper('rights');
 echo "<div class='editform'>";
 echo form_open('users/commit');
 //formname is used to check whether the POST data is coming from the right form.
@@ -391,20 +392,14 @@ if ($userlogin->hasRights('user_assign_rights')) {
             <tr>
             <td>".__('Check all rights').":</td>
             <td>
-            ";
-    echo $this->ajax->button_to_function(__('Check all'), "selectAllRights();");
-    
-    echo "
+              <button type=\"button\" onclick=\"selectAllRights();return false;\">".__('Check all')."</button>
             </td>
             </tr>
 
             <tr>
             <td>".__('Uncheck all rights').":</td>
             <td>
-            ";
-    echo $this->ajax->button_to_function(__('Uncheck all'), "deselectAllRights();");
-    
-    echo "
+              <button type=\"button\" onclick=\"deselectAllRights();return false;\">".__('Uncheck all')."</button>
             </td>
             </tr>
 
@@ -436,10 +431,7 @@ if ($userlogin->hasRights('user_assign_rights')) {
             <tr>
             <td>".__('Restore old state').":</td>
             <td>
-            ";
-    echo $this->ajax->button_to_function(__('Restore'), "restoreRights();");
-    
-    echo "
+              <button type=\"button\" onclick=\"restoreRights();return false;\">".__('Restore')."</button>
             </td>
             </tr>
             

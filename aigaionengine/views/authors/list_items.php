@@ -1,14 +1,17 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<ul class='nosymbol'>
-<?php
-  $initial = '';
-  foreach ($authorlist as $author)
-  {
-    if ($author->cleanname!='' && strtolower($author->cleanname[0])!=$initial) {
-        $initial = strtolower($author->cleanname[0]);
-        echo '<li><b>'.$author->cleanname[0].'</b></li>';
-    }
-    echo "  <li>".anchor('authors/show/'.$author->author_id, $author->getName('vlf'), array('title' => sprintf(__('All information on %s'), $author->cleanname)))."</li>\n";
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+$initial = '';
+if ($authorlist[0]->cleanname == '') {
+  echo '<ul>';
+  $initial = 'not matching me';
+}
+foreach ($authorlist as $author) {
+  if ($author->cleanname != '' && strtoupper($author->cleanname[0]) != $initial) {
+      if ($initial != '') { echo '</ul>'; }
+      $initial = strtoupper($author->cleanname[0]);
+      echo '<h3 id="author_'.$initial.'">'.$initial.'</h3>';
+      echo '<ul>';
   }
+  echo '<li>'.anchor('authors/show/'.$author->author_id, $author->getName('vlf')).'</li>';
+}
 ?>
 </ul>

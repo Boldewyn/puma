@@ -4,37 +4,38 @@ class Site extends Controller {
 
 	function Site()
 	{
-		parent::Controller();	
+		parent::Controller();
+        restrict_to_admins();
 	}
-	
+
 	/** Pass control to the site/configure/ controller */
 	function index()
 	{
 		$this->configure();
 	}
 
-    /** 
+    /**
     site/configure
-        
+
     Fails when unsufficient user rights
-    
+
     Paramaters:
         3rd segment: if 3rd segment is 'commit', site config data is expected in the POST
-    
+
     Returns a full html page with a site configuration form. */
 	function configure()
 	{
 	    //check rights
         $userlogin = getUserLogin();
         if (    (!$userlogin->hasRights('database_manage'))
-            ) 
+            )
         {
 	        appendErrorMessage(__('Configure database').': '.__('insufficient rights').'.<br/>');
 	        redirect('');
         }
-        
+
 	    $commit = $this->uri->segment(3,'');
-	    
+
 	    $this->load->library('validation');
         $this->validation->set_error_delimiters('<div class="errormessage">'.__('Changes not committed').': ', '</div>');
 	    if ($commit=='commit') {
@@ -52,41 +53,41 @@ class Site extends Controller {
 	    } else {
 	        $siteconfig = $this->siteconfig_db->getSiteConfig();
 	    }
-	    
+
         //get output: always return to configuration page
         $headerdata = array();
         $headerdata['title'] = __('Site configuration');
         $headerdata['javascripts'] = array('tree.js','prototype.js','scriptaculous.js','builder.js','externallinks.js');
-        
+
         $output = $this->load->view('header', $headerdata, true);
 
-        
+
         $output .= $this->load->view('site/edit',
-                                      array('siteconfig'=>$siteconfig),  
+                                      array('siteconfig'=>$siteconfig),
                                       true);
-        
+
         $output .= $this->load->view('footer','', true);
 
         //set output
         $this->output->set_output($output);
 	}
 
-	/** 
+	/**
 	site/maintenance
-	
+
 	Entry point for maintenance functions.
-	
+
 	Fails with error message when one of:
 	    insufficient user rights
 	    non-existing maintenance function given
 
 	Paramaters:
 	    3rd segment: name of the maintenance function to be executed (can be 'all')
-	    
+
 	Returns:
-	    A full HTML page presenting 
+	    A full HTML page presenting
 	        the maintenance options
-	        plus, if a maintenance function is given, the result of the chosen maintenance option 
+	        plus, if a maintenance function is given, the result of the chosen maintenance option
 	*/
 	function maintenance()
 	{
@@ -94,7 +95,7 @@ class Site extends Controller {
 	    //check rights
         $userlogin = getUserLogin();
         if (    (!$userlogin->hasRights('database_manage'))
-            ) 
+            )
         {
 	        appendErrorMessage(__('Maintain database').': '.__('insufficient rights').'.<br/>');
 	        redirect('');
@@ -103,36 +104,36 @@ class Site extends Controller {
 	    $maintenance = $this->uri->segment(3,'');
 
         $checkresult = "<table class='message' width='100%'>";
-        
+
 	    switch ($maintenance) {
 	        case 'all':
 	        case 'attachments':
 	            $checkresult .= checkAttachments();
-	            if ($maintenance != 'all') 
+	            if ($maintenance != 'all')
 	                break;
 	        case 'topics':
 	            $checkresult .= checkTopics();
-	            if ($maintenance != 'all') 
+	            if ($maintenance != 'all')
 	                break;
 	        case 'notes':
 	            $checkresult .= checkNotes();
-	            if ($maintenance != 'all') 
+	            if ($maintenance != 'all')
 	                break;
 	        case 'authors':
 	            $checkresult .= checkAuthors();
-	            if ($maintenance != 'all') 
+	            if ($maintenance != 'all')
 	                break;
 	        case 'passwords':
 	            $checkresult .= checkPasswords();
-	            if ($maintenance != 'all') 
+	            if ($maintenance != 'all')
 	                break;
 	        case 'cleannames':
 	            $checkresult .= checkCleanNames();
-	            if ($maintenance != 'all') 
+	            if ($maintenance != 'all')
 	                break;
 	        case 'publicationmarks':
 	            $checkresult .= checkPublicationMarks();
-	            if ($maintenance != 'all') 
+	            if ($maintenance != 'all')
 	                break;
 	        case 'checkupdates':
 	            $this->load->helper('checkupdates');
@@ -148,7 +149,7 @@ class Site extends Controller {
         			$checkresult .= '</tr>';
         			$checkresult .= '<tr><td colspan=2>'.$updateinfo.'</td></tr>';
     	        }
-	            //if ($maintenance != 'all') 
+	            //if ($maintenance != 'all')
 	            break;
 	        //AND NO THOSE THAT SHOULD NOT BE INCLUDED IN 'ALL'
 	        case 'deletenonpublishingauthors':
@@ -160,38 +161,38 @@ class Site extends Controller {
     	        appendMessage(sprintf(__('Maintenance function "%s" not implemented.'),$maintenance).'<br>');
 	            break;
 	    }
-	    
+
 	    $checkresult .= "</table>";
         //get output
         $headerdata = array();
         $headerdata['title'] = __('Site maintenance');
         $headerdata['javascripts'] = array('tree.js','prototype.js','scriptaculous.js','builder.js','externallinks.js');
-        
+
         $output = $this->load->view('header', $headerdata, true);
-        
+
         $output .= $checkresult;
-        
+
         $output .= $this->load->view('site/maintenance',
                                       array(),
                                       true);
-        
+
         $output .= $this->load->view('footer','', true);
 
         //set output
         $this->output->set_output($output);
     }
-    
-	/** 
+
+	/**
 	site/backup
-	
+
 	Entry point for backup
-	
+
 	Fails with error message when one of:
 	    insufficient user rights
 
 	Paramaters:
 	    3rd segment: win|unix|mac  determines linebreaks
-	    
+
 	Returns:
 	    A sql file
 	*/
@@ -200,7 +201,7 @@ class Site extends Controller {
 	    //check rights
         $userlogin = getUserLogin();
         if (    (!$userlogin->hasRights('database_manage'))
-            ) 
+            )
         {
 	        appendErrorMessage(__('Backup database').': '.__('insufficient rights').'.<br/>');
 	        redirect('');
@@ -219,7 +220,7 @@ class Site extends Controller {
 
         // Load the DB utility class
         $this->load->dbutil();
-        
+
         //tables to backup: only those with right prefix, if prefix set (!)
         $tables=array();
         if (AIGAION_DB_PREFIX!='') {
@@ -235,8 +236,8 @@ class Site extends Controller {
         // Backup your entire database and assign it to a variable
         //note: we could make a site setting for whether a gz, zip or txt is returned. But gz is OK, I guess.
         $backup =$this->dbutil->backup(array('tables'=>$tables,'newline'=>$linebreak,'format'=>'txt'));
-        
-        
+
+
         header("Content-Type: charset=utf-8"); //we intentionally do not use the download helper, as we need to set some UTF* specific thingies here
         header('Content-Disposition: attachment; filename="'.AIGAION_DB_PREFIX.AIGAION_DB_NAME."_backup_".date("Y_m_d").'.sql'.'"');
         header('Expires: 0');
@@ -250,8 +251,8 @@ class Site extends Controller {
         //so we choose another solution, see below
         //http://mailman.rfc-editor.org/pipermail/rfc-interest/2008-October/000771.html
         echo "-- Iñtërnâtiônàlizætiøn
-        -- Aigaion developers: 
-        -- Don't remove the above commented sentence with some UTF8 characters in it, 
+        -- Aigaion developers:
+        -- Don't remove the above commented sentence with some UTF8 characters in it,
         -- as it is needed to make sure that editors recognize the downloaded file as UTF8. (note that we could have
         --  added a BOM instead, but many editors choke on BOM, so we chose not to do this.)
         -- Refer to the following link for a discussion about this problem with editors 'guessing'
@@ -261,33 +262,33 @@ class Site extends Controller {
         -- - Export date: ".date("Y_m_d")."
 
         ";
-        
+
         echo $backup;
         //echo "</body></html>";
-        die();        
+        die();
     }
 
-	/** 
+	/**
 	site/restore
-	
+
 	Entry point for restoring from a backup file
-	
+
 	Fails with error message when one of:
 	    insufficient user rights
 
 	Parameters:
 	   none
-	    
+
 	Returns:
 	    a view is shown for uploading the backup file, or a text area for pasting the SQL directly
-    
+
 	*/
 	function restore()
 	{
     //check rights
     $userlogin = getUserLogin();
     if (    (!$userlogin->hasRights('database_manage'))
-        ) 
+        )
     {
       appendErrorMessage(__('Restore database').': '.__('insufficient rights').'.<br/>');
       redirect('');
@@ -295,38 +296,39 @@ class Site extends Controller {
     $headerdata = array();
     $headerdata['title'] = __('Restore database');
     $headerdata['javascripts'] = array('tree.js','prototype.js','scriptaculous.js','builder.js','externallinks.js');
-    
+
     $output = $this->load->view('header', $headerdata, true);
-    
+
     $output .= $this->load->view('site/restore',
                                   array(),
                                   true);
-    
+
     $output .= $this->load->view('footer','', true);
 
     //set output
-    $this->output->set_output($output);	    
-    return;    
+    $this->output->set_output($output);
+    return;
 	}
 	/** restore database from uploaded file
 	 * parameters:
 	 *   POST: the backup file
-	 */      	
-	function restorefromfile() 
+	 */
+	function restorefromfile()
 	{
 	  //check rights
     $userlogin = getUserLogin();
     if (    (!$userlogin->hasRights('database_manage'))
-        ) 
+        )
     {
       appendErrorMessage(__('Restore database').': '.__('insufficient rights').'.<br/>');
       redirect('');
     }
 
+    $this->load->library('file_upload');
   	$this->file_upload->the_file = $_FILES['backup_file']['name'];
   	$this->file_upload->http_error = $_FILES['backup_file']['error'];
   	$this->file_upload->extensions = array(".sql");
-  
+
   	if (! $this->file_upload->validateExtension()) {
   		appendErrorMessage(__("The file appears not to be an SQL file. Please select a valid Aigaion backup file.")."<br />");
   		redirect('site/maintenance');
@@ -335,11 +337,11 @@ class Site extends Controller {
   		appendErrorMessage($this->file_upload->error_text($this->file_upload->http_error));
   		redirect('site/maintenance');
   	}
-  
+
   	//load the file into an array. Each line in one array element.
   	$sqlArray = array();
     $sqlArray = file($_FILES['backup_file']['tmp_name']);
-    
+
     //drop all...
     $this->load->dbforge();
     $tables = $this->db->list_tables();
@@ -347,13 +349,13 @@ class Site extends Controller {
     {
       //remopve bloody prefix, as listtables includes it, and drop_table includes it again...
        $this->dbforge->drop_table(substr($table,strlen(AIGAION_DB_PREFIX)));
-    }     
+    }
     //start loading backup data
     $this->load->helper("utf8");
   	$report = "";
   	$query  = "";
   	appendMessage("<b>".__("Restored database").":</b><br/>\n");
-  	foreach ($sqlArray as $part) 
+  	foreach ($sqlArray as $part)
     {
 
   		$complete = false;
@@ -370,12 +372,12 @@ class Site extends Controller {
   					$complete = true;
   			}
   		}
-  
+
   		if ($complete) {
   			$this->db->query($query);
   			//appendMessage($query.'<hr>');
-  			$err = mysql_error(); 
-  			if ($err != null) appendErrorMessage($err); 
+  			$err = mysql_error();
+  			if ($err != null) appendErrorMessage($err);
   			$query = "";
   			$complete = false;
   		}
@@ -385,20 +387,20 @@ class Site extends Controller {
 	/** restore database from SQl in text area
 	 * parameters:
 	 *   POST: the backup data as a string
-	 */      	
+	 */
   function restorefromsql()
   {
     //check rights
     $userlogin = getUserLogin();
     if (    (!$userlogin->hasRights('database_manage'))
-        ) 
+        )
     {
       appendErrorMessage(__('Restore database').': '.__('insufficient rights').'.<br/>');
       redirect('');
     }
     $this->load->helper("utf8");
     $data= $this->input->post('backup_data');
-    if (trim($data) == '') 
+    if (trim($data) == '')
     {
       appendErrorMessage(__("No data given to restore!"));
       redirect('site/maintenance');
@@ -412,12 +414,12 @@ class Site extends Controller {
     {
       //remopve bloody prefix, as listtables includes it, and drop_table includes it again...
        $this->dbforge->drop_table(substr($table,strlen(AIGAION_DB_PREFIX)));
-    }     
+    }
     //start loading backup data
   	$report = "";
   	$query  = "";
   	appendMessage("<b>".__("Restored database").":</b><br/>\n");
-  	foreach ($sqlArray as $part) 
+  	foreach ($sqlArray as $part)
     {
 
   		$complete = false;
@@ -434,17 +436,17 @@ class Site extends Controller {
   					$complete = true;
   			}
   		}
-  
+
   		if ($complete) {
   			mysql_query($query); //don't use this->db->query, as it would encapsulate everything too much, leadning to \\\'
   			//appendMessage($query.'<hr>');
-  			$err = mysql_error(); 
-  			if ($err != null) appendErrorMessage($err); 
+  			$err = mysql_error();
+  			if ($err != null) appendErrorMessage($err);
   			$query = "";
   			$complete = false;
   		}
   	}
-    redirect('site/maintenance');    
+    redirect('site/maintenance');
   }
 }
 ?>

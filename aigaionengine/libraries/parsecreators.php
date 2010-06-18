@@ -29,7 +29,6 @@ http://bibliophile.sourceforge.net
 	$creatorArray = $creator->parse($authors);
 	print_r($creatorArray);
 ***********************/
-require_once(APPPATH."include/utf8/trim.php");
 
 class Parsecreators
 {

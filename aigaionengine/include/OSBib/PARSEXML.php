@@ -15,7 +15,7 @@ so that your improvements can be added to the release package.
 
 Mark Grimshaw 2005
 http://bibliophile.sourceforge.net
-********************************/
+********************************/
 class PARSEXML
 {
 	function PARSEXML()
@@ -34,7 +34,7 @@ class PARSEXML
 			$xmlString = "<style>" . $entry . "</style>";
 			$this->entries[] = $this->parse($xmlString);
 		}
-	}
+	}
 // This method starts the whole process
 	function extractEntries($fh)
 	{
@@ -79,7 +79,7 @@ class PARSEXML
 				$types[] = $array;
 		}
 		return array($info, $citation, $footnote, $common, $types);
-	}
+	}
 	function parse($xmlString="")
 	{
 // set up a new XML parser to do all the work for us
@@ -96,7 +96,7 @@ class PARSEXML
 		$rnode = array_pop($this->nodeStack);
 // return the root node _ELEMENTS array
 		return($rnode["_ELEMENTS"][0]);
-	}
+	}
 // create a node
 	function startElement($parser, $name, $attrs)
 	{
@@ -108,7 +108,7 @@ class PARSEXML
 		$node["_ELEMENTS"] = array();
 // add the new node to the end of the node stack
 		array_push($this->nodeStack, $node);
-	}
+	}
 	function endElement($parser, $name)
 	{
 // pop this element off the node stack.....
@@ -124,7 +124,7 @@ class PARSEXML
 // .....and add it as an element of the last node in the stack...
 		$lastnode = count($this->nodeStack);
 		array_push($this->nodeStack[$lastnode - 1]["_ELEMENTS"], $node);
-	}
+	}
 // Collect the data onto the end of the current chars.
 	function characterData($parser, $data)
 	{
@@ -132,5 +132,5 @@ class PARSEXML
 		$lastnode = count($this->nodeStack);
 		$this->nodeStack[$lastnode - 1]["_DATA"] .= $data;
 	}
-}
+}
 ?>

@@ -283,6 +283,7 @@ class Topic_db {
         }
         //get basic data
         $topic->topic_id           = $CI->input->post('topic_id');
+        $topic->id                 = $topic->topic_id;
         $topic->name               = $CI->input->post('name');
         $topic->description        = $CI->input->post('description');
         $topic->url                = $CI->input->post('url');
@@ -407,6 +408,7 @@ class Topic_db {
         //add parent
         $new_id = $CI->db->insert_id();
         $topic->topic_id = $new_id;
+        $topic->id = $new_id;
         if ($topic->parent_id < 0)$topic->parent_id=1;
         $CI->db->insert('topictopiclink',array('source_topic_id'=>$new_id,'target_topic_id'=>$topic->parent_id));
         //subscribe current user to new topic
@@ -629,4 +631,5 @@ class Topic_db {
     
   }
 }
-?>
+
+//__END__

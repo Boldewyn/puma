@@ -2,17 +2,17 @@
 /**
 This file defines the class Login that is used to regulate the login to the site.
 The UserLogin object is used to start, stop and query a user login.
-The UserLogin object retrieves relevant information about the current login session (rights-info; 
-whether the current login is anonymous; the preferences of the current user; etc) and provides 
+The UserLogin object retrieves relevant information about the current login session (rights-info;
+whether the current login is anonymous; the preferences of the current user; etc) and provides
 methods to log in or out (user or anonymous account) given the right info.
 
-Note: Creating, changing and deleting ACCOUNTS (as opposed to a 'current login session') is NOT done in this class! 
+Note: Creating, changing and deleting ACCOUNTS (as opposed to a 'current login session') is NOT done in this class!
 
-The UserLogin class uses some external information from the site config settings: 
+The UserLogin class uses some external information from the site config settings:
     -whether anonymous login is allowed, the id of anonymous user
     -settings about password checking delegates
     -settings about external login modules
-    
+
 A note on the anonymous access:
     - To use the anonymous access facilities, you must enable it in the Site configuration page, and choose
       a user account that will be used to login the anonymous user.
@@ -21,20 +21,20 @@ A note on the anonymous access:
       appear in the menu that allows you to login as a 'normal' user through the login screen.
     - If anonymous access is enabled, you cannot login with the anonymous user account _through the login screen_
 
-The UserLogin class assumes that the connection to the database has already been made 
+The UserLogin class assumes that the connection to the database has already been made
 
 Access is through the getUserLogin() function in the login helper
 */
 
 //echo 'userlogin loaded';
 class UserLogin {
-    
+
     //note : all 'var' should actually be 'private', but PHP 4 doesn't support that :(
-    
+
     /* ================ Class variables ================ */
-    
+
     /** True if the user is currently logged in, anonymous or non-anonymous */
-    var $bIsLoggedIn = False; 
+    var $bIsLoggedIn = False;
     /** True if the user is currently logged in as anonymous user */
     var $bIsAnonymous = False;
     /** The user name of the user currently logged in */
@@ -51,61 +51,60 @@ class UserLogin {
     var $rights = array();
     /** The configured menu for this user. */
     var $theMenu = "";
-    /** If true, the user was logged in using the logintegration controller, 
-     *  and the status of the login token needs to be regularly checked in the 
+    /** If true, the user was logged in using the logintegration controller,
+     *  and the status of the login token needs to be regularly checked in the
      *  logintegration table. */
     var $checkToken = False;
     /** The login token used to log this account in through the logintegration
-     *  controller. Only relevant if checkToken is True. See isLoggedIn 
+     *  controller. Only relevant if checkToken is True. See isLoggedIn
      *  function. */
-    var $loginToken = '';    
-    
-    
+    var $loginToken = '';
+
+
     var $theUser = null;
 
-    /** this var is set to True if the user just logged out. This fact needs to be remembered 
-    because otherwise we run the risk of immedately loggin the user in again through the cookies 
+    /** this var is set to True if the user just logged out. This fact needs to be remembered
+    because otherwise we run the risk of immedately loggin the user in again through the cookies
     (cookies are not deleted properly in PHP4 when using a CI redirect after deleting the cookies :( ) */
     var $bJustLoggedOut = False;
-        
+
     /* ================ Basic accessors ================ */
-    
+
     /** This method is called for every controller access, thanks to the login_filter.
     This is also where we check for the schema updates.... so if the Aigaion engine is replaced
     with a new version, every user will get logged out upon the next page access. */
     function isLoggedIn() {
         if ($this->bIsLoggedIn) {
             //check login token?
-            if ($this->checkToken) 
+            if ($this->checkToken)
             {
               $CI = &get_instance();
               $res = $CI->db->get_where('logintegration',array('token'=>$this->loginToken));
-              if ($res->num_rows() ==0) 
+              if ($res->num_rows() ==0)
               {
                 $this->logout();
-                $this->sNotice = __("You have been logged out because your login token disappeared.")."<br/>";
+                $this->sNotice = __('You have been logged out because your login token disappeared.');
               }
-              $row = $res->row();                
+              $row = $res->row();
               if ($row->status != 'loggedin')
               {
                 $this->logout();
                 $CI->db->delete('logintegration',array('token'=>$this->loginToken));
-                $this->sNotice = __("You have been logged out because your login token expired.")."<br/>";
+                $this->sNotice = __('You have been logged out because your login token expired.');
               }
-              
+
             }
-            
+
             //check schema
-            if (checkSchema()) { 
+            if (checkSchema()) {
                 return True; //OK? return true;
             } else {
                 $this->logout();
-                $this->sNotice = __("You have been logged out because the Aigaion Engine is in the process of being updated.")
-                                  ."<br/>"
-                                  .__("If you are a user with database_manage rights, please login to complete the update.")
-                                  ."<br/>";
+                $this->sNotice = __('You have been logged out because the Aigaion Engine is in the process of being updated.')
+                                  .'<br/>'
+                                  .__('If you are a user with database_manage rights, please login to complete the update.');
             }
-        }            
+        }
         return False;
     }
     function isAnonymous() {
@@ -116,7 +115,7 @@ class UserLogin {
     }
     function userId() {
         return $this->iUserId;
-    }    
+    }
     function notice() {
         $result = $this->sNotice;
         $this->sNotice = "";
@@ -128,16 +127,18 @@ class UserLogin {
     function getMenu() {
         return $this->theMenu;
     }
-    
+
     /* ================ Constructor ================ */
-    
+
     /** Initially, the user is NOT logged in. */
     function UserLogin() {
         //...no construction stuff needed, really. everything happens when the user logs in.
+        $CI = &get_instance();
+        $CI->load->helper('schema');
     }
-    
+
     /* ================ Access methods for user rights and preferences ================ */
-    
+
     /** Initializes the cached rights from the database. Always called just after login. */
     function initRights() {
         $CI = &get_instance();
@@ -147,18 +148,18 @@ class UserLogin {
             $this->rights[] = $R->right_name;
         }
     }
-    
+
     /** die() if the currently logged in user does not have the given right. Uses hasRights($right) */
-    function checkRights($right) 
+    function checkRights($right)
     {
         if ($this->hasRights($right)) {
             return true;
         } else {
-            echo "<div class='errormessage'>"
-                 .__("You do not have sufficient rights for the requested operation or page.")
-                 ."<br/>"
-                 .__("Sorry for the inconvenience.")
-                 ."</div>";
+            echo '<div class="error">'
+                 .__('You do not have sufficient rights for the requested operation or page.')
+                 .'<br/>'
+                 .__('Sorry for the inconvenience.')
+                 .'</div>';
             die();
             return false;
         }
@@ -168,16 +169,16 @@ class UserLogin {
     even in cases where the checking of the right was done without resorting to checkRights
     (for example because the condition is more than just one simple boolean check). */
     function failRights() {
-        echo "<div class='errormessage'>"
-                 .__("You do not have sufficient rights for the requested operation or page.")
-                 ."<br/>"
-                 .__("Sorry for the inconvenience.")
-                 ."</div>";
+        echo '<div class="errormessage">'
+                 .__('You do not have sufficient rights for the requested operation or page.')
+                 .'<br/>'
+                 .__('Sorry for the inconvenience.')
+                 .'</div>';
         die();
         return false;
     }
 
-    /** Return True iff the current user has certain (named) rights, false otherwise 
+    /** Return True iff the current user has certain (named) rights, false otherwise
      *  (or if no user is logged in). */
     function hasRights($right) {
         //no logged user: no right.
@@ -189,7 +190,7 @@ class UserLogin {
             return false;
         }
     }
-   
+
     /** Initialize the preferences. Note: this method should also be called if the preferences
     have changed. */
     function initPreferences() {
@@ -206,19 +207,21 @@ class UserLogin {
                     //some preferences must be slightly transformed here...
                     if ($key=='theme') {
                         if (!themeExists($val)) {
-                            appendErrorMessage(sprintf(__("Theme '%s' no longer exists"),$val).".<br/>");
-                            $val = "default";
+                            appendErrorMessage(sprintf(__('Theme &lsquo;%s&rsquo; no longer exists.'), $val));
+                            $val = 'puma';
                         }
                     }
                     if ($key=='language')
                     {
                       //check existence of language
-                      if ($val != 'default') 
+                      if ($val != 'default')
                       {
                         global $AIGAION_SUPPORTED_LANGUAGES;
                         if (!in_array($val,$AIGAION_SUPPORTED_LANGUAGES))
                         {
-                          appendErrorMessage(sprintf(__("Language '%s' no longer exists under that name. Please reset the relevant profile and site settings."),$val)."<br/>");
+                          appendErrorMessage(sprintf(__('Language &lsquo;%s&rsquo; '.
+                              'no longer exists under that name. Please reset the '.
+                              'relevant profile and site settings.'), $val));
                           $val = AIGAION_DEFAULT_LANGUAGE;
                         }
                       }
@@ -233,20 +236,20 @@ class UserLogin {
                     $this->effectivePreferences[$key]=$val;
                 }
             }
-        }        
+        }
     }
-    
+
     /** Return the value of a certain User Preference for the currently logged in user. */
     function getPreference($preferenceName) {
         if (array_key_exists($preferenceName,$this->effectivePreferences)) {
-            return $this->effectivePreferences[$preferenceName]; 
+            return $this->effectivePreferences[$preferenceName];
         } else {
             return "";
         }
     }
-    
+
     /* ================ login/logout methods ================ */
-    
+
     /** This is the method that you call to perform the login
      *  If already logged in as non-anonymous, do nothing
      *  Else if external login in use: try to login from external module
@@ -254,7 +257,7 @@ class UserLogin {
      *  Else if login vars have been posted and internal login enabled: login from POST vars
      *  Else if cookies are available: login from cookies (delegate login needs be enabled if cookie is external account)
      *  Else if anonymous login allowed: login anonymously */
-    function login() {
+    function login($puma=false) {
         $CI = &get_instance();
         //If already logged in as non-anonymous, do nothing
         if ($this->bIsLoggedIn && !$this->bIsAnonymous) return;
@@ -262,9 +265,30 @@ class UserLogin {
         $this->bIsLoggedIn = false;
         $this->bIsAnonymous = False;
         $this->sLoginName = "";
-        $this->iUserId = "";                
+        $this->iUserId = "";
         $CI->latesession->set('USERLOGIN', $this);
-        
+
+        if ($puma) {
+            try {
+                if (! $this->bJustLoggedOut) {
+                    $CI->load->library('login_puma');
+                    $loginInfo = $CI->login_puma->getLoginInfo();
+                    if (isset($_POST['loginName']) && $_POST['loginName'] == "admin") {
+                        // do nothing, proceed to local login
+                    } elseif (isset($loginInfo['login']) && $loginInfo['login'] !== '') {
+                        $this->internalLogin($loginInfo['login'], $loginInfo['password'], true, true);
+                        return;
+                    } elseif (isset($loginInfo['error'])) {
+                        appendErrorMessage($loginInfo['error']);
+                        return 1;
+                    } else {
+                        return 1;
+                    }
+                }
+            } catch (Exception $e) {}
+        }
+
+
             //Maybe we can login from external module?
             if (getConfigurationSetting("USE_EXTERNAL_LOGIN") == 'TRUE') {
                 //this part will change in a major way when mode 3 login is implemented
@@ -301,7 +325,7 @@ class UserLogin {
             $loginPwd = $_POST['loginPass'];
             $remember=False;
             if (isset($_POST['remember']))$remember=True;
-            
+
             $loginInfoAvailable = true;
             if ($loginPwd=='') {
                 $this->sNotice=__('No password submitted');
@@ -310,7 +334,7 @@ class UserLogin {
         } else {
             //if none found, try to determine uname/pwd from COOKIE
             if ($this->bJustLoggedOut) { //not if we just logged out, because cookie needs to be completely destroyed
-                $this->bJustLoggedOut = False; 
+                $this->bJustLoggedOut = False;
             } else if (isset($_COOKIE["loginname"])) {
                 //user logs in via cookie
                 $loginName = $_COOKIE["loginname"];
@@ -318,27 +342,27 @@ class UserLogin {
                 $remember=True;
                 $pwdInMd5 = true;
                 $loginInfoAvailable = true;
-            } 
+            }
         }
-            
+
         //if no login info is available, delegates password checking and internal password checking make no sense and can be skipped;
         if ($loginInfoAvailable) {
             if (getConfigurationSetting("LOGIN_ENABLE_DELEGATED_LOGIN") == 'TRUE') {
-                
+
                 // if password checking delegate in use: try to login from password checking delegate
                 $result = $this->loginFromPasswordDelegate($loginName,$loginPwd,$remember, $pwdInMd5);
                 if ($this->bIsLoggedIn) {
                     return;
                 }
                 if ($result == 1) {
-                    //report error 
+                    //report error
                     $this->sNotice = __("Unknown user or wrong password")." (code b3.4).";
                     //don't return, but rather attempt to do the internal and anonymous login later on
                 }
                 if ($result == 3) { //3 signifies a critical fail after which continued login checking cannot proceed
                     return 1;
                 }
-            } 
+            }
             if (getConfigurationSetting("LOGIN_DISABLE_INTERNAL_LOGIN") != 'TRUE') {
                 //Else if login vars available and internal login enabled: login internally from available vars
                 $result = $this->internalLogin($loginName,$loginPwd,$remember, $pwdInMd5);
@@ -350,14 +374,14 @@ class UserLogin {
                     $this->sNotice = __("Unknown user or wrong password");
                 }
             }
-            if ($result == 1) { 
+            if ($result == 1) {
                 //apparently user tried to login, and failed both on password checking delegate and internal password checking.
                 //fail and return, don't try anon login
                 $this->sNotice = __("Unknown user or wrong password")." (code b4.15)";
                 return;
             }
         }
-        //If anonymous login allowed: login anonymously 
+        //If anonymous login allowed: login anonymously
         $result = $this->loginAnonymous();
         if ($this->bIsLoggedIn) {
             return;
@@ -374,7 +398,7 @@ class UserLogin {
      *      1 - unknown user or wrong password
      *      2 - no relevant login info available */
     function loginFromExternalSystem() {
-        
+
         if (getConfigurationSetting("USE_EXTERNAL_LOGIN") != 'TRUE') {
             return 2;
         }
@@ -413,40 +437,52 @@ class UserLogin {
             //no login info could be found
             return 1;
         }
-        
+
         //login name was found. Now try to login that person
         $Q = $CI->db->get_where('users',array('login'=>$loginName));
         if ($Q->num_rows()>0) { //user found
             $row = $Q->row();
             //internal account?
             if ($row->type=='normal') {
-                $this->sNotice = sprintf(__('The username / password combination is valid according to the login module, but the corresponding Aigaion account is an %s account and cannot be logged in by the %s module. Please contact your database admin for assistance.'),'<i>'.__('internal').'</i>',$delegateLibrary).' (Code b3.52 pwd ok / wrong account).<br/>';
+                $this->sNotice = sprintf(__('The username / password combination '.
+                    'is valid according to the login module, but the corresponding '.
+                    'Aigaion account is an %s account and cannot be logged in by the '.
+                    '%s module. Please contact your database admin for assistance.'),
+                    '<em>'.__('internal').'</em>',$delegateLibrary).' (Code b3.52 pwd ok / wrong account).';
                 return 3; //critical fail, no other login should be attempted
             }
             //anonymous account?
             if ($row->type=='anon') {
-                $this->sNotice = sprintf(__('The username / password combination is valid according to the login module, but the corresponding Aigaion account is an %s account and cannot be logged in by the %s module. Please contact your database admin for assistance.'),'<i>'.__('anonymous').'</i>',$delegateLibrary).' (Code b3.52 pwd ok / wrong account).<br/>';
+                $this->sNotice = sprintf(__('The username / password combination '.
+                    'is valid according to the login module, but the corresponding '.
+                    'Aigaion account is an %s account and cannot be logged in by the '.
+                    '%s module. Please contact your database admin for assistance.'),
+                    '<em>'.__('anonymous').'</em>',$delegateLibrary).' (Code b3.52 pwd ok / wrong account).';
                 return 3; //critical fail, no other login should be attempted
             }
             //group account?
             if ($row->type=='group') {
-                $this->sNotice = sprintf(__('The username / password combination is valid according to the login module, but the corresponding Aigaion account is an %s account and cannot be logged in by the %s module. Please contact your database admin for assistance.'),'<i>'.__('group').'</i>',$delegateLibrary).' (Code b3.52 pwd ok / wrong account).<br/>';
+                $this->sNotice = sprintf(__('The username / password combination '.
+                    'is valid according to the login module, but the corresponding '.
+                    'Aigaion account is an %s account and cannot be logged in by the '.
+                    '%s module. Please contact your database admin for assistance.'),
+                    '<em>'.__('group').'</em>',$delegateLibrary).' (Code b3.52 pwd ok / wrong account).';
                 return 3; //critical fail, no other login should be attempted
             }
-            
+
             $loginPwd = $row->password;
             if ($this->_login($loginName,$loginPwd,False,True,False)==0) { //never remember external login; that's a task for the external module
                 //$this->sNotice = 'logged from httpauth';
                 //appendErrorMessage('<br/>LDAP login says: known user, logged in');
                 return 0; // success
             }
-        } 
+        }
         //appendErrorMessage('<br/>LDAP login says: unknown user, make?');
-        if (getConfigurationSetting("LOGIN_CREATE_MISSING_USER") == 'TRUE') {
+        if (getConfigurationSetting('LOGIN_CREATE_MISSING_USER') == 'TRUE') {
             //appendErrorMessage('<br/>LDAP login says: unknown user, make!');
-            //no such user found. Make user on the fly. Don't use the user_db class for this, as 
+            //no such user found. Make user on the fly. Don't use the user_db class for this, as
             // we would run into problems with the checkrights performed in user_db->add(...)
-            $chars = "abcdefghijkmnopqrstuvwxyz023456789";
+            $chars = 'abcdefghijkmnopqrstuvwxyz023456789';
             srand((double)microtime()*1000000);
             $i = 0;
             $pass = '' ;
@@ -455,7 +491,7 @@ class UserLogin {
                 $tmp = substr($chars, $num, 1);
                 $pass = $pass . $tmp;
                 $i++;
-            }            
+            }
             $group_ids = array();
             foreach ($loginGroups as $groupname) {
                 $groupQ = $CI->db->get_where('users',array('type'=>'group','abbreviation'=>$groupname));
@@ -467,7 +503,7 @@ class UserLogin {
                     $CI->db->insert("users", array('surname'=>$groupname,'abbreviation'=>$groupname,'type'=>'group'));
                     $new_id = $CI->db->insert_id();
                     //subscribe group to top topic
-                    $CI->db->insert('usertopiclink', array('user_id' => $new_id, 'topic_id' => 1)); 
+                    $CI->db->insert('usertopiclink', array('user_id' => $new_id, 'topic_id' => 1));
                     $group_ids[] = $new_id;
                 }
             }
@@ -504,29 +540,29 @@ class UserLogin {
                         $CI->db->delete('userrights',array('user_id'=>$new_id,'right_name'=>$right));
                         $CI->db->insert('userrights',array('user_id'=>$new_id,'right_name'=>$right));
                     }
-                    
+
                 }
             }
             //subscribe new user to top topic
-            $CI->db->insert('usertopiclink', array('user_id' => $new_id, 'topic_id' => 1)); 
+            $CI->db->insert('usertopiclink', array('user_id' => $new_id, 'topic_id' => 1));
             //after adding the new user, log in as that new user
             if ($this->_login($loginName,md5($pass),False, True, False)==0) { //never remember external login; that's a task for the external module
                 //$this->sNotice = 'logged from httpauth';
-                appendMessage(sprintf(__('Created missing user %s  as member of groups %s'),$loginName,implode(',',$loginGroups)));
+                appendMessage(sprintf(__('Created missing user %s as member of groups %s'),$loginName,implode(',',$loginGroups)));
                 return 0; // success
             } else {
-                echo "Serious error: a new user was created and could not be logged in. ".md5($pass)." ";die();
+                echo 'Serious error: a new user was created and could not be logged in. '.md5($pass).' ';die();
             }
         } else {
             return 1;
         }
         return 2;
     }
-        
+
     /** Attempts to login as user using a password checking delegate
      *  returns one of following:
      *      0 - success
-     *      1 - unknown user or wrong password 
+     *      1 - unknown user or wrong password
      *      3 - critical fail, no other login should be attempted    */
     function loginFromPasswordDelegate($loginName,$loginPwd,$remember,$pwdInMd5) {
         $CI = &get_instance();
@@ -546,7 +582,7 @@ class UserLogin {
                     //pwd was OK but account did not exist. Create and try again?
                     if (getConfigurationSetting("LOGIN_CREATE_MISSING_USER")=='TRUE') {
                         //create user
-                        //no such user found. Make user on the fly. Don't use the user_db class for this, as 
+                        //no such user found. Make user on the fly. Don't use the user_db class for this, as
                         // we would run into problems with the checkrights performed in user_db->add(...)
                         $chars = "abcdefghijkmnopqrstuvwxyz023456789";
                         srand((double)microtime()*1000000);
@@ -558,7 +594,7 @@ class UserLogin {
                             $pass = $pass . $tmp;
                             $i++;
                         }
-                        
+
                         //add user.... to database
                         $CI->db->insert("users",     array('initials'           => '',
                                                            'firstname'          => '',
@@ -582,8 +618,8 @@ class UserLogin {
                                           );
                         $new_id = $CI->db->insert_id();
                         //subscribe new user to top topic
-                        $CI->db->insert('usertopiclink', array('user_id' => $new_id, 'topic_id' => 1)); 
-                        //after adding the new user, log in as that new user                        
+                        $CI->db->insert('usertopiclink', array('user_id' => $new_id, 'topic_id' => 1));
+                        //after adding the new user, log in as that new user
                         //get user again, so we can continue loggin in
                         $Q = $CI->db->get_where('users',array('login'=>$loginInfo['uname']));
                         //login
@@ -591,12 +627,14 @@ class UserLogin {
                             $row = $Q->row();
                             $loginName = $row->login;
                             $loginPwd = $row->password;
-                            if ($this->_login($loginName,$loginPwd,$remember,True,False)==0) { 
+                            if ($this->_login($loginName,$loginPwd,$remember,True,False)==0) {
                                 //set some message 'new Aigaion account created, please feel welcome'
-                                appendMessage("<p>".sprintf(__("A new Aigaion account has been created for you, user '%s'. Please enjoy your stay here."),$loginInfo['uname'])."<br/>");
+                                appendMessage(sprintf(__('A new Puma account has been '.
+                                    'created for you, user ‘%s’. Please enjoy '.
+                                    'your stay here.'), $loginInfo['uname']));
                                 return 0; // success
                             }
-                        } 
+                        }
                         //At this point,  we should have been logged in
                         //if we end up here, apparently something went major wrong (pwd was ok, accou nt did not exist, it should have been created and logged in)
                         //this really should not happen :(
@@ -609,27 +647,41 @@ class UserLogin {
                     $row = $Q->row();
                     //internal account?
                     if ($row->type=='normal') {
-                        $this->sNotice = sprintf(__('The username / password combination is valid according to %s, but the corresponding Aigaion account is an %s account and cannot be logged in by the %s module. Please contact your database admin for assistance.'),'<i>'.__('internal').'</i>',$delegateLibrary,$delegateLibrary).' (Code b3.52 pwd ok / wrong account).<br/>';
+                        $this->sNotice = sprintf(__('The username / password combination '.
+                            'is valid according to %s, but the corresponding Aigaion '.
+                            'account is an %s account and cannot be logged in by the %s '.
+                            'module. Please contact your database admin for assistance.'),
+                            '<em>'.__('internal').'</em>',$delegateLibrary,$delegateLibrary).' (Code b3.52 pwd ok / wrong account).';
                         return 3; //critical fail, no other login should be attempted
                     }
                     //anonymous account?
                     if ($row->type=='anon') {
-                        $this->sNotice = sprintf(__('The username / password combination is valid according to %s, but the corresponding Aigaion account is an %s account and cannot be logged in by the %s module. Please contact your database admin for assistance.'),'<i>'.__('anonymous').'</i>',$delegateLibrary,$delegateLibrary).' (Code b3.52 pwd ok / wrong account).<br/>';
+                        $this->sNotice = sprintf(__('The username / password combination '.
+                            'is valid according to %s, but the corresponding Aigaion account '.
+                            'is an %s account and cannot be logged in by the %s module. '.
+                            'Please contact your database admin for assistance.'),
+                            '<em>'.__('anonymous').'</em>',$delegateLibrary,$delegateLibrary).' (Code b3.52 pwd ok / wrong account).';
                         return 3; //critical fail, no other login should be attempted
                     }
                     //group account?
                     if ($row->type=='group') {
-                        $this->sNotice = sprintf(__('The username / password combination is valid according to %s, but the corresponding Aigaion account is an %s account and cannot be logged in by the %s module. Please contact your database admin for assistance.'),'<i>'.__('group').'</i>',$delegateLibrary,$delegateLibrary).' (Code b3.52 pwd ok / wrong account).<br/>';
+                        $this->sNotice = sprintf(__('The username / password combination '.
+                            'is valid according to %s, but the corresponding Aigaion account '.
+                            'is an %s account and cannot be logged in by the %s module. '.
+                            'Please contact your database admin for assistance.'),
+                            '<em>'.__('group').'</em>',$delegateLibrary,$delegateLibrary).' (Code b3.52 pwd ok / wrong account).';
                         return 3; //critical fail, no other login should be attempted
                     }
                     //yay! type is external! --> do the login, finally!
                     $loginName = $row->login;
                     $loginPwd = $row->password;
-                    if ($this->_login($loginName,$loginPwd,$remember,True,False)==0) { 
+                    if ($this->_login($loginName,$loginPwd,$remember,True,False)==0) {
                         return 0; // success
                     }
                 } else {
-                    $this->sNotice = __('The username / password combination is valid, but has no Aigaion account associated with it yet. Please contact your database admin for assistance').' (Code b3.67 pwd ok / no account).<br/>';
+                    $this->sNotice = __('The username / password combination is valid, '.
+                            'but has no Aigaion account associated with it yet. Please '.
+                            'contact your database admin for assistance').' (Code b3.67 pwd ok / no account).';
                     return 3; //critical fail, no other login should be attempted
                 }
                 //else $result was 1; try next delegate...
@@ -637,10 +689,10 @@ class UserLogin {
         }
         //no delegate was successfull? return 1 for fail
         return 1;
-        
-        
+
+
     }
-    
+
     /** Attempts to login as user using the internal password checking mechanism
      *  returns one of following:
      *      0 - success
@@ -649,7 +701,7 @@ class UserLogin {
         //check whether that login is internal or not...
         return $this->_login($loginName,$loginPwd,$remember, $pwdInMd5,True);
     }
-    
+
     /** Attempts to login as the given anonymous user
      *  returns one of following:
      *      0 - success
@@ -673,15 +725,18 @@ class UserLogin {
                 return 0; // success
             }
         } else {
-            $this->sNotice = __('Anonymous (guest) access to this database has been enabled. However, no default anonymous account has been assigned, so anonymous access is unfortunately not yet possible.').'<br/>';
+            $this->sNotice = __('Anonymous (guest) access to this database has been '.
+                            'enabled. However, no default anonymous account has been '.
+                            'assigned, so anonymous access is unfortunately not yet '.
+                            'possible.');
         }
         return 1; //no or incorrect anonymous account defined
     }
-    
+
     /** Attempts to login as the given user. Called by the other login methods.
      *  returns one of following:
      *      0 - success
-     *      1 - unknown user or wrong password 
+     *      1 - unknown user or wrong password
      $internal is true iff this account is an attempt to log in as a 'normal' internal account. These accounts can not login if it has password_invalidated set, because it was anon or external*/
     function _login($userName, $pwdHash, $remember, $pwdInMd5 = False, $internal = False) {
         $CI = &get_instance();
@@ -693,25 +748,25 @@ class UserLogin {
             return 1; //no such user error
         }
         $R = $Q->row();
-        $failForPwdInvalidated = False; 
-        
+        $failForPwdInvalidated = False;
+
         if (isset($R->password_invalidated)) {//necessary because older versions of database do not have this column
-            $failForPwdInvalidated  = $internal && ($R->password_invalidated=='TRUE'); 
+            $failForPwdInvalidated  = $internal && ($R->password_invalidated=='TRUE');
         }
         if (($pwdHash != $R->password) || ($failForPwdInvalidated )) {
             //($internal && ($R->password_invalidated=='TRUE')) but password OK?
-            //Then someone tried to login through the internal login mechanism using an account 
+            //Then someone tried to login through the internal login mechanism using an account
             //that is anon or external or internal_disabled.
             //There is a strong reason why we don't give an error message when a password_invalidated
-            //account is logged in here as internal: 
+            //account is logged in here as internal:
             //it would give someone the opportunity to fish for login names!
 
             //So, anyhow, this was not a successful login: reset all class vars, return error
             //reset class vars
-            $this->bIsLoggedIn = False; 
+            $this->bIsLoggedIn = False;
             $this->bIsAnonymous = False;
             $this->sLoginName = "";
-            $this->iUserId = "";                
+            $this->iUserId = "";
             $CI->latesession->set('USERLOGIN', $this);
             return 1; //user/password error
         } else {
@@ -721,18 +776,19 @@ class UserLogin {
             //check if people changed the default account!
             if ($userName == "admin") {
                 if ($pwdHash == md5("admin")) {
-                    appendErrorMessage(__("Your admin account password still has the default value, please change it on the 'profile' page.")."<br/>");
+                    appendErrorMessage(__('Your admin account password still has '.
+                        'the default value, please change it on the &lsquo;profile&rsquo; page.'));
                 }
             }
 
             //login OK
             $this->bIsLoggedIn = True;
             $this->sLoginName = $R->login;
-            $this->iUserId = $R->user_id;       
+            $this->iUserId = $R->user_id;
             $this->bIsAnonymous = False;
-            $this->bJustLoggedOut = False;  
-            
-            
+            $this->bJustLoggedOut = False;
+
+
             //create the User object for this logged user
             $CI = &get_instance();
             $this->theUser = $CI->user_db->getByID($this->iUserId);
@@ -747,48 +803,38 @@ class UserLogin {
             //store cookies after login was checked
             if ($remember)
             {
-                setcookie("loginname", $R->login   ,(3*24*60*60)+time(), '/');
-                setcookie("password",  $R->password,(3*24*60*60)+time(), '/');
+                setcookie("loginname", $R->login   ,(3*24*60*60)+time(), $CI->config->item('cookie_path'));
+                setcookie("password",  $R->password,(3*24*60*60)+time(), $CI->config->item('cookie_path'));
             }
 
             #init rights and preferences
             $this->initRights();
-            
+
 
             #set a welcome message/advertisement after login
             if ($this->bIsAnonymous) {
-              appendMessage(sprintf(__("Dear guest, welcome to this publication database. As an anonymous user, you will probably not have edit rights. Also, the collapse status of the topic tree will not be persistent. If you like to have these and other options enabled, you might ask %s for a login account."),"<a href='mailto: \"".getConfigurationSetting("CFG_ADMIN")."\" ".'<'.getConfigurationSetting("CFG_ADMINMAIL").'>'."?subject=Access account for ".getConfigurationSetting("WINDOW_TITLE")." Aigaion database'>".getConfigurationSetting("CFG_ADMIN")."</a>"));
+                appendMessage(sprintf(__('Dear guest, welcome to this publication '.
+                    'database. As an anonymous user, you have no edit rights. As '.
+                    'member of the Faculty of Physics you can, however, log in with '.
+                    'your NDS account. If you experience problems during login or '.
+                    'have any other question, please ask %s.'),
+                    '<a href="mailto:&quot;'.h(getConfigurationSetting('CFG_ADMIN')).
+                    '&quot;%20&lt;'.h(getConfigurationSetting('CFG_ADMINMAIL')).
+                    '&gt;?subject=Question%20re:%20Puma.Phi">'.getConfigurationSetting('CFG_ADMIN').'</a>'));
             }
-            appendMessage("<table>\n<tr>
-                          <td>"
-                          .__("This site is powered by Aigaion - A PHP/Web based management system for shared and annotated bibliographies.")
-                          ." "
-                          .sprintf(__("For more information visit %s"),"<a href='http://www.aigaion.nl/' class='open_extern'>www.aigaion.nl</a>.")
-                          ."</td>
-                          <td>
-                          <a href='http://aigaion.sourceforge.net' class='open_extern'>
-                             <img src='http://sourceforge.net/sflogo.php?group_id=109910&type=1' 
-                                  width='88' 
-                                  height='31' 
-                                  border='0' 
-                                  alt='SourceForge.hetLogo'/>
-                          </a>
-                          </td></tr>\n</table>
-              ");
-            
+
 
             #SO. Here, if login was successful, we will check the database structure once.
             $this->initPreferences();
             $CI->latesession->set('USERLOGIN', $this);
             if (!checkSchema()) { //checkSchema will also attempt to login...
                 $this->logout();
-                $this->sNotice = __("You have been logged out because the Aigaion Engine is in the process of being updated.")
-                                 ."<br/>"
-                                 .__("If you are a user with database_manage rights, please login to complete the update.")
-                                 ."<br/>";
+                $this->sNotice = __('You have been logged out because the Aigaion Engine is in the process of being updated.')
+                                 .'<br/>'
+                                 .__('If you are a user with database_manage rights, please login to complete the update.');
                 return 2;
             }
-            
+
             #once every day (i.e. depending on when last up-to-date-check was performed), for
             #database_manage users, an up-to-date-check is performed
             #do this AFTER possible updating of the database ;-)
@@ -800,7 +846,7 @@ class UserLogin {
     		        $checkresult .= '<b>'.__('OK').'</b><br/>';
         			$checkresult .= __('This installation of Aigaion is up-to-date');
 	            } else {
-        			$checkresult .= '<span class="errortext">'.utf8_strtoupper(__('Alert')).'</span><br/>';
+        			$checkresult .= '<span class="errortext">'.utf8_strtoupper(__('Alert')).'</span>';
         			$checkresult .= $updateinfo;
     	        }
     	        appendMessage($checkresult);
@@ -808,14 +854,14 @@ class UserLogin {
             }
             $this->sNotice = ''; //clean up irrelevant notices; login was successfull
             return 0;
-        } 
+        }
     }
 
     /** Logout any active session. */
     function logout() {
         //session_destroy();
         //reset class vars
-        $this->bIsLoggedIn = False; 
+        $this->bIsLoggedIn = False;
         $this->bIsAnonymous = False;
         $this->sLoginName = "";
         $this->iUserId = "";
@@ -835,4 +881,4 @@ class UserLogin {
 
 
 
-?>
+//__END__

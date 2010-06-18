@@ -23,9 +23,9 @@ class Login_filter extends Filter {
     //if not logged in: redirect to login/dologin
     if (!$userlogin->isLoggedIn()) {
       $segments = $CI->uri->segment_array();
-      if ($this->config['action']=='fail') {
-        redirect('/login/fail/');
-      }
+      //if ($this->config['action']=='fail') {
+      //  redirect('/login/fail/');
+      //}
       //Now we need to check for form data before redirecting...
       if ($CI->input->post('formname')!==false) {
         //We have a form...
@@ -40,15 +40,20 @@ class Login_filter extends Filter {
         storeForm();
         //and then continue logging in again...
       }
-      if ($this->config['action']=='redirect') 
-      {
-        redirect('/login/dologin/'.str_replace(' ','%20',implode('/',$segments)));//note: if we don't replace this %20 / space, we sometimes get truncated dfata after some redirects, so e.g. "readapi/link/topic/Emergent games" in the end (after some login redirects) tries to link to "Emergent"
-      } 
-      else //action = redirectnoform
-      {
-        redirect('/login/dologinnoform/'.str_replace(' ','%20',implode('/',$segments)));//note: if we don't replace this %20 / space, we sometimes get truncated dfata after some redirects, so e.g. "readapi/link/topic/Emergent games" in the end (after some login redirects) tries to link to "Emergent"
-      }
+      $userlogin->loginAnonymous();
+      //if ($this->config['action']=='redirect') 
+      //{
+      //  redirect('/login/dologin/'.str_replace(' ','%20',implode('/',$segments)));//note: if we don't replace this %20 / space, we sometimes get truncated dfata after some redirects, so e.g. "readapi/link/topic/Emergent games" in the end (after some login redirects) tries to link to "Emergent"
+      //} 
+      //else //action = redirectnoform
+      //{
+      //  redirect('/login/dologinnoform/'.str_replace(' ','%20',implode('/',$segments)));//note: if we don't replace this %20 / space, we sometimes get truncated dfata after some redirects, so e.g. "readapi/link/topic/Emergent games" in the end (after some login redirects) tries to link to "Emergent"
+      //}
     } else {
+        if ($userlogin->userId()) {
+            // last seen this user at NOW()
+            $CI->db->where('user_id', $userlogin->userId())->set('last_seen', 'NOW()', False)->update('users');
+        }
         if ($CI->latesession->get('FORMREPOST')==True) {
             if ($CI->input->post('form_reposted')!==false) {
                 //if you are logged in, and you were reposting a form, and this is the reposted form, 
@@ -62,4 +67,5 @@ class Login_filter extends Filter {
     }
   }
 }
-?>
+
+//__END__

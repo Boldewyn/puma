@@ -1,0 +1,204 @@
+/*
+site: 85em
+content: 1em 83em 1em
+grid: 83em = 12*6em + 11*1em
+
+ 1 column:   6em
+ 2 columns: 13em
+ 3 columns: 20em
+ 4 columns: 27em
+ 5 columns: 34em
+ 6 columns: 41em
+ 7 columns: 48em
+ 8 columns: 55em
+ 9 columns: 62em
+10 columns: 69em
+11 columns: 76em
+12 columns: 83em
+
+jQuery UI adapted:
+http://jqueryui.com/themeroller/?ffDefault=Frutiger%20Next%20Pro,Frutiger%20Next,Segoe%20UI,Verdana,sans-serif&fwDefault=normal&fsDefault=1.1em&cornerRadius=3px&bgColorHeader=def7f5&bgTextureHeader=03_highlight_soft.png&bgImgOpacityHeader=100&borderColorHeader=aeeae6&fcHeader=222222&iconColorHeader=72cfc8&bgColorContent=f2f5f7&bgTextureContent=04_highlight_hard.png&bgImgOpacityContent=100&borderColorContent=dddddd&fcContent=2b3136&iconColorContent=72cfc7&bgColorDefault=d7f9f7&bgTextureDefault=02_glass.png&bgImgOpacityDefault=80&borderColorDefault=aeeae8&fcDefault=27aaa0&iconColorDefault=3db3ab&bgColorHover=e4fbfb&bgTextureHover=02_glass.png&bgImgOpacityHover=100&borderColorHover=74e2df&fcHover=00a39b&iconColorHover=26e8e8&bgColorActive=1a9e98&bgTextureActive=02_glass.png&bgImgOpacityActive=50&borderColorActive=1dc9c2&fcActive=ffffff&iconColorActive=ffffff&bgColorHighlight=18e2d6&bgTextureHighlight=02_glass.png&bgImgOpacityHighlight=25&borderColorHighlight=00b8b8&fcHighlight=363636&iconColorHighlight=006b6b&bgColorError=cd0a0a&bgTextureError=01_flat.png&bgImgOpacityError=15&borderColorError=cd0a0a&fcError=ffffff&iconColorError=ffd1d1&bgColorOverlay=eeeeee&bgTextureOverlay=08_diagonals_thick.png&bgImgOpacityOverlay=90&opacityOverlay=80&bgColorShadow=000000&bgTextureShadow=04_highlight_hard.png&bgImgOpacityShadow=70&opacityShadow=30&thicknessShadow=7px&offsetTopShadow=-7px&offsetLeftShadow=-7px&cornerRadiusShadow=3px#ffDefault=Frutiger+Next+Pro%2CFrutiger+Next%2CSegoe+UI%2CVerdana%2Csans-serif&fwDefault=normal&fsDefault=1em&cornerRadius=2px&bgColorHeader=cbd9da&bgTextureHeader=03_highlight_soft.png&bgImgOpacityHeader=100&borderColorHeader=67bbc1&fcHeader=004b4f&iconColorHeader=004b4f&bgColorContent=effeff&bgTextureContent=04_highlight_hard.png&bgImgOpacityContent=100&borderColorContent=00757e&fcContent=005a5f&iconColorContent=005a5f&bgColorDefault=008993&bgTextureDefault=02_glass.png&bgImgOpacityDefault=80&borderColorDefault=00757e&fcDefault=ffffff&iconColorDefault=ffffff&bgColorHover=008993&bgTextureHover=05_inset_soft.png&bgImgOpacityHover=100&borderColorHover=00757e&fcHover=ffffff&iconColorHover=ffffff&bgColorActive=008993&bgTextureActive=03_highlight_soft.png&bgImgOpacityActive=50&borderColorActive=00757e&fcActive=ffffff&iconColorActive=ffffff&bgColorHighlight=66ff66&bgTextureHighlight=03_highlight_soft.png&bgImgOpacityHighlight=25&borderColorHighlight=00ad00&fcHighlight=002d2f&iconColorHighlight=00ad00&bgColorError=ff6666&bgTextureError=01_flat.png&bgImgOpacityError=15&borderColorError=ad0000&fcError=002d2f&iconColorError=ad0000&bgColorOverlay=effeff&bgTextureOverlay=01_flat.png&bgImgOpacityOverlay=100&opacityOverlay=70&bgColorShadow=000000&bgTextureShadow=01_flat.png&bgImgOpacityShadow=100&opacityShadow=25&thicknessShadow=7px&offsetTopShadow=-7px&offsetLeftShadow=-7px&cornerRadiusShadow=2px
+*/
+
+#container {
+  width: 85em;
+  margin: 0 auto;
+}
+
+#content {
+  border: .08333em solid #61a6a9;
+  border-top: 0;
+  padding: .916667em 0 .916667em .916667em;
+}
+
+.column {
+  margin-right: 1em;
+  float: left;
+}
+
+.last_column {
+  margin-right: 0; /* if #content has no padding-right, this could be cancelled... (iff we always have at least one column) */
+}
+
+.bordered {
+  border: 0.08333em solid #00757E;
+  padding: 0.916667em;
+}
+
+.element {
+  border: 0.08333em solid #00757E;
+  padding: 0.08333em;
+}
+
+.full {
+  width: 83em;
+  float: none;
+  clear: left;
+}
+
+.bordered_full {
+  width: 81em;
+}
+
+.full_element {
+  width: 82.6667em;
+}
+
+.bordered_full .full_element {
+  width: 80.6667em;
+}
+
+.threefourth {
+  width: 62em;
+}
+
+.bordered_threefourth {
+  width: 60em;
+}
+
+.threefourth_element {
+  width: 61.6667em;
+}
+
+.bordered_threefourth .threefourth_element {
+  width: 59.6667em;
+}
+
+.twothird {
+  width: 55em;
+}
+
+.bordered_twothird {
+  width: 53em;
+}
+
+.twothird_element {
+  width: 54.6667em;
+}
+
+.bordered_twothird .twothird_element {
+  width: 52.6667em;
+}
+
+.half {
+  width: 41em;
+}
+
+.bordered_half {
+  width: 39em;
+}
+
+.half_element {
+  width: 40.6667em;
+}
+
+.bordered_half .half_element {
+  width: 38.6667em;
+}
+
+.third {
+  width: 27em;
+}
+
+.bordered_third {
+  width: 25em;
+}
+
+.third_element {
+  width: 26.6667em;
+}
+
+.bordered_third .third_element {
+  width: 24.6667em;
+}
+
+.fourth {
+  width: 20em;
+}
+
+.bordered_fourth {
+  width: 18em;
+}
+
+.fourth_element {
+  width: 19.6667em;
+}
+
+.bordered_fourth .fourth_element {
+  width: 17.6667em;
+}
+
+.sixth {
+  width: 13em;
+}
+
+.bordered_sixth {
+  width: 11em;
+}
+
+.sixth_element {
+  width: 12.6667em;
+}
+
+.twelfth {
+  width: 6em;
+}
+
+.bordered_twelfth {
+  width: 4em;
+}
+
+.twelfth_element {
+  width: 5.6667em;
+}
+
+.label {
+  display: block;
+  float: left;
+  padding: 0;
+  margin: 0 1em 0 0;
+  border: none;
+}
+
+.textcolumn {
+  column-width: 6em;
+  column-gap: 1em;
+  -moz-column-width: 6em;
+  -moz-column-gap: 1em;
+  -webkit-column-width: 6em;
+  -webkit-column-gap: 1em;
+}
+
+.double_textcolumn {
+  column-width: 13em;
+  -moz-column-width: 13em;
+  -webkit-column-width: 13em;
+}
+
+.triple_textcolumn {
+  column-width: 20em;
+  -moz-column-width: 20em;
+  -webkit-column-width: 20em;
+}
+
+

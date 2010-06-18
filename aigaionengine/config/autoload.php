@@ -40,13 +40,12 @@
 */
 
 $autoload['libraries'] = array('database','latesession','userlogin','ajax',
-                               'accesslevels_lib','bibtex2utf8',
+                               'accesslevels_lib',
                                'user','user_db','group','group_db','rightsprofile','rightsprofile_db',
                                'siteconfig','siteconfig_db','userlanguage','gettext',
                                'topic','topic_db','attachment','attachment_db','note','note_db',
                                'publication','publication_db','author','author_db',
-                               'keyword_db','bookmarklist_db',
-                               'parsecreators','parsemonth','parsepage','file_upload');
+                               'keyword_db');
 
 
 /*
@@ -58,8 +57,8 @@ $autoload['libraries'] = array('database','latesession','userlogin','ajax',
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('config','theme','url','login','message', 'form', 
-                            'abbrev','rights', 'schema', 'attachments', 'bibtex','utf8','month');
+$autoload['helper'] = array('markup', 'config','theme','url','login','message', 'form', 'options',
+                            'attachments', 'bibtex','utf8','month');
 
 
 /*
@@ -97,7 +96,7 @@ $autoload['config'] = array();
 |
 |	$autoload['language'] = array('lang1', 'lang2');
 |
-| NOTE: Do not include the "_lang" part of your file.  For example 
+| NOTE: Do not include the "_lang" part of your file.  For example
 | "codeigniter_lang.php" would be referenced as array('codeigniter');
 |
 */

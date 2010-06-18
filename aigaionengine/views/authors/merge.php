@@ -1,52 +1,35 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<?php
-  $authorfields = array('firstname'=>__('First name(s)'), 'von'=>__('von-part'), 'surname'=>__('Last name(s)'), 'jr'=>__('jr-part'), 'email'=>__('Email'), 'institute'=>__('Institute'));
-  $formAttributes = array('ID' => 'author_'.$author->author_id.'_edit');
-?>
-<div class='author'>
-  <div class='header'><?php echo __('Merge authors'); ?></div>
-  <?php echo __('Merges the source author with the target author. The source author will be deleted, all publications will be transferred to the target author.');
-
-    //open the edit form
-    echo form_open('authors/mergecommit', $formAttributes)."\n";
-    echo form_hidden('author_id',   $author->author_id)."\n";
-    echo form_hidden('simauthor_id',   $simauthor->author_id)."\n";
-    echo form_hidden('formname','author');
-?>
-  <table>
-    <tr><td>
-    <table class='author_edit_form' width='100%'>
-        <tr>
-        <td colspan=2><p class='header2'><?php echo __('Target author');?></p></td>
-        <td><p class='header2'></p></td>
-        <td colspan=2><p class='header2'><?php echo __('Source author');?></p></td>
-        </tr>
-<?php
-        foreach ($authorfields as $field=>$display):
-?>
-        <tr>
-        <td valign='top'><?php echo $display; ?>:</td>
-        <td valign='top'><?php echo form_input(array('name' => $field, 'id' => $field, 'size' => '30', 'alt' => $field), $author->$field);?></td>
-        <td valign='top'><?php echo $this->ajax->button_to_function('<<', "$('".$field."').value=$('sim".$field."').value;");?></td>
-        <td valign='top'><?php echo $display; ?>:</td>
-        <td valign='top'><?php echo form_input(array('name' => 'sim'.$field, 'id' => 'sim'.$field, 'size' => '30', 'alt' => $field), $simauthor->$field);?></td>
-        </tr>
-<?php
-        endforeach;
-?>
-    </table>
-    </td></tr>
-    <tr><td colspan='2'>
-      <?php echo form_submit('merge_submit', __('Merge'))."\n"; ?>
-    </td></tr>
+<form method="post" action="<?php _url('authors/mergecommit') ?>">
+  <h2><?php _e('Merge authors') ?></h2>
+  <p><?php _e('Merges the source author with the target author. The source '.
+    'author will be deleted, all publications will be transferred to the target '.
+    'author.') ?></p>
+  <table class='author_edit_form' width='100%'>
+    <tr>
+      <th colspan="2"><h4><?php _e('Target author') ?></h4></th>
+      <td></td>
+      <th colspan="2"><h4><?php _e('Source author') ?></h4></th>
+    </tr>
+    <?php foreach (array('firstname'=>__('First name(s)'), 'von'=>__('von-part'),
+                   'surname'=>__('Last name(s)'), 'jr'=>__('jr-part'),
+                   'email'=>__('Email'), 'institute'=>__('Institute')) as $field=>$display): ?>
+      <tr>
+        <th><?php echo $display; ?>:</th>
+        <td><input type="text" class="text" name="<?php echo $field ?>"
+                   id="<?php echo $field ?>" value="<?php _h($author->$field) ?>" /></td>
+        <td><button type="button" onclick="$('#<?php echo $field
+                   ?>').val($('#sim<?php echo $field ?>').val());">&lArr;</button></td>
+        <th><?php echo $display; ?>:</th>
+        <td><input type="text" class="text" name="sim<?php echo $field ?>" 
+                   id="sim<?php echo $field ?>" value="<?php _h($simauthor->$field) ?>" /></td>
+      </tr>
+    <?php endforeach; ?>
   </table>
-
-<?php
-    
-  echo form_close()."\n";
-echo form_open('authors/show/'.$author->author_id);
-echo form_submit('cancel',__('Cancel'));
-echo form_close();
-
-?>
-</div>
+  <p>
+    <input type="hidden" name="author_id" value="<?php echo $author->author_id?>" />
+    <input type="hidden" name="simauthor_id" value="<?php echo $simauthor->author_id?>" />
+    <input type="hidden" name="formname" value="author" />
+    <input type="submit" value="<?php _e('Merge')?>" />
+    <?php _a('authors/show/'.$author->author_id, __('Cancel'), 'class="pseudobutton"'); ?>
+  </p>
+</form>

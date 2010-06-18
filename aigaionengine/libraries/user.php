@@ -1,12 +1,12 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?><?php
-/** This class holds the data structure of a user. 
+/** This class holds the data structure of a user.
 
 This User class is now mostly used for managing users and profiles.
 Later on, this class will also be used in the login library.
 
 Database access for Users is done through the User_db library */
 class User {
-  
+
     #ID
     var $user_id            = '';
     #content variables; to be changed directly when necessary
@@ -37,7 +37,7 @@ class User {
                                     'exportinbrowser'=>'FALSE',
                                     'utf8bibtex'=>'FALSE'
                                     ); //an array of ($preferencename=>preferencevalue)
-                              
+
     //assigned rights
     var $assignedrights     = array(); //an array of ($assignedright)
     //the ids of all groups that the user is a part of
@@ -46,17 +46,17 @@ class User {
     //only has a value for the logged user!
     var $fullSubscriptionTree = null;
     var $toBeDisabled = false;
-    
+
     /** The class-tree (Category object) of  only those classes to which the user is subscribed */
     //var $personal_subscribed_tree    = null; //this is the tree as it is only filled with the topics for this individual user, i.e. the 'extra' subscribed topics
     //var $full_subscribed_tree    = null; //this is the tree as it is also filled with the topics from the group!
     //or dow we want to store the topics as a list of IDs?
-    
+
     function User()
     {
 
     }
-    
+
     /** Add a new user with the given data. Returns TRUE or FALSE depending on whether the operation was
     successfull. After a successfull 'add', $this->user_id contains the new user_id. */
     function add() {
@@ -80,5 +80,33 @@ class User {
         $CI = &get_instance();
         return $CI->user_db->delete($this);
     }
+
+    /** A simple method to update _some_ fields of a user */
+    function edit($values) {
+        foreach ($values as $key => $value) {
+            if (isset($this->$key)) {
+                $this->$key = $value;
+            } elseif (array_key_exists($key, $this->preferences)) {
+                $this->preferences[$key] = $value;
+            }
+        }
+        return $this->update();
+    }
+
+    /**
+     * Check, if the user was online the last three minutes 
+     */
+    public function is_online () {
+        $last_seen = $this->preferences['last_seen'];
+        $timestamp = mktime(substr($last_seen, 11,2), substr($last_seen, 14,2),
+            substr($last_seen, 17,2), substr($last_seen, 5,2), substr($last_seen, 8,2),
+            substr($last_seen, 0,4));
+        if (time() - $timestamp < 180) {
+            return True;
+        }
+        return False;
+    }
+    
 }
-?>
+
+//__END__
