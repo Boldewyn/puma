@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Puma.Phi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-11 12:54+0200\n"
+"POT-Creation-Date: 2010-06-11 14:08+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Manuel Strehl <translate@manuel-strehl.de>\n"
 "Language-Team: \n"
@@ -4374,6 +4374,236 @@ msgstr ""
 msgid "topic subscription"
 msgstr "Themenabo"
 
+#: aigaionengine/views/help/tutorial.php:3
+msgid "Video Tutorial"
+msgstr "Video-Einführung"
+
+#: aigaionengine/views/help/tutorial.php:4
+msgid ""
+"Hello to this video tutorial. Well, actually, the tutorial is still in "
+"development, but we try hard to publish it here as soon as possible. So, "
+"stay tuned!"
+msgstr ""
+"Hallo zur Video-Einführung. Na ja, tatsächlich ist die Einführung noch in "
+"der Entwicklung, aber wir arbeiten hart daran, sie so bald wie möglich zu "
+"veröffentlichen. Also, bleib dran!"
+
+#: aigaionengine/views/help/about.php:3
+#, php-format
+msgid "About %s"
+msgstr "Über %s"
+
+#: aigaionengine/views/help/about.php:14
+#, php-format
+msgid "Administrator of this installation: %s"
+msgstr "Administrator dieser Installation: %s"
+
+#: aigaionengine/views/help/about.php:15
+#, php-format
+msgid "URL of this installation: %s"
+msgstr "URL dieser Installation: %s"
+
+#: aigaionengine/views/help/about.php:16
+#, php-format
+msgid "PHP version: %s"
+msgstr "PHP-Version: %s"
+
+#: aigaionengine/views/help/about.php:17
+#, php-format
+msgid "Database Version: %s"
+msgstr "Datenbankversion: %s"
+
+#: aigaionengine/views/help/about.php:18
+#, php-format
+msgid "Based on the %s framework and %s."
+msgstr "Basiert auf dem %s-Framework und %s."
+
+#: aigaionengine/views/help/header.php:7
+msgid "Topic Tree"
+msgstr "Themenbaum"
+
+#: aigaionengine/views/help/header.php:8
+msgid "Annotating Publications"
+msgstr "Veröffentlichungen annotieren"
+
+#: aigaionengine/views/help/header.php:9
+msgid "Publication Lists"
+msgstr "Veröffentlichungsliste"
+
+#: aigaionengine/views/help/header.php:10
+#: aigaionengine/views/help/attachments.php:3
+#: aigaionengine/views/publications/single.php:325
+msgid "Attachments"
+msgstr "Anhänge"
+
+#: aigaionengine/views/help/header.php:11
+msgid "Accounts"
+msgstr "Konten"
+
+#: aigaionengine/views/help/header.php:12
+msgid "Access Rights"
+msgstr "Zugriffsrechte"
+
+#: aigaionengine/views/help/header.php:13
+msgid "Crossreferencing"
+msgstr "Querverweise"
+
+#: aigaionengine/views/help/header.php:15
+#: aigaionengine/views/help/goodpractices.php:3
+msgid "Good Practices"
+msgstr "Erprobte Verfahren"
+
+#: aigaionengine/views/help/wiki.php:3
+#, php-format
+msgid "The %s Wiki"
+msgstr "Das %s-Wiki"
+
+#: aigaionengine/views/help/wiki.php:4
+msgid ""
+"The wiki works just like a regular wiki, but uses ordinary HTML for markup. "
+"To simplify entering text, the edit pages provide an optional rich text "
+"editor."
+msgstr ""
+"Das Wiki funktioniert wie ein reguläres Wiki, benutzt jedoch gewöhnliches "
+"HTML zur Auszeichnung. Um die Eingabe zu vereinfachen bietet die "
+"Bearbeitungsseite optional einen Editor an."
+
+#: aigaionengine/views/help/wiki.php:5
+msgid "Some specialities:"
+msgstr "Einige Besonderheiten:"
+
+#: aigaionengine/views/help/wiki.php:7
+#, php-format
+msgid ""
+"The only wiki syntax from Wikipedia, that is recognized, is the link to "
+"another wiki page: %s."
+msgstr ""
+"Die einzige Wiki-Syntax aus der Wikipedia, die unterstützt wird, ist der "
+"Verweis auf eine andere Wiki-Seite: %s."
+
+#: aigaionengine/views/help/wiki.php:7
+msgid "Other page"
+msgstr "andere Seite"
+
+#: aigaionengine/views/help/wiki.php:8
+#, php-format
+msgid ""
+"To reference any paper or publication inside %s, use LaTeX style markup: %s."
+msgstr ""
+"Um auf eine Publikation in %s zu verweisen, nutze LaTeX-Referenzen: %s."
+
+#: aigaionengine/views/help/wiki.php:9
+msgid "JavaScript is not allowed on wiki pages."
+msgstr "JavaScript ist auf Wiki-Seiten nicht erlaubt."
+
+#: aigaionengine/views/help/wiki.php:11
+#, php-format
+msgid ""
+"The wiki allows additionally a subset of LaTeX commandos to be used. The "
+"recognized commandos are mostly text styles, like %s, or escape sequences, "
+"like %s."
+msgstr ""
+"Das Wiki erkennt darüber hinaus eine Untergruppe an LaTeX-Befehlen. Die "
+"bekannten Befehle sind überwiegend Textstile wie %s oder "
+"Maskierungssequenzen wie %s."
+
+#: aigaionengine/views/help/wiki.php:11
+msgid "for"
+msgstr "für"
+
+#: aigaionengine/views/help/wiki.php:11
+msgid "or"
+msgstr "oder"
+
+#: aigaionengine/views/help/accessrights.php:3
+msgid "Access rights on different levels"
+msgstr "Zugriffsrechte auf verschiedenen Ebenen"
+
+#: aigaionengine/views/help/accessrights.php:4
+msgid ""
+"The users can be anonymous or not, can be assigned to different groups, and "
+"can be assigned different user rights. This makes it possible to restrict "
+"access to certain objects to a limited set of users. This restriction can "
+"apply to topics, publications, notes and attachments, and can be set "
+"separately for <em>reading</em> and for <em>editing</em> them."
+msgstr ""
+"Nutzer können anonym sein oder nicht, können verschiedenen Gruppen "
+"zugeordnet werden und unterschiedliche Nutzerrechte erhalten. Das ermöglicht "
+"den Zugriff auf gewisse Objekte auf eine begrenzte Nutzerzahl "
+"einzuschränken. Diese Einschränkung kann auf Themen, Veröffentlichungen, "
+"Notizen und Anhänge angewendet un unabhängig für <em>lesen</em> und "
+"<em>bearbeiten</em> gesetzt werden."
+
+#: aigaionengine/views/help/accessrights.php:10
+msgid "What access levels are there?"
+msgstr "Welche Zugriffsebenen gibt es?"
+
+#: aigaionengine/views/help/accessrights.php:11
+msgid ""
+"For each of the above mentioned objects one can set a <em>read access level</"
+"em> and an <em>edit access level</em>. These levels can be:"
+msgstr ""
+"Für jedes der obigen Objekte kann man die <em>Lese-Zugriffsebene</em> und "
+"<em>Schreib-Zugriffsebene</em> setzen. Diese Ebenen können sein:"
+
+#: aigaionengine/views/help/accessrights.php:14
+msgid ""
+"‘public’ (object can be read or edited by everyone including anonymous "
+"users),"
+msgstr ""
+"&sbquo;public&lsquo; (Objekt kann von jedem, einschließlich anonymer Nutzer, "
+"gelesen oder bearbeitet werden),"
+
+#: aigaionengine/views/help/accessrights.php:15
+msgid "‘intern’ (object can be read or edited by all non-anonymous users),"
+msgstr ""
+"&sbquo;intern&lsquo; (Objekt kann von allen nicht anonymen Nutzern gelesen "
+"oder bearbeitet werden),"
+
+#: aigaionengine/views/help/accessrights.php:16
+msgid "‘private’ (object can be read or edited by the owner only)"
+msgstr ""
+"&sbquo;private&lsquo; (Objekt kann nur vom Eigentümer gelesen oder "
+"bearbeitet werden),"
+
+#: aigaionengine/views/help/accessrights.php:19
+msgid "What user rights are involved?"
+msgstr "Welche Nutzerrechte sind beteiligt?"
+
+#: aigaionengine/views/help/accessrights.php:20
+msgid ""
+"There are two types of user rights that also influence reading and editing "
+"access. The first are the normal read and edit rights. For example, a user "
+"who has no <em>topic edit</em> rights cannot edit a topic, even if all "
+"access levels of that topic are set to ‘public’. The second are the "
+"<em>override rights</em>. A user who has for example the right <em>topic "
+"read all</em> can read every topic, even if he is not the owner and the "
+"access levels are set to ‘private’."
+msgstr ""
+"Es gibt zwei Arten von Nutzerrechten, die Lese- und Bearbeitungszugriff "
+"ebenfalls beeinflussen. Die erste sind die normalen Lese- und "
+"Bearbeitungsrechte. Zum Beispiel kann ein Nutzer, der das Recht "
+"<em>Themenbearbeitung</em> nicht besitzt, keine Themen bearbeiten, selbst "
+"wenn alle Zugriffsebenen dieses Themas auf &sbquo;public&lsquo; gesetzt "
+"sind. Die zweite sind <em>überschreibende Rechte</em>. Ein Nutzer, der z.B. "
+"das Recht <em>alle Themen lesen</em> hat, kann jedes Thema lesen, auch wenn "
+"er nicht Eigentümer ist und die Zugriffsebenen auf &sbquo;privat&lsquo; "
+"gesetzt sind."
+
+#: aigaionengine/views/help/accessrights.php:28
+msgid "Who can change the access level of an object?"
+msgstr "Wer kann die Zugriffsebene eines Objekts ändern?"
+
+#: aigaionengine/views/help/accessrights.php:29
+msgid ""
+"The access levels can normally be changed only by the owner. However, users "
+"who have the appropriate override rights for editing (see above) can also "
+"change the access levels of an object."
+msgstr ""
+"Die Zugriffsebenen können normalerweise nur vom Eigentümer geändert werden. "
+"Nutzer, die jedoch die passenden überschreibenden Rechte für Bearbeitung "
+"(siehe oben) haben, können die Zugriffsebenen eines Objekts ebenfalls ändern."
+
 #: aigaionengine/views/help/accounts.php:3
 msgid "Groups, user accounts and rights profiles"
 msgstr "Gruppen, Nutzerkonten und Rechteprofile"
@@ -4446,12 +4676,6 @@ msgstr "Siehe %s für mehr Informationen zu Zugriffsebenen."
 #: aigaionengine/views/help/accounts.php:13
 msgid "the section about access rights"
 msgstr "den Abschnitt über Zugriffsrechte"
-
-#: aigaionengine/views/help/attachments.php:3
-#: aigaionengine/views/help/header.php:10
-#: aigaionengine/views/publications/single.php:325
-msgid "Attachments"
-msgstr "Anhänge"
 
 #: aigaionengine/views/help/attachments.php:4
 msgid ""
@@ -4600,143 +4824,25 @@ msgstr ""
 "Die Einstellung &bdquo;Erlaubte Erweiterungen für Anhänge&ldquo; enthält "
 "nicht die richtigen Erweiterungen."
 
-#: aigaionengine/views/help/tutorial.php:3
-msgid "Video Tutorial"
-msgstr "Video-Einführung"
-
-#: aigaionengine/views/help/tutorial.php:4
-msgid ""
-"Hello to this video tutorial. Well, actually, the tutorial is still in "
-"development, but we try hard to publish it here as soon as possible. So, "
-"stay tuned!"
-msgstr ""
-"Hallo zur Video-Einführung. Na ja, tatsächlich ist die Einführung noch in "
-"der Entwicklung, aber wir arbeiten hart daran, sie so bald wie möglich zu "
-"veröffentlichen. Also, bleib dran!"
-
-#: aigaionengine/views/help/accessrights.php:3
-msgid "Access rights on different levels"
-msgstr "Zugriffsrechte auf verschiedenen Ebenen"
-
-#: aigaionengine/views/help/accessrights.php:4
-msgid ""
-"The users can be anonymous or not, can be assigned to different groups, and "
-"can be assigned different user rights. This makes it possible to restrict "
-"access to certain objects to a limited set of users. This restriction can "
-"apply to topics, publications, notes and attachments, and can be set "
-"separately for <em>reading</em> and for <em>editing</em> them."
-msgstr ""
-"Nutzer können anonym sein oder nicht, können verschiedenen Gruppen "
-"zugeordnet werden und unterschiedliche Nutzerrechte erhalten. Das ermöglicht "
-"den Zugriff auf gewisse Objekte auf eine begrenzte Nutzerzahl "
-"einzuschränken. Diese Einschränkung kann auf Themen, Veröffentlichungen, "
-"Notizen und Anhänge angewendet un unabhängig für <em>lesen</em> und "
-"<em>bearbeiten</em> gesetzt werden."
-
-#: aigaionengine/views/help/accessrights.php:10
-msgid "What access levels are there?"
-msgstr "Welche Zugriffsebenen gibt es?"
-
-#: aigaionengine/views/help/accessrights.php:11
-msgid ""
-"For each of the above mentioned objects one can set a <em>read access level</"
-"em> and an <em>edit access level</em>. These levels can be:"
-msgstr ""
-"Für jedes der obigen Objekte kann man die <em>Lese-Zugriffsebene</em> und "
-"<em>Schreib-Zugriffsebene</em> setzen. Diese Ebenen können sein:"
-
-#: aigaionengine/views/help/accessrights.php:14
-msgid ""
-"‘public’ (object can be read or edited by everyone including anonymous "
-"users),"
-msgstr ""
-"&sbquo;public&lsquo; (Objekt kann von jedem, einschließlich anonymer Nutzer, "
-"gelesen oder bearbeitet werden),"
-
-#: aigaionengine/views/help/accessrights.php:15
-msgid "‘intern’ (object can be read or edited by all non-anonymous users),"
-msgstr ""
-"&sbquo;intern&lsquo; (Objekt kann von allen nicht anonymen Nutzern gelesen "
-"oder bearbeitet werden),"
-
-#: aigaionengine/views/help/accessrights.php:16
-msgid "‘private’ (object can be read or edited by the owner only)"
-msgstr ""
-"&sbquo;private&lsquo; (Objekt kann nur vom Eigentümer gelesen oder "
-"bearbeitet werden),"
-
-#: aigaionengine/views/help/accessrights.php:19
-msgid "What user rights are involved?"
-msgstr "Welche Nutzerrechte sind beteiligt?"
-
-#: aigaionengine/views/help/accessrights.php:20
-msgid ""
-"There are two types of user rights that also influence reading and editing "
-"access. The first are the normal read and edit rights. For example, a user "
-"who has no <em>topic edit</em> rights cannot edit a topic, even if all "
-"access levels of that topic are set to ‘public’. The second are the "
-"<em>override rights</em>. A user who has for example the right <em>topic "
-"read all</em> can read every topic, even if he is not the owner and the "
-"access levels are set to ‘private’."
-msgstr ""
-"Es gibt zwei Arten von Nutzerrechten, die Lese- und Bearbeitungszugriff "
-"ebenfalls beeinflussen. Die erste sind die normalen Lese- und "
-"Bearbeitungsrechte. Zum Beispiel kann ein Nutzer, der das Recht "
-"<em>Themenbearbeitung</em> nicht besitzt, keine Themen bearbeiten, selbst "
-"wenn alle Zugriffsebenen dieses Themas auf &sbquo;public&lsquo; gesetzt "
-"sind. Die zweite sind <em>überschreibende Rechte</em>. Ein Nutzer, der z.B. "
-"das Recht <em>alle Themen lesen</em> hat, kann jedes Thema lesen, auch wenn "
-"er nicht Eigentümer ist und die Zugriffsebenen auf &sbquo;privat&lsquo; "
-"gesetzt sind."
-
-#: aigaionengine/views/help/accessrights.php:28
-msgid "Who can change the access level of an object?"
-msgstr "Wer kann die Zugriffsebene eines Objekts ändern?"
-
-#: aigaionengine/views/help/accessrights.php:29
-msgid ""
-"The access levels can normally be changed only by the owner. However, users "
-"who have the appropriate override rights for editing (see above) can also "
-"change the access levels of an object."
-msgstr ""
-"Die Zugriffsebenen können normalerweise nur vom Eigentümer geändert werden. "
-"Nutzer, die jedoch die passenden überschreibenden Rechte für Bearbeitung "
-"(siehe oben) haben, können die Zugriffsebenen eines Objekts ebenfalls ändern."
-
-#: aigaionengine/views/help/about.php:3
-#, php-format
-msgid "About %s"
-msgstr "Über %s"
-
-#: aigaionengine/views/help/about.php:14
-#, php-format
-msgid "Administrator of this installation: %s"
-msgstr "Administrator dieser Installation: %s"
-
-#: aigaionengine/views/help/about.php:15
-#, php-format
-msgid "URL of this installation: %s"
-msgstr "URL dieser Installation: %s"
-
-#: aigaionengine/views/help/about.php:16
-#, php-format
-msgid "PHP version: %s"
-msgstr "PHP-Version: %s"
-
-#: aigaionengine/views/help/about.php:17
-#, php-format
-msgid "Database Version: %s"
-msgstr "Datenbankversion: %s"
-
-#: aigaionengine/views/help/about.php:18
-#, php-format
-msgid "Based on the %s framework."
-msgstr "Basiert auf dem %s-Framework."
-
 #: aigaionengine/views/help/crossref.php:3
 #, php-format
 msgid "Cross referencing in %s"
 msgstr "Querverweise in %s"
+
+#: aigaionengine/views/help/faq.php:3
+msgid "Frequently Asked Questions"
+msgstr "Häufig gestellte Fragen"
+
+#: aigaionengine/views/help/faq.php:4
+#, php-format
+msgid ""
+"This section tries to clarify some of the most common questions about %s. If "
+"you have a question that isn’t answered here, please use the form at the "
+"bottom of this site to contact the admin."
+msgstr ""
+"Dieser Abschnitt versucht, die häufigsten Fragen zu %s zu klären. Wenn du "
+"eine Frage hast, die hier nicht beantwortet wird, nutze bitte das Formular "
+"am Ende dieser Seite, um den Admin zu kontaktieren."
 
 #: aigaionengine/views/help/front.php:4
 #, php-format
@@ -4776,216 +4882,6 @@ msgstr "Themenbaum"
 #: aigaionengine/views/help/front.php:5
 msgid "notes"
 msgstr "Notizen"
-
-#: aigaionengine/views/help/publicationlists.php:3
-msgid "The Publication Lists"
-msgstr "Die Veröffentlichungslisten"
-
-#: aigaionengine/views/help/publicationlists.php:4
-#, php-format
-msgid ""
-"%s offers multiple ways to explore your publications, the standard list "
-"sorts all publications in the database by year. You can also browse the "
-"publications sorted by title, by publicationtype or by topic."
-msgstr ""
-"%s bietet viele Wege an, um Deine Veröffentlichungen zu durchforsten, die "
-"Standardliste sortiert alle Veröffentlichungen in der Datenbank nach dem "
-"Jahr. Du kannst die Veröffentlichungen auch sortiert nach Titel, "
-"Veröffentlichungstyp oder Thema durchsuchen."
-
-#: aigaionengine/views/help/publicationlists.php:13
-msgid "An example publication entry"
-msgstr "Ein beispielhafter Eintrag für eine Veröffentlichung"
-
-#: aigaionengine/views/help/publicationlists.php:15
-msgid "Icons in the publication list and their functions."
-msgstr "Symbole in der Veröffentlichungsliste und ihre Bedeutung."
-
-#: aigaionengine/views/help/publicationlists.php:17
-msgid "Edit the information of this publication."
-msgstr "Bearbeite die Information dieser Veröffentlichung."
-
-#: aigaionengine/views/help/publicationlists.php:18
-msgid "View the pdf file of this article (only if available)."
-msgstr "PDF-Anhang dieses Artikels betrachten (nur wenn verfügbar)."
-
-#: aigaionengine/views/help/faq.php:3
-msgid "Frequently Asked Questions"
-msgstr "Häufig gestellte Fragen"
-
-#: aigaionengine/views/help/faq.php:4
-#, php-format
-msgid ""
-"This section tries to clarify some of the most common questions about %s. If "
-"you have a question that isn’t answered here, please use the form at the "
-"bottom of this site to contact the admin."
-msgstr ""
-"Dieser Abschnitt versucht, die häufigsten Fragen zu %s zu klären. Wenn du "
-"eine Frage hast, die hier nicht beantwortet wird, nutze bitte das Formular "
-"am Ende dieser Seite, um den Admin zu kontaktieren."
-
-#: aigaionengine/views/help/topictree.php:3
-msgid "The Topic Tree"
-msgstr "Der Themenbaum"
-
-#: aigaionengine/views/help/topictree.php:4
-#, php-format
-msgid ""
-"Click on a topic to read its description and find all %s that are attached "
-"to it. A paper can be attached to multiple topics. If you want to find for "
-"example the publications that are part of two topics, you can use the search "
-"interface from the menu."
-msgstr ""
-"Klicke auf ein Thema, um dessen Beschreibung zu lesen und alle %s zu finden, "
-"die ihm zugeordnet sind. Ein Paper kann mehreren Themen zugeordnet sein. "
-"Falls Du z.B. die Veröffentlichungen finden willst, die Teil von zwei Themen "
-"sind, kannst Du die Suchschnittstelle aus dem Menü verwenden."
-
-#: aigaionengine/views/help/topictree.php:4
-msgid "papers"
-msgstr "Papers"
-
-#: aigaionengine/views/help/topictree.php:10
-msgid "An example topic tree fragment"
-msgstr "Ein beispielhaftes Themenbaum-Fragment"
-
-#: aigaionengine/views/help/topictree.php:12
-msgid "Icons in the topic tree and their functions"
-msgstr "Symbole im Themenbaum und ihre Bedeutung"
-
-#: aigaionengine/views/help/topictree.php:14
-msgid "Expand the topic in the tree view."
-msgstr "Erweitere das Thema in der Baumansicht."
-
-#: aigaionengine/views/help/topictree.php:15
-msgid "Collapse the topic in the tree view."
-msgstr "Schließe das Thema in der Baumansicht."
-
-#: aigaionengine/views/help/topictree.php:18
-msgid "Subscribing for topics"
-msgstr "Themen abonnieren"
-
-#: aigaionengine/views/help/topictree.php:19
-#, php-format
-msgid ""
-"It may be that not every user is interested in exactly the same topics. "
-"Therefore %s contains a mechanism that allows you to subscribe to - or "
-"unsubscribe from - any topic, meaning that you can determine which topics "
-"you will see while browsing the system. By default, a new user will not be "
-"subscribed to any topic. To review which topics already exist, go to the %s "
-"and subscribe to any topic that you are interested in. Those topics will "
-"then appear in your topic tree."
-msgstr ""
-"Es kann sein, dass nicht jeder Nutzer an den exakt gleichen Themen "
-"interessiert ist. Deshalb enthält %s einen Mechanismus, der es Dir erlaubt, "
-"Themen zu abonnieren - oder zu kündigen. Das bedeutet, Du kannst "
-"entscheiden, welche Themen Du sehen willst, wenn Du durch das System "
-"schmökerst. Per Vorgabe hat ein neuer Nutzer kein Thema abonniert. Um "
-"herauszufinden, welche Themen bereits existieren, gehe zur %s und abonniere "
-"jedes Thema, das dich interessiert. Diese Themen werden dann in deinem "
-"Themenbaum auftauchen."
-
-#: aigaionengine/views/help/topictree.php:20
-msgid "topic review page"
-msgstr "Überprüfungsseite für Themen"
-
-#: aigaionengine/views/help/notes.php:3
-msgid "Annotating the Bibliography"
-msgstr "Die Bibliografie annotieren"
-
-#: aigaionengine/views/help/notes.php:4
-msgid ""
-"Where a publication abstract is a purely descriptive summary of a "
-"publication, a annotation can be both descriptive and critical. Annotations "
-"are commonly used to:"
-msgstr ""
-"Während ein Abstract eine rein deskriptive Zusammenfassung einer "
-"Veröffentlichung ist, kann eine Notiz sowohl beschreibend als auch kritisch "
-"sein. Notizen werden üblicherweise verwendet zum:"
-
-#: aigaionengine/views/help/notes.php:6
-msgid "place a publication in a context"
-msgstr "Platzieren einer Veröffentlichung im Kontext"
-
-#: aigaionengine/views/help/notes.php:7
-msgid "describe the relevance of a publication"
-msgstr "Beschreiben der Relevanz einer Veröffentlichung"
-
-#: aigaionengine/views/help/notes.php:8
-msgid "summarize the strengths and weaknesses of a publication"
-msgstr "Auflisten von Stärken und Schwächen einer Veröffentlichung"
-
-#: aigaionengine/views/help/notes.php:10
-#, php-format
-msgid ""
-"%s offers the &lsquo;note&rsquo; facility to create annotations. An "
-"annotation might look like the following example:"
-msgstr ""
-"%s bietet die &bdquo;Notiz&ldquo;-Einrichtung, um Anmerkungen zu erzeugen. "
-"Eine Anmerkung könnte wie das folgende Beispiel aussehen:"
-
-#: aigaionengine/views/help/notes.php:19
-msgid "Referencing other publications"
-msgstr "Verweisen auf andere Veröffentlichungen"
-
-#: aigaionengine/views/help/notes.php:20
-msgid ""
-"You can reference to other publications by simply using the publications "
-"BibTeX cite ID. On displaying the note, the cite ID will be replaced by a "
-"link to the corresponding publication."
-msgstr ""
-"Du kannst auf andere Veröffentlichungen einfach durch Verwendung der BIBTeX-"
-"Zitat-ID dieser Veröffentlichung verweisen. Beim Anzeigen der Notiz wird die "
-"Zitat-ID durch einen Link zur entsprechenden Veröffentlichung ersetzt."
-
-#: aigaionengine/views/help/notes.php:22
-msgid "Formatting annotations"
-msgstr "Notizen formatieren"
-
-#: aigaionengine/views/help/notes.php:23
-msgid ""
-"To improve the readability of annotations it is recommended to keep "
-"annotations short and to the point. Standard HTML formatting tags can be "
-"used to format an annotation. Therefore the notes field is equipped with a "
-"simple HTML editor."
-msgstr ""
-"Um die Lesbarkeit von Anmerkungen zu verbessern, wird empfohlen, Anmerkungen "
-"kurz zu halten und auf den Punkt zu bringen. Standard-HTML-Formatierungen "
-"können zur Formatierung einer Anmerkung verwendet werden. Dazu ist das Notiz-"
-"Feld mit einem einfachen HTML-Editor ausgestattet."
-
-#: aigaionengine/views/help/themes.php:3
-msgid "Themes"
-msgstr "Designs"
-
-#: aigaionengine/views/help/header.php:7
-msgid "Topic Tree"
-msgstr "Themenbaum"
-
-#: aigaionengine/views/help/header.php:8
-msgid "Annotating Publications"
-msgstr "Veröffentlichungen annotieren"
-
-#: aigaionengine/views/help/header.php:9
-msgid "Publication Lists"
-msgstr "Veröffentlichungsliste"
-
-#: aigaionengine/views/help/header.php:11
-msgid "Accounts"
-msgstr "Konten"
-
-#: aigaionengine/views/help/header.php:12
-msgid "Access Rights"
-msgstr "Zugriffsrechte"
-
-#: aigaionengine/views/help/header.php:13
-msgid "Crossreferencing"
-msgstr "Querverweise"
-
-#: aigaionengine/views/help/header.php:15
-#: aigaionengine/views/help/goodpractices.php:3
-msgid "Good Practices"
-msgstr "Erprobte Verfahren"
 
 #: aigaionengine/views/help/goodpractices.php:4
 msgid ""
@@ -5093,67 +4989,171 @@ msgstr ""
 "hinzuzufügen, was in einer Datenbank voller uninteressanter Dinge mündet, in "
 "der relevante Paper schwer zu finden sind."
 
-#: aigaionengine/views/help/wiki.php:3
-#, php-format
-msgid "The %s Wiki"
-msgstr "Das %s-Wiki"
+#: aigaionengine/views/help/notes.php:3
+msgid "Annotating the Bibliography"
+msgstr "Die Bibliografie annotieren"
 
-#: aigaionengine/views/help/wiki.php:4
+#: aigaionengine/views/help/notes.php:4
 msgid ""
-"The wiki works just like a regular wiki, but uses ordinary HTML for markup. "
-"To simplify entering text, the edit pages provide an optional rich text "
-"editor."
+"Where a publication abstract is a purely descriptive summary of a "
+"publication, a annotation can be both descriptive and critical. Annotations "
+"are commonly used to:"
 msgstr ""
-"Das Wiki funktioniert wie ein reguläres Wiki, benutzt jedoch gewöhnliches "
-"HTML zur Auszeichnung. Um die Eingabe zu vereinfachen bietet die "
-"Bearbeitungsseite optional einen Editor an."
+"Während ein Abstract eine rein deskriptive Zusammenfassung einer "
+"Veröffentlichung ist, kann eine Notiz sowohl beschreibend als auch kritisch "
+"sein. Notizen werden üblicherweise verwendet zum:"
 
-#: aigaionengine/views/help/wiki.php:5
-msgid "Some specialities:"
-msgstr "Einige Besonderheiten:"
+#: aigaionengine/views/help/notes.php:6
+msgid "place a publication in a context"
+msgstr "Platzieren einer Veröffentlichung im Kontext"
 
-#: aigaionengine/views/help/wiki.php:7
-#, php-format
-msgid ""
-"The only wiki syntax from Wikipedia, that is recognized, is the link to "
-"another wiki page: %s."
-msgstr ""
-"Die einzige Wiki-Syntax aus der Wikipedia, die unterstützt wird, ist der "
-"Verweis auf eine andere Wiki-Seite: %s."
+#: aigaionengine/views/help/notes.php:7
+msgid "describe the relevance of a publication"
+msgstr "Beschreiben der Relevanz einer Veröffentlichung"
 
-#: aigaionengine/views/help/wiki.php:7
-msgid "Other page"
-msgstr "andere Seite"
+#: aigaionengine/views/help/notes.php:8
+msgid "summarize the strengths and weaknesses of a publication"
+msgstr "Auflisten von Stärken und Schwächen einer Veröffentlichung"
 
-#: aigaionengine/views/help/wiki.php:8
+#: aigaionengine/views/help/notes.php:10
 #, php-format
 msgid ""
-"To reference any paper or publication inside %s, use LaTeX style markup: %s."
+"%s offers the &lsquo;note&rsquo; facility to create annotations. An "
+"annotation might look like the following example:"
 msgstr ""
-"Um auf eine Publikation in %s zu verweisen, nutze LaTeX-Referenzen: %s."
+"%s bietet die &bdquo;Notiz&ldquo;-Einrichtung, um Anmerkungen zu erzeugen. "
+"Eine Anmerkung könnte wie das folgende Beispiel aussehen:"
 
-#: aigaionengine/views/help/wiki.php:9
-msgid "JavaScript is not allowed on wiki pages."
-msgstr "JavaScript ist auf Wiki-Seiten nicht erlaubt."
+#: aigaionengine/views/help/notes.php:19
+msgid "Referencing other publications"
+msgstr "Verweisen auf andere Veröffentlichungen"
 
-#: aigaionengine/views/help/wiki.php:11
+#: aigaionengine/views/help/notes.php:20
+msgid ""
+"You can reference to other publications by simply using the publications "
+"BibTeX cite ID. On displaying the note, the cite ID will be replaced by a "
+"link to the corresponding publication."
+msgstr ""
+"Du kannst auf andere Veröffentlichungen einfach durch Verwendung der BIBTeX-"
+"Zitat-ID dieser Veröffentlichung verweisen. Beim Anzeigen der Notiz wird die "
+"Zitat-ID durch einen Link zur entsprechenden Veröffentlichung ersetzt."
+
+#: aigaionengine/views/help/notes.php:22
+msgid "Formatting annotations"
+msgstr "Notizen formatieren"
+
+#: aigaionengine/views/help/notes.php:23
+msgid ""
+"To improve the readability of annotations it is recommended to keep "
+"annotations short and to the point. Standard HTML formatting tags can be "
+"used to format an annotation. Therefore the notes field is equipped with a "
+"simple HTML editor."
+msgstr ""
+"Um die Lesbarkeit von Anmerkungen zu verbessern, wird empfohlen, Anmerkungen "
+"kurz zu halten und auf den Punkt zu bringen. Standard-HTML-Formatierungen "
+"können zur Formatierung einer Anmerkung verwendet werden. Dazu ist das Notiz-"
+"Feld mit einem einfachen HTML-Editor ausgestattet."
+
+#: aigaionengine/views/help/publicationlists.php:3
+msgid "The Publication Lists"
+msgstr "Die Veröffentlichungslisten"
+
+#: aigaionengine/views/help/publicationlists.php:4
 #, php-format
 msgid ""
-"The wiki allows additionally a subset of LaTeX commandos to be used. The "
-"recognized commandos are mostly text styles, like %s, or escape sequences, "
-"like %s."
+"%s offers multiple ways to explore your publications, the standard list "
+"sorts all publications in the database by year. You can also browse the "
+"publications sorted by title, by publicationtype or by topic."
 msgstr ""
-"Das Wiki erkennt darüber hinaus eine Untergruppe an LaTeX-Befehlen. Die "
-"bekannten Befehle sind überwiegend Textstile wie %s oder "
-"Maskierungssequenzen wie %s."
+"%s bietet viele Wege an, um Deine Veröffentlichungen zu durchforsten, die "
+"Standardliste sortiert alle Veröffentlichungen in der Datenbank nach dem "
+"Jahr. Du kannst die Veröffentlichungen auch sortiert nach Titel, "
+"Veröffentlichungstyp oder Thema durchsuchen."
 
-#: aigaionengine/views/help/wiki.php:11
-msgid "for"
-msgstr "für"
+#: aigaionengine/views/help/publicationlists.php:13
+msgid "An example publication entry"
+msgstr "Ein beispielhafter Eintrag für eine Veröffentlichung"
 
-#: aigaionengine/views/help/wiki.php:11
-msgid "or"
-msgstr "oder"
+#: aigaionengine/views/help/publicationlists.php:15
+msgid "Icons in the publication list and their functions."
+msgstr "Symbole in der Veröffentlichungsliste und ihre Bedeutung."
+
+#: aigaionengine/views/help/publicationlists.php:17
+msgid "Edit the information of this publication."
+msgstr "Bearbeite die Information dieser Veröffentlichung."
+
+#: aigaionengine/views/help/publicationlists.php:18
+msgid "View the pdf file of this article (only if available)."
+msgstr "PDF-Anhang dieses Artikels betrachten (nur wenn verfügbar)."
+
+#: aigaionengine/views/help/themes.php:3
+msgid "Themes"
+msgstr "Designs"
+
+#: aigaionengine/views/help/topictree.php:3
+msgid "The Topic Tree"
+msgstr "Der Themenbaum"
+
+#: aigaionengine/views/help/topictree.php:4
+#, php-format
+msgid ""
+"Click on a topic to read its description and find all %s that are attached "
+"to it. A paper can be attached to multiple topics. If you want to find for "
+"example the publications that are part of two topics, you can use the search "
+"interface from the menu."
+msgstr ""
+"Klicke auf ein Thema, um dessen Beschreibung zu lesen und alle %s zu finden, "
+"die ihm zugeordnet sind. Ein Paper kann mehreren Themen zugeordnet sein. "
+"Falls Du z.B. die Veröffentlichungen finden willst, die Teil von zwei Themen "
+"sind, kannst Du die Suchschnittstelle aus dem Menü verwenden."
+
+#: aigaionengine/views/help/topictree.php:4
+msgid "papers"
+msgstr "Papers"
+
+#: aigaionengine/views/help/topictree.php:10
+msgid "An example topic tree fragment"
+msgstr "Ein beispielhaftes Themenbaum-Fragment"
+
+#: aigaionengine/views/help/topictree.php:12
+msgid "Icons in the topic tree and their functions"
+msgstr "Symbole im Themenbaum und ihre Bedeutung"
+
+#: aigaionengine/views/help/topictree.php:14
+msgid "Expand the topic in the tree view."
+msgstr "Erweitere das Thema in der Baumansicht."
+
+#: aigaionengine/views/help/topictree.php:15
+msgid "Collapse the topic in the tree view."
+msgstr "Schließe das Thema in der Baumansicht."
+
+#: aigaionengine/views/help/topictree.php:18
+msgid "Subscribing for topics"
+msgstr "Themen abonnieren"
+
+#: aigaionengine/views/help/topictree.php:19
+#, php-format
+msgid ""
+"It may be that not every user is interested in exactly the same topics. "
+"Therefore %s contains a mechanism that allows you to subscribe to - or "
+"unsubscribe from - any topic, meaning that you can determine which topics "
+"you will see while browsing the system. By default, a new user will not be "
+"subscribed to any topic. To review which topics already exist, go to the %s "
+"and subscribe to any topic that you are interested in. Those topics will "
+"then appear in your topic tree."
+msgstr ""
+"Es kann sein, dass nicht jeder Nutzer an den exakt gleichen Themen "
+"interessiert ist. Deshalb enthält %s einen Mechanismus, der es Dir erlaubt, "
+"Themen zu abonnieren - oder zu kündigen. Das bedeutet, Du kannst "
+"entscheiden, welche Themen Du sehen willst, wenn Du durch das System "
+"schmökerst. Per Vorgabe hat ein neuer Nutzer kein Thema abonniert. Um "
+"herauszufinden, welche Themen bereits existieren, gehe zur %s und abonniere "
+"jedes Thema, das dich interessiert. Diese Themen werden dann in deinem "
+"Themenbaum auftauchen."
+
+#: aigaionengine/views/help/topictree.php:20
+msgid "topic review page"
+msgstr "Überprüfungsseite für Themen"
 
 #: aigaionengine/views/import/importform.php:11
 #, php-format

@@ -9,10 +9,11 @@
 #
 <IfModule mod_rewrite.c>
   RewriteEngine on
-  RewriteBase /
+  RewriteBase /~manuel/puma_testing
   RewriteRule ^favicon.ico        -                [L]
   RewriteRule ^static/(.*)        -                [L]
   RewriteRule ^\.(.*)$            -                [F,L]
+  RewriteRule ^stuff              -                [F,L]
   # RewriteRule ^aigaionengine/(.*) aigaionengine/$1 [L]
   RewriteRule ^index.php/(.*)$    index.php?$1     [L,QSA]
   RewriteRule ^index.php(.*)$     -                [L]
