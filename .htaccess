@@ -10,6 +10,10 @@
 <IfModule mod_rewrite.c>
   RewriteEngine on
   RewriteBase /~manuel/puma_testing
+
+  #RewriteCond %{HTTP_HOST} !puma.uni-regensburg.de
+  #RewriteRule (.*)                http://puma.uni-regensburg.de/$1 [R,L,QSA]
+
   RewriteRule ^favicon.ico        -                [L]
   RewriteRule ^static/(.*)        -                [L]
   RewriteRule ^\.(.*)$            -                [F,L]
