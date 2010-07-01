@@ -116,10 +116,10 @@ class Wiki extends Controller {
     }
     
     public function show_history($id) {
-        restrict_to_users(__('You must be logged in to view the history of wiki items.'),
-                          $this->_item_exists($item)? '/wiki/'.$item : '/wiki');
         $data = $this->wiki->get_version($id);
         $item = $data->item;
+        restrict_to_users(__('You must be logged in to view the history of wiki items.'),
+                          $this->_item_exists($item)? '/wiki/'.$item : '/wiki');
         $this->load->vars(array('item' => $item));
         $this->load->vars(array('title' => sprintf(__('Wiki » %s'), $item)));
         $this->_get_subnav($item, 'history');
