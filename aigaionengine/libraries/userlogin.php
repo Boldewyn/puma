@@ -207,7 +207,7 @@ class UserLogin {
                     //some preferences must be slightly transformed here...
                     if ($key=='theme') {
                         if (!themeExists($val)) {
-                            appendErrorMessage(sprintf(__('Theme &lsquo;%s&rsquo; no longer exists.'), $val));
+                            //appendErrorMessage(sprintf(__('Theme &lsquo;%s&rsquo; no longer exists.'), $val));
                             $val = 'puma';
                         }
                     }
