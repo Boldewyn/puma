@@ -1719,6 +1719,16 @@ ul ul.topictree-list {
 .publicationlist_controls {
   float: right;
   margin: 0 0 .83333em .83333em;
+  visibility: hidden;
+}
+
+.publication_summary:hover .publicationlist_controls,
+.publication_summary_hover .publicationlist_controls {
+  visibility: visible;
+}
+
+.inactive_link {
+  color: #78AEAF;
 }
 
 
