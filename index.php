@@ -45,8 +45,8 @@ define('AIGAION_DB_PREFIX', 'pute_');
 
 /*==== MANDATORY SETTINGS */
 #Root URL of this instance Aigaion, WITH trailing slash
-define('AIGAION_ROOT_URL','http://www-alab.uni-regensburg.de/~manuel/puma_testing/');
-define('AIGAION_COOKIE_PATH','/~manuel/puma_testing/');
+define('AIGAION_ROOT_URL','http://puma.uni-regensburg.de/');
+define('AIGAION_COOKIE_PATH','/');
 $_SERVER['REDIRECT_URL'] = isset($_SERVER['REDIRECT_URL'])? str_replace(AIGAION_COOKIE_PATH, '', $_SERVER['REDIRECT_URL']) : '/';
 
 #We need to know where your aigaion - engine is located. WITH trailing slash.

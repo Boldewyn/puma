@@ -9,10 +9,11 @@
 #
 <IfModule mod_rewrite.c>
   RewriteEngine on
-  RewriteBase /~manuel/puma_testing
+  #RewriteBase /puma
+  RewriteBase /
 
-  #RewriteCond %{HTTP_HOST} !puma.uni-regensburg.de
-  #RewriteRule (.*)                http://puma.uni-regensburg.de/$1 [R,L,QSA]
+  RewriteCond %{HTTP_HOST} !puma.uni-regensburg.de                                                                                                                                                         
+  RewriteRule (.*)                http://puma.uni-regensburg.de/$1 [R,L,QSA]
 
   RewriteRule ^favicon.ico        -                [L]
   RewriteRule ^static/(.*)        -                [L]
@@ -21,6 +22,7 @@
   # RewriteRule ^aigaionengine/(.*) aigaionengine/$1 [L]
   RewriteRule ^index.php/(.*)$    index.php?$1     [L,QSA]
   RewriteRule ^index.php(.*)$     -                [L]
+  RewriteRule ^puma/(.*)$         http://puma.uni-regensburg.de/$1  [R,L,QSA]
   RewriteRule ^(.*)$              index.php?$1     [L,QSA]
 </IfModule>
 
