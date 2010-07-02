@@ -163,6 +163,8 @@ window._ = gettext;
     for (var x in columns) {
       $('.bordered.'+columns[x]).addClass('bordered_'+columns[x]);
     }
+    $('.publication_summary').hover(function () { $(this).addClass('publication_summary_hover'); },
+      function () { $(this).removeClass('publication_summary_hover'); });
     
     /** Intercept rights changing click */
     $('.rights_switch').click(function () {

@@ -4,12 +4,10 @@ if(! isset($searchengines)) { $searchengines = array(); }
 ?>
 <form method="get" action="." onsubmit="return false;" id="search_external_form">
   <h2><?php _e('Search on external sites')?></h2>
-  <fieldset>
-    <legend><?php _e('Search term')?></legend>
-    <p>
-      <input type="text" class="text extralarge_input" name="q" id="search_external_query" value="<?php _h($query)?>" />
-    </p>
-  </fieldset>
+  <p>
+    <label for="search_external_query" class="block"><?php _e('Search term:')?></label>
+    <input type="text" class="text" style="width:72.75em" name="q" id="search_external_query" value="<?php _h($query)?>" />
+  </p>
   <script type="text/javascript">
   /*<![CDATA[*/
     function search_external_submit (action, method, q, p) {
@@ -31,6 +29,8 @@ if(! isset($searchengines)) { $searchengines = array(); }
     }
   /*   ]]>   */
   </script>
+  <fieldset>
+  <legend><?php _e('Search engine:') ?></legend>
   <ul>
     <?php
       foreach ($searchengines as $e):
@@ -52,6 +52,7 @@ if(! isset($searchengines)) { $searchengines = array(); }
       endforeach;
     ?>
   </ul>
+  </fieldset>
   <p>
     <?php _e('This form allows you to search external websites. Searches will open in new windows.')?>
   </p>

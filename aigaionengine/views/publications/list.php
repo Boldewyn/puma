@@ -140,16 +140,22 @@ if (isset($multipageprefix) && isset($currentpage)) {
                         }
                         _a('attachments/single/'.$attachments[0]->att_id, icon('attachment_'.$extension, 'attachment'), $params);
                     }
+                } else {
+                    echo '<span class="inactive_link">'.icon('attachment_none').'</span>';
                 }
                 
                 if (utf8_trim($publication->doi)!='') {
                     echo ' <a title="'.__('Click to follow Digital Object Identifier link to online publication').'"
                           class="doi_link" rel="external" href="http://dx.doi.org/'.$publication->doi.'">DOI</a> ';
+                } else {
+                    echo ' <span class="inactive_link doi_link">DOI</span>';
                 }
                 
                 if (utf8_trim($publication->url)!='') {
                     echo ' <a title="'.prep_url($publication->url).'"
                           class="pub_link" rel="external" href="'.prep_url($publication->url).'">URL</a> ';
+                } else {
+                    echo ' <span class="inactive_link pub_link">URL</span>';
                 }
 
             ?></p>
@@ -165,7 +171,7 @@ if (isset($multipageprefix) && isset($currentpage)) {
 
             if ($summarystyle == 'title') {
                 ?><span class="title"><?php
-                    _a('publications/show/'.$publication->pub_id, $displayTitle,
+                    _a('publications/show/'.$publication->pub_id, h($displayTitle),
                     array('title' => __('View publication details')))
                 ?></span><?php
             }
@@ -179,7 +185,7 @@ if (isset($multipageprefix) && isset($currentpage)) {
                 }
 
                 ?><span class="author"><?php _a('authors/show/'.$author->author_id,
-                    $author->getName(),
+                    h($author->getName()),
                     array('title' => sprintf(__('All information on %s'), $author->cleanname)))
                 ?></span><?php
                 $current_author++;
@@ -190,7 +196,7 @@ if (isset($multipageprefix) && isset($currentpage)) {
                     echo __(', ');
                 }
                 ?><span class="title"><?php
-                    _a('publications/show/'.$publication->pub_id, $displayTitle,
+                    _a('publications/show/'.$publication->pub_id, h($displayTitle),
                     array('title' => __('View publication details')))
                 ?></span><?php
             }
@@ -205,7 +211,7 @@ if (isset($multipageprefix) && isset($currentpage)) {
                     $prefix = $prefix[0];
                 }
                 if ($val) {
-                    echo $prefix.$val.$postfix;
+                    echo $prefix.h($val).$postfix;
                 }
             }
             

@@ -1719,6 +1719,16 @@ ul ul.topictree-list {
 .publicationlist_controls {
   float: right;
   margin: 0 0 .83333em .83333em;
+  visibility: hidden;
+}
+
+.publication_summary:hover .publicationlist_controls,
+.publication_summary_hover .publicationlist_controls {
+  visibility: visible;
+}
+
+.inactive_link {
+  color: #78AEAF;
 }
 
 
@@ -1762,8 +1772,8 @@ ul ul.topictree-list {
 }
 
 .tagcloud .t1 a { font-size: 0.89em; color: #459A9F; }
-.tagcloud .t2 a { font-size: 1em; }
-.tagcloud .t3 a { font-size: 1.5em; color: #003C3F; }
+.tagcloud .t2 a { font-size: 1.1em; }
+.tagcloud .t3 a { font-size: 1.3em; color: #003C3F; }
 
 
 
