@@ -5,3 +5,4 @@ static/*/*.gz
 *.swp
 Session.vim
 .gitignore
+install
