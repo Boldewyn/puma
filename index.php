@@ -41,7 +41,7 @@ require_once 'credentials.php';
 # Table prefix for database.
 # By default, no table prefix is defined. If your tables have been defined
 # with a table prefix, uncomment the following line and fill in the prefix:
-define('AIGAION_DB_PREFIX', 'pute_');
+define('AIGAION_DB_PREFIX', 'puma_');
 
 /*==== MANDATORY SETTINGS */
 #Root URL of this instance Aigaion, WITH trailing slash
