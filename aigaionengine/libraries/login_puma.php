@@ -186,7 +186,7 @@ class Login_puma {
                              ->limit(1)->get('users');
                     if ($qid->num_rows() > 0) {
                         $new_id = $qid->row()->id;
-                        $CI->db->insert('users', array('id'=>$new_id, 'firstname'=>'nds',
+                        $CI->db->insert('users', array('user_id'=>$new_id, 'firstname'=>'nds',
                             'surname'=>$groupname, 'abbreviation'=>substr($groupname, 0, 10),
                             'type'=>'group', 'theme'=>'Puma'));
                     } else {
@@ -244,7 +244,7 @@ class Login_puma {
                                  ->limit(1)->get('users');
                         if ($qid->num_rows() > 0) {
                             $group_id = $qid->row()->id;
-                            $CI->db->insert('users', array('id'=>$group_id, 'firstname'=>'nds',
+                            $CI->db->insert('users', array('user_id'=>$group_id, 'firstname'=>'nds',
                                 'surname'=>$g, 'abbreviation'=>substr($g, 0, 10),
                                 'type'=>'group', 'theme'=>'Puma'));
                         } else {
