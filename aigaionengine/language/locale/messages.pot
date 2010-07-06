@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-01 22:25+0200\n"
+"POT-Creation-Date: 2010-07-06 20:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -196,6 +196,7 @@ msgid "sorted by first author"
 msgstr ""
 
 #: aigaionengine/controllers/authors.php:150
+#: aigaionengine/controllers/embeddingtest.php:41
 msgid "View Author"
 msgstr ""
 
@@ -204,6 +205,7 @@ msgstr ""
 #: aigaionengine/controllers/bookmarklist.php:312
 #: aigaionengine/controllers/bookmarklist.php:347
 #: aigaionengine/controllers/bookmarklist.php:416
+#: aigaionengine/controllers/embeddingtest.php:41
 #: aigaionengine/controllers/groups.php:37
 #: aigaionengine/controllers/groups.php:128
 #: aigaionengine/controllers/rightsprofiles.php:35
@@ -551,6 +553,7 @@ msgid "Delete all from bookmarklist"
 msgstr ""
 
 #: aigaionengine/controllers/bookmarklist.php:477
+#: aigaionengine/views/bookmarklist/delete.php:13
 msgid ""
 "Are you sure that you want to delete all publications on the bookmarklist "
 "from your database?"
@@ -996,6 +999,50 @@ msgstr ""
 
 #: aigaionengine/controllers/login.php:174
 msgid "Error logging in anonymous account."
+msgstr ""
+
+#: aigaionengine/controllers/logintegration.php:36
+#: aigaionengine/controllers/logintegration.php:75
+#: aigaionengine/controllers/logintegration.php:146
+msgid "Aigaion not configured for this kind of access"
+msgstr ""
+
+#: aigaionengine/controllers/logintegration.php:97
+#: aigaionengine/controllers/logintegration.php:162
+msgid "No token available"
+msgstr ""
+
+#: aigaionengine/controllers/logintegration.php:101
+msgid "Token already logged in"
+msgstr ""
+
+#: aigaionengine/controllers/logintegration.php:102
+msgid "Token timed out"
+msgstr ""
+
+#: aigaionengine/controllers/logintegration.php:121
+#, php-format
+msgid "Logged in as %s"
+msgstr ""
+
+#: aigaionengine/controllers/logintegration.php:124
+msgid "Non-existing account"
+msgstr ""
+
+#: aigaionengine/controllers/logintegration.php:129
+msgid "Fail token"
+msgstr ""
+
+#: aigaionengine/controllers/logintegration.php:131
+msgid "Unknown fail"
+msgstr ""
+
+#: aigaionengine/controllers/logintegration.php:169
+msgid "User logged out"
+msgstr ""
+
+#: aigaionengine/controllers/logintegration.php:171
+msgid "Wrong parameters for logout"
 msgstr ""
 
 #: aigaionengine/controllers/notes.php:38
@@ -2526,10 +2573,12 @@ msgid ""
 msgstr ""
 
 #: aigaionengine/helpers/translation_helper.php:16
+#: aigaionengine/views/publications/list.php:45
 msgid "year"
 msgstr ""
 
 #: aigaionengine/helpers/translation_helper.php:17
+#: aigaionengine/views/publications/list.php:47
 msgid "title"
 msgstr ""
 
@@ -3649,18 +3698,30 @@ msgstr ""
 
 #: aigaionengine/views/attachments/add.php:32
 #: aigaionengine/views/attachments/add.php:62
+#: aigaionengine/views/attachments/delete.php:19
 #: aigaionengine/views/attachments/edit.php:33
+#: aigaionengine/views/authors/delete.php:17
 #: aigaionengine/views/authors/edit.php:25
 #: aigaionengine/views/authors/merge.php:33
 #: aigaionengine/views/bookmarklist/ask.php:11
+#: aigaionengine/views/bookmarklist/delete.php:17
+#: aigaionengine/views/bookmarklist/setattaccesslevel.php:18
+#: aigaionengine/views/bookmarklist/seteditattaccesslevel.php:18
+#: aigaionengine/views/bookmarklist/seteditpubaccesslevel.php:18
+#: aigaionengine/views/bookmarklist/setpubaccesslevel.php:18
 #: aigaionengine/views/confirm.php:8 aigaionengine/views/groups/edit.php:44
+#: aigaionengine/views/notes/delete.php:17
 #: aigaionengine/views/notes/edit.php:66
+#: aigaionengine/views/publications/delete.php:17
 #: aigaionengine/views/publications/edit.php:333
 #: aigaionengine/views/repostform.php:28
+#: aigaionengine/views/rightsprofiles/delete.php:20
 #: aigaionengine/views/rightsprofiles/edit.php:86
 #: aigaionengine/views/site/edit.php:614
 #: aigaionengine/views/site/restore.php:52
+#: aigaionengine/views/topics/delete.php:17
 #: aigaionengine/views/topics/edit.php:75
+#: aigaionengine/views/users/delete.php:18
 #: aigaionengine/views/users/edit.php:487
 msgid "Cancel"
 msgstr ""
@@ -3679,6 +3740,27 @@ msgstr ""
 
 #: aigaionengine/views/attachments/add.php:61
 msgid "Add file link"
+msgstr ""
+
+#: aigaionengine/views/attachments/delete.php:15
+#, php-format
+msgid "Are you sure that you want to delete the attachment \"%s\"?"
+msgstr ""
+
+#: aigaionengine/views/attachments/delete.php:16
+#: aigaionengine/views/authors/delete.php:14
+#: aigaionengine/views/bookmarklist/ask.php:10
+#: aigaionengine/views/bookmarklist/delete.php:14
+#: aigaionengine/views/bookmarklist/setattaccesslevel.php:15
+#: aigaionengine/views/bookmarklist/seteditattaccesslevel.php:15
+#: aigaionengine/views/bookmarklist/seteditpubaccesslevel.php:15
+#: aigaionengine/views/bookmarklist/setpubaccesslevel.php:15
+#: aigaionengine/views/confirm.php:7 aigaionengine/views/notes/delete.php:14
+#: aigaionengine/views/publications/delete.php:14
+#: aigaionengine/views/rightsprofiles/delete.php:17
+#: aigaionengine/views/topics/delete.php:14
+#: aigaionengine/views/users/delete.php:15
+msgid "Confirm"
 msgstr ""
 
 #: aigaionengine/views/attachments/download.php:9
@@ -3713,8 +3795,8 @@ msgid "Visit %s"
 msgstr ""
 
 #: aigaionengine/views/attachments/summary.php:17
-#: aigaionengine/views/publications/list.php:134
-#: aigaionengine/views/publications/list.php:137
+#: aigaionengine/views/publications/list.php:150
+#: aigaionengine/views/publications/list.php:153
 #: aigaionengine/views/publications/listClean.php:185
 #: aigaionengine/views/publications/listClean.php:194
 #: aigaionengine/views/readapi/publist.php:171
@@ -3764,10 +3846,16 @@ msgstr ""
 msgid "Attachment access rights:"
 msgstr ""
 
+#: aigaionengine/views/authors/delete.php:13
+#, php-format
+msgid "Are you sure that you want to delete the author \"%s\"?"
+msgstr ""
+
 #: aigaionengine/views/authors/edit.php:10
 #: aigaionengine/views/authors/embed.php:6
 #: aigaionengine/views/authors/merge.php:13
 #: aigaionengine/views/authors/single.php:22
+#: aigaionengine/views/embeddingtest/test.php:15
 #: aigaionengine/views/readapi/author.php:15
 msgid "First name(s)"
 msgstr ""
@@ -3776,6 +3864,7 @@ msgstr ""
 #: aigaionengine/views/authors/embed.php:6
 #: aigaionengine/views/authors/merge.php:13
 #: aigaionengine/views/authors/single.php:22
+#: aigaionengine/views/embeddingtest/test.php:15
 #: aigaionengine/views/readapi/author.php:15
 msgid "von-part"
 msgstr ""
@@ -3784,6 +3873,7 @@ msgstr ""
 #: aigaionengine/views/authors/embed.php:7
 #: aigaionengine/views/authors/merge.php:14
 #: aigaionengine/views/authors/single.php:23
+#: aigaionengine/views/embeddingtest/test.php:15
 #: aigaionengine/views/readapi/author.php:15
 msgid "Last name(s)"
 msgstr ""
@@ -3792,6 +3882,7 @@ msgstr ""
 #: aigaionengine/views/authors/embed.php:7
 #: aigaionengine/views/authors/merge.php:14
 #: aigaionengine/views/authors/single.php:23
+#: aigaionengine/views/embeddingtest/test.php:15
 #: aigaionengine/views/readapi/author.php:15
 msgid "jr-part"
 msgstr ""
@@ -3800,6 +3891,7 @@ msgstr ""
 #: aigaionengine/views/authors/embed.php:8
 #: aigaionengine/views/authors/merge.php:15
 #: aigaionengine/views/authors/single.php:24
+#: aigaionengine/views/embeddingtest/test.php:15
 #: aigaionengine/views/readapi/author.php:15
 msgid "Email"
 msgstr ""
@@ -3808,6 +3900,7 @@ msgstr ""
 #: aigaionengine/views/authors/embed.php:8
 #: aigaionengine/views/authors/merge.php:15
 #: aigaionengine/views/authors/single.php:24
+#: aigaionengine/views/embeddingtest/test.php:15
 #: aigaionengine/views/readapi/author.php:15
 msgid "Institute"
 msgstr ""
@@ -3919,11 +4012,6 @@ msgstr ""
 msgid "Confirmation needed"
 msgstr ""
 
-#: aigaionengine/views/bookmarklist/ask.php:10
-#: aigaionengine/views/confirm.php:7
-msgid "Confirm"
-msgstr ""
-
 #: aigaionengine/views/bookmarklist/controls.php:7
 msgid "Bookmark list controls"
 msgstr ""
@@ -4026,6 +4114,34 @@ msgstr ""
 
 #: aigaionengine/views/bookmarklist/controls.php:127
 msgid "Set attachment edit access level"
+msgstr ""
+
+#: aigaionengine/views/bookmarklist/setattaccesslevel.php:14
+#, php-format
+msgid ""
+"Are you sure that you want to set the read access level for all attachments "
+"of publications on the bookmarklist to \"%s\"?"
+msgstr ""
+
+#: aigaionengine/views/bookmarklist/seteditattaccesslevel.php:14
+#, php-format
+msgid ""
+"Are you sure that you want to set the edit access level for all attachments "
+"of publications on the bookmarklist to \"%s\"?"
+msgstr ""
+
+#: aigaionengine/views/bookmarklist/seteditpubaccesslevel.php:14
+#, php-format
+msgid ""
+"Are you sure that you want to set the edit access level for all publications "
+"on the bookmarklist to \"%s\"?"
+msgstr ""
+
+#: aigaionengine/views/bookmarklist/setpubaccesslevel.php:14
+#, php-format
+msgid ""
+"Are you sure that you want to set the read access level for all publications "
+"on the bookmarklist to \"%s\"?"
 msgstr ""
 
 #: aigaionengine/views/error/404.php:3
@@ -4525,6 +4641,10 @@ msgid ""
 "bottom of this site to contact the admin."
 msgstr ""
 
+#: aigaionengine/views/help/faq.php:32
+msgid "Show all answers"
+msgstr ""
+
 #: aigaionengine/views/help/front.php:4
 #, php-format
 msgid ""
@@ -4925,7 +5045,7 @@ msgid "select to use editor as found in BibTeX"
 msgstr ""
 
 #: aigaionengine/views/keywords/list_items.php:56
-#: aigaionengine/views/publications/list.php:189
+#: aigaionengine/views/publications/list.php:205
 #: aigaionengine/views/publications/single.php:211
 #: aigaionengine/views/publications/single.php:227
 #: aigaionengine/views/readapi/publist.php:124
@@ -5003,6 +5123,14 @@ msgstr ""
 msgid "Create"
 msgstr ""
 
+#: aigaionengine/views/notes/delete.php:13
+msgid "Are you sure that you want to delete the note below?!"
+msgstr ""
+
+#: aigaionengine/views/notes/delete.php:20
+msgid "Note text"
+msgstr ""
+
 #: aigaionengine/views/notes/edit.php:34
 msgid "Add a note"
 msgstr ""
@@ -5030,6 +5158,11 @@ msgstr ""
 
 #: aigaionengine/views/pagination.php:47 aigaionengine/views/pagination.php:49
 msgid "End"
+msgstr ""
+
+#: aigaionengine/views/publications/delete.php:13
+#, php-format
+msgid "Are you sure that you want to delete the publication '%s'?"
 msgstr ""
 
 #: aigaionengine/views/publications/edit.php:18
@@ -5129,30 +5262,47 @@ msgstr ""
 msgid "Editors"
 msgstr ""
 
-#: aigaionengine/views/publications/list.php:90
+#: aigaionengine/views/publications/list.php:43
+msgid "Sort by"
+msgstr ""
+
+#: aigaionengine/views/publications/list.php:44
+msgid "recency"
+msgstr ""
+
+#: aigaionengine/views/publications/list.php:46
+#: aigaionengine/views/topics/full.php:92
+msgid "author"
+msgstr ""
+
+#: aigaionengine/views/publications/list.php:48
+msgid "type"
+msgstr ""
+
+#: aigaionengine/views/publications/list.php:106
 #: aigaionengine/views/publications/listClean.php:65
 #: aigaionengine/views/readapi/publist.php:69
 #, php-format
 msgid "Publications of type %s"
 msgstr ""
 
-#: aigaionengine/views/publications/list.php:121
+#: aigaionengine/views/publications/list.php:137
 #: aigaionengine/views/publications/single.php:24
 msgid "remove from bookmark list"
 msgstr ""
 
-#: aigaionengine/views/publications/list.php:126
+#: aigaionengine/views/publications/list.php:142
 #: aigaionengine/views/publications/single.php:29
 msgid "add to bookmark list"
 msgstr ""
 
-#: aigaionengine/views/publications/list.php:148
+#: aigaionengine/views/publications/list.php:164
 #: aigaionengine/views/readapi/publist.php:187
 msgid "Click to follow Digital Object Identifier link to online publication"
 msgstr ""
 
-#: aigaionengine/views/publications/list.php:175
-#: aigaionengine/views/publications/list.php:200
+#: aigaionengine/views/publications/list.php:191
+#: aigaionengine/views/publications/list.php:216
 #: aigaionengine/views/publications/listClean.php:120
 #: aigaionengine/views/publications/single.php:118
 #: aigaionengine/views/readapi/publist.php:110
@@ -5160,12 +5310,12 @@ msgstr ""
 msgid "View publication details"
 msgstr ""
 
-#: aigaionengine/views/publications/list.php:182
+#: aigaionengine/views/publications/list.php:198
 msgid " and "
 msgstr ""
 
-#: aigaionengine/views/publications/list.php:184
-#: aigaionengine/views/publications/list.php:196
+#: aigaionengine/views/publications/list.php:200
+#: aigaionengine/views/publications/list.php:212
 msgid ", "
 msgstr ""
 
@@ -5343,6 +5493,11 @@ msgstr ""
 
 #: aigaionengine/views/repostform.php:22
 msgid "Repost"
+msgstr ""
+
+#: aigaionengine/views/rightsprofiles/delete.php:16
+#, php-format
+msgid "Are you sure that you want to delete rightsprofile %s?"
 msgstr ""
 
 #: aigaionengine/views/rightsprofiles/edit.php:41
@@ -6146,6 +6301,11 @@ msgstr ""
 msgid "No description"
 msgstr ""
 
+#: aigaionengine/views/topics/delete.php:13
+#, php-format
+msgid "Are you sure that you want to delete topic \"%s\"?"
+msgstr ""
+
 #: aigaionengine/views/topics/edit.php:30
 #, php-format
 msgid "Change Topic &ldquo;%s&rdquo;"
@@ -6183,10 +6343,6 @@ msgstr ""
 
 #: aigaionengine/views/topics/full.php:89
 msgid "publications"
-msgstr ""
-
-#: aigaionengine/views/topics/full.php:92
-msgid "author"
 msgstr ""
 
 #: aigaionengine/views/topics/full.php:92
@@ -6447,6 +6603,11 @@ msgstr ""
 
 #: aigaionengine/views/user/group.php:18
 msgid "Known group members:"
+msgstr ""
+
+#: aigaionengine/views/users/delete.php:14
+#, php-format
+msgid "Are you sure that you want to delete user \"%s\"?"
 msgstr ""
 
 #: aigaionengine/views/users/edit.php:42
