@@ -127,7 +127,7 @@ class Publications extends Controller {
         }
         $content['publications']    = $this->publication_db->getForTopic('1',$order,$page);
         $content['order'] = $order;
-        $content['sortPrefix'] = 'publications/showlisti/%s';
+        $content['sortPrefix'] = 'publications/showlist/%s';
 
         $this->load->view('header', array('title' => __('Publication list')));
         $this->load->view('publications/list', $content);

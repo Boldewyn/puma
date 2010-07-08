@@ -16,7 +16,7 @@ class Authors extends Controller {
             ),
         ));
     }
-    
+
     /**
      * Show all authors together with a filter form
      */
@@ -41,7 +41,7 @@ class Authors extends Controller {
             $order='year';
         }
         $page   = $this->uri->segment(5,0);
-        
+
         //load author
         $author = $this->author_db->getByID($author_id);
         if ($author == null) {
@@ -50,7 +50,7 @@ class Authors extends Controller {
         }
         $this->load->helper('publication');
         $userlogin = getUserLogin();
-        
+
         $publicationContent = array('header' => sprintf(__('Publications of %s'), h($author->getName())).' %s');
         switch ($order) {
             case 'type':
@@ -74,10 +74,11 @@ class Authors extends Controller {
             $publicationContent['currentpage']     = $page;
             $publicationContent['pubCount']        = $this->author_db->getPublicationCount($author_id);
             $publicationContent['multipageprefix'] = 'authors/show/'.$author_id.'/'.$order.'/';
-        }    
+        }
         $publicationContent['publications'] = $this->publication_db->getForAuthor($author_id,$order,$page);
         $publicationContent['order'] = $order;
-        
+        $publicationContent['sortPrefix'] = 'authors/show/'.$author_id.'/%s';
+
         $this->load->view('header', array('title' => h($author->getName())));
         $this->load->view('authors/single', array('author' => $author));
         if ($publicationContent['publications'] != null) {
@@ -93,7 +94,7 @@ class Authors extends Controller {
         if (!in_array($order,array('year','type','recent','title','author'))) {
             $order='year';
         }
-        
+
         //load author
         $author = $this->author_db->getByID($author_id);
         if ($author == null) {
@@ -102,7 +103,7 @@ class Authors extends Controller {
         }
         $this->load->helper('publication');
         $userlogin = getUserLogin();
-        
+
         $publicationContent = array('header' => sprintf(__('Publications of %s'), h($author->getName())).' %s');
         switch ($order) {
             case 'type':
@@ -125,16 +126,17 @@ class Authors extends Controller {
             $publicationContent['multipage']       = True;
             $publicationContent['currentpage']     = $page;
             $publicationContent['multipageprefix'] = 'authors/embed/'.$author_id.'/'.$order.'/';
-        }    
+        }
         $publicationContent['publications'] = $this->publication_db->getForAuthor($author_id,$order);
         $publicationContent['order'] = $order;
         $publicationContent['noBookmarkList'] = True;
-        
+        $publicationContent['sortPrefix'] = 'authors/embed/'.$author_id.'/%s';
+
         $this->load->view('authors/embed', array('author' => $author));
         if ($publicationContent['publications'] != null) {
             $this->load->view('publications/list', $publicationContent);
         }
-    }  
+    }
 
     /**
      * A controller that should return only the basic contents of the single author publication listing.
@@ -180,14 +182,14 @@ class Authors extends Controller {
             $this->load->view('publications/listClean', $publicationContent);
         }
     }
-      
+
     /**
      * Calls an empty author edit form
      */
     function add() {
         $this->edit();
     }
-  
+
     /**
      * Call author edit form. When no ID is given: new authorform
      */
@@ -207,7 +209,7 @@ class Authors extends Controller {
             //there was a author post, retrieve the edit type from the post.
             $edit_type = $this->input->post('edit_type');
         }
-        
+
         $this->load->vars(array(
             'subnav' => array(
                 '/import/' => __('Import'),
@@ -224,7 +226,7 @@ class Authors extends Controller {
             'author' => $author));
         $this->load->view('footer');
     }
-  
+
     /**
      * Call author merge form.
      */
@@ -236,14 +238,14 @@ class Authors extends Controller {
             appendErrorMessage(__('Cannot merge authors: missing parameters.'));
             redirect('/authors');
         }
-        
+
         $this->load->view('header', array('title' => 'Authors: Merge'));
         $this->load->view('authors/merge', array(
             'author' => $author,
             'simauthor' => $simauthor));
         $this->load->view('footer');
-    }  
-    
+    }
+
     /**
      * Do merge commit
      */
@@ -261,8 +263,8 @@ class Authors extends Controller {
         $author->update(); //this updates the new name info into the author
         $author->merge($simauthor_id);
         redirect('authors/show/'.$author->author_id);
-    }  
-  
+    }
+
     /**
      * Entry point for deleting an author.
      */
@@ -288,7 +290,7 @@ class Authors extends Controller {
             $this->load->view('footer');
         }
     }
-  
+
     /**
      * Commit the posted author to the database
      */
@@ -361,7 +363,7 @@ class Authors extends Controller {
         ));
         $this->load->view('footer');
     }
-  
+
     /**
      *
      */
@@ -378,7 +380,7 @@ class Authors extends Controller {
                 'authorlist' => $this->author_db->getAuthorsLike($author_search)));
         }
     }
-  
+
     /**
      * create a new author from the text in the post value 'authorname'
      */
@@ -409,7 +411,7 @@ class Authors extends Controller {
             echo '';
         }
     }
-  
+
     /**
      * Sends the publications for the selected author to the specified email address(es)
      */

@@ -5,29 +5,29 @@ class Notes extends Controller {
     function Notes() {
         parent::Controller();
     }
-    
+
     /** no default */
     function index() {
         redirect('');
     }
 
-    /** 
+    /**
     notes/delete
-    
+
     Entry point for deleting a note.
     Depending on whether 'commit' is specified in the url, confirmation may be requested before actually
-    deleting. 
-    
+    deleting.
+
     Fails with error message when one of:
         delete requested for non-existing note
         insufficient user rights
-        
+
     Parameters passed via URL segments:
         3rd: note_id, the id of the to-be-deleted-note
         4th: if the 4th segment is the string 'commit', no confirmation is requested.
-             if not, a confirmation form is shown; upon choosing 'confirm' this same controller will be 
+             if not, a confirmation form is shown; upon choosing 'confirm' this same controller will be
              called with 'commit' specified
-             
+
       Returns:
           A full HTML page showing a 'request confirmation' form for the delete action, if no 'commit' was specified
           Redirects somewhere (?) after deleting, if 'commit' was specified
@@ -56,7 +56,7 @@ class Notes extends Controller {
             $this->load->view('footer');
         }
     }
-      
+
     /** Entrypoint for adding a note. Shows the necessary form. 3rd segment is pub_id */
     function add($pub_id) {
         $publication = $this->publication_db->getByID($pub_id);
@@ -66,7 +66,7 @@ class Notes extends Controller {
         }
         restrict_to_right('note_edit', __('add note'));
         restrict_to_right(!!$this->accesslevels_lib->canEditObject($publication), __('add note'));
-          
+
         $this->load->library('validation');
         $this->validation->set_error_delimiters('<p class="errormessage">'.__('Changes not committed:').' ', '</p>');
 
@@ -74,7 +74,7 @@ class Notes extends Controller {
         $this->load->view('notes/edit', array('pub_id' => $pub_id));
         $this->load->view('footer');
     }
-      
+
     /** Entrypoint for editing a note. Shows the necessary form. */
     function edit($note_id=1) {
         $this->load->helper('publication_helper');
@@ -88,27 +88,28 @@ class Notes extends Controller {
         }
         restrict_to_right('note_edit', __('edit note'), '');
         restrict_to_right(!!$this->accesslevels_lib->canEditObject($note), __('edit note'), '');
-        
+
         $this->load->view('header', array('title'=>__('Edit note')));
         $this->load->view('notes/edit' , array('note' => $note));
         $this->load->view('publications/list', array(
+            'sortPrefix' => 'notes/edit/'.$note_id.'/%s',
             'publications' => array($this->publication_db->getByID($note->pub_id)),
             'header' => __('Publication belonging to note:'),
             'noNotes' => true, 'noBookmarkList' => true,
             'order' => 'none'));
         $this->load->view('footer');
     }
-      
+
     /**
     notes/commit
-      
+
     Fails with error message when one of:
         edit-commit requested for non-existing note
         insufficient user rights
-        
+
     Parameters passed via POST:
         action = (add|edit)
-             
+
       Redirects to somewhere (?) if the commit was successfull
       Redirects to the edit or add form if the validation of the form values failed
       */
@@ -122,18 +123,18 @@ class Notes extends Controller {
             appendErrorMEssage(__('Commit note: no data to commit.'));
             redirect('');
         }
-        
-        //validation rules: 
+
+        //validation rules:
         $this->validation->set_rules(array('pub_id' => 'required'));
         $this->validation->set_fields(array('pub_id' => __('Publication id')));
-          
+
         if ($this->validation->run() == FALSE) {
             //return to add/edit form if validation failed
             $this->load->view('header', array('title'=>__('Note')));
             $this->load->view('notes/edit', array('note' => $note,
                                                   'action' => $this->input->post('action')));
             $this->load->view('footer');
-        } else {    
+        } else {
             //if validation was successfull: add or change.
             $success = False;
             if ($this->input->post('action') == 'edit') {
@@ -150,7 +151,7 @@ class Notes extends Controller {
             redirect ('publications/show/'.$note->pub_id);
         }
     }
-      
+
 }
 
 //__END__
