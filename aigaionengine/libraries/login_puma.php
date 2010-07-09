@@ -255,6 +255,9 @@ class Login_puma {
                         }
                         //subscribe group to top topic
                         $CI->db->insert('usertopiclink', array('user_id' => $group_id, 'topic_id' => 1));
+                    } else {
+                        $grow = $groupQ->result();
+                        $group_id = $grow->user_id;
                     }
                     $CI->db->insert('usergrouplink',array('user_id'=>$user->user_id,'group_id'=>$group_id));
                     $group = $CI->group_db->getByID($group_id);
