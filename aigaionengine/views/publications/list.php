@@ -30,24 +30,11 @@ if (isset($multipageprefix) && isset($currentpage)) {
     $pagination = '';
 }
 
-$segments = $this->uri->segment_array();
-$last = array_pop($segments);
-if (! in_array($last, array('recent', 'year', 'author', 'title', 'type'))) {
-    $segments[] = $last;
-}
-$segments = join('/', $segments);
-
 //here the output starts
 ?><div class="publication_list">
-    <p class="optionbox">
-        <?php _e('Sort by') ?>
-        <?php _a($segments.'/recent', '['.__('recency').']') ?>
-        <?php _a($segments.'/year', '['.__('year').']') ?>
-        <?php _a($segments.'/author', '['.__('author').']') ?>
-        <?php _a($segments.'/title', '['.__('title').']') ?>
-        <?php _a($segments.'/type', '['.__('type').']') ?>
-    </p>
-    <?php
+    <?php if (isset($sortPrefix) && ($sortPrefix!='')):
+        echo $this->load->view('sort', array('sortPrefix' => $sortPrefix));
+    endif;
 
     if (isset($header) && ($header != '')) {
         echo '<h2>',$header,'</h2>';

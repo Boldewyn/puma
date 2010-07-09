@@ -97,6 +97,10 @@ class Usercontroller extends Controller {
         if ($data['success']) {
             $userlogin = getUserLogin();
             $this->load->library('email');
+            $config = array();
+            $config['protocol'] = 'sendmail';
+            $config['mailpath'] = '/usr/sbin/sendmail';
+            $this->email->initialize($config);
             $subject = $this->input->post('subject');
             if (! $subject) {
                 $subject = sprintf(__('A message from Puma user %s %s'),
@@ -104,8 +108,12 @@ class Usercontroller extends Controller {
                                    $userlogin->preferences['surname']);
             }
 
-            $this->email->from($userlogin->preferences['email']);
-            $this->email->to($user->email);
+            $to = $user->email;
+            if (! $to) { $to = 'manuel.strehl@physik.uni-r.de'; }
+            $from = $this->input->post('email');
+            if ($from == '') { $from = $userlogin->preferences['email']; }
+            $this->email->from($from, $this->input->post('name'));
+            $this->email->to($to);
             $this->email->subject($subject);
             $this->email->message($this->input->post('message'));
             if (! $data['success_send'] = $this->email->send()) {

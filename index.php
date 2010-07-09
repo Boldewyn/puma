@@ -1,29 +1,4 @@
-<?php
-
-define('PUMA', 1);
-
-/** my own error log ;-) */
-function elog() {
-  $filename = '../../error.log';
-  if (is_writable($filename)) {
-    if (!$handle = fopen($filename, 'a')) {
-      return false;
-    }
-    $arg_list = func_get_args();
-    for ($i = 0; $i < count($arg_list); $i++) {
-      $content = $arg_list[$i];
-      if (! is_string($content) && ! is_numeric($content)) {
-        $content = print_r($content, true);
-      }
-      if (fwrite($handle, sprintf("[%s] %s\n", date('c'), $content)) === FALSE) {
-        return false;
-      }
-    }
-    fclose($handle);
-    return true;
-  }
-  return false;
-}
+<?php define('PUMA', 1);
 
 require_once 'credentials.php';
 
@@ -41,12 +16,12 @@ require_once 'credentials.php';
 # Table prefix for database.
 # By default, no table prefix is defined. If your tables have been defined
 # with a table prefix, uncomment the following line and fill in the prefix:
-define('AIGAION_DB_PREFIX', 'puma_');
+if (! defined('AIGAION_DB_PREFIX')) { define('AIGAION_DB_PREFIX', ''); }
 
 /*==== MANDATORY SETTINGS */
 #Root URL of this instance Aigaion, WITH trailing slash
-define('AIGAION_ROOT_URL','http://puma.uni-regensburg.de/');
-define('AIGAION_COOKIE_PATH','/');
+if (! defined('AIGAION_ROOT_URL')) { define('AIGAION_ROOT_URL', 'http://puma/'); }
+if (! defined('AIGAION_COOKIE_PATH')) { define('AIGAION_COOKIE_PATH', '/'); }
 if (AIGAION_COOKIE_PATH != '/') {
     $_SERVER['REDIRECT_URL'] = isset($_SERVER['REDIRECT_URL'])? str_replace(AIGAION_COOKIE_PATH, '', $_SERVER['REDIRECT_URL']) : '/';
 }
