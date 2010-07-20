@@ -32,7 +32,7 @@ class Usercontroller extends Controller {
             $grouped_users = array();
             foreach ($groups as $group) {
                 $grouped_users[$group['user_id']] = array('users'=>array(), 'name'=>$group['surname'],
-                    'firstname'=>group['firstname'], 'abbreviation'=>$group['abbreviation']);
+                    'firstname'=>$group['firstname'], 'abbreviation'=>$group['abbreviation']);
                 foreach ($users as $user) {
                     if ($user['group_id'] == $group['user_id']) {
                         $grouped_users[$group['user_id']]['users'][] = $user;
