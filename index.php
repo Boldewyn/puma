@@ -20,11 +20,9 @@ if (! defined('AIGAION_DB_PREFIX')) { define('AIGAION_DB_PREFIX', ''); }
 
 /*==== MANDATORY SETTINGS */
 #Root URL of this instance Aigaion, WITH trailing slash
-if (! defined('AIGAION_ROOT_URL')) { define('AIGAION_ROOT_URL', 'http://puma/'); }
-if (! defined('AIGAION_COOKIE_PATH')) { define('AIGAION_COOKIE_PATH', '/'); }
-if (AIGAION_COOKIE_PATH != '/') {
-    $_SERVER['REDIRECT_URL'] = isset($_SERVER['REDIRECT_URL'])? str_replace(AIGAION_COOKIE_PATH, '', $_SERVER['REDIRECT_URL']) : '/';
-}
+define('AIGAION_ROOT_URL','http://puma.uni-regensburg.de/');
+define('AIGAION_COOKIE_PATH','/');
+$_SERVER['REDIRECT_URL'] = isset($_SERVER['REDIRECT_URL'])? str_replace(AIGAION_COOKIE_PATH, '', $_SERVER['REDIRECT_URL']) : '/';
 
 #We need to know where your aigaion - engine is located. WITH trailing slash.
 #By default this is http://localhost/aigaion2root/aigaionengine/
