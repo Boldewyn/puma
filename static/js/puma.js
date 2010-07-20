@@ -106,7 +106,9 @@ Additional bugs added by Manuel Strehl, 2010.
 (function () {
 var catalog = { de: { LC_MESSAGES: {
   'bookmark': 'merken',
-  'unbookmark': 'entmerken'
+  'unbookmark': 'entmerken',
+  'subscribe': 'abonnieren',
+  'unsubscribe': 'k\u00fcndigen'
 }}};
 var LC_MESSAGES = "de";
 try {
@@ -242,6 +244,21 @@ window._ = gettext;
             }, 'json');
         return false;
       });
+    });
+
+    $('a.subscribe').each(function () {
+      var $this = $(this);
+      $this.click = function () {
+        var id = $this.attr('href').replace(/^.*\//, '');
+        if ($this.hasClass('subscribed')) {
+          p.topic.unsubscribe(id, $this);
+          $this.children('span').text(_('subscribe'));
+        } else {
+          p.topic.subscribe(id, $this);
+          $this.children('span').text(_('unsubscribe'));
+        }
+        return false;
+      };
     });
     
     $('button:not(.pseudolink), :submit:not(.pseudolink), .pseudobutton').button();
