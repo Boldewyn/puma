@@ -12,13 +12,17 @@ $methods = array(
     'recent' => __('Recently added'),
 );
 
-if (isset($sortPrefix) && ($sortPrefix!='')): ?>
+if (isset($sortPrefix) && ($sortPrefix!='')):
+  if (strpos($sortPrefix, '%s') === False) {
+    $sortPrefix = rtrim($sortPrefix, '/') . '/%s';
+  }
+  ?>
   <div class="sortcontrols">
     <p><?php _e('Sort by:') ?></p>
     <ul class="tabs">
       <?php foreach ($methods as $method => $label): ?>
         <li class="<?php if(strpos('/'.uri_string(), $sortPrefix.$method) === 0) { echo 'active'; }
-            ?>"><?php _a($sortPrefix.$method, $label)?></li>
+            ?>"><?php _a(sprintf($sortPrefix, $method), $label)?></li>
       <?php endforeach ?>
     </ul>
   </div>

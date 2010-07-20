@@ -3,7 +3,7 @@
 class Topics extends Controller {
 
     function Topics() {
-        parent::Controller();    
+        parent::Controller();
         $this->load->vars(array(
             'nav_current' => 'explore',
             'subnav_current' => '/topics',
@@ -16,7 +16,7 @@ class Topics extends Controller {
             ),
         ));
     }
-    
+
     /**
      * Pass control to the topics/browse/ controller
      */
@@ -24,7 +24,7 @@ class Topics extends Controller {
         $this->browse();
     }
 
-    /** Simple browse page for Topics. 
+    /** Simple browse page for Topics.
         This controller returns a full web page of the subscribed topics
         Third parameter selects root topic_id for tree (default:1) */
     function browse($root_id=1) {
@@ -48,8 +48,8 @@ class Topics extends Controller {
         $this->load->view('topics/index', array('all' => false, 'topics' => $root->getChildren()));
         $this->load->view('footer');
     }
-    
-    /** Simple browse page for Topics. 
+
+    /** Simple browse page for Topics.
         This controller returns a full web page of ALL available topics
         Third parameter selects root topic_id for tree (default:1) */
     function all($root_id=1) {
@@ -76,7 +76,7 @@ class Topics extends Controller {
      * Entry point for deleting a topic.
      *
      * Depending on whether 'commit' is specified in the url, confirmation may
-     * be requested before actually deleting. 
+     * be requested before actually deleting.
      */
     function delete($topic_id, $commit='') {
         $config = array();
@@ -106,7 +106,7 @@ class Topics extends Controller {
             $this->load->view('footer');
         }
     }
-    
+
     /**
      * Entrypoint for adding a topic. Shows the necessary form.
      */
@@ -116,7 +116,7 @@ class Topics extends Controller {
         $this->validation->set_error_delimiters('<p class="error">'.__('Changes not committed: '), '</p>');
         $config = array();
         $parent = $this->topic_db->getByID($parent_id, $config);
-        
+
         $this->load->vars(array(
             'subnav' => array(
                 '/import/' => __('Import'),
@@ -131,7 +131,7 @@ class Topics extends Controller {
         $this->load->view('topics/edit' , array('parent'=>$parent));
         $this->load->view('footer');
     }
-    
+
     /**
      * Entrypoint for editing a category. Shows the necessary form.
      */
@@ -152,7 +152,7 @@ class Topics extends Controller {
         $userlogin  = getUserLogin();
         restrict_to_right(($userlogin->hasRights('topic_edit') || $this->accesslevels_lib->canEditObject($topic)),
             __('Edit topic'), '/topics');
- 
+
         $this->load->vars(array(
             'subnav' => array(
                 '/import/' => __('Import'),
@@ -167,8 +167,8 @@ class Topics extends Controller {
         $this->load->view('topics/edit' , array('topic'=>$topic));
         $this->load->view('footer');
     }
-    
-    /** Simple view page for single topic. 
+
+    /** Simple view page for single topic.
         This controller returns a full web page.
         Third parameter selects topic_id (default:1)
         or topic name path... for the latter, also see libraries/topic_db#getTopicIDFromNames()
@@ -182,8 +182,8 @@ class Topics extends Controller {
             $topic_id = $topic_name;
         } else {
             //breaks down parts of the url into an array of topics and sub topics. STOPS when either the order (e.g. year, type etc) is reached or when the whole url is parsed.
-            while($topic_name != '' && $topic_name != 'year' && 
-                  $topic_name != 'type' && $topic_name != 'recent' && 
+            while($topic_name != '' && $topic_name != 'year' &&
+                  $topic_name != 'type' && $topic_name != 'recent' &&
                   $topic_name != 'title' && $topic_name != 'author') {
                 $topic_structure[] = $topic_name;
                 $url_segment++;
@@ -220,11 +220,11 @@ class Topics extends Controller {
             appendErrorMessage(__('Show topic: non-existing id passed.'));
             redirect('/topics');
         }
-        
+
         //no additional rights check beyond those in the topic_db->getbyID, as anyone can view topics as long
         // as he has the right access levels
         $this->load->helper('publication');
-    
+
         $content = array('header' => sprintf(__('Publications for topic &ldquo;%s&rdquo; %%s'), $topic->name));
         switch ($order) {
             case 'type':
@@ -252,13 +252,14 @@ class Topics extends Controller {
         }
         $content['publications']    = $this->publication_db->getForTopic($topic_id,$order,$page);
         $content['order'] = $order;
-        
+        $content['sortPrefix'] = 'topics/single/'.$topic_id.'/%s';
+
         $this->load->view('header', array('title' => sprintf(__('Topic: %s'), h($topic->name))));
         $this->load->view('topics/full', array('topic' => $topic));
         $this->load->view('publications/list', $content);
         $this->load->view('footer');
     }
-    
+
     /*
         This controller takes the topic either (1) as url containing the names of the topics and subtopics
         as for instance [aigion_root]/index.php/topics/embedClean/top/subtopic_1/.../subtopic_n
@@ -267,7 +268,7 @@ class Topics extends Controller {
         Topics CANNOT be named: year, type, recent, title, author, msc or any number. The controller could fail if these topic names are present.
 
         The method topic_db->getTopicID is used to translate this url into a unique topic ID.
-        
+
         Contribution by {\O}yvind
     */
     function embedClean($topic_name=1) {
@@ -279,8 +280,8 @@ class Topics extends Controller {
             $topic_id = $topic_name;
         } else {
             //breaks down parts of the url into an array of topics and sub topics. STOPS when either the order (e.g. year, type etc) is reached or when the whole url is parsed.
-            while($topic_name != '' && $topic_name != 'year' && 
-                  $topic_name != 'type' && $topic_name != 'recent' && 
+            while($topic_name != '' && $topic_name != 'year' &&
+                  $topic_name != 'type' && $topic_name != 'recent' &&
                   $topic_name != 'title' && $topic_name != 'author') {
                 $topic_structure[] = $topic_name;
                 $url_segment++;
@@ -334,8 +335,8 @@ class Topics extends Controller {
 
         $this->load->view('topics/clean', array('topic' => $topic));
         $this->load->view('publications/listClean', $content);
-    }    
-    
+    }
+
     /**
      * Commit changes to a topic
     */
@@ -345,7 +346,7 @@ class Topics extends Controller {
 
         //get data from POST
         $topic = $this->topic_db->getFromPost();
-        
+
         //check if fail needed: was all data present in POST?
         if ($topic == null) {
             appendErrorMessage(__('Commit topic: no data to commit.'));
@@ -353,22 +354,22 @@ class Topics extends Controller {
         }
 
 //             the access level checks are of course not tested here,
-//             but in the commit action, as the client can have sent 'wrong' form data        
-        
-        //validate form values; 
-        //validation rules: 
+//             but in the commit action, as the client can have sent 'wrong' form data
+
+        //validate form values;
+        //validation rules:
         //  -no topic with the same name and a different ID can exist
         //  -name is required (non-empty)
         $this->validation->set_rules(array('name' => 'required'));
         $this->validation->set_fields(array('name' => __('Topic Name')));
-            
+
         if ($this->validation->run() == FALSE) {
             //return to add/edit form if validation failed
             $this->load->view('header', array('title' => __('Topic')));
             $this->load->view('topics/edit', array('topic' => $topic,
                                                    'action' => $this->input->post('action')));
             $output .= $this->load->view('footer');
-        } else {    
+        } else {
             //if validation was successfull: add or change.
             $success = False;
             if ($this->input->post('action') == 'edit') {
@@ -385,12 +386,12 @@ class Topics extends Controller {
             redirect('topics/single/'.$topic->topic_id);
         }
     }
-    
+
     /**
      * Collapses or expands a topic for the logged user
      *
      * Is normally called async, without processing the returned partial,
-     * by clicking one of the collapse or expand buttons in a topic tree 
+     * by clicking one of the collapse or expand buttons in a topic tree
      * rendered by subview 'maintreerow' with argument 'useCollapseCallback'=>True
      */
     function collapse($topic_id=-1, $collapse='1') {
@@ -415,7 +416,7 @@ class Topics extends Controller {
     function exportEmail() {
         restrict_to_right('export_email', __('Export through email'), '/topics');
         $this->load->library('email_export');
-    
+
         $email_pdf = $this->input->post('email_pdf');
         $email_bibtex = $this->input->post('email_bibtex');
         $email_ris = $this->input->post('email_ris');

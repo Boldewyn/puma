@@ -1,6 +1,6 @@
 codeigniter/logs/*.php
 credentials.php
-attachments/*
+attachments/[^.]*
 static/*/*.gz
 *.swp
 Session.vim

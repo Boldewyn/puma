@@ -17,24 +17,24 @@ class Keywords extends Controller {
         ));
         $this->load->helper('publication');
     }
-    
+
     /** Default function: list publications */
     function index() {
         $this->load->helper('form');
         $keywordList = $this->keyword_db->getAllKeywords('keyword');
-        
+
         //set header data
         $header = array('title' => __('Keywords'));
         $content = array('header' => __('All keywords in the database'),
             'keywordList' => $keywordList,
             'searchbox'   => True,
         );
-        
+
         $this->load->view('header', $header);
         $this->load->view('keywords/list', $content);
         $this->load->view('footer');
     }
-    
+
     function searchlist() {
         $keyword = $this->input->post('keyword_search');
         if ($keyword) { // user pressed show, so redirect to single keyword page
@@ -50,12 +50,12 @@ class Keywords extends Controller {
             $this->load->view('keywords/list_items', $content);
         }
     }
-  
+
     function li_keywords($fieldname = '') {
         if ($fieldname == '') {
             $fieldname = 'keywords';
         }
-        
+
         $keyword = $this->input->post($fieldname);
         if ($keyword != '') {
             $content = array('keywordList' => $this->keyword_db->getKeywordsLike($keyword),
@@ -69,20 +69,20 @@ class Keywords extends Controller {
             $this->output->set_output(json_encode($r));
         }
     }
-  
-    /** 
+
+    /**
     single
-    
+
     Entry point for showing a list of publications that have been assigned the given keyword
-    
+
     fails with error message when one of:
       non existing keyword_id
-          
+
     Parameters passed via segments:
         3rd:  keyword_id
         4rth: sort order
         5th:  page number
-               
+
     Returns:
         A full HTML page with all a list of all publications that have been assigned the given keyword
     */
@@ -96,7 +96,7 @@ class Keywords extends Controller {
             $order='year';
         }
         $page   = $this->uri->segment(5,0);
-        
+
         //load keyword
         $keyword = $this->keyword_db->getByID($keyword_id);
         if ($keyword == null) {
@@ -104,11 +104,11 @@ class Keywords extends Controller {
             redirect('/keywords');
         }
         $keywordContent ['keyword'] = $keyword;
-        
+
         $this->load->helper('publication');
-        
+
         $userlogin = getUserLogin();
-        
+
         //set header data
         $header = array('title' => sprintf(__('Keyword: &ldquo;%s&rdquo;'), $keyword->keyword));
 
@@ -135,11 +135,11 @@ class Keywords extends Controller {
             $publicationContent['multipage']       = True;
             $publicationContent['currentpage']     = $page;
             $publicationContent['multipageprefix'] = 'publications/keyword/'.$keyword->keyword_id.'/'.$order.'/';
-        }    
+        }
         $publicationContent['publications'] = $this->publication_db->getForKeyword($keyword,$order);
         $publicationContent['order'] = $order;
+        $publicationContent['sortPrefix'] = 'publications/keyword/'.$keyword->keyword_id.'/%s';
 
-        
         //get output
         $this->load->view('header',          $header);
         $this->load->view('keywords/single', $keywordContent);
