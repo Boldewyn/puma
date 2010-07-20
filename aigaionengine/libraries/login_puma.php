@@ -187,10 +187,11 @@ class Login_puma {
                     if ($qid->num_rows() > 0) {
                         $new_id = $qid->row()->id;
                         $CI->db->insert('users', array('user_id'=>$new_id, 'firstname'=>'nds',
+                            'betweenname'=>'nds',
                             'surname'=>$groupname, 'abbreviation'=>substr($groupname, 0, 10),
                             'type'=>'group', 'theme'=>'Puma'));
                     } else {
-                        $CI->db->insert('users', array('firstname'=>'nds',
+                        $CI->db->insert('users', array('firstname'=>'nds', 'betweenname'=>'nds',
                             'surname'=>$groupname, 'abbreviation'=>substr($groupname, 0, 10),
                             'type'=>'group', 'theme'=>'Puma'));
                         $new_id = $CI->db->insert_id();
@@ -220,13 +221,13 @@ class Login_puma {
             $CI->db->insert('usertopiclink', array('user_id' => $new_id, 'topic_id' => 1));
         } else { // check, if groups have changed
             $user = $Q->row();
-            $query = $CI->db->select('users.surname AS surname, users.firstname as firstname, users.user_id AS user_id', False)->from('users')
+            $query = $CI->db->select('users.surname AS surname, users.betweenname as betweenname, users.user_id AS user_id', False)->from('users')
                         ->join('usergrouplink', 'users.user_id = usergrouplink.group_id')
                         ->where('usergrouplink.user_id', $user->user_id)->get();
             $groups = array();
             foreach ($query->result() as $row) {
                 // user has left a NDS group
-                if (! in_array($row->surname, $data['groups']) && $row->firstname == 'nds') {
+                if (! in_array($row->surname, $data['groups']) && $row->betweenname == 'nds') {
                     $CI->db->where('user_id', $user->user_id)->where('group_id', $row->user_id)
                        ->delete('usergrouplink');
                 } else {
@@ -245,10 +246,12 @@ class Login_puma {
                         if ($qid->num_rows() > 0) {
                             $group_id = $qid->row()->id;
                             $CI->db->insert('users', array('user_id'=>$group_id, 'firstname'=>'nds',
+                                'betweenname'=>'nds',
                                 'surname'=>$g, 'abbreviation'=>substr($g, 0, 10),
                                 'type'=>'group', 'theme'=>'Puma'));
                         } else {
                             $CI->db->insert('users', array('firstname'=>'nds',
+                                'betweenname'=>'nds',
                                 'surname'=>$g, 'abbreviation'=>substr($g, 0, 10),
                                 'type'=>'group', 'theme'=>'Puma'));
                             $group_id = $CI->db->insert_id();
