@@ -24,14 +24,15 @@ class Usercontroller extends Controller {
                           ->order_by('usergrouplink.group_id asc')->order_by('users.login asc')
                           ->get();
             $users = $query->result_array();
-            $query = $this->db->select(array('user_id', 'surname', 'abbreviation'))
+            $query = $this->db->select(array('user_id', 'surname', 'firstname', 'abbreviation'))
                               ->from('users')->where('type', 'group')->where('theme', 'Puma')
                               ->order_by('surname asc')
                               ->get();
             $groups = $query->result_array();
             $grouped_users = array();
             foreach ($groups as $group) {
-                $grouped_users[$group['user_id']] = array('users'=>array(), 'name'=>$group['surname'], 'abbreviation'=>$group['abbreviation']);
+                $grouped_users[$group['user_id']] = array('users'=>array(), 'name'=>$group['surname'],
+                    'firstname'=>group['firstname'], 'abbreviation'=>$group['abbreviation']);
                 foreach ($users as $user) {
                     if ($user['group_id'] == $group['user_id']) {
                         $grouped_users[$group['user_id']]['users'][] = $user;
@@ -197,7 +198,7 @@ class Usercontroller extends Controller {
      *
      */
     public function group($id) {
-        $query = $this->db->select(array('user_id', 'surname', 'abbreviation'))
+        $query = $this->db->select(array('user_id', 'surname', 'firstname', 'abbreviation'))
                           ->from('users')->where('type', 'group')->where('theme', 'Puma')
                           ->where('abbreviation', $id)->limit(1)
                           ->get();
