@@ -418,7 +418,7 @@ class Users extends Controller {
             if ($error) {
                 back_to_referrer($error, '', True);
             } else {
-                back_to_referrer(__('The topic has been unsubscribed.'));
+                back_to_referrer(__('The topic has been subscribed.'));
             }
         }
     }

@@ -40,9 +40,11 @@ Parameters:
     <?php echo $publicationReadCount ?>/<?php echo $publicationCount ?></em>
     <?php if (! isset($subscribed) || $subscribed == False) {
       if ($isSubscr):
-        _a('#', '<span>'.__('Unsubscribe').'</span>', array('onclick' => 'Puma.topic.unsubscribe('.$topic->topic_id.', this);return false;'));
+        _a('users/unsubscribe/'.$topic->topic_id, '<span>'.__('Unsubscribe').'</span>',
+           array('class' => 'subscribe subscribed'));
       else:
-        _a('#', '<span>'.__('Subscribe').'</span>', array('onclick' => 'Puma.topic.subscribe('.$topic->topic_id.', this);return false;'));
+        _a('users/subscribe/'.$topic->topic_id, '<span>'.__('Subscribe').'</span>',
+           array('class' => 'subscribe'));
       endif;
     } ?>
   </span>
