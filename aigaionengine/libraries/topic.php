@@ -1,17 +1,17 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?><?php
-/** This class holds the data structure of a topic. 
+/** This class holds the data structure of a topic.
 
 A Topic also serves as a (possibly implicit) configurable tree structure, through functions such
 as getChildren() and getParent().
 
-When creating a Topic through the topic_db library you can specify a configuration for the tree 
-structure. Depending on this configuration, the tree will be constructed e.g. for all topics, for 
-only those topics to which a specific user is subscribed, etc... More details can be found in the 
+When creating a Topic through the topic_db library you can specify a configuration for the tree
+structure. Depending on this configuration, the tree will be constructed e.g. for all topics, for
+only those topics to which a specific user is subscribed, etc... More details can be found in the
 topic_db library which handles database access for topics.
 */
 
 class Topic {
-  
+
     #ID
     var $id        = '';
     var $topic_id        = '';
@@ -37,11 +37,11 @@ class Topic {
     //this flags collection may contain additional information related to the configuration, such as whether this
     //particular topic was assigned to a certain publication. Note: these flags should not be changed directly.
     var $flags              = array();
-        
+
     function Topic()
     {
     }
-    
+
 
     /** Return an array of Topic's. Note: not loaded until requested by this function. Every call to this
     function will return the same Topic objects (same pointers). */
@@ -67,20 +67,20 @@ class Topic {
         $CI = &get_instance();
         return $CI->topic_db->getAuthorsForTopic($this->topic_id);
     }
-  
+
     function getKeywords() {
       $CI = &get_instance();
       return $CI->topic_db->getKeywordsForTopic($this->topic_id);
     }
-    
+
     /** if this topic is a user subscription tree, use this method to set the user to being subscribed to this
-    topic and commit it to the database. Afterwards, the topic tree has been updated and the database also. 
+    topic and commit it to the database. Afterwards, the topic tree has been updated and the database also.
     This method subscribes the ancestors and children as well.
-    Pre: $this->configuration['user'] must be set. */  
+    Pre: $this->configuration['user'] must be set. */
     function subscribeUser() {
         $this->subscribeUserDownRecursive();
         $this->subscribeUserUpRecursive();
-    }    
+    }
     function subscribeUserDownRecursive() {
         $CI = &get_instance();
         $CI->topic_db->subscribeUser($this->configuration['user'], $this->topic_id);
@@ -88,7 +88,7 @@ class Topic {
         foreach ($this->getChildren() as $child) {
             $child->subscribeUserDownRecursive();
         }
-    }    
+    }
     function subscribeUserUpRecursive() {
         $CI = &get_instance();
         $CI->topic_db->subscribeUser($this->configuration['user'], $this->topic_id);
@@ -97,12 +97,12 @@ class Topic {
         if ($parent != null) {
             $parent->subscribeUserUpRecursive();
         }
-    }    
+    }
 
     /** if this topic is a user subscription tree, use this method to set the user to being unsubscribed to this
-    topic and commit it to the database. Afterwards, the topic tree has been updated and the database also. 
+    topic and commit it to the database. Afterwards, the topic tree has been updated and the database also.
     This method unsubscribes the children as well.
-    Pre: $this->configuration['user'] must be set. */  
+    Pre: $this->configuration['user'] must be set. */
     function unsubscribeUser() {
         $CI = &get_instance();
         $CI->topic_db->unsubscribeUser($this->configuration['user'], $this->topic_id);
@@ -110,16 +110,16 @@ class Topic {
         foreach ($this->getChildren() as $child) {
             $child->unsubscribeUser();
         }
-    }    
+    }
 
     /** if this topic is a publication subscription tree, use this method to set the publication to being subscribed to this
-    topic and commit it to the database. Afterwards, the topic tree has been updated and the database also. 
+    topic and commit it to the database. Afterwards, the topic tree has been updated and the database also.
     This method subscribes the ancestors and children as well.
-    Pre: $this->configuration['publicationId'] must be set. */  
+    Pre: $this->configuration['publicationId'] must be set. */
     function subscribePublication() {
         //$this->subscribePublicationDownRecursive();
         $this->subscribePublicationUpRecursive();
-    }    
+    }
     function subscribePublicationDownRecursive() {
         $CI = &get_instance();
         $CI->topic_db->subscribePublication($this->configuration['publicationId'], $this->topic_id);
@@ -127,7 +127,7 @@ class Topic {
         foreach ($this->getChildren() as $child) {
             $child->subscribePublicationDownRecursive();
         }
-    }    
+    }
     function subscribePublicationUpRecursive() {
         $CI = &get_instance();
         $CI->topic_db->subscribePublication($this->configuration['publicationId'], $this->topic_id);
@@ -136,16 +136,16 @@ class Topic {
         if ($parent != null) {
             $parent->subscribePublicationUpRecursive();
         }
-    }    
+    }
 
     /** This method does NOT require the topic to be a publication subscription tree.
     Set all given publications to being subscribed to this topic.
     Has no influence on the datastructure contained in this topic.
-    This method subscribes the ancestors and children as well. */  
+    This method subscribes the ancestors and children as well. */
     function subscribePublicationSet($pub_ids) {
         $this->subscribePublicationSetDownRecursive($pub_ids);
         $this->subscribePublicationSetUpRecursive($pub_ids);
-    }    
+    }
     function subscribePublicationSetDownRecursive($pub_ids) {
         $CI = &get_instance();
         foreach ($pub_ids as $pub_id)
@@ -153,7 +153,7 @@ class Topic {
         foreach ($this->getChildren() as $child) {
             $child->subscribePublicationSetDownRecursive($pub_ids);
         }
-    }    
+    }
     function subscribePublicationSetUpRecursive($pub_ids) {
         $CI = &get_instance();
         foreach ($pub_ids as $pub_id)
@@ -162,12 +162,12 @@ class Topic {
         if ($parent != null) {
             $parent->subscribePublicationSetUpRecursive($pub_ids);
         }
-    }    
+    }
 
     /** if this topic is a Publication subscription tree, use this method to set the Publication to being unsubscribed to this
-    topic and commit it to the database. Afterwards, the topic tree has been updated and the database also. 
+    topic and commit it to the database. Afterwards, the topic tree has been updated and the database also.
     This method unsubscribes the children as well.
-    Pre: $this->configuration['publicationId'] must be set. */  
+    Pre: $this->configuration['publicationId'] must be set. */
     function unsubscribePublication() {
         $CI = &get_instance();
         $CI->topic_db->unsubscribePublication($this->configuration['publicationId'], $this->topic_id);
@@ -175,8 +175,8 @@ class Topic {
         foreach ($this->getChildren() as $child) {
             $child->unsubscribePublication();
         }
-    }        
-    
+    }
+
     /** Add a new Topic with the given data. Returns TRUE or FALSE depending on whether the operation was
     successfull. After a successfull 'add', $this->topic_id contains the new topic_id. */
     function add() {
@@ -198,7 +198,7 @@ class Topic {
         $CI = &get_instance();
         return $CI->topic_db->delete($this);
     }
-    
+
     /** Collapse this topic for the current logged user */
     function collapse() {
         $CI = &get_instance();
@@ -212,7 +212,8 @@ class Topic {
         $userlogin = getUserLogin();
         $CI->topic_db->expand($this, $userlogin->userId());
     }
-    
-    
+
+
 }
-?>
+
+//__END__

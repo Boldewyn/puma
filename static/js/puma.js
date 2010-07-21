@@ -167,7 +167,7 @@ window._ = gettext;
     }
     $('.publication_summary').hover(function () { $(this).addClass('publication_summary_hover'); },
       function () { $(this).removeClass('publication_summary_hover'); });
-    
+
     /** Intercept rights changing click */
     $('.rights_switch').click(function () {
       var $sw = $(this);
@@ -186,10 +186,10 @@ window._ = gettext;
       });
       return false;
     });
-    
+
     /** init LaTeXMathML */
     new LaTeXMathML({autostart:1, element:document.getElementById("content")});
-    
+
     /** init TinyMCE, if necessary */
     if ($('textarea.richtext').length > 0 && ('tinyMCE' in window)) {
       tinyMCE.init({
@@ -210,9 +210,9 @@ window._ = gettext;
         theme_advanced_statusbar_location : "bottom"
       });
     }
-    
+
     /** publication rating: create a UI slider */
-    $('.publication_mark').each(function () {
+    $('.Xpublication_mark').each(function () {
       $(this).hide();
       var slide_container = $('<div class="publication_mark_slider"></div>');
       var slider = $('<div></div>');
@@ -225,7 +225,7 @@ window._ = gettext;
       slide_container.append(slider);
       $(this).after(slide_container);
     });
-  
+
     /** bookmark icons: intercept link with AJAX magic */
     $('[id^=bookmark_icon_]').each(function () {
       var $this = $(this);
@@ -260,11 +260,33 @@ window._ = gettext;
         return false;
       };
     });
-    
+
+    $('img.topic-toggler').click(function () {
+      var $this = $(this);
+      var callhome = $this.hasClass('topic-toggler-true');
+      var id = $this.attr('id').replace(/toggler_/, '');
+      if ($this.hasClass('topic-toggler-min')) {
+        $('#topic_children_'+id).hide();
+        $this.attr('src', function (i, a) {
+          return a.replace(/tree_min/, 'tree_plus');
+        }).attr('alt', '[+]')
+        .removeClass('topic-toggler-min').addClass('topic-toggler-max');
+        if (callhome) { $.get(config.base_url+'topics/collapse/'+id+'/1'); }
+      } else {
+        $('#topic_children_'+id).show();
+        $this.attr('src', function (i, a) {
+          return a.replace(/tree_plus/, 'tree_min');
+        }).attr('alt', '[-]')
+        .removeClass('topic-toggler-max').addClass('topic-toggler-min');
+        if (callhome) { $.get(config.base_url+'topics/collapse/'+id+'/0'); }
+      }
+      return false;
+    }).css('cursor', 'pointer');
+
     $('button:not(.pseudolink), :submit:not(.pseudolink), .pseudobutton').button();
-  
+
   });
-  
+
   /**
    * IE: replace top navigation with a table
    */
@@ -279,7 +301,7 @@ window._ = gettext;
     });
     $('#nav ul').replaceWith($nav);
   };
-  
+
   /**
    * Puma.toggleEditor: switch on/off TinyMCE
    */
@@ -291,7 +313,7 @@ window._ = gettext;
         tinyMCE.execCommand('mceRemoveControl', false, id);
     }
   };
-  
+
   /**
    * Tokenized autocompleter
    */
@@ -320,7 +342,7 @@ window._ = gettext;
       }
     });
   };
-  
+
   /**
    *
    */
@@ -353,7 +375,7 @@ window._ = gettext;
       }
     });
   };
-  
+
 })(jQuery);
 
 

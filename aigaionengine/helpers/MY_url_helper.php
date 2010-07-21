@@ -36,6 +36,23 @@ function back_to_referrer($msg='', $alt='', $error=False) {
 
 
 /**
+ * Return either JSON, if it's an AJAX request, or go back to the referrer
+ */
+function json_or_referrer($msg='', $alt='', $error=False) {
+    $CI =& get_instance();
+    if (is_ajax()) {
+        $CI->output->set_header('Content-Type: text/javascript');
+        if ($error) {
+            $CI->output->set_output('{"result":false,"message":"'.$message.'"}');
+        } else {
+            $CI->output->set_output('{"result":true,"message":"'.$message.'"}');
+        }
+    } else {
+        back_to_referrer($msg, $alt, $error);
+    }
+}
+
+/**
  * Prep URL
  *
  * Simply adds the http:// part if missing

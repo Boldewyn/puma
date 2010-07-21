@@ -391,27 +391,21 @@ class Publications extends Controller {
             $error = true;
         }
 
-        $topic = $this->topic_db->getByID($topic_id, array('publicationId'=>$pub_id));
+        $configuration = array('publicationId'=>$pub_id);
+        $topic = $this->topic_db->getByID($topic_id, $configuration);
         if ($topic == null) {
             $error = true;
         }
 
-        if ($error || ! $topic->subscribePublication()) {
-            $msg = '<p class="error">'.__('Subscribe topic: non-existing id passed.').'</p>';
-            if (is_ajax()) {
-                echo $msg;
-            } else {
-                $this->load->view('header', array('title'=>__('Subscribe')));
-                $this->load->view('put', array('data'=>$msg));
-                $this->load->view('footer');
-            }
+        $msg = __('Successfully subscribed publication.');
+        $alt = '/publications/show/'.$pub_id;
+        if ($error) {
+            $msg = __('Subscribe topic: non-existing id passed.');
+            $alt = '';
         } else {
-            if (is_ajax()) {
-                echo '<div/>';
-            } else {
-                back_to_referrer(__('Successfully subscribed publication.'), '/publications/show/'.$pub_id);
-            }
+            $topic->subscribePublication();
         }
+        json_or_referrer($msg, $alt, $error);
     }
 
     /**
@@ -431,27 +425,21 @@ class Publications extends Controller {
             $error = true;
         }
 
-        $topic = $this->topic_db->getByID($topic_id, array('publicationId'=>$pub_id));
+        $configuration = array('publicationId'=>$pub_id);
+        $topic = $this->topic_db->getByID($topic_id, $configuration);
         if ($topic == null) {
             $error = true;
         }
 
-        if ($error || ! $topic->unsubscribePublication()) {
-            $msg = '<p class="error">'.__('Subscribe topic: non-existing id passed.').'</p>';
-            if (is_ajax()) {
-                echo $msg;
-            } else {
-                $this->load->view('header', array('title'=>__('Unsubscribe')));
-                $this->load->view('put', array('data'=>$msg));
-                $this->load->view('footer');
-            }
+        $msg = __('Successfully unsubscribed publication.');
+        $alt = '/publications/show/'.$pub_id;
+        if ($error) {
+            $msg = __('Subscribe topic: non-existing id passed.');
+            $alt = '';
         } else {
-            if (is_ajax()) {
-                echo '<div/>';
-            } else {
-                back_to_referrer(__('Successfully unsubscribed publication.'), '/publications/show/'.$pub_id);
-            }
+            $topic->unsubscribePublication();
         }
+        json_or_referrer($msg, $alt, $error);
     }
 
     /**
@@ -463,7 +451,7 @@ class Publications extends Controller {
             appendErrorMessage(__('Mark publication: non-existing id passed.'));
             redirect('/publications');
         }
-        restrict_to_rights('note_edit', __('Mark publication'), 'publications/show/'.$publication->pub_id);
+        restrict_to_right('note_edit', __('Mark publication'), 'publications/show/'.$publication->pub_id);
         $mark = $this->input->post('mark', '');
         if ($mark==0) $mark='';
         $publication->read($mark);
@@ -479,7 +467,7 @@ class Publications extends Controller {
             appendErrorMessage(__('Mark publication: non-existing id passed.'));
             redirect('/publications');
         }
-        restrict_to_rights('note_edit', __('Mark publication'), 'publications/show/'.$publication->pub_id);
+        restrict_to_right('note_edit', __('Mark publication'), 'publications/show/'.$publication->pub_id);
         $publication->unread();
         redirect('publications/show/'.$publication->pub_id);
     }

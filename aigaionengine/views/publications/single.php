@@ -316,7 +316,7 @@ $this->load->helper('translation');
       </tr>
     <?php endif; ?>
   </table>
-  <div>
+  <div class="publication-addition">
     <?php if ($userlogin->hasRights('attachment_edit') && $accessLevelEdit): ?>
       <p class='optionbox'>
         <?php _a('attachments/add/'.$publication->pub_id, '['.__('add attachment').']')?>
@@ -334,7 +334,7 @@ $this->load->helper('translation');
     ?>
     </ul>
   </div>
-  <div>
+  <div class="publication-addition">
     <?php if ($userlogin->hasRights('note_edit') && $accessLevelEdit): ?>
       <p class='optionbox'>
         <?php _a('notes/add/'.$publication->pub_id, '['.__('add note').']') ?>
@@ -352,7 +352,7 @@ $this->load->helper('translation');
     ?>
     </ul>
   </div>
-  <div>
+  <div class="publication-addition">
     <p class='optionbox'>
       <?php if ($userlogin->hasRights('publication_edit') && $accessLevelEdit):
         if ($categorize == True): ?>
@@ -370,7 +370,7 @@ $this->load->helper('translation');
                           'includeGroupSubscriptions'=>True,
                           'publicationId'=>$publication->pub_id,);
         $root = $this->topic_db->getByID(1, $config);
-        $this->load->vars(array('subviews'  => array('topics/publicationsubscriptiontreerow'=>array())));
+        $this->load->vars(array('subviews'  => array('topics/leaf'=>array('method'=>'publication'))));
     } else {
         $config = array('onlyIfUserSubscribed'=>True,
                           'user'=>$user,
@@ -378,7 +378,7 @@ $this->load->helper('translation');
                           'onlyIfPublicationSubscribed'=>True,
                           'publicationId'=>$publication->pub_id, );
         $root = $this->topic_db->getByID(1, $config);
-        $this->load->vars(array('subviews'  => array('topics/maintreerow'=>array())));
+        $this->load->vars(array('subviews'  => array('topics/leaf'=>array('method'=>'main'))));
     } ?>
     <ul class='topictree-list'>
       <?php $this->load->view('topics/tree', array('topics'   => $root->getChildren(),
