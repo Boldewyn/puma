@@ -41,10 +41,12 @@ if ($method != 'simple') {
 echo $icon;
 
 $pre = '';
+$base_class = "subscribed do-subscribe do-subscribe-".$method;
 if ($is_subscribed) {
     $pre = 'un';
+} else {
+    $base_class = "un$base_class";
 }
-$base_class = "${pre}subscribed do-subscribe do-subscribe-".$method;
 switch ($method) {
     case 'publication':
         _a("publications/${pre}subscribe/$id/".$topic->configuration['publicationId'],
@@ -64,14 +66,18 @@ switch ($method) {
     case 'main':
         $publicationCount     = $this->topic_db->getPublicationCountForTopic($topic->topic_id);
         $publicationReadCount = $this->topic_db->getReadPublicationCountForTopic($topic->topic_id);
-        _a("topics/single/$id", h($topic->name)); ?>
+        _a("topics/single/$id", h($topic->name), array('class'=>$base_class)); ?>
         <abbr class="topic-leaf-info" title="<?php printf(__('read: %s of %s publications'),
               $publicationReadCount, $publicationCount)?>"><?php
               echo $publicationReadCount ?>/<?php echo $publicationCount
-              ?></abbr><?php
+              ?></abbr> <?php
+        if (isset($subscription_links) && $subscription_links) {
+            _a("users/${pre}subscribe/$id/".$topic->configuration['user']->user_id,
+                $pre? __("unsubscribe") : __("subscribe"), array('class'=>'topic-leaf-info do-subscribe do-subscribe-main-add'));
+        }
         break;
     default:
-        _a("topics/single/$id", h($topic->name));
+        _a("topics/single/$id", h($topic->name), array('class'=>$base_class));
         break;
 }
 

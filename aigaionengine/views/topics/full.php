@@ -31,6 +31,11 @@ $parent = $topic->getParent();
          'r:'.icon('rights_'.$topic->derived_read_access_level).' e:'.icon('rights_'.$topic->derived_edit_access_level),
          array('title'=>__('click to modify access levels')));
   }
+  if ($topic->flags['userIsSubscribed']) {
+      _a("users/unsubscribe/$topic->topic_id", '['.__("unsubscribe").']');
+  } else {
+      _a("users/subscribe/$topic->topic_id", '['.__("subscribe").']');
+  }
   ?>
 </p>
 

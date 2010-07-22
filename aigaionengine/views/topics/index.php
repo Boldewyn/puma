@@ -26,6 +26,9 @@
       });
     });
     </script>
+    <?php if ($c2): ?>
+      <p><?php _e("Subscribed topics are highlighted in boldface.") ?></p>
+    <?php endif; ?>
   <?php endif; ?>
   <ul class="topictree-list">
     <?php $this->load->view('topics/tree',

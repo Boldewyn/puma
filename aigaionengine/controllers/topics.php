@@ -67,7 +67,7 @@ class Topics extends Controller {
         }
         $this->load->view('header', array('title' => __('Browse topic tree (include all topics)')));
         $this->load->view('site/stats', array('embed' => 'true'));
-        $this->load->vars(array('subviews'  => array('topics/leaf'=>array('method'=>'main','callhome'=>True)),
+        $this->load->vars(array('subviews'  => array('topics/leaf'=>array('method'=>'main','callhome'=>True,'subscription_links'=>true)),
                           'subscribed' => False));
         $this->load->view('topics/index', array('all' => true, 'topics' => $root->getChildren()));
         $this->load->view('footer');
@@ -213,9 +213,10 @@ class Topics extends Controller {
         if ($topic_id==1) {
             redirect('/topics');
         }
-        $config = array();
+        $userlogin = getUserLogin();
+        $user = $this->user_db->getByID($userlogin->userId());
+        $config = array('user'=>$user);
         $topic = $this->topic_db->getByID($topic_id, $config);
-        $userlogin=getUserLogin();
         if ($topic==null) {
             appendErrorMessage(__('Show topic: non-existing id passed.'));
             redirect('/topics');
