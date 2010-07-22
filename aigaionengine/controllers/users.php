@@ -342,7 +342,7 @@ class Users extends Controller {
 
         $config = array('user'=>$user,'includeGroupSubscriptions'=>True);
         $root = $this->topic_db->getByID(1,$config);
-        $this->load->vars(array('subviews'  => array('topics/usersubscriptiontreerow'=>array('allCollapsed'=>True))));
+        $this->load->vars(array('subviews'  => array('topics/leaf'=>array('method'=>'user'))));
         $output .= "<p class='header'>".sprintf(__("Topic subscription for %s (%s)"),$user->login,$user->firstname." ".$user->betweenname." ".$user->surname)."</p>";
         $output .= "<div class='message'>".__("Subscribed topics are highlighted in boldface.")."<br/>".__("To subscribe or unsubscribe a topic and its descendants, click on the topic.")."</div>";
         $output .= "<div id='topictree-holder'>\n<ul class='topictree-list'>\n"
@@ -362,10 +362,6 @@ class Users extends Controller {
 
     /**
     users/subscribe
-
-    Susbcribes a user to a topic. Is normally called async, without processing the
-    returned partial, by clicking a subscribe link in a topic tree rendered by
-    subview 'usersubscriptiontreerow'
 
     Fails with error message when one of:
         susbcribe requested for non-existing topic or user
@@ -392,7 +388,6 @@ class Users extends Controller {
             $error = __('Subscribe topic: non-existing id passed');
         } else {
             //check user rights
-            $userlogin = getUserLogin();
             if (! $userlogin->hasRights('topic_subscription') ||
                 (! $userlogin->hasRights('user_edit_all') && $userlogin->userId() != $user->user_id)) {
                 $error = __('Topic subscription: insufficient rights');
@@ -427,10 +422,6 @@ class Users extends Controller {
     /**
     users/unsubscribe
 
-    Unsusbcribes a user to a topic. Is normally called async, without processing the
-    returned partial, by clicking an unsubscribe link in a topic tree rendered by
-    subview 'usersubscriptiontreerow'
-
     Fails with error message when one of:
         unsusbcribe requested for non-existing topic or user
         insufficient user rights
@@ -456,7 +447,6 @@ class Users extends Controller {
             $error = __('Unsubscribe topic: non-existing id passed');
         } else {
             //check user rights
-            $userlogin = getUserLogin();
             if (! $userlogin->hasRights('topic_subscription') ||
                 (! $userlogin->hasRights('user_edit_all') && $userlogin->userId() != $user->user_id)) {
                 $error = __('Topic subscription: insufficient rights');

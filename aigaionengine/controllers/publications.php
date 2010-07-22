@@ -376,10 +376,6 @@ class Publications extends Controller {
 
     /**
      * Subscribes a publication to a topic
-     *
-     * Is normally called async, without processing the
-     * returned partial, by clicking a subscribe link in a topic tree rendered by
-     * subview 'publicationsubscriptiontreerow'
      */
     function subscribe() {
         $topic_id = $this->uri->segment(3,-1);
@@ -410,10 +406,6 @@ class Publications extends Controller {
 
     /**
      * Unsusbcribes a publication from a topic
-     *
-     * Is normally called async, without processing the
-     * returned partial, by clicking a subscribe link in a topic tree rendered by
-     * subview 'publicationsubscriptiontreerow'
      */
     function unsubscribe() {
         $topic_id = $this->uri->segment(3,-1);

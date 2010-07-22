@@ -19,9 +19,9 @@
     $(function () {
       $('#show_all').buttonset().children('input').change(function () {
         if ($(this).attr('id') == 'show_all_true' && !cur_show_all_state) {
-          window.location.href += '/all';
+          window.location.href = config.base_url+'topics/all';
         } else if ($(this).attr('id') == 'show_all_false' && cur_show_all_state) {
-          window.location.href = window.location.href.replace(/\/all/, '');
+          window.location.href = config.base_url+'topics/';
         }
       });
     });

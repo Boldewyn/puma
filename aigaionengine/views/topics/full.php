@@ -53,7 +53,7 @@ $parent = $topic->getParent();
   <h3><?php echo __('Subtopics:')?></h3>
   <ul class='topictree-list'>
   <?php
-  $this->load->vars(array('subviews'  => array('topics/simpletreerow'=>array())));
+  $this->load->vars(array('subviews'  => array('topics/leaf'=>array('method'=>'simple'))));
   echo $this->load->view('topics/tree',
                           array('topics'   => $topic,
                                 'showroot'  => False,

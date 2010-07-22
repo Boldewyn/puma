@@ -43,7 +43,7 @@ class Topics extends Controller {
         }
         $this->load->view('header', array('title' => __('Browse topic tree')));
         $this->load->view('site/stats', array('embed' => True));
-        $this->load->vars(array('subviews'  => array('topics/maintreerow'=>array('useCollapseCallback'=>True)),
+        $this->load->vars(array('subviews'  => array('topics/leaf'=>array('method'=>'main','callhome'=>True)),
                           'subscribed' => True));
         $this->load->view('topics/index', array('all' => false, 'topics' => $root->getChildren()));
         $this->load->view('footer');
@@ -67,7 +67,7 @@ class Topics extends Controller {
         }
         $this->load->view('header', array('title' => __('Browse topic tree (include all topics)')));
         $this->load->view('site/stats', array('embed' => 'true'));
-        $this->load->vars(array('subviews'  => array('topics/maintreerow'=>array('useCollapseCallback'=>True)),
+        $this->load->vars(array('subviews'  => array('topics/leaf'=>array('method'=>'main','callhome'=>True)),
                           'subscribed' => False));
         $this->load->view('topics/index', array('all' => true, 'topics' => $root->getChildren()));
         $this->load->view('footer');
@@ -389,10 +389,6 @@ class Topics extends Controller {
 
     /**
      * Collapses or expands a topic for the logged user
-     *
-     * Is normally called async, without processing the returned partial,
-     * by clicking one of the collapse or expand buttons in a topic tree
-     * rendered by subview 'maintreerow' with argument 'useCollapseCallback'=>True
      */
     function collapse($topic_id=-1, $collapse='1') {
         $config = array();
