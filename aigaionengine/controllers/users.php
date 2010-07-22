@@ -407,7 +407,7 @@ class Users extends Controller {
             if ($error) {
                 $this->output->set_output('{"result":false,"message":"'.$error.'"}');
             } else {
-                $this->output->set_output('{"result":true}');
+                $this->output->set_output('{"result":true,"action":"unsubscribe"}');
             }
         } else {
             if ($error) {
@@ -466,7 +466,7 @@ class Users extends Controller {
             if ($error) {
                 $this->output->set_output('{"result":false,"message":"'.$error.'"}');
             } else {
-                $this->output->set_output('{"result":true}');
+                $this->output->set_output('{"result":true,"action":"subscribe"}');
             }
         } else {
             if ($error) {

@@ -43,9 +43,9 @@ function json_or_referrer($msg='', $alt='', $error=False) {
     if (is_ajax()) {
         $CI->output->set_header('Content-Type: text/javascript');
         if ($error) {
-            $CI->output->set_output('{"result":false,"message":"'.$message.'"}');
+            $CI->output->set_output('{"result":false,"message":"'.$msg.'"}');
         } else {
-            $CI->output->set_output('{"result":true,"message":"'.$message.'"}');
+            $CI->output->set_output('{"result":true,"message":"'.$msg.'"}');
         }
     } else {
         back_to_referrer($msg, $alt, $error);
