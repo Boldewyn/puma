@@ -3,6 +3,12 @@
 #
 YUI = java -jar C:/cygwin/home/Manuel/lib/yuicompressor-2.4.2/build/yuicompressor-2.4.2.jar
 LOCALEDIR =  aigaionengine/language/locale
+USAGE = "Targets:\n\
+all:    zip and minify static components\n\
+export: puma send -av\n\
+clean\n\
+i18n:   create message catalog\n\
+i18nc:  compile messages"
 
 all: static/js/jquery.js static/js/puma.js static/css/style.css
 	$(YUI) --type css --charset utf-8 -o static/css/style.min.css static/css/style.css
@@ -30,3 +36,5 @@ i18nc:
 	msgfmt -v -o $(LOCALEDIR)/de/LC_MESSAGES/messages.mo $(LOCALEDIR)/de/LC_MESSAGES/messages.po
 	touch $(LOCALEDIR)/de/LC_MESSAGES/messages.mo
 
+help:
+	@echo -e $(USAGE)

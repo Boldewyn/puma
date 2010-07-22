@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Puma.Phi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-06 20:31+0200\n"
+"POT-Creation-Date: 2010-07-22 18:41+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Manuel Strehl <translate@manuel-strehl.de>\n"
 "Language-Team: \n"
@@ -127,7 +127,7 @@ msgstr "Veröffentlichungen"
 
 #: aigaionengine/controllers/authors.php:15
 #: aigaionengine/controllers/authors.php:24
-#: aigaionengine/controllers/authors.php:357
+#: aigaionengine/controllers/authors.php:359
 #: aigaionengine/controllers/explore.php:12
 #: aigaionengine/controllers/keywords.php:14
 #: aigaionengine/controllers/publications.php:14
@@ -141,69 +141,69 @@ msgid "All authors in the database"
 msgstr "Alle Autoren in der Datenbank"
 
 #: aigaionengine/controllers/authors.php:48
-#: aigaionengine/controllers/authors.php:100
+#: aigaionengine/controllers/authors.php:101
 msgid "View Author: non-existing id passed."
 msgstr "Autor betrachten: nicht existierende Autoren-ID übergeben."
 
 #: aigaionengine/controllers/authors.php:54
-#: aigaionengine/controllers/authors.php:106
-#: aigaionengine/controllers/authors.php:157
+#: aigaionengine/controllers/authors.php:107
+#: aigaionengine/controllers/authors.php:159
 #, php-format
 msgid "Publications of %s"
 msgstr "Veröffentlichungen von %s"
 
 #: aigaionengine/controllers/authors.php:57
-#: aigaionengine/controllers/authors.php:109
-#: aigaionengine/controllers/authors.php:160
+#: aigaionengine/controllers/authors.php:110
+#: aigaionengine/controllers/authors.php:162
 #: aigaionengine/controllers/bookmarklist.php:39
 #: aigaionengine/controllers/keywords.php:119
 #: aigaionengine/controllers/publications.php:106
-#: aigaionengine/controllers/publications.php:150
-#: aigaionengine/controllers/topics.php:231
-#: aigaionengine/controllers/topics.php:318
+#: aigaionengine/controllers/publications.php:151
+#: aigaionengine/controllers/topics.php:232
+#: aigaionengine/controllers/topics.php:320
 msgid "sorted by journal and type"
 msgstr "sortiert nach Journal und Typ"
 
 #: aigaionengine/controllers/authors.php:60
-#: aigaionengine/controllers/authors.php:112
-#: aigaionengine/controllers/authors.php:163
+#: aigaionengine/controllers/authors.php:113
+#: aigaionengine/controllers/authors.php:165
 #: aigaionengine/controllers/bookmarklist.php:42
 #: aigaionengine/controllers/keywords.php:122
 #: aigaionengine/controllers/publications.php:109
-#: aigaionengine/controllers/publications.php:153
-#: aigaionengine/controllers/topics.php:234
-#: aigaionengine/controllers/topics.php:321
+#: aigaionengine/controllers/publications.php:154
+#: aigaionengine/controllers/topics.php:235
+#: aigaionengine/controllers/topics.php:323
 msgid "sorted by recency"
 msgstr "sortiert nach Aktualität"
 
 #: aigaionengine/controllers/authors.php:63
-#: aigaionengine/controllers/authors.php:115
-#: aigaionengine/controllers/authors.php:166
+#: aigaionengine/controllers/authors.php:116
+#: aigaionengine/controllers/authors.php:168
 #: aigaionengine/controllers/bookmarklist.php:45
 #: aigaionengine/controllers/keywords.php:125
 #: aigaionengine/controllers/publications.php:112
-#: aigaionengine/controllers/publications.php:156
-#: aigaionengine/controllers/topics.php:237
-#: aigaionengine/controllers/topics.php:324
+#: aigaionengine/controllers/publications.php:157
+#: aigaionengine/controllers/topics.php:238
+#: aigaionengine/controllers/topics.php:326
 msgid "sorted by title"
 msgstr "nach Titel sortiert"
 
 #: aigaionengine/controllers/authors.php:66
-#: aigaionengine/controllers/authors.php:118
-#: aigaionengine/controllers/authors.php:169
+#: aigaionengine/controllers/authors.php:119
+#: aigaionengine/controllers/authors.php:171
 #: aigaionengine/controllers/bookmarklist.php:48
 #: aigaionengine/controllers/keywords.php:128
-#: aigaionengine/controllers/topics.php:240
-#: aigaionengine/controllers/topics.php:327
+#: aigaionengine/controllers/topics.php:241
+#: aigaionengine/controllers/topics.php:329
 msgid "sorted by first author"
 msgstr "sortiert nach erstem Autor"
 
-#: aigaionengine/controllers/authors.php:150
+#: aigaionengine/controllers/authors.php:152
 #: aigaionengine/controllers/embeddingtest.php:41
 msgid "View Author"
 msgstr "Autor betrachten"
 
-#: aigaionengine/controllers/authors.php:150
+#: aigaionengine/controllers/authors.php:152
 #: aigaionengine/controllers/bookmarklist.php:188
 #: aigaionengine/controllers/bookmarklist.php:312
 #: aigaionengine/controllers/bookmarklist.php:347
@@ -218,30 +218,30 @@ msgstr "Autor betrachten"
 msgid "non-existing id passed"
 msgstr "nicht existierende Nutzer-ID übergeben"
 
-#: aigaionengine/controllers/authors.php:178
+#: aigaionengine/controllers/authors.php:180
 msgid "No publications found."
 msgstr "Keine Veröffentlichungen gefunden."
 
-#: aigaionengine/controllers/authors.php:195
-#: aigaionengine/controllers/authors.php:296
-#: aigaionengine/controllers/authors.php:337
+#: aigaionengine/controllers/authors.php:197
+#: aigaionengine/controllers/authors.php:298
+#: aigaionengine/controllers/authors.php:339
 msgid "Edit author"
 msgstr "Autor bearbeiten"
 
-#: aigaionengine/controllers/authors.php:200
+#: aigaionengine/controllers/authors.php:202
 #: aigaionengine/views/authors/edit.php:3
 msgid "Edit Author"
 msgstr "Autor bearbeiten"
 
-#: aigaionengine/controllers/authors.php:205
+#: aigaionengine/controllers/authors.php:207
 #: aigaionengine/views/authors/edit.php:3
 msgid "New Author"
 msgstr "Neuer Autor"
 
-#: aigaionengine/controllers/authors.php:213
+#: aigaionengine/controllers/authors.php:215
 #: aigaionengine/controllers/import.php:7
 #: aigaionengine/controllers/import.php:11
-#: aigaionengine/controllers/publications.php:226
+#: aigaionengine/controllers/publications.php:227
 #: aigaionengine/controllers/topics.php:122
 #: aigaionengine/controllers/topics.php:158
 #: aigaionengine/views/import/importform.php:12
@@ -250,21 +250,21 @@ msgstr "Neuer Autor"
 msgid "Import"
 msgstr "Importieren"
 
-#: aigaionengine/controllers/authors.php:214
+#: aigaionengine/controllers/authors.php:216
 #: aigaionengine/controllers/import.php:12
-#: aigaionengine/controllers/publications.php:227
+#: aigaionengine/controllers/publications.php:228
 #: aigaionengine/controllers/topics.php:123
 #: aigaionengine/controllers/topics.php:159
 #: aigaionengine/views/publications/single.php:51
 msgid "Publication"
 msgstr "Veröffentlichung"
 
-#: aigaionengine/controllers/authors.php:215
+#: aigaionengine/controllers/authors.php:217
 #: aigaionengine/controllers/import.php:13
-#: aigaionengine/controllers/publications.php:228
+#: aigaionengine/controllers/publications.php:229
 #: aigaionengine/controllers/topics.php:124
 #: aigaionengine/controllers/topics.php:160
-#: aigaionengine/controllers/topics.php:367
+#: aigaionengine/controllers/topics.php:369
 #: aigaionengine/views/accesslevels/editfortopic.php:16
 #: aigaionengine/views/accesslevels/editfortopic.php:17
 #: aigaionengine/views/topics/clean.php:6
@@ -272,9 +272,9 @@ msgstr "Veröffentlichung"
 msgid "Topic"
 msgstr "Thema"
 
-#: aigaionengine/controllers/authors.php:216
+#: aigaionengine/controllers/authors.php:218
 #: aigaionengine/controllers/import.php:14
-#: aigaionengine/controllers/publications.php:229
+#: aigaionengine/controllers/publications.php:230
 #: aigaionengine/controllers/test.php:287
 #: aigaionengine/controllers/topics.php:125
 #: aigaionengine/controllers/topics.php:161
@@ -282,110 +282,110 @@ msgstr "Thema"
 msgid "Author"
 msgstr "Autor"
 
-#: aigaionengine/controllers/authors.php:232
-#: aigaionengine/controllers/authors.php:251
+#: aigaionengine/controllers/authors.php:234
+#: aigaionengine/controllers/authors.php:253
 msgid "Cannot merge authors"
 msgstr "Kann Autoren nicht zusammenführen"
 
-#: aigaionengine/controllers/authors.php:236
-#: aigaionengine/controllers/authors.php:256
+#: aigaionengine/controllers/authors.php:238
+#: aigaionengine/controllers/authors.php:258
 msgid "Cannot merge authors: missing parameters."
 msgstr "Kann Autoren nicht zusammenführen: fehlende Parameter."
 
-#: aigaionengine/controllers/authors.php:270
+#: aigaionengine/controllers/authors.php:272
 msgid "Delete author"
 msgstr "Diesen Autor löschen"
 
-#: aigaionengine/controllers/authors.php:273
+#: aigaionengine/controllers/authors.php:275
 msgid "Delete author: author does not exist."
 msgstr "Autor löschen: Autor existiert nicht."
 
-#: aigaionengine/controllers/authors.php:282
+#: aigaionengine/controllers/authors.php:284
 msgid "Delete Author"
 msgstr "Autor löschen"
 
-#: aigaionengine/controllers/authors.php:285
+#: aigaionengine/controllers/authors.php:287
 #, php-format
 msgid "Are you sure, that you want to delete the author &ldquo;%s&rdquo;?"
 msgstr "Bist Du sicher, dass Du den Autor &bdquo;%s&ldquo; löschen willst?"
 
-#: aigaionengine/controllers/authors.php:317
+#: aigaionengine/controllers/authors.php:319
 #, php-format
 msgid "Author &ldquo;%s&rdquo; already exists in the database."
 msgstr "Autor &bdquo;%s&ldquo; existiert bereits in der Datenbank."
 
-#: aigaionengine/controllers/authors.php:338
+#: aigaionengine/controllers/authors.php:340
 msgid "Review author"
 msgstr "Autor überprüfen"
 
-#: aigaionengine/controllers/authors.php:354
+#: aigaionengine/controllers/authors.php:356
 msgid "Authors for topic: non-existing id passed"
 msgstr "Autoren für Thema: nicht existierendes Thema gewählt."
 
-#: aigaionengine/controllers/authors.php:359
+#: aigaionengine/controllers/authors.php:361
 #, php-format
 msgid "Authors for topic %s"
 msgstr "Autoren zu Thema %s"
 
-#: aigaionengine/controllers/authors.php:417
+#: aigaionengine/controllers/authors.php:419
 #: aigaionengine/controllers/bookmarklist.php:801
-#: aigaionengine/controllers/publications.php:490
-#: aigaionengine/controllers/topics.php:416
+#: aigaionengine/controllers/publications.php:471
+#: aigaionengine/controllers/topics.php:414
 msgid "Export through email"
 msgstr "Export via E-Mail"
 
-#: aigaionengine/controllers/authors.php:427
+#: aigaionengine/controllers/authors.php:429
 msgid "No author selected for export."
 msgstr "Kein Autor für den Export ausgewählt."
 
-#: aigaionengine/controllers/authors.php:441
+#: aigaionengine/controllers/authors.php:443
 #: aigaionengine/controllers/bookmarklist.php:821
 #: aigaionengine/controllers/export.php:35
 #: aigaionengine/controllers/export.php:70
 #: aigaionengine/controllers/export.php:103
 #: aigaionengine/controllers/export.php:132
 #: aigaionengine/controllers/export.php:160
-#: aigaionengine/controllers/publications.php:518
-#: aigaionengine/controllers/topics.php:444
+#: aigaionengine/controllers/publications.php:499
+#: aigaionengine/controllers/topics.php:442
 msgid "Select export format"
 msgstr "Exportformat wählen"
 
-#: aigaionengine/controllers/authors.php:449
+#: aigaionengine/controllers/authors.php:451
 #: aigaionengine/controllers/bookmarklist.php:850
-#: aigaionengine/controllers/publications.php:524
-#: aigaionengine/controllers/topics.php:457
+#: aigaionengine/controllers/publications.php:505
+#: aigaionengine/controllers/topics.php:455
 #, php-format
 msgid "Export from %s"
 msgstr "Export von %s"
 
-#: aigaionengine/controllers/authors.php:460
-#: aigaionengine/controllers/authors.php:496
+#: aigaionengine/controllers/authors.php:462
+#: aigaionengine/controllers/authors.php:498
 msgid "Exported for author"
 msgstr "Exportiert für Autor"
 
-#: aigaionengine/controllers/authors.php:466
+#: aigaionengine/controllers/authors.php:468
 #: aigaionengine/controllers/bookmarklist.php:873
-#: aigaionengine/controllers/publications.php:543
-#: aigaionengine/controllers/topics.php:474
+#: aigaionengine/controllers/publications.php:524
+#: aigaionengine/controllers/topics.php:472
 #: aigaionengine/views/export/chooseformatEmail.php:38
 msgid "Formatted"
 msgstr "Formatiert"
 
-#: aigaionengine/controllers/authors.php:508
+#: aigaionengine/controllers/authors.php:510
 msgid "Export Author"
 msgstr "Autor exportieren"
 
-#: aigaionengine/controllers/authors.php:509
+#: aigaionengine/controllers/authors.php:511
 #: aigaionengine/controllers/bookmarklist.php:939
-#: aigaionengine/controllers/publications.php:588
-#: aigaionengine/controllers/topics.php:518
+#: aigaionengine/controllers/publications.php:569
+#: aigaionengine/controllers/topics.php:516
 msgid "Mail sent successfully"
 msgstr "E-Mail erfolgreich gesendet"
 
-#: aigaionengine/controllers/authors.php:512
+#: aigaionengine/controllers/authors.php:514
 #: aigaionengine/controllers/bookmarklist.php:930
-#: aigaionengine/controllers/publications.php:591
-#: aigaionengine/controllers/topics.php:521
+#: aigaionengine/controllers/publications.php:572
+#: aigaionengine/controllers/topics.php:519
 msgid "Something went wrong when exporting the publications. Did you input a correct email address?"
 msgstr "Etwas ist beim Exportieren der Daten schiefgegangen. Hast Du eine korrekte E-Mail-Adresse angegeben?"
 
@@ -479,8 +479,8 @@ msgstr "Thema aus Merkliste erzeugen"
 #: aigaionengine/controllers/groups.php:194
 #: aigaionengine/controllers/groups.php:248
 #: aigaionengine/controllers/groups.php:335
-#: aigaionengine/controllers/groups.php:404
-#: aigaionengine/controllers/groups.php:458
+#: aigaionengine/controllers/groups.php:400
+#: aigaionengine/controllers/groups.php:450
 #: aigaionengine/controllers/rightsprofiles.php:80
 #: aigaionengine/controllers/rightsprofiles.php:138
 #: aigaionengine/controllers/rightsprofiles.php:194
@@ -555,7 +555,6 @@ msgid "Delete all from bookmarklist"
 msgstr "von der Merkliste löschen"
 
 #: aigaionengine/controllers/bookmarklist.php:477
-#: aigaionengine/views/bookmarklist/delete.php:13
 msgid "Are you sure that you want to delete all publications on the bookmarklist from your database?"
 msgstr "Bist Du sicher, dass Du alle Veröffentlichungen auf der Merkliste aus der Datenbank löschen willst?"
 
@@ -674,7 +673,7 @@ msgid "Clear bookmarklist: insufficient rights."
 msgstr "Merkliste löschen: unzureichende Rechte."
 
 #: aigaionengine/controllers/bookmarklist.php:846
-#: aigaionengine/controllers/topics.php:453
+#: aigaionengine/controllers/topics.php:451
 msgid "Export by email"
 msgstr "Export via E-Mail"
 
@@ -818,16 +817,16 @@ msgid "Topic review"
 msgstr "Themenüberprüfung"
 
 #: aigaionengine/controllers/groups.php:324
-#: aigaionengine/controllers/groups.php:393
-#: aigaionengine/controllers/groups.php:413
-#: aigaionengine/controllers/groups.php:448
-#: aigaionengine/controllers/groups.php:467
+#: aigaionengine/controllers/groups.php:389
+#: aigaionengine/controllers/groups.php:409
+#: aigaionengine/controllers/groups.php:440
+#: aigaionengine/controllers/groups.php:459
 msgid "invalid group_id specified"
 msgstr "ungültige Gruppen-ID gewählt."
 
 #: aigaionengine/controllers/groups.php:335
-#: aigaionengine/controllers/groups.php:404
-#: aigaionengine/controllers/groups.php:458
+#: aigaionengine/controllers/groups.php:400
+#: aigaionengine/controllers/groups.php:450
 #: aigaionengine/controllers/users.php:338
 msgid "Topic subscription"
 msgstr "Themenabo"
@@ -843,6 +842,7 @@ msgstr "Themenabo für %s"
 
 #: aigaionengine/controllers/groups.php:351
 #: aigaionengine/controllers/users.php:347
+#: aigaionengine/views/topics/index.php:30
 msgid "Subscribed topics are highlighted in boldface."
 msgstr "Abonnierte Themen sind fett gesetzt."
 
@@ -851,13 +851,13 @@ msgstr "Abonnierte Themen sind fett gesetzt."
 msgid "To subscribe or unsubscribe a topic and its descendants, click on the topic."
 msgstr "Um ein Thema und seine Unterthemen zu abonnieren oder zu kündigen, klicke auf das Thema."
 
-#: aigaionengine/controllers/groups.php:393
-#: aigaionengine/controllers/groups.php:413
+#: aigaionengine/controllers/groups.php:389
+#: aigaionengine/controllers/groups.php:409
 msgid "Subscribe topic"
 msgstr "Thema abonnieren"
 
-#: aigaionengine/controllers/groups.php:448
-#: aigaionengine/controllers/groups.php:467
+#: aigaionengine/controllers/groups.php:440
+#: aigaionengine/controllers/groups.php:459
 msgid "Unsubscribe topic"
 msgstr "Thema kündigen"
 
@@ -892,7 +892,7 @@ msgid "Video tutorial"
 msgstr "Video-Einführung"
 
 #: aigaionengine/controllers/import.php:28
-#: aigaionengine/controllers/publications.php:258
+#: aigaionengine/controllers/publications.php:259
 #: aigaionengine/views/import/importform.php:9
 msgid "Import publications"
 msgstr "Veröffentlichungen importieren"
@@ -933,8 +933,8 @@ msgid "Succesfully imported %d publications."
 msgstr "Erfolgreich %d Veröffentlichungen importiert."
 
 #: aigaionengine/controllers/import.php:182
-#: aigaionengine/controllers/publications.php:364
-#: aigaionengine/controllers/publications.php:368
+#: aigaionengine/controllers/publications.php:365
+#: aigaionengine/controllers/publications.php:369
 msgid "Review publication"
 msgstr "Veröffentlichung überprüfen"
 
@@ -1064,7 +1064,7 @@ msgstr "Notiz hinzufügen"
 
 #: aigaionengine/controllers/notes.php:71
 #: aigaionengine/controllers/notes.php:82
-#: aigaionengine/controllers/notes.php:117
+#: aigaionengine/controllers/notes.php:118
 #: aigaionengine/controllers/users.php:125
 #: aigaionengine/controllers/users.php:155
 #: aigaionengine/controllers/users.php:235
@@ -1090,19 +1090,19 @@ msgstr "Notiz bearbeiten"
 msgid "Edit note"
 msgstr "Notiz bearbeiten"
 
-#: aigaionengine/controllers/notes.php:96
+#: aigaionengine/controllers/notes.php:97
 msgid "Publication belonging to note:"
 msgstr "Veröffentlichung, die zur Notiz gehört:"
 
-#: aigaionengine/controllers/notes.php:122
+#: aigaionengine/controllers/notes.php:123
 msgid "Commit note: no data to commit."
 msgstr "Notiz übertragen: keine Daten zur Übertragung."
 
-#: aigaionengine/controllers/notes.php:128
+#: aigaionengine/controllers/notes.php:129
 msgid "Publication id"
 msgstr "Veröffentlichungs-ID"
 
-#: aigaionengine/controllers/notes.php:132
+#: aigaionengine/controllers/notes.php:133
 #: aigaionengine/views/attachments/add.php:21
 #: aigaionengine/views/attachments/add.php:51
 #: aigaionengine/views/attachments/edit.php:20
@@ -1111,7 +1111,7 @@ msgstr "Veröffentlichungs-ID"
 msgid "Note"
 msgstr "Notiz"
 
-#: aigaionengine/controllers/notes.php:146
+#: aigaionengine/controllers/notes.php:147
 msgid "Commit note: an error occurred."
 msgstr "Notiz übertragen: ein Fehler ist aufgetaucht."
 
@@ -1130,100 +1130,90 @@ msgid "All publications %s"
 msgstr "Alle Veröffentlichungen %s"
 
 #: aigaionengine/controllers/publications.php:115
-#: aigaionengine/controllers/publications.php:159
+#: aigaionengine/controllers/publications.php:160
 msgid "sorted by author"
 msgstr "nach Autor sortiert"
 
-#: aigaionengine/controllers/publications.php:131
-#: aigaionengine/controllers/publications.php:174
+#: aigaionengine/controllers/publications.php:132
+#: aigaionengine/controllers/publications.php:175
 msgid "Publication list"
 msgstr "Veröffentlichungsliste"
 
-#: aigaionengine/controllers/publications.php:147
+#: aigaionengine/controllers/publications.php:148
 #, php-format
 msgid "All publications not assigned to a topic %s"
 msgstr "Alle Veröffentlichungen, die keinem Thema zugeordnet sind, %s"
 
-#: aigaionengine/controllers/publications.php:210
-#: aigaionengine/controllers/publications.php:217
+#: aigaionengine/controllers/publications.php:211
+#: aigaionengine/controllers/publications.php:218
 msgid "Edit publication"
 msgstr "Veröffentlichung bearbeiten"
 
-#: aigaionengine/controllers/publications.php:214
+#: aigaionengine/controllers/publications.php:215
 #: aigaionengine/libraries/publication_db.php:406
 msgid "Add publication"
 msgstr "Veröffentlichung hinzufügen"
 
-#: aigaionengine/controllers/publications.php:257
+#: aigaionengine/controllers/publications.php:258
 msgid "Import publication"
 msgstr "Veröffentlichung importieren"
 
-#: aigaionengine/controllers/publications.php:272
+#: aigaionengine/controllers/publications.php:273
 msgid "Delete publication: non-existing id passed."
 msgstr "Veröffentlichung löschen: nicht existierende ID übergeben."
 
-#: aigaionengine/controllers/publications.php:281
-#: aigaionengine/controllers/publications.php:291
+#: aigaionengine/controllers/publications.php:282
+#: aigaionengine/controllers/publications.php:292
 msgid "Delete publication"
 msgstr "Veröffentlichung löschen"
 
-#: aigaionengine/controllers/publications.php:294
+#: aigaionengine/controllers/publications.php:295
 #, php-format
 msgid "Are you sure, that you want to delete the publication &ldquo;%s&rdquo;?"
 msgstr "Bist Du sicher, dass Du Veröffentlichung &bdquo;%s&ldquo; löschen willst?"
 
-#: aigaionengine/controllers/publications.php:315
+#: aigaionengine/controllers/publications.php:316
 msgid "There are validation errors with this entry. You may want to correct them."
 msgstr "Es gibt Überprüfungsfehler in diesem Eintrag. Bitte korrigiere sie."
 
-#: aigaionengine/controllers/publications.php:340
+#: aigaionengine/controllers/publications.php:341
 msgid "Commit publication"
 msgstr "Veröffentlichung übertragen"
 
-#: aigaionengine/controllers/publications.php:399
-#: aigaionengine/controllers/publications.php:439
-#: aigaionengine/controllers/users.php:403
-msgid "Subscribe topic: non-existing id passed."
-msgstr "Thema abonnieren: nicht existierende ID übergeben."
-
-#: aigaionengine/controllers/publications.php:403
-#: aigaionengine/views/topics/maintreerow.php:45
-msgid "Subscribe"
-msgstr "Abonnieren"
-
-#: aigaionengine/controllers/publications.php:411
+#: aigaionengine/controllers/publications.php:396
 msgid "Successfully subscribed publication."
 msgstr "Erfolgreich Veröffentlichung abonniert."
 
-#: aigaionengine/controllers/publications.php:443
-#: aigaionengine/views/topics/maintreerow.php:43
-msgid "Unsubscribe"
-msgstr "kündigen"
+#: aigaionengine/controllers/publications.php:399
+#: aigaionengine/controllers/publications.php:429
+#: aigaionengine/controllers/users.php:398
+msgid "Subscribe topic: non-existing id passed."
+msgstr "Thema abonnieren: nicht existierende ID übergeben."
 
-#: aigaionengine/controllers/publications.php:451
+#: aigaionengine/controllers/publications.php:426
 msgid "Successfully unsubscribed publication."
 msgstr "Erfolgreich Veröffentlichung gekündigt."
 
-#: aigaionengine/controllers/publications.php:462
-#: aigaionengine/controllers/publications.php:478
+#: aigaionengine/controllers/publications.php:443
+#: aigaionengine/controllers/publications.php:459
 msgid "Mark publication: non-existing id passed."
 msgstr "Veröffentlichung markieren: nicht existierende ID übergeben."
 
-#: aigaionengine/controllers/publications.php:465
-#: aigaionengine/controllers/publications.php:481
+#: aigaionengine/controllers/publications.php:446
+#: aigaionengine/controllers/publications.php:462
 msgid "Mark publication"
 msgstr "Veröffentlichung markieren"
 
-#: aigaionengine/controllers/publications.php:504
+#: aigaionengine/controllers/publications.php:485
 msgid "Export publication: non-existing id passed."
 msgstr "Veröffentlichung exportieren: nicht existierende ID übergeben."
 
-#: aigaionengine/controllers/publications.php:536
-#: aigaionengine/controllers/publications.php:574
+#: aigaionengine/controllers/publications.php:517
+#: aigaionengine/controllers/publications.php:555
 msgid "Exported publication"
 msgstr "Exportierte Veröffentlichung"
 
-#: aigaionengine/controllers/publications.php:587
+#: aigaionengine/controllers/publications.php:568
 msgid "Export publication"
 msgstr "Veröffentlichung exportieren"
 
@@ -1486,7 +1476,7 @@ msgstr "Unit Testing-Ausgabe"
 
 #: aigaionengine/controllers/test.php:39
 msgid "See the controller \"test.php\" for the unit testing functions. From its main method, call each test method with $debug parameter = true to get more output."
-msgstr ""
+msgstr "Siehe Controller \"test.php\" für die Unit testing-Funktionen. Aus seiner Hauptmethode rufe jeden Test mit Parameter$debug = True auf, um mehr Output zu bekommen."
 
 #: aigaionengine/controllers/test.php:64
 msgid "Bibtex character conversions"
@@ -1511,46 +1501,46 @@ msgstr "Bestanden"
 
 #: aigaionengine/controllers/test.php:156
 msgid "Bibtex single entry imports"
-msgstr ""
+msgstr "Bibtex Einzeleintrag-Importe"
 
 #: aigaionengine/controllers/test.php:156
 msgid "Note: these tests do not take the review and database result into account, only the result of the bibtex parsing."
-msgstr ""
+msgstr "Hinweis: Diese Tests beziehen Review und Datenbankergebnis nicht mit ein, nur das Ergebnis des Bibtex-Parsens."
 
 #: aigaionengine/controllers/test.php:263
 #, php-format
 msgid "Import should return 1 publication, but returned %s publications."
-msgstr ""
+msgstr "Import sollte 1 Veröffentlichung zurückgeben, aber gab %s Veröffentlichungen zurück."
 
 #: aigaionengine/controllers/test.php:274
 #, php-format
 msgid "\"%s\" should have been \"%s\" but is \"%s\""
-msgstr ""
+msgstr "\"%s\" sollte \"%s\" sein, ist aber \"%s\"."
 
 #: aigaionengine/controllers/test.php:282
 #, php-format
 msgid "Import should contain %s authors, but does contain %s authors."
-msgstr ""
+msgstr "Import sollte %s Autoren enthalten, enthält aber %s Autoren."
 
 #: aigaionengine/controllers/test.php:292
 #, php-format
 msgid "First name(s) should have been \"%s\" but is \"%s\"."
-msgstr ""
+msgstr "Vorname(n) sollte(n) \"%s\" sein, ist aber \"%s\"."
 
 #: aigaionengine/controllers/test.php:298
 #, php-format
 msgid "von-part should have been \"%s\" but is \"%s\"."
-msgstr ""
+msgstr "Von-Teil sollte \"%s\" sein, ist aber \"%s\"."
 
 #: aigaionengine/controllers/test.php:304
 #, php-format
 msgid "Last name(s) should have been \"%s\" but is \"%s\"."
-msgstr ""
+msgstr "Nachname(n) sollte(n) \"%s\" sein, ist aber \"%s\"."
 
 #: aigaionengine/controllers/test.php:310
 #, php-format
 msgid "jr-part should have been \"%s\" but is \"%s\"."
-msgstr ""
+msgstr "Jr-Teil sollte \"%s\" sein, ist aber \"%s\"."
 
 #: aigaionengine/controllers/topics.php:41
 #: aigaionengine/controllers/topics.php:65
@@ -1586,7 +1576,7 @@ msgstr "Thema hinzufügen"
 
 #: aigaionengine/controllers/topics.php:116
 #: aigaionengine/controllers/topics.php:140
-#: aigaionengine/controllers/topics.php:344
+#: aigaionengine/controllers/topics.php:346
 msgid "Changes not committed: "
 msgstr "Änderungen nicht übertragen: "
 
@@ -1606,8 +1596,8 @@ msgid "Edit topic"
 msgstr "Thema bearbeiten"
 
 #: aigaionengine/controllers/topics.php:199
-#: aigaionengine/controllers/topics.php:296
 #: aigaionengine/controllers/topics.php:298
+#: aigaionengine/controllers/topics.php:300
 #, php-format
 msgid "Topic structure is not unique in %s."
 msgstr "Themenstruktur ist nicht eindeutig in %s."
@@ -1617,52 +1607,52 @@ msgstr "Themenstruktur ist nicht eindeutig in %s."
 msgid "Topic structure does not exist in %s."
 msgstr "Themenstruktur existiert nicht in %s."
 
-#: aigaionengine/controllers/topics.php:220
+#: aigaionengine/controllers/topics.php:221
 msgid "Show topic: non-existing id passed."
 msgstr "Thema anzeigen: nicht existierende ID übergeben."
 
-#: aigaionengine/controllers/topics.php:228
-#: aigaionengine/controllers/topics.php:315
+#: aigaionengine/controllers/topics.php:229
+#: aigaionengine/controllers/topics.php:317
 #, php-format
 msgid "Publications for topic &ldquo;%s&rdquo; %%s"
 msgstr "Veröffentlichungen für Thema &bdquo;%s&ldquo; %%s"
 
-#: aigaionengine/controllers/topics.php:256
+#: aigaionengine/controllers/topics.php:258
 #: aigaionengine/views/topics/full.php:11
 #, php-format
 msgid "Topic: %s"
 msgstr "Thema: %s"
 
-#: aigaionengine/controllers/topics.php:310
+#: aigaionengine/controllers/topics.php:312
 msgid "Embed topic: non-existing id passed."
 msgstr "Thema einbetten: nicht existierende ID übergeben."
 
-#: aigaionengine/controllers/topics.php:351
+#: aigaionengine/controllers/topics.php:353
 msgid "Commit topic: no data to commit."
 msgstr "Thema übertragen: keine Daten zur Übertragung."
 
-#: aigaionengine/controllers/topics.php:363
+#: aigaionengine/controllers/topics.php:365
 msgid "Topic Name"
 msgstr "Themenname"
 
-#: aigaionengine/controllers/topics.php:383
+#: aigaionengine/controllers/topics.php:385
 msgid "Commit topic: an error occurred."
 msgstr "Thema übertragen: ein Fehler ist aufgetaucht"
 
-#: aigaionengine/controllers/topics.php:400
+#: aigaionengine/controllers/topics.php:398
 msgid "Collapse topic: non-existing id passed."
 msgstr "Thema einklappen: Nicht existierende ID übergeben."
 
-#: aigaionengine/controllers/topics.php:431
+#: aigaionengine/controllers/topics.php:429
 msgid "Export topic: non-existing id passed."
 msgstr "Thema exportieren: nicht existierende ID übergeben."
 
-#: aigaionengine/controllers/topics.php:468
-#: aigaionengine/controllers/topics.php:504
+#: aigaionengine/controllers/topics.php:466
+#: aigaionengine/controllers/topics.php:502
 msgid "Exported from topic"
 msgstr "Exportiert von Thema"
 
-#: aigaionengine/controllers/topics.php:517
+#: aigaionengine/controllers/topics.php:515
 msgid "Topic export"
 msgstr "Thema exportieren"
 
@@ -1670,77 +1660,77 @@ msgstr "Thema exportieren"
 msgid "You must be logged in to view the users’ page."
 msgstr "Du musst angemeldet sein, um die Nutzerseite zu sehen."
 
-#: aigaionengine/controllers/usercontroller.php:41
+#: aigaionengine/controllers/usercontroller.php:42
 #: aigaionengine/views/user/all.php:3
 msgid "All Users"
 msgstr "Alle Nutzer"
 
-#: aigaionengine/controllers/usercontroller.php:47
+#: aigaionengine/controllers/usercontroller.php:48
 #, php-format
 msgid "User %s does not exist."
 msgstr "Nutzer %s existiert nicht"
 
-#: aigaionengine/controllers/usercontroller.php:50
+#: aigaionengine/controllers/usercontroller.php:51
 #, php-format
 msgid "Unknown action requested: %s."
 msgstr "Unbekannte Aktion angefordert: %s"
 
-#: aigaionengine/controllers/usercontroller.php:53
+#: aigaionengine/controllers/usercontroller.php:54
 msgid "You must be logged in to view this user’s page."
 msgstr "Du musst angemeldet sein, um die Seite dieses Nutzers zu sehen."
 
-#: aigaionengine/controllers/usercontroller.php:72
+#: aigaionengine/controllers/usercontroller.php:73
 #, php-format
 msgid "User %s"
 msgstr "Nutzer %s"
 
-#: aigaionengine/controllers/usercontroller.php:86
+#: aigaionengine/controllers/usercontroller.php:87
 msgid "Please log in to contact other users."
 msgstr "Bitte melde dich an, um andere Nutzer zu kontaktieren."
 
-#: aigaionengine/controllers/usercontroller.php:89
+#: aigaionengine/controllers/usercontroller.php:90
 #, php-format
 msgid "A %s is required."
 msgstr "Das %s-Feld ist verpflichtend"
 
-#: aigaionengine/controllers/usercontroller.php:90
+#: aigaionengine/controllers/usercontroller.php:91
 #, php-format
 msgid "The %s may not exceed 511 characters."
 msgstr "Die %s darf 511 Zeichen nicht überschreiten."
 
-#: aigaionengine/controllers/usercontroller.php:92
+#: aigaionengine/controllers/usercontroller.php:93
 msgid "message"
 msgstr "Nachricht"
 
-#: aigaionengine/controllers/usercontroller.php:102
+#: aigaionengine/controllers/usercontroller.php:107
 #, php-format
 msgid "A message from Puma user %s %s"
 msgstr "Eine Nachricht von Puma-Nutzer %s %s"
 
-#: aigaionengine/controllers/usercontroller.php:112
+#: aigaionengine/controllers/usercontroller.php:121
 msgid "There was an error trying to send the e-Mail."
 msgstr "Es gab einen Fehler beim Versuch, die e-Mail zu versenden."
 
-#: aigaionengine/controllers/usercontroller.php:116
+#: aigaionengine/controllers/usercontroller.php:125
 #, php-format
 msgid "Contact user %s"
 msgstr "Nutzer %s kontaktieren"
 
-#: aigaionengine/controllers/usercontroller.php:129
+#: aigaionengine/controllers/usercontroller.php:138
 msgid "You are not allowed to edit other users."
 msgstr "Du darfst andere Nutzer nicht bearbeiten."
 
-#: aigaionengine/controllers/usercontroller.php:133
+#: aigaionengine/controllers/usercontroller.php:142
 #, php-format
 msgid "The field %s is required."
 msgstr "Das %s-Feld ist verpflichtend"
 
-#: aigaionengine/controllers/usercontroller.php:134
+#: aigaionengine/controllers/usercontroller.php:143
 #, php-format
 msgid "The field %s is too long."
 msgstr "Das Feld %s ist zu lang."
 
-#: aigaionengine/controllers/usercontroller.php:139
+#: aigaionengine/controllers/usercontroller.php:148
 #: aigaionengine/views/users/edit.php:108
 #: aigaionengine/views/users/edit.php:147
 #: aigaionengine/views/users/edit.php:157
@@ -1748,33 +1738,33 @@ msgstr "Das Feld %s ist zu lang."
 msgid "Password"
 msgstr "Passwort"
 
-#: aigaionengine/controllers/usercontroller.php:140
+#: aigaionengine/controllers/usercontroller.php:149
 msgid "Password repeat"
 msgstr "Passwort wiederholen"
 
-#: aigaionengine/controllers/usercontroller.php:147
+#: aigaionengine/controllers/usercontroller.php:156
 msgid "The account was successfully updated."
 msgstr "Das Konto wurde erfolgreich bearbeitet!"
 
-#: aigaionengine/controllers/usercontroller.php:149
+#: aigaionengine/controllers/usercontroller.php:158
 msgid "The changes could not be stored."
 msgstr "Die Änderungen konnten nicht gespeichert werden."
 
-#: aigaionengine/controllers/usercontroller.php:156
+#: aigaionengine/controllers/usercontroller.php:165
 #, php-format
 msgid "Edit user %s"
 msgstr "Nutzer %s bearbeiten"
 
-#: aigaionengine/controllers/usercontroller.php:184
+#: aigaionengine/controllers/usercontroller.php:193
 msgid "The option was successfully set."
 msgstr "Die Option wurde erfolgreich gesetzt."
 
-#: aigaionengine/controllers/usercontroller.php:198
+#: aigaionengine/controllers/usercontroller.php:207
 #, php-format
 msgid "Group %s does not exist."
 msgstr "Gruppe %s existiert nicht."
 
-#: aigaionengine/controllers/usercontroller.php:207
+#: aigaionengine/controllers/usercontroller.php:216
 #, php-format
 msgid "Group %s"
 msgstr "Gruppe %s"
@@ -1878,27 +1868,30 @@ msgstr "Themenabo: unzureichende Rechte."
 msgid "Topic subscription for %s (%s)"
 msgstr "Themenabo für %s (%s)"
 
-#: aigaionengine/controllers/users.php:392
+#: aigaionengine/controllers/users.php:388
 msgid "Subscribe topic: non-existing id passed"
 msgstr "Thema abonnieren: nicht existierende ID übergeben."
 
-#: aigaionengine/controllers/users.php:398
-#: aigaionengine/controllers/users.php:462
+#: aigaionengine/controllers/users.php:393
+#: aigaionengine/controllers/users.php:452
 msgid "Topic subscription: insufficient rights"
 msgstr "Themenabo: unzureichende Rechte."
 
-#: aigaionengine/controllers/users.php:421
-#: aigaionengine/controllers/users.php:485
-msgid "The topic has been unsubscribed."
-msgstr "Das Thema wurde gekündigt."
+#: aigaionengine/controllers/users.php:416
+msgid "The topic has been subscribed."
+msgstr "Das Thema wurde abonniert."
 
-#: aigaionengine/controllers/users.php:456
+#: aigaionengine/controllers/users.php:447
 msgid "Unsubscribe topic: non-existing id passed"
 msgstr "Thema kündigen: nicht existierende ID übergeben."
 
-#: aigaionengine/controllers/users.php:467
+#: aigaionengine/controllers/users.php:457
 msgid "Unsubscribe topic: non-existing id passed."
 msgstr "Thema kündigen: nicht existierende ID übergeben."
+
+#: aigaionengine/controllers/users.php:475
+msgid "The topic has been unsubscribed."
+msgstr "Das Thema wurde gekündigt."
 
 #: aigaionengine/controllers/wiki.php:16
 #: aigaionengine/views/help/header.php:16
@@ -2542,12 +2535,10 @@ msgid "Some database operations require mysql root privileges. Please ensure tha
 msgstr "Einige Datenbankoperationen benötigen MySQL-Root-Privilegien. Bitte versichere Dich, dass der MySQL-Nutzer in Deiner index.php über ausreichende Rechte verfügt."
 
 #: aigaionengine/helpers/translation_helper.php:16
-#: aigaionengine/views/publications/list.php:45
 msgid "year"
 msgstr "Jahr"
 
 #: aigaionengine/helpers/translation_helper.php:17
-#: aigaionengine/views/publications/list.php:47
 msgid "title"
 msgstr "Titel"
 
@@ -3542,31 +3533,23 @@ msgstr "Anhang hochladen"
 
 #: aigaionengine/views/attachments/add.php:32
 #: aigaionengine/views/attachments/add.php:62
-#: aigaionengine/views/attachments/delete.php:19
 #: aigaionengine/views/attachments/edit.php:33
-#: aigaionengine/views/authors/delete.php:17
 #: aigaionengine/views/authors/edit.php:25
 #: aigaionengine/views/authors/merge.php:33
 #: aigaionengine/views/bookmarklist/ask.php:11
-#: aigaionengine/views/bookmarklist/delete.php:17
 #: aigaionengine/views/bookmarklist/setattaccesslevel.php:18
 #: aigaionengine/views/bookmarklist/seteditattaccesslevel.php:18
 #: aigaionengine/views/bookmarklist/seteditpubaccesslevel.php:18
 #: aigaionengine/views/bookmarklist/setpubaccesslevel.php:18
 #: aigaionengine/views/confirm.php:8
 #: aigaionengine/views/groups/edit.php:44
-#: aigaionengine/views/notes/delete.php:17
 #: aigaionengine/views/notes/edit.php:66
-#: aigaionengine/views/publications/delete.php:17
 #: aigaionengine/views/publications/edit.php:333
 #: aigaionengine/views/repostform.php:28
-#: aigaionengine/views/rightsprofiles/delete.php:20
 #: aigaionengine/views/rightsprofiles/edit.php:86
 #: aigaionengine/views/site/edit.php:614
 #: aigaionengine/views/site/restore.php:52
-#: aigaionengine/views/topics/delete.php:17
 #: aigaionengine/views/topics/edit.php:75
-#: aigaionengine/views/users/delete.php:18
 #: aigaionengine/views/users/edit.php:487
 msgid "Cancel"
 msgstr "Abbruch"
@@ -3586,28 +3569,6 @@ msgstr "Internen Namen vergeben (leer: ursprünglichen Namen beibehalten)"
 #: aigaionengine/views/attachments/add.php:61
 msgid "Add file link"
 msgstr "Dateiverknüpfung hinzufügen"
-
-#: aigaionengine/views/attachments/delete.php:15
-#, php-format
-msgid "Are you sure that you want to delete the attachment \"%s\"?"
-msgstr "Bist Du sicher, dass Du Anhang \"%s\" löschen willst?"
-
-#: aigaionengine/views/attachments/delete.php:16
-#: aigaionengine/views/authors/delete.php:14
-#: aigaionengine/views/bookmarklist/ask.php:10
-#: aigaionengine/views/bookmarklist/delete.php:14
-#: aigaionengine/views/bookmarklist/setattaccesslevel.php:15
-#: aigaionengine/views/bookmarklist/seteditattaccesslevel.php:15
-#: aigaionengine/views/bookmarklist/seteditpubaccesslevel.php:15
-#: aigaionengine/views/bookmarklist/setpubaccesslevel.php:15
-#: aigaionengine/views/confirm.php:7
-#: aigaionengine/views/notes/delete.php:14
-#: aigaionengine/views/publications/delete.php:14
-#: aigaionengine/views/rightsprofiles/delete.php:17
-#: aigaionengine/views/topics/delete.php:14
-#: aigaionengine/views/users/delete.php:15
-msgid "Confirm"
-msgstr "Bestätigen"
 
 #: aigaionengine/views/attachments/download.php:9
 #, php-format
@@ -3641,8 +3602,8 @@ msgid "Visit %s"
 msgstr "%s besuchen"
 
 #: aigaionengine/views/attachments/summary.php:17
-#: aigaionengine/views/publications/list.php:150
-#: aigaionengine/views/publications/list.php:153
+#: aigaionengine/views/publications/list.php:137
+#: aigaionengine/views/publications/list.php:140
 #: aigaionengine/views/publications/listClean.php:185
 #: aigaionengine/views/publications/listClean.php:194
 #: aigaionengine/views/readapi/publist.php:171
@@ -3691,11 +3652,6 @@ msgstr "Als Hauptanhang setzen"
 #: aigaionengine/views/attachments/summary.php:40
 msgid "Attachment access rights:"
 msgstr "Anhangs-Zugriffsrechte:"
-
-#: aigaionengine/views/authors/delete.php:13
-#, php-format
-msgid "Are you sure that you want to delete the author \"%s\"?"
-msgstr "Bist Du sicher, dass Du den Autor \"%s\" löschen willst?"
 
 #: aigaionengine/views/authors/edit.php:10
 #: aigaionengine/views/authors/embed.php:6
@@ -3812,7 +3768,7 @@ msgstr "Diesen Autor bearbeiten"
 
 #: aigaionengine/views/authors/single.php:12
 #: aigaionengine/views/keywords/single.php:8
-#: aigaionengine/views/topics/full.php:112
+#: aigaionengine/views/topics/full.php:117
 msgid "BookmarkAll"
 msgstr "alle markieren"
 
@@ -3822,7 +3778,7 @@ msgstr "Alle Veröffentlichungen des Autors zur Merkliste hinzufügen"
 
 #: aigaionengine/views/authors/single.php:14
 #: aigaionengine/views/keywords/single.php:9
-#: aigaionengine/views/topics/full.php:113
+#: aigaionengine/views/topics/full.php:118
 msgid "UnBookmarkAll"
 msgstr "alle entmarkieren"
 
@@ -3846,13 +3802,22 @@ msgstr "zusammenführen"
 #: aigaionengine/views/import/review.php:259
 #: aigaionengine/views/publications/edit.php:127
 #: aigaionengine/views/publications/single.php:197
-#: aigaionengine/views/topics/full.php:70
+#: aigaionengine/views/topics/full.php:75
 msgid "Keywords:"
 msgstr "Schlüsselwörter:"
 
 #: aigaionengine/views/bookmarklist/ask.php:4
 msgid "Confirmation needed"
 msgstr "Bestätigung benötigt"
+
+#: aigaionengine/views/bookmarklist/ask.php:10
+#: aigaionengine/views/bookmarklist/setattaccesslevel.php:15
+#: aigaionengine/views/bookmarklist/seteditattaccesslevel.php:15
+#: aigaionengine/views/bookmarklist/seteditpubaccesslevel.php:15
+#: aigaionengine/views/bookmarklist/setpubaccesslevel.php:15
+#: aigaionengine/views/confirm.php:7
+msgid "Confirm"
+msgstr "Bestätigen"
 
 #: aigaionengine/views/bookmarklist/controls.php:7
 msgid "Bookmark list controls"
@@ -4702,7 +4667,7 @@ msgid "select to use editor as found in BibTeX"
 msgstr "auswählen, um Herausgeber zu verwenden, der in BibTeX gefunden wurde"
 
 #: aigaionengine/views/keywords/list_items.php:56
-#: aigaionengine/views/publications/list.php:205
+#: aigaionengine/views/publications/list.php:192
 #: aigaionengine/views/publications/single.php:211
 #: aigaionengine/views/publications/single.php:227
 #: aigaionengine/views/readapi/publist.php:124
@@ -4777,14 +4742,6 @@ msgstr "Zurück zur Startseite."
 msgid "Create"
 msgstr "Erstellen"
 
-#: aigaionengine/views/notes/delete.php:13
-msgid "Are you sure that you want to delete the note below?!"
-msgstr "Bist Du sicher, dass Du untenstehende Notiz löschen willst?"
-
-#: aigaionengine/views/notes/delete.php:20
-msgid "Note text"
-msgstr "Notiztext"
-
 #: aigaionengine/views/notes/edit.php:34
 msgid "Add a note"
 msgstr "Notiz hinzufügen"
@@ -4816,11 +4773,6 @@ msgstr "Start"
 #: aigaionengine/views/pagination.php:49
 msgid "End"
 msgstr "Ende"
-
-#: aigaionengine/views/publications/delete.php:13
-#, php-format
-msgid "Are you sure that you want to delete the publication '%s'?"
-msgstr "Bist Du sicher, dass Du Veröffentlichung &bdquo;%s&ldquo; löschen willst?"
 
 #: aigaionengine/views/publications/edit.php:18
 msgid "New Publication"
@@ -4916,47 +4868,30 @@ msgstr "Als neuen Namen erzeugen"
 msgid "Editors"
 msgstr "Herausgeber"
 
-#: aigaionengine/views/publications/list.php:43
-msgid "Sort by"
-msgstr "Sortiere nach"
-
-#: aigaionengine/views/publications/list.php:44
-msgid "recency"
-msgstr "Aktualität"
-
-#: aigaionengine/views/publications/list.php:46
-#: aigaionengine/views/topics/full.php:92
-msgid "author"
-msgstr "Autor"
-
-#: aigaionengine/views/publications/list.php:48
-msgid "type"
-msgstr "Typ"
-
-#: aigaionengine/views/publications/list.php:106
+#: aigaionengine/views/publications/list.php:93
 #: aigaionengine/views/publications/listClean.php:65
 #: aigaionengine/views/readapi/publist.php:69
 #, php-format
 msgid "Publications of type %s"
 msgstr "Veröffentlichungen vom Typ %s"
 
-#: aigaionengine/views/publications/list.php:137
+#: aigaionengine/views/publications/list.php:124
 #: aigaionengine/views/publications/single.php:24
 msgid "remove from bookmark list"
 msgstr "von der Merkliste nehmen"
 
-#: aigaionengine/views/publications/list.php:142
+#: aigaionengine/views/publications/list.php:129
 #: aigaionengine/views/publications/single.php:29
 msgid "add to bookmark list"
 msgstr "zur Merkliste hinzufügen"
 
-#: aigaionengine/views/publications/list.php:164
+#: aigaionengine/views/publications/list.php:151
 #: aigaionengine/views/readapi/publist.php:187
 msgid "Click to follow Digital Object Identifier link to online publication"
 msgstr "Klicken, um der Digital Object Identifier (DOI)-Verknüpfung zur Online-Veröffentlichung zu folgen"
 
-#: aigaionengine/views/publications/list.php:191
-#: aigaionengine/views/publications/list.php:216
+#: aigaionengine/views/publications/list.php:178
+#: aigaionengine/views/publications/list.php:203
 #: aigaionengine/views/publications/listClean.php:120
 #: aigaionengine/views/publications/single.php:118
 #: aigaionengine/views/readapi/publist.php:110
@@ -4964,12 +4899,12 @@ msgstr "Klicken, um der Digital Object Identifier (DOI)-Verknüpfung zur Online-
 msgid "View publication details"
 msgstr "Veröffentlichungsdetails betrachten"
 
-#: aigaionengine/views/publications/list.php:198
+#: aigaionengine/views/publications/list.php:185
 msgid " and "
 msgstr " und "
 
-#: aigaionengine/views/publications/list.php:200
-#: aigaionengine/views/publications/list.php:212
+#: aigaionengine/views/publications/list.php:187
+#: aigaionengine/views/publications/list.php:199
 msgid ", "
 msgstr ", "
 
@@ -5139,11 +5074,6 @@ msgstr "Du bist jetzt als Gastnutzer angemeldet. Wenn Du das Formular als regist
 #: aigaionengine/views/repostform.php:22
 msgid "Repost"
 msgstr "Erneut übermitteln"
-
-#: aigaionengine/views/rightsprofiles/delete.php:16
-#, php-format
-msgid "Are you sure that you want to delete rightsprofile %s?"
-msgstr "Bist Du sicher, dass Du Rechteprofil &bdquo;%s&ldquo; löschen willst?"
 
 #: aigaionengine/views/rightsprofiles/edit.php:41
 msgid "Create a new rightsprofile"
@@ -5860,18 +5790,13 @@ msgstr "Jahr"
 msgid "Recently added"
 msgstr "Erstellungsdatum"
 
-#: aigaionengine/views/sort.php:17
+#: aigaionengine/views/sort.php:21
 msgid "Sort by:"
 msgstr "Sortiere nach:"
 
 #: aigaionengine/views/topics/clean.php:13
 msgid "No description"
 msgstr "Keine Beschreibung"
-
-#: aigaionengine/views/topics/delete.php:13
-#, php-format
-msgid "Are you sure that you want to delete topic \"%s\"?"
-msgstr "Bist Du sicher, dass Du Thema \"%s\" löschen willst?"
 
 #: aigaionengine/views/topics/edit.php:30
 #, php-format
@@ -5883,7 +5808,7 @@ msgid "Parent"
 msgstr "Vorfahr"
 
 #: aigaionengine/views/topics/edit.php:59
-#: aigaionengine/views/topics/full.php:46
+#: aigaionengine/views/topics/full.php:51
 msgid "URL"
 msgstr "URL"
 
@@ -5900,48 +5825,62 @@ msgstr "&ndash; Keine Beschreibung &ndash;"
 msgid "click to modify access levels"
 msgstr "klicken, um Zugriffsebene zu ändern"
 
-#: aigaionengine/views/topics/full.php:53
+#: aigaionengine/views/topics/full.php:35
+#: aigaionengine/views/topics/leaf.php:76
+msgid "unsubscribe"
+msgstr "kündigen"
+
+#: aigaionengine/views/topics/full.php:37
+#: aigaionengine/views/topics/leaf.php:76
+msgid "subscribe"
+msgstr "abonnieren"
+
+#: aigaionengine/views/topics/full.php:58
 msgid "Subtopics:"
 msgstr "Unterthemen:"
 
-#: aigaionengine/views/topics/full.php:85
+#: aigaionengine/views/topics/full.php:90
 msgid "publication"
 msgstr "Veröffentlichung"
 
-#: aigaionengine/views/topics/full.php:89
+#: aigaionengine/views/topics/full.php:94
 msgid "publications"
 msgstr "Veröffentlichungen"
 
-#: aigaionengine/views/topics/full.php:92
-#: aigaionengine/views/topics/full.php:94
+#: aigaionengine/views/topics/full.php:97
+msgid "author"
+msgstr "Autor"
+
+#: aigaionengine/views/topics/full.php:97
+#: aigaionengine/views/topics/full.php:99
 msgid "view"
 msgstr "betrachten"
 
-#: aigaionengine/views/topics/full.php:92
+#: aigaionengine/views/topics/full.php:97
 msgid "view author for topic"
 msgstr "Autor zu diesem Thema betrachten"
 
-#: aigaionengine/views/topics/full.php:94
+#: aigaionengine/views/topics/full.php:99
 msgid "authors"
 msgstr "Autoren"
 
-#: aigaionengine/views/topics/full.php:94
+#: aigaionengine/views/topics/full.php:99
 msgid "view authors for topic"
 msgstr "Autoren zu diesem Thema betrachten"
 
-#: aigaionengine/views/topics/full.php:100
+#: aigaionengine/views/topics/full.php:105
 msgid "Subtopic"
 msgstr "Unterthema"
 
-#: aigaionengine/views/topics/full.php:102
+#: aigaionengine/views/topics/full.php:107
 msgid "Subtopics"
 msgstr "Unterthemen"
 
-#: aigaionengine/views/topics/full.php:105
+#: aigaionengine/views/topics/full.php:110
 msgid "No subtopics"
 msgstr "Keine Unterthemen"
 
-#: aigaionengine/views/topics/full.php:108
+#: aigaionengine/views/topics/full.php:113
 msgid "create new subtopic"
 msgstr "neues Unterthema erzeugen"
 
@@ -5951,16 +5890,16 @@ msgstr "zeige meine abonnierten Themen"
 
 #: aigaionengine/views/topics/index.php:15
 msgid "show all topics"
-msgstr "zeige alle Theme"
+msgstr "zeige alle Themen"
 
-#: aigaionengine/views/topics/maintreerow.php:39
+#: aigaionengine/views/topics/leaf.php:59
+msgid "group subscribed"
+msgstr "(abonniert über Gruppe)"
+
+#: aigaionengine/views/topics/leaf.php:70
 #, php-format
 msgid "read: %s of %s publications"
 msgstr "gelesen: %s von %s Veröffentlichungen"
-
-#: aigaionengine/views/topics/usersubscriptiontreerow.php:51
-msgid "group subscribed"
-msgstr "(abonniert über Gruppe)"
 
 #: aigaionengine/views/user/all.php:5
 #, php-format
@@ -5984,7 +5923,7 @@ msgstr "Die e-Mail wurde erfolgreich versandt."
 
 #: aigaionengine/views/user/contact.php:15
 msgid "Ooops."
-msgstr ""
+msgstr "Oha."
 
 #: aigaionengine/views/user/contact.php:16
 msgid "&laquo; Back to the user’s overview"
@@ -6177,11 +6116,6 @@ msgstr "NDS-Kurzname:"
 msgid "Known group members:"
 msgstr "Bekannte Gruppenmitglieder:"
 
-#: aigaionengine/views/users/delete.php:14
-#, php-format
-msgid "Are you sure that you want to delete user \"%s\"?"
-msgstr "Bist Du sicher, dass Du Nutzer  \"%s\" löschen willst?"
-
 #: aigaionengine/views/users/edit.php:42
 msgid "Create a new user"
 msgstr "Neuen Nutzer erzeugen"
@@ -6373,6 +6307,32 @@ msgstr "Willkommen beim %s-Wiki."
 msgid "Latest edits:"
 msgstr "Neueste Änderungen:"
 
+#~ msgid "Subscribe"
+#~ msgstr "Abonnieren"
+#~ msgid "Are you sure that you want to delete the attachment \"%s\"?"
+#~ msgstr "Bist Du sicher, dass Du Anhang \"%s\" löschen willst?"
+#~ msgid "Are you sure that you want to delete the author \"%s\"?"
+#~ msgstr "Bist Du sicher, dass Du den Autor \"%s\" löschen willst?"
+#~ msgid "Are you sure that you want to delete the note below?!"
+#~ msgstr "Bist Du sicher, dass Du untenstehende Notiz löschen willst?"
+#~ msgid "Note text"
+#~ msgstr "Notiztext"
+#~ msgid "Are you sure that you want to delete the publication '%s'?"
+#~ msgstr ""
+#~ "Bist Du sicher, dass Du Veröffentlichung &bdquo;%s&ldquo; löschen willst?"
+#~ msgid "Sort by"
+#~ msgstr "Sortiere nach"
+#~ msgid "recency"
+#~ msgstr "Aktualität"
+#~ msgid "type"
+#~ msgstr "Typ"
+#~ msgid "Are you sure that you want to delete rightsprofile %s?"
+#~ msgstr ""
+#~ "Bist Du sicher, dass Du Rechteprofil &bdquo;%s&ldquo; löschen willst?"
+#~ msgid "Are you sure that you want to delete topic \"%s\"?"
+#~ msgstr "Bist Du sicher, dass Du Thema \"%s\" löschen willst?"
+#~ msgid "Are you sure that you want to delete user \"%s\"?"
+#~ msgstr "Bist Du sicher, dass Du Nutzer  \"%s\" löschen willst?"
 #~ msgid "Theme &lsquo;%s&rsquo; no longer exists."
 #~ msgstr "Design &sbquo;%s&lsquo; existiert nicht mehr."
 #~ msgid "View user"
