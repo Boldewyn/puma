@@ -2,17 +2,17 @@
 
 <p><?php _a('user', __('&laquo; Back to all users’ overview'))?></p>
 
-<h2><?php printf(__('Group Details: %s'), h($group['surname']))?></h2>
+<h2><?php printf(__('Group Details: %s'), h($group['firstname']))?></h2>
 
 <table class="datatable">
   <tbody>
     <tr>
       <th><?php _e('Name:')?></th>
-      <td><?php _h($group['surname']) ?></td>
+      <td><?php _h($group['firstname']) ?></td>
     </tr>
     <tr>
       <th><?php _e('NDS short name:')?></th>
-      <td><?php _h($group['abbreviation']); ?></td>
+      <td><?php _h($group['surname']); ?></td>
     </tr>
     <tr>
       <th><?php _e('Known group members:')?></th>
