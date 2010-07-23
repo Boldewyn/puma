@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
     <title><?php _e('Error')?> - Puma.&Phi;</title>
-    <link rel="stylesheet" href="<?php echo base_url()?>static/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="<?php echo base_url()?>static/themes/puma/style.css" type="text/css" />
     <script type="text/javascript" src="<?php echo base_url()?>static/js/jquery.js"></script>
   </head>
   <body id="error_general" class="errorbody">
@@ -38,7 +38,7 @@
         </h2>
 
       </div>
-      
+
       <?php $subnav = array(); $subnav_current = ""; $nav_current = ""; include APPPATH.'views/menu.php';?>
 
       <div id="content">

@@ -2,6 +2,7 @@ codeigniter/logs/*.php
 credentials.php
 attachments/[^.]*
 static/*/*.gz
+static/*/*/*.gz
 *.swp
 Session.vim
 .gitignore
