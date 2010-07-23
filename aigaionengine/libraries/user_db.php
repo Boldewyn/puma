@@ -26,7 +26,7 @@ class User_db {
 
     function getByAbbreviation($abbr) {
         $CI = &get_instance();
-        $Q = $CI->db->where('type != "group"')
+        $Q = $CI->db->where('type !=', "group")
             ->where('abbreviation', $abbr)->get("users");
         if ($Q->num_rows() == 1) {
             return $this->getFromRow($Q->row());

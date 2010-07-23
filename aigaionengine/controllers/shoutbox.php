@@ -19,8 +19,32 @@ class Shoutbox extends Controller {
         $userlogin = getUserLogin();
         $Q = $this->db->order_by('created', 'desc')
             ->where('at', NULL)->or_where('at', $userlogin->userId())
-            ->get('shoutbox', $offset, $offset+$count);
-        $this->output->set_output(json_encode(array('items'=>$Q->result())));
+            ->or_where('user_id', $userlogin->userId())
+            ->get('shoutbox', $count, $offset);
+        $items = $Q->result();
+        $uids = array();
+        $ritems = array();
+        foreach ($items as $item) {
+            $uids[] = (string)$item->user_id;
+            if ($item->at) {
+                $uids[] = (string)$item->at;
+            }
+            $ritems[$item->id] = array(
+                $item->user_id,
+                $item->at,
+                $item->content,
+                $item->created,
+            );
+        }
+        $abbrs = array();
+        if (count($uids)) {
+            $A = $this->db->select('user_id, abbreviation')->where_in('user_id', $uids)->get('users');
+            $abbrs2 = $A->result_array();
+            foreach ($abbrs2 as $a) {
+                $abbrs[$a['user_id']] = $a['abbreviation'];
+            }
+        }
+        $this->output->set_output(json_encode(array('items'=>$ritems,'abbrs'=>$abbrs)));
     }
 
     public function pull($after=1) {
@@ -32,11 +56,11 @@ class Shoutbox extends Controller {
         $this->output->set_output(json_encode(array('items'=>$Q->result())));
     }
 
-    public function create() {
+    public function say() {
         $userlogin = getUserLogin();
         $error = "";
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('content', __('Content'), 'required');
+        $this->form_validation->set_rules('shoutbox_content', __('Content'), 'required');
         if ($this->form_validation->run() == FALSE) {
             $this->output->set_output('{"result":false,"message":"'.$error.'"}');
         } else {
