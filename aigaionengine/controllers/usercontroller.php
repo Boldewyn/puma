@@ -25,7 +25,7 @@ class Usercontroller extends Controller {
                           ->get();
             $users = $query->result_array();
             $query = $this->db->select(array('user_id', 'surname', 'firstname', 'abbreviation'))
-                              ->from('users')->where('type', 'group')->where('theme', 'Puma')
+                              ->from('users')->where('type', 'group')->where('theme', 'puma')
                               ->order_by('surname asc')
                               ->get();
             $groups = $query->result_array();
@@ -199,7 +199,7 @@ class Usercontroller extends Controller {
      */
     public function group($id) {
         $query = $this->db->select(array('user_id', 'surname', 'firstname', 'abbreviation'))
-                          ->from('users')->where('type', 'group')->where('theme', 'Puma')
+                          ->from('users')->where('type', 'group')->where('theme', 'puma')
                           ->where('abbreviation', $id)->limit(1)
                           ->get();
         $group = $query->result_array();

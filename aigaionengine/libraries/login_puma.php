@@ -189,11 +189,11 @@ class Login_puma {
                         $CI->db->insert('users', array('user_id'=>$new_id, 'firstname'=>'nds',
                             'betweenname'=>'nds',
                             'surname'=>$groupname, 'abbreviation'=>substr($groupname, 0, 10),
-                            'type'=>'group', 'theme'=>'Puma'));
+                            'type'=>'group', 'theme'=>'puma'));
                     } else {
                         $CI->db->insert('users', array('firstname'=>'nds', 'betweenname'=>'nds',
                             'surname'=>$groupname, 'abbreviation'=>substr($groupname, 0, 10),
-                            'type'=>'group', 'theme'=>'Puma'));
+                            'type'=>'group', 'theme'=>'puma'));
                         $new_id = $CI->db->insert_id();
                     }
                     //subscribe group to top topic
@@ -248,12 +248,12 @@ class Login_puma {
                             $CI->db->insert('users', array('user_id'=>$group_id, 'firstname'=>'nds',
                                 'betweenname'=>'nds',
                                 'surname'=>$g, 'abbreviation'=>substr($g, 0, 10),
-                                'type'=>'group', 'theme'=>'Puma'));
+                                'type'=>'group', 'theme'=>'puma'));
                         } else {
                             $CI->db->insert('users', array('firstname'=>'nds',
                                 'betweenname'=>'nds',
                                 'surname'=>$g, 'abbreviation'=>substr($g, 0, 10),
-                                'type'=>'group', 'theme'=>'Puma'));
+                                'type'=>'group', 'theme'=>'puma'));
                             $group_id = $CI->db->insert_id();
                         }
                         //subscribe group to top topic
