@@ -8,7 +8,7 @@ class Wiki_model extends Model {
     public function __construct() {
         parent::Model();
     }
-    
+
     /**
      * Get the content of a wiki item
      */
@@ -22,7 +22,7 @@ class Wiki_model extends Model {
             return $this->get_version($id)->content;
         }
     }
-    
+
     /**
      * Get all info about a specific version of an item
      */
@@ -43,7 +43,7 @@ class Wiki_model extends Model {
             return false;
         }
     }
-    
+
     /**
      * Get the latest changes in all wiki pages
      */
@@ -65,7 +65,7 @@ class Wiki_model extends Model {
         }
         return $return;
     }
-    
+
     /**
      * Get all wiki pages (in-/excluding discussion pages)
      */
@@ -88,7 +88,7 @@ class Wiki_model extends Model {
         }
         return $result;
     }
-    
+
     /**
      * Edit a wiki item
      */
@@ -121,7 +121,7 @@ class Wiki_model extends Model {
         }
         return False;
     }
-    
+
     /**
      * Revert one or several edits
      */
@@ -148,7 +148,7 @@ class Wiki_model extends Model {
         }
         return true;
     }
-    
+
     /**
      * Get the history of an item
      */
@@ -160,14 +160,14 @@ class Wiki_model extends Model {
                           ->get();
         return $query->result();
     }
-    
+
     /**
      * Generate a preview from any content
      */
     public function preview($content) {
         return $this->_sanitize($content);
     }
-    
+
     /**
      * check, if a user may see this item (specific to a version == ID)
      */
@@ -181,7 +181,7 @@ class Wiki_model extends Model {
         $data = $query->row_array();
         return $this->_internal_is_allowed($id, $mode, $data['editor'], $data[$mode.'_access_level']);
     }
-    
+
     /**
      * check, if a user may see this item (specific to a version == ID)
      */
@@ -197,11 +197,17 @@ class Wiki_model extends Model {
         }
         return false;
     }
-    
+
+    /**
+     * Change wiki syntax (or special constructs) to HTML
+     *
+     * Also performs XSS cleanup
+     */
     protected function _sanitize($content) {
         $xcontent = '';
         if ($content) {
             $mask = '___§§§WIKIMASK§§§___';
+            $userlogin = getUserLogin();
             $xcontent = preg_replace('#<script.*?/script>#i', '', $content); # No JS allowed
             $xcontent = str_replace('<', $mask, $xcontent);
             $xcontent = preg_replace('#'.$mask.'(/?(?:a(?:bbr|cronym)?|br?|i(?:mg)?'.
@@ -211,10 +217,11 @@ class Wiki_model extends Model {
                                      '<$1$2', $xcontent);
             $xcontent = preg_replace('#\son([a-z]+)=(["\']).*?\2#i', '', $xcontent); # No events allowed
             $xcontent = preg_replace('#\shref=(["\'])javascript:.*?\1#i', '', $xcontent); # No javascript: links allowed
+            $xcontent = preg_replace('#\bjavascript:\b#i', 'ecmascript:', $xcontent); # No javascript: links allowed, ever!
             $xcontent = str_replace($mask, '&lt;', $xcontent); # all but the above elements disallowed
-            $xcontent = preg_replace('/\[\[(.+?)|(.+?)\]\]/', 
+            $xcontent = preg_replace('/\[\[(.+?)|(.+?)\]\]/',
                         '<a class="interwiki" href="'.base_url().'wiki/$1">$2</a>', $xcontent); # Interwiki links w/ alt text
-            $xcontent = preg_replace('/\[\[(.+?)\]\]/', 
+            $xcontent = preg_replace('/\[\[(.+?)\]\]/',
                         '<a class="interwiki" href="'.base_url().'wiki/$1">$1</a>', $xcontent); # Interwiki links
             if (strpos($xcontent, '\ref{') !== False) { // references to publications
                 function _sanitize_get_ref($m) {
@@ -229,10 +236,12 @@ class Wiki_model extends Model {
                 $xcontent = preg_replace_callback('/\\\\ref{([^}]+)}/', '_sanitize_get_ref', $xcontent);
             }
             $xcontent = $this->_handle_latex($xcontent);
+            $user_abbr = $userlogin->user()->abbreviation;
+            $xcontent = preg_replace('#~~~~#', anchor('user/'.$user_abbr, h($user_abbr)), $xcontent);
         }
         return $xcontent;
     }
-    
+
     protected function _get_current($item) {
         $query = $this->db->select('id')
                       ->from('wiki_active')
@@ -299,9 +308,9 @@ class Wiki_model extends Model {
         }
         $pregmap = array(
             '/\\\\\'([AEIOUYaeiouy])\\s+/' => '&$1acute;',
-            '/\\\\\"([AEIOUaeiouy])\\s+/' => '&$1uml;', 
+            '/\\\\\"([AEIOUaeiouy])\\s+/' => '&$1uml;',
             '/\\\\\`([AEIOUaeiou])\\s+/' => '&$1grave;',
-            '/\\\\\^([AEIOUaeiou])\\s+/' => '&$1circ;', 
+            '/\\\\\^([AEIOUaeiou])\\s+/' => '&$1circ;',
             '/\\\\\~([ANOano])\\s+/' => '&$1tilde;',
             '/\\\\\,([Cc])\\s+/' => '&$1cedil;',
             '/\\\\([aoAO][Ee])\\s+/' => '&$1lig;',
@@ -351,12 +360,12 @@ class Wiki_model extends Model {
         foreach ($strmap as $pattern => $replacement) {
             $newstring = str_replace($pattern, $replacement, $newstring);
         }
-        $newstring = preg_replace('/([^!])--/', '$1&ndash;', $newstring);
-        $newstring = preg_replace('/([^\\\\])~/', '$1&nbsp;', $newstring);
+        $newstring = preg_replace('/(?<!!)--/', '&ndash;', $newstring);
+        $newstring = preg_replace('/(?<![~\\\\])~(?!~)/', '&nbsp;', $newstring);
         $newstring = str_replace('\\&', '&amp;', $newstring);
         return $newstring;
     }
-    
+
 }
 
 

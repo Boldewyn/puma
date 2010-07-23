@@ -2,7 +2,7 @@
 
 class Wiki extends Controller {
 
-    
+
     public function Wiki() {
         parent::Controller();
         $this->isDispatched = False;
@@ -19,11 +19,11 @@ class Wiki extends Controller {
         $this->load->view('wiki/index', array('entries' => $this->wiki->get_latest(20)));
         $this->load->view('footer');
     }
-    
+
     public function item($item) {
         $item = $this->_get_item();
         $this->_get_subnav($item);
-        
+
         $content = $this->wiki->get($item);
         if (! $content) {
             appendErrorMessage(sprintf(__('Page &ldquo;%s&rdquo; does not exist yet.'), h($item)));
@@ -33,7 +33,18 @@ class Wiki extends Controller {
         $this->load->view('put', array('data' => '<h2>'.h($item).'</h2><div class="wiki_page">'.$content.'</div>'));
         $this->load->view('footer');
     }
-    
+
+    public function export($item) {
+        $item = $this->_get_item();
+        $content = $this->wiki->get($item, True);
+        if (! $content) {
+            appendErrorMessage(sprintf(__('Page &ldquo;%s&rdquo; does not exist yet.'), h($item)));
+            redirect('wiki/Edit:'.$item);
+        }
+        $this->output->set_header('Content-Type: text/plain;charset=utf-8');
+        $this->output->set_output($content);
+    }
+
     public function dispatch($method, $item) {
         if (substr($method, 0, 1) != '_' && method_exists($this, strtolower($method))) {
             $method = strtolower($method);
@@ -43,7 +54,7 @@ class Wiki extends Controller {
             $this->item($method.':'.$item);
         }
     }
-    
+
     public function edit($item, $discussion=False) {
         $item = $this->_get_item();
         restrict_to_users(__('You must be logged in to edit the wiki.'),
@@ -98,7 +109,7 @@ class Wiki extends Controller {
             redirect('wiki/Edit_Discussion:'.$item);
         }
         $this->load->view('header');
-        $this->load->view('put', array('data' => 
+        $this->load->view('put', array('data' =>
             '<h2>'.sprintf(__('Discussion: &ldquo;%s&rdquo;'), h($item)).'</h2>'.
             '<div class="wiki_page wiki_discussion">'.$content.'</div>'));
         $this->load->view('footer');
@@ -114,7 +125,7 @@ class Wiki extends Controller {
         $this->load->view('wiki/history', array('data' => $data));
         $this->load->view('footer');
     }
-    
+
     public function show_history($id) {
         $data = $this->wiki->get_version($id);
         $item = $data->item;
@@ -124,13 +135,13 @@ class Wiki extends Controller {
         $this->load->vars(array('title' => sprintf(__('Wiki » %s'), $item)));
         $this->_get_subnav($item, 'history');
         $this->load->view('header');
-        $this->load->view('put', array('data' => 
+        $this->load->view('put', array('data' =>
             '<h2>'.sprintf(__('Old Version: &ldquo;%s&rdquo;'), h($item)).'</h2>'.
             '<p class="info">'.sprintf(__('This is an old version of &ldquo;%s&rdquo;. Creation date: %s.'), anchor('wiki/'.$data->item, $data->item), '<em>'.$data->created.'</em>').'</p>'.
             '<div class="wiki_page wiki_discussion">'.$data->content.'</div>'));
         $this->load->view('footer');
     }
-    
+
     public function special($id) {
         restrict_to_users(__('Special pages are viewable for logged in users only.'));
         $this->load->vars(array('title' => __('Wiki » Special page')));
@@ -149,12 +160,12 @@ class Wiki extends Controller {
                 $data = '';
         }
         $this->load->view('header');
-        $this->load->view('put', array('data' => 
+        $this->load->view('put', array('data' =>
             '<h2>'.sprintf(__('Special Page: %s'), h($id)).'</h2>'.
             '<div class="wiki_page wiki_special">'.$data.'</div>'));
         $this->load->view('footer');
     }
-    
+
     protected function _get_subnav($item, $method='') {
         $method = $method? ucfirst($method).':' : '';
         $d = (strpos($method, 'iscussion') !== FALSE? '_Discussion': '');
@@ -163,13 +174,14 @@ class Wiki extends Controller {
             '/wiki/Discussion:'.h($item) => __('Discussion'),
             '/wiki/Edit'.$d.':'.h($item) => __('Edit'),
             '/wiki/History:'.h($item) => __('History'),
+            '/wiki/Export:'.h($item) => __('Export Raw'),
         );
         if ($method == 'Edit_discussion:') { $method = 'Discussion:'; }
         $subnav_current = '/wiki/'.$method.h($item);
         $this->load->vars(array('subnav' => $subnav, 'subnav_current' => $subnav_current));
         return array($subnav, $subnav_current);
     }
-    
+
     protected function _get_item() {
         $segments = $this->uri->rsegment_array();
         array_shift($segments);
@@ -182,7 +194,7 @@ class Wiki extends Controller {
         $this->load->vars(array('title' => sprintf(__('Wiki » %s'), $item)));
         return $item;
     }
-    
+
     protected function _item_exists($item) {
         return ($this->wiki->get($item) != False);
     }
