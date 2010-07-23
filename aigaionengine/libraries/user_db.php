@@ -1,33 +1,40 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?><?php
-/** This class regulates the database access for User's. Several accessors are present that return a User or 
+/** This class regulates the database access for User's. Several accessors are present that return a User or
 array of User's. */
 class User_db {
-  
+
     function User_db() {
         $CI =& get_instance();
         $CI->load->helper('rights');
     }
-    
-    function getByID($user_id)
-    {
+
+    function getByID($user_id) {
         $CI = &get_instance();
         $Q = $CI->db->query("SELECT * from ".AIGAION_DB_PREFIX."users where user_id=".$CI->db->escape($user_id)." AND type<>'group'");
-        if ($Q->num_rows() > 0)
-        {
+        if ($Q->num_rows() > 0) {
             return $this->getFromRow($Q->row());
-        }  
+        }
     }
-   
-    function getByLogin($login)
-    {
+
+    function getByLogin($login) {
         $CI = &get_instance();
         $Q = $CI->db->query("SELECT * from ".AIGAION_DB_PREFIX."users where login=".$CI->db->escape($login)." AND type<>'group'");
-        if ($Q->num_rows() > 0)
-        {
+        if ($Q->num_rows() > 0) {
             return $this->getFromRow($Q->row());
-        }  
+        }
     }
-   
+
+    function getByAbbreviation($abbr) {
+        $CI = &get_instance();
+        $Q = $CI->db->where('type != "group"')
+            ->where('abbreviation', $abbr)->get("users");
+        if ($Q->num_rows() == 1) {
+            return $this->getFromRow($Q->row());
+        } elseif ($Q->num_rows() > 1) {
+            return $this->getByLogin($abbr);
+        }
+    }
+
     function getFromRow($R)
     {
         $CI = &get_instance();
@@ -46,7 +53,7 @@ class User_db {
         $user->login              = $R->login;
         $user->password           = $R->password;
         $user->type               = $R->type;
-        if (isset($R->password_invalidated)) //doesn't exist in earlier versions before 2.0.xx 
+        if (isset($R->password_invalidated)) //doesn't exist in earlier versions before 2.0.xx
             $user->password_invalidated = $R->password_invalidated;
         //preferences: all other columns are preferences
         $user->preferences        = array();
@@ -74,7 +81,7 @@ class User_db {
     }
 
 
-    /** Construct a topic from the POST data present in the topics/edit view. 
+    /** Construct a topic from the POST data present in the topics/edit view.
     Return null if the POST data was not present. */
     function getFromPost()
     {
@@ -129,7 +136,7 @@ class User_db {
 
         return $user;
     }
-        
+
     /** Return all Users (anon and normal) from the database. */
     function getAllUsers() {
         $CI = &get_instance();
@@ -200,10 +207,10 @@ class User_db {
             $utf8bibtex ='TRUE';
         }
         //is language in supported list?
-        if ($user->preferences['language'] != 'default') 
+        if ($user->preferences['language'] != 'default')
         {
           global $AIGAION_SUPPORTED_LANGUAGES;
-          if (!in_array($user->preferences['language'],$AIGAION_SUPPORTED_LANGUAGES)) 
+          if (!in_array($user->preferences['language'],$AIGAION_SUPPORTED_LANGUAGES))
           {
             appendErrorMessage(sprintf(__('Unknown language: %s.'), $user->preferences['language']));
             $user->preferences['language'] = AIGAION_DEFAULT_LANGUAGE;
@@ -232,7 +239,7 @@ class User_db {
                                                'utf8bibtex'         => $utf8bibtex
                                                )
                               );
-        $new_id = $CI->db->insert_id();                                   
+        $new_id = $CI->db->insert_id();
         if ($userlogin->hasRights('user_assign_rights')) {
             //add rights
             foreach ($user->assignedrights as $right) {
@@ -245,11 +252,11 @@ class User_db {
                         continue;
                     }
                 }
-                    
+
                 $CI->db->insert('userrights',array('user_id'=>$new_id,'right_name'=>$right));
             }
         }
-        
+
         //add group links, and rightsprofiles for these groups, to the user
         foreach ($user->group_ids as $group_id) {
             $CI->db->insert('usergrouplink',array('user_id'=>$new_id,'group_id'=>$group_id));
@@ -260,24 +267,24 @@ class User_db {
                     $CI->db->delete('userrights',array('user_id'=>$new_id,'right_name'=>$right));
                     $CI->db->insert('userrights',array('user_id'=>$new_id,'right_name'=>$right));
                 }
-                
+
             }
         }
         $user->user_id = $new_id;
-        
+
         $CI->topic_db->subscribeUser( $user,1);
         appendMessage(__("User added."));
         return $new_id;
     }
 
-    /** Commit the changes in the data of the given user. Returns TRUE or FALSE depending on 
+    /** Commit the changes in the data of the given user. Returns TRUE or FALSE depending on
     whether the operation was successfull. */
     function update($user) {
         $CI = &get_instance();
         //check rights
         $userlogin = getUserLogin();
         if (     !$userlogin->hasRights('user_edit_all')
-             &&  
+             &&
                 (!$userlogin->hasRights('user_edit_self') || ($userlogin->userId() != $user->user_id))
             ) {
                 return False;
@@ -287,7 +294,7 @@ class User_db {
         if ($user_test == null) {
             return False;
         }
-        // DR 2008.08.29: no-one can change login names anymore in edit forms......        
+        // DR 2008.08.29: no-one can change login names anymore in edit forms......
         if ($user_test->login != $user->login) {
             appendErrorMessage(__("Login names cannot be changed. Login name has been reset to old value. Other changes have been saved."));
             $user->login = $user_test->login;
@@ -308,7 +315,7 @@ class User_db {
         } else if ($user->password_invalidated == 'TRUE') {
             appendMessage(__('The account does not have a valid password. It has been disabled. You can ask an admin to re-enable it.'));
         }
-            
+
 
         $newwindowforatt ='FALSE';
         if ($user->preferences['newwindowforatt']) {
@@ -323,10 +330,10 @@ class User_db {
             $utf8bibtex ='TRUE';
         }
         //is language in supported list?
-        if ($user->preferences['language'] != 'default') 
+        if ($user->preferences['language'] != 'default')
         {
           global $AIGAION_SUPPORTED_LANGUAGES;
-          if (!in_array($user->preferences['language'],$AIGAION_SUPPORTED_LANGUAGES)) 
+          if (!in_array($user->preferences['language'],$AIGAION_SUPPORTED_LANGUAGES))
           {
             appendErrorMessage(sprintf(__("Unknown language: %s"), $user->preferences['language']));
             $user->preferences['language'] = AIGAION_DEFAULT_LANGUAGE;
@@ -358,7 +365,7 @@ class User_db {
         }
 
         $CI->db->update('users', $updatefields,array('user_id'=>$user->user_id));
-        //if the user is NOT anonymous, but it is the 'DEFAULT ANONYMOUS ACCOUNT from the site config settings, 
+        //if the user is NOT anonymous, but it is the 'DEFAULT ANONYMOUS ACCOUNT from the site config settings,
         //turn off the anonymous access and give a message warning
         if ($user->type!='anon') {
             if ($user->user_id==getConfigurationSetting("LOGIN_DEFAULT_ANON")) {
@@ -384,7 +391,7 @@ class User_db {
             }
         }
 
-        //groups assignment 
+        //groups assignment
         if ($userlogin->hasRights('user_edit_all')) {
             //add group links, and rightsprofiles for these groups, to the user
             //BUT ONLY FOR GROUPS THAT WERE NOT YET LINKED TO THIS USER
@@ -407,11 +414,11 @@ class User_db {
                         $CI->db->delete('userrights',array('user_id'=>$user->user_id,'right_name'=>$right));
                         $CI->db->insert('userrights',array('user_id'=>$user->user_id,'right_name'=>$right));
                     }
-                    
+
                 }
             }
         }
-        
+
         //if was this user: update preferences, check if user_assign_rights was removed from self...
         if ($user->user_id == $userlogin->userId()) {
             $userlogin->initPreferences();
@@ -449,7 +456,7 @@ class User_db {
             appendErrorMessage(sprintf(__('Cannot delete user: %s.'),__('erroneous ID')));
             return;
         }
-        //otherwise, delete all dependent objects by directly accessing the rows in the table 
+        //otherwise, delete all dependent objects by directly accessing the rows in the table
         $CI->db->delete('users',array('user_id'=>$user->user_id));
         //delete links
         $CI->db->delete('usergrouplink',array('user_id'=>$user->user_id));
@@ -458,7 +465,8 @@ class User_db {
         $CI->db->delete('userbookmarklists',array('user_id'=>$user->user_id));
         $CI->db->delete('usertopiclink',array('user_id'=>$user->user_id));
         //add the information of the deleted rows to trashcan(time, data), in such a way that at least manual reconstruction will be possible
-    }    
-    
+    }
+
 }
-?>
+
+//__END__

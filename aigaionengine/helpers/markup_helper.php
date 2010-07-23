@@ -13,7 +13,7 @@ function _h($s) {
 }
 
 function js($s) {
-  return str_replace(array("'", "\n"), array("\\'", "\\\n"), $s);
+  return str_replace(array('"', "'", "\n"), array('\"', "\\'", "\\\n"), $s);
 }
 
 function _js($s) {
