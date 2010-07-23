@@ -309,9 +309,10 @@ class User_db {
         }
         if (($user->type=='anon') || ($user->type=='external')) {
             //always invalidate password for anon and external accounts
-            $user->password_invalidated = 'TRUE';
+            //$user->password_invalidated = 'TRUE';
             // DR 2008.08.29: cannot change password for anon or external account
-            $user->password = "";
+            //$user->password = "";
+            // MS: What the heck?
         } else if ($user->password_invalidated == 'TRUE') {
             appendMessage(__('The account does not have a valid password. It has been disabled. You can ask an admin to re-enable it.'));
         }
