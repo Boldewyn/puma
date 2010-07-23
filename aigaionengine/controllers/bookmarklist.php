@@ -59,10 +59,10 @@ class Bookmarklist extends Controller {
         $content['publications']    = $this->publication_db->getForBookmarkList($order, $page);
         $content['pubCount']    = $this->bookmarklist_db->count();
         $content['order'] = $order;
+        $content['sortPrefix'] = '/bookmarklist/viewlist/';
         
         $this->load->view('header', array('title' => __('Bookmark list')));
         $this->load->view('bookmarklist/controls');
-        $this->load->view('sort', array('sortPrefix'=>'/bookmarklist/viewlist/'));
         $this->load->view('publications/list', $content);
         $this->load->view('footer');
     }    
