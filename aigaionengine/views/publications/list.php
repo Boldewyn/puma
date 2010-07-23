@@ -32,7 +32,7 @@ if (isset($multipageprefix) && isset($currentpage)) {
 
 //here the output starts
 ?><div class="publication_list">
-    <?php if (isset($sortPrefix) && ($sortPrefix!='')):
+    <?php if (isset($sortPrefix) && ($sortPrefix!='') && count($publications)):
         echo $this->load->view('sort', array('sortPrefix' => $sortPrefix));
     endif;
 
