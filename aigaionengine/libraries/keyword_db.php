@@ -223,7 +223,7 @@ class Keyword_db {
     $CI =& get_instance();
     $Q = $CI->db->query('SELECT k.*, (SELECT COUNT(*) FROM '.AIGAION_DB_PREFIX.
         'publicationkeywordlink p WHERE p.keyword_id = k.keyword_id) AS count 
-        FROM '.AIGAION_DB_PREFIX.'keywords k ORDER BY k.keyword');
+        FROM '.AIGAION_DB_PREFIX.'keywords k HAVING count > 0 ORDER BY k.keyword');
     $result = array();
     foreach ($Q->result() as $row) {
         $next = $this->getFromRow($row);
