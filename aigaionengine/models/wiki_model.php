@@ -219,7 +219,7 @@ class Wiki_model extends Model {
             $xcontent = preg_replace('#\shref=(["\'])javascript:.*?\1#i', '', $xcontent); # No javascript: links allowed
             $xcontent = preg_replace('#\bjavascript:\b#i', 'ecmascript:', $xcontent); # No javascript: links allowed, ever!
             $xcontent = str_replace($mask, '&lt;', $xcontent); # all but the above elements disallowed
-            $xcontent = preg_replace('/\[\[(.+?)|(.+?)\]\]/',
+            $xcontent = preg_replace('/\[\[(.+?)\\|(.+?)\]\]/',
                         '<a class="interwiki" href="'.base_url().'wiki/$1">$2</a>', $xcontent); # Interwiki links w/ alt text
             $xcontent = preg_replace('/\[\[(.+?)\]\]/',
                         '<a class="interwiki" href="'.base_url().'wiki/$1">$1</a>', $xcontent); # Interwiki links
