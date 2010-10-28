@@ -12,12 +12,7 @@
     function faq_hide_all() { $('dd').hide(); }
     $(faq_hide_all);
     $(function () { $('dt').click(function () {
-        var dd = $(this).nextUntil('dt');
-        if (dd.css('display') == 'none') {
-            dd.show('def');
-        } else {
-            dd.hide('def');
-        }
+        $(this).next().show();
     }).css({
         'font-style': 'italic',
         'margin-top': '.5em',
