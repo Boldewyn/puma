@@ -94,11 +94,11 @@ class Usercontroller extends Controller {
 
         $userlogin = getUserLogin();
         $content = array('header' => sprintf(__('All publications uploaded by %s %%s'), $user->abbreviation));
-        $orderby='actualyear DESC, cleantitle';
+        $orderby='actualyear DESC, cleantitle ASC';
         switch ($order) {
             case 'type':
                 $content['header'] = sprintf($content['header'], __('sorted by journal and type'));
-                $orderby='pub_type ASC, cleanjournal ASC, actualyear DESC, cleantitle'; //funny thing: article is lowest in alphabetical order, so this ordering is enough...
+                $orderby='pub_type ASC, cleanjournal ASC, actualyear DESC, cleantitle ASC'; //funny thing: article is lowest in alphabetical order, so this ordering is enough...
                 break;
             case 'recent':
                 $content['header'] = sprintf($content['header'], __('sorted by recency'));
@@ -106,11 +106,11 @@ class Usercontroller extends Controller {
                 break;
             case 'title':
                 $content['header'] = sprintf($content['header'], __('sorted by title'));
-                $orderby='cleantitle';
+                $orderby='cleantitle ASC';
                 break;
             case 'author':
                 $content['header'] = sprintf($content['header'], __('sorted by author'));
-                $orderby='cleanauthor, actualyear DESC';
+                $orderby='cleanauthor ASC, actualyear DESC';
                 break;
             default:
                 $content['header'] = sprintf($content['header'], '');
