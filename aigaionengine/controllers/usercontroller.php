@@ -93,7 +93,7 @@ class Usercontroller extends Controller {
         $page = $this->uri->segment(4,0);
 
         $userlogin = getUserLogin();
-        $content = array('header' => __('All publications %s'));
+        $content = array('header' => sprintf(__('All publications uploaded by %s %%s'), $user->abbreviation));
         $orderby='actualyear DESC, cleantitle';
         switch ($order) {
             case 'type':
