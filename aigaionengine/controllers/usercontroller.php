@@ -86,11 +86,11 @@ class Usercontroller extends Controller {
         if ($id != 'admin') {
             restrict_to_users(__('Please log in to contact other users.'));
         }
-        $order = $this->uri->segment(3,'year');
+        $order = $this->uri->segment(4,'year');
         if (!in_array($order,array('year','type','recent','title','author'))) {
           $order='';
         }
-        $page = $this->uri->segment(4,0);
+        $page = $this->uri->segment(5,0);
 
         $userlogin = getUserLogin();
         $content = array('header' => sprintf(__('All publications uploaded by %s %%s'), $user->abbreviation));
