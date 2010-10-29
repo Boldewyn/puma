@@ -122,7 +122,7 @@ class Usercontroller extends Controller {
             $content['multipage']       = True;
             $content['pubCount']        = $this->topic_db->getPublicationCountForTopic('1');
             $content['currentpage']     = $page;
-            $content['multipageprefix'] = 'publications/showlist/'.$order.'/';
+            $content['multipageprefix'] = 'user/'.$id.'/publications/'.$order.'/';
             $limitOffset = $userlogin->getPreference('liststyle') * $page;
         }
         $content['order'] = $order;
