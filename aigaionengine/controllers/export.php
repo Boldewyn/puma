@@ -43,6 +43,39 @@ class Export extends Controller {
         $this->load->view('export/'.$type, $exportdata);
     }    
 
+    /**
+     *
+     */
+    function user($id, $type='') {
+        $config = array();
+        $userlogin = getUserLogin();
+        $user = $this->user_db->getByLogin($id);
+        if ($userlogin->userId() != $user->user_id) {
+            appendErrorMessage(__('You may only export your own publications.'));
+            redirect('');
+        }
+        if (!in_array($type,array('bibtex','ris','formatted','email'))) {
+            $this->load->view('header', array('title'=>__('Select export format')));
+            $this->load->view('export/chooseformat',
+                array('header'=>sprintf(__('Export all for user %s'),$user->abbreviation),
+                'exportCommand'=>'export/user/'.$id.'/'));
+            $this->load->view('footer');
+            return;
+        }
+        $this->db->distinct('*')->where('user_id', $user->user_id);
+        $Q = $this->db->get('publication');
+        $pubs = array();
+        foreach ($Q->result() as $row) {
+            $next = $this->publication_db->getFromRow($row);
+            if ($next != null) {
+                $pubs[] = $next;
+            }
+        }
+        $exportdata = $this->_get_exportdata($type, $pubs);
+        $exportdata['header']   = sprintf(__('All publications for user &ldquo;%s&rdquo;',$id));
+        $this->load->view('export/'.$type, $exportdata);
+    }
+
     /** 
     export/topic
     

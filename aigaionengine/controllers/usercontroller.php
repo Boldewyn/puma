@@ -128,7 +128,7 @@ class Usercontroller extends Controller {
         $content['order'] = $order;
         $content['sortPrefix'] = 'user/'.$id.'/publications/%s';
 
-        $this->db->distinct('*')->limit(20)->order_by($orderby)->where('user_id', $user->user_id);
+        $this->db->distinct('*')->order_by($orderby)->where('user_id', $user->user_id);
         if ($limitOffset) {
           $this->db->limit($userlogin->getPreference('liststyle'), $limitOffset);
         }
