@@ -72,7 +72,7 @@ class Export extends Controller {
             }
         }
         $exportdata = $this->_get_exportdata($type, $pubs);
-        $exportdata['header']   = sprintf(__('All publications for user &ldquo;%s&rdquo;',$id));
+        $exportdata['header']   = sprintf(__('All publications for user &ldquo;%s&rdquo;'), $id);
         $this->load->view('export/'.$type, $exportdata);
     }
 
