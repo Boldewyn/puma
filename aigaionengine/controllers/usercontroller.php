@@ -47,7 +47,7 @@ class Usercontroller extends Controller {
             if ($user == null) {
                 appendErrorMessage(sprintf(__('User %s does not exist.'), h($id)));
                 redirect('');
-            } elseif ($action && ! in_array($action, array('contact', 'edit', 'is_online'))) {
+            } elseif ($action && ! in_array($action, array('contact', 'edit', 'is_online', 'publications'))) {
                 appendErrorMessage(sprintf(__('Unknown action requested: %s.'), h($action)));
                 redirect('');
             } elseif ($id != 'admin') {
@@ -77,6 +77,73 @@ class Usercontroller extends Controller {
                 $this->$action($id, $user);
             }
         }
+    }
+
+    /**
+     *
+     */
+    protected function publications($id, $user) {
+        if ($id != 'admin') {
+            restrict_to_users(__('Please log in to contact other users.'));
+        }
+        $order = $this->uri->segment(3,'year');
+        if (!in_array($order,array('year','type','recent','title','author'))) {
+          $order='';
+        }
+        $page = $this->uri->segment(4,0);
+
+        $userlogin = getUserLogin();
+        $content = array('header' => __('All publications %s'));
+        $orderby='actualyear DESC, cleantitle';
+        switch ($order) {
+            case 'type':
+                $content['header'] = sprintf($content['header'], __('sorted by journal and type'));
+                $orderby='pub_type ASC, cleanjournal ASC, actualyear DESC, cleantitle'; //funny thing: article is lowest in alphabetical order, so this ordering is enough...
+                break;
+            case 'recent':
+                $content['header'] = sprintf($content['header'], __('sorted by recency'));
+                $orderby='pub_id DESC';
+                break;
+            case 'title':
+                $content['header'] = sprintf($content['header'], __('sorted by title'));
+                $orderby='cleantitle';
+                break;
+            case 'author':
+                $content['header'] = sprintf($content['header'], __('sorted by author'));
+                $orderby='cleanauthor, actualyear DESC';
+                break;
+            default:
+                $content['header'] = sprintf($content['header'], '');
+        }
+
+        $limitOffset = False;
+        if ($userlogin->getPreference('liststyle') > 0) {
+            //set these parameters when you want to get a good multipublication list display
+            $content['multipage']       = True;
+            $content['pubCount']        = $this->topic_db->getPublicationCountForTopic('1');
+            $content['currentpage']     = $page;
+            $content['multipageprefix'] = 'publications/showlist/'.$order.'/';
+            $limitOffset = $userlogin->getPreference('liststyle') * $page;
+        }
+        $content['order'] = $order;
+        $content['sortPrefix'] = 'user/'.$id.'/publications/%s';
+
+        $this->db->distinct('*')->limit(20)->order_by($orderby)->where('user_id', $user->user_id);
+        if ($limitOffset) {
+          $this->db->limit($userlogin->getPreference('liststyle'), $limitOffset);
+        }
+        $Q = $this->db->get('publication');
+        $content['publications'] = array();
+        foreach ($Q->result() as $row) {
+            $next = $this->publication_db->getFromRow($row);
+            if ($next != null) {
+                $content['publications'][] = $next;
+            }
+        }
+
+        $this->load->view('header', array('title' => sprintf(__('Publications Uploaded by %2'), $user->abbreviation)));
+        $this->load->view('publications/list', $content);
+        $this->load->view('footer');
     }
 
     /**
