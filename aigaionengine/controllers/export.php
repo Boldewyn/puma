@@ -8,24 +8,24 @@ class Export extends Controller {
         $this->load->library('parsemonth');
         $this->load->library('parsepage');
     }
-    
+
     /** Pass control to the export/all/ */
     function index() {
         $this->all();
     }
-    
 
-    /** 
+
+    /**
     export/all
-    
+
     Export all (accessible) entries in the database
-    
+
     Fails with error message when one of:
         never
-        
+
     Parameters passed via URL segments:
         3rd: type (bibtex|ris|email)
-             
+
     Returns:
         A clean text page with exported publications
     */
@@ -41,10 +41,10 @@ class Export extends Controller {
         $exportdata['header']   = __('All publications');
 
         $this->load->view('export/'.$type, $exportdata);
-    }    
+    }
 
     /**
-     *
+     * Export all pubs introduced by user $id
      */
     function user($id, $type='') {
         $config = array();
@@ -72,22 +72,22 @@ class Export extends Controller {
             }
         }
         $exportdata = $this->_get_exportdata($type, $pubs);
-        $exportdata['header']   = sprintf(__('All publications for user &ldquo;%s&rdquo;'), $id);
+        $exportdata['header']   = sprintf(__('All publications for user %s'), $id);
         $this->load->view('export/'.$type, $exportdata);
     }
 
-    /** 
+    /**
     export/topic
-    
+
     Export all (accessible) entries from one topic
-    
+
     Fails with error message when one of:
         non existing topic_id requested
-        
+
     Parameters passed via URL segments:
         3rd: topic_id
         4rth: type (bibtex|ris|email)
-             
+
     Returns:
         A clean text page with exported publications
     */
@@ -108,20 +108,20 @@ class Export extends Controller {
         $exportdata = $this->_get_exportdata($type, $this->publication_db->getForTopicAsMap($topic->topic_id));
         $exportdata['header']   = sprintf(__('All publications for topic &ldquo;%s&rdquo;',$topic->name));
         $this->load->view('export/'.$type, $exportdata);
-    }        
+    }
 
-    /** 
+    /**
     export/author
-    
+
     Export all (accessible) entries from one author
-    
+
     Fails with error message when one of:
         non existing author_id requested
-        
+
     Parameters passed via URL segments:
         3rd: author_id
         4rth: type (bibtex|ris|email)
-             
+
     Returns:
         A clean text page with exported publications
     */
@@ -142,19 +142,19 @@ class Export extends Controller {
         $exportdata['header']   = sprintf(__('All publications for %s'),$author->getName());
 
         $this->load->view('export/'.$type, $exportdata);
-    }       
+    }
 
-    /** 
+    /**
     export/bookmarklist
-    
+
     Export all (accessible) entries from the bookmarklist of this user
-    
+
     Fails with error message when one of:
         insufficient rights
-        
+
     Parameters passed via URL segments:
         3rth: type (bibtex|ris|email)
-             
+
     Returns:
         A clean text page with exported publications
     */
@@ -171,20 +171,20 @@ class Export extends Controller {
         $exportdata['header']   = __('Exported from bookmarklist');
 
         $this->load->view('export/'.$type, $exportdata);
-    }        
-        
-    /** 
+    }
+
+    /**
     export/publication
-    
+
     Export one publication
-    
+
     Fails with error message when one of:
         non existing pub_id requested
-        
+
     Parameters passed via URL segments:
         3rd: pub_id
         4rth: type (bibtex|ris|email)
-             
+
     Returns:
         A clean text page with exported publications
     */

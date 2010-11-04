@@ -8,10 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-22 18:41+0200\n"
+"POT-Creation-Date: 2010-11-04 10:09+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -87,50 +88,1566 @@ msgstr ""
 msgid "Commit attachment: an error occurred"
 msgstr ""
 
-#: aigaionengine/controllers/authors.php:11
+#: aigaionengine/controllers/errorhandler.php:5
+msgid "Error: Resource not found"
+msgstr ""
+
 #: aigaionengine/controllers/explore.php:8
+#: aigaionengine/controllers/topics.php:11
 #: aigaionengine/controllers/keywords.php:10
 #: aigaionengine/controllers/publications.php:10
-#: aigaionengine/controllers/topics.php:11
-#: aigaionengine/views/site/edit.php:477 aigaionengine/views/user/edit.php:90
-#: aigaionengine/views/users/edit.php:316
+#: aigaionengine/controllers/authors.php:11
+#: aigaionengine/views/site/edit.php:477
+#: aigaionengine/views/users/edit.php:316 aigaionengine/views/user/edit.php:90
 msgid "All"
 msgstr ""
 
-#: aigaionengine/controllers/authors.php:12
 #: aigaionengine/controllers/explore.php:9
+#: aigaionengine/controllers/topics.php:12
 #: aigaionengine/controllers/keywords.php:11
 #: aigaionengine/controllers/publications.php:11
-#: aigaionengine/controllers/topics.php:12
+#: aigaionengine/controllers/authors.php:12
 #: aigaionengine/views/publications/single.php:365
 msgid "Topics"
 msgstr ""
 
-#: aigaionengine/controllers/authors.php:13
 #: aigaionengine/controllers/explore.php:10
+#: aigaionengine/controllers/topics.php:13
 #: aigaionengine/controllers/keywords.php:12
 #: aigaionengine/controllers/publications.php:12
-#: aigaionengine/controllers/topics.php:13
+#: aigaionengine/controllers/authors.php:13
 msgid "Tags"
 msgstr ""
 
-#: aigaionengine/controllers/authors.php:14
 #: aigaionengine/controllers/explore.php:11
+#: aigaionengine/controllers/topics.php:14
 #: aigaionengine/controllers/keywords.php:13
 #: aigaionengine/controllers/publications.php:13
-#: aigaionengine/controllers/topics.php:14
+#: aigaionengine/controllers/authors.php:14
 msgid "Publications"
 msgstr ""
 
+#: aigaionengine/controllers/explore.php:12
+#: aigaionengine/controllers/topics.php:15
+#: aigaionengine/controllers/keywords.php:14
+#: aigaionengine/controllers/publications.php:14
 #: aigaionengine/controllers/authors.php:15
 #: aigaionengine/controllers/authors.php:24
 #: aigaionengine/controllers/authors.php:359
-#: aigaionengine/controllers/explore.php:12
-#: aigaionengine/controllers/keywords.php:14
-#: aigaionengine/controllers/publications.php:14
-#: aigaionengine/controllers/topics.php:15
 #: aigaionengine/views/publications/edit.php:146
 msgid "Authors"
+msgstr ""
+
+#: aigaionengine/controllers/explore.php:50 aigaionengine/views/menu.php:7
+msgid "Explore"
+msgstr ""
+
+#: aigaionengine/controllers/help.php:12 aigaionengine/views/footer.php:67
+#: aigaionengine/views/header.php:67 aigaionengine/views/header.php:76
+msgid "Help"
+msgstr ""
+
+#: aigaionengine/controllers/help.php:13 aigaionengine/views/help/header.php:3
+msgid "Introduction"
+msgstr ""
+
+#: aigaionengine/controllers/help.php:14 aigaionengine/views/help/header.php:4
+#: aigaionengine/views/footer.php:57
+msgid "About"
+msgstr ""
+
+#: aigaionengine/controllers/help.php:15 aigaionengine/views/help/header.php:5
+#: aigaionengine/views/footer.php:71
+msgid "FAQ"
+msgstr ""
+
+#: aigaionengine/controllers/help.php:16 aigaionengine/views/help/header.php:6
+#: aigaionengine/views/footer.php:72
+msgid "Video tutorial"
+msgstr ""
+
+#: aigaionengine/controllers/login.php:26
+msgid "Please log in"
+msgstr ""
+
+#: aigaionengine/controllers/login.php:152
+msgid "Anonymous accounts are not enabled."
+msgstr ""
+
+#: aigaionengine/controllers/login.php:162
+msgid "Anonymous login: no existing anonymous user_id provided."
+msgstr ""
+
+#: aigaionengine/controllers/login.php:174
+msgid "Error logging in anonymous account."
+msgstr ""
+
+#: aigaionengine/controllers/repostform.php:12
+msgid "No form data to repost."
+msgstr ""
+
+#: aigaionengine/controllers/repostform.php:15
+msgid "Repost form"
+msgstr ""
+
+#: aigaionengine/controllers/search.php:10
+#: aigaionengine/views/search/advanced.php:15
+msgid "Advanced Search"
+msgstr ""
+
+#: aigaionengine/controllers/search.php:11
+msgid "External Search"
+msgstr ""
+
+#: aigaionengine/controllers/search.php:26
+msgid "Advanced search"
+msgstr ""
+
+#: aigaionengine/controllers/search.php:35
+msgid "External search"
+msgstr ""
+
+#: aigaionengine/controllers/search.php:46
+msgid "Search: no query."
+msgstr ""
+
+#: aigaionengine/controllers/search.php:51
+msgid "Search results"
+msgstr ""
+
+#: aigaionengine/controllers/search.php:80
+msgid "Nonexisting topic ID in advanced search condition"
+msgstr ""
+
+#: aigaionengine/controllers/search.php:93
+msgid ""
+"No query at all: please give at least a search term or a topic condition"
+msgstr ""
+
+#: aigaionengine/controllers/search.php:124
+msgid "Advanced search results"
+msgstr ""
+
+#: aigaionengine/controllers/stats.php:21
+#: aigaionengine/views/site/stats.php:16
+msgid "Statistics"
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:41
+#: aigaionengine/controllers/topics.php:65
+msgid "Browse topics: non-existing id passed."
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:44
+msgid "Browse topic tree"
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:68
+msgid "Browse topic tree (include all topics)"
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:85
+msgid "Delete topic: non-existing id passed."
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:93
+#: aigaionengine/controllers/topics.php:100
+msgid "Delete topic"
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:103
+#, php-format
+msgid "Are you sure, that you want to delete the topic &ldquo;%s&rdquo;?"
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:114
+#: aigaionengine/libraries/topic_db.php:397
+msgid "Add topic"
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:116
+#: aigaionengine/controllers/topics.php:140
+#: aigaionengine/controllers/topics.php:346
+msgid "Changes not committed: "
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:122
+#: aigaionengine/controllers/topics.php:158
+#: aigaionengine/controllers/import.php:7
+#: aigaionengine/controllers/import.php:11
+#: aigaionengine/controllers/publications.php:227
+#: aigaionengine/controllers/authors.php:215
+#: aigaionengine/views/import/importform.php:12
+#: aigaionengine/views/import/importform.php:20
+#: aigaionengine/views/import/review.php:307
+msgid "Import"
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:123
+#: aigaionengine/controllers/topics.php:159
+#: aigaionengine/controllers/import.php:12
+#: aigaionengine/controllers/publications.php:228
+#: aigaionengine/controllers/authors.php:216
+#: aigaionengine/views/publications/single.php:51
+msgid "Publication"
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:124
+#: aigaionengine/controllers/topics.php:160
+#: aigaionengine/controllers/topics.php:369
+#: aigaionengine/controllers/import.php:13
+#: aigaionengine/controllers/publications.php:229
+#: aigaionengine/controllers/authors.php:217
+#: aigaionengine/views/accesslevels/editfortopic.php:16
+#: aigaionengine/views/accesslevels/editfortopic.php:17
+#: aigaionengine/views/topics/clean.php:6
+#: aigaionengine/views/topics/clean.php:18
+msgid "Topic"
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:125
+#: aigaionengine/controllers/topics.php:161
+#: aigaionengine/controllers/import.php:14
+#: aigaionengine/controllers/test.php:287
+#: aigaionengine/controllers/publications.php:230
+#: aigaionengine/controllers/authors.php:218 aigaionengine/views/sort.php:8
+msgid "Author"
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:130
+#: aigaionengine/views/topics/edit.php:28
+msgid "New Topic"
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:147
+msgid "Edit topic: non-existing id passed."
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:154
+#: aigaionengine/controllers/topics.php:166
+#: aigaionengine/libraries/topic_db.php:443
+msgid "Edit topic"
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:199
+#: aigaionengine/controllers/topics.php:298
+#: aigaionengine/controllers/topics.php:300
+#, php-format
+msgid "Topic structure is not unique in %s."
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:202
+#, php-format
+msgid "Topic structure does not exist in %s."
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:221
+msgid "Show topic: non-existing id passed."
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:229
+#: aigaionengine/controllers/topics.php:317
+#, php-format
+msgid "Publications for topic &ldquo;%s&rdquo; %%s"
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:232
+#: aigaionengine/controllers/topics.php:320
+#: aigaionengine/controllers/keywords.php:119
+#: aigaionengine/controllers/publications.php:106
+#: aigaionengine/controllers/publications.php:151
+#: aigaionengine/controllers/usercontroller.php:100
+#: aigaionengine/controllers/authors.php:57
+#: aigaionengine/controllers/authors.php:110
+#: aigaionengine/controllers/authors.php:162
+#: aigaionengine/controllers/bookmarklist.php:39
+msgid "sorted by journal and type"
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:235
+#: aigaionengine/controllers/topics.php:323
+#: aigaionengine/controllers/keywords.php:122
+#: aigaionengine/controllers/publications.php:109
+#: aigaionengine/controllers/publications.php:154
+#: aigaionengine/controllers/usercontroller.php:104
+#: aigaionengine/controllers/authors.php:60
+#: aigaionengine/controllers/authors.php:113
+#: aigaionengine/controllers/authors.php:165
+#: aigaionengine/controllers/bookmarklist.php:42
+msgid "sorted by recency"
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:238
+#: aigaionengine/controllers/topics.php:326
+#: aigaionengine/controllers/keywords.php:125
+#: aigaionengine/controllers/publications.php:112
+#: aigaionengine/controllers/publications.php:157
+#: aigaionengine/controllers/usercontroller.php:108
+#: aigaionengine/controllers/authors.php:63
+#: aigaionengine/controllers/authors.php:116
+#: aigaionengine/controllers/authors.php:168
+#: aigaionengine/controllers/bookmarklist.php:45
+msgid "sorted by title"
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:241
+#: aigaionengine/controllers/topics.php:329
+#: aigaionengine/controllers/keywords.php:128
+#: aigaionengine/controllers/authors.php:66
+#: aigaionengine/controllers/authors.php:119
+#: aigaionengine/controllers/authors.php:171
+#: aigaionengine/controllers/bookmarklist.php:48
+msgid "sorted by first author"
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:258
+#: aigaionengine/views/topics/full.php:11
+#, php-format
+msgid "Topic: %s"
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:312
+msgid "Embed topic: non-existing id passed."
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:353
+msgid "Commit topic: no data to commit."
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:365
+msgid "Topic Name"
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:385
+msgid "Commit topic: an error occurred."
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:398
+msgid "Collapse topic: non-existing id passed."
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:414
+#: aigaionengine/controllers/publications.php:471
+#: aigaionengine/controllers/authors.php:419
+#: aigaionengine/controllers/bookmarklist.php:801
+msgid "Export through email"
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:429
+msgid "Export topic: non-existing id passed."
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:442
+#: aigaionengine/controllers/export.php:35
+#: aigaionengine/controllers/export.php:58
+#: aigaionengine/controllers/export.php:103
+#: aigaionengine/controllers/export.php:136
+#: aigaionengine/controllers/export.php:165
+#: aigaionengine/controllers/export.php:193
+#: aigaionengine/controllers/publications.php:499
+#: aigaionengine/controllers/authors.php:443
+#: aigaionengine/controllers/bookmarklist.php:821
+msgid "Select export format"
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:451
+#: aigaionengine/controllers/bookmarklist.php:846
+msgid "Export by email"
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:455
+#: aigaionengine/controllers/publications.php:505
+#: aigaionengine/controllers/authors.php:451
+#: aigaionengine/controllers/bookmarklist.php:850
+#, php-format
+msgid "Export from %s"
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:466
+#: aigaionengine/controllers/topics.php:502
+msgid "Exported from topic"
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:472
+#: aigaionengine/controllers/publications.php:524
+#: aigaionengine/controllers/authors.php:468
+#: aigaionengine/controllers/bookmarklist.php:873
+#: aigaionengine/views/export/chooseformatEmail.php:38
+msgid "Formatted"
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:515
+msgid "Topic export"
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:516
+#: aigaionengine/controllers/publications.php:569
+#: aigaionengine/controllers/authors.php:511
+#: aigaionengine/controllers/bookmarklist.php:939
+msgid "Mail sent successfully"
+msgstr ""
+
+#: aigaionengine/controllers/topics.php:519
+#: aigaionengine/controllers/publications.php:572
+#: aigaionengine/controllers/authors.php:514
+#: aigaionengine/controllers/bookmarklist.php:930
+msgid ""
+"Something went wrong when exporting the publications. Did you input a "
+"correct email address?"
+msgstr ""
+
+#: aigaionengine/controllers/wiki.php:16
+#: aigaionengine/views/help/header.php:16 aigaionengine/views/menu.php:19
+msgid "Wiki"
+msgstr ""
+
+#: aigaionengine/controllers/wiki.php:17
+#: aigaionengine/controllers/wiki.php:149
+msgid "Main Page"
+msgstr ""
+
+#: aigaionengine/controllers/wiki.php:17
+msgid "All Pages"
+msgstr ""
+
+#: aigaionengine/controllers/wiki.php:29 aigaionengine/controllers/wiki.php:41
+#, php-format
+msgid "Page &ldquo;%s&rdquo; does not exist yet."
+msgstr ""
+
+#: aigaionengine/controllers/wiki.php:60
+msgid "You must be logged in to edit the wiki."
+msgstr ""
+
+#: aigaionengine/controllers/wiki.php:64
+#: aigaionengine/controllers/shoutbox.php:63
+msgid "Content"
+msgstr ""
+
+#: aigaionengine/controllers/wiki.php:92
+msgid "Could not edit the wiki page. Do you have edit rights?"
+msgstr ""
+
+#: aigaionengine/controllers/wiki.php:108
+#, php-format
+msgid "Discussion for &ldquo;%s&rdquo; does not exist yet."
+msgstr ""
+
+#: aigaionengine/controllers/wiki.php:113
+#, php-format
+msgid "Discussion: &ldquo;%s&rdquo;"
+msgstr ""
+
+#: aigaionengine/controllers/wiki.php:120
+#: aigaionengine/controllers/wiki.php:132
+msgid "You must be logged in to view the history of wiki items."
+msgstr ""
+
+#: aigaionengine/controllers/wiki.php:135
+#: aigaionengine/controllers/wiki.php:194
+#, php-format
+msgid "Wiki » %s"
+msgstr ""
+
+#: aigaionengine/controllers/wiki.php:139
+#, php-format
+msgid "Old Version: &ldquo;%s&rdquo;"
+msgstr ""
+
+#: aigaionengine/controllers/wiki.php:140
+#, php-format
+msgid "This is an old version of &ldquo;%s&rdquo;. Creation date: %s."
+msgstr ""
+
+#: aigaionengine/controllers/wiki.php:146
+msgid "Special pages are viewable for logged in users only."
+msgstr ""
+
+#: aigaionengine/controllers/wiki.php:147
+msgid "Wiki » Special page"
+msgstr ""
+
+#: aigaionengine/controllers/wiki.php:149
+msgid "Special page"
+msgstr ""
+
+#: aigaionengine/controllers/wiki.php:164
+#, php-format
+msgid "Special Page: %s"
+msgstr ""
+
+#: aigaionengine/controllers/wiki.php:173
+msgid "View"
+msgstr ""
+
+#: aigaionengine/controllers/wiki.php:174
+msgid "Discussion"
+msgstr ""
+
+#: aigaionengine/controllers/wiki.php:175
+msgid "Edit"
+msgstr ""
+
+#: aigaionengine/controllers/wiki.php:176
+msgid "History"
+msgstr ""
+
+#: aigaionengine/controllers/wiki.php:177
+msgid "Export Raw"
+msgstr ""
+
+#: aigaionengine/controllers/export.php:36
+#: aigaionengine/views/export/chooseformat.php:11
+#: aigaionengine/views/export/chooseformatEmail.php:10
+msgid "Export all publications"
+msgstr ""
+
+#: aigaionengine/controllers/export.php:41
+msgid "All publications"
+msgstr ""
+
+#: aigaionengine/controllers/export.php:54
+msgid "You may only export your own publications."
+msgstr ""
+
+#: aigaionengine/controllers/export.php:60
+#, php-format
+msgid "Export all for user %s"
+msgstr ""
+
+#: aigaionengine/controllers/export.php:75
+#, php-format
+msgid "All publications for user %s"
+msgstr ""
+
+#: aigaionengine/controllers/export.php:99
+msgid "Export requested for non existing topic."
+msgstr ""
+
+#: aigaionengine/controllers/export.php:104
+#, php-format
+msgid "Export all for topic %s"
+msgstr ""
+
+#: aigaionengine/controllers/export.php:109
+#, php-format
+msgid "All publications for topic &ldquo;%s&rdquo;"
+msgstr ""
+
+#: aigaionengine/controllers/export.php:132
+msgid "Export requested for non existing author."
+msgstr ""
+
+#: aigaionengine/controllers/export.php:137
+#, php-format
+msgid "Export all for author %s"
+msgstr ""
+
+#: aigaionengine/controllers/export.php:142
+#, php-format
+msgid "All publications for %s"
+msgstr ""
+
+#: aigaionengine/controllers/export.php:162
+#: aigaionengine/controllers/bookmarklist.php:937
+#: aigaionengine/views/bookmarklist/controls.php:23
+msgid "Export bookmarklist"
+msgstr ""
+
+#: aigaionengine/controllers/export.php:166
+msgid "Export all publications on bookmarklist"
+msgstr ""
+
+#: aigaionengine/controllers/export.php:171
+#: aigaionengine/controllers/bookmarklist.php:862
+#: aigaionengine/controllers/bookmarklist.php:910
+msgid "Exported from bookmarklist"
+msgstr ""
+
+#: aigaionengine/controllers/export.php:194
+msgid "Export one publication"
+msgstr ""
+
+#: aigaionengine/controllers/export.php:200
+msgid "Export requested for non existing publication."
+msgstr ""
+
+#: aigaionengine/controllers/embeddingtest.php:41
+#: aigaionengine/controllers/authors.php:152
+msgid "View Author"
+msgstr ""
+
+#: aigaionengine/controllers/embeddingtest.php:41
+#: aigaionengine/controllers/rightsprofiles.php:35
+#: aigaionengine/controllers/rightsprofiles.php:127
+#: aigaionengine/controllers/rightsprofiles.php:187
+#: aigaionengine/controllers/users.php:324
+#: aigaionengine/controllers/authors.php:152
+#: aigaionengine/controllers/groups.php:37
+#: aigaionengine/controllers/groups.php:128
+#: aigaionengine/controllers/bookmarklist.php:188
+#: aigaionengine/controllers/bookmarklist.php:312
+#: aigaionengine/controllers/bookmarklist.php:347
+#: aigaionengine/controllers/bookmarklist.php:416
+msgid "non-existing id passed"
+msgstr ""
+
+#: aigaionengine/controllers/logintegration.php:36
+#: aigaionengine/controllers/logintegration.php:75
+#: aigaionengine/controllers/logintegration.php:146
+msgid "Aigaion not configured for this kind of access"
+msgstr ""
+
+#: aigaionengine/controllers/logintegration.php:97
+#: aigaionengine/controllers/logintegration.php:162
+msgid "No token available"
+msgstr ""
+
+#: aigaionengine/controllers/logintegration.php:101
+msgid "Token already logged in"
+msgstr ""
+
+#: aigaionengine/controllers/logintegration.php:102
+msgid "Token timed out"
+msgstr ""
+
+#: aigaionengine/controllers/logintegration.php:121
+#, php-format
+msgid "Logged in as %s"
+msgstr ""
+
+#: aigaionengine/controllers/logintegration.php:124
+msgid "Non-existing account"
+msgstr ""
+
+#: aigaionengine/controllers/logintegration.php:129
+msgid "Fail token"
+msgstr ""
+
+#: aigaionengine/controllers/logintegration.php:131
+msgid "Unknown fail"
+msgstr ""
+
+#: aigaionengine/controllers/logintegration.php:169
+msgid "User logged out"
+msgstr ""
+
+#: aigaionengine/controllers/logintegration.php:171
+msgid "Wrong parameters for logout"
+msgstr ""
+
+#: aigaionengine/controllers/import.php:28
+#: aigaionengine/controllers/publications.php:259
+#: aigaionengine/views/import/importform.php:9
+msgid "Import publications"
+msgstr ""
+
+#: aigaionengine/controllers/import.php:45
+msgid "Import: no import data entered."
+msgstr ""
+
+#: aigaionengine/controllers/import.php:53
+#, php-format
+msgid ""
+"Unknown import format specified (&ldquo;%s&rdquo;). Attempting to "
+"automatically identify proper format."
+msgstr ""
+
+#: aigaionengine/controllers/import.php:60
+msgid ""
+"Import: Can&rsquo;t automatically figure out import data format; please "
+"specify correct format."
+msgstr ""
+
+#: aigaionengine/controllers/import.php:64
+#, php-format
+msgid "Import: Data automatically identified as format &ldquo;%s&rdquo;."
+msgstr ""
+
+#: aigaionengine/controllers/import.php:91
+msgid ""
+"Import: Could not extract any valid publication entries from the import "
+"data. Please verify the input."
+msgstr ""
+
+#: aigaionengine/controllers/import.php:92
+msgid ""
+"If the input is correct, please verify the contents of the &ldquo;BibTeX "
+"strings&rdquo; setting under &ldquo;In- and output settings&rdquo; in the "
+"site configuration screen."
+msgstr ""
+
+#: aigaionengine/controllers/import.php:138
+msgid "Import: Commit: no publications committed."
+msgstr ""
+
+#: aigaionengine/controllers/import.php:169
+#, php-format
+msgid "Succesfully imported %d publications."
+msgstr ""
+
+#: aigaionengine/controllers/import.php:182
+#: aigaionengine/controllers/publications.php:365
+#: aigaionengine/controllers/publications.php:369
+msgid "Review publication"
+msgstr ""
+
+#: aigaionengine/controllers/language.php:11
+msgid "Select language"
+msgstr ""
+
+#: aigaionengine/controllers/language.php:25
+#, php-format
+msgid "Unknown language: &ldquo;%s&rdquo;"
+msgstr ""
+
+#: aigaionengine/controllers/readapi.php:12
+msgid "no command"
+msgstr ""
+
+#: aigaionengine/controllers/readapi.php:18
+#: aigaionengine/controllers/readapi.php:124
+msgid "no type"
+msgstr ""
+
+#: aigaionengine/controllers/readapi.php:22
+#: aigaionengine/controllers/readapi.php:95
+#: aigaionengine/controllers/readapi.php:128
+#: aigaionengine/controllers/readapi.php:200
+msgid "no id"
+msgstr ""
+
+#: aigaionengine/controllers/readapi.php:32
+#, php-format
+msgid "Unknown id or bibtex_id: %s"
+msgstr ""
+
+#: aigaionengine/controllers/readapi.php:35
+msgid "Go to this publication in the Aigaion database"
+msgstr ""
+
+#: aigaionengine/controllers/readapi.php:69
+#: aigaionengine/controllers/readapi.php:175
+msgid "Topic structure is not unique in Aigaion."
+msgstr ""
+
+#: aigaionengine/controllers/readapi.php:73
+#: aigaionengine/controllers/readapi.php:179
+msgid "Topic structure does not exist in Aigaion."
+msgstr ""
+
+#: aigaionengine/controllers/readapi.php:76
+#: aigaionengine/controllers/readapi.php:182
+msgid "no topic id"
+msgstr ""
+
+#: aigaionengine/controllers/readapi.php:88
+#: aigaionengine/controllers/readapi.php:193
+msgid "Unknown topic id or topic path"
+msgstr ""
+
+#: aigaionengine/controllers/readapi.php:91
+msgid "Go to this topic in the Aigaion database"
+msgstr ""
+
+#: aigaionengine/controllers/readapi.php:109
+msgid "CANNOT INTERPRET FULL AUTHOR NAMES YET."
+msgstr ""
+
+#: aigaionengine/controllers/readapi.php:109
+#: aigaionengine/controllers/readapi.php:214
+msgid "Unknown author id or name"
+msgstr ""
+
+#: aigaionengine/controllers/readapi.php:112
+msgid "Go to this author in the Aigaion database"
+msgstr ""
+
+#: aigaionengine/controllers/readapi.php:115
+#: aigaionengine/controllers/readapi.php:227
+msgid "Unknown type"
+msgstr ""
+
+#: aigaionengine/controllers/readapi.php:138
+msgid "Unknown id or bibtex_id"
+msgstr ""
+
+#: aigaionengine/controllers/readapi.php:141
+#: aigaionengine/controllers/readapi.php:196
+#, php-format
+msgid "Embedding for %s"
+msgstr ""
+
+#: aigaionengine/controllers/readapi.php:235
+msgid "Aigaion error: no shared domain configured in the Aigaion database"
+msgstr ""
+
+#: aigaionengine/controllers/rightsprofiles.php:35
+msgid "View rights profile"
+msgstr ""
+
+#: aigaionengine/controllers/rightsprofiles.php:43
+#: aigaionengine/controllers/rightsprofiles.php:89
+#: aigaionengine/controllers/rightsprofiles.php:144
+#: aigaionengine/controllers/rightsprofiles.php:204
+#: aigaionengine/controllers/rightsprofiles.php:269
+msgid "Rightsprofile"
+msgstr ""
+
+#: aigaionengine/controllers/rightsprofiles.php:80
+msgid "Add rights profile"
+msgstr ""
+
+#: aigaionengine/controllers/rightsprofiles.php:80
+#: aigaionengine/controllers/rightsprofiles.php:138
+#: aigaionengine/controllers/rightsprofiles.php:194
+#: aigaionengine/controllers/rightsprofiles.php:250
+#: aigaionengine/controllers/site.php:33
+#: aigaionengine/controllers/site.php:100
+#: aigaionengine/controllers/site.php:206
+#: aigaionengine/controllers/site.php:293
+#: aigaionengine/controllers/site.php:323
+#: aigaionengine/controllers/site.php:398
+#: aigaionengine/controllers/groups.php:81
+#: aigaionengine/controllers/groups.php:138
+#: aigaionengine/controllers/groups.php:194
+#: aigaionengine/controllers/groups.php:248
+#: aigaionengine/controllers/groups.php:335
+#: aigaionengine/controllers/groups.php:400
+#: aigaionengine/controllers/groups.php:450
+#: aigaionengine/controllers/bookmarklist.php:371
+#: aigaionengine/controllers/bookmarklist.php:375
+#: aigaionengine/controllers/bookmarklist.php:451
+#: aigaionengine/controllers/bookmarklist.php:514
+#: aigaionengine/controllers/bookmarklist.php:581
+#: aigaionengine/controllers/bookmarklist.php:651
+#: aigaionengine/libraries/attachment_db.php:103
+#: aigaionengine/libraries/attachment_db.php:307
+#: aigaionengine/libraries/attachment_db.php:354
+#: aigaionengine/libraries/author_db.php:258
+#: aigaionengine/libraries/publication_db.php:406
+#: aigaionengine/libraries/publication_db.php:817
+#: aigaionengine/libraries/rightsprofile_db.php:143
+#: aigaionengine/libraries/group_db.php:142
+#: aigaionengine/libraries/bookmarklist_db.php:14
+#: aigaionengine/libraries/bookmarklist_db.php:29
+#: aigaionengine/libraries/bookmarklist_db.php:44
+#: aigaionengine/libraries/bookmarklist_db.php:60
+#: aigaionengine/libraries/bookmarklist_db.php:75
+#: aigaionengine/libraries/bookmarklist_db.php:91
+#: aigaionengine/libraries/bookmarklist_db.php:107
+#: aigaionengine/libraries/bookmarklist_db.php:123
+#: aigaionengine/libraries/bookmarklist_db.php:138
+#: aigaionengine/libraries/bookmarklist_db.php:151
+#: aigaionengine/libraries/bookmarklist_db.php:166
+#: aigaionengine/libraries/user_db.php:453
+#: aigaionengine/libraries/note_db.php:110
+#: aigaionengine/libraries/note_db.php:145
+#: aigaionengine/libraries/note_db.php:178
+#: aigaionengine/libraries/topic_db.php:338
+#: aigaionengine/libraries/topic_db.php:352
+#: aigaionengine/libraries/topic_db.php:366
+#: aigaionengine/libraries/topic_db.php:380
+#: aigaionengine/libraries/topic_db.php:397
+#: aigaionengine/libraries/topic_db.php:443
+#: aigaionengine/libraries/topic_db.php:505
+msgid "insufficient rights"
+msgstr ""
+
+#: aigaionengine/controllers/rightsprofiles.php:85
+#: aigaionengine/controllers/rightsprofiles.php:122
+#: aigaionengine/controllers/site.php:40
+#: aigaionengine/controllers/groups.php:86
+#: aigaionengine/controllers/groups.php:123
+#: aigaionengine/controllers/groups.php:232
+#: aigaionengine/libraries/author_db.php:306
+msgid "Changes not committed"
+msgstr ""
+
+#: aigaionengine/controllers/rightsprofiles.php:127
+#: aigaionengine/controllers/rightsprofiles.php:138
+#: aigaionengine/controllers/rightsprofiles.php:250
+msgid "Edit rights profile"
+msgstr ""
+
+#: aigaionengine/controllers/rightsprofiles.php:187
+#: aigaionengine/controllers/rightsprofiles.php:194
+msgid "Delete rights profile"
+msgstr ""
+
+#: aigaionengine/controllers/rightsprofiles.php:207
+#, php-format
+msgid ""
+"Are you sure, that you want to delete the rights profile &ldquo;%s&rdquo;?"
+msgstr ""
+
+#: aigaionengine/controllers/rightsprofiles.php:239
+msgid "Commit rights profile"
+msgstr ""
+
+#: aigaionengine/controllers/rightsprofiles.php:239
+#: aigaionengine/controllers/groups.php:239
+msgid "no data to commit"
+msgstr ""
+
+#: aigaionengine/controllers/rightsprofiles.php:261
+msgid "Profile Name"
+msgstr ""
+
+#: aigaionengine/controllers/rightsprofiles.php:296
+msgid "Commit rights profile: an error occurred."
+msgstr ""
+
+#: aigaionengine/controllers/site.php:33
+msgid "Configure database"
+msgstr ""
+
+#: aigaionengine/controllers/site.php:59
+msgid "Site configuration"
+msgstr ""
+
+#: aigaionengine/controllers/site.php:100
+msgid "Maintain database"
+msgstr ""
+
+#: aigaionengine/controllers/site.php:140
+msgid "Aigaion updates"
+msgstr ""
+
+#: aigaionengine/controllers/site.php:141
+msgid "Checking for updates"
+msgstr ""
+
+#: aigaionengine/controllers/site.php:145
+#: aigaionengine/controllers/test.php:312
+#: aigaionengine/helpers/maintenance_helper.php:54
+#: aigaionengine/helpers/maintenance_helper.php:90
+#: aigaionengine/helpers/maintenance_helper.php:103
+#: aigaionengine/helpers/maintenance_helper.php:117
+#: aigaionengine/helpers/maintenance_helper.php:135
+#: aigaionengine/helpers/maintenance_helper.php:164
+#: aigaionengine/helpers/maintenance_helper.php:179
+#: aigaionengine/helpers/maintenance_helper.php:197
+#: aigaionengine/helpers/maintenance_helper.php:210
+#: aigaionengine/helpers/maintenance_helper.php:225
+#: aigaionengine/helpers/maintenance_helper.php:239
+#: aigaionengine/helpers/maintenance_helper.php:254
+#: aigaionengine/helpers/maintenance_helper.php:327
+#: aigaionengine/helpers/maintenance_helper.php:346
+#: aigaionengine/libraries/userlogin.php:846
+msgid "OK"
+msgstr ""
+
+#: aigaionengine/controllers/site.php:146
+msgid "This installation of Aigaion is up-to-date."
+msgstr ""
+
+#: aigaionengine/controllers/site.php:161
+#, php-format
+msgid "Maintenance function \"%s\" not implemented."
+msgstr ""
+
+#: aigaionengine/controllers/site.php:168
+msgid "Site maintenance"
+msgstr ""
+
+#: aigaionengine/controllers/site.php:206
+msgid "Backup database"
+msgstr ""
+
+#: aigaionengine/controllers/site.php:293
+#: aigaionengine/controllers/site.php:297
+#: aigaionengine/controllers/site.php:323
+#: aigaionengine/controllers/site.php:398
+msgid "Restore database"
+msgstr ""
+
+#: aigaionengine/controllers/site.php:333
+msgid ""
+"The file appears not to be an SQL file. Please select a valid Aigaion backup "
+"file."
+msgstr ""
+
+#: aigaionengine/controllers/site.php:357
+#: aigaionengine/controllers/site.php:421
+msgid "Restored database"
+msgstr ""
+
+#: aigaionengine/controllers/site.php:405
+msgid "No data given to restore!"
+msgstr ""
+
+#: aigaionengine/controllers/test.php:35 aigaionengine/controllers/test.php:38
+msgid "Unit Testing Output"
+msgstr ""
+
+#: aigaionengine/controllers/test.php:39
+msgid ""
+"See the controller \"test.php\" for the unit testing functions. From its "
+"main method, call each test method with $debug parameter = true to get more "
+"output."
+msgstr ""
+
+#: aigaionengine/controllers/test.php:64
+msgid "Bibtex character conversions"
+msgstr ""
+
+#: aigaionengine/controllers/test.php:135
+#: aigaionengine/controllers/test.php:143
+#: aigaionengine/controllers/test.php:357
+#: aigaionengine/controllers/test.php:364
+msgid "Test"
+msgstr ""
+
+#: aigaionengine/controllers/test.php:136
+#: aigaionengine/controllers/test.php:358
+msgid "Failed"
+msgstr ""
+
+#: aigaionengine/controllers/test.php:144
+#: aigaionengine/controllers/test.php:365
+msgid "Passed"
+msgstr ""
+
+#: aigaionengine/controllers/test.php:156
+msgid "Bibtex single entry imports"
+msgstr ""
+
+#: aigaionengine/controllers/test.php:156
+msgid ""
+"Note: these tests do not take the review and database result into account, "
+"only the result of the bibtex parsing."
+msgstr ""
+
+#: aigaionengine/controllers/test.php:263
+#, php-format
+msgid "Import should return 1 publication, but returned %s publications."
+msgstr ""
+
+#: aigaionengine/controllers/test.php:274
+#, php-format
+msgid "\"%s\" should have been \"%s\" but is \"%s\""
+msgstr ""
+
+#: aigaionengine/controllers/test.php:282
+#, php-format
+msgid "Import should contain %s authors, but does contain %s authors."
+msgstr ""
+
+#: aigaionengine/controllers/test.php:292
+#, php-format
+msgid "First name(s) should have been \"%s\" but is \"%s\"."
+msgstr ""
+
+#: aigaionengine/controllers/test.php:298
+#, php-format
+msgid "von-part should have been \"%s\" but is \"%s\"."
+msgstr ""
+
+#: aigaionengine/controllers/test.php:304
+#, php-format
+msgid "Last name(s) should have been \"%s\" but is \"%s\"."
+msgstr ""
+
+#: aigaionengine/controllers/test.php:310
+#, php-format
+msgid "jr-part should have been \"%s\" but is \"%s\"."
+msgstr ""
+
+#: aigaionengine/controllers/keywords.php:27
+#: aigaionengine/views/publications/review.php:73
+#: aigaionengine/views/explore.php:4
+msgid "Keywords"
+msgstr ""
+
+#: aigaionengine/controllers/keywords.php:28
+msgid "All keywords in the database"
+msgstr ""
+
+#: aigaionengine/controllers/keywords.php:103
+msgid "View publications for keyword: non-existing id passed."
+msgstr ""
+
+#: aigaionengine/controllers/keywords.php:113
+#, php-format
+msgid "Keyword: &ldquo;%s&rdquo;"
+msgstr ""
+
+#: aigaionengine/controllers/keywords.php:116
+#, php-format
+msgid "Publications for keyword &ldquo;%s&rdquo;"
+msgstr ""
+
+#: aigaionengine/controllers/keywords.php:149
+msgid "No publications found using this keyword."
+msgstr ""
+
+#: aigaionengine/controllers/notes.php:38
+msgid "Delete note: non-existing id passed."
+msgstr ""
+
+#: aigaionengine/controllers/notes.php:41
+#: aigaionengine/controllers/notes.php:42
+msgid "delete note"
+msgstr ""
+
+#: aigaionengine/controllers/notes.php:49
+msgid "Delete note"
+msgstr ""
+
+#: aigaionengine/controllers/notes.php:52
+msgid "Are you sure, that you want to delete the note below?"
+msgstr ""
+
+#: aigaionengine/controllers/notes.php:64
+msgid "Add note: non-existing id passed."
+msgstr ""
+
+#: aigaionengine/controllers/notes.php:67
+#: aigaionengine/controllers/notes.php:68
+#: aigaionengine/views/publications/single.php:340
+msgid "add note"
+msgstr ""
+
+#: aigaionengine/controllers/notes.php:71
+#: aigaionengine/controllers/notes.php:82
+#: aigaionengine/controllers/notes.php:118
+#: aigaionengine/controllers/users.php:125
+#: aigaionengine/controllers/users.php:155
+#: aigaionengine/controllers/users.php:235
+msgid "Changes not committed:"
+msgstr ""
+
+#: aigaionengine/controllers/notes.php:73
+#: aigaionengine/libraries/note_db.php:110
+msgid "Add note"
+msgstr ""
+
+#: aigaionengine/controllers/notes.php:86
+msgid "Edit note: non-existing id passed."
+msgstr ""
+
+#: aigaionengine/controllers/notes.php:89
+#: aigaionengine/controllers/notes.php:90
+msgid "edit note"
+msgstr ""
+
+#: aigaionengine/controllers/notes.php:92
+#: aigaionengine/libraries/note_db.php:145
+msgid "Edit note"
+msgstr ""
+
+#: aigaionengine/controllers/notes.php:97
+msgid "Publication belonging to note:"
+msgstr ""
+
+#: aigaionengine/controllers/notes.php:123
+msgid "Commit note: no data to commit."
+msgstr ""
+
+#: aigaionengine/controllers/notes.php:129
+msgid "Publication id"
+msgstr ""
+
+#: aigaionengine/controllers/notes.php:133
+#: aigaionengine/views/attachments/add.php:21
+#: aigaionengine/views/attachments/add.php:51
+#: aigaionengine/views/attachments/edit.php:20
+#: aigaionengine/views/site/edit.php:164 aigaionengine/views/site/edit.php:221
+msgid "Note"
+msgstr ""
+
+#: aigaionengine/controllers/notes.php:147
+msgid "Commit note: an error occurred."
+msgstr ""
+
+#: aigaionengine/controllers/publications.php:53
+msgid "View publication: non-existing id passed."
+msgstr ""
+
+#: aigaionengine/controllers/publications.php:83
+#, php-format
+msgid "View publication: non-existing BibTeX id &ldquo;%s&rdquo; was passed."
+msgstr ""
+
+#: aigaionengine/controllers/publications.php:103
+#, php-format
+msgid "All publications %s"
+msgstr ""
+
+#: aigaionengine/controllers/publications.php:115
+#: aigaionengine/controllers/publications.php:160
+#: aigaionengine/controllers/usercontroller.php:112
+msgid "sorted by author"
+msgstr ""
+
+#: aigaionengine/controllers/publications.php:132
+#: aigaionengine/controllers/publications.php:175
+msgid "Publication list"
+msgstr ""
+
+#: aigaionengine/controllers/publications.php:148
+#, php-format
+msgid "All publications not assigned to a topic %s"
+msgstr ""
+
+#: aigaionengine/controllers/publications.php:211
+#: aigaionengine/controllers/publications.php:218
+msgid "Edit publication"
+msgstr ""
+
+#: aigaionengine/controllers/publications.php:215
+#: aigaionengine/libraries/publication_db.php:406
+msgid "Add publication"
+msgstr ""
+
+#: aigaionengine/controllers/publications.php:258
+msgid "Import publication"
+msgstr ""
+
+#: aigaionengine/controllers/publications.php:273
+msgid "Delete publication: non-existing id passed."
+msgstr ""
+
+#: aigaionengine/controllers/publications.php:282
+#: aigaionengine/controllers/publications.php:292
+msgid "Delete publication"
+msgstr ""
+
+#: aigaionengine/controllers/publications.php:295
+#, php-format
+msgid "Are you sure, that you want to delete the publication &ldquo;%s&rdquo;?"
+msgstr ""
+
+#: aigaionengine/controllers/publications.php:316
+msgid ""
+"There are validation errors with this entry. You may want to correct them."
+msgstr ""
+
+#: aigaionengine/controllers/publications.php:341
+msgid "Commit publication"
+msgstr ""
+
+#: aigaionengine/controllers/publications.php:396
+msgid "Successfully subscribed publication."
+msgstr ""
+
+#: aigaionengine/controllers/publications.php:399
+#: aigaionengine/controllers/publications.php:429
+#: aigaionengine/controllers/users.php:398
+msgid "Subscribe topic: non-existing id passed."
+msgstr ""
+
+#: aigaionengine/controllers/publications.php:426
+msgid "Successfully unsubscribed publication."
+msgstr ""
+
+#: aigaionengine/controllers/publications.php:443
+#: aigaionengine/controllers/publications.php:459
+msgid "Mark publication: non-existing id passed."
+msgstr ""
+
+#: aigaionengine/controllers/publications.php:446
+#: aigaionengine/controllers/publications.php:462
+msgid "Mark publication"
+msgstr ""
+
+#: aigaionengine/controllers/publications.php:485
+msgid "Export publication: non-existing id passed."
+msgstr ""
+
+#: aigaionengine/controllers/publications.php:517
+#: aigaionengine/controllers/publications.php:555
+msgid "Exported publication"
+msgstr ""
+
+#: aigaionengine/controllers/publications.php:568
+msgid "Export publication"
+msgstr ""
+
+#: aigaionengine/controllers/users.php:31
+msgid "Manage accounts"
+msgstr ""
+
+#: aigaionengine/controllers/users.php:33
+#: aigaionengine/controllers/users.php:101
+#: aigaionengine/controllers/users.php:127
+#: aigaionengine/controllers/users.php:165
+#: aigaionengine/controllers/users.php:210
+#: aigaionengine/controllers/users.php:277
+msgid "User"
+msgstr ""
+
+#: aigaionengine/controllers/users.php:35
+msgid "add a new user"
+msgstr ""
+
+#: aigaionengine/controllers/users.php:37 aigaionengine/views/menu.php:16
+msgid "Users"
+msgstr ""
+
+#: aigaionengine/controllers/users.php:56
+msgid "add a new group"
+msgstr ""
+
+#: aigaionengine/controllers/users.php:57
+#: aigaionengine/views/users/edit.php:370
+msgid "Groups"
+msgstr ""
+
+#: aigaionengine/controllers/users.php:65
+msgid "add a new rightsprofile"
+msgstr ""
+
+#: aigaionengine/controllers/users.php:66
+msgid "Rights profiles"
+msgstr ""
+
+#: aigaionengine/controllers/users.php:97
+msgid "View user: non-existing id passed."
+msgstr ""
+
+#: aigaionengine/controllers/users.php:122
+msgid "Add user"
+msgstr ""
+
+#: aigaionengine/controllers/users.php:150
+msgid "Edit user: non-existing id passed."
+msgstr ""
+
+#: aigaionengine/controllers/users.php:161
+#: aigaionengine/controllers/users.php:250
+msgid "Edit account: insufficient rights."
+msgstr ""
+
+#: aigaionengine/controllers/users.php:194
+msgid "Delete user: non-existing id passed."
+msgstr ""
+
+#: aigaionengine/controllers/users.php:201
+msgid "Delete account: insufficient rights."
+msgstr ""
+
+#: aigaionengine/controllers/users.php:213
+#, php-format
+msgid "Are you sure, that you want to delete the user &ldquo;%s&rdquo;?"
+msgstr ""
+
+#: aigaionengine/controllers/users.php:242
+msgid "Commit user: no data to commit."
+msgstr ""
+
+#: aigaionengine/controllers/users.php:269
+msgid "Login Name"
+msgstr ""
+
+#: aigaionengine/controllers/users.php:270
+msgid "First Password"
+msgstr ""
+
+#: aigaionengine/controllers/users.php:271
+msgid "Second Password"
+msgstr ""
+
+#: aigaionengine/controllers/users.php:293
+#, php-format
+msgid "Commit user: an error occurred at &ldquo;%s&rdquo;."
+msgstr ""
+
+#: aigaionengine/controllers/users.php:324
+#: aigaionengine/controllers/groups.php:324
+msgid "Topic review"
+msgstr ""
+
+#: aigaionengine/controllers/users.php:332
+msgid "Topic subscription: insufficient rights."
+msgstr ""
+
+#: aigaionengine/controllers/users.php:338
+#: aigaionengine/controllers/groups.php:335
+#: aigaionengine/controllers/groups.php:400
+#: aigaionengine/controllers/groups.php:450
+msgid "Topic subscription"
+msgstr ""
+
+#: aigaionengine/controllers/users.php:346
+#, php-format
+msgid "Topic subscription for %s (%s)"
+msgstr ""
+
+#: aigaionengine/controllers/users.php:347
+#: aigaionengine/controllers/groups.php:351
+#: aigaionengine/views/topics/index.php:30
+msgid "Subscribed topics are highlighted in boldface."
+msgstr ""
+
+#: aigaionengine/controllers/users.php:347
+#: aigaionengine/controllers/groups.php:351
+msgid ""
+"To subscribe or unsubscribe a topic and its descendants, click on the topic."
+msgstr ""
+
+#: aigaionengine/controllers/users.php:388
+msgid "Subscribe topic: non-existing id passed"
+msgstr ""
+
+#: aigaionengine/controllers/users.php:393
+#: aigaionengine/controllers/users.php:452
+msgid "Topic subscription: insufficient rights"
+msgstr ""
+
+#: aigaionengine/controllers/users.php:416
+msgid "The topic has been subscribed."
+msgstr ""
+
+#: aigaionengine/controllers/users.php:447
+msgid "Unsubscribe topic: non-existing id passed"
+msgstr ""
+
+#: aigaionengine/controllers/users.php:457
+msgid "Unsubscribe topic: non-existing id passed."
+msgstr ""
+
+#: aigaionengine/controllers/users.php:475
+msgid "The topic has been unsubscribed."
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:8
+#: aigaionengine/controllers/bookmarklist.php:9
+msgid "All users"
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:9
+#: aigaionengine/controllers/bookmarklist.php:10
+msgid "My bookmarks"
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:12
+#: aigaionengine/controllers/bookmarklist.php:13
+msgid "My preferences"
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:21
+msgid "You must be logged in to view the users’ page."
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:42
+#: aigaionengine/views/user/all.php:3
+msgid "All Users"
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:48
+#, php-format
+msgid "User %s does not exist."
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:51
+#, php-format
+msgid "Unknown action requested: %s."
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:54
+msgid "You must be logged in to view this user’s page."
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:73
+#, php-format
+msgid "User %s"
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:87
+#: aigaionengine/controllers/usercontroller.php:154
+msgid "Please log in to contact other users."
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:96
+#, php-format
+msgid "All publications uploaded by %s %%s"
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:144
+msgid "Publications Uploaded by %2"
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:157
+#, php-format
+msgid "A %s is required."
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:158
+#, php-format
+msgid "The %s may not exceed 511 characters."
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:160
+msgid "message"
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:174
+#, php-format
+msgid "A message from Puma user %s %s"
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:188
+msgid "There was an error trying to send the e-Mail."
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:192
+#, php-format
+msgid "Contact user %s"
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:205
+msgid "You are not allowed to edit other users."
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:209
+#, php-format
+msgid "The field %s is required."
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:210
+#, php-format
+msgid "The field %s is too long."
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:215
+#: aigaionengine/views/users/edit.php:108
+#: aigaionengine/views/users/edit.php:147
+#: aigaionengine/views/users/edit.php:157
+#: aigaionengine/views/users/edit.php:166
+msgid "Password"
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:216
+msgid "Password repeat"
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:223
+msgid "The account was successfully updated."
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:225
+msgid "The changes could not be stored."
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:232
+#, php-format
+msgid "Edit user %s"
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:260
+msgid "The option was successfully set."
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:274
+#, php-format
+msgid "Group %s does not exist."
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:283
+#, php-format
+msgid "Group %s"
 msgstr ""
 
 #: aigaionengine/controllers/authors.php:26
@@ -147,72 +1664,6 @@ msgstr ""
 #: aigaionengine/controllers/authors.php:159
 #, php-format
 msgid "Publications of %s"
-msgstr ""
-
-#: aigaionengine/controllers/authors.php:57
-#: aigaionengine/controllers/authors.php:110
-#: aigaionengine/controllers/authors.php:162
-#: aigaionengine/controllers/bookmarklist.php:39
-#: aigaionengine/controllers/keywords.php:119
-#: aigaionengine/controllers/publications.php:106
-#: aigaionengine/controllers/publications.php:151
-#: aigaionengine/controllers/topics.php:232
-#: aigaionengine/controllers/topics.php:320
-msgid "sorted by journal and type"
-msgstr ""
-
-#: aigaionengine/controllers/authors.php:60
-#: aigaionengine/controllers/authors.php:113
-#: aigaionengine/controllers/authors.php:165
-#: aigaionengine/controllers/bookmarklist.php:42
-#: aigaionengine/controllers/keywords.php:122
-#: aigaionengine/controllers/publications.php:109
-#: aigaionengine/controllers/publications.php:154
-#: aigaionengine/controllers/topics.php:235
-#: aigaionengine/controllers/topics.php:323
-msgid "sorted by recency"
-msgstr ""
-
-#: aigaionengine/controllers/authors.php:63
-#: aigaionengine/controllers/authors.php:116
-#: aigaionengine/controllers/authors.php:168
-#: aigaionengine/controllers/bookmarklist.php:45
-#: aigaionengine/controllers/keywords.php:125
-#: aigaionengine/controllers/publications.php:112
-#: aigaionengine/controllers/publications.php:157
-#: aigaionengine/controllers/topics.php:238
-#: aigaionengine/controllers/topics.php:326
-msgid "sorted by title"
-msgstr ""
-
-#: aigaionengine/controllers/authors.php:66
-#: aigaionengine/controllers/authors.php:119
-#: aigaionengine/controllers/authors.php:171
-#: aigaionengine/controllers/bookmarklist.php:48
-#: aigaionengine/controllers/keywords.php:128
-#: aigaionengine/controllers/topics.php:241
-#: aigaionengine/controllers/topics.php:329
-msgid "sorted by first author"
-msgstr ""
-
-#: aigaionengine/controllers/authors.php:152
-#: aigaionengine/controllers/embeddingtest.php:41
-msgid "View Author"
-msgstr ""
-
-#: aigaionengine/controllers/authors.php:152
-#: aigaionengine/controllers/bookmarklist.php:188
-#: aigaionengine/controllers/bookmarklist.php:312
-#: aigaionengine/controllers/bookmarklist.php:347
-#: aigaionengine/controllers/bookmarklist.php:416
-#: aigaionengine/controllers/embeddingtest.php:41
-#: aigaionengine/controllers/groups.php:37
-#: aigaionengine/controllers/groups.php:128
-#: aigaionengine/controllers/rightsprofiles.php:35
-#: aigaionengine/controllers/rightsprofiles.php:127
-#: aigaionengine/controllers/rightsprofiles.php:187
-#: aigaionengine/controllers/users.php:324
-msgid "non-existing id passed"
 msgstr ""
 
 #: aigaionengine/controllers/authors.php:180
@@ -233,49 +1684,6 @@ msgstr ""
 #: aigaionengine/controllers/authors.php:207
 #: aigaionengine/views/authors/edit.php:3
 msgid "New Author"
-msgstr ""
-
-#: aigaionengine/controllers/authors.php:215
-#: aigaionengine/controllers/import.php:7
-#: aigaionengine/controllers/import.php:11
-#: aigaionengine/controllers/publications.php:227
-#: aigaionengine/controllers/topics.php:122
-#: aigaionengine/controllers/topics.php:158
-#: aigaionengine/views/import/importform.php:12
-#: aigaionengine/views/import/importform.php:20
-#: aigaionengine/views/import/review.php:307
-msgid "Import"
-msgstr ""
-
-#: aigaionengine/controllers/authors.php:216
-#: aigaionengine/controllers/import.php:12
-#: aigaionengine/controllers/publications.php:228
-#: aigaionengine/controllers/topics.php:123
-#: aigaionengine/controllers/topics.php:159
-#: aigaionengine/views/publications/single.php:51
-msgid "Publication"
-msgstr ""
-
-#: aigaionengine/controllers/authors.php:217
-#: aigaionengine/controllers/import.php:13
-#: aigaionengine/controllers/publications.php:229
-#: aigaionengine/controllers/topics.php:124
-#: aigaionengine/controllers/topics.php:160
-#: aigaionengine/controllers/topics.php:369
-#: aigaionengine/views/accesslevels/editfortopic.php:16
-#: aigaionengine/views/accesslevels/editfortopic.php:17
-#: aigaionengine/views/topics/clean.php:6
-#: aigaionengine/views/topics/clean.php:18
-msgid "Topic"
-msgstr ""
-
-#: aigaionengine/controllers/authors.php:218
-#: aigaionengine/controllers/import.php:14
-#: aigaionengine/controllers/publications.php:230
-#: aigaionengine/controllers/test.php:287
-#: aigaionengine/controllers/topics.php:125
-#: aigaionengine/controllers/topics.php:161 aigaionengine/views/sort.php:8
-msgid "Author"
 msgstr ""
 
 #: aigaionengine/controllers/authors.php:234
@@ -323,35 +1731,8 @@ msgstr ""
 msgid "Authors for topic %s"
 msgstr ""
 
-#: aigaionengine/controllers/authors.php:419
-#: aigaionengine/controllers/bookmarklist.php:801
-#: aigaionengine/controllers/publications.php:471
-#: aigaionengine/controllers/topics.php:414
-msgid "Export through email"
-msgstr ""
-
 #: aigaionengine/controllers/authors.php:429
 msgid "No author selected for export."
-msgstr ""
-
-#: aigaionengine/controllers/authors.php:443
-#: aigaionengine/controllers/bookmarklist.php:821
-#: aigaionengine/controllers/export.php:35
-#: aigaionengine/controllers/export.php:70
-#: aigaionengine/controllers/export.php:103
-#: aigaionengine/controllers/export.php:132
-#: aigaionengine/controllers/export.php:160
-#: aigaionengine/controllers/publications.php:499
-#: aigaionengine/controllers/topics.php:442
-msgid "Select export format"
-msgstr ""
-
-#: aigaionengine/controllers/authors.php:451
-#: aigaionengine/controllers/bookmarklist.php:850
-#: aigaionengine/controllers/publications.php:505
-#: aigaionengine/controllers/topics.php:455
-#, php-format
-msgid "Export from %s"
 msgstr ""
 
 #: aigaionengine/controllers/authors.php:462
@@ -359,47 +1740,83 @@ msgstr ""
 msgid "Exported for author"
 msgstr ""
 
-#: aigaionengine/controllers/authors.php:468
-#: aigaionengine/controllers/bookmarklist.php:873
-#: aigaionengine/controllers/publications.php:524
-#: aigaionengine/controllers/topics.php:472
-#: aigaionengine/views/export/chooseformatEmail.php:38
-msgid "Formatted"
-msgstr ""
-
 #: aigaionengine/controllers/authors.php:510
 msgid "Export Author"
 msgstr ""
 
-#: aigaionengine/controllers/authors.php:511
-#: aigaionengine/controllers/bookmarklist.php:939
-#: aigaionengine/controllers/publications.php:569
-#: aigaionengine/controllers/topics.php:516
-msgid "Mail sent successfully"
+#: aigaionengine/controllers/groups.php:37
+msgid "View group"
 msgstr ""
 
-#: aigaionengine/controllers/authors.php:514
-#: aigaionengine/controllers/bookmarklist.php:930
-#: aigaionengine/controllers/publications.php:572
-#: aigaionengine/controllers/topics.php:519
-msgid ""
-"Something went wrong when exporting the publications. Did you input a "
-"correct email address?"
+#: aigaionengine/controllers/groups.php:45
+#: aigaionengine/controllers/groups.php:90
+#: aigaionengine/controllers/groups.php:144
+#: aigaionengine/controllers/groups.php:204
+#: aigaionengine/controllers/groups.php:267
+msgid "Group"
 msgstr ""
 
-#: aigaionengine/controllers/bookmarklist.php:9
-#: aigaionengine/controllers/usercontroller.php:8
-msgid "All users"
+#: aigaionengine/controllers/groups.php:81
+msgid "Add group"
 msgstr ""
 
-#: aigaionengine/controllers/bookmarklist.php:10
-#: aigaionengine/controllers/usercontroller.php:9
-msgid "My bookmarks"
+#: aigaionengine/controllers/groups.php:128
+#: aigaionengine/controllers/groups.php:138
+#: aigaionengine/controllers/groups.php:248
+msgid "Edit group"
 msgstr ""
 
-#: aigaionengine/controllers/bookmarklist.php:13
-#: aigaionengine/controllers/usercontroller.php:12
-msgid "My preferences"
+#: aigaionengine/controllers/groups.php:187
+#: aigaionengine/controllers/groups.php:194
+msgid "Delete group"
+msgstr ""
+
+#: aigaionengine/controllers/groups.php:187
+msgid "non-existing group specified"
+msgstr ""
+
+#: aigaionengine/controllers/groups.php:207
+#, php-format
+msgid "Are you sure, that you want to delete the group &ldquo;%s&rdquo;?"
+msgstr ""
+
+#: aigaionengine/controllers/groups.php:239
+msgid "Commit group"
+msgstr ""
+
+#: aigaionengine/controllers/groups.php:259
+msgid "Group Name"
+msgstr ""
+
+#: aigaionengine/controllers/groups.php:294
+msgid "Commit group: an error occurred."
+msgstr ""
+
+#: aigaionengine/controllers/groups.php:324
+#: aigaionengine/controllers/groups.php:389
+#: aigaionengine/controllers/groups.php:409
+#: aigaionengine/controllers/groups.php:440
+#: aigaionengine/controllers/groups.php:459
+msgid "invalid group_id specified"
+msgstr ""
+
+#: aigaionengine/controllers/groups.php:341
+msgid "Topic subscription for groups"
+msgstr ""
+
+#: aigaionengine/controllers/groups.php:350
+#, php-format
+msgid "Topic subscription for %s"
+msgstr ""
+
+#: aigaionengine/controllers/groups.php:389
+#: aigaionengine/controllers/groups.php:409
+msgid "Subscribe topic"
+msgstr ""
+
+#: aigaionengine/controllers/groups.php:440
+#: aigaionengine/controllers/groups.php:459
+msgid "Unsubscribe topic"
 msgstr ""
 
 #: aigaionengine/controllers/bookmarklist.php:28
@@ -412,7 +1829,7 @@ msgstr ""
 msgid "Bookmarklist of %s %%s"
 msgstr ""
 
-#: aigaionengine/controllers/bookmarklist.php:63
+#: aigaionengine/controllers/bookmarklist.php:64
 #: aigaionengine/controllers/bookmarklist.php:934
 msgid "Bookmark list"
 msgstr ""
@@ -464,62 +1881,6 @@ msgstr ""
 #: aigaionengine/controllers/bookmarklist.php:371
 #: aigaionengine/controllers/bookmarklist.php:375
 msgid "Making topic from bookmarklist"
-msgstr ""
-
-#: aigaionengine/controllers/bookmarklist.php:371
-#: aigaionengine/controllers/bookmarklist.php:375
-#: aigaionengine/controllers/bookmarklist.php:451
-#: aigaionengine/controllers/bookmarklist.php:514
-#: aigaionengine/controllers/bookmarklist.php:581
-#: aigaionengine/controllers/bookmarklist.php:651
-#: aigaionengine/controllers/groups.php:81
-#: aigaionengine/controllers/groups.php:138
-#: aigaionengine/controllers/groups.php:194
-#: aigaionengine/controllers/groups.php:248
-#: aigaionengine/controllers/groups.php:335
-#: aigaionengine/controllers/groups.php:400
-#: aigaionengine/controllers/groups.php:450
-#: aigaionengine/controllers/rightsprofiles.php:80
-#: aigaionengine/controllers/rightsprofiles.php:138
-#: aigaionengine/controllers/rightsprofiles.php:194
-#: aigaionengine/controllers/rightsprofiles.php:250
-#: aigaionengine/controllers/site.php:33
-#: aigaionengine/controllers/site.php:100
-#: aigaionengine/controllers/site.php:206
-#: aigaionengine/controllers/site.php:293
-#: aigaionengine/controllers/site.php:323
-#: aigaionengine/controllers/site.php:398
-#: aigaionengine/libraries/attachment_db.php:103
-#: aigaionengine/libraries/attachment_db.php:307
-#: aigaionengine/libraries/attachment_db.php:354
-#: aigaionengine/libraries/author_db.php:258
-#: aigaionengine/libraries/bookmarklist_db.php:14
-#: aigaionengine/libraries/bookmarklist_db.php:29
-#: aigaionengine/libraries/bookmarklist_db.php:44
-#: aigaionengine/libraries/bookmarklist_db.php:60
-#: aigaionengine/libraries/bookmarklist_db.php:75
-#: aigaionengine/libraries/bookmarklist_db.php:91
-#: aigaionengine/libraries/bookmarklist_db.php:107
-#: aigaionengine/libraries/bookmarklist_db.php:123
-#: aigaionengine/libraries/bookmarklist_db.php:138
-#: aigaionengine/libraries/bookmarklist_db.php:151
-#: aigaionengine/libraries/bookmarklist_db.php:166
-#: aigaionengine/libraries/group_db.php:142
-#: aigaionengine/libraries/note_db.php:110
-#: aigaionengine/libraries/note_db.php:145
-#: aigaionengine/libraries/note_db.php:178
-#: aigaionengine/libraries/publication_db.php:406
-#: aigaionengine/libraries/publication_db.php:817
-#: aigaionengine/libraries/rightsprofile_db.php:143
-#: aigaionengine/libraries/topic_db.php:338
-#: aigaionengine/libraries/topic_db.php:352
-#: aigaionengine/libraries/topic_db.php:366
-#: aigaionengine/libraries/topic_db.php:380
-#: aigaionengine/libraries/topic_db.php:397
-#: aigaionengine/libraries/topic_db.php:443
-#: aigaionengine/libraries/topic_db.php:505
-#: aigaionengine/libraries/user_db.php:445
-msgid "insufficient rights"
 msgstr ""
 
 #: aigaionengine/controllers/bookmarklist.php:380
@@ -680,1340 +2041,16 @@ msgstr ""
 msgid "Clear bookmarklist: insufficient rights."
 msgstr ""
 
-#: aigaionengine/controllers/bookmarklist.php:846
-#: aigaionengine/controllers/topics.php:451
-msgid "Export by email"
-msgstr ""
-
-#: aigaionengine/controllers/bookmarklist.php:862
-#: aigaionengine/controllers/bookmarklist.php:910
-#: aigaionengine/controllers/export.php:138
-msgid "Exported from bookmarklist"
-msgstr ""
-
-#: aigaionengine/controllers/bookmarklist.php:937
-#: aigaionengine/controllers/export.php:129
-#: aigaionengine/views/bookmarklist/controls.php:23
-msgid "Export bookmarklist"
-msgstr ""
-
-#: aigaionengine/controllers/errorhandler.php:5
-msgid "Error: Resource not found"
-msgstr ""
-
-#: aigaionengine/controllers/explore.php:50 aigaionengine/views/menu.php:7
-msgid "Explore"
-msgstr ""
-
-#: aigaionengine/controllers/export.php:36
-#: aigaionengine/views/export/chooseformat.php:11
-#: aigaionengine/views/export/chooseformatEmail.php:10
-msgid "Export all publications"
-msgstr ""
-
-#: aigaionengine/controllers/export.php:41
-msgid "All publications"
-msgstr ""
-
-#: aigaionengine/controllers/export.php:66
-msgid "Export requested for non existing topic."
-msgstr ""
-
-#: aigaionengine/controllers/export.php:71
-#, php-format
-msgid "Export all for topic %s"
-msgstr ""
-
-#: aigaionengine/controllers/export.php:76
-#, php-format
-msgid "All publications for topic &ldquo;%s&rdquo;"
-msgstr ""
-
-#: aigaionengine/controllers/export.php:99
-msgid "Export requested for non existing author."
-msgstr ""
-
-#: aigaionengine/controllers/export.php:104
-#, php-format
-msgid "Export all for author %s"
-msgstr ""
-
-#: aigaionengine/controllers/export.php:109
-#, php-format
-msgid "All publications for %s"
-msgstr ""
-
-#: aigaionengine/controllers/export.php:133
-msgid "Export all publications on bookmarklist"
-msgstr ""
-
-#: aigaionengine/controllers/export.php:161
-msgid "Export one publication"
-msgstr ""
-
-#: aigaionengine/controllers/export.php:167
-msgid "Export requested for non existing publication."
-msgstr ""
-
-#: aigaionengine/controllers/groups.php:37
-msgid "View group"
-msgstr ""
-
-#: aigaionengine/controllers/groups.php:45
-#: aigaionengine/controllers/groups.php:90
-#: aigaionengine/controllers/groups.php:144
-#: aigaionengine/controllers/groups.php:204
-#: aigaionengine/controllers/groups.php:267
-msgid "Group"
-msgstr ""
-
-#: aigaionengine/controllers/groups.php:81
-msgid "Add group"
-msgstr ""
-
-#: aigaionengine/controllers/groups.php:86
-#: aigaionengine/controllers/groups.php:123
-#: aigaionengine/controllers/groups.php:232
-#: aigaionengine/controllers/rightsprofiles.php:85
-#: aigaionengine/controllers/rightsprofiles.php:122
-#: aigaionengine/controllers/site.php:40
-#: aigaionengine/libraries/author_db.php:306
-msgid "Changes not committed"
-msgstr ""
-
-#: aigaionengine/controllers/groups.php:128
-#: aigaionengine/controllers/groups.php:138
-#: aigaionengine/controllers/groups.php:248
-msgid "Edit group"
-msgstr ""
-
-#: aigaionengine/controllers/groups.php:187
-#: aigaionengine/controllers/groups.php:194
-msgid "Delete group"
-msgstr ""
-
-#: aigaionengine/controllers/groups.php:187
-msgid "non-existing group specified"
-msgstr ""
-
-#: aigaionengine/controllers/groups.php:207
-#, php-format
-msgid "Are you sure, that you want to delete the group &ldquo;%s&rdquo;?"
-msgstr ""
-
-#: aigaionengine/controllers/groups.php:239
-msgid "Commit group"
-msgstr ""
-
-#: aigaionengine/controllers/groups.php:239
-#: aigaionengine/controllers/rightsprofiles.php:239
-msgid "no data to commit"
-msgstr ""
-
-#: aigaionengine/controllers/groups.php:259
-msgid "Group Name"
-msgstr ""
-
-#: aigaionengine/controllers/groups.php:294
-msgid "Commit group: an error occurred."
-msgstr ""
-
-#: aigaionengine/controllers/groups.php:324
-#: aigaionengine/controllers/users.php:324
-msgid "Topic review"
-msgstr ""
-
-#: aigaionengine/controllers/groups.php:324
-#: aigaionengine/controllers/groups.php:389
-#: aigaionengine/controllers/groups.php:409
-#: aigaionengine/controllers/groups.php:440
-#: aigaionengine/controllers/groups.php:459
-msgid "invalid group_id specified"
-msgstr ""
-
-#: aigaionengine/controllers/groups.php:335
-#: aigaionengine/controllers/groups.php:400
-#: aigaionengine/controllers/groups.php:450
-#: aigaionengine/controllers/users.php:338
-msgid "Topic subscription"
-msgstr ""
-
-#: aigaionengine/controllers/groups.php:341
-msgid "Topic subscription for groups"
-msgstr ""
-
-#: aigaionengine/controllers/groups.php:350
-#, php-format
-msgid "Topic subscription for %s"
-msgstr ""
-
-#: aigaionengine/controllers/groups.php:351
-#: aigaionengine/controllers/users.php:347
-#: aigaionengine/views/topics/index.php:30
-msgid "Subscribed topics are highlighted in boldface."
-msgstr ""
-
-#: aigaionengine/controllers/groups.php:351
-#: aigaionengine/controllers/users.php:347
-msgid ""
-"To subscribe or unsubscribe a topic and its descendants, click on the topic."
-msgstr ""
-
-#: aigaionengine/controllers/groups.php:389
-#: aigaionengine/controllers/groups.php:409
-msgid "Subscribe topic"
-msgstr ""
-
-#: aigaionengine/controllers/groups.php:440
-#: aigaionengine/controllers/groups.php:459
-msgid "Unsubscribe topic"
-msgstr ""
-
-#: aigaionengine/controllers/help.php:12 aigaionengine/views/footer.php:67
-#: aigaionengine/views/header.php:67 aigaionengine/views/header.php:76
-msgid "Help"
-msgstr ""
-
-#: aigaionengine/controllers/help.php:13 aigaionengine/views/help/header.php:3
-msgid "Introduction"
-msgstr ""
-
-#: aigaionengine/controllers/help.php:14 aigaionengine/views/footer.php:57
-#: aigaionengine/views/help/header.php:4
-msgid "About"
-msgstr ""
-
-#: aigaionengine/controllers/help.php:15 aigaionengine/views/footer.php:71
-#: aigaionengine/views/help/header.php:5
-msgid "FAQ"
-msgstr ""
-
-#: aigaionengine/controllers/help.php:16 aigaionengine/views/footer.php:72
-#: aigaionengine/views/help/header.php:6
-msgid "Video tutorial"
-msgstr ""
-
-#: aigaionengine/controllers/import.php:28
-#: aigaionengine/controllers/publications.php:259
-#: aigaionengine/views/import/importform.php:9
-msgid "Import publications"
-msgstr ""
-
-#: aigaionengine/controllers/import.php:45
-msgid "Import: no import data entered."
-msgstr ""
-
-#: aigaionengine/controllers/import.php:53
-#, php-format
-msgid ""
-"Unknown import format specified (&ldquo;%s&rdquo;). Attempting to "
-"automatically identify proper format."
-msgstr ""
-
-#: aigaionengine/controllers/import.php:60
-msgid ""
-"Import: Can&rsquo;t automatically figure out import data format; please "
-"specify correct format."
-msgstr ""
-
-#: aigaionengine/controllers/import.php:64
-#, php-format
-msgid "Import: Data automatically identified as format &ldquo;%s&rdquo;."
-msgstr ""
-
-#: aigaionengine/controllers/import.php:91
-msgid ""
-"Import: Could not extract any valid publication entries from the import "
-"data. Please verify the input."
-msgstr ""
-
-#: aigaionengine/controllers/import.php:92
-msgid ""
-"If the input is correct, please verify the contents of the &ldquo;BibTeX "
-"strings&rdquo; setting under &ldquo;In- and output settings&rdquo; in the "
-"site configuration screen."
-msgstr ""
-
-#: aigaionengine/controllers/import.php:138
-msgid "Import: Commit: no publications committed."
-msgstr ""
-
-#: aigaionengine/controllers/import.php:169
-#, php-format
-msgid "Succesfully imported %d publications."
-msgstr ""
-
-#: aigaionengine/controllers/import.php:182
-#: aigaionengine/controllers/publications.php:365
-#: aigaionengine/controllers/publications.php:369
-msgid "Review publication"
-msgstr ""
-
-#: aigaionengine/controllers/keywords.php:27 aigaionengine/views/explore.php:4
-#: aigaionengine/views/publications/review.php:73
-msgid "Keywords"
-msgstr ""
-
-#: aigaionengine/controllers/keywords.php:28
-msgid "All keywords in the database"
-msgstr ""
-
-#: aigaionengine/controllers/keywords.php:103
-msgid "View publications for keyword: non-existing id passed."
-msgstr ""
-
-#: aigaionengine/controllers/keywords.php:113
-#, php-format
-msgid "Keyword: &ldquo;%s&rdquo;"
-msgstr ""
-
-#: aigaionengine/controllers/keywords.php:116
-#, php-format
-msgid "Publications for keyword &ldquo;%s&rdquo;"
-msgstr ""
-
-#: aigaionengine/controllers/keywords.php:149
-msgid "No publications found using this keyword."
-msgstr ""
-
-#: aigaionengine/controllers/language.php:11
-msgid "Select language"
-msgstr ""
-
-#: aigaionengine/controllers/language.php:25
-#, php-format
-msgid "Unknown language: &ldquo;%s&rdquo;"
-msgstr ""
-
-#: aigaionengine/controllers/login.php:26
-msgid "Please log in"
-msgstr ""
-
-#: aigaionengine/controllers/login.php:152
-msgid "Anonymous accounts are not enabled."
-msgstr ""
-
-#: aigaionengine/controllers/login.php:162
-msgid "Anonymous login: no existing anonymous user_id provided."
-msgstr ""
-
-#: aigaionengine/controllers/login.php:174
-msgid "Error logging in anonymous account."
-msgstr ""
-
-#: aigaionengine/controllers/logintegration.php:36
-#: aigaionengine/controllers/logintegration.php:75
-#: aigaionengine/controllers/logintegration.php:146
-msgid "Aigaion not configured for this kind of access"
-msgstr ""
-
-#: aigaionengine/controllers/logintegration.php:97
-#: aigaionengine/controllers/logintegration.php:162
-msgid "No token available"
-msgstr ""
-
-#: aigaionengine/controllers/logintegration.php:101
-msgid "Token already logged in"
-msgstr ""
-
-#: aigaionengine/controllers/logintegration.php:102
-msgid "Token timed out"
-msgstr ""
-
-#: aigaionengine/controllers/logintegration.php:121
-#, php-format
-msgid "Logged in as %s"
-msgstr ""
-
-#: aigaionengine/controllers/logintegration.php:124
-msgid "Non-existing account"
-msgstr ""
-
-#: aigaionengine/controllers/logintegration.php:129
-msgid "Fail token"
-msgstr ""
-
-#: aigaionengine/controllers/logintegration.php:131
-msgid "Unknown fail"
-msgstr ""
-
-#: aigaionengine/controllers/logintegration.php:169
-msgid "User logged out"
-msgstr ""
-
-#: aigaionengine/controllers/logintegration.php:171
-msgid "Wrong parameters for logout"
-msgstr ""
-
-#: aigaionengine/controllers/notes.php:38
-msgid "Delete note: non-existing id passed."
-msgstr ""
-
-#: aigaionengine/controllers/notes.php:41
-#: aigaionengine/controllers/notes.php:42
-msgid "delete note"
-msgstr ""
-
-#: aigaionengine/controllers/notes.php:49
-msgid "Delete note"
-msgstr ""
-
-#: aigaionengine/controllers/notes.php:52
-msgid "Are you sure, that you want to delete the note below?"
-msgstr ""
-
-#: aigaionengine/controllers/notes.php:64
-msgid "Add note: non-existing id passed."
-msgstr ""
-
-#: aigaionengine/controllers/notes.php:67
-#: aigaionengine/controllers/notes.php:68
-#: aigaionengine/views/publications/single.php:340
-msgid "add note"
-msgstr ""
-
-#: aigaionengine/controllers/notes.php:71
-#: aigaionengine/controllers/notes.php:82
-#: aigaionengine/controllers/notes.php:118
-#: aigaionengine/controllers/users.php:125
-#: aigaionengine/controllers/users.php:155
-#: aigaionengine/controllers/users.php:235
-msgid "Changes not committed:"
-msgstr ""
-
-#: aigaionengine/controllers/notes.php:73
-#: aigaionengine/libraries/note_db.php:110
-msgid "Add note"
-msgstr ""
-
-#: aigaionengine/controllers/notes.php:86
-msgid "Edit note: non-existing id passed."
-msgstr ""
-
-#: aigaionengine/controllers/notes.php:89
-#: aigaionengine/controllers/notes.php:90
-msgid "edit note"
-msgstr ""
-
-#: aigaionengine/controllers/notes.php:92
-#: aigaionengine/libraries/note_db.php:145
-msgid "Edit note"
-msgstr ""
-
-#: aigaionengine/controllers/notes.php:97
-msgid "Publication belonging to note:"
-msgstr ""
-
-#: aigaionengine/controllers/notes.php:123
-msgid "Commit note: no data to commit."
-msgstr ""
-
-#: aigaionengine/controllers/notes.php:129
-msgid "Publication id"
-msgstr ""
-
-#: aigaionengine/controllers/notes.php:133
-#: aigaionengine/views/attachments/add.php:21
-#: aigaionengine/views/attachments/add.php:51
-#: aigaionengine/views/attachments/edit.php:20
-#: aigaionengine/views/site/edit.php:164 aigaionengine/views/site/edit.php:221
-msgid "Note"
-msgstr ""
-
-#: aigaionengine/controllers/notes.php:147
-msgid "Commit note: an error occurred."
-msgstr ""
-
-#: aigaionengine/controllers/publications.php:53
-msgid "View publication: non-existing id passed."
-msgstr ""
-
-#: aigaionengine/controllers/publications.php:83
-#, php-format
-msgid "View publication: non-existing BibTeX id &ldquo;%s&rdquo; was passed."
-msgstr ""
-
-#: aigaionengine/controllers/publications.php:103
-#, php-format
-msgid "All publications %s"
-msgstr ""
-
-#: aigaionengine/controllers/publications.php:115
-#: aigaionengine/controllers/publications.php:160
-msgid "sorted by author"
-msgstr ""
-
-#: aigaionengine/controllers/publications.php:132
-#: aigaionengine/controllers/publications.php:175
-msgid "Publication list"
-msgstr ""
-
-#: aigaionengine/controllers/publications.php:148
-#, php-format
-msgid "All publications not assigned to a topic %s"
-msgstr ""
-
-#: aigaionengine/controllers/publications.php:211
-#: aigaionengine/controllers/publications.php:218
-msgid "Edit publication"
-msgstr ""
-
-#: aigaionengine/controllers/publications.php:215
-#: aigaionengine/libraries/publication_db.php:406
-msgid "Add publication"
-msgstr ""
-
-#: aigaionengine/controllers/publications.php:258
-msgid "Import publication"
-msgstr ""
-
-#: aigaionengine/controllers/publications.php:273
-msgid "Delete publication: non-existing id passed."
-msgstr ""
-
-#: aigaionengine/controllers/publications.php:282
-#: aigaionengine/controllers/publications.php:292
-msgid "Delete publication"
-msgstr ""
-
-#: aigaionengine/controllers/publications.php:295
-#, php-format
-msgid "Are you sure, that you want to delete the publication &ldquo;%s&rdquo;?"
-msgstr ""
-
-#: aigaionengine/controllers/publications.php:316
-msgid ""
-"There are validation errors with this entry. You may want to correct them."
-msgstr ""
-
-#: aigaionengine/controllers/publications.php:341
-msgid "Commit publication"
-msgstr ""
-
-#: aigaionengine/controllers/publications.php:396
-msgid "Successfully subscribed publication."
-msgstr ""
-
-#: aigaionengine/controllers/publications.php:399
-#: aigaionengine/controllers/publications.php:429
-#: aigaionengine/controllers/users.php:398
-msgid "Subscribe topic: non-existing id passed."
-msgstr ""
-
-#: aigaionengine/controllers/publications.php:426
-msgid "Successfully unsubscribed publication."
-msgstr ""
-
-#: aigaionengine/controllers/publications.php:443
-#: aigaionengine/controllers/publications.php:459
-msgid "Mark publication: non-existing id passed."
-msgstr ""
-
-#: aigaionengine/controllers/publications.php:446
-#: aigaionengine/controllers/publications.php:462
-msgid "Mark publication"
-msgstr ""
-
-#: aigaionengine/controllers/publications.php:485
-msgid "Export publication: non-existing id passed."
-msgstr ""
-
-#: aigaionengine/controllers/publications.php:517
-#: aigaionengine/controllers/publications.php:555
-msgid "Exported publication"
-msgstr ""
-
-#: aigaionengine/controllers/publications.php:568
-msgid "Export publication"
-msgstr ""
-
-#: aigaionengine/controllers/readapi.php:12
-msgid "no command"
-msgstr ""
-
-#: aigaionengine/controllers/readapi.php:18
-#: aigaionengine/controllers/readapi.php:124
-msgid "no type"
-msgstr ""
-
-#: aigaionengine/controllers/readapi.php:22
-#: aigaionengine/controllers/readapi.php:95
-#: aigaionengine/controllers/readapi.php:128
-#: aigaionengine/controllers/readapi.php:200
-msgid "no id"
-msgstr ""
-
-#: aigaionengine/controllers/readapi.php:32
-#, php-format
-msgid "Unknown id or bibtex_id: %s"
-msgstr ""
-
-#: aigaionengine/controllers/readapi.php:35
-msgid "Go to this publication in the Aigaion database"
-msgstr ""
-
-#: aigaionengine/controllers/readapi.php:69
-#: aigaionengine/controllers/readapi.php:175
-msgid "Topic structure is not unique in Aigaion."
-msgstr ""
-
-#: aigaionengine/controllers/readapi.php:73
-#: aigaionengine/controllers/readapi.php:179
-msgid "Topic structure does not exist in Aigaion."
-msgstr ""
-
-#: aigaionengine/controllers/readapi.php:76
-#: aigaionengine/controllers/readapi.php:182
-msgid "no topic id"
-msgstr ""
-
-#: aigaionengine/controllers/readapi.php:88
-#: aigaionengine/controllers/readapi.php:193
-msgid "Unknown topic id or topic path"
-msgstr ""
-
-#: aigaionengine/controllers/readapi.php:91
-msgid "Go to this topic in the Aigaion database"
-msgstr ""
-
-#: aigaionengine/controllers/readapi.php:109
-msgid "CANNOT INTERPRET FULL AUTHOR NAMES YET."
-msgstr ""
-
-#: aigaionengine/controllers/readapi.php:109
-#: aigaionengine/controllers/readapi.php:214
-msgid "Unknown author id or name"
-msgstr ""
-
-#: aigaionengine/controllers/readapi.php:112
-msgid "Go to this author in the Aigaion database"
-msgstr ""
-
-#: aigaionengine/controllers/readapi.php:115
-#: aigaionengine/controllers/readapi.php:227
-msgid "Unknown type"
-msgstr ""
-
-#: aigaionengine/controllers/readapi.php:138
-msgid "Unknown id or bibtex_id"
-msgstr ""
-
-#: aigaionengine/controllers/readapi.php:141
-#: aigaionengine/controllers/readapi.php:196
-#, php-format
-msgid "Embedding for %s"
-msgstr ""
-
-#: aigaionengine/controllers/readapi.php:235
-msgid "Aigaion error: no shared domain configured in the Aigaion database"
-msgstr ""
-
-#: aigaionengine/controllers/repostform.php:12
-msgid "No form data to repost."
-msgstr ""
-
-#: aigaionengine/controllers/repostform.php:15
-msgid "Repost form"
-msgstr ""
-
-#: aigaionengine/controllers/rightsprofiles.php:35
-msgid "View rights profile"
-msgstr ""
-
-#: aigaionengine/controllers/rightsprofiles.php:43
-#: aigaionengine/controllers/rightsprofiles.php:89
-#: aigaionengine/controllers/rightsprofiles.php:144
-#: aigaionengine/controllers/rightsprofiles.php:204
-#: aigaionengine/controllers/rightsprofiles.php:269
-msgid "Rightsprofile"
-msgstr ""
-
-#: aigaionengine/controllers/rightsprofiles.php:80
-msgid "Add rights profile"
-msgstr ""
-
-#: aigaionengine/controllers/rightsprofiles.php:127
-#: aigaionengine/controllers/rightsprofiles.php:138
-#: aigaionengine/controllers/rightsprofiles.php:250
-msgid "Edit rights profile"
-msgstr ""
-
-#: aigaionengine/controllers/rightsprofiles.php:187
-#: aigaionengine/controllers/rightsprofiles.php:194
-msgid "Delete rights profile"
-msgstr ""
-
-#: aigaionengine/controllers/rightsprofiles.php:207
-#, php-format
-msgid ""
-"Are you sure, that you want to delete the rights profile &ldquo;%s&rdquo;?"
-msgstr ""
-
-#: aigaionengine/controllers/rightsprofiles.php:239
-msgid "Commit rights profile"
-msgstr ""
-
-#: aigaionengine/controllers/rightsprofiles.php:261
-msgid "Profile Name"
-msgstr ""
-
-#: aigaionengine/controllers/rightsprofiles.php:296
-msgid "Commit rights profile: an error occurred."
-msgstr ""
-
-#: aigaionengine/controllers/search.php:10
-#: aigaionengine/views/search/advanced.php:15
-msgid "Advanced Search"
-msgstr ""
-
-#: aigaionengine/controllers/search.php:11
-msgid "External Search"
-msgstr ""
-
-#: aigaionengine/controllers/search.php:26
-msgid "Advanced search"
-msgstr ""
-
-#: aigaionengine/controllers/search.php:35
-msgid "External search"
-msgstr ""
-
-#: aigaionengine/controllers/search.php:46
-msgid "Search: no query."
-msgstr ""
-
-#: aigaionengine/controllers/search.php:51
-msgid "Search results"
-msgstr ""
-
-#: aigaionengine/controllers/search.php:80
-msgid "Nonexisting topic ID in advanced search condition"
-msgstr ""
-
-#: aigaionengine/controllers/search.php:93
-msgid ""
-"No query at all: please give at least a search term or a topic condition"
-msgstr ""
-
-#: aigaionengine/controllers/search.php:124
-msgid "Advanced search results"
-msgstr ""
-
-#: aigaionengine/controllers/site.php:33
-msgid "Configure database"
-msgstr ""
-
-#: aigaionengine/controllers/site.php:59
-msgid "Site configuration"
-msgstr ""
-
-#: aigaionengine/controllers/site.php:100
-msgid "Maintain database"
-msgstr ""
-
-#: aigaionengine/controllers/site.php:140
-msgid "Aigaion updates"
-msgstr ""
-
-#: aigaionengine/controllers/site.php:141
-msgid "Checking for updates"
-msgstr ""
-
-#: aigaionengine/controllers/site.php:145
-#: aigaionengine/controllers/test.php:312
-#: aigaionengine/helpers/maintenance_helper.php:54
-#: aigaionengine/helpers/maintenance_helper.php:90
-#: aigaionengine/helpers/maintenance_helper.php:103
-#: aigaionengine/helpers/maintenance_helper.php:117
-#: aigaionengine/helpers/maintenance_helper.php:135
-#: aigaionengine/helpers/maintenance_helper.php:164
-#: aigaionengine/helpers/maintenance_helper.php:179
-#: aigaionengine/helpers/maintenance_helper.php:197
-#: aigaionengine/helpers/maintenance_helper.php:210
-#: aigaionengine/helpers/maintenance_helper.php:225
-#: aigaionengine/helpers/maintenance_helper.php:239
-#: aigaionengine/helpers/maintenance_helper.php:254
-#: aigaionengine/helpers/maintenance_helper.php:327
-#: aigaionengine/helpers/maintenance_helper.php:346
-#: aigaionengine/libraries/userlogin.php:846
-msgid "OK"
-msgstr ""
-
-#: aigaionengine/controllers/site.php:146
-msgid "This installation of Aigaion is up-to-date."
-msgstr ""
-
-#: aigaionengine/controllers/site.php:161
-#, php-format
-msgid "Maintenance function \"%s\" not implemented."
-msgstr ""
-
-#: aigaionengine/controllers/site.php:168
-msgid "Site maintenance"
-msgstr ""
-
-#: aigaionengine/controllers/site.php:206
-msgid "Backup database"
-msgstr ""
-
-#: aigaionengine/controllers/site.php:293
-#: aigaionengine/controllers/site.php:297
-#: aigaionengine/controllers/site.php:323
-#: aigaionengine/controllers/site.php:398
-msgid "Restore database"
-msgstr ""
-
-#: aigaionengine/controllers/site.php:333
-msgid ""
-"The file appears not to be an SQL file. Please select a valid Aigaion backup "
-"file."
-msgstr ""
-
-#: aigaionengine/controllers/site.php:357
-#: aigaionengine/controllers/site.php:421
-msgid "Restored database"
-msgstr ""
-
-#: aigaionengine/controllers/site.php:405
-msgid "No data given to restore!"
-msgstr ""
-
-#: aigaionengine/controllers/stats.php:21
-#: aigaionengine/views/site/stats.php:16
-msgid "Statistics"
-msgstr ""
-
-#: aigaionengine/controllers/test.php:35 aigaionengine/controllers/test.php:38
-msgid "Unit Testing Output"
-msgstr ""
-
-#: aigaionengine/controllers/test.php:39
-msgid ""
-"See the controller \"test.php\" for the unit testing functions. From its "
-"main method, call each test method with $debug parameter = true to get more "
-"output."
-msgstr ""
-
-#: aigaionengine/controllers/test.php:64
-msgid "Bibtex character conversions"
-msgstr ""
-
-#: aigaionengine/controllers/test.php:135
-#: aigaionengine/controllers/test.php:143
-#: aigaionengine/controllers/test.php:357
-#: aigaionengine/controllers/test.php:364
-msgid "Test"
-msgstr ""
-
-#: aigaionengine/controllers/test.php:136
-#: aigaionengine/controllers/test.php:358
-msgid "Failed"
-msgstr ""
-
-#: aigaionengine/controllers/test.php:144
-#: aigaionengine/controllers/test.php:365
-msgid "Passed"
-msgstr ""
-
-#: aigaionengine/controllers/test.php:156
-msgid "Bibtex single entry imports"
-msgstr ""
-
-#: aigaionengine/controllers/test.php:156
-msgid ""
-"Note: these tests do not take the review and database result into account, "
-"only the result of the bibtex parsing."
-msgstr ""
-
-#: aigaionengine/controllers/test.php:263
-#, php-format
-msgid "Import should return 1 publication, but returned %s publications."
-msgstr ""
-
-#: aigaionengine/controllers/test.php:274
-#, php-format
-msgid "\"%s\" should have been \"%s\" but is \"%s\""
-msgstr ""
-
-#: aigaionengine/controllers/test.php:282
-#, php-format
-msgid "Import should contain %s authors, but does contain %s authors."
-msgstr ""
-
-#: aigaionengine/controllers/test.php:292
-#, php-format
-msgid "First name(s) should have been \"%s\" but is \"%s\"."
-msgstr ""
-
-#: aigaionengine/controllers/test.php:298
-#, php-format
-msgid "von-part should have been \"%s\" but is \"%s\"."
-msgstr ""
-
-#: aigaionengine/controllers/test.php:304
-#, php-format
-msgid "Last name(s) should have been \"%s\" but is \"%s\"."
-msgstr ""
-
-#: aigaionengine/controllers/test.php:310
-#, php-format
-msgid "jr-part should have been \"%s\" but is \"%s\"."
-msgstr ""
-
-#: aigaionengine/controllers/topics.php:41
-#: aigaionengine/controllers/topics.php:65
-msgid "Browse topics: non-existing id passed."
-msgstr ""
-
-#: aigaionengine/controllers/topics.php:44
-msgid "Browse topic tree"
-msgstr ""
-
-#: aigaionengine/controllers/topics.php:68
-msgid "Browse topic tree (include all topics)"
-msgstr ""
-
-#: aigaionengine/controllers/topics.php:85
-msgid "Delete topic: non-existing id passed."
-msgstr ""
-
-#: aigaionengine/controllers/topics.php:93
-#: aigaionengine/controllers/topics.php:100
-msgid "Delete topic"
-msgstr ""
-
-#: aigaionengine/controllers/topics.php:103
-#, php-format
-msgid "Are you sure, that you want to delete the topic &ldquo;%s&rdquo;?"
-msgstr ""
-
-#: aigaionengine/controllers/topics.php:114
-#: aigaionengine/libraries/topic_db.php:397
-msgid "Add topic"
-msgstr ""
-
-#: aigaionengine/controllers/topics.php:116
-#: aigaionengine/controllers/topics.php:140
-#: aigaionengine/controllers/topics.php:346
-msgid "Changes not committed: "
-msgstr ""
-
-#: aigaionengine/controllers/topics.php:130
-#: aigaionengine/views/topics/edit.php:28
-msgid "New Topic"
-msgstr ""
-
-#: aigaionengine/controllers/topics.php:147
-msgid "Edit topic: non-existing id passed."
-msgstr ""
-
-#: aigaionengine/controllers/topics.php:154
-#: aigaionengine/controllers/topics.php:166
-#: aigaionengine/libraries/topic_db.php:443
-msgid "Edit topic"
-msgstr ""
-
-#: aigaionengine/controllers/topics.php:199
-#: aigaionengine/controllers/topics.php:298
-#: aigaionengine/controllers/topics.php:300
-#, php-format
-msgid "Topic structure is not unique in %s."
-msgstr ""
-
-#: aigaionengine/controllers/topics.php:202
-#, php-format
-msgid "Topic structure does not exist in %s."
-msgstr ""
-
-#: aigaionengine/controllers/topics.php:221
-msgid "Show topic: non-existing id passed."
-msgstr ""
-
-#: aigaionengine/controllers/topics.php:229
-#: aigaionengine/controllers/topics.php:317
-#, php-format
-msgid "Publications for topic &ldquo;%s&rdquo; %%s"
-msgstr ""
-
-#: aigaionengine/controllers/topics.php:258
-#: aigaionengine/views/topics/full.php:11
-#, php-format
-msgid "Topic: %s"
-msgstr ""
-
-#: aigaionengine/controllers/topics.php:312
-msgid "Embed topic: non-existing id passed."
-msgstr ""
-
-#: aigaionengine/controllers/topics.php:353
-msgid "Commit topic: no data to commit."
-msgstr ""
-
-#: aigaionengine/controllers/topics.php:365
-msgid "Topic Name"
-msgstr ""
-
-#: aigaionengine/controllers/topics.php:385
-msgid "Commit topic: an error occurred."
-msgstr ""
-
-#: aigaionengine/controllers/topics.php:398
-msgid "Collapse topic: non-existing id passed."
-msgstr ""
-
-#: aigaionengine/controllers/topics.php:429
-msgid "Export topic: non-existing id passed."
-msgstr ""
-
-#: aigaionengine/controllers/topics.php:466
-#: aigaionengine/controllers/topics.php:502
-msgid "Exported from topic"
-msgstr ""
-
-#: aigaionengine/controllers/topics.php:515
-msgid "Topic export"
-msgstr ""
-
-#: aigaionengine/controllers/usercontroller.php:21
-msgid "You must be logged in to view the users’ page."
-msgstr ""
-
-#: aigaionengine/controllers/usercontroller.php:42
-#: aigaionengine/views/user/all.php:3
-msgid "All Users"
-msgstr ""
-
-#: aigaionengine/controllers/usercontroller.php:48
-#, php-format
-msgid "User %s does not exist."
-msgstr ""
-
-#: aigaionengine/controllers/usercontroller.php:51
-#, php-format
-msgid "Unknown action requested: %s."
-msgstr ""
-
-#: aigaionengine/controllers/usercontroller.php:54
-msgid "You must be logged in to view this user’s page."
-msgstr ""
-
-#: aigaionengine/controllers/usercontroller.php:73
-#, php-format
-msgid "User %s"
-msgstr ""
-
-#: aigaionengine/controllers/usercontroller.php:87
-msgid "Please log in to contact other users."
-msgstr ""
-
-#: aigaionengine/controllers/usercontroller.php:90
-#, php-format
-msgid "A %s is required."
-msgstr ""
-
-#: aigaionengine/controllers/usercontroller.php:91
-#, php-format
-msgid "The %s may not exceed 511 characters."
-msgstr ""
-
-#: aigaionengine/controllers/usercontroller.php:93
-msgid "message"
-msgstr ""
-
-#: aigaionengine/controllers/usercontroller.php:107
-#, php-format
-msgid "A message from Puma user %s %s"
-msgstr ""
-
-#: aigaionengine/controllers/usercontroller.php:121
-msgid "There was an error trying to send the e-Mail."
-msgstr ""
-
-#: aigaionengine/controllers/usercontroller.php:125
-#, php-format
-msgid "Contact user %s"
-msgstr ""
-
-#: aigaionengine/controllers/usercontroller.php:138
-msgid "You are not allowed to edit other users."
-msgstr ""
-
-#: aigaionengine/controllers/usercontroller.php:142
-#, php-format
-msgid "The field %s is required."
-msgstr ""
-
-#: aigaionengine/controllers/usercontroller.php:143
-#, php-format
-msgid "The field %s is too long."
-msgstr ""
-
-#: aigaionengine/controllers/usercontroller.php:148
-#: aigaionengine/views/users/edit.php:108
-#: aigaionengine/views/users/edit.php:147
-#: aigaionengine/views/users/edit.php:157
-#: aigaionengine/views/users/edit.php:166
-msgid "Password"
-msgstr ""
-
-#: aigaionengine/controllers/usercontroller.php:149
-msgid "Password repeat"
-msgstr ""
-
-#: aigaionengine/controllers/usercontroller.php:156
-msgid "The account was successfully updated."
-msgstr ""
-
-#: aigaionengine/controllers/usercontroller.php:158
-msgid "The changes could not be stored."
-msgstr ""
-
-#: aigaionengine/controllers/usercontroller.php:165
-#, php-format
-msgid "Edit user %s"
-msgstr ""
-
-#: aigaionengine/controllers/usercontroller.php:193
-msgid "The option was successfully set."
-msgstr ""
-
-#: aigaionengine/controllers/usercontroller.php:207
-#, php-format
-msgid "Group %s does not exist."
-msgstr ""
-
-#: aigaionengine/controllers/usercontroller.php:216
-#, php-format
-msgid "Group %s"
-msgstr ""
-
-#: aigaionengine/controllers/users.php:31
-msgid "Manage accounts"
-msgstr ""
-
-#: aigaionengine/controllers/users.php:33
-#: aigaionengine/controllers/users.php:101
-#: aigaionengine/controllers/users.php:127
-#: aigaionengine/controllers/users.php:165
-#: aigaionengine/controllers/users.php:210
-#: aigaionengine/controllers/users.php:277
-msgid "User"
-msgstr ""
-
-#: aigaionengine/controllers/users.php:35
-msgid "add a new user"
-msgstr ""
-
-#: aigaionengine/controllers/users.php:37 aigaionengine/views/menu.php:16
-msgid "Users"
-msgstr ""
-
-#: aigaionengine/controllers/users.php:56
-msgid "add a new group"
-msgstr ""
-
-#: aigaionengine/controllers/users.php:57
-#: aigaionengine/views/users/edit.php:370
-msgid "Groups"
-msgstr ""
-
-#: aigaionengine/controllers/users.php:65
-msgid "add a new rightsprofile"
-msgstr ""
-
-#: aigaionengine/controllers/users.php:66
-msgid "Rights profiles"
-msgstr ""
-
-#: aigaionengine/controllers/users.php:97
-msgid "View user: non-existing id passed."
-msgstr ""
-
-#: aigaionengine/controllers/users.php:122
-msgid "Add user"
-msgstr ""
-
-#: aigaionengine/controllers/users.php:150
-msgid "Edit user: non-existing id passed."
-msgstr ""
-
-#: aigaionengine/controllers/users.php:161
-#: aigaionengine/controllers/users.php:250
-msgid "Edit account: insufficient rights."
-msgstr ""
-
-#: aigaionengine/controllers/users.php:194
-msgid "Delete user: non-existing id passed."
-msgstr ""
-
-#: aigaionengine/controllers/users.php:201
-msgid "Delete account: insufficient rights."
-msgstr ""
-
-#: aigaionengine/controllers/users.php:213
-#, php-format
-msgid "Are you sure, that you want to delete the user &ldquo;%s&rdquo;?"
-msgstr ""
-
-#: aigaionengine/controllers/users.php:242
-msgid "Commit user: no data to commit."
-msgstr ""
-
-#: aigaionengine/controllers/users.php:269
-msgid "Login Name"
-msgstr ""
-
-#: aigaionengine/controllers/users.php:270
-msgid "First Password"
-msgstr ""
-
-#: aigaionengine/controllers/users.php:271
-msgid "Second Password"
-msgstr ""
-
-#: aigaionengine/controllers/users.php:293
-#, php-format
-msgid "Commit user: an error occurred at &ldquo;%s&rdquo;."
-msgstr ""
-
-#: aigaionengine/controllers/users.php:332
-msgid "Topic subscription: insufficient rights."
-msgstr ""
-
-#: aigaionengine/controllers/users.php:346
-#, php-format
-msgid "Topic subscription for %s (%s)"
-msgstr ""
-
-#: aigaionengine/controllers/users.php:388
-msgid "Subscribe topic: non-existing id passed"
-msgstr ""
-
-#: aigaionengine/controllers/users.php:393
-#: aigaionengine/controllers/users.php:452
-msgid "Topic subscription: insufficient rights"
-msgstr ""
-
-#: aigaionengine/controllers/users.php:416
-msgid "The topic has been subscribed."
-msgstr ""
-
-#: aigaionengine/controllers/users.php:447
-msgid "Unsubscribe topic: non-existing id passed"
-msgstr ""
-
-#: aigaionengine/controllers/users.php:457
-msgid "Unsubscribe topic: non-existing id passed."
-msgstr ""
-
-#: aigaionengine/controllers/users.php:475
-msgid "The topic has been unsubscribed."
-msgstr ""
-
-#: aigaionengine/controllers/wiki.php:16
-#: aigaionengine/views/help/header.php:16 aigaionengine/views/menu.php:19
-msgid "Wiki"
-msgstr ""
-
-#: aigaionengine/controllers/wiki.php:17
-#: aigaionengine/controllers/wiki.php:138
-msgid "Main Page"
-msgstr ""
-
-#: aigaionengine/controllers/wiki.php:17
-msgid "All Pages"
-msgstr ""
-
-#: aigaionengine/controllers/wiki.php:29
-#, php-format
-msgid "Page &ldquo;%s&rdquo; does not exist yet."
-msgstr ""
-
-#: aigaionengine/controllers/wiki.php:49
-msgid "You must be logged in to edit the wiki."
-msgstr ""
-
-#: aigaionengine/controllers/wiki.php:53
-msgid "Content"
-msgstr ""
-
-#: aigaionengine/controllers/wiki.php:81
-msgid "Could not edit the wiki page. Do you have edit rights?"
-msgstr ""
-
-#: aigaionengine/controllers/wiki.php:97
-#, php-format
-msgid "Discussion for &ldquo;%s&rdquo; does not exist yet."
-msgstr ""
-
-#: aigaionengine/controllers/wiki.php:102
-#, php-format
-msgid "Discussion: &ldquo;%s&rdquo;"
-msgstr ""
-
-#: aigaionengine/controllers/wiki.php:109
-#: aigaionengine/controllers/wiki.php:121
-msgid "You must be logged in to view the history of wiki items."
-msgstr ""
-
-#: aigaionengine/controllers/wiki.php:124
-#: aigaionengine/controllers/wiki.php:182
-#, php-format
-msgid "Wiki » %s"
-msgstr ""
-
-#: aigaionengine/controllers/wiki.php:128
-#, php-format
-msgid "Old Version: &ldquo;%s&rdquo;"
-msgstr ""
-
-#: aigaionengine/controllers/wiki.php:129
-#, php-format
-msgid "This is an old version of &ldquo;%s&rdquo;. Creation date: %s."
-msgstr ""
-
-#: aigaionengine/controllers/wiki.php:135
-msgid "Special pages are viewable for logged in users only."
-msgstr ""
-
-#: aigaionengine/controllers/wiki.php:136
-msgid "Wiki » Special page"
-msgstr ""
-
-#: aigaionengine/controllers/wiki.php:138
-msgid "Special page"
-msgstr ""
-
-#: aigaionengine/controllers/wiki.php:153
-#, php-format
-msgid "Special Page: %s"
-msgstr ""
-
-#: aigaionengine/controllers/wiki.php:162
-msgid "View"
-msgstr ""
-
-#: aigaionengine/controllers/wiki.php:163
-msgid "Discussion"
-msgstr ""
-
-#: aigaionengine/controllers/wiki.php:164
-msgid "Edit"
-msgstr ""
-
-#: aigaionengine/controllers/wiki.php:165
-msgid "History"
-msgstr ""
-
 #: aigaionengine/errors/error_general.php:6
 msgid "Error"
 msgstr ""
 
 #: aigaionengine/errors/error_general.php:23
 #: aigaionengine/errors/error_general.php:54
-#: aigaionengine/views/error/404.php:13 aigaionengine/views/header.php:50
-#: aigaionengine/views/menu.php:13 aigaionengine/views/search/advanced.php:57
+#: aigaionengine/views/search/advanced.php:57
 #: aigaionengine/views/search/advanced.php:147
+#: aigaionengine/views/error/404.php:13 aigaionengine/views/menu.php:13
+#: aigaionengine/views/header.php:50
 msgid "Search"
 msgstr ""
 
@@ -2031,96 +2068,6 @@ msgstr ""
 #: aigaionengine/errors/error_general.php:49
 #: aigaionengine/views/error/404.php:8
 msgid "Search the site:"
-msgstr ""
-
-#: aigaionengine/helpers/checkupdates_helper.php:30
-msgid "Couldn't connect to demo2.aigaion.nl to check for updates"
-msgstr ""
-
-#: aigaionengine/helpers/checkupdates_helper.php:33
-msgid "Couldn't obtain release version info from demo2.aigaion.nl"
-msgstr ""
-
-#: aigaionengine/helpers/checkupdates_helper.php:48
-msgid ""
-"Your database version is higher than the official release. Probably you are "
-"using the SVN version?"
-msgstr ""
-
-#: aigaionengine/helpers/checkupdates_helper.php:51
-msgid "There is a new version available"
-msgstr ""
-
-#: aigaionengine/helpers/checkupdates_helper.php:51
-msgid "Current version"
-msgstr ""
-
-#: aigaionengine/helpers/checkupdates_helper.php:57
-msgid "Couldn't obtain detailed update info from demo2.aigaion.nl"
-msgstr ""
-
-#: aigaionengine/helpers/checkupdates_helper.php:77
-msgid ""
-"Note: the updated version contains security fixes. You are strongly "
-"recommended to get the latest version of Aigaion."
-msgstr ""
-
-#: aigaionengine/helpers/checkupdates_helper.php:79
-msgid "Detailed info for available updates"
-msgstr ""
-
-#: aigaionengine/helpers/checkupdates_helper.php:85
-msgid "Types of update"
-msgstr ""
-
-#: aigaionengine/helpers/checkupdates_helper.php:89
-msgid "Version"
-msgstr ""
-
-#: aigaionengine/helpers/checkupdates_helper.php:90
-msgid "Bugfix"
-msgstr ""
-
-#: aigaionengine/helpers/checkupdates_helper.php:91
-msgid "Features"
-msgstr ""
-
-#: aigaionengine/helpers/checkupdates_helper.php:92
-msgid "Layout"
-msgstr ""
-
-#: aigaionengine/helpers/checkupdates_helper.php:93
-msgid "Security"
-msgstr ""
-
-#: aigaionengine/helpers/checkupdates_helper.php:94
-#: aigaionengine/views/topics/edit.php:55
-msgid "Description"
-msgstr ""
-
-#: aigaionengine/helpers/checkupdates_helper.php:102
-msgid "Some bugs were fixed this release"
-msgstr ""
-
-#: aigaionengine/helpers/checkupdates_helper.php:106
-msgid "Some features were added this release"
-msgstr ""
-
-#: aigaionengine/helpers/checkupdates_helper.php:110
-msgid "Some layout elements were changed this release"
-msgstr ""
-
-#: aigaionengine/helpers/checkupdates_helper.php:114
-msgid "This release contains security fixes!"
-msgstr ""
-
-#: aigaionengine/helpers/checkupdates_helper.php:123
-#, php-format
-msgid "You can download the new version %s here %s."
-msgstr ""
-
-#: aigaionengine/helpers/export_helper.php:424
-msgid "No format possible"
 msgstr ""
 
 #: aigaionengine/helpers/login_helper.php:53
@@ -2384,54 +2331,6 @@ msgstr ""
 msgid "This is a serious bug! Please contact immediately %s."
 msgstr ""
 
-#: aigaionengine/helpers/month_helper.php:51
-msgid "January"
-msgstr ""
-
-#: aigaionengine/helpers/month_helper.php:51
-msgid "February"
-msgstr ""
-
-#: aigaionengine/helpers/month_helper.php:51
-msgid "March"
-msgstr ""
-
-#: aigaionengine/helpers/month_helper.php:51
-msgid "April"
-msgstr ""
-
-#: aigaionengine/helpers/month_helper.php:51
-msgid "May"
-msgstr ""
-
-#: aigaionengine/helpers/month_helper.php:51
-msgid "June"
-msgstr ""
-
-#: aigaionengine/helpers/month_helper.php:51
-msgid "July"
-msgstr ""
-
-#: aigaionengine/helpers/month_helper.php:51
-msgid "August"
-msgstr ""
-
-#: aigaionengine/helpers/month_helper.php:51
-msgid "September"
-msgstr ""
-
-#: aigaionengine/helpers/month_helper.php:51
-msgid "October"
-msgstr ""
-
-#: aigaionengine/helpers/month_helper.php:51
-msgid "November"
-msgstr ""
-
-#: aigaionengine/helpers/month_helper.php:51
-msgid "December"
-msgstr ""
-
 #: aigaionengine/helpers/publication_helper.php:481
 #: aigaionengine/helpers/publication_helper.php:509
 #: aigaionengine/helpers/publication_helper.php:517
@@ -2529,6 +2428,58 @@ msgstr ""
 #: aigaionengine/helpers/readremote_helper.php:37
 #, php-format
 msgid "Cannot retrieve %s"
+msgstr ""
+
+#: aigaionengine/helpers/user_helper.php:20
+msgid "unknown"
+msgstr ""
+
+#: aigaionengine/helpers/month_helper.php:51
+msgid "January"
+msgstr ""
+
+#: aigaionengine/helpers/month_helper.php:51
+msgid "February"
+msgstr ""
+
+#: aigaionengine/helpers/month_helper.php:51
+msgid "March"
+msgstr ""
+
+#: aigaionengine/helpers/month_helper.php:51
+msgid "April"
+msgstr ""
+
+#: aigaionengine/helpers/month_helper.php:51
+msgid "May"
+msgstr ""
+
+#: aigaionengine/helpers/month_helper.php:51
+msgid "June"
+msgstr ""
+
+#: aigaionengine/helpers/month_helper.php:51
+msgid "July"
+msgstr ""
+
+#: aigaionengine/helpers/month_helper.php:51
+msgid "August"
+msgstr ""
+
+#: aigaionengine/helpers/month_helper.php:51
+msgid "September"
+msgstr ""
+
+#: aigaionengine/helpers/month_helper.php:51
+msgid "October"
+msgstr ""
+
+#: aigaionengine/helpers/month_helper.php:51
+msgid "November"
+msgstr ""
+
+#: aigaionengine/helpers/month_helper.php:51
+msgid "December"
 msgstr ""
 
 #: aigaionengine/helpers/schema_helper.php:83
@@ -2690,66 +2641,94 @@ msgstr ""
 msgid "institute"
 msgstr ""
 
-#: aigaionengine/helpers/user_helper.php:20
-msgid "unknown"
+#: aigaionengine/helpers/checkupdates_helper.php:30
+msgid "Couldn't connect to demo2.aigaion.nl to check for updates"
 msgstr ""
 
-#: aigaionengine/libraries/accesslevels_lib.php:56
-#: aigaionengine/libraries/accesslevels_lib.php:78
-#: aigaionengine/libraries/accesslevels_lib.php:100
-#: aigaionengine/libraries/accesslevels_lib.php:140
-#: aigaionengine/libraries/accesslevels_lib.php:195
-#: aigaionengine/libraries/accesslevels_lib.php:221
-#: aigaionengine/libraries/accesslevels_lib.php:244
-#: aigaionengine/libraries/accesslevels_lib.php:270
-msgid "Edit access level: insufficient rights."
+#: aigaionengine/helpers/checkupdates_helper.php:33
+msgid "Couldn't obtain release version info from demo2.aigaion.nl"
 msgstr ""
 
-#: aigaionengine/libraries/accesslevels_lib.php:64
-#: aigaionengine/libraries/accesslevels_lib.php:69
-#: aigaionengine/libraries/accesslevels_lib.php:86
-#: aigaionengine/libraries/accesslevels_lib.php:91
-#: aigaionengine/libraries/accesslevels_lib.php:108
-#: aigaionengine/libraries/accesslevels_lib.php:113
-#: aigaionengine/libraries/accesslevels_lib.php:148
-#: aigaionengine/libraries/accesslevels_lib.php:153
-#: aigaionengine/libraries/accesslevels_lib.php:206
-#: aigaionengine/libraries/accesslevels_lib.php:212
-#: aigaionengine/libraries/accesslevels_lib.php:227
-#: aigaionengine/libraries/accesslevels_lib.php:233
-#: aigaionengine/libraries/accesslevels_lib.php:250
-#: aigaionengine/libraries/accesslevels_lib.php:256
-#: aigaionengine/libraries/accesslevels_lib.php:276
-#: aigaionengine/libraries/accesslevels_lib.php:282
-msgid "Modify access level: Restricted edit level to match read level."
-msgstr ""
-
-#: aigaionengine/libraries/accesslevels_lib.php:122
-#: aigaionengine/libraries/accesslevels_lib.php:127
+#: aigaionengine/helpers/checkupdates_helper.php:48
 msgid ""
-"Modify access level: Increased read level for publication to match new read "
-"level for attachment."
+"Your database version is higher than the official release. Probably you are "
+"using the SVN version?"
 msgstr ""
 
-#: aigaionengine/libraries/accesslevels_lib.php:131
-#: aigaionengine/libraries/accesslevels_lib.php:171
-msgid "Couldn&rsquo;t propagate new level all the way up."
+#: aigaionengine/helpers/checkupdates_helper.php:51
+msgid "There is a new version available"
 msgstr ""
 
-#: aigaionengine/libraries/accesslevels_lib.php:162
-#: aigaionengine/libraries/accesslevels_lib.php:167
+#: aigaionengine/helpers/checkupdates_helper.php:51
+msgid "Current version"
+msgstr ""
+
+#: aigaionengine/helpers/checkupdates_helper.php:57
+msgid "Couldn't obtain detailed update info from demo2.aigaion.nl"
+msgstr ""
+
+#: aigaionengine/helpers/checkupdates_helper.php:77
 msgid ""
-"Modify access level: Increased read level for publication to match new read "
-"level for note."
+"Note: the updated version contains security fixes. You are strongly "
+"recommended to get the latest version of Aigaion."
 msgstr ""
 
-#: aigaionengine/libraries/accesslevels_lib.php:200
-msgid ""
-"Edit access level: You cannot change the access levels of the top topic."
+#: aigaionengine/helpers/checkupdates_helper.php:79
+msgid "Detailed info for available updates"
 msgstr ""
 
-#: aigaionengine/libraries/accesslevels_lib.php:298
-msgid "Cascade of access levels not yet implemented."
+#: aigaionengine/helpers/checkupdates_helper.php:85
+msgid "Types of update"
+msgstr ""
+
+#: aigaionengine/helpers/checkupdates_helper.php:89
+msgid "Version"
+msgstr ""
+
+#: aigaionengine/helpers/checkupdates_helper.php:90
+msgid "Bugfix"
+msgstr ""
+
+#: aigaionengine/helpers/checkupdates_helper.php:91
+msgid "Features"
+msgstr ""
+
+#: aigaionengine/helpers/checkupdates_helper.php:92
+msgid "Layout"
+msgstr ""
+
+#: aigaionengine/helpers/checkupdates_helper.php:93
+msgid "Security"
+msgstr ""
+
+#: aigaionengine/helpers/checkupdates_helper.php:94
+#: aigaionengine/views/topics/edit.php:55
+msgid "Description"
+msgstr ""
+
+#: aigaionengine/helpers/checkupdates_helper.php:102
+msgid "Some bugs were fixed this release"
+msgstr ""
+
+#: aigaionengine/helpers/checkupdates_helper.php:106
+msgid "Some features were added this release"
+msgstr ""
+
+#: aigaionengine/helpers/checkupdates_helper.php:110
+msgid "Some layout elements were changed this release"
+msgstr ""
+
+#: aigaionengine/helpers/checkupdates_helper.php:114
+msgid "This release contains security fixes!"
+msgstr ""
+
+#: aigaionengine/helpers/checkupdates_helper.php:123
+#, php-format
+msgid "You can download the new version %s here %s."
+msgstr ""
+
+#: aigaionengine/helpers/export_helper.php:424
+msgid "No format possible"
 msgstr ""
 
 #: aigaionengine/libraries/attachment_db.php:115
@@ -2816,12 +2795,12 @@ msgstr ""
 
 #: aigaionengine/libraries/attachment_db.php:358
 #: aigaionengine/libraries/author_db.php:262
-#: aigaionengine/libraries/group_db.php:146
-#: aigaionengine/libraries/note_db.php:182
 #: aigaionengine/libraries/publication_db.php:821
 #: aigaionengine/libraries/rightsprofile_db.php:147
+#: aigaionengine/libraries/group_db.php:146
+#: aigaionengine/libraries/user_db.php:457
+#: aigaionengine/libraries/note_db.php:182
 #: aigaionengine/libraries/topic_db.php:509
-#: aigaionengine/libraries/user_db.php:449
 msgid "erroneous ID"
 msgstr ""
 
@@ -2857,218 +2836,6 @@ msgid ""
 "There are some publications that could not be reassigned due to access rights"
 msgstr ""
 
-#: aigaionengine/libraries/bookmarklist_db.php:14
-#: aigaionengine/libraries/bookmarklist_db.php:29
-#: aigaionengine/libraries/bookmarklist_db.php:44
-#: aigaionengine/libraries/bookmarklist_db.php:60
-#: aigaionengine/libraries/bookmarklist_db.php:75
-#: aigaionengine/libraries/bookmarklist_db.php:91
-#: aigaionengine/libraries/bookmarklist_db.php:107
-#: aigaionengine/libraries/bookmarklist_db.php:123
-#: aigaionengine/libraries/bookmarklist_db.php:138
-#: aigaionengine/libraries/bookmarklist_db.php:151
-#: aigaionengine/libraries/bookmarklist_db.php:166
-msgid "Changing bookmarklist"
-msgstr ""
-
-#: aigaionengine/libraries/bookmarklist_db.php:19
-#: aigaionengine/libraries/bookmarklist_db.php:34
-#: aigaionengine/libraries/bookmarklist_db.php:143
-msgid "Error changing bookmarklist"
-msgstr ""
-
-#: aigaionengine/libraries/bookmarklist_db.php:159
-msgid "Bookmarked publications added to topic"
-msgstr ""
-
-#: aigaionengine/libraries/bookmarklist_db.php:174
-msgid "Bookmarked publications removed from topic"
-msgstr ""
-
-#: aigaionengine/libraries/email_export.php:29
-#: aigaionengine/views/export/chooseformat.php:44
-#: aigaionengine/views/export/chooseformatEmail.php:48
-msgid "Export"
-msgstr ""
-
-#: aigaionengine/libraries/file_upload.php:229
-msgid "File"
-msgstr ""
-
-#: aigaionengine/libraries/file_upload.php:229
-msgid "successfully uploaded!"
-msgstr ""
-
-#: aigaionengine/libraries/file_upload.php:230
-msgid ""
-"The uploaded file exceeds the maximal upload filesize defined in the server "
-"configuration."
-msgstr ""
-
-#: aigaionengine/libraries/file_upload.php:231
-msgid ""
-"Please ask your site administrator to fix the UPLOAD_MAX_FILESIZE directive "
-"in php.ini."
-msgstr ""
-
-#: aigaionengine/libraries/file_upload.php:232
-msgid ""
-"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
-"the html form."
-msgstr ""
-
-#: aigaionengine/libraries/file_upload.php:233
-msgid "The uploaded file was only partially uploaded"
-msgstr ""
-
-#: aigaionengine/libraries/file_upload.php:234
-msgid "No file was uploaded"
-msgstr ""
-
-#: aigaionengine/libraries/file_upload.php:241
-msgid "Please select a file for upload."
-msgstr ""
-
-#: aigaionengine/libraries/file_upload.php:242
-msgid "Only files with the following extensions are allowed"
-msgstr ""
-
-#: aigaionengine/libraries/file_upload.php:243
-msgid ""
-"Sorry, the filename contains invalid characters. Use only alphanumerical "
-"chars and separate parts of the name (if needed) with an underscore."
-msgstr ""
-
-#: aigaionengine/libraries/file_upload.php:243
-msgid "A valid filename ends with one dot followed by the extension."
-msgstr ""
-
-#: aigaionengine/libraries/file_upload.php:244
-#, php-format
-msgid "The filename exceeds the maximum length of %s characters."
-msgstr ""
-
-#: aigaionengine/libraries/file_upload.php:245
-msgid "Sorry, the upload directory doesn't exist!"
-msgstr ""
-
-#: aigaionengine/libraries/file_upload.php:246
-msgid "Uploading"
-msgstr ""
-
-#: aigaionengine/libraries/file_upload.php:246
-msgid "Error!"
-msgstr ""
-
-#: aigaionengine/libraries/file_upload.php:246
-msgid "Sorry, a file with this name already exists."
-msgstr ""
-
-#: aigaionengine/libraries/file_upload.php:247
-msgid "The uploaded file is renamed to"
-msgstr ""
-
-#: aigaionengine/libraries/file_upload.php:248
-msgid ""
-"Couldn't move uploaded file from PHP tmp upload dir to permanent storage "
-"directory."
-msgstr ""
-
-#: aigaionengine/libraries/group_db.php:142
-#: aigaionengine/libraries/group_db.php:146
-msgid "Cannot delete group"
-msgstr ""
-
-#: aigaionengine/libraries/keyword_db.php:198
-msgid "Found similar keywords for"
-msgstr ""
-
-#: aigaionengine/libraries/keyword_db.php:215
-msgid "Please review the entered keywords."
-msgstr ""
-
-#: aigaionengine/libraries/login_ldap.php:5
-msgid ""
-"Loaded deprecated login_ldap module. LDAP login now uses delegated password "
-"checking!"
-msgstr ""
-
-#: aigaionengine/libraries/login_puma.php:41
-#, php-format
-msgid "Error checking login data: %s"
-msgstr ""
-
-#: aigaionengine/libraries/login_puma.php:44
-#, php-format
-msgid "Error: %s"
-msgstr ""
-
-#: aigaionengine/libraries/login_puma.php:48
-msgid "Error: Infinite redirection during login."
-msgstr ""
-
-#: aigaionengine/libraries/login_puma.php:52
-msgid "Error: Authentication could not be established."
-msgstr ""
-
-#: aigaionengine/libraries/login_puma.php:98
-#, php-format
-msgid "The necessary field %s is missing."
-msgstr ""
-
-#: aigaionengine/libraries/login_puma.php:102
-#, php-format
-msgid "The username %s is unknown."
-msgstr ""
-
-#: aigaionengine/libraries/login_puma.php:105
-#, php-format
-msgid ""
-"Members of the group %s are not allowed at the moment. We apologize for any "
-"inconvenience!"
-msgstr ""
-
-#: aigaionengine/libraries/login_puma.php:113
-#, php-format
-msgid "The email address %s is not allowed."
-msgstr ""
-
-#: aigaionengine/libraries/login_puma.php:122
-msgid "The account is locked internally."
-msgstr ""
-
-#: aigaionengine/libraries/note_db.php:178
-#: aigaionengine/libraries/note_db.php:182
-msgid "Cannot delete note"
-msgstr ""
-
-#: aigaionengine/libraries/note_db.php:211
-#, php-format
-msgid "Failed to update the BibTeX-id in note %s."
-msgstr ""
-
-#: aigaionengine/libraries/parseentries.php:324
-msgid "Warning: entry does not seem to have the proper format."
-msgstr ""
-
-#: aigaionengine/libraries/parseentries.php:324
-msgid ""
-"Could not find the comma which should come after the citation key. If the "
-"key is not present, the comma should still be there. If the key is present, "
-"but no bibliographic data follows, the entry is empty and cannot be "
-"imported. Skipped importing the following entry."
-msgstr ""
-
-#: aigaionengine/libraries/parseentries.php:573
-#, php-format
-msgid "Import: unknown abbreviation encountered in \"%s\"."
-msgstr ""
-
-#: aigaionengine/libraries/parseentries.php:573
-#, php-format
-msgid "Interpreted as %s={%s}"
-msgstr ""
-
 #: aigaionengine/libraries/passwordchecker_hardcoded.php:9
 #: aigaionengine/libraries/passwordchecker_hardcoded.php:19
 msgid "Not a valid login!"
@@ -3076,22 +2843,6 @@ msgstr ""
 
 #: aigaionengine/libraries/passwordchecker_hardcoded.php:16
 msgid "Last Name of user"
-msgstr ""
-
-#: aigaionengine/libraries/passwordchecker_ldap.php:11
-msgid "The LDAP password checker cannot handle md5 passwords yet"
-msgstr ""
-
-#: aigaionengine/libraries/passwordchecker_ldap.php:36
-msgid "LDAP auth: There was a problem."
-msgstr ""
-
-#: aigaionengine/libraries/passwordchecker_ldap.php:37
-msgid "Error code"
-msgstr ""
-
-#: aigaionengine/libraries/passwordchecker_ldap.php:38
-msgid "Error text"
 msgstr ""
 
 #: aigaionengine/libraries/publication_db.php:817
@@ -3197,40 +2948,6 @@ msgstr ""
 
 #: aigaionengine/libraries/siteconfig_db.php:302
 msgid "New logo uploaded"
-msgstr ""
-
-#: aigaionengine/libraries/topic_db.php:338
-#: aigaionengine/libraries/topic_db.php:352
-msgid "Categorize publication"
-msgstr ""
-
-#: aigaionengine/libraries/topic_db.php:366
-#: aigaionengine/libraries/topic_db.php:380
-msgid "Change subscription"
-msgstr ""
-
-#: aigaionengine/libraries/topic_db.php:426
-msgid "You cannot edit the top level topic."
-msgstr ""
-
-#: aigaionengine/libraries/topic_db.php:452
-msgid "You cannot set a topic to be its own ancestor."
-msgstr ""
-
-#: aigaionengine/libraries/topic_db.php:461
-msgid ""
-"Error in the tree structure: the intended new parent is not connected to the "
-"top level topic."
-msgstr ""
-
-#: aigaionengine/libraries/topic_db.php:505
-#: aigaionengine/libraries/topic_db.php:509
-#: aigaionengine/libraries/topic_db.php:517
-msgid "Cannot delete topic"
-msgstr ""
-
-#: aigaionengine/libraries/topic_db.php:517
-msgid "still has children (possibly invisible)"
 msgstr ""
 
 #: aigaionengine/libraries/userlogin.php:86
@@ -3377,80 +3094,386 @@ msgstr ""
 msgid "This installation of Aigaion is up-to-date"
 msgstr ""
 
-#: aigaionengine/libraries/user_db.php:208
+#: aigaionengine/libraries/login_puma.php:41
+#, php-format
+msgid "Error checking login data: %s"
+msgstr ""
+
+#: aigaionengine/libraries/login_puma.php:44
+#, php-format
+msgid "Error: %s"
+msgstr ""
+
+#: aigaionengine/libraries/login_puma.php:48
+msgid "Error: Infinite redirection during login."
+msgstr ""
+
+#: aigaionengine/libraries/login_puma.php:52
+msgid "Error: Authentication could not be established."
+msgstr ""
+
+#: aigaionengine/libraries/login_puma.php:98
+#, php-format
+msgid "The necessary field %s is missing."
+msgstr ""
+
+#: aigaionengine/libraries/login_puma.php:102
+#, php-format
+msgid "The username %s is unknown."
+msgstr ""
+
+#: aigaionengine/libraries/login_puma.php:105
+#, php-format
+msgid ""
+"Members of the group %s are not allowed at the moment. We apologize for any "
+"inconvenience!"
+msgstr ""
+
+#: aigaionengine/libraries/login_puma.php:113
+#, php-format
+msgid "The email address %s is not allowed."
+msgstr ""
+
+#: aigaionengine/libraries/login_puma.php:122
+msgid "The account is locked internally."
+msgstr ""
+
+#: aigaionengine/libraries/accesslevels_lib.php:56
+#: aigaionengine/libraries/accesslevels_lib.php:78
+#: aigaionengine/libraries/accesslevels_lib.php:100
+#: aigaionengine/libraries/accesslevels_lib.php:140
+#: aigaionengine/libraries/accesslevels_lib.php:195
+#: aigaionengine/libraries/accesslevels_lib.php:221
+#: aigaionengine/libraries/accesslevels_lib.php:244
+#: aigaionengine/libraries/accesslevels_lib.php:270
+msgid "Edit access level: insufficient rights."
+msgstr ""
+
+#: aigaionengine/libraries/accesslevels_lib.php:64
+#: aigaionengine/libraries/accesslevels_lib.php:69
+#: aigaionengine/libraries/accesslevels_lib.php:86
+#: aigaionengine/libraries/accesslevels_lib.php:91
+#: aigaionengine/libraries/accesslevels_lib.php:108
+#: aigaionengine/libraries/accesslevels_lib.php:113
+#: aigaionengine/libraries/accesslevels_lib.php:148
+#: aigaionengine/libraries/accesslevels_lib.php:153
+#: aigaionengine/libraries/accesslevels_lib.php:206
+#: aigaionengine/libraries/accesslevels_lib.php:212
+#: aigaionengine/libraries/accesslevels_lib.php:227
+#: aigaionengine/libraries/accesslevels_lib.php:233
+#: aigaionengine/libraries/accesslevels_lib.php:250
+#: aigaionengine/libraries/accesslevels_lib.php:256
+#: aigaionengine/libraries/accesslevels_lib.php:276
+#: aigaionengine/libraries/accesslevels_lib.php:282
+msgid "Modify access level: Restricted edit level to match read level."
+msgstr ""
+
+#: aigaionengine/libraries/accesslevels_lib.php:122
+#: aigaionengine/libraries/accesslevels_lib.php:127
+msgid ""
+"Modify access level: Increased read level for publication to match new read "
+"level for attachment."
+msgstr ""
+
+#: aigaionengine/libraries/accesslevels_lib.php:131
+#: aigaionengine/libraries/accesslevels_lib.php:171
+msgid "Couldn&rsquo;t propagate new level all the way up."
+msgstr ""
+
+#: aigaionengine/libraries/accesslevels_lib.php:162
+#: aigaionengine/libraries/accesslevels_lib.php:167
+msgid ""
+"Modify access level: Increased read level for publication to match new read "
+"level for note."
+msgstr ""
+
+#: aigaionengine/libraries/accesslevels_lib.php:200
+msgid ""
+"Edit access level: You cannot change the access levels of the top topic."
+msgstr ""
+
+#: aigaionengine/libraries/accesslevels_lib.php:298
+msgid "Cascade of access levels not yet implemented."
+msgstr ""
+
+#: aigaionengine/libraries/file_upload.php:229
+msgid "File"
+msgstr ""
+
+#: aigaionengine/libraries/file_upload.php:229
+msgid "successfully uploaded!"
+msgstr ""
+
+#: aigaionengine/libraries/file_upload.php:230
+msgid ""
+"The uploaded file exceeds the maximal upload filesize defined in the server "
+"configuration."
+msgstr ""
+
+#: aigaionengine/libraries/file_upload.php:231
+msgid ""
+"Please ask your site administrator to fix the UPLOAD_MAX_FILESIZE directive "
+"in php.ini."
+msgstr ""
+
+#: aigaionengine/libraries/file_upload.php:232
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the html form."
+msgstr ""
+
+#: aigaionengine/libraries/file_upload.php:233
+msgid "The uploaded file was only partially uploaded"
+msgstr ""
+
+#: aigaionengine/libraries/file_upload.php:234
+msgid "No file was uploaded"
+msgstr ""
+
+#: aigaionengine/libraries/file_upload.php:241
+msgid "Please select a file for upload."
+msgstr ""
+
+#: aigaionengine/libraries/file_upload.php:242
+msgid "Only files with the following extensions are allowed"
+msgstr ""
+
+#: aigaionengine/libraries/file_upload.php:243
+msgid ""
+"Sorry, the filename contains invalid characters. Use only alphanumerical "
+"chars and separate parts of the name (if needed) with an underscore."
+msgstr ""
+
+#: aigaionengine/libraries/file_upload.php:243
+msgid "A valid filename ends with one dot followed by the extension."
+msgstr ""
+
+#: aigaionengine/libraries/file_upload.php:244
+#, php-format
+msgid "The filename exceeds the maximum length of %s characters."
+msgstr ""
+
+#: aigaionengine/libraries/file_upload.php:245
+msgid "Sorry, the upload directory doesn't exist!"
+msgstr ""
+
+#: aigaionengine/libraries/file_upload.php:246
+msgid "Uploading"
+msgstr ""
+
+#: aigaionengine/libraries/file_upload.php:246
+msgid "Error!"
+msgstr ""
+
+#: aigaionengine/libraries/file_upload.php:246
+msgid "Sorry, a file with this name already exists."
+msgstr ""
+
+#: aigaionengine/libraries/file_upload.php:247
+msgid "The uploaded file is renamed to"
+msgstr ""
+
+#: aigaionengine/libraries/file_upload.php:248
+msgid ""
+"Couldn't move uploaded file from PHP tmp upload dir to permanent storage "
+"directory."
+msgstr ""
+
+#: aigaionengine/libraries/group_db.php:142
+#: aigaionengine/libraries/group_db.php:146
+msgid "Cannot delete group"
+msgstr ""
+
+#: aigaionengine/libraries/keyword_db.php:198
+msgid "Found similar keywords for"
+msgstr ""
+
+#: aigaionengine/libraries/keyword_db.php:215
+msgid "Please review the entered keywords."
+msgstr ""
+
+#: aigaionengine/libraries/bookmarklist_db.php:14
+#: aigaionengine/libraries/bookmarklist_db.php:29
+#: aigaionengine/libraries/bookmarklist_db.php:44
+#: aigaionengine/libraries/bookmarklist_db.php:60
+#: aigaionengine/libraries/bookmarklist_db.php:75
+#: aigaionengine/libraries/bookmarklist_db.php:91
+#: aigaionengine/libraries/bookmarklist_db.php:107
+#: aigaionengine/libraries/bookmarklist_db.php:123
+#: aigaionengine/libraries/bookmarklist_db.php:138
+#: aigaionengine/libraries/bookmarklist_db.php:151
+#: aigaionengine/libraries/bookmarklist_db.php:166
+msgid "Changing bookmarklist"
+msgstr ""
+
+#: aigaionengine/libraries/bookmarklist_db.php:19
+#: aigaionengine/libraries/bookmarklist_db.php:34
+#: aigaionengine/libraries/bookmarklist_db.php:143
+msgid "Error changing bookmarklist"
+msgstr ""
+
+#: aigaionengine/libraries/bookmarklist_db.php:159
+msgid "Bookmarked publications added to topic"
+msgstr ""
+
+#: aigaionengine/libraries/bookmarklist_db.php:174
+msgid "Bookmarked publications removed from topic"
+msgstr ""
+
+#: aigaionengine/libraries/email_export.php:29
+#: aigaionengine/views/export/chooseformat.php:44
+#: aigaionengine/views/export/chooseformatEmail.php:48
+msgid "Export"
+msgstr ""
+
+#: aigaionengine/libraries/user_db.php:215
 #, php-format
 msgid "Unknown language: %s."
 msgstr ""
 
-#: aigaionengine/libraries/user_db.php:241
-#: aigaionengine/libraries/user_db.php:379
+#: aigaionengine/libraries/user_db.php:248
+#: aigaionengine/libraries/user_db.php:387
 msgid ""
 "Removed &lsquo;bookmarklist&rsquo; right from anonymous user: it makes no "
 "sense to assign it since many people will be loggin on with that account "
 "simultaneously."
 msgstr ""
 
-#: aigaionengine/libraries/user_db.php:269
+#: aigaionengine/libraries/user_db.php:276
 msgid "User added."
 msgstr ""
 
-#: aigaionengine/libraries/user_db.php:292
+#: aigaionengine/libraries/user_db.php:299
 msgid ""
 "Login names cannot be changed. Login name has been reset to old value. Other "
 "changes have been saved."
 msgstr ""
 
-#: aigaionengine/libraries/user_db.php:309
+#: aigaionengine/libraries/user_db.php:317
 msgid ""
 "The account does not have a valid password. It has been disabled. You can "
 "ask an admin to re-enable it."
 msgstr ""
 
-#: aigaionengine/libraries/user_db.php:331
+#: aigaionengine/libraries/user_db.php:339
 #, php-format
 msgid "Unknown language: %s"
 msgstr ""
 
-#: aigaionengine/libraries/user_db.php:368
+#: aigaionengine/libraries/user_db.php:376
 msgid ""
 "You just set the default anonymous user to non-anonymous. Therefore the "
 "default anonymous user configuration setting has been cleared."
 msgstr ""
 
-#: aigaionengine/libraries/user_db.php:422
+#: aigaionengine/libraries/user_db.php:430
 msgid ""
 "You just removed your own right to assign user rights! Are you sure that "
 "this is correct? If not, re-assign this right before logging out!"
 msgstr ""
 
-#: aigaionengine/libraries/user_db.php:427
+#: aigaionengine/libraries/user_db.php:435
 msgid ""
 "Profile updated, changes to rights of users are applied after the user has "
 "logged in again."
 msgstr ""
 
-#: aigaionengine/libraries/user_db.php:431
+#: aigaionengine/libraries/user_db.php:439
 msgid "User data changed. Changed access rights will be valid upon next login."
 msgstr ""
 
-#: aigaionengine/libraries/user_db.php:445
-#: aigaionengine/libraries/user_db.php:449
+#: aigaionengine/libraries/user_db.php:453
+#: aigaionengine/libraries/user_db.php:457
 #, php-format
 msgid "Cannot delete user: %s."
 msgstr ""
 
-#: aigaionengine/models/user_model.php:52
-msgid "Login data missing."
+#: aigaionengine/libraries/login_ldap.php:5
+msgid ""
+"Loaded deprecated login_ldap module. LDAP login now uses delegated password "
+"checking!"
 msgstr ""
 
-#: aigaionengine/models/user_model.php:55
-msgid "User already exists."
+#: aigaionengine/libraries/note_db.php:178
+#: aigaionengine/libraries/note_db.php:182
+msgid "Cannot delete note"
 msgstr ""
 
-#: aigaionengine/models/wiki_model.php:96
-#: aigaionengine/models/wiki_model.php:129
-#: aigaionengine/models/wiki_model.php:156
-msgid "Edit wiki"
+#: aigaionengine/libraries/note_db.php:211
+#, php-format
+msgid "Failed to update the BibTeX-id in note %s."
+msgstr ""
+
+#: aigaionengine/libraries/parseentries.php:324
+msgid "Warning: entry does not seem to have the proper format."
+msgstr ""
+
+#: aigaionengine/libraries/parseentries.php:324
+msgid ""
+"Could not find the comma which should come after the citation key. If the "
+"key is not present, the comma should still be there. If the key is present, "
+"but no bibliographic data follows, the entry is empty and cannot be "
+"imported. Skipped importing the following entry."
+msgstr ""
+
+#: aigaionengine/libraries/parseentries.php:573
+#, php-format
+msgid "Import: unknown abbreviation encountered in \"%s\"."
+msgstr ""
+
+#: aigaionengine/libraries/parseentries.php:573
+#, php-format
+msgid "Interpreted as %s={%s}"
+msgstr ""
+
+#: aigaionengine/libraries/passwordchecker_ldap.php:11
+msgid "The LDAP password checker cannot handle md5 passwords yet"
+msgstr ""
+
+#: aigaionengine/libraries/passwordchecker_ldap.php:36
+msgid "LDAP auth: There was a problem."
+msgstr ""
+
+#: aigaionengine/libraries/passwordchecker_ldap.php:37
+msgid "Error code"
+msgstr ""
+
+#: aigaionengine/libraries/passwordchecker_ldap.php:38
+msgid "Error text"
+msgstr ""
+
+#: aigaionengine/libraries/topic_db.php:338
+#: aigaionengine/libraries/topic_db.php:352
+msgid "Categorize publication"
+msgstr ""
+
+#: aigaionengine/libraries/topic_db.php:366
+#: aigaionengine/libraries/topic_db.php:380
+msgid "Change subscription"
+msgstr ""
+
+#: aigaionengine/libraries/topic_db.php:426
+msgid "You cannot edit the top level topic."
+msgstr ""
+
+#: aigaionengine/libraries/topic_db.php:452
+msgid "You cannot set a topic to be its own ancestor."
+msgstr ""
+
+#: aigaionengine/libraries/topic_db.php:461
+msgid ""
+"Error in the tree structure: the intended new parent is not connected to the "
+"top level topic."
+msgstr ""
+
+#: aigaionengine/libraries/topic_db.php:505
+#: aigaionengine/libraries/topic_db.php:509
+#: aigaionengine/libraries/topic_db.php:517
+msgid "Cannot delete topic"
+msgstr ""
+
+#: aigaionengine/libraries/topic_db.php:517
+msgid "still has children (possibly invisible)"
 msgstr ""
 
 #: aigaionengine/views/accesslevels/editforpublication.php:6
@@ -3690,22 +3713,22 @@ msgstr ""
 #: aigaionengine/views/attachments/add.php:32
 #: aigaionengine/views/attachments/add.php:62
 #: aigaionengine/views/attachments/edit.php:33
-#: aigaionengine/views/authors/edit.php:25
 #: aigaionengine/views/authors/merge.php:33
-#: aigaionengine/views/bookmarklist/ask.php:11
+#: aigaionengine/views/authors/edit.php:25
 #: aigaionengine/views/bookmarklist/setattaccesslevel.php:18
 #: aigaionengine/views/bookmarklist/seteditattaccesslevel.php:18
 #: aigaionengine/views/bookmarklist/seteditpubaccesslevel.php:18
 #: aigaionengine/views/bookmarklist/setpubaccesslevel.php:18
-#: aigaionengine/views/confirm.php:8 aigaionengine/views/groups/edit.php:44
+#: aigaionengine/views/bookmarklist/ask.php:11
+#: aigaionengine/views/groups/edit.php:44
 #: aigaionengine/views/notes/edit.php:66
 #: aigaionengine/views/publications/edit.php:333
-#: aigaionengine/views/repostform.php:28
 #: aigaionengine/views/rightsprofiles/edit.php:86
 #: aigaionengine/views/site/edit.php:614
 #: aigaionengine/views/site/restore.php:52
 #: aigaionengine/views/topics/edit.php:75
-#: aigaionengine/views/users/edit.php:487
+#: aigaionengine/views/users/edit.php:487 aigaionengine/views/confirm.php:8
+#: aigaionengine/views/repostform.php:28
 msgid "Cancel"
 msgstr ""
 
@@ -3757,10 +3780,10 @@ msgid "Visit %s"
 msgstr ""
 
 #: aigaionengine/views/attachments/summary.php:17
-#: aigaionengine/views/publications/list.php:137
-#: aigaionengine/views/publications/list.php:140
 #: aigaionengine/views/publications/listClean.php:185
 #: aigaionengine/views/publications/listClean.php:194
+#: aigaionengine/views/publications/list.php:137
+#: aigaionengine/views/publications/list.php:140
 #: aigaionengine/views/readapi/publist.php:171
 #: aigaionengine/views/readapi/publist.php:180
 #, php-format
@@ -3808,86 +3831,6 @@ msgstr ""
 msgid "Attachment access rights:"
 msgstr ""
 
-#: aigaionengine/views/authors/edit.php:10
-#: aigaionengine/views/authors/embed.php:6
-#: aigaionengine/views/authors/merge.php:13
-#: aigaionengine/views/authors/single.php:22
-#: aigaionengine/views/embeddingtest/test.php:15
-#: aigaionengine/views/readapi/author.php:15
-msgid "First name(s)"
-msgstr ""
-
-#: aigaionengine/views/authors/edit.php:10
-#: aigaionengine/views/authors/embed.php:6
-#: aigaionengine/views/authors/merge.php:13
-#: aigaionengine/views/authors/single.php:22
-#: aigaionengine/views/embeddingtest/test.php:15
-#: aigaionengine/views/readapi/author.php:15
-msgid "von-part"
-msgstr ""
-
-#: aigaionengine/views/authors/edit.php:11
-#: aigaionengine/views/authors/embed.php:7
-#: aigaionengine/views/authors/merge.php:14
-#: aigaionengine/views/authors/single.php:23
-#: aigaionengine/views/embeddingtest/test.php:15
-#: aigaionengine/views/readapi/author.php:15
-msgid "Last name(s)"
-msgstr ""
-
-#: aigaionengine/views/authors/edit.php:11
-#: aigaionengine/views/authors/embed.php:7
-#: aigaionengine/views/authors/merge.php:14
-#: aigaionengine/views/authors/single.php:23
-#: aigaionengine/views/embeddingtest/test.php:15
-#: aigaionengine/views/readapi/author.php:15
-msgid "jr-part"
-msgstr ""
-
-#: aigaionengine/views/authors/edit.php:12
-#: aigaionengine/views/authors/embed.php:8
-#: aigaionengine/views/authors/merge.php:15
-#: aigaionengine/views/authors/single.php:24
-#: aigaionengine/views/embeddingtest/test.php:15
-#: aigaionengine/views/readapi/author.php:15
-msgid "Email"
-msgstr ""
-
-#: aigaionengine/views/authors/edit.php:12
-#: aigaionengine/views/authors/embed.php:8
-#: aigaionengine/views/authors/merge.php:15
-#: aigaionengine/views/authors/single.php:24
-#: aigaionengine/views/embeddingtest/test.php:15
-#: aigaionengine/views/readapi/author.php:15
-msgid "Institute"
-msgstr ""
-
-#: aigaionengine/views/authors/edit.php:24
-#: aigaionengine/views/groups/edit.php:43
-#: aigaionengine/views/notes/edit.php:65
-#: aigaionengine/views/publications/edit.php:332
-#: aigaionengine/views/rightsprofiles/edit.php:75
-#: aigaionengine/views/topics/edit.php:68
-#: aigaionengine/views/users/edit.php:472
-msgid "Add"
-msgstr ""
-
-#: aigaionengine/views/authors/embed.php:19
-msgid "Order on Type/Journal"
-msgstr ""
-
-#: aigaionengine/views/authors/embed.php:20
-msgid "Order alphabetically on Title"
-msgstr ""
-
-#: aigaionengine/views/authors/embed.php:21
-msgid "Order alphabetically on Author"
-msgstr ""
-
-#: aigaionengine/views/authors/embed.php:22
-msgid "Order on Year"
-msgstr ""
-
 #: aigaionengine/views/authors/list.php:7
 #: aigaionengine/views/keywords/list.php:9
 msgid "Show"
@@ -3909,6 +3852,60 @@ msgstr ""
 
 #: aigaionengine/views/authors/merge.php:11
 msgid "Source author"
+msgstr ""
+
+#: aigaionengine/views/authors/merge.php:13
+#: aigaionengine/views/authors/single.php:22
+#: aigaionengine/views/authors/edit.php:10
+#: aigaionengine/views/authors/embed.php:6
+#: aigaionengine/views/readapi/author.php:15
+#: aigaionengine/views/embeddingtest/test.php:15
+msgid "First name(s)"
+msgstr ""
+
+#: aigaionengine/views/authors/merge.php:13
+#: aigaionengine/views/authors/single.php:22
+#: aigaionengine/views/authors/edit.php:10
+#: aigaionengine/views/authors/embed.php:6
+#: aigaionengine/views/readapi/author.php:15
+#: aigaionengine/views/embeddingtest/test.php:15
+msgid "von-part"
+msgstr ""
+
+#: aigaionengine/views/authors/merge.php:14
+#: aigaionengine/views/authors/single.php:23
+#: aigaionengine/views/authors/edit.php:11
+#: aigaionengine/views/authors/embed.php:7
+#: aigaionengine/views/readapi/author.php:15
+#: aigaionengine/views/embeddingtest/test.php:15
+msgid "Last name(s)"
+msgstr ""
+
+#: aigaionengine/views/authors/merge.php:14
+#: aigaionengine/views/authors/single.php:23
+#: aigaionengine/views/authors/edit.php:11
+#: aigaionengine/views/authors/embed.php:7
+#: aigaionengine/views/readapi/author.php:15
+#: aigaionengine/views/embeddingtest/test.php:15
+msgid "jr-part"
+msgstr ""
+
+#: aigaionengine/views/authors/merge.php:15
+#: aigaionengine/views/authors/single.php:24
+#: aigaionengine/views/authors/edit.php:12
+#: aigaionengine/views/authors/embed.php:8
+#: aigaionengine/views/readapi/author.php:15
+#: aigaionengine/views/embeddingtest/test.php:15
+msgid "Email"
+msgstr ""
+
+#: aigaionengine/views/authors/merge.php:15
+#: aigaionengine/views/authors/single.php:24
+#: aigaionengine/views/authors/edit.php:12
+#: aigaionengine/views/authors/embed.php:8
+#: aigaionengine/views/readapi/author.php:15
+#: aigaionengine/views/embeddingtest/test.php:15
+msgid "Institute"
 msgstr ""
 
 #: aigaionengine/views/authors/merge.php:32
@@ -3965,17 +3962,71 @@ msgstr ""
 msgid "Keywords:"
 msgstr ""
 
-#: aigaionengine/views/bookmarklist/ask.php:4
-msgid "Confirmation needed"
+#: aigaionengine/views/authors/edit.php:24
+#: aigaionengine/views/groups/edit.php:43
+#: aigaionengine/views/notes/edit.php:65
+#: aigaionengine/views/publications/edit.php:332
+#: aigaionengine/views/rightsprofiles/edit.php:75
+#: aigaionengine/views/topics/edit.php:68
+#: aigaionengine/views/users/edit.php:472
+msgid "Add"
 msgstr ""
 
-#: aigaionengine/views/bookmarklist/ask.php:10
+#: aigaionengine/views/authors/embed.php:19
+msgid "Order on Type/Journal"
+msgstr ""
+
+#: aigaionengine/views/authors/embed.php:20
+msgid "Order alphabetically on Title"
+msgstr ""
+
+#: aigaionengine/views/authors/embed.php:21
+msgid "Order alphabetically on Author"
+msgstr ""
+
+#: aigaionengine/views/authors/embed.php:22
+msgid "Order on Year"
+msgstr ""
+
+#: aigaionengine/views/bookmarklist/setattaccesslevel.php:14
+#, php-format
+msgid ""
+"Are you sure that you want to set the read access level for all attachments "
+"of publications on the bookmarklist to \"%s\"?"
+msgstr ""
+
 #: aigaionengine/views/bookmarklist/setattaccesslevel.php:15
 #: aigaionengine/views/bookmarklist/seteditattaccesslevel.php:15
 #: aigaionengine/views/bookmarklist/seteditpubaccesslevel.php:15
 #: aigaionengine/views/bookmarklist/setpubaccesslevel.php:15
+#: aigaionengine/views/bookmarklist/ask.php:10
 #: aigaionengine/views/confirm.php:7
 msgid "Confirm"
+msgstr ""
+
+#: aigaionengine/views/bookmarklist/seteditattaccesslevel.php:14
+#, php-format
+msgid ""
+"Are you sure that you want to set the edit access level for all attachments "
+"of publications on the bookmarklist to \"%s\"?"
+msgstr ""
+
+#: aigaionengine/views/bookmarklist/seteditpubaccesslevel.php:14
+#, php-format
+msgid ""
+"Are you sure that you want to set the edit access level for all publications "
+"on the bookmarklist to \"%s\"?"
+msgstr ""
+
+#: aigaionengine/views/bookmarklist/setpubaccesslevel.php:14
+#, php-format
+msgid ""
+"Are you sure that you want to set the read access level for all publications "
+"on the bookmarklist to \"%s\"?"
+msgstr ""
+
+#: aigaionengine/views/bookmarklist/ask.php:4
+msgid "Confirmation needed"
 msgstr ""
 
 #: aigaionengine/views/bookmarklist/controls.php:7
@@ -4082,47 +4133,6 @@ msgstr ""
 msgid "Set attachment edit access level"
 msgstr ""
 
-#: aigaionengine/views/bookmarklist/setattaccesslevel.php:14
-#, php-format
-msgid ""
-"Are you sure that you want to set the read access level for all attachments "
-"of publications on the bookmarklist to \"%s\"?"
-msgstr ""
-
-#: aigaionengine/views/bookmarklist/seteditattaccesslevel.php:14
-#, php-format
-msgid ""
-"Are you sure that you want to set the edit access level for all attachments "
-"of publications on the bookmarklist to \"%s\"?"
-msgstr ""
-
-#: aigaionengine/views/bookmarklist/seteditpubaccesslevel.php:14
-#, php-format
-msgid ""
-"Are you sure that you want to set the edit access level for all publications "
-"on the bookmarklist to \"%s\"?"
-msgstr ""
-
-#: aigaionengine/views/bookmarklist/setpubaccesslevel.php:14
-#, php-format
-msgid ""
-"Are you sure that you want to set the read access level for all publications "
-"on the bookmarklist to \"%s\"?"
-msgstr ""
-
-#: aigaionengine/views/error/404.php:3
-msgid "Error: Resource not found."
-msgstr ""
-
-#: aigaionengine/views/error/404.php:5
-#, php-format
-msgid "The resource %s could not be found (error 404)."
-msgstr ""
-
-#: aigaionengine/views/explore.php:7
-msgid "Most recent publications"
-msgstr ""
-
 #: aigaionengine/views/export/bibtex.php:15
 #: aigaionengine/views/export/bibtexEmail.php:15
 #, php-format
@@ -4205,77 +4215,6 @@ msgstr ""
 msgid "Input email addresses here, separated by comma"
 msgstr ""
 
-#: aigaionengine/views/footer.php:17
-msgid "Useful Links"
-msgstr ""
-
-#: aigaionengine/views/footer.php:20
-msgid "Faculty of Physics"
-msgstr ""
-
-#: aigaionengine/views/footer.php:21
-msgid "University library"
-msgstr ""
-
-#: aigaionengine/views/footer.php:22
-msgid "Computer Centre"
-msgstr ""
-
-#: aigaionengine/views/footer.php:31
-msgid "Ask the Admin"
-msgstr ""
-
-#: aigaionengine/views/footer.php:33
-#, php-format
-msgid ""
-"Do you have any question regarding %s? Have you spotted an error or do you "
-"want to suggest a new feature? Don’t hesitate and drop us a line."
-msgstr ""
-
-#: aigaionengine/views/footer.php:39 aigaionengine/views/groups/edit.php:13
-#: aigaionengine/views/rightsprofiles/edit.php:52
-#: aigaionengine/views/topics/edit.php:35
-msgid "Name"
-msgstr ""
-
-#: aigaionengine/views/footer.php:44
-msgid "E-Mail"
-msgstr ""
-
-#: aigaionengine/views/footer.php:48
-msgid "Question:"
-msgstr ""
-
-#: aigaionengine/views/footer.php:52
-msgid "ask the admin"
-msgstr ""
-
-#: aigaionengine/views/footer.php:59
-#, php-format
-msgid ""
-"%s ist das Promotionsprojekt von Manuel Strehl und entsteht in "
-"Zusammenarbeit mit dem Lehrstuhl für Medieninformatik und der Fakultät für "
-"Physik an der Universität Regensburg. Ziel ist der Aufbau eines umfassenden "
-"Web 2.0-Angebots für die Regensburger Physiker. Die Anwendung basiert auf "
-"der freien Publikationsdatenbank %s."
-msgstr ""
-
-#: aigaionengine/views/footer.php:69
-msgid "General help"
-msgstr ""
-
-#: aigaionengine/views/footer.php:70
-msgid "About this site"
-msgstr ""
-
-#: aigaionengine/views/footer.php:73
-msgid "Aigaion forum"
-msgstr ""
-
-#: aigaionengine/views/footer.php:74
-msgid "Imprint"
-msgstr ""
-
 #: aigaionengine/views/groups/edit.php:9
 msgid "Create a new group"
 msgstr ""
@@ -4286,6 +4225,12 @@ msgstr ""
 
 #: aigaionengine/views/groups/edit.php:11
 msgid "Group details:"
+msgstr ""
+
+#: aigaionengine/views/groups/edit.php:13
+#: aigaionengine/views/rightsprofiles/edit.php:52
+#: aigaionengine/views/topics/edit.php:35 aigaionengine/views/footer.php:39
+msgid "Name"
 msgstr ""
 
 #: aigaionengine/views/groups/edit.php:18 aigaionengine/views/user/edit.php:45
@@ -4305,310 +4250,6 @@ msgstr ""
 #: aigaionengine/views/groups/summary.php:8
 #: aigaionengine/views/users/summary.php:22
 msgid "topic subscription"
-msgstr ""
-
-#: aigaionengine/views/header.php:66
-msgid "Guest User:"
-msgstr ""
-
-#: aigaionengine/views/header.php:66
-msgid "Login (NDS)"
-msgstr ""
-
-#: aigaionengine/views/header.php:66
-msgid "Login (Guest account)"
-msgstr ""
-
-#: aigaionengine/views/header.php:69
-#, php-format
-msgid "Hello, %s %s"
-msgstr ""
-
-#: aigaionengine/views/header.php:71
-msgid "Profile"
-msgstr ""
-
-#: aigaionengine/views/header.php:74
-msgid "Bookmarks"
-msgstr ""
-
-#: aigaionengine/views/header.php:77
-msgid "Logout"
-msgstr ""
-
-#: aigaionengine/views/help/about.php:3
-#, php-format
-msgid "About %s"
-msgstr ""
-
-#: aigaionengine/views/help/about.php:14
-#, php-format
-msgid "Administrator of this installation: %s"
-msgstr ""
-
-#: aigaionengine/views/help/about.php:15
-#, php-format
-msgid "URL of this installation: %s"
-msgstr ""
-
-#: aigaionengine/views/help/about.php:16
-#, php-format
-msgid "PHP version: %s"
-msgstr ""
-
-#: aigaionengine/views/help/about.php:17
-#, php-format
-msgid "Database Version: %s"
-msgstr ""
-
-#: aigaionengine/views/help/about.php:18
-#, php-format
-msgid "Based on the %s framework and %s."
-msgstr ""
-
-#: aigaionengine/views/help/accessrights.php:3
-msgid "Access rights on different levels"
-msgstr ""
-
-#: aigaionengine/views/help/accessrights.php:4
-msgid ""
-"The users can be anonymous or not, can be assigned to different groups, and "
-"can be assigned different user rights. This makes it possible to restrict "
-"access to certain objects to a limited set of users. This restriction can "
-"apply to topics, publications, notes and attachments, and can be set "
-"separately for <em>reading</em> and for <em>editing</em> them."
-msgstr ""
-
-#: aigaionengine/views/help/accessrights.php:10
-msgid "What access levels are there?"
-msgstr ""
-
-#: aigaionengine/views/help/accessrights.php:11
-msgid ""
-"For each of the above mentioned objects one can set a <em>read access level</"
-"em> and an <em>edit access level</em>. These levels can be:"
-msgstr ""
-
-#: aigaionengine/views/help/accessrights.php:14
-msgid ""
-"‘public’ (object can be read or edited by everyone including anonymous "
-"users),"
-msgstr ""
-
-#: aigaionengine/views/help/accessrights.php:15
-msgid "‘intern’ (object can be read or edited by all non-anonymous users),"
-msgstr ""
-
-#: aigaionengine/views/help/accessrights.php:16
-msgid "‘private’ (object can be read or edited by the owner only)"
-msgstr ""
-
-#: aigaionengine/views/help/accessrights.php:19
-msgid "What user rights are involved?"
-msgstr ""
-
-#: aigaionengine/views/help/accessrights.php:20
-msgid ""
-"There are two types of user rights that also influence reading and editing "
-"access. The first are the normal read and edit rights. For example, a user "
-"who has no <em>topic edit</em> rights cannot edit a topic, even if all "
-"access levels of that topic are set to ‘public’. The second are the "
-"<em>override rights</em>. A user who has for example the right <em>topic "
-"read all</em> can read every topic, even if he is not the owner and the "
-"access levels are set to ‘private’."
-msgstr ""
-
-#: aigaionengine/views/help/accessrights.php:28
-msgid "Who can change the access level of an object?"
-msgstr ""
-
-#: aigaionengine/views/help/accessrights.php:29
-msgid ""
-"The access levels can normally be changed only by the owner. However, users "
-"who have the appropriate override rights for editing (see above) can also "
-"change the access levels of an object."
-msgstr ""
-
-#: aigaionengine/views/help/accounts.php:3
-msgid "Groups, user accounts and rights profiles"
-msgstr ""
-
-#: aigaionengine/views/help/accounts.php:4
-msgid ""
-"Access to the database is possible through logging in with a NDS or a guest "
-"user account. Individual users can have certain access rights assigned to "
-"them. Individual users can also be assigned to groups. Groups facilitate "
-"group-defined topic subscriptions, quick assignment of default right "
-"profiles and restriction of read and write access for certain notes, "
-"publications, attachments or topics to a subset of users."
-msgstr ""
-
-#: aigaionengine/views/help/accounts.php:6
-msgid "Group topic subscriptions"
-msgstr ""
-
-#: aigaionengine/views/help/accounts.php:7
-msgid ""
-"Users with sufficient rights (&lsquo;user_edit_all&rsquo;) can subscribe a "
-"group to certain topics from the &lsquo;manage accounts&rsquo; page. In that "
-"case all users that belong to that group will be counted &lsquo;"
-"subscribed&rsquo; to that topic, no matter whether they were individually "
-"subscribed or not."
-msgstr ""
-
-#: aigaionengine/views/help/accounts.php:9
-msgid "Default rights profiles for groups"
-msgstr ""
-
-#: aigaionengine/views/help/accounts.php:10
-msgid ""
-"Each group can be associated with one or more <em>rights profiles</em>, "
-"collections of user rights. This association has no influence at all on the "
-"user rights considered to be assigned to the users currently belonging to "
-"the group. However, whenever you newly assign a user to a group, that user "
-"will immediately also receive all user rights from the rights profiles "
-"associated to the group. This helps in quickly establishing default rights "
-"for users in certain groups."
-msgstr ""
-
-#: aigaionengine/views/help/accounts.php:12
-msgid "Access levels"
-msgstr ""
-
-#: aigaionengine/views/help/accounts.php:13
-#, php-format
-msgid "See %s for more information about access levels."
-msgstr ""
-
-#: aigaionengine/views/help/accounts.php:13
-msgid "the section about access rights"
-msgstr ""
-
-#: aigaionengine/views/help/attachments.php:3
-#: aigaionengine/views/help/header.php:10
-#: aigaionengine/views/publications/single.php:325
-msgid "Attachments"
-msgstr ""
-
-#: aigaionengine/views/help/attachments.php:4
-msgid ""
-"It is possible to attach files to your publications in two ways: by "
-"uploading them to the server, and as a &lsquo;remote&rsquo; link to a "
-"document somewhere on the web. Upon import, the import data is scanned for "
-"links to attachments, which are then automatically stored as remote "
-"attachments for the imported entries. &lsquo;Remote&rsquo; attachments may "
-"at a later time be downloaded to the server and turned into &lsquo;server "
-"stored attachments&rsquo; with a single command."
-msgstr ""
-
-#: aigaionengine/views/help/attachments.php:6
-msgid "Why attachments?"
-msgstr ""
-
-#: aigaionengine/views/help/attachments.php:7
-msgid ""
-"When building up a bibliography, it is not uncommon that one spends a lot of "
-"time tracking down not only the bibliographic information for new entries, "
-"but also tracking down the content of the papers themselves. And then, when "
-"you have finally obtained the file and printed it out, you forget the print-"
-"out somewhere on the plane... and have to do it all again. Or you could of "
-"course have attached the electronic version of the paper to your database - "
-"then at least you can print it out a second time without a long search."
-msgstr ""
-
-#: aigaionengine/views/help/attachments.php:9
-msgid "Attachments and public access rights"
-msgstr ""
-
-#: aigaionengine/views/help/attachments.php:10
-msgid ""
-"When you have downloaded a publication, e.g. from the publishers site or "
-"from your library, you do not necessarily have the right to make that file "
-"public to all the world. It is a good idea not to set the access level of a "
-"publication to &lsquo;public&rsquo; unless you are very certain of your "
-"right to do so. When in doubt, keep the attachment intern or private, and "
-"use the DOI to give anonymous guests access to the publication contents."
-msgstr ""
-
-#: aigaionengine/views/help/attachments.php:12
-msgid "Remote attachments vs DOI"
-msgstr ""
-
-#: aigaionengine/views/help/attachments.php:13
-#, php-format
-msgid ""
-"A DOI is a Digital Object Identifier. <q>&ldquo;They are used to provide "
-"current information, including where they (or information about them) can be "
-"found on the Internet. Information about a digital object may change over "
-"time, including where to find it, but its DOI name will not change.&rdquo;</"
-"q> (source: %s)."
-msgstr ""
-
-#: aigaionengine/views/help/attachments.php:14
-msgid ""
-"When you know the DOI of a paper, you can always find the paper by appending "
-"the DOI to the url <code>http://dx.doi.org/</code> This usually leads you to "
-"the paper on the site of the publisher. A major advantage of this is that, "
-"as opposed to on-server attachments, you do not have to worry about your "
-"rights to make the information public: the publisher will have the "
-"appropriate mechanisms in place on his site to restrict access to the actual "
-"content of the paper to those who have a right to it."
-msgstr ""
-
-#: aigaionengine/views/help/attachments.php:15
-msgid ""
-"The difference with remote attachments (URL links) is that a DOI always "
-"stays the same, whereas an URL will probably be outdated as soon as the "
-"publisher changes his web site."
-msgstr ""
-
-#: aigaionengine/views/help/attachments.php:17
-msgid "Common problems"
-msgstr ""
-
-#: aigaionengine/views/help/attachments.php:18
-msgid "The most common problems and errors with uploading attachments are:"
-msgstr ""
-
-#: aigaionengine/views/help/attachments.php:20
-msgid ""
-"The server is read-only, or the attachment directory is not writable, so "
-"storing uploaded attachment on the server fails"
-msgstr ""
-
-#: aigaionengine/views/help/attachments.php:21
-msgid ""
-"The PHP settings for the webserver are sometimes inadequate for uploading "
-"attachments: <code>upload_max_filesize</code>, <code>post_max_size</code> "
-"and <code>max_execution_time</code> should all be large enough for uploading "
-"attachments of a normal size"
-msgstr ""
-
-#: aigaionengine/views/help/attachments.php:22
-msgid ""
-"The setting &lsquo;allowed attachment extensions&rsquo; does not contain the "
-"right extensions"
-msgstr ""
-
-#: aigaionengine/views/help/crossref.php:3
-#, php-format
-msgid "Cross referencing in %s"
-msgstr ""
-
-#: aigaionengine/views/help/faq.php:3
-msgid "Frequently Asked Questions"
-msgstr ""
-
-#: aigaionengine/views/help/faq.php:4
-#, php-format
-msgid ""
-"This section tries to clarify some of the most common questions about %s. If "
-"you have a question that isn’t answered here, please use the form at the "
-"bottom of this site to contact the admin."
-msgstr ""
-
-#: aigaionengine/views/help/faq.php:32
-msgid "Show all answers"
 msgstr ""
 
 #: aigaionengine/views/help/front.php:4
@@ -4726,6 +4367,12 @@ msgstr ""
 msgid "Publication Lists"
 msgstr ""
 
+#: aigaionengine/views/help/header.php:10
+#: aigaionengine/views/help/attachments.php:3
+#: aigaionengine/views/publications/single.php:325
+msgid "Attachments"
+msgstr ""
+
 #: aigaionengine/views/help/header.php:11
 msgid "Accounts"
 msgstr ""
@@ -4791,34 +4438,6 @@ msgid ""
 "simple HTML editor."
 msgstr ""
 
-#: aigaionengine/views/help/publicationlists.php:3
-msgid "The Publication Lists"
-msgstr ""
-
-#: aigaionengine/views/help/publicationlists.php:4
-#, php-format
-msgid ""
-"%s offers multiple ways to explore your publications, the standard list "
-"sorts all publications in the database by year. You can also browse the "
-"publications sorted by title, by publicationtype or by topic."
-msgstr ""
-
-#: aigaionengine/views/help/publicationlists.php:13
-msgid "An example publication entry"
-msgstr ""
-
-#: aigaionengine/views/help/publicationlists.php:15
-msgid "Icons in the publication list and their functions."
-msgstr ""
-
-#: aigaionengine/views/help/publicationlists.php:17
-msgid "Edit the information of this publication."
-msgstr ""
-
-#: aigaionengine/views/help/publicationlists.php:18
-msgid "View the pdf file of this article (only if available)."
-msgstr ""
-
 #: aigaionengine/views/help/themes.php:3
 msgid "Themes"
 msgstr ""
@@ -4876,6 +4495,213 @@ msgstr ""
 msgid "topic review page"
 msgstr ""
 
+#: aigaionengine/views/help/faq.php:3
+msgid "Frequently Asked Questions"
+msgstr ""
+
+#: aigaionengine/views/help/faq.php:4
+#, php-format
+msgid ""
+"This section tries to clarify some of the most common questions about %s. If "
+"you have a question that isn’t answered here, please use the form at the "
+"bottom of this site to contact the admin."
+msgstr ""
+
+#: aigaionengine/views/help/faq.php:27
+msgid "Show all answers"
+msgstr ""
+
+#: aigaionengine/views/help/accessrights.php:3
+msgid "Access rights on different levels"
+msgstr ""
+
+#: aigaionengine/views/help/accessrights.php:4
+msgid ""
+"The users can be anonymous or not, can be assigned to different groups, and "
+"can be assigned different user rights. This makes it possible to restrict "
+"access to certain objects to a limited set of users. This restriction can "
+"apply to topics, publications, notes and attachments, and can be set "
+"separately for <em>reading</em> and for <em>editing</em> them."
+msgstr ""
+
+#: aigaionengine/views/help/accessrights.php:10
+msgid "What access levels are there?"
+msgstr ""
+
+#: aigaionengine/views/help/accessrights.php:11
+msgid ""
+"For each of the above mentioned objects one can set a <em>read access level</"
+"em> and an <em>edit access level</em>. These levels can be:"
+msgstr ""
+
+#: aigaionengine/views/help/accessrights.php:14
+msgid ""
+"‘public’ (object can be read or edited by everyone including anonymous "
+"users),"
+msgstr ""
+
+#: aigaionengine/views/help/accessrights.php:15
+msgid "‘intern’ (object can be read or edited by all non-anonymous users),"
+msgstr ""
+
+#: aigaionengine/views/help/accessrights.php:16
+msgid "‘private’ (object can be read or edited by the owner only)"
+msgstr ""
+
+#: aigaionengine/views/help/accessrights.php:19
+msgid "What user rights are involved?"
+msgstr ""
+
+#: aigaionengine/views/help/accessrights.php:20
+msgid ""
+"There are two types of user rights that also influence reading and editing "
+"access. The first are the normal read and edit rights. For example, a user "
+"who has no <em>topic edit</em> rights cannot edit a topic, even if all "
+"access levels of that topic are set to ‘public’. The second are the "
+"<em>override rights</em>. A user who has for example the right <em>topic "
+"read all</em> can read every topic, even if he is not the owner and the "
+"access levels are set to ‘private’."
+msgstr ""
+
+#: aigaionengine/views/help/accessrights.php:28
+msgid "Who can change the access level of an object?"
+msgstr ""
+
+#: aigaionengine/views/help/accessrights.php:29
+msgid ""
+"The access levels can normally be changed only by the owner. However, users "
+"who have the appropriate override rights for editing (see above) can also "
+"change the access levels of an object."
+msgstr ""
+
+#: aigaionengine/views/help/attachments.php:4
+msgid ""
+"It is possible to attach files to your publications in two ways: by "
+"uploading them to the server, and as a &lsquo;remote&rsquo; link to a "
+"document somewhere on the web. Upon import, the import data is scanned for "
+"links to attachments, which are then automatically stored as remote "
+"attachments for the imported entries. &lsquo;Remote&rsquo; attachments may "
+"at a later time be downloaded to the server and turned into &lsquo;server "
+"stored attachments&rsquo; with a single command."
+msgstr ""
+
+#: aigaionengine/views/help/attachments.php:6
+msgid "Why attachments?"
+msgstr ""
+
+#: aigaionengine/views/help/attachments.php:7
+msgid ""
+"When building up a bibliography, it is not uncommon that one spends a lot of "
+"time tracking down not only the bibliographic information for new entries, "
+"but also tracking down the content of the papers themselves. And then, when "
+"you have finally obtained the file and printed it out, you forget the print-"
+"out somewhere on the plane... and have to do it all again. Or you could of "
+"course have attached the electronic version of the paper to your database - "
+"then at least you can print it out a second time without a long search."
+msgstr ""
+
+#: aigaionengine/views/help/attachments.php:9
+msgid "Attachments and public access rights"
+msgstr ""
+
+#: aigaionengine/views/help/attachments.php:10
+msgid ""
+"When you have downloaded a publication, e.g. from the publishers site or "
+"from your library, you do not necessarily have the right to make that file "
+"public to all the world. It is a good idea not to set the access level of a "
+"publication to &lsquo;public&rsquo; unless you are very certain of your "
+"right to do so. When in doubt, keep the attachment intern or private, and "
+"use the DOI to give anonymous guests access to the publication contents."
+msgstr ""
+
+#: aigaionengine/views/help/attachments.php:12
+msgid "Remote attachments vs DOI"
+msgstr ""
+
+#: aigaionengine/views/help/attachments.php:13
+#, php-format
+msgid ""
+"A DOI is a Digital Object Identifier. <q>&ldquo;They are used to provide "
+"current information, including where they (or information about them) can be "
+"found on the Internet. Information about a digital object may change over "
+"time, including where to find it, but its DOI name will not change.&rdquo;</"
+"q> (source: %s)."
+msgstr ""
+
+#: aigaionengine/views/help/attachments.php:14
+msgid ""
+"When you know the DOI of a paper, you can always find the paper by appending "
+"the DOI to the url <code>http://dx.doi.org/</code> This usually leads you to "
+"the paper on the site of the publisher. A major advantage of this is that, "
+"as opposed to on-server attachments, you do not have to worry about your "
+"rights to make the information public: the publisher will have the "
+"appropriate mechanisms in place on his site to restrict access to the actual "
+"content of the paper to those who have a right to it."
+msgstr ""
+
+#: aigaionengine/views/help/attachments.php:15
+msgid ""
+"The difference with remote attachments (URL links) is that a DOI always "
+"stays the same, whereas an URL will probably be outdated as soon as the "
+"publisher changes his web site."
+msgstr ""
+
+#: aigaionengine/views/help/attachments.php:17
+msgid "Common problems"
+msgstr ""
+
+#: aigaionengine/views/help/attachments.php:18
+msgid "The most common problems and errors with uploading attachments are:"
+msgstr ""
+
+#: aigaionengine/views/help/attachments.php:20
+msgid ""
+"The server is read-only, or the attachment directory is not writable, so "
+"storing uploaded attachment on the server fails"
+msgstr ""
+
+#: aigaionengine/views/help/attachments.php:21
+msgid ""
+"The PHP settings for the webserver are sometimes inadequate for uploading "
+"attachments: <code>upload_max_filesize</code>, <code>post_max_size</code> "
+"and <code>max_execution_time</code> should all be large enough for uploading "
+"attachments of a normal size"
+msgstr ""
+
+#: aigaionengine/views/help/attachments.php:22
+msgid ""
+"The setting &lsquo;allowed attachment extensions&rsquo; does not contain the "
+"right extensions"
+msgstr ""
+
+#: aigaionengine/views/help/publicationlists.php:3
+msgid "The Publication Lists"
+msgstr ""
+
+#: aigaionengine/views/help/publicationlists.php:4
+#, php-format
+msgid ""
+"%s offers multiple ways to explore your publications, the standard list "
+"sorts all publications in the database by year. You can also browse the "
+"publications sorted by title, by publicationtype or by topic."
+msgstr ""
+
+#: aigaionengine/views/help/publicationlists.php:13
+msgid "An example publication entry"
+msgstr ""
+
+#: aigaionengine/views/help/publicationlists.php:15
+msgid "Icons in the publication list and their functions."
+msgstr ""
+
+#: aigaionengine/views/help/publicationlists.php:17
+msgid "Edit the information of this publication."
+msgstr ""
+
+#: aigaionengine/views/help/publicationlists.php:18
+msgid "View the pdf file of this article (only if available)."
+msgstr ""
+
 #: aigaionengine/views/help/tutorial.php:3
 msgid "Video Tutorial"
 msgstr ""
@@ -4885,6 +4711,96 @@ msgid ""
 "Hello to this video tutorial. Well, actually, the tutorial is still in "
 "development, but we try hard to publish it here as soon as possible. So, "
 "stay tuned!"
+msgstr ""
+
+#: aigaionengine/views/help/about.php:3
+#, php-format
+msgid "About %s"
+msgstr ""
+
+#: aigaionengine/views/help/about.php:14
+#, php-format
+msgid "Administrator of this installation: %s"
+msgstr ""
+
+#: aigaionengine/views/help/about.php:15
+#, php-format
+msgid "URL of this installation: %s"
+msgstr ""
+
+#: aigaionengine/views/help/about.php:16
+#, php-format
+msgid "PHP version: %s"
+msgstr ""
+
+#: aigaionengine/views/help/about.php:17
+#, php-format
+msgid "Database Version: %s"
+msgstr ""
+
+#: aigaionengine/views/help/about.php:18
+#, php-format
+msgid "Based on the %s framework and %s."
+msgstr ""
+
+#: aigaionengine/views/help/accounts.php:3
+msgid "Groups, user accounts and rights profiles"
+msgstr ""
+
+#: aigaionengine/views/help/accounts.php:4
+msgid ""
+"Access to the database is possible through logging in with a NDS or a guest "
+"user account. Individual users can have certain access rights assigned to "
+"them. Individual users can also be assigned to groups. Groups facilitate "
+"group-defined topic subscriptions, quick assignment of default right "
+"profiles and restriction of read and write access for certain notes, "
+"publications, attachments or topics to a subset of users."
+msgstr ""
+
+#: aigaionengine/views/help/accounts.php:6
+msgid "Group topic subscriptions"
+msgstr ""
+
+#: aigaionengine/views/help/accounts.php:7
+msgid ""
+"Users with sufficient rights (&lsquo;user_edit_all&rsquo;) can subscribe a "
+"group to certain topics from the &lsquo;manage accounts&rsquo; page. In that "
+"case all users that belong to that group will be counted &lsquo;"
+"subscribed&rsquo; to that topic, no matter whether they were individually "
+"subscribed or not."
+msgstr ""
+
+#: aigaionengine/views/help/accounts.php:9
+msgid "Default rights profiles for groups"
+msgstr ""
+
+#: aigaionengine/views/help/accounts.php:10
+msgid ""
+"Each group can be associated with one or more <em>rights profiles</em>, "
+"collections of user rights. This association has no influence at all on the "
+"user rights considered to be assigned to the users currently belonging to "
+"the group. However, whenever you newly assign a user to a group, that user "
+"will immediately also receive all user rights from the rights profiles "
+"associated to the group. This helps in quickly establishing default rights "
+"for users in certain groups."
+msgstr ""
+
+#: aigaionengine/views/help/accounts.php:12
+msgid "Access levels"
+msgstr ""
+
+#: aigaionengine/views/help/accounts.php:13
+#, php-format
+msgid "See %s for more information about access levels."
+msgstr ""
+
+#: aigaionengine/views/help/accounts.php:13
+msgid "the section about access rights"
+msgstr ""
+
+#: aigaionengine/views/help/crossref.php:3
+#, php-format
+msgid "Cross referencing in %s"
 msgstr ""
 
 #: aigaionengine/views/help/wiki.php:3
@@ -5011,9 +4927,9 @@ msgid "select to use editor as found in BibTeX"
 msgstr ""
 
 #: aigaionengine/views/keywords/list_items.php:56
-#: aigaionengine/views/publications/list.php:192
 #: aigaionengine/views/publications/single.php:211
 #: aigaionengine/views/publications/single.php:227
+#: aigaionengine/views/publications/list.php:192
 #: aigaionengine/views/readapi/publist.php:124
 #, php-format
 msgid "All information on %s"
@@ -5085,10 +5001,6 @@ msgstr ""
 msgid "Back to the front page."
 msgstr ""
 
-#: aigaionengine/views/menu.php:10
-msgid "Create"
-msgstr ""
-
 #: aigaionengine/views/notes/edit.php:34
 msgid "Add a note"
 msgstr ""
@@ -5108,14 +5020,6 @@ msgstr ""
 #: aigaionengine/views/notes/edit.php:50
 #: aigaionengine/views/publications/single.php:267
 msgid "Access rights:"
-msgstr ""
-
-#: aigaionengine/views/pagination.php:19 aigaionengine/views/pagination.php:21
-msgid "Start"
-msgstr ""
-
-#: aigaionengine/views/pagination.php:47 aigaionengine/views/pagination.php:49
-msgid "End"
 msgstr ""
 
 #: aigaionengine/views/publications/edit.php:18
@@ -5215,48 +5119,24 @@ msgstr ""
 msgid "Editors"
 msgstr ""
 
-#: aigaionengine/views/publications/list.php:93
 #: aigaionengine/views/publications/listClean.php:65
+#: aigaionengine/views/publications/list.php:93
 #: aigaionengine/views/readapi/publist.php:69
 #, php-format
 msgid "Publications of type %s"
 msgstr ""
 
-#: aigaionengine/views/publications/list.php:124
-#: aigaionengine/views/publications/single.php:24
-msgid "remove from bookmark list"
+#: aigaionengine/views/publications/listClean.php:86
+msgid "Master theses"
 msgstr ""
 
-#: aigaionengine/views/publications/list.php:129
-#: aigaionengine/views/publications/single.php:29
-msgid "add to bookmark list"
-msgstr ""
-
-#: aigaionengine/views/publications/list.php:151
-#: aigaionengine/views/readapi/publist.php:187
-msgid "Click to follow Digital Object Identifier link to online publication"
-msgstr ""
-
-#: aigaionengine/views/publications/list.php:178
-#: aigaionengine/views/publications/list.php:203
 #: aigaionengine/views/publications/listClean.php:120
 #: aigaionengine/views/publications/single.php:118
+#: aigaionengine/views/publications/list.php:178
+#: aigaionengine/views/publications/list.php:203
 #: aigaionengine/views/readapi/publist.php:110
 #: aigaionengine/views/readapi/publist.php:132
 msgid "View publication details"
-msgstr ""
-
-#: aigaionengine/views/publications/list.php:185
-msgid " and "
-msgstr ""
-
-#: aigaionengine/views/publications/list.php:187
-#: aigaionengine/views/publications/list.php:199
-msgid ", "
-msgstr ""
-
-#: aigaionengine/views/publications/listClean.php:86
-msgid "Master theses"
 msgstr ""
 
 #: aigaionengine/views/publications/review.php:39
@@ -5277,8 +5157,18 @@ msgstr ""
 msgid "unbookmark"
 msgstr ""
 
+#: aigaionengine/views/publications/single.php:24
+#: aigaionengine/views/publications/list.php:124
+msgid "remove from bookmark list"
+msgstr ""
+
 #: aigaionengine/views/publications/single.php:27
 msgid "bookmark"
+msgstr ""
+
+#: aigaionengine/views/publications/single.php:29
+#: aigaionengine/views/publications/list.php:129
+msgid "add to bookmark list"
 msgstr ""
 
 #: aigaionengine/views/publications/single.php:32
@@ -5406,29 +5296,18 @@ msgstr ""
 msgid "Click on a topic name to change its subscription status."
 msgstr ""
 
-#: aigaionengine/views/repostform.php:8
-#, php-format
-msgid ""
-"The system detected that you were logged out while submitting a form named "
-"&ldquo;%s&rdquo;. The data in that form has <strong>not</strong> yet been "
-"submitted successfully to the database. Press the button below to re-submit "
-"the form data."
+#: aigaionengine/views/publications/list.php:151
+#: aigaionengine/views/readapi/publist.php:187
+msgid "Click to follow Digital Object Identifier link to online publication"
 msgstr ""
 
-#: aigaionengine/views/repostform.php:15
-msgid "NOTE:"
+#: aigaionengine/views/publications/list.php:185
+msgid " and "
 msgstr ""
 
-#: aigaionengine/views/repostform.php:15
-msgid ""
-"You are now logged in as a guest user. If you submitted the form from a "
-"registered account, you should first log in with your registered account "
-"before resubmitting the form, because from this guest account you might then "
-"not have enough rights to submit the form."
-msgstr ""
-
-#: aigaionengine/views/repostform.php:22
-msgid "Repost"
+#: aigaionengine/views/publications/list.php:187
+#: aigaionengine/views/publications/list.php:199
+msgid ", "
 msgstr ""
 
 #: aigaionengine/views/rightsprofiles/edit.php:41
@@ -5966,18 +5845,18 @@ msgstr ""
 msgid "Default author display style"
 msgstr ""
 
-#: aigaionengine/views/site/edit.php:469 aigaionengine/views/user/edit.php:83
-#: aigaionengine/views/users/edit.php:308
+#: aigaionengine/views/site/edit.php:469
+#: aigaionengine/views/users/edit.php:308 aigaionengine/views/user/edit.php:83
 msgid "First [von] Last"
 msgstr ""
 
-#: aigaionengine/views/site/edit.php:469 aigaionengine/views/user/edit.php:83
-#: aigaionengine/views/users/edit.php:308
+#: aigaionengine/views/site/edit.php:469
+#: aigaionengine/views/users/edit.php:308 aigaionengine/views/user/edit.php:83
 msgid "[von] Last, First"
 msgstr ""
 
-#: aigaionengine/views/site/edit.php:469 aigaionengine/views/user/edit.php:83
-#: aigaionengine/views/users/edit.php:308
+#: aigaionengine/views/site/edit.php:469
+#: aigaionengine/views/users/edit.php:308 aigaionengine/views/user/edit.php:83
 msgid "[von] Last"
 msgstr ""
 
@@ -5990,13 +5869,13 @@ msgstr ""
 msgid "'Similar author' check"
 msgstr ""
 
-#: aigaionengine/views/site/edit.php:485 aigaionengine/views/user/edit.php:97
-#: aigaionengine/views/users/edit.php:324
+#: aigaionengine/views/site/edit.php:485
+#: aigaionengine/views/users/edit.php:324 aigaionengine/views/user/edit.php:97
 msgid "Last names, then initials"
 msgstr ""
 
-#: aigaionengine/views/site/edit.php:485 aigaionengine/views/user/edit.php:97
-#: aigaionengine/views/users/edit.php:324
+#: aigaionengine/views/site/edit.php:485
+#: aigaionengine/views/users/edit.php:324 aigaionengine/views/user/edit.php:97
 msgid "Full name"
 msgstr ""
 
@@ -6085,8 +5964,9 @@ msgstr ""
 msgid "LDAP based authentication"
 msgstr ""
 
-#: aigaionengine/views/site/edit.php:606 aigaionengine/views/user/edit.php:124
+#: aigaionengine/views/site/edit.php:606
 #: aigaionengine/views/users/edit.php:474
+#: aigaionengine/views/user/edit.php:124
 msgid "Store new settings"
 msgstr ""
 
@@ -6098,8 +5978,8 @@ msgstr ""
 #, php-format
 msgid ""
 "There is a set of maintenance functions available. You can either perform "
-"the maintenance functions separately by selecting from the list, or you can %"
-"s"
+"the maintenance functions separately by selecting from the list, or you can "
+"%s"
 msgstr ""
 
 #: aigaionengine/views/site/maintenance.php:15
@@ -6206,26 +6086,6 @@ msgstr ""
 #: aigaionengine/views/site/stats.php:20
 #, php-format
 msgid "%s main topics"
-msgstr ""
-
-#: aigaionengine/views/sort.php:9
-msgid "Title"
-msgstr ""
-
-#: aigaionengine/views/sort.php:10
-msgid "Type/Journal"
-msgstr ""
-
-#: aigaionengine/views/sort.php:11
-msgid "Year"
-msgstr ""
-
-#: aigaionengine/views/sort.php:12
-msgid "Recently added"
-msgstr ""
-
-#: aigaionengine/views/sort.php:21
-msgid "Sort by:"
 msgstr ""
 
 #: aigaionengine/views/topics/clean.php:13
@@ -6335,222 +6195,16 @@ msgstr ""
 msgid "read: %s of %s publications"
 msgstr ""
 
-#: aigaionengine/views/user/all.php:5
-#, php-format
-msgid ""
-"This is a list of all current users of %s. Click on any link to see a "
-"detailed description of the user."
-msgstr ""
-
-#: aigaionengine/views/user/all.php:10
-#, php-format
-msgid "Group: %s"
-msgstr ""
-
-#: aigaionengine/views/user/contact.php:5
-#: aigaionengine/views/user/contact.php:7
-#, php-format
-msgid "Contact %s %s"
-msgstr ""
-
-#: aigaionengine/views/user/contact.php:13
-msgid "The e-Mail was successfully sent."
-msgstr ""
-
-#: aigaionengine/views/user/contact.php:15
-msgid "Ooops."
-msgstr ""
-
-#: aigaionengine/views/user/contact.php:16
-msgid "&laquo; Back to the user’s overview"
-msgstr ""
-
-#: aigaionengine/views/user/contact.php:25
-msgid "Subject:"
-msgstr ""
-
-#: aigaionengine/views/user/contact.php:30
-msgid "Message:"
-msgstr ""
-
-#: aigaionengine/views/user/contact.php:35
-msgid "Submit"
-msgstr ""
-
-#: aigaionengine/views/user/contact.php:37
-#: aigaionengine/views/user/edit.php:125
-msgid "Back to the user’s overview"
-msgstr ""
-
-#: aigaionengine/views/user/edit.php:5
-#, php-format
-msgid "Edit my account: %s"
-msgstr ""
-
-#: aigaionengine/views/user/edit.php:23 aigaionengine/views/users/edit.php:54
-msgid "Account settings"
-msgstr ""
-
-#: aigaionengine/views/user/edit.php:25 aigaionengine/views/users/edit.php:208
-msgid "Initials"
-msgstr ""
-
-#: aigaionengine/views/user/edit.php:30 aigaionengine/views/users/edit.php:216
-msgid "First name"
-msgstr ""
-
-#: aigaionengine/views/user/edit.php:35 aigaionengine/views/users/edit.php:224
-msgid "Middle name"
-msgstr ""
-
-#: aigaionengine/views/user/edit.php:40 aigaionengine/views/users/edit.php:232
-msgid "Surname"
-msgstr ""
-
-#: aigaionengine/views/user/edit.php:48
-msgid ""
-"This is not your login name, but the name others will see in the ‘Who "
-"created this’ fields."
-msgstr ""
-
-#: aigaionengine/views/user/edit.php:51 aigaionengine/views/users/edit.php:248
-msgid "Email address"
-msgstr ""
-
-#: aigaionengine/views/user/edit.php:58 aigaionengine/views/users/edit.php:276
-msgid "Display preferences"
-msgstr ""
-
-#: aigaionengine/views/user/edit.php:60 aigaionengine/views/users/edit.php:288
-msgid "Language"
-msgstr ""
-
-#: aigaionengine/views/user/edit.php:62 aigaionengine/views/user/edit.php:74
-#: aigaionengine/views/user/edit.php:82
-#, php-format
-msgid "default (%s)"
-msgstr ""
-
-#: aigaionengine/views/user/edit.php:72 aigaionengine/views/users/edit.php:297
-msgid "Publication summary style"
-msgstr ""
-
-#: aigaionengine/views/user/edit.php:75 aigaionengine/views/users/edit.php:300
-msgid "author first"
-msgstr ""
-
-#: aigaionengine/views/user/edit.php:75 aigaionengine/views/users/edit.php:300
-msgid "title first"
-msgstr ""
-
-#: aigaionengine/views/user/edit.php:80 aigaionengine/views/users/edit.php:305
-msgid "Author display style"
-msgstr ""
-
-#: aigaionengine/views/user/edit.php:88 aigaionengine/views/users/edit.php:313
-msgid "Number of publications per page"
-msgstr ""
-
-#: aigaionengine/views/user/edit.php:95
-msgid "‘Similar author’ check"
-msgstr ""
-
-#: aigaionengine/views/user/edit.php:97 aigaionengine/views/users/edit.php:324
-msgid "Site default"
-msgstr ""
-
-#: aigaionengine/views/user/edit.php:100
-msgid ""
-"Select the method for checking whether two author names are counted as "
-"‘similar.’"
-msgstr ""
-
-#: aigaionengine/views/user/edit.php:103
-#: aigaionengine/views/users/edit.php:334
-msgid "Open attachments in new browser window"
-msgstr ""
-
-#: aigaionengine/views/user/edit.php:108
-#: aigaionengine/views/users/edit.php:343
-msgid "Open export data in browser"
-msgstr ""
-
-#: aigaionengine/views/user/edit.php:111
-#: aigaionengine/views/users/edit.php:350
-msgid ""
-"Check this box to force the system to show export data such as BibTeX or RIS "
-"directly in a browser window instead of downloading it as a file."
-msgstr ""
-
-#: aigaionengine/views/user/edit.php:115
-#: aigaionengine/views/users/edit.php:355
-msgid "Export BibTeX as UTF8"
-msgstr ""
-
-#: aigaionengine/views/user/edit.php:118
-#, php-format
-msgid ""
-"Check this box if you want all BibTeX output to be in UTF8, i.e. when you do "
-"<strong>not</strong> want %s to convert special characters to BibTeX codes "
-"such as %s."
-msgstr ""
-
-#: aigaionengine/views/user/full.php:3 aigaionengine/views/user/group.php:3
-msgid "&laquo; Back to all users’ overview"
-msgstr ""
-
-#: aigaionengine/views/user/full.php:5
-msgid "User Details:"
-msgstr ""
-
-#: aigaionengine/views/user/full.php:11
-msgid "Edit account details."
-msgstr ""
-
-#: aigaionengine/views/user/full.php:18
-msgid "Search this user in the faculty’s user database"
-msgstr ""
-
-#: aigaionengine/views/user/full.php:30
-msgid "NDS login name:"
-msgstr ""
-
-#: aigaionengine/views/user/full.php:31
-msgid "guest"
-msgstr ""
-
-#: aigaionengine/views/user/full.php:34
-msgid "E-Mail address:"
-msgstr ""
-
-#: aigaionengine/views/user/full.php:38
-msgid "Groups:"
-msgstr ""
-
-#: aigaionengine/views/user/full.php:46
-#, php-format
-msgid "Last %d publications uploaded by this user:"
-msgstr ""
-
-#: aigaionengine/views/user/group.php:5
-#, php-format
-msgid "Group Details: %s"
-msgstr ""
-
-#: aigaionengine/views/user/group.php:14
-msgid "NDS short name:"
-msgstr ""
-
-#: aigaionengine/views/user/group.php:18
-msgid "Known group members:"
-msgstr ""
-
 #: aigaionengine/views/users/edit.php:42
 msgid "Create a new user"
 msgstr ""
 
 #: aigaionengine/views/users/edit.php:44
 msgid "Edit user preferences"
+msgstr ""
+
+#: aigaionengine/views/users/edit.php:54 aigaionengine/views/user/edit.php:23
+msgid "Account settings"
 msgstr ""
 
 #: aigaionengine/views/users/edit.php:54
@@ -6640,18 +6294,92 @@ msgstr ""
 msgid "Person details"
 msgstr ""
 
+#: aigaionengine/views/users/edit.php:208 aigaionengine/views/user/edit.php:25
+msgid "Initials"
+msgstr ""
+
+#: aigaionengine/views/users/edit.php:216 aigaionengine/views/user/edit.php:30
+msgid "First name"
+msgstr ""
+
+#: aigaionengine/views/users/edit.php:224 aigaionengine/views/user/edit.php:35
+msgid "Middle name"
+msgstr ""
+
+#: aigaionengine/views/users/edit.php:232 aigaionengine/views/user/edit.php:40
+msgid "Surname"
+msgstr ""
+
 #: aigaionengine/views/users/edit.php:240
 msgid "Abbreviation (about three characters)"
+msgstr ""
+
+#: aigaionengine/views/users/edit.php:248 aigaionengine/views/user/edit.php:51
+msgid "Email address"
+msgstr ""
+
+#: aigaionengine/views/users/edit.php:276 aigaionengine/views/user/edit.php:58
+msgid "Display preferences"
 msgstr ""
 
 #: aigaionengine/views/users/edit.php:280
 msgid "Theme"
 msgstr ""
 
+#: aigaionengine/views/users/edit.php:288 aigaionengine/views/user/edit.php:60
+msgid "Language"
+msgstr ""
+
+#: aigaionengine/views/users/edit.php:297 aigaionengine/views/user/edit.php:72
+msgid "Publication summary style"
+msgstr ""
+
+#: aigaionengine/views/users/edit.php:300 aigaionengine/views/user/edit.php:75
+msgid "author first"
+msgstr ""
+
+#: aigaionengine/views/users/edit.php:300 aigaionengine/views/user/edit.php:75
+msgid "title first"
+msgstr ""
+
+#: aigaionengine/views/users/edit.php:305 aigaionengine/views/user/edit.php:80
+msgid "Author display style"
+msgstr ""
+
+#: aigaionengine/views/users/edit.php:313 aigaionengine/views/user/edit.php:88
+msgid "Number of publications per page"
+msgstr ""
+
+#: aigaionengine/views/users/edit.php:324 aigaionengine/views/user/edit.php:97
+msgid "Site default"
+msgstr ""
+
 #: aigaionengine/views/users/edit.php:330
 msgid ""
 "Select the method for checking whether two author names are counted as "
 "\"similar\"."
+msgstr ""
+
+#: aigaionengine/views/users/edit.php:334
+#: aigaionengine/views/user/edit.php:103
+msgid "Open attachments in new browser window"
+msgstr ""
+
+#: aigaionengine/views/users/edit.php:343
+#: aigaionengine/views/user/edit.php:108
+msgid "Open export data in browser"
+msgstr ""
+
+#: aigaionengine/views/users/edit.php:350
+#: aigaionengine/views/user/edit.php:111
+msgid ""
+"Check this box to force the system to show export data such as BibTeX or RIS "
+"directly in a browser window instead of downloading it as a file."
+msgstr ""
+
+#: aigaionengine/views/users/edit.php:355
+#: aigaionengine/views/user/edit.php:115
+msgid "Export BibTeX as UTF8"
 msgstr ""
 
 #: aigaionengine/views/users/edit.php:362
@@ -6712,6 +6440,253 @@ msgstr ""
 msgid "disabled account"
 msgstr ""
 
+#: aigaionengine/views/error/404.php:3
+msgid "Error: Resource not found."
+msgstr ""
+
+#: aigaionengine/views/error/404.php:5
+#, php-format
+msgid "The resource %s could not be found (error 404)."
+msgstr ""
+
+#: aigaionengine/views/explore.php:7
+msgid "Most recent publications"
+msgstr ""
+
+#: aigaionengine/views/footer.php:17
+msgid "Useful Links"
+msgstr ""
+
+#: aigaionengine/views/footer.php:20
+msgid "Faculty of Physics"
+msgstr ""
+
+#: aigaionengine/views/footer.php:21
+msgid "University library"
+msgstr ""
+
+#: aigaionengine/views/footer.php:22
+msgid "Computer Centre"
+msgstr ""
+
+#: aigaionengine/views/footer.php:31
+msgid "Ask the Admin"
+msgstr ""
+
+#: aigaionengine/views/footer.php:33
+#, php-format
+msgid ""
+"Do you have any question regarding %s? Have you spotted an error or do you "
+"want to suggest a new feature? Don’t hesitate and drop us a line."
+msgstr ""
+
+#: aigaionengine/views/footer.php:44
+msgid "E-Mail"
+msgstr ""
+
+#: aigaionengine/views/footer.php:48
+msgid "Question:"
+msgstr ""
+
+#: aigaionengine/views/footer.php:52
+msgid "ask the admin"
+msgstr ""
+
+#: aigaionengine/views/footer.php:59
+#, php-format
+msgid ""
+"%s ist das Promotionsprojekt von Manuel Strehl und entsteht in "
+"Zusammenarbeit mit dem Lehrstuhl für Medieninformatik und der Fakultät für "
+"Physik an der Universität Regensburg. Ziel ist der Aufbau eines umfassenden "
+"Web 2.0-Angebots für die Regensburger Physiker. Die Anwendung basiert auf "
+"der freien Publikationsdatenbank %s."
+msgstr ""
+
+#: aigaionengine/views/footer.php:69
+msgid "General help"
+msgstr ""
+
+#: aigaionengine/views/footer.php:70
+msgid "About this site"
+msgstr ""
+
+#: aigaionengine/views/footer.php:73
+msgid "Aigaion forum"
+msgstr ""
+
+#: aigaionengine/views/footer.php:74
+msgid "Imprint"
+msgstr ""
+
+#: aigaionengine/views/menu.php:10
+msgid "Create"
+msgstr ""
+
+#: aigaionengine/views/pagination.php:19 aigaionengine/views/pagination.php:21
+msgid "Start"
+msgstr ""
+
+#: aigaionengine/views/pagination.php:47 aigaionengine/views/pagination.php:49
+msgid "End"
+msgstr ""
+
+#: aigaionengine/views/repostform.php:8
+#, php-format
+msgid ""
+"The system detected that you were logged out while submitting a form named "
+"&ldquo;%s&rdquo;. The data in that form has <strong>not</strong> yet been "
+"submitted successfully to the database. Press the button below to re-submit "
+"the form data."
+msgstr ""
+
+#: aigaionengine/views/repostform.php:15
+msgid "NOTE:"
+msgstr ""
+
+#: aigaionengine/views/repostform.php:15
+msgid ""
+"You are now logged in as a guest user. If you submitted the form from a "
+"registered account, you should first log in with your registered account "
+"before resubmitting the form, because from this guest account you might then "
+"not have enough rights to submit the form."
+msgstr ""
+
+#: aigaionengine/views/repostform.php:22
+msgid "Repost"
+msgstr ""
+
+#: aigaionengine/views/user/contact.php:5
+#: aigaionengine/views/user/contact.php:7
+#, php-format
+msgid "Contact %s %s"
+msgstr ""
+
+#: aigaionengine/views/user/contact.php:13
+msgid "The e-Mail was successfully sent."
+msgstr ""
+
+#: aigaionengine/views/user/contact.php:15
+msgid "Ooops."
+msgstr ""
+
+#: aigaionengine/views/user/contact.php:16
+msgid "&laquo; Back to the user’s overview"
+msgstr ""
+
+#: aigaionengine/views/user/contact.php:25
+msgid "Subject:"
+msgstr ""
+
+#: aigaionengine/views/user/contact.php:30
+msgid "Message:"
+msgstr ""
+
+#: aigaionengine/views/user/contact.php:35
+msgid "Submit"
+msgstr ""
+
+#: aigaionengine/views/user/contact.php:37
+#: aigaionengine/views/user/edit.php:125
+msgid "Back to the user’s overview"
+msgstr ""
+
+#: aigaionengine/views/user/edit.php:5
+#, php-format
+msgid "Edit my account: %s"
+msgstr ""
+
+#: aigaionengine/views/user/edit.php:48
+msgid ""
+"This is not your login name, but the name others will see in the ‘Who "
+"created this’ fields."
+msgstr ""
+
+#: aigaionengine/views/user/edit.php:62 aigaionengine/views/user/edit.php:74
+#: aigaionengine/views/user/edit.php:82
+#, php-format
+msgid "default (%s)"
+msgstr ""
+
+#: aigaionengine/views/user/edit.php:95
+msgid "‘Similar author’ check"
+msgstr ""
+
+#: aigaionengine/views/user/edit.php:100
+msgid ""
+"Select the method for checking whether two author names are counted as "
+"‘similar.’"
+msgstr ""
+
+#: aigaionengine/views/user/edit.php:118
+#, php-format
+msgid ""
+"Check this box if you want all BibTeX output to be in UTF8, i.e. when you do "
+"<strong>not</strong> want %s to convert special characters to BibTeX codes "
+"such as %s."
+msgstr ""
+
+#: aigaionengine/views/user/full.php:3 aigaionengine/views/user/group.php:3
+msgid "&laquo; Back to all users’ overview"
+msgstr ""
+
+#: aigaionengine/views/user/full.php:5
+msgid "User Details:"
+msgstr ""
+
+#: aigaionengine/views/user/full.php:11
+msgid "Edit account details."
+msgstr ""
+
+#: aigaionengine/views/user/full.php:18
+msgid "Search this user in the faculty’s user database"
+msgstr ""
+
+#: aigaionengine/views/user/full.php:30
+msgid "NDS login name:"
+msgstr ""
+
+#: aigaionengine/views/user/full.php:31
+msgid "guest"
+msgstr ""
+
+#: aigaionengine/views/user/full.php:34
+msgid "E-Mail address:"
+msgstr ""
+
+#: aigaionengine/views/user/full.php:38
+msgid "Groups:"
+msgstr ""
+
+#: aigaionengine/views/user/full.php:46
+#, php-format
+msgid "Last %d publications uploaded by this user:"
+msgstr ""
+
+#: aigaionengine/views/user/all.php:5
+#, php-format
+msgid ""
+"This is a list of all current users of %s. Click on any link to see a "
+"detailed description of the user."
+msgstr ""
+
+#: aigaionengine/views/user/all.php:10
+#, php-format
+msgid "Group: %s"
+msgstr ""
+
+#: aigaionengine/views/user/group.php:5
+#, php-format
+msgid "Group Details: %s"
+msgstr ""
+
+#: aigaionengine/views/user/group.php:14
+msgid "NDS short name:"
+msgstr ""
+
+#: aigaionengine/views/user/group.php:18
+msgid "Known group members:"
+msgstr ""
+
 #: aigaionengine/views/wiki/edit.php:6
 #, php-format
 msgid "Edit Discussion &ldquo;%s&rdquo;"
@@ -6760,4 +6735,67 @@ msgstr ""
 
 #: aigaionengine/views/wiki/index.php:8
 msgid "Latest edits:"
+msgstr ""
+
+#: aigaionengine/views/sort.php:9
+msgid "Title"
+msgstr ""
+
+#: aigaionengine/views/sort.php:10
+msgid "Type/Journal"
+msgstr ""
+
+#: aigaionengine/views/sort.php:11
+msgid "Year"
+msgstr ""
+
+#: aigaionengine/views/sort.php:12
+msgid "Recently added"
+msgstr ""
+
+#: aigaionengine/views/sort.php:21
+msgid "Sort by:"
+msgstr ""
+
+#: aigaionengine/views/header.php:66
+msgid "Guest User:"
+msgstr ""
+
+#: aigaionengine/views/header.php:66
+msgid "Login (NDS)"
+msgstr ""
+
+#: aigaionengine/views/header.php:66
+msgid "Login (Guest account)"
+msgstr ""
+
+#: aigaionengine/views/header.php:69
+#, php-format
+msgid "Hello, %s %s"
+msgstr ""
+
+#: aigaionengine/views/header.php:71
+msgid "Profile"
+msgstr ""
+
+#: aigaionengine/views/header.php:74
+msgid "Bookmarks"
+msgstr ""
+
+#: aigaionengine/views/header.php:77
+msgid "Logout"
+msgstr ""
+
+#: aigaionengine/models/user_model.php:52
+msgid "Login data missing."
+msgstr ""
+
+#: aigaionengine/models/user_model.php:55
+msgid "User already exists."
+msgstr ""
+
+#: aigaionengine/models/wiki_model.php:96
+#: aigaionengine/models/wiki_model.php:129
+#: aigaionengine/models/wiki_model.php:156
+msgid "Edit wiki"
 msgstr ""
