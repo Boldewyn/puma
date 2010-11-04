@@ -141,7 +141,7 @@ class Usercontroller extends Controller {
             }
         }
 
-        $this->load->view('header', array('title' => sprintf(__('Publications Uploaded by %2'), $user->abbreviation)));
+        $this->load->view('header', array('title' => sprintf(__('Publications Uploaded by %s'), $user->abbreviation)));
         $this->load->view('publications/list', $content);
         $this->load->view('footer');
     }
