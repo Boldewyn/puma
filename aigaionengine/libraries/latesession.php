@@ -42,6 +42,9 @@ class LateSession {
         //determine sessionname from config...
         //this is done to keep the sessions of two instances of this
         //system separated.
+        if (defined('PUMA_SESSION_PATH') and is_dir(PUMA_SESSION_PATH)) {
+            ini_set('session.save_path', PUMA_SESSION_PATH);
+        }
         if (session_name()!=AIGAION_SITEID)session_name(AIGAION_SITEID);
         $CI = &get_instance();
         session_set_cookie_params(60*60*24*365, $CI->config->item('cookie_path'));
