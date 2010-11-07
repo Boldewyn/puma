@@ -10,6 +10,7 @@ class Usercontroller extends Controller {
         );
         $userlogin = getUserLogin();
         $subnav['/user/'.$userlogin->loginName().'/edit'] = __('My preferences');
+        $subnav['/user/'.$userlogin->loginName().'/publications'] = __('My publications');
         $this->load->vars(array('subnav' => $subnav));
     }
 
@@ -141,6 +142,7 @@ class Usercontroller extends Controller {
             }
         }
 
+        $this->load->vars(array('subnav_current' => '/user/'.$user->login.'/publications'));
         $this->load->view('header', array('title' => sprintf(__('Publications Uploaded by %s'), $user->abbreviation)));
         $this->load->view('publications/list', $content);
         $this->load->view('footer');
