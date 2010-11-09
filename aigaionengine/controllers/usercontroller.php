@@ -141,6 +141,7 @@ class Usercontroller extends Controller {
                 $content['publications'][] = $next;
             }
         }
+        $content["export_url"] = "export/user/".$id;
 
         $this->load->vars(array('subnav_current' => '/user/'.$user->login.'/publications'));
         $this->load->view('header', array('title' => sprintf(__('Publications Uploaded by %s'), $user->abbreviation)));
