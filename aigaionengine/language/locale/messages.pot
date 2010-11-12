@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-04 10:09+0100\n"
+"POT-Creation-Date: 2010-11-12 13:16+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -356,7 +356,7 @@ msgstr ""
 #: aigaionengine/controllers/keywords.php:119
 #: aigaionengine/controllers/publications.php:106
 #: aigaionengine/controllers/publications.php:151
-#: aigaionengine/controllers/usercontroller.php:100
+#: aigaionengine/controllers/usercontroller.php:101
 #: aigaionengine/controllers/authors.php:57
 #: aigaionengine/controllers/authors.php:110
 #: aigaionengine/controllers/authors.php:162
@@ -369,7 +369,7 @@ msgstr ""
 #: aigaionengine/controllers/keywords.php:122
 #: aigaionengine/controllers/publications.php:109
 #: aigaionengine/controllers/publications.php:154
-#: aigaionengine/controllers/usercontroller.php:104
+#: aigaionengine/controllers/usercontroller.php:105
 #: aigaionengine/controllers/authors.php:60
 #: aigaionengine/controllers/authors.php:113
 #: aigaionengine/controllers/authors.php:165
@@ -382,7 +382,7 @@ msgstr ""
 #: aigaionengine/controllers/keywords.php:125
 #: aigaionengine/controllers/publications.php:112
 #: aigaionengine/controllers/publications.php:157
-#: aigaionengine/controllers/usercontroller.php:108
+#: aigaionengine/controllers/usercontroller.php:109
 #: aigaionengine/controllers/authors.php:63
 #: aigaionengine/controllers/authors.php:116
 #: aigaionengine/controllers/authors.php:168
@@ -672,26 +672,6 @@ msgstr ""
 msgid "Export requested for non existing publication."
 msgstr ""
 
-#: aigaionengine/controllers/embeddingtest.php:41
-#: aigaionengine/controllers/authors.php:152
-msgid "View Author"
-msgstr ""
-
-#: aigaionengine/controllers/embeddingtest.php:41
-#: aigaionengine/controllers/rightsprofiles.php:35
-#: aigaionengine/controllers/rightsprofiles.php:127
-#: aigaionengine/controllers/rightsprofiles.php:187
-#: aigaionengine/controllers/users.php:324
-#: aigaionengine/controllers/authors.php:152
-#: aigaionengine/controllers/groups.php:37
-#: aigaionengine/controllers/groups.php:128
-#: aigaionengine/controllers/bookmarklist.php:188
-#: aigaionengine/controllers/bookmarklist.php:312
-#: aigaionengine/controllers/bookmarklist.php:347
-#: aigaionengine/controllers/bookmarklist.php:416
-msgid "non-existing id passed"
-msgstr ""
-
 #: aigaionengine/controllers/logintegration.php:36
 #: aigaionengine/controllers/logintegration.php:75
 #: aigaionengine/controllers/logintegration.php:146
@@ -884,6 +864,21 @@ msgstr ""
 
 #: aigaionengine/controllers/rightsprofiles.php:35
 msgid "View rights profile"
+msgstr ""
+
+#: aigaionengine/controllers/rightsprofiles.php:35
+#: aigaionengine/controllers/rightsprofiles.php:127
+#: aigaionengine/controllers/rightsprofiles.php:187
+#: aigaionengine/controllers/users.php:324
+#: aigaionengine/controllers/embeddingtest.php:41
+#: aigaionengine/controllers/authors.php:152
+#: aigaionengine/controllers/groups.php:37
+#: aigaionengine/controllers/groups.php:128
+#: aigaionengine/controllers/bookmarklist.php:188
+#: aigaionengine/controllers/bookmarklist.php:312
+#: aigaionengine/controllers/bookmarklist.php:347
+#: aigaionengine/controllers/bookmarklist.php:416
+msgid "non-existing id passed"
 msgstr ""
 
 #: aigaionengine/controllers/rightsprofiles.php:43
@@ -1277,7 +1272,7 @@ msgstr ""
 
 #: aigaionengine/controllers/publications.php:115
 #: aigaionengine/controllers/publications.php:160
-#: aigaionengine/controllers/usercontroller.php:112
+#: aigaionengine/controllers/usercontroller.php:113
 msgid "sorted by author"
 msgstr ""
 
@@ -1512,6 +1507,11 @@ msgstr ""
 msgid "The topic has been unsubscribed."
 msgstr ""
 
+#: aigaionengine/controllers/embeddingtest.php:41
+#: aigaionengine/controllers/authors.php:152
+msgid "View Author"
+msgstr ""
+
 #: aigaionengine/controllers/usercontroller.php:8
 #: aigaionengine/controllers/bookmarklist.php:9
 msgid "All users"
@@ -1527,91 +1527,96 @@ msgstr ""
 msgid "My preferences"
 msgstr ""
 
-#: aigaionengine/controllers/usercontroller.php:21
+#: aigaionengine/controllers/usercontroller.php:13
+msgid "My publications"
+msgstr ""
+
+#: aigaionengine/controllers/usercontroller.php:22
 msgid "You must be logged in to view the users’ page."
 msgstr ""
 
-#: aigaionengine/controllers/usercontroller.php:42
+#: aigaionengine/controllers/usercontroller.php:43
 #: aigaionengine/views/user/all.php:3
 msgid "All Users"
 msgstr ""
 
-#: aigaionengine/controllers/usercontroller.php:48
+#: aigaionengine/controllers/usercontroller.php:49
 #, php-format
 msgid "User %s does not exist."
 msgstr ""
 
-#: aigaionengine/controllers/usercontroller.php:51
+#: aigaionengine/controllers/usercontroller.php:52
 #, php-format
 msgid "Unknown action requested: %s."
 msgstr ""
 
-#: aigaionengine/controllers/usercontroller.php:54
+#: aigaionengine/controllers/usercontroller.php:55
 msgid "You must be logged in to view this user’s page."
 msgstr ""
 
-#: aigaionengine/controllers/usercontroller.php:73
+#: aigaionengine/controllers/usercontroller.php:74
 #, php-format
 msgid "User %s"
 msgstr ""
 
-#: aigaionengine/controllers/usercontroller.php:87
-#: aigaionengine/controllers/usercontroller.php:154
+#: aigaionengine/controllers/usercontroller.php:88
+#: aigaionengine/controllers/usercontroller.php:157
 msgid "Please log in to contact other users."
 msgstr ""
 
-#: aigaionengine/controllers/usercontroller.php:96
+#: aigaionengine/controllers/usercontroller.php:97
 #, php-format
 msgid "All publications uploaded by %s %%s"
 msgstr ""
 
-#: aigaionengine/controllers/usercontroller.php:144
-msgid "Publications Uploaded by %2"
+#: aigaionengine/controllers/usercontroller.php:147
+#, php-format
+msgid "Publications Uploaded by %s"
 msgstr ""
 
-#: aigaionengine/controllers/usercontroller.php:157
+#: aigaionengine/controllers/usercontroller.php:160
 #, php-format
 msgid "A %s is required."
 msgstr ""
 
-#: aigaionengine/controllers/usercontroller.php:158
+#: aigaionengine/controllers/usercontroller.php:161
 #, php-format
 msgid "The %s may not exceed 511 characters."
 msgstr ""
 
-#: aigaionengine/controllers/usercontroller.php:160
+#: aigaionengine/controllers/usercontroller.php:163
 msgid "message"
 msgstr ""
 
-#: aigaionengine/controllers/usercontroller.php:174
+#: aigaionengine/controllers/usercontroller.php:177
 #, php-format
 msgid "A message from Puma user %s %s"
 msgstr ""
 
-#: aigaionengine/controllers/usercontroller.php:188
+#: aigaionengine/controllers/usercontroller.php:191
 msgid "There was an error trying to send the e-Mail."
 msgstr ""
 
-#: aigaionengine/controllers/usercontroller.php:192
+#: aigaionengine/controllers/usercontroller.php:195
 #, php-format
 msgid "Contact user %s"
 msgstr ""
 
-#: aigaionengine/controllers/usercontroller.php:205
+#: aigaionengine/controllers/usercontroller.php:208
 msgid "You are not allowed to edit other users."
 msgstr ""
 
-#: aigaionengine/controllers/usercontroller.php:209
+#: aigaionengine/controllers/usercontroller.php:212
 #, php-format
 msgid "The field %s is required."
 msgstr ""
 
-#: aigaionengine/controllers/usercontroller.php:210
+#: aigaionengine/controllers/usercontroller.php:213
 #, php-format
 msgid "The field %s is too long."
 msgstr ""
 
-#: aigaionengine/controllers/usercontroller.php:215
+#: aigaionengine/controllers/usercontroller.php:218
 #: aigaionengine/views/users/edit.php:108
 #: aigaionengine/views/users/edit.php:147
 #: aigaionengine/views/users/edit.php:157
@@ -1619,33 +1624,33 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: aigaionengine/controllers/usercontroller.php:216
+#: aigaionengine/controllers/usercontroller.php:219
 msgid "Password repeat"
 msgstr ""
 
-#: aigaionengine/controllers/usercontroller.php:223
+#: aigaionengine/controllers/usercontroller.php:226
 msgid "The account was successfully updated."
 msgstr ""
 
-#: aigaionengine/controllers/usercontroller.php:225
+#: aigaionengine/controllers/usercontroller.php:228
 msgid "The changes could not be stored."
 msgstr ""
 
-#: aigaionengine/controllers/usercontroller.php:232
+#: aigaionengine/controllers/usercontroller.php:235
 #, php-format
 msgid "Edit user %s"
 msgstr ""
 
-#: aigaionengine/controllers/usercontroller.php:260
+#: aigaionengine/controllers/usercontroller.php:263
 msgid "The option was successfully set."
 msgstr ""
 
-#: aigaionengine/controllers/usercontroller.php:274
+#: aigaionengine/controllers/usercontroller.php:277
 #, php-format
 msgid "Group %s does not exist."
 msgstr ""
 
-#: aigaionengine/controllers/usercontroller.php:283
+#: aigaionengine/controllers/usercontroller.php:286
 #, php-format
 msgid "Group %s"
 msgstr ""
@@ -3614,6 +3619,34 @@ msgid ""
 "levels&hellip;)"
 msgstr ""
 
+#: aigaionengine/views/accesslevels/legenda.php:2
+msgid "Legenda"
+msgstr ""
+
+#: aigaionengine/views/accesslevels/legenda.php:4
+msgid "read public"
+msgstr ""
+
+#: aigaionengine/views/accesslevels/legenda.php:5
+msgid "read private"
+msgstr ""
+
+#: aigaionengine/views/accesslevels/legenda.php:6
+msgid "edit public"
+msgstr ""
+
+#: aigaionengine/views/accesslevels/legenda.php:7
+msgid "edit intern"
+msgstr ""
+
+#: aigaionengine/views/accesslevels/legenda.php:8
+msgid "edit private"
+msgstr ""
+
+#: aigaionengine/views/accesslevels/legenda.php:9
+msgid "If nothing is shown, the access level is &ldquo;intern&rdquo;."
+msgstr ""
+
 #: aigaionengine/views/accesslevels/editpanel.php:3
 msgid "Cannot edit access levels of this object"
 msgstr ""
@@ -3661,34 +3694,6 @@ msgstr ""
 msgid "Change"
 msgstr ""
 
-#: aigaionengine/views/accesslevels/legenda.php:2
-msgid "Legenda"
-msgstr ""
-
-#: aigaionengine/views/accesslevels/legenda.php:4
-msgid "read public"
-msgstr ""
-
-#: aigaionengine/views/accesslevels/legenda.php:5
-msgid "read private"
-msgstr ""
-
-#: aigaionengine/views/accesslevels/legenda.php:6
-msgid "edit public"
-msgstr ""
-
-#: aigaionengine/views/accesslevels/legenda.php:7
-msgid "edit intern"
-msgstr ""
-
-#: aigaionengine/views/accesslevels/legenda.php:8
-msgid "edit private"
-msgstr ""
-
-#: aigaionengine/views/accesslevels/legenda.php:9
-msgid "If nothing is shown, the access level is &ldquo;intern&rdquo;."
-msgstr ""
-
 #: aigaionengine/views/attachments/add.php:4
 #, php-format
 msgid "Upload new attachment for publication &ldquo;%s&rdquo;"
@@ -3715,11 +3720,11 @@ msgstr ""
 #: aigaionengine/views/attachments/edit.php:33
 #: aigaionengine/views/authors/merge.php:33
 #: aigaionengine/views/authors/edit.php:25
+#: aigaionengine/views/bookmarklist/ask.php:11
 #: aigaionengine/views/bookmarklist/setattaccesslevel.php:18
 #: aigaionengine/views/bookmarklist/seteditattaccesslevel.php:18
 #: aigaionengine/views/bookmarklist/seteditpubaccesslevel.php:18
 #: aigaionengine/views/bookmarklist/setpubaccesslevel.php:18
-#: aigaionengine/views/bookmarklist/ask.php:11
 #: aigaionengine/views/groups/edit.php:44
 #: aigaionengine/views/notes/edit.php:66
 #: aigaionengine/views/publications/edit.php:333
@@ -3782,8 +3787,8 @@ msgstr ""
 #: aigaionengine/views/attachments/summary.php:17
 #: aigaionengine/views/publications/listClean.php:185
 #: aigaionengine/views/publications/listClean.php:194
-#: aigaionengine/views/publications/list.php:137
 #: aigaionengine/views/publications/list.php:140
+#: aigaionengine/views/publications/list.php:143
 #: aigaionengine/views/readapi/publist.php:171
 #: aigaionengine/views/readapi/publist.php:180
 #, php-format
@@ -3988,45 +3993,17 @@ msgstr ""
 msgid "Order on Year"
 msgstr ""
 
-#: aigaionengine/views/bookmarklist/setattaccesslevel.php:14
-#, php-format
-msgid ""
-"Are you sure that you want to set the read access level for all attachments "
-"of publications on the bookmarklist to \"%s\"?"
+#: aigaionengine/views/bookmarklist/ask.php:4
+msgid "Confirmation needed"
 msgstr ""
 
+#: aigaionengine/views/bookmarklist/ask.php:10
 #: aigaionengine/views/bookmarklist/setattaccesslevel.php:15
 #: aigaionengine/views/bookmarklist/seteditattaccesslevel.php:15
 #: aigaionengine/views/bookmarklist/seteditpubaccesslevel.php:15
 #: aigaionengine/views/bookmarklist/setpubaccesslevel.php:15
-#: aigaionengine/views/bookmarklist/ask.php:10
 #: aigaionengine/views/confirm.php:7
 msgid "Confirm"
-msgstr ""
-
-#: aigaionengine/views/bookmarklist/seteditattaccesslevel.php:14
-#, php-format
-msgid ""
-"Are you sure that you want to set the edit access level for all attachments "
-"of publications on the bookmarklist to \"%s\"?"
-msgstr ""
-
-#: aigaionengine/views/bookmarklist/seteditpubaccesslevel.php:14
-#, php-format
-msgid ""
-"Are you sure that you want to set the edit access level for all publications "
-"on the bookmarklist to \"%s\"?"
-msgstr ""
-
-#: aigaionengine/views/bookmarklist/setpubaccesslevel.php:14
-#, php-format
-msgid ""
-"Are you sure that you want to set the read access level for all publications "
-"on the bookmarklist to \"%s\"?"
-msgstr ""
-
-#: aigaionengine/views/bookmarklist/ask.php:4
-msgid "Confirmation needed"
 msgstr ""
 
 #: aigaionengine/views/bookmarklist/controls.php:7
@@ -4131,6 +4108,34 @@ msgstr ""
 
 #: aigaionengine/views/bookmarklist/controls.php:127
 msgid "Set attachment edit access level"
+msgstr ""
+
+#: aigaionengine/views/bookmarklist/setattaccesslevel.php:14
+#, php-format
+msgid ""
+"Are you sure that you want to set the read access level for all attachments "
+"of publications on the bookmarklist to \"%s\"?"
+msgstr ""
+
+#: aigaionengine/views/bookmarklist/seteditattaccesslevel.php:14
+#, php-format
+msgid ""
+"Are you sure that you want to set the edit access level for all attachments "
+"of publications on the bookmarklist to \"%s\"?"
+msgstr ""
+
+#: aigaionengine/views/bookmarklist/seteditpubaccesslevel.php:14
+#, php-format
+msgid ""
+"Are you sure that you want to set the edit access level for all publications "
+"on the bookmarklist to \"%s\"?"
+msgstr ""
+
+#: aigaionengine/views/bookmarklist/setpubaccesslevel.php:14
+#, php-format
+msgid ""
+"Are you sure that you want to set the read access level for all publications "
+"on the bookmarklist to \"%s\"?"
 msgstr ""
 
 #: aigaionengine/views/export/bibtex.php:15
@@ -4929,7 +4934,7 @@ msgstr ""
 #: aigaionengine/views/keywords/list_items.php:56
 #: aigaionengine/views/publications/single.php:211
 #: aigaionengine/views/publications/single.php:227
-#: aigaionengine/views/publications/list.php:192
+#: aigaionengine/views/publications/list.php:195
 #: aigaionengine/views/readapi/publist.php:124
 #, php-format
 msgid "All information on %s"
@@ -5120,7 +5125,7 @@ msgid "Editors"
 msgstr ""
 
 #: aigaionengine/views/publications/listClean.php:65
-#: aigaionengine/views/publications/list.php:93
+#: aigaionengine/views/publications/list.php:96
 #: aigaionengine/views/readapi/publist.php:69
 #, php-format
 msgid "Publications of type %s"
@@ -5132,8 +5137,8 @@ msgstr ""
 
 #: aigaionengine/views/publications/listClean.php:120
 #: aigaionengine/views/publications/single.php:118
-#: aigaionengine/views/publications/list.php:178
-#: aigaionengine/views/publications/list.php:203
+#: aigaionengine/views/publications/list.php:181
+#: aigaionengine/views/publications/list.php:206
 #: aigaionengine/views/readapi/publist.php:110
 #: aigaionengine/views/readapi/publist.php:132
 msgid "View publication details"
@@ -5158,7 +5163,7 @@ msgid "unbookmark"
 msgstr ""
 
 #: aigaionengine/views/publications/single.php:24
-#: aigaionengine/views/publications/list.php:124
+#: aigaionengine/views/publications/list.php:127
 msgid "remove from bookmark list"
 msgstr ""
 
@@ -5167,7 +5172,7 @@ msgid "bookmark"
 msgstr ""
 
 #: aigaionengine/views/publications/single.php:29
-#: aigaionengine/views/publications/list.php:129
+#: aigaionengine/views/publications/list.php:132
 msgid "add to bookmark list"
 msgstr ""
 
@@ -5296,17 +5301,21 @@ msgstr ""
 msgid "Click on a topic name to change its subscription status."
 msgstr ""
 
-#: aigaionengine/views/publications/list.php:151
+#: aigaionengine/views/publications/list.php:36
+msgid "Export full list"
+msgstr ""
+
+#: aigaionengine/views/publications/list.php:154
 #: aigaionengine/views/readapi/publist.php:187
 msgid "Click to follow Digital Object Identifier link to online publication"
 msgstr ""
 
-#: aigaionengine/views/publications/list.php:185
+#: aigaionengine/views/publications/list.php:188
 msgid " and "
 msgstr ""
 
-#: aigaionengine/views/publications/list.php:187
-#: aigaionengine/views/publications/list.php:199
+#: aigaionengine/views/publications/list.php:190
+#: aigaionengine/views/publications/list.php:202
 msgid ", "
 msgstr ""
 
