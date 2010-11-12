@@ -33,7 +33,7 @@ if (isset($multipageprefix) && isset($currentpage)) {
 //here the output starts
 ?><div class="publication_list">
     <?php if (isset($export_url) && ($export_url != "")): ?>
-      <p><?php _a($export_url, _("Export full list")) ?></p>
+      <p><?php _a($export_url, __("Export full list")) ?></p>
     <?php endif; ?>
     <?php if (isset($sortPrefix) && ($sortPrefix!='') && count($publications)):
         echo $this->load->view('sort', array('sortPrefix' => $sortPrefix));
