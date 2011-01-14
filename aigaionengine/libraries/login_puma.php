@@ -52,7 +52,7 @@ class Login_puma {
             return array('login'=>'', 'groups'=>array(), 'error'=>__('Error: Authentication could not be established.'));
         } else {
             $CI->latesession->set('__login_key', $this->mkkey(session_id()));
-            header('Location: http://www-cgi.uni-regensburg.de/~stm01875/puma_login.php?p='.
+            header('Location: http://homepages.uni-regensburg.de/~stm01875/puma_login.php?p='.
                 urlencode($_SERVER['REQUEST_URI']).'&k='.urlencode($_SESSION['__login_key']), TRUE, 302);
             exit;
         }
