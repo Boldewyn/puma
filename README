@@ -1,0 +1,55 @@
+
+                                    Puma.Phi
+
+                         PUBLICATION MANAGEMENT SYSTEM
+                           for the Faculty of Physics
+                        at the University of Regensburg
+
+This software runs Puma.Phi, the publication management system for the
+physicists at the University of Regensburg. The live running version can be
+found at
+
+    http://puma.uni-regensburg.de
+
+Puma.Phi is based on Aigaion, <http://www.aigaion.nl>, and is licensed under
+the terms of the GNU General Public License. The files in the /stuff/ folder
+may have different terms of usage, and the license for the CodeIgniter
+framework, which is different from the GPL, can be found in
+/codeigniter/license.txt.
+
+
+  INSTALLATION
+  ============
+
+To get started, download a copy of Aigaion from www.aigaion.nl and install it
+as described there. This will create the necessary MySQL tables. Then remove
+the Aigaion folder, replace it with Puma.Phi and run the SQL files found in
+/stuff/sql/ to patch the database.
+
+Finally create a file "credentials.php" in the root of your installation and
+fill it with the following content:
+
+<?php if (!defined('PUMA')) exit('No direct script access allowed');
+
+define('AIGAION_SITEID', 'Puma');
+define('AIGAION_DB_HOST', '__database__host__');
+define('AIGAION_DB_USER', '__database__user__');
+define('AIGAION_DB_PWD', '__database__password__');
+define('AIGAION_DB_NAME', '__database__');
+define('EXPORT_REPLY_ADDRESS', '__your__email__');
+define('PUMA_LOGIN_KEY', '');
+
+define('AIGAION_DB_PREFIX', 'puma_'); # adapt to what you entered
+                                      # during Aigain setup
+#Root URL of this instance Aigaion, WITH trailing slash
+define('AIGAION_ROOT_URL','http://localhost/');
+define('AIGAION_COOKIE_PATH','/');
+
+?>
+
+
+  QUESTIONS? SUGGESTIONS?
+  =======================
+
+Use the issue tracker under http://github.com/Boldewyn/puma/issues/ or simply
+write me an email: <manuel.strehl@physik.uni-regensburg.de>.
